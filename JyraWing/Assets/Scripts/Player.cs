@@ -19,11 +19,11 @@ public class Player : MonoBehaviour {
 		hits = 3;
 		numBullets = 5;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
-		fireSfx.clip = Resources.Load ("Audio/laser_sfx") as AudioClip;
+		fireSfx.clip = Resources.Load ("Audio/SFX/bullet_sfx") as AudioClip;
 		bulletPool = new List<GameObject> ();
 		for (int i= 0; i < numBullets; i++) {
 			//Put all the bullet live in the pool
-			GameObject bullet = (GameObject)Resources.Load ("bullet");
+			GameObject bullet = (GameObject)Resources.Load ("Bullet");
 			bullet = Instantiate(bullet);
 			//bullet.gameObject.SetActive(true);
 			bulletPool.Add(bullet);
