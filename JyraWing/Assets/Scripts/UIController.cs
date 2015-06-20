@@ -29,17 +29,18 @@ public class UIController : MonoBehaviour {
 	}
 
 	void InitLives(int lives){
-		for (int i = 0; i < lives; i++) {
-			GameObject lifeSprite = Resources.Load("PlayerLife") as GameObject;
-			lifeSprite = Instantiate (lifeSprite);
-			lifeSprite.transform.SetParent(canvas.transform, false);
-			lifeSprite.GetComponent<RectTransform>().position = new Vector2(
-				lifeSprite.GetComponent<RectTransform>().position.x + (i * 100), 
-				lifeSprite.GetComponent<RectTransform>().position.y);
-			//We need to set positions at some point
-			//Add to the collection
-			lifeSpriteCollection.Add(lifeSprite);
-		}
+		GameObject lifeText = Resources.Load("LifeText") as GameObject;
+		Text lifeMessageText = lifeText.GetComponent<Text>();
+		lifeMessageText.text = "Lives: " + lifeCount;
+		lifeText = Instantiate (lifeText);
+		lifeText.transform.SetParent(canvas.transform, false);
+		lifeText.GetComponent<RectTransform>().position = new Vector2(
+			lifeText.GetComponent<RectTransform>().position.x, 
+			lifeText.GetComponent<RectTransform>().position.y);
+		//We need to set positions at some point
+		//Add to the collection
+		lifeSpriteCollection.Add(lifeText);
+
 	}
 
 	/// <summary>

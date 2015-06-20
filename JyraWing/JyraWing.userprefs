@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UIController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Bullet.cs" Line="34" Column="56" />
-      <File FileName="Assets\Scripts\Player.cs" Line="27" Column="33" />
-      <File FileName="Assets\Scripts\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BarrierWall.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UIController.cs" Line="35" Column="36" />
+      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -21,7 +21,7 @@ public class enemyBulletPool : MonoBehaviour {
 		bulletPool = new List<GameObject> ();
 		for (int i = 0; i < totalBullets; i++) {
 			//Put all the bullet live in the pool
-			GameObject bullet = Resources.Load ("enemyBullet") as GameObject;
+			GameObject bullet = Resources.Load ("EnemyBullet") as GameObject;
 			bullet.transform.position = new Vector2(0f,10f);
 			bullet = Instantiate(bullet);
 			bullet.gameObject.SetActive(true);
