@@ -148,7 +148,7 @@ public class EnemyBehavior : MonoBehaviour {
 			if(hitPoints == 0)
 			{
 
-				SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffects").GetComponent<SoundEffectPlayer>();
+				SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				effectPlayer.PlaySoundClip(explosionSfx);
 				Destroy (gameObject);
 			}

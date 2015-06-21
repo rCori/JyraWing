@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour {
 	void Update () {
 		selectTimer += Time.deltaTime;
 		float axis = Input.GetAxis ("Vertical");
-		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != 3) {
+		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
 			curSelect++;
 			transform.position = new Vector2(transform.position.x, transform.position.y - 25);
 			selectTimer = 0f;
@@ -36,8 +36,10 @@ public class Menu : MonoBehaviour {
 
 		if(Input.GetButton("Fire1")){
 			if(curSelect == 0){
-				Application.LoadLevel("testScene1");
+				beep.Play();
+				Application.LoadLevel("Level_1");
 			}
+			/*
 			else if(curSelect == 1){
 				Application.LoadLevel("testScene2");
 			}
@@ -47,6 +49,7 @@ public class Menu : MonoBehaviour {
 			else if(curSelect == 3){
 				Application.LoadLevel("firstLevel");
 			}
+			*/
 		}
 	}
 }

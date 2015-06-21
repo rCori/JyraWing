@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour {
 		} else{
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0){
-				Application.LoadLevel("titlescene");
+				Application.LoadLevel("titleScene");
 			}
 		}
 	}
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour {
 
 	void GameOver(){
 		uiController.ShowGameOver ();
-		player.GetComponent<SpriteRenderer>().enabled = false;
+		player.gameObject.SetActive (false);
 		gameOverTimer = 2.0f;
 		isGameOver = true;
 	}

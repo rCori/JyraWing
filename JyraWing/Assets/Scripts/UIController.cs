@@ -15,6 +15,9 @@ public class UIController : MonoBehaviour {
  	/// taken away and kept up with easily 
 	/// </summary>
 	private List<GameObject> lifeSpriteCollection;
+
+	private GameObject lifeText;
+
 	// Use this for initialization
 	void Start () {
 		lifeSpriteCollection = new List<GameObject> ();
@@ -29,7 +32,7 @@ public class UIController : MonoBehaviour {
 	}
 
 	void InitLives(int lives){
-		GameObject lifeText = Resources.Load("LifeText") as GameObject;
+		lifeText = Resources.Load("LifeText") as GameObject;
 		Text lifeMessageText = lifeText.GetComponent<Text>();
 		lifeMessageText.text = "Lives: " + lifeCount;
 		lifeText = Instantiate (lifeText);
@@ -47,11 +50,12 @@ public class UIController : MonoBehaviour {
 	/// Decrease the number of lives and deactivate a life on the HUD 
 	/// </summary>
 	/// <param name="i_curLife">The life to removed from HUD.</param>
-	private void DecreaseLives(int i_curLife){
+	private void DecreaseLives(){
 		lifeCount--;
 		if(lifeCount >= 0)
 		{
-			lifeSpriteCollection[i_curLife].SetActive(false);
+			Text lifeMessageText = lifeText.GetComponent<Text>();
+			lifeMessageText.text = "Lives: " + lifeCount;
 		}
 	}
 
@@ -69,7 +73,7 @@ public class UIController : MonoBehaviour {
 	public void UpdateLives(int i_lives){
 		//Remove a life
 		if (i_lives == lifeCount - 1) {
-			DecreaseLives(i_lives);
+			DecreaseLives();
 		}
 	}
 
