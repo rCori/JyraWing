@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		gameOverTimer = 0.0f;
 		isGameOver = false;
+		//pixelPerfectCamera ();
 	}
 	
 	// Update is called once per frame
@@ -54,6 +55,18 @@ public class GameController : MonoBehaviour {
 		uiController.ShowLevelComplete();
 		gameOverTimer = 4.5f;
 		isGameOver = true;
+	}
+
+
+	/// <summary>
+	/// Makes the orthograpic size of the camera pixel perfect
+	/// </summary>
+	private void pixelPerfectCamera(){
+		float UnitsPerPixel = 1f / 100f;
+		float PixelsPerUnit = 100f / 1f; // yeah, yeah, 100
+		Camera.main.orthographicSize = 
+			Screen.height / 2f // ortho-size is half the screen height...
+				* UnitsPerPixel;
 	}
 
 }

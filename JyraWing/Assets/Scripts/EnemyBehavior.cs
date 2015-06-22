@@ -33,20 +33,6 @@ public class EnemyBehavior : MonoBehaviour {
 		hitPoints = 1;
 	}
 
-	/*
-	public void InitializeBullets(int i_bulletNum){
-		bulletNum = i_bulletNum;
-		for (int i = 0; i < bulletNum; i++) {
-			//Put all the bullet live in the pool
-			GameObject bullet = Resources.Load ("enemyBullet") as GameObject;
-			bullet.transform.position = new Vector2(0f,10f);
-			bullet = Instantiate(bullet);
-			bullet.gameObject.SetActive(true);
-			bulletPool.Add(bullet);
-		}
-	}
-	*/
-
 	public void StartNewMovement(Vector3 i_endPos, float i_time){
 		isMoving = true;
 		hasVelocity = false;
