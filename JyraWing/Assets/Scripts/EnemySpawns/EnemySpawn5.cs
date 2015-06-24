@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class EnemySpawn5 : EnemySpawner {
-	
+
+	public bool extraEnemies;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool>();
@@ -28,5 +30,22 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.z);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		Instantiate (enemy3);
+
+		if (extraEnemies) {
+			GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+			enemy4.transform.position = new Vector3 (spawnPos.x + 0.5f,
+		                                        spawnPos.y + 2.5f,
+		                                        spawnPos.z);
+			enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+			Instantiate (enemy4);
+
+			GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+			enemy5.transform.position = new Vector3 (spawnPos.x + 0.5f,
+			                                         spawnPos.y - 2.5f,
+			                                         spawnPos.z);
+			enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+			Instantiate (enemy5);
+
+		}
 	}
 }

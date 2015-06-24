@@ -8,12 +8,14 @@ public class EnemyAI3 : EnemyBehavior{
 
 	public bool reverse;
 	private float modify;
+
+	float incrementX;
 	// Use this for initialization
 	void Start () {
 		moveState = 0;
 		EnemyDefaults ();
 		//InitializeBullets (2);
-		AudioClip explosionClip = Resources.Load ("Audio/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		shootTimer = 0.0f;
 		if (reverse) {
@@ -21,6 +23,7 @@ public class EnemyAI3 : EnemyBehavior{
 		} else {
 			modify = 1.0f;
 		}
+		incrementX = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -30,26 +33,16 @@ public class EnemyAI3 : EnemyBehavior{
 			switch (moveState) {
 			case 0:
 				moveState = 1;
-				StartNewMovement(new Vector3(6.0f, -4.0f*modify), 1.0f);
+				StartNewMovement(new Vector3(5.0f - incrementX, -2.5f*modify), 1.5f);
 				break;
 			case 1:
-				moveState = 2;
-				StartNewMovement(new Vector3(6.0f, 4.0f*modify), 1.0f);
-				break;
-			case 2:
-				moveState = 3;
-				StartNewMovement(new Vector3(0.0f, 4.0f*modify), 1.0f);
-				break;
-			case 3:
-				moveState = 4;
-				StartNewMovement(new Vector3(0.0f, -4.0f*modify), 1.0f);
-				break;
-			case 4:
-				moveState = 5;
-				StartNewMovement(new Vector3(0.0f, -8.0f*modify), 0.5f);
-				break;
-			case 5:
-				Destroy(gameObject);
+				moveState = 0;
+				StartNewMovement(new Vector3(5.0f - incrementX, 2.5f*modify), 1.0f);
+				incrementX += 2.0f;
+				if(incrementX > 12.0f)
+				{
+					Destroy (gameObject);
+				}
 				break;
 			}
 		}

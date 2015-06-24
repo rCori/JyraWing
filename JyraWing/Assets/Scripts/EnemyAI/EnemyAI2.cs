@@ -12,7 +12,7 @@ public class EnemyAI2 : EnemyBehavior {
 	void Start () {
 		circleTimer = 0.0f;
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
 	}
 	
@@ -23,8 +23,8 @@ public class EnemyAI2 : EnemyBehavior {
 			circleTimer = 0.0f;
 		}
 		//This makes the enemy rotate
-		float xVel = Mathf.Cos(circleTimer) - 2.0f;
-		float yVel = Mathf.Sin (circleTimer)*2.5f;
+		float xVel = Mathf.Cos(circleTimer) - 0.5f;
+		float yVel = Mathf.Sin (circleTimer)*0.7f;
 		Vector2 newVelocity = new Vector2(xVel,yVel);
 		StartNewVelocity(newVelocity,0.1f);
 		Movement ();

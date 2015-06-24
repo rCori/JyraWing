@@ -9,7 +9,7 @@ public class EnemySpawn3 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemy_D");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		EnemyAI3 ai1 = (EnemyAI3)enemy1.GetComponent("EnemyAI3");
 		ai1.reverse = false;
 		enemy1.transform.position = new Vector3(spawnPos.x,
@@ -18,7 +18,7 @@ public class EnemySpawn3 : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		Instantiate (enemy1);
 		
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemy_D");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		EnemyAI3 ai2 = (EnemyAI3)enemy2.GetComponent("EnemyAI3");
 		ai2.reverse = true;
 		enemy2.transform.position = new Vector3(spawnPos.x,

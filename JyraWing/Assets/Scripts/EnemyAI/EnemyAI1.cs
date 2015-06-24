@@ -13,7 +13,7 @@ public class EnemyAI1 : EnemyBehavior {
 		bulletCounter++;
 		EnemyDefaults ();
 		//InitializeBullets (2);
-		AudioClip explosionClip = Resources.Load ("Audio/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
 	}
 	
@@ -24,11 +24,11 @@ public class EnemyAI1 : EnemyBehavior {
 			switch (moveState) {
 			case 0:
 				moveState = 1;
-				StartNewVelocity(new Vector2(-3,-4) ,0.5f);
+				StartNewVelocity(new Vector2(-0.75f,-1f) ,0.5f);
 				break;
 			case 1:
 				moveState = 0;
-				StartNewVelocity(new Vector2(-3,4), 0.5f);
+				StartNewVelocity(new Vector2(-0.75f,1f), 0.5f);
 				break;
 			}
 			bulletCounter++;
