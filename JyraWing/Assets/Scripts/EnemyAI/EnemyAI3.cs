@@ -33,12 +33,13 @@ public class EnemyAI3 : EnemyBehavior{
 			switch (moveState) {
 			case 0:
 				moveState = 1;
-				StartNewMovement(new Vector3(5.0f - incrementX, -2.5f*modify), 1.5f);
+				StartNewMovement(new Vector3(5.0f - incrementX, -3.5f*modify), 0.5f);
 				break;
 			case 1:
 				moveState = 0;
-				StartNewMovement(new Vector3(5.0f - incrementX, 2.5f*modify), 1.0f);
-				incrementX += 2.0f;
+				StartNewMovement(new Vector3(5.0f - incrementX, 3.5f*modify), 0.7f);
+				incrementX += 3.0f;
+				modify = -modify;
 				if(incrementX > 12.0f)
 				{
 					Destroy (gameObject);

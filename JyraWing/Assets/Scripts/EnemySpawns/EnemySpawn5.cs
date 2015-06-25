@@ -19,14 +19,14 @@ public class EnemySpawn5 : EnemySpawner {
 
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 		enemy2.transform.position = new Vector3(spawnPos.x+0.5f,
-		                                        spawnPos.y-1.5f,
+		                                        spawnPos.y-2.5f,
 		                                        spawnPos.z);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		Instantiate (enemy2);
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 		enemy3.transform.position = new Vector3(spawnPos.x+0.5f,
-		                                        spawnPos.y+1.5f,
+		                                        spawnPos.y+2.5f,
 		                                        spawnPos.z);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		Instantiate (enemy3);
@@ -34,14 +34,14 @@ public class EnemySpawn5 : EnemySpawner {
 		if (extraEnemies) {
 			GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 			enemy4.transform.position = new Vector3 (spawnPos.x + 0.5f,
-		                                        spawnPos.y + 2.5f,
+		                                        spawnPos.y + 3.5f,
 		                                        spawnPos.z);
 			enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			Instantiate (enemy4);
 
 			GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 			enemy5.transform.position = new Vector3 (spawnPos.x + 0.5f,
-			                                         spawnPos.y - 2.5f,
+			                                         spawnPos.y - 3.5f,
 			                                         spawnPos.z);
 			enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			Instantiate (enemy5);
