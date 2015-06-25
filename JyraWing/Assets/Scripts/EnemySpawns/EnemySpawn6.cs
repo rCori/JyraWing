@@ -13,6 +13,7 @@ public class EnemySpawn6 : EnemySpawner {
 		                                        spawnPos.y,
 		                                        spawnPos.z);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy1.GetComponent<EnemyAI5> ().direction = EnemyAI5.TankDir.Left;
 		Instantiate (enemy1);
 		
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_G");
@@ -20,6 +21,7 @@ public class EnemySpawn6 : EnemySpawner {
 		                                        spawnPos.y-1.5f,
 		                                        spawnPos.z);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy2.GetComponent<EnemyAI5> ().direction = EnemyAI5.TankDir.Left;
 		Instantiate (enemy2);
 		
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_E");
