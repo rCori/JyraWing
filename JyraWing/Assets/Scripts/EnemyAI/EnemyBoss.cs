@@ -27,25 +27,25 @@ public class EnemyBoss : EnemyBehavior {
 		if (GetIsTimeUp ()) {
 			switch (moveState) {
 			case 0:
-				StartNewMovement (new Vector3 (6f, -4, 0f), 0.5f);
+				StartNewMovement (new Vector3 (5f, -3, 0f), 0.5f);
 				moveState++;
 				break;
 			case 1:
 				StartStandStill (0.2f);
+				Shoot(new Vector2(-6f, 2f));
 				Shoot(new Vector2(-6f, 3f));
 				Shoot(new Vector2(-6f, 4f));
-				Shoot(new Vector2(-6f, 5f));
 				moveState++;
 				break;
 			case 2:
-				StartNewMovement (new Vector3 (6f, 4f, 0f), 0.5f);
+				StartNewMovement (new Vector3 (5f, 3f, 0f), 0.5f);
 				moveState++;
 				break;
 			case 3:
 				StartStandStill (0.2f);
+				Shoot(new Vector2(-6f, -2f));
 				Shoot(new Vector2(-6f, -3f));
 				Shoot(new Vector2(-6f, -4f));
-				Shoot(new Vector2(-6f, -5f));
 				moveState = 0;
 				break;
 			}
