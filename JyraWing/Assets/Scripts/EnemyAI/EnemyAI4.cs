@@ -8,6 +8,8 @@ public class EnemyAI4 : EnemyBehavior {
 
 	private float shootTimer;
 
+	Animator animator;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Player");
@@ -15,6 +17,9 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer = 0.0f;
+
+		animator = gameObject.GetComponent <Animator> ();
+
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
@@ -29,6 +34,16 @@ public class EnemyAI4 : EnemyBehavior {
 		if (shootTimer > 2.0f) {
 			Shoot(fireDir);
 			shootTimer = 0.0f;
+		}
+
+		//Make the sprite point up or down depending ont he situation
+		float heightDiff = player.transform.position.y - gameObject.transform.position.y;
+		if (heightDiff < 1.5f && heightDiff > -1.5f) {
+			animator.SetInteger ("animState", 0);
+		} else if (heightDiff > 1.5f) {
+			animator.SetInteger ("animState", 1);
+		} else if (heightDiff < -1.5f) {
+			animator.SetInteger ("animState", 2);
 		}
 	}
 }

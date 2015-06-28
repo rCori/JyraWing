@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: playerNeutral
+  m_Name: pillboxUp
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -17,12 +17,8 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0
-      value: {fileID: 21300000, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
-    - time: .0833333358
-      value: {fileID: 21300002, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
-    - time: .166666672
-      value: {fileID: 21300004, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
+    - time: .000166666665
+      value: {fileID: 21300002, guid: 2026335bcc2f1594389e24f4878a5764, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -41,13 +37,11 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
-    - {fileID: 21300002, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
-    - {fileID: 21300004, guid: 79cd8d759ad34224a85f3df6455d4498, type: 3}
+    - {fileID: 21300002, guid: 2026335bcc2f1594389e24f4878a5764, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .183333337
+    m_StopTime: .0168333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

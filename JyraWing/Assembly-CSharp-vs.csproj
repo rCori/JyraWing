@@ -53,7 +53,7 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI3.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI5.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI5B.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI6.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\LevelComplete.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
