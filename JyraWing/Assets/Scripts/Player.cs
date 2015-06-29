@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	int numBullets;
 	private AudioSource fireSfx;
 	private float hitTimer;
+	private PlayerSpeed playerSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour {
 			//bullet.gameObject.SetActive(true);
 			bulletPool.Add(bullet);
 		}
+		float[] speedList = new float[]{1.0f, 1.5f, 2.0f, 2.5f};
+		playerSpeed = new PlayerSpeed (speedList);
 
 	}
 	
@@ -53,6 +56,10 @@ public class Player : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector2(horiz,vert) * speed;
 		if(Input.GetButtonDown("Fire1")){
 			shoot ();
+		}
+		if (Input.GetButtonDown ("Fire2")) {
+			playerSpeed.IncreaseSpeed();
+			speed = playerSpeed.GetCurrentSpeed();
 		}
 		//Handle taking damage and animation
 		if (hitTimer > 0.0f) {

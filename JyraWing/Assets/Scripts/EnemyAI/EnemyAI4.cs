@@ -7,7 +7,7 @@ public class EnemyAI4 : EnemyBehavior {
 	private Vector2 fireDir;
 
 	private float shootTimer;
-
+	private bool isFlipped;
 	Animator animator;
 
 	// Use this for initialization
@@ -23,6 +23,8 @@ public class EnemyAI4 : EnemyBehavior {
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
+
+		isFlipped = true;
 	}
 	
 	// Update is called once per frame
@@ -45,5 +47,25 @@ public class EnemyAI4 : EnemyBehavior {
 		} else if (heightDiff < -1.5f) {
 			animator.SetInteger ("animState", 2);
 		}
+
+		//This is a bad fix for this issue.
+		//Make the sprite flip horizontally depending on the situation
+		float widthDiff = player.transform.position.x - gameObject.transform.position.x;
+		if ((widthDiff > 0 && !isFlipped) || (widthDiff < 0 && isFlipped)) {
+			flipHorizontally();
+		} 
+	}
+
+	void flipHorizontally()
+	{
+		isFlipped = !isFlipped;
+		float modify;
+		if (isFlipped) {
+			modify = -1;
+		} else {
+			modify = 1;
+		}
+		gameObject.transform.localScale = new Vector2 (4f*modify, 4f);
+
 	}
 }

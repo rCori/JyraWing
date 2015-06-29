@@ -71,8 +71,10 @@
      <Compile Include="Assets\Scripts\LevelComplete.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
+     <Compile Include="Assets\Scripts\SpawnPowerup.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\enemyBulletPool.cs" />
  <Reference Include="UnityEngine.UI">
