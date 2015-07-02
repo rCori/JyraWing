@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
+  gameController: {fileID: 0}
   reverse: 1
 --- !u!114 &11494714
 MonoBehaviour:

@@ -24,4 +24,9 @@ public class PlayerSpeed{
 	public float GetCurrentSpeed(){
 		return speedList[speedIndex];
 	}
+
+	public int GetSpeedLevel()
+	{
+		return speedIndex;
+	}
 }

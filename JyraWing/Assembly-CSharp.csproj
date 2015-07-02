@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI1.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI2.cs" />
@@ -67,15 +66,16 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\LevelComplete.cs" />
-     <Compile Include="Assets\Scripts\Menu.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
+     <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
+     <Compile Include="Assets\Scripts\Singletons\GameController.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player.cs" />
+     <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
      <Compile Include="Assets\Scripts\SpawnPowerup.cs" />
-     <Compile Include="Assets\Scripts\UIController.cs" />
+     <Compile Include="Assets\Scripts\UI\LevelComplete.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu.cs" />
+     <Compile Include="Assets\Scripts\UI\UIController.cs" />
      <Compile Include="Assets\Scripts\enemyBulletPool.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

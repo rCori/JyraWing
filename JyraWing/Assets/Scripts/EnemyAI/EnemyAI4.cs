@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class EnemyAI4 : EnemyBehavior {
-
-	private GameObject player;
+	
 	private Vector2 fireDir;
 
 	private float shootTimer;
@@ -12,15 +11,13 @@ public class EnemyAI4 : EnemyBehavior {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player");
-		fireDir = player.transform.position - gameObject.transform.position;
+		EnemyDefaults ();
+		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer = 0.0f;
 
 		animator = gameObject.GetComponent <Animator> ();
-
-		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
 
@@ -29,7 +26,7 @@ public class EnemyAI4 : EnemyBehavior {
 	
 	// Update is called once per frame
 	void Update () {
-		fireDir = player.transform.position - gameObject.transform.position;
+		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer += Time.deltaTime;
@@ -39,7 +36,7 @@ public class EnemyAI4 : EnemyBehavior {
 		}
 
 		//Make the sprite point up or down depending ont he situation
-		float heightDiff = player.transform.position.y - gameObject.transform.position.y;
+		float heightDiff = gameController.GetPlayerPosition().y - gameObject.transform.position.y;
 		if (heightDiff < 1.5f && heightDiff > -1.5f) {
 			animator.SetInteger ("animState", 0);
 		} else if (heightDiff > 1.5f) {
@@ -50,7 +47,7 @@ public class EnemyAI4 : EnemyBehavior {
 
 		//This is a bad fix for this issue.
 		//Make the sprite flip horizontally depending on the situation
-		float widthDiff = player.transform.position.x - gameObject.transform.position.x;
+		float widthDiff = gameController.GetPlayerPosition().x - gameObject.transform.position.x;
 		if ((widthDiff > 0 && !isFlipped) || (widthDiff < 0 && isFlipped)) {
 			flipHorizontally();
 		} 

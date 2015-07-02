@@ -20,6 +20,8 @@ public class EnemyBehavior : MonoBehaviour {
 	AudioSource explosionSfx;
 
 	public enemyBulletPool bulletPool;
+	public GameController gameController;
+	private SoundEffectPlayer sfxPlayer;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -29,8 +31,8 @@ public class EnemyBehavior : MonoBehaviour {
 		moveTimeLimit = 0f;
 		isMoving = false;
 		hasVelocity = false;
-		//bulletPool = new List<GameObject> ();
 		hitPoints = 1;
+		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 	}
 
 	public void StartNewMovement(Vector3 i_endPos, float i_time){
@@ -133,9 +135,11 @@ public class EnemyBehavior : MonoBehaviour {
 			
 			if(hitPoints == 0)
 			{
-
-				SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				effectPlayer.PlaySoundClip(explosionSfx);
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				sfxPlayer.PlaySoundClip(explosionSfx);
 				Destroy (gameObject);
 			}
 		}

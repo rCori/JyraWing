@@ -19,12 +19,10 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!isGameOver) {
-			UpdatePlayerLives ();
-		} else{
+		if(isGameOver) {
 			gameOverTimer -= Time.deltaTime;
-			if(gameOverTimer <= 0.0){
-				Application.LoadLevel("titleScene");
+			if (gameOverTimer <= 0.0) {
+				Application.LoadLevel ("titleScene");
 			}
 		}
 	}
@@ -32,7 +30,7 @@ public class GameController : MonoBehaviour {
 	/// <summary>
 	/// Updates the player lives.
 	/// </summary>
-	void UpdatePlayerLives(){
+	public void UpdatePlayerLives(){
 		int lifeCount = player.LifeCount ();
 		uiController.UpdateLives(lifeCount);
 		if (lifeCount == 0) {
@@ -41,7 +39,12 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	void GameOver(){
+	public void UpdatePlayerSpeed(){
+		int speedCount = player.SpeedCount ();
+		uiController.UpdateActivatedSpeed(speedCount+1);
+	}
+
+	public void GameOver(){
 		uiController.ShowGameOver ();
 		player.gameObject.SetActive (false);
 		gameOverTimer = 2.0f;
@@ -57,16 +60,13 @@ public class GameController : MonoBehaviour {
 		isGameOver = true;
 	}
 
-
-	/// <summary>
-	/// Makes the orthograpic size of the camera pixel perfect
-	/// </summary>
-	private void pixelPerfectCamera(){
-		float UnitsPerPixel = 1f / 100f;
-		float PixelsPerUnit = 100f / 1f; // yeah, yeah, 100
-		Camera.main.orthographicSize = 
-			Screen.height / 2f // ortho-size is half the screen height...
-				* UnitsPerPixel;
+	//A safe way for other objects to get the position of the player
+	public Vector3 GetPlayerPosition(){
+		if (player) {
+			return player.transform.position;
+		} else {
+			return new Vector3();
+		}
 	}
 
 }

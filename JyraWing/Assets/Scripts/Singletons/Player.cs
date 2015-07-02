@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
-	public float speed;
+	public GameController gameController;
+	private float speed;
 	private List<GameObject> bulletPool;
 	Animator animator;
 	int hits;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour {
 		animator = gameObject.GetComponent <Animator> ();
 		hitTimer = 0.0f;
 		hits = 3;
-		numBullets = 5;
+		numBullets = 2;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
 		fireSfx.clip = Resources.Load ("Audio/SFX/bullet_sfx") as AudioClip;
 		bulletPool = new List<GameObject> ();
@@ -26,11 +27,11 @@ public class Player : MonoBehaviour {
 			//Put all the bullet live in the pool
 			GameObject bullet = (GameObject)Resources.Load ("Bullet");
 			bullet = Instantiate(bullet);
-			//bullet.gameObject.SetActive(true);
 			bulletPool.Add(bullet);
 		}
 		float[] speedList = new float[]{1.0f, 1.5f, 2.0f, 2.5f};
 		playerSpeed = new PlayerSpeed (speedList);
+		speed = speedList [0];
 
 	}
 	
@@ -60,6 +61,8 @@ public class Player : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire2")) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
+			gameController.UpdatePlayerSpeed();
+
 		}
 		//Handle taking damage and animation
 		if (hitTimer > 0.0f) {
@@ -79,6 +82,7 @@ public class Player : MonoBehaviour {
 			hits--;
 			animator.SetInteger ("animState", 1);
 			hitTimer = 0.5f;
+			gameController.UpdatePlayerLives();
 		}
 
 	}
@@ -99,8 +103,23 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+
+	//Public interface needed by the game controller
+
+	/// <summary>
+	/// Getter for the number of lives remaining
+	/// </summary>
+	/// <returns>Number of player lives.</returns>
 	public int LifeCount()
 	{
 		return hits;
+	}
+
+	/// <summary>
+	/// Getter for the speed level of the player 
+	/// </summary>
+	/// <returns>Speed count.</returns>
+	public int SpeedCount(){
+		return playerSpeed.GetSpeedLevel ();
 	}
 }
