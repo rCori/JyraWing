@@ -122,4 +122,13 @@ public class Player : MonoBehaviour {
 	public int SpeedCount(){
 		return playerSpeed.GetSpeedLevel ();
 	}
+
+	public int SpeedCountCap(){
+		return playerSpeed.GetSpeedCap ();
+	}
+
+	public void IncreaseSpeedCap(){
+		playerSpeed.IncreaseSpeedCap ();
+		gameController.UpdatePlayerSpeed ();
+	}
 }

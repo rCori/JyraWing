@@ -22,6 +22,7 @@ public class EnemyBehavior : MonoBehaviour {
 	public enemyBulletPool bulletPool;
 	public GameController gameController;
 	private SoundEffectPlayer sfxPlayer;
+	
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -35,6 +36,11 @@ public class EnemyBehavior : MonoBehaviour {
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 	}
 
+	/// <summary>
+	/// Starts a movement command from where ever the enemy is to the position i_endPos
+	/// </summary>
+	/// <param name="i_endPos">ending position.</param>
+	/// <param name="i_time">TIme the movement will take.</param>
 	public void StartNewMovement(Vector3 i_endPos, float i_time){
 		isMoving = true;
 		hasVelocity = false;
@@ -71,6 +77,10 @@ public class EnemyBehavior : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Returns if the current move command's time has elapsed or not.
+	/// </summary>
+	/// <returns><c>true</c>, if time is up, <c>false</c> otherwise.</returns>
 	public bool GetIsTimeUp(){
 
 		return (moveTimer > moveTimeLimit);
@@ -117,6 +127,10 @@ public class EnemyBehavior : MonoBehaviour {
 		explosionSfx.clip = clip;
 	}
 
+	/// <summary>
+	/// Uses the default trigger. Subclasses may override.
+	/// </summary>
+	/// <param name="other">Other.</param>
 	void OnTriggerEnter2D(Collider2D other) {
 		DefaultTrigger (other);
 	}
@@ -135,11 +149,17 @@ public class EnemyBehavior : MonoBehaviour {
 			
 			if(hitPoints == 0)
 			{
+				SpawnPowerup pow = GetComponent<SpawnPowerup>();
+				if (pow) {
+					pow.CreatePower ();	
+				} 
+
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				sfxPlayer.PlaySoundClip(explosionSfx);
+	
 				Destroy (gameObject);
 			}
 		}

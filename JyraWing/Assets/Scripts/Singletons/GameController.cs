@@ -41,8 +41,11 @@ public class GameController : MonoBehaviour {
 
 	public void UpdatePlayerSpeed(){
 		int speedCount = player.SpeedCount ();
-		uiController.UpdateActivatedSpeed(speedCount+1);
+		int speedCountCap = player.SpeedCountCap ();
+		uiController.UpdateAvailableSpeed(speedCountCap+1);
+		uiController.UpdateActivatedSpeed(speedCount+1, speedCountCap+1);
 	}
+	
 
 	public void GameOver(){
 		uiController.ShowGameOver ();

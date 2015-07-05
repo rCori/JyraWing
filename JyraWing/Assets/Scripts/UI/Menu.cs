@@ -18,7 +18,9 @@ public class Menu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Timer prevents the options from being scrolled through as fast as this update happens.
 		selectTimer += Time.deltaTime;
+		//move selection down one
 		float axis = Input.GetAxis ("Vertical");
 		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
 			curSelect++;
@@ -27,6 +29,7 @@ public class Menu : MonoBehaviour {
 			beep.Play();
 		}
 
+		//move selection up one
 		if (axis > 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
 			curSelect--;
 			transform.position = new Vector2(transform.position.x, transform.position.y + 25);

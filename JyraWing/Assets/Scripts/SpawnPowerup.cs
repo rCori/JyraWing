@@ -6,35 +6,35 @@ using System.Collections;
 /// </summary>
 public class SpawnPowerup : MonoBehaviour {
 
-	public enum PowerupType{None = 0, Speed};
-
-	private PowerupType powerupType;
+	public enum PowerupType{None = 0, Speed, Bullet};
 
 	private GameObject powerupObject;
 
 	void Start(){
-		powerupType = PowerupType.None;
 	}
 
 	void OnDestroy(){
-		Debug.Log ("SpawnPowerup");
 	}
 
-	void SetPowerupType(PowerupType i_powerupType){
-		powerupType = i_powerupType;
+	public void SetPowerupType(PowerupType i_powerupType){
+		switch (i_powerupType) {
+		case PowerupType.Speed:
+			powerupObject = Resources.Load ("Pickups/SpeedPowerup") as GameObject;
+			break;
+		default:
+			break;
+		}
 	}
-
-	PowerupType GetPowerupType(){
-		return powerupType;
-	}
-
+	
 	/// <summary>
 	/// Call this before calling OnDestroy on what should spawn the powerup	
 	/// </summary>
-	void CreatePower(){
-		if (powerupObject && powerupType != PowerupType.None) {
+	public void CreatePower(){
+		//Debug.Log (powerupType);
+		if (powerupObject) {
 			powerupObject.transform.position = gameObject.transform.position;
 			Instantiate(powerupObject);
 		}
 	}
+	
 }

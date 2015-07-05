@@ -14,10 +14,13 @@ public class Scroll : MonoBehaviour {
 
 	// Use this for initialization
 	void Start(){
+		//Orthagriphc size is the distance from top to middle of the screen.
 		float vertExtent = Camera.main.orthographicSize*2;
 		//horzontal extent is how many game units across the camera sees.
 		horzExtent = vertExtent * Screen.width / Screen.height;
+		//Need the width of the background sprite in game units just like the screen
 		spriteWidth = GetComponent<Renderer>().bounds.size.x;
+		//Get the extra width difference of the background and the screen in game units.
 		extraWidth = spriteWidth - horzExtent;
 		if (extraWidth < 0 && infinite) {
 			Debug.Log ("Scrolling background is not wide enough");
@@ -30,6 +33,9 @@ public class Scroll : MonoBehaviour {
 		transform.position -= new Vector3(speed * Time.deltaTime, 0f, 0f);
 	}
 
+	/// <summary>
+	/// Handle if the screen needs to loop forever
+	/// </summary>
 	void OnBecameInvisible(){
 		if (infinite) {
 			Vector3 newPos = new Vector3(horzExtent + (extraWidth*3/2), 0f, 0f);

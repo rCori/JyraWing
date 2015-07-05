@@ -29,7 +29,11 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.y+2.5f,
 		                                        spawnPos.z);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		Instantiate (enemy3);
+
+
+		enemy3 = Instantiate (enemy3);
+
+		enemy3.GetComponent<SpawnPowerup> ().SetPowerupType (SpawnPowerup.PowerupType.Speed);
 
 		if (extraEnemies) {
 			GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_E");

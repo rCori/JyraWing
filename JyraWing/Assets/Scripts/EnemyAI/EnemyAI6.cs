@@ -36,6 +36,7 @@ public class EnemyAI6 : EnemyBehavior {
 	void Update () {
 		Movement ();
 		if (GetIsTimeUp ()) {
+			Debug.Log ("Destroy");
 			Destroy(gameObject);
 		}
 		timer += Time.deltaTime;

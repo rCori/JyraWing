@@ -8,6 +8,7 @@ public class EnemyAI4 : EnemyBehavior {
 	private float shootTimer;
 	private bool isFlipped;
 	Animator animator;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class EnemyAI4 : EnemyBehavior {
 		SetExplosionSfx (explosionClip);
 
 		isFlipped = true;
+
 	}
 	
 	// Update is called once per frame

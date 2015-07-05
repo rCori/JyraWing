@@ -4,32 +4,31 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class UIController : MonoBehaviour {
-	
-	private int lifeCount;
-	private int speedCount;
+
+	//The UI canvas for drawin all of these UI elements
 	public GameObject canvas;
+	//Number of lives the player has
+	private int lifeCount;
+	//The level of speed the player is at
+	private int speedCount;
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
-	/// <summary>
-	/// Store a list of the player sprites so they can be
- 	/// taken away and kept up with easily 
-	/// </summary>
-	private List<GameObject> lifeSpriteCollection;
+	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
 	
 
 	// Use this for initialization
 	void Start () {
-		lifeSpriteCollection = new List<GameObject> ();
+		//lifeSpriteCollection = new List<GameObject> ();
 		lifeCount = 3;
 		initLives (lifeCount);
 
 		speedCount = 4;
 		speedSpriteCollection = new List<GameObject> ();
 		initSpeed ();
-		UpdateAvailableSpeed (speedCount);
-		UpdateActivatedSpeed (1);
+		UpdateAvailableSpeed (1);
+		UpdateActivatedSpeed (1,1);
 
 		levelEndImage = Resources.Load("UIObjects/LevelFinishedImage") as GameObject;
 		levelEndImage = Instantiate (levelEndImage);
@@ -56,7 +55,7 @@ public class UIController : MonoBehaviour {
 			lifeText.GetComponent<RectTransform>().position.y);
 		//We need to set positions at some point
 		//Add to the collection
-		lifeSpriteCollection.Add(lifeText);
+		//lifeSpriteCollection.Add(lifeText);
 
 	}
 
@@ -131,8 +130,8 @@ public class UIController : MonoBehaviour {
 		}
 	}
 
-	public void UpdateActivatedSpeed(int available){
-		for (int i = 0; i< speedCount; i++) {
+	public void UpdateActivatedSpeed(int available, int speedCap){
+		for (int i = 0; i< speedCap; i++) {
 			GameObject speedSprite = speedSpriteCollection [i];
 			Image speedSpriteImage = speedSprite.GetComponent<Image> ();
 			Color color = new Color();
