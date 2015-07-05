@@ -10,19 +10,34 @@ public class EnemyAI4 : EnemyBehavior {
 	Animator animator;
 	
 
-	// Use this for initialization
-	void Start () {
+
+	//Gets called on Instantiation.
+	void Awake(){
 		EnemyDefaults ();
 		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer = 0.0f;
-
+		
 		animator = gameObject.GetComponent <Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
-
+		
 		isFlipped = true;
+	}
+	// Gets called before first update
+	void Start () {
+//		EnemyDefaults ();
+//		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
+//		fireDir.Normalize ();
+//		fireDir.Set(fireDir.x*4, fireDir.y*4);
+//		shootTimer = 0.0f;
+//
+//		animator = gameObject.GetComponent <Animator> ();
+//		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+//		SetExplosionSfx (explosionClip);
+//
+//		isFlipped = true;
 
 	}
 	

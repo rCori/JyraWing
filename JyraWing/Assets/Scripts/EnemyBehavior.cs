@@ -22,7 +22,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public enemyBulletPool bulletPool;
 	public GameController gameController;
 	private SoundEffectPlayer sfxPlayer;
-	
+
+	private int powerupGroupID;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -33,7 +34,10 @@ public class EnemyBehavior : MonoBehaviour {
 		isMoving = false;
 		hasVelocity = false;
 		hitPoints = 1;
+		powerupGroupID = -1;
+		Debug.Log ("enemyDefaults powerupGroupID " + powerupGroupID);
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
+
 	}
 
 	/// <summary>
@@ -159,7 +163,14 @@ public class EnemyBehavior : MonoBehaviour {
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				sfxPlayer.PlaySoundClip(explosionSfx);
-	
+
+				Debug.Log (powerupGroupID);
+
+				//If there is a powerupGroup we even care about
+				if(powerupGroupID != -1){
+					gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+				}
+
 				Destroy (gameObject);
 			}
 		}
@@ -170,5 +181,14 @@ public class EnemyBehavior : MonoBehaviour {
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 			gameObject.transform.position = new Vector2(0,10f);
 		}
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="i_id">I_id.</param>
+	public void SetPowerupGroupID(int i_id){
+		powerupGroupID = i_id;
+		Debug.Log ("Setting group ID to " + powerupGroupID);
 	}
 }

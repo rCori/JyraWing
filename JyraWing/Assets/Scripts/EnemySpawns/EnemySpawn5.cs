@@ -15,25 +15,34 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.y,
 		                                        spawnPos.z);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		Instantiate (enemy1);
+		enemy1 = Instantiate (enemy1);
 
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 		enemy2.transform.position = new Vector3(spawnPos.x+0.5f,
 		                                        spawnPos.y-2.5f,
 		                                        spawnPos.z);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		Instantiate (enemy2);
+		enemy2 = Instantiate (enemy2);
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 		enemy3.transform.position = new Vector3(spawnPos.x+0.5f,
 		                                        spawnPos.y+2.5f,
 		                                        spawnPos.z);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-
-
 		enemy3 = Instantiate (enemy3);
 
-		enemy3.GetComponent<SpawnPowerup> ().SetPowerupType (SpawnPowerup.PowerupType.Speed);
+		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+
+		//hardcoding groupID, in the future I cannot do that.
+		PowerupGroup group = new PowerupGroup (0);
+
+		group.SetPowerupObject (PowerupGroup.PowerupType.Speed);
+
+		group.AddToSquad (enemy1);
+		group.AddToSquad (enemy2);
+		group.AddToSquad (enemy3);
+
+		controller.AddSquad (group);
 
 		if (extraEnemies) {
 			GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_E");

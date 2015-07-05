@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-//Not yet implemented
 
 public class GameController : MonoBehaviour {
 
@@ -10,10 +10,17 @@ public class GameController : MonoBehaviour {
 
 	private float gameOverTimer;
 	private bool isGameOver;
+
+	/// <summary>
+	/// Keep track of and handle every PowerupGroup that currently exists.
+	/// </summary>
+	private List<PowerupGroup> squadList;
+
 	// Use this for initialization
 	void Start () {
 		gameOverTimer = 0.0f;
 		isGameOver = false;
+		squadList = new List<PowerupGroup> ();
 		//pixelPerfectCamera ();
 	}
 	
@@ -68,8 +75,56 @@ public class GameController : MonoBehaviour {
 		if (player) {
 			return player.transform.position;
 		} else {
-			return new Vector3();
+			return new Vector3 ();
 		}
 	}
 
+
+	/* Power Ups and spawning them from enemies */
+
+
+	/// <summary>
+	/// Add a PowerupGroup to our list of PowerupGroups
+	/// </summary>
+	/// <param name="i_powerupGroup">PowerupGroup to add.</param>
+	public void AddSquad(PowerupGroup i_powerupGroup){
+		squadList.Add (i_powerupGroup);
+	}
+
+	//Returns what the ID for the next squad should be.
+	public int GetNextSquadID(){
+		return squadList.Count;
+	}
+
+	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
+		//If the squad exists
+		if (squadList[i_id]!= null) {
+			//If Squad has everything gone except the last enemy
+			if(squadList[i_id].IsSquadGone(i_lastRemaining))
+			{
+				//Get the powerup object
+				GameObject powerup = squadList[i_id].ReturnPowerupObject();
+				//Set the position to the last enemy.
+				powerup.transform.position = i_lastRemaining.transform.position;
+				//Instantiate the powerup
+				Instantiate(powerup);
+				squadList.Remove(squadList[i_id]);
+				adjustSquadIDs(i_id);
+
+			}
+		}
+		return false;
+	}
+
+	private void adjustSquadIDs(int i_id){
+		//Check each PowerupGroup if  it's ID needs to change.
+		for(int i = 0; i < squadList.Count; i++) {
+			//If the id of the squad was above that which we removed, it needs
+			//to be brought down one to "fill the hole"
+			if( i > i_id){
+				squadList[i].AdjustSquadID(-1);
+			}
+		}
+
+	}
 }

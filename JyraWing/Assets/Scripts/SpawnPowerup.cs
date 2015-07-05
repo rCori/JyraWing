@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Keeps track of what powerup if any that an enemy should spawn if it is destroyed.
@@ -9,6 +10,7 @@ public class SpawnPowerup : MonoBehaviour {
 	public enum PowerupType{None = 0, Speed, Bullet};
 
 	private GameObject powerupObject;
+
 
 	void Start(){
 	}
