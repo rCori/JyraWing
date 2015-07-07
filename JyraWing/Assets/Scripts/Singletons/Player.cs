@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	private AudioSource fireSfx;
 	private float hitTimer;
 	private PlayerSpeed playerSpeed;
+	private PlayerBulletLevel bulletLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +32,11 @@ public class Player : MonoBehaviour {
 		}
 		float[] speedList = new float[]{1.0f, 1.5f, 2.0f, 2.5f};
 		playerSpeed = new PlayerSpeed (speedList);
+		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
+		IncreaseBulletLevel ();
+		IncreaseBulletLevel ();
+		IncreaseBulletLevel ();
 
 	}
 	
@@ -56,7 +61,12 @@ public class Player : MonoBehaviour {
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2(horiz,vert) * speed;
 		if(Input.GetButtonDown("Fire1")){
-			shoot ();
+			if(bulletLevel.GetBulletLevel() != 3){
+				shoot ();
+			}
+			else{
+				spreadShot ();
+			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			playerSpeed.IncreaseSpeed();
@@ -103,6 +113,54 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Spread shot 
+	/// IN DIRE NEED OF OPTIMAZATION
+	/// </summary>
+	private void spreadShot(){
+//		Bullet bullet1;
+//		Bullet bullet2;
+//		Bullet bullet3;
+		GameObject bullet1 = new GameObject();
+		GameObject bullet2 = new GameObject();
+		GameObject bullet3 = new GameObject();
+		int counter = 0;
+		for (int i= 0; i < numBullets; i++) {
+			GameObject bulletObj = bulletPool[i];
+			Bullet bullet = bulletObj.GetComponent<Bullet>();
+			if(!bullet.GetIsActive()){
+				//bulletObj.transform.position = transform.position;
+				switch(counter){
+				case 0:
+					bullet1 = bulletObj;
+					//bullet.ShootUp();
+					counter++;
+					break;
+				case 1:
+					bullet2 = bulletObj;
+					//bullet.Shoot();
+					counter++;
+					break;
+				case 2:
+					bullet3 = bulletObj;
+					//bullet.ShootDown();
+					counter++;
+					break;
+				default:
+					break;
+				}
+			}
+			if(counter == 3) break;
+		}
+		if (counter == 3) {
+			bullet1.transform.position = transform.position;
+			bullet2.transform.position = transform.position;
+			bullet3.transform.position = transform.position;
+			bullet1.GetComponent<Bullet> ().ShootUp ();
+			bullet2.GetComponent<Bullet> ().Shoot ();
+			bullet3.GetComponent<Bullet> ().ShootDown ();
+		}
+	}
 
 	//Public interface needed by the game controller
 
@@ -130,5 +188,40 @@ public class Player : MonoBehaviour {
 	public void IncreaseSpeedCap(){
 		playerSpeed.IncreaseSpeedCap ();
 		gameController.UpdatePlayerSpeed ();
+	}
+
+	public void IncreaseBulletLevel(){
+		bulletLevel.IncrementBulletLevel ();
+		switch (bulletLevel.GetBulletLevel ()) {
+		case 1:
+		{
+			//Put an extra bullet in the pool
+			GameObject bullet = (GameObject)Resources.Load ("Bullet");
+			bullet = Instantiate(bullet);
+			numBullets++;
+			bulletPool.Add(bullet);
+		}
+			break;
+		case 2:
+		{
+			//Put an extra bullet in the pool
+			GameObject bullet = (GameObject)Resources.Load ("Bullet");
+			bullet = Instantiate(bullet);
+			numBullets++;
+			bulletPool.Add(bullet);
+		}
+			break;
+		case 3:
+			for(int i = 0; i<9; i++){
+				//Put all the bullet live in the pool
+				GameObject bulletSpread = (GameObject)Resources.Load ("Bullet");
+				bulletSpread = Instantiate(bulletSpread);
+				bulletPool.Add(bulletSpread);
+				numBullets++;
+			}
+			break;
+		default:
+			break;
+		}
 	}
 }

@@ -43,6 +43,16 @@ public class Bullet : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 0f);
 	}
 
+	public void ShootUp(){
+		isActive = true;
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, -2f);
+	}
+
+	public void ShootDown(){
+		isActive = true;
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 2f);
+	}
+
 	/// <summary>
 	/// Public interface for getting rid of a bullet.
 	/// </summary>

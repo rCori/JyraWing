@@ -35,7 +35,6 @@ public class EnemyBehavior : MonoBehaviour {
 		hasVelocity = false;
 		hitPoints = 1;
 		powerupGroupID = -1;
-		Debug.Log ("enemyDefaults powerupGroupID " + powerupGroupID);
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 
 	}
@@ -153,10 +152,6 @@ public class EnemyBehavior : MonoBehaviour {
 			
 			if(hitPoints == 0)
 			{
-				SpawnPowerup pow = GetComponent<SpawnPowerup>();
-				if (pow) {
-					pow.CreatePower ();	
-				} 
 
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
@@ -164,7 +159,6 @@ public class EnemyBehavior : MonoBehaviour {
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				sfxPlayer.PlaySoundClip(explosionSfx);
 
-				Debug.Log (powerupGroupID);
 
 				//If there is a powerupGroup we even care about
 				if(powerupGroupID != -1){
@@ -189,6 +183,5 @@ public class EnemyBehavior : MonoBehaviour {
 	/// <param name="i_id">I_id.</param>
 	public void SetPowerupGroupID(int i_id){
 		powerupGroupID = i_id;
-		Debug.Log ("Setting group ID to " + powerupGroupID);
 	}
 }
