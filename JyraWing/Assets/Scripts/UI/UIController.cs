@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class UIController : MonoBehaviour {
 
+	const bool ISDEBUG = true;
+
 	//The UI canvas for drawin all of these UI elements
 	public GameObject canvas;
 	//Number of lives the player has
@@ -17,6 +19,10 @@ public class UIController : MonoBehaviour {
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
 	
+
+	//ISDEBUG
+	private GameObject debugFramerate;
+	private float deltaTime;
 
 	// Use this for initialization
 	void Start () {
@@ -37,11 +43,24 @@ public class UIController : MonoBehaviour {
 		gameOverMessage = Resources.Load("UIObjects/GameOverText") as GameObject;
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
+
+		if (ISDEBUG) {
+			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
+			debugFramerate = Instantiate (debugFramerate);
+			debugFramerate.transform.SetParent(canvas.transform, false);
+			deltaTime = 0.0f;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (ISDEBUG) {
+			deltaTime  += (Time.deltaTime - deltaTime) * 0.1f;
+			Text debugFramerateText = debugFramerate.GetComponent<Text> ();
+			float msec = deltaTime * 1000.0f;
+			float fps = 1.0f / deltaTime;
+			debugFramerateText.text = "framerate: " + fps.ToString();
+		}
 	}
 
 	private void initLives(int lives){
