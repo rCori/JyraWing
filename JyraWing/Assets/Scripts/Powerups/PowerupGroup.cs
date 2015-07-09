@@ -49,6 +49,10 @@ public class PowerupGroup {
 		case PowerupType.Speed:
 			powerupObject = Resources.Load ("Pickups/SpeedPowerup") as GameObject;
 			break;
+		case PowerupType.Bullet:
+			powerupObject = Resources.Load ("Pickups/BulletPowerup") as GameObject;
+			break;
+
 		}
 	}
 

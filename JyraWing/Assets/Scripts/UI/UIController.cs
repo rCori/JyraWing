@@ -54,15 +54,19 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//If in debug mode show fps
 		if (ISDEBUG) {
 			deltaTime  += (Time.deltaTime - deltaTime) * 0.1f;
 			Text debugFramerateText = debugFramerate.GetComponent<Text> ();
-			float msec = deltaTime * 1000.0f;
 			float fps = 1.0f / deltaTime;
 			debugFramerateText.text = "framerate: " + fps.ToString();
 		}
 	}
 
+	/// <summary>
+	/// Create the life counter in the top left.
+	/// </summary>
+	/// <param name="lives">Lives.</param>
 	private void initLives(int lives){
 		lifeText = Resources.Load("UIObjects/LifeText") as GameObject;
 		Text lifeMessageText = lifeText.GetComponent<Text>();
@@ -110,6 +114,9 @@ public class UIController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Shows the level complete graphic.
+	/// </summary>
 	public void ShowLevelComplete(){
 		//Set the alpha to max, making it visible.
 		Image levelEndImageComp = levelEndImage.GetComponent<Image> ();
@@ -118,6 +125,9 @@ public class UIController : MonoBehaviour {
 		levelEndImageComp.color = myColor;
 	}
 
+	/// <summary>
+	/// Inits the speed counter graphics.
+	/// </summary>
 	private void initSpeed(){
 		for (int i = 0; i < speedCount; i++) {
 			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
@@ -131,6 +141,11 @@ public class UIController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Updates the speed markers with how
+	/// how many the player can activate.
+	/// </summary>
+	/// <param name="available">Available.</param>
 	public void UpdateAvailableSpeed(int available){
 		for(int i = 0; i< speedCount; i++){
 			GameObject speedSprite = speedSpriteCollection[i];
@@ -149,6 +164,12 @@ public class UIController : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Updates the speed markers with how many the
+	/// player has active currently..
+	/// </summary>
+	/// <param name="available">Available.</param>
+	/// <param name="speedCap">Speed cap.</param>
 	public void UpdateActivatedSpeed(int available, int speedCap){
 		for (int i = 0; i< speedCap; i++) {
 			GameObject speedSprite = speedSpriteCollection [i];

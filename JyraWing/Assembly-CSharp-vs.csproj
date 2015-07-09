@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />

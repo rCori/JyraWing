@@ -5,7 +5,7 @@ public class BulletPowerup : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player") {
-			//other.GetComponent<Player>().IncreaseBulletLevel();
+			other.GetComponent<Player>().IncreaseBulletLevel();
 			Destroy(gameObject);
 		}
 	}

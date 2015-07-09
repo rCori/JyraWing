@@ -22,6 +22,7 @@ public class BarrierWall : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		//An enemy that passes the left side of the screen should be destoryed.
 		if (other.tag == "Enemy"){
 			if(barrierMode == sides.Left)
 			{

@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour {
 			beep.Play();
 		}
 
+		//Select start the game
 		if(Input.GetButton("Fire1")){
 			if(curSelect == 0){
 				beep.Play();

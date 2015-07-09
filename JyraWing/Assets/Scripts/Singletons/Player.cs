@@ -30,50 +30,20 @@ public class Player : MonoBehaviour {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		float[] speedList = new float[]{1.0f, 1.5f, 2.0f, 2.5f};
+		float[] speedList = new float[]{1.2f, 1.7f, 2.3f, 2.7f};
 		playerSpeed = new PlayerSpeed (speedList);
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
-		IncreaseBulletLevel ();
-		IncreaseBulletLevel ();
-		IncreaseBulletLevel ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-		float horiz = Input.GetAxis ("Horizontal");
-		float vert = Input.GetAxis ("Vertical");
-		if (vert < 0.0f) {
-			vert = -1.0f;
-		}
-		else if( vert > 0.0f){
-			vert = 1.0f;
-		}
+		//Update position
+		updatePlayerMovement ();
+		//Update player input
+		updateInput ();
 
-		if(horiz < 0.0f){
-			horiz = -1.0f;
-		}
-		else if(horiz > 0.0f){
-			horiz = 1.0f;
-		}
-
-		GetComponent<Rigidbody2D>().velocity = new Vector2(horiz,vert) * speed;
-		if(Input.GetButtonDown("Fire1")){
-			if(bulletLevel.GetBulletLevel() != 3){
-				shoot ();
-			}
-			else{
-				spreadShot ();
-			}
-		}
-		if (Input.GetButtonDown ("Fire2")) {
-			playerSpeed.IncreaseSpeed();
-			speed = playerSpeed.GetCurrentSpeed();
-			gameController.UpdatePlayerSpeed();
-
-		}
 		//Handle taking damage and animation
 		if (hitTimer > 0.0f) {
 			hitTimer -= Time.deltaTime;
@@ -222,6 +192,44 @@ public class Player : MonoBehaviour {
 			break;
 		default:
 			break;
+		}
+	}
+
+	private void updatePlayerMovement(){
+		//Update position
+		float horiz = Input.GetAxis ("Horizontal");
+		float vert = Input.GetAxis ("Vertical");
+		if (vert < 0.0f) {
+			vert = -1.0f;
+		}
+		else if( vert > 0.0f){
+			vert = 1.0f;
+		}
+		
+		if(horiz < 0.0f){
+			horiz = -1.0f;
+		}
+		else if(horiz > 0.0f){
+			horiz = 1.0f;
+		}
+		
+		GetComponent<Rigidbody2D>().velocity = new Vector2(horiz,vert) * speed;
+	}
+
+	private void updateInput(){
+		if(Input.GetButtonDown("Fire1")){
+			if(bulletLevel.GetBulletLevel() != 3){
+				shoot ();
+			}
+			else{
+				spreadShot ();
+			}
+		}
+		if (Input.GetButtonDown ("Fire2")) {
+			playerSpeed.IncreaseSpeed();
+			speed = playerSpeed.GetCurrentSpeed();
+			gameController.UpdatePlayerSpeed();
+			
 		}
 	}
 }

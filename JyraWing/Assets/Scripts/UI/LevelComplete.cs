@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class LevelComplete : MonoBehaviour {
-	
+ 
+
 
 	void OnBecameVisible()
 	{
