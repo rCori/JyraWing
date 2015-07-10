@@ -26,7 +26,9 @@ public class BarrierWall : MonoBehaviour {
 		if (other.tag == "Enemy"){
 			if(barrierMode == sides.Left)
 			{
-				Destroy(other.gameObject);
+				if(!other.GetComponent<EnemyBehavior>().LeftWallException){
+					Destroy(other.gameObject);
+				}
 			}
 		}
 	}

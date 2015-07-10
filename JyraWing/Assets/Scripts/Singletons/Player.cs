@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 		hits = 3;
 		numBullets = 2;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
-		fireSfx.clip = Resources.Load ("Audio/SFX/bullet_sfx") as AudioClip;
+		fireSfx.clip = Resources.Load ("Audio/SFX/shootenem") as AudioClip;
 		bulletPool = new List<GameObject> ();
 		for (int i= 0; i < numBullets; i++) {
 			//Put all the bullet live in the pool
@@ -58,12 +58,12 @@ public class Player : MonoBehaviour {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		if (hitTimer == 0.0f) {
-			hits--;
-			animator.SetInteger ("animState", 1);
-			hitTimer = 0.5f;
-			gameController.UpdatePlayerLives();
-		}
+//		if (hitTimer == 0.0f) {
+//			hits--;
+//			animator.SetInteger ("animState", 1);
+//			hitTimer = 0.5f;
+//			gameController.UpdatePlayerLives();
+//		}
 
 	}
 

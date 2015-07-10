@@ -119,10 +119,12 @@ public class UIController : MonoBehaviour {
 	/// </summary>
 	public void ShowLevelComplete(){
 		//Set the alpha to max, making it visible.
-		Image levelEndImageComp = levelEndImage.GetComponent<Image> ();
-		Color myColor = levelEndImageComp.color;
-		myColor.a = 255;
-		levelEndImageComp.color = myColor;
+		if (lifeCount != 0) {
+			Image levelEndImageComp = levelEndImage.GetComponent<Image> ();
+			Color myColor = levelEndImageComp.color;
+			myColor.a = 255;
+			levelEndImageComp.color = myColor;
+		}
 	}
 
 	/// <summary>

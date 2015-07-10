@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn10.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn1.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI1.cs" Line="26" Column="19" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" Line="34" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\PowerupGroup.cs" Line="53" Column="51" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI6.cs" Line="38" Column="5" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="15" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" Line="31" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
+  LeftWallException: 0
   direction: 3
 --- !u!212 &21202418
 SpriteRenderer:

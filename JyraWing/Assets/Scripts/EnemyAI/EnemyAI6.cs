@@ -16,15 +16,16 @@ public class EnemyAI6 : EnemyBehavior {
 	private float timer;
 	private Vector2 direction;
 
-	// Use this for initialization
-	void Start () {
+
+	void Awake(){
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
-
+		//This enemy is not destoryed by touching the left wall.
+		LeftWallException = true;
 		//Give an extra rotation of 
 		transform.Rotate(0f,0f,angle+180);
-
+		
 		radians = Mathf.Deg2Rad * angle;
 		float xVel = Mathf.Cos (radians);
 		float yVel = Mathf.Sin (radians);
@@ -32,11 +33,29 @@ public class EnemyAI6 : EnemyBehavior {
 		StartNewVelocity(direction * speed,lifeTime);
 	}
 
+	// Use this for initialization
+	void Start () {
+//		EnemyDefaults ();
+//		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+//		SetExplosionSfx (explosionClip);
+//		//This enemy is not destoryed by touching the left wall.
+//		LeftWallException = true;
+//		//Give an extra rotation of 
+//		transform.Rotate(0f,0f,angle+180);
+//
+//		radians = Mathf.Deg2Rad * angle;
+//		float xVel = Mathf.Cos (radians);
+//		float yVel = Mathf.Sin (radians);
+//		direction = new Vector2 (xVel, yVel);
+//		StartNewVelocity(direction * speed,lifeTime);
+	}
+
+
+
 	// Update is called once per frame
 	void Update () {
 		Movement ();
 		if (GetIsTimeUp ()) {
-			Debug.Log ("Destroy");
 			Destroy(gameObject);
 		}
 		timer += Time.deltaTime;
