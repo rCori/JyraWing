@@ -7,14 +7,18 @@ public class EnemyAI1 : EnemyBehavior {
 	int bulletCounter;
 	
 
-	// Use this for initialization
-	void Start () {
+	void Awake(){
 		moveState = 0;
 		bulletCounter++;
 		EnemyDefaults ();
 		//InitializeBullets (2);
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
+	}
+
+	// Use this for initialization
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -31,11 +35,11 @@ public class EnemyAI1 : EnemyBehavior {
 				StartNewVelocity(new Vector2(-0.75f,1f), 0.5f);
 				break;
 			}
-			bulletCounter++;
-			if (bulletCounter > 3) {
-				bulletCounter = 0;
-				Shoot();
-			}
+//			bulletCounter++;
+//			if (bulletCounter > 3) {
+//				bulletCounter = 0;
+//				Shoot();
+//			}
 		}
 		Movement ();
 	}

@@ -25,21 +25,6 @@ public class EnemyAI4 : EnemyBehavior {
 		
 		isFlipped = true;
 	}
-	// Gets called before first update
-	void Start () {
-//		EnemyDefaults ();
-//		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
-//		fireDir.Normalize ();
-//		fireDir.Set(fireDir.x*4, fireDir.y*4);
-//		shootTimer = 0.0f;
-//
-//		animator = gameObject.GetComponent <Animator> ();
-//		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
-//		SetExplosionSfx (explosionClip);
-//
-//		isFlipped = true;
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,6 +33,7 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer += Time.deltaTime;
 		if (shootTimer > 2.0f) {
+		
 			Shoot(fireDir);
 			shootTimer = 0.0f;
 		}

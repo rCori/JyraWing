@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 public class EnemyBehavior : MonoBehaviour {
 	
+	public enum MovementStatus {None, Lerp, Slerp, Velocity}
 
 	float moveTimer;
 	float moveTimeLimit;
 	Vector3 startPos;
 	Vector3 endPos;
-	bool isMoving;
-	bool hasVelocity;
+	MovementStatus moveStatus;
 
-	//int bulletNum;
+	//int bulletNum;B
 	int hitPoints;
 
 	//List<GameObject> bulletPool;
@@ -33,8 +33,7 @@ public class EnemyBehavior : MonoBehaviour {
 	public void EnemyDefaults(){
 		moveTimer = 1f;
 		moveTimeLimit = 0f;
-		isMoving = false;
-		hasVelocity = false;
+		moveStatus = MovementStatus.None;
 		hitPoints = 1;
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
@@ -48,8 +47,17 @@ public class EnemyBehavior : MonoBehaviour {
 	/// <param name="i_endPos">ending position.</param>
 	/// <param name="i_time">TIme the movement will take.</param>
 	public void StartNewMovement(Vector3 i_endPos, float i_time){
-		isMoving = true;
-		hasVelocity = false;
+		//isMoving = true;
+		moveStatus = MovementStatus.Lerp;
+		moveTimeLimit = i_time;
+		moveTimer = 0f;
+		startPos = gameObject.transform.position;
+		endPos = i_endPos;
+		gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0f, 0f);
+	}
+
+	public void StartNewSphericalMovement(Vector3 i_endPos, float i_time){
+		moveStatus = MovementStatus.Slerp;
 		moveTimeLimit = i_time;
 		moveTimer = 0f;
 		startPos = gameObject.transform.position;
@@ -58,8 +66,7 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	public void StartNewVelocity(Vector2 i_vel, float i_time){
-		isMoving = true;
-		hasVelocity = true;
+		moveStatus = MovementStatus.Velocity;
 		startPos = gameObject.transform.position;
 		moveTimeLimit = i_time;
 		moveTimer = 0f;
@@ -67,8 +74,7 @@ public class EnemyBehavior : MonoBehaviour {
 	} 
 
 	public void StartStandStill(float i_time){
-		isMoving = false;
-		hasVelocity = false;
+		moveStatus = MovementStatus.None;
 		moveTimeLimit = i_time;
 		moveTimer = 0f;
 		gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0f, 0f);
@@ -77,8 +83,11 @@ public class EnemyBehavior : MonoBehaviour {
 	public void Movement(){
 		moveTimer += Time.deltaTime;
 		if (moveTimer < moveTimeLimit) {
-			if(!hasVelocity && isMoving){
+			if(moveStatus == MovementStatus.Lerp){
 				gameObject.transform.position = Vector2.Lerp(startPos, endPos,moveTimer/moveTimeLimit);
+			}
+			else if(moveStatus == MovementStatus.Slerp){
+				gameObject.transform.position = Vector3.Slerp(startPos, endPos,moveTimer/moveTimeLimit);
 			}
 		}
 	}

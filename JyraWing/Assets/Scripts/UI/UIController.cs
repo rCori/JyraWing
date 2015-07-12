@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class UIController : MonoBehaviour {
 
-	const bool ISDEBUG = true;
+	const bool ISDEBUG = false;
 
 	//The UI canvas for drawin all of these UI elements
 	public GameObject canvas;

@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyAI3 : EnemyBehavior{
 
 	int moveState;
-	float shootTimer;
+	//float shootTimer;
 
 	public bool reverse;
 	private float modify;
@@ -17,7 +17,7 @@ public class EnemyAI3 : EnemyBehavior{
 		//InitializeBullets (2);
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
-		shootTimer = 0.0f;
+		//shootTimer = 0.0f;
 		if (reverse) {
 			modify = -1.0f;
 		} else {
@@ -37,7 +37,7 @@ public class EnemyAI3 : EnemyBehavior{
 				break;
 			case 1:
 				moveState = 0;
-				StartNewMovement(new Vector3(5.0f - incrementX, 3.5f*modify), 0.7f);
+				StartNewMovement(new Vector3(5.0f - incrementX, 3.5f*modify), 1.5f);
 				incrementX += 3.0f;
 				modify = -modify;
 				if(incrementX > 12.0f)
@@ -47,11 +47,11 @@ public class EnemyAI3 : EnemyBehavior{
 				break;
 			}
 		}
-		shootTimer += Time.deltaTime;
-		if (shootTimer > 0.8f) {
-			shootTimer = 0.0f;
-			Shoot ();
-		}
+//		shootTimer += Time.deltaTime;
+//		if (shootTimer > 0.8f) {
+//			shootTimer = 0.0f;
+//			Shoot ();
+//		}
 		Movement ();
 	}
 }

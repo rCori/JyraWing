@@ -58,12 +58,12 @@ public class Player : MonoBehaviour {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-//		if (hitTimer == 0.0f) {
-//			hits--;
-//			animator.SetInteger ("animState", 1);
-//			hitTimer = 0.5f;
-//			gameController.UpdatePlayerLives();
-//		}
+		if (hitTimer == 0.0f) {
+			hits--;
+			animator.SetInteger ("animState", 1);
+			hitTimer = 0.5f;
+			gameController.UpdatePlayerLives();
+		}
 
 	}
 

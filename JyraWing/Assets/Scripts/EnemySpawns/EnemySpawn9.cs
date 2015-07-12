@@ -49,6 +49,33 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy3 = Instantiate (enemy3);
 
 
+		//top
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		enemy4.transform.position = new Vector3 (6.0f, 3.0f, 0f);
+		enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		EnemyAI6 ai4 = enemy4.GetComponent<EnemyAI6> ();
+		ai4.angle = 180f;
+		ai4.speed = 2f;
+		ai4.lifeTime = 12.0f;
+		ai4.fireRate = 1.2f;
+		ai4.bulletSpeed = 3.5f;
+		enemy4.GetComponent<Scroll> ().speed = 0;
+		enemy4 = Instantiate (enemy4);		
+
+		//bottom
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		enemy5.transform.position = new Vector3 (6.0f, -3.0f, 0f);
+		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();
+		ai5.angle = 180f;
+		ai5.speed = 2f;
+		ai5.lifeTime = 12.0f;
+		ai5.fireRate = 1.2f;
+		ai5.bulletSpeed = 3.5f;
+		enemy5.GetComponent<Scroll> ().speed = 0;
+		enemy5 = Instantiate (enemy5);	
+
+
 		if (spawnBulletPowerup) {
 			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
 			

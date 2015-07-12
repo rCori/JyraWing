@@ -8,25 +8,36 @@ public class EnemyAI2 : EnemyBehavior {
 	/// </summary>
 	float circleTimer;
 
+	float spinSpeed;
+	Vector2 originalPos;
+
 	// Use this for initialization
 	void Start () {
+
+	}
+
+	void Awake(){
 		circleTimer = 0.0f;
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
+		float spinSpeed = 1.0f;
+		originalPos = gameObject.transform.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		circleTimer += Time.deltaTime;
+		circleTimer += Time.deltaTime*10.0f;
 		if (circleTimer > (Mathf.PI*2)) {
 			circleTimer = 0.0f;
 		}
 		//This makes the enemy rotate
-		float xVel = Mathf.Cos(circleTimer) - 0.5f;
-		float yVel = Mathf.Sin (circleTimer)*0.7f;
-		Vector2 newVelocity = new Vector2(xVel,yVel);
-		StartNewVelocity(newVelocity,0.1f);
+		float xVel = Mathf.Cos(circleTimer)*4;
+		float yVel = Mathf.Sin (circleTimer)*4;
+		Vector2 newVelocity = new Vector2(xVel, yVel);
+		if (GetIsTimeUp ()) {
+			StartNewVelocity (newVelocity, 0.1f);
+		}
 		Movement ();
 	}
 }
