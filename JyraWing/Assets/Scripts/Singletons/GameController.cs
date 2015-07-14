@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour {
 
 	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
 		//If the squad exists
-		if (squadList[i_id]!= null) {
+		if (/*squadList[i_id]!= null*/squadList.Count > i_id) {
 			//If Squad has everything gone except the last enemy
 			if(squadList[i_id].IsSquadGone(i_lastRemaining))
 			{
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour {
 				powerup.transform.position = i_lastRemaining.transform.position;
 				//Instantiate the powerup
 				Instantiate(powerup);
-				squadList.Remove(squadList[i_id]);
+				squadList.RemoveAt(i_id);
 				adjustSquadIDs(i_id);
 
 			}
@@ -121,7 +121,7 @@ public class GameController : MonoBehaviour {
 		for(int i = 0; i < squadList.Count; i++) {
 			//If the id of the squad was above that which we removed, it needs
 			//to be brought down one to "fill the hole"
-			if( i > i_id){
+			if( i >= i_id){
 				squadList[i].AdjustSquadID(-1);
 			}
 		}

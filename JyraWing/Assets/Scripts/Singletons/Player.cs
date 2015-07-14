@@ -15,6 +15,11 @@ public class Player : MonoBehaviour {
 	private PlayerSpeed playerSpeed;
 	private PlayerBulletLevel bulletLevel;
 
+	private Vector3 startSavePos;
+	private Vector3 endSavePos;
+
+	private bool disableControls;
+
 	// Use this for initialization
 	void Start () {
 		animator = gameObject.GetComponent <Animator> ();
@@ -30,10 +35,11 @@ public class Player : MonoBehaviour {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		float[] speedList = new float[]{1.2f, 1.7f, 2.3f, 2.7f};
+		float[] speedList = new float[]{1.5f, 2.2f, 2.9f, 3.6f};
 		playerSpeed = new PlayerSpeed (speedList);
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
+		disableControls = false;
 
 	}
 	
@@ -44,14 +50,7 @@ public class Player : MonoBehaviour {
 		//Update player input
 		updateInput ();
 
-		//Handle taking damage and animation
-		if (hitTimer > 0.0f) {
-			hitTimer -= Time.deltaTime;
-			if(hitTimer <= 0.0f){
-				animator.SetInteger ("animState", 0);
-				hitTimer = 0.0f;
-			}
-		}
+		updateHitAnimation ();
 	}
 
 	/// <summary>
@@ -60,9 +59,13 @@ public class Player : MonoBehaviour {
 	public void TakeDamage(){
 		if (hitTimer == 0.0f) {
 			hits--;
+			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 			animator.SetInteger ("animState", 1);
-			hitTimer = 0.5f;
+			//Get the length of the animation.
+			//hitTimer = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
+			disableControls = true;
 		}
 
 	}
@@ -196,28 +199,28 @@ public class Player : MonoBehaviour {
 	}
 
 	private void updatePlayerMovement(){
-		//Update position
-		float horiz = Input.GetAxis ("Horizontal");
-		float vert = Input.GetAxis ("Vertical");
-		if (vert < 0.0f) {
-			vert = -1.0f;
-		}
-		else if( vert > 0.0f){
-			vert = 1.0f;
-		}
+		if (!disableControls) {
+			//Update position
+			float horiz = Input.GetAxis ("Horizontal");
+			float vert = Input.GetAxis ("Vertical");
+			if (vert < 0.0f) {
+				vert = -1.0f;
+			} else if (vert > 0.0f) {
+				vert = 1.0f;
+			}
 		
-		if(horiz < 0.0f){
-			horiz = -1.0f;
-		}
-		else if(horiz > 0.0f){
-			horiz = 1.0f;
-		}
+			if (horiz < 0.0f) {
+				horiz = -1.0f;
+			} else if (horiz > 0.0f) {
+				horiz = 1.0f;
+			}
 		
-		GetComponent<Rigidbody2D>().velocity = new Vector2(horiz,vert) * speed;
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+		}
 	}
 
 	private void updateInput(){
-		if(Input.GetButtonDown("Fire1")){
+		if(Input.GetButtonDown("Fire1") && !disableControls){
 			if(bulletLevel.GetBulletLevel() != 3){
 				shoot ();
 			}
@@ -230,6 +233,39 @@ public class Player : MonoBehaviour {
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
 			
+		}
+	}
+
+	private void updateHitAnimation(){
+		//Handle taking damage and animation
+		if (hitTimer > 0.0f) {
+			//player intially hit
+			if(animator.GetInteger("animState") == 1){
+				hitTimer -= Time.deltaTime;
+				if(hitTimer <= 0.0f){
+					animator.SetInteger ("animState", 2);
+					hitTimer = 0.5f;
+					startSavePos = gameObject.transform.position;
+					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
+					endSavePos = gameObject.transform.position;
+				}
+			} else if(animator.GetInteger("animState") == 2){
+				//Player is flying back int
+				if(disableControls){
+					hitTimer -= Time.deltaTime;
+					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
+					if(hitTimer <= 0.0f){
+						hitTimer = 4.5f;
+						disableControls = false;
+					}
+				}else{
+					hitTimer -= Time.deltaTime;
+					if(hitTimer <= 0.0f){
+						animator.SetInteger ("animState", 0);
+						hitTimer = 0.0f;
+					}
+				}
+			} 
 		}
 	}
 }

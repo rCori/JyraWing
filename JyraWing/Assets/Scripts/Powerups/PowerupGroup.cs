@@ -59,5 +59,9 @@ public class PowerupGroup {
 	public void AdjustSquadID(int amount){
 		//typically amount will be -1
 		id += amount;
+		//Now adjust the id in all the enemies
+		for (int i = 0; i< squad.Count; i++) {
+			squad[i].GetComponent<EnemyBehavior>().SetPowerupGroupID(id);
+		}
 	}
 }
