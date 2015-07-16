@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11494714}
   - 50: {fileID: 5018058}
   - 61: {fileID: 6130922}
-  - 95: {fileID: 9510112}
+  - 95: {fileID: 9536132}
   m_Layer: 0
   m_Name: Enemy_F
   m_TagString: Enemy
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.62970924, y: -1.49000001, z: 0}
+  m_LocalPosition: {x: 6, y: -3, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .239999995, y: .159999996}
---- !u!95 &9510112
+--- !u!95 &9536132
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -87,11 +87,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 171218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36e75799cb88dc4b9539dc1c47ca47c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dbb2d3b40a5936448e30d8d7d422a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
+  LeftWallException: 0
+  angle: 180
+  speed: 2
+  lifeTime: 12
+  fireRate: 1.20000005
+  bulletSpeed: 3.5
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0
   infinite: 0
 --- !u!212 &21202418
 SpriteRenderer:
@@ -141,6 +147,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Controller

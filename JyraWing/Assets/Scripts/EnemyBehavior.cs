@@ -184,8 +184,6 @@ public class EnemyBehavior : MonoBehaviour {
 		if (other.tag == "Player" && other.isTrigger) {
 			Player player = other.gameObject.GetComponent<Player>();
 			player.TakeDamage();
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-			gameObject.transform.position = new Vector2(0,10f);
 		}
 	}
 

@@ -9,7 +9,7 @@ public class EnemySpawn9 : EnemySpawner {
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
 		
 		//mid-bot
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy1.transform.position = new Vector3 (6.0f, -1.5f, 0f);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyAI6 ai1 = enemy1.GetComponent<EnemyAI6> ();
@@ -22,7 +22,7 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy1 = Instantiate (enemy1);
 		
 		//mid-top
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy2.transform.position = new Vector3 (6.0f, 1.5f, 0f);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyAI6 ai2 = enemy2.GetComponent<EnemyAI6> ();
@@ -35,7 +35,7 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy2 = Instantiate (enemy2);
 		
 		//mid
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy3.transform.position = new Vector3 (6.0f, 0.0f, 0f);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyAI6 ai3 = enemy3.GetComponent<EnemyAI6> ();
@@ -49,7 +49,7 @@ public class EnemySpawn9 : EnemySpawner {
 
 
 		//top
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy4.transform.position = new Vector3 (6.0f, 3.0f, 0f);
 		enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyAI6 ai4 = enemy4.GetComponent<EnemyAI6> ();
@@ -62,7 +62,7 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy4 = Instantiate (enemy4);		
 
 		//bottom
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy5.transform.position = new Vector3 (6.0f, -3.0f, 0f);
 		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();

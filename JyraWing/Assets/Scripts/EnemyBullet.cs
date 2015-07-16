@@ -22,9 +22,15 @@ public class EnemyBullet : MonoBehaviour {
 			player.TakeDamage();
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 			gameObject.transform.position = new Vector2(0,10f);
+			isActive = false;
 		}
 		if (other.tag == "Barrier") {
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+			gameObject.transform.position = new Vector2(0,10f);
+			isActive = false;
+		}
+
+		if (other.tag == "Shield") {
 			gameObject.transform.position = new Vector2(0,10f);
 			isActive = false;
 		}

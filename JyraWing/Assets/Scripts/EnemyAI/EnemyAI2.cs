@@ -21,7 +21,6 @@ public class EnemyAI2 : EnemyBehavior {
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
-		float spinSpeed = 1.0f;
 		originalPos = gameObject.transform.position;
 	}
 

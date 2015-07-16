@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour {
+public class Player2 : MonoBehaviour {
 	
 	public GameController gameController;
 	private float speed;
@@ -17,7 +17,9 @@ public class Player : MonoBehaviour {
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
-	
+
+	private GameObject shieldObj;
+	private PlayerShield shield;
 	private bool disableControls;
 
 	// Use this for initialization
@@ -40,6 +42,9 @@ public class Player : MonoBehaviour {
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
 		disableControls = false;
+		shieldObj = Resources.Load ("Shield") as GameObject;
+		shieldObj = Instantiate (shieldObj);
+		shield = shieldObj.GetComponent<PlayerShield> ();
 
 	}
 	
@@ -62,6 +67,7 @@ public class Player : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 			animator.SetInteger ("animState", 1);
 			//Get the length of the animation.
+			//hitTimer = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
 			disableControls = true;
@@ -215,11 +221,12 @@ public class Player : MonoBehaviour {
 			}
 		
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+			shieldObj.transform.position = new Vector2(transform.position.x +0.8f, transform.position.y);
 		}
 	}
 
 	private void updateInput(){
-		if(Input.GetButtonDown("Fire1") && !disableControls){
+		if(Input.GetButtonDown("Fire1") && !disableControls && !shield.GetIsActive()){
 			if(bulletLevel.GetBulletLevel() != 3){
 				shoot ();
 			}
@@ -232,6 +239,9 @@ public class Player : MonoBehaviour {
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
 			
+		}
+		if (Input.GetButtonDown ("Fire3")) {
+			shield.ToggleShield();
 		}
 	}
 
