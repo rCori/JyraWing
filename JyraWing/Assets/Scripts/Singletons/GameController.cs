@@ -91,10 +91,28 @@ public class GameController : MonoBehaviour {
 		squadList.Add (i_powerupGroup);
 	}
 
+
+	//REmove th powerupgroup but don't spawn anything.
+	public bool CheckSquadAndRemove(int i_id, GameObject i_lastRemaining){
+		//If the squad exists
+		if (/*squadList[i_id]!= null*/squadList.Count > i_id) {
+			//If Squad has everything gone except the last enemy
+			if(squadList[i_id].IsSquadGone(i_lastRemaining))
+			{
+				squadList.RemoveAt(i_id);
+				adjustSquadIDs(i_id);
+				
+			}
+		}
+		return false;
+	}
+
+
 	//Returns what the ID for the next squad should be.
 	public int GetNextSquadID(){
 		return squadList.Count;
 	}
+
 
 	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
 		//If the squad exists

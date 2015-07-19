@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		float[] speedList = new float[]{1.5f, 2.2f, 2.9f, 3.6f};
+		float[] speedList = new float[]{1.8f, 2.2f, 2.9f, 3.6f};
 		playerSpeed = new PlayerSpeed (speedList);
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
