@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI5.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI6.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI7.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI8.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />

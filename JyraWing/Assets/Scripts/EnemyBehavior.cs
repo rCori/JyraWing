@@ -196,6 +196,8 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		gameController.CheckSquadAndRemove(powerupGroupID, gameObject);
+		if (powerupGroupID != -1) {
+			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
+		}
 	}
 }

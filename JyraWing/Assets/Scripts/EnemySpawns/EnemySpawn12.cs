@@ -3,20 +3,22 @@ using System.Collections;
 
 public class EnemySpawn12 : EnemySpawner {
 
+	public int enemyHitPoints;
+
 	public override void Spawn ()
 	{
 
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
 
-//		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
-//		enemy1.transform.position = new Vector3 (8.5f, 3.7f, 0f);
-//		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-//		enemy1 = Instantiate (enemy1);
-//
-//		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
-//		enemy2.transform.position = new Vector3 (8.5f, -3.7f, 0f);
-//		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-//		enemy2 = Instantiate (enemy2);
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		enemy1.transform.position = new Vector3 (8.5f, 3.7f, 0f);
+		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy1 = Instantiate (enemy1);
+
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		enemy2.transform.position = new Vector3 (8.5f, -3.7f, 0f);
+		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy2 = Instantiate (enemy2);
 
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_F");
@@ -29,6 +31,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai3.lifeTime = 20.0f;
 		ai3.fireRate = 2.5f;
 		ai3.bulletSpeed = 2f;
+		ai3.hits = enemyHitPoints;
 		enemy3.GetComponent<Scroll> ().speed = 0;
 		enemy3 = Instantiate (enemy3);
 
@@ -42,6 +45,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai4.lifeTime = 30.0f;
 		ai4.fireRate = 2.5f;
 		ai4.bulletSpeed = 2f;
+		ai4.hits = enemyHitPoints;
 		enemy4.GetComponent<Scroll> ().speed = 0;
 		enemy4 = Instantiate (enemy4);
 
@@ -55,6 +59,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai5.lifeTime = 20.0f;
 		ai5.fireRate = 2.5f;
 		ai5.bulletSpeed = 2f;
+		ai5.hits = enemyHitPoints;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 

@@ -98,6 +98,7 @@ MonoBehaviour:
   lifeTime: 20
   fireRate: 2.5
   bulletSpeed: 2
+  hits: 2
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1

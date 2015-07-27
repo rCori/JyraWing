@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemySpawn9 : EnemySpawner {
 
+	public int enemyHitPoints;
 
 	public override void Spawn ()
 	{
@@ -18,6 +19,7 @@ public class EnemySpawn9 : EnemySpawner {
 		ai1.lifeTime = 12.0f;
 		ai1.fireRate = 1.2f;
 		ai1.bulletSpeed = 3.5f;
+		ai1.hits = enemyHitPoints;
 		enemy1.GetComponent<Scroll> ().speed = 0;
 		enemy1 = Instantiate (enemy1);
 		
@@ -31,6 +33,7 @@ public class EnemySpawn9 : EnemySpawner {
 		ai2.lifeTime = 12.0f;
 		ai2.fireRate = 1.2f;
 		ai2.bulletSpeed = 3.5f;
+		ai2.hits = enemyHitPoints;
 		enemy2.GetComponent<Scroll> ().speed = 0;
 		enemy2 = Instantiate (enemy2);
 		
@@ -44,6 +47,7 @@ public class EnemySpawn9 : EnemySpawner {
 		ai3.lifeTime = 7.0f;
 		ai3.fireRate = 1.2f;
 		ai3.bulletSpeed = 3.5f;
+		ai3.hits = enemyHitPoints;
 		enemy3.GetComponent<Scroll> ().speed = 0;
 		enemy3 = Instantiate (enemy3);
 
@@ -58,6 +62,7 @@ public class EnemySpawn9 : EnemySpawner {
 		ai4.lifeTime = 12.0f;
 		ai4.fireRate = 1.2f;
 		ai4.bulletSpeed = 3.5f;
+		ai4.hits = enemyHitPoints;
 		enemy4.GetComponent<Scroll> ().speed = 0;
 		enemy4 = Instantiate (enemy4);		
 
@@ -71,6 +76,7 @@ public class EnemySpawn9 : EnemySpawner {
 		ai5.lifeTime = 12.0f;
 		ai5.fireRate = 1.2f;
 		ai5.bulletSpeed = 3.5f;
+		ai5.hits = enemyHitPoints;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);	
 		

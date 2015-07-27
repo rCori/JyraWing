@@ -51,7 +51,8 @@ public class EnemyBoss : EnemyBehavior {
 			}
 		}
 		Movement ();
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("HitAnimation")) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("bossHit")) {
+			Debug.Log ("End Animation");
 			animator.SetInteger("animState", 0);
 		}
 	}

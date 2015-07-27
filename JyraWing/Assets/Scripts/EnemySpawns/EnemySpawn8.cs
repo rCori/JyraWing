@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemySpawn8 : EnemySpawner {
 
+	public int enemyHitPoints;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
@@ -17,6 +19,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai1.lifeTime = 10.0f;
 		ai1.fireRate = 1.2f;
 		ai1.bulletSpeed = 3f;
+		ai1.hits = enemyHitPoints;
 		enemy1.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy1);
 
@@ -30,6 +33,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai2.lifeTime = 10.0f;
 		ai2.fireRate = 1.2f;
 		ai2.bulletSpeed = 3f;
+		ai2.hits = enemyHitPoints;
 		enemy2.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy2);
 
@@ -43,6 +47,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai3.lifeTime = 10.0f;
 		ai3.fireRate = 1.2f;
 		ai3.bulletSpeed = 3f;
+		ai3.hits = enemyHitPoints;
 		enemy3.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy3);
 
@@ -56,6 +61,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai4.lifeTime = 10.0f;
 		ai4.fireRate = 1.2f;
 		ai4.bulletSpeed = 3f;
+		ai4.hits = enemyHitPoints;
 		enemy4.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy4);
 
@@ -69,6 +75,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai5.lifeTime = 10.0f;
 		ai5.fireRate = 1.2f;
 		ai5.bulletSpeed = 3f;
+		ai5.hits = enemyHitPoints;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy5);
 		//top 
@@ -81,6 +88,7 @@ public class EnemySpawn8 : EnemySpawner {
 		ai6.lifeTime = 10.0f;
 		ai6.fireRate = 1.2f;
 		ai6.bulletSpeed = 3f;
+		ai6.hits = enemyHitPoints;
 		enemy6.GetComponent<Scroll> ().speed = 0;
 		Instantiate (enemy6);
 	}

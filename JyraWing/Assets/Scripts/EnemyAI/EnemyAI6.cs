@@ -11,11 +11,14 @@ public class EnemyAI6 : EnemyBehavior {
 	public float fireRate;
 	public float bulletSpeed;
 
+	public int hits;
+
 	private float radians;
 
 	private float timer;
 	private Vector2 direction;
 
+	Animator animator;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -25,29 +28,13 @@ public class EnemyAI6 : EnemyBehavior {
 		LeftWallException = true;
 		//Give an extra rotation of 
 		transform.Rotate(0f,0f,angle+180);
-		
+		SetEnemyHealth (hits);
 		radians = Mathf.Deg2Rad * angle;
 		float xVel = Mathf.Cos (radians);
 		float yVel = Mathf.Sin (radians);
 		direction = new Vector2 (xVel, yVel);
 		StartNewVelocity(direction * speed,lifeTime);
-	}
-
-	// Use this for initialization
-	void Start () {
-//		EnemyDefaults ();
-//		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
-//		SetExplosionSfx (explosionClip);
-//		//This enemy is not destoryed by touching the left wall.
-//		LeftWallException = true;
-//		//Give an extra rotation of 
-//		transform.Rotate(0f,0f,angle+180);
-//
-//		radians = Mathf.Deg2Rad * angle;
-//		float xVel = Mathf.Cos (radians);
-//		float yVel = Mathf.Sin (radians);
-//		direction = new Vector2 (xVel, yVel);
-//		StartNewVelocity(direction * speed,lifeTime);
+		animator = gameObject.GetComponent<Animator> ();
 	}
 
 
@@ -62,6 +49,19 @@ public class EnemyAI6 : EnemyBehavior {
 		if (timer > fireRate) {
 			Shoot(direction * speed * bulletSpeed);
 			timer = 0.0f;
+		}
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("enemyBHit")) {
+			animator.SetInteger("animState", 0);
+		}
+		//Return from hit animation to neutral animation.
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		DefaultTrigger (other);
+		//Additional behavior
+		
+		if (other.tag == "Bullet") {
+			animator.SetInteger("animState", 1);
 		}
 	}
 }
