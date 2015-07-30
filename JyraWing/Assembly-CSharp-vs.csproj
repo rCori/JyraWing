@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn15.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
