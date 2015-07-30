@@ -37,7 +37,6 @@ public class EnemyBehavior : MonoBehaviour {
 		hitPoints = 1;
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
-		LeftWallException = false;
 
 	}
 

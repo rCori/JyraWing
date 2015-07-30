@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI6.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI7.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI8.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI9.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
@@ -65,6 +66,10 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn12.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn13.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn14.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn15.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />

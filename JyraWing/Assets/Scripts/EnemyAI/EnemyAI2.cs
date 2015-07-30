@@ -11,10 +11,6 @@ public class EnemyAI2 : EnemyBehavior {
 	float spinSpeed;
 	Vector2 originalPos;
 
-	// Use this for initialization
-	void Start () {
-
-	}
 
 	void Awake(){
 		circleTimer = 0.0f;
