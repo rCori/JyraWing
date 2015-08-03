@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class UIController : MonoBehaviour {
 
-	const bool ISDEBUG = false;
+	//const bool ISDEBUG = false;
 
 	//The UI canvas for drawin all of these UI elements
 	public GameObject canvas;
@@ -44,23 +44,23 @@ public class UIController : MonoBehaviour {
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
 
-		if (ISDEBUG) {
-			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
-			debugFramerate = Instantiate (debugFramerate);
-			debugFramerate.transform.SetParent(canvas.transform, false);
-			deltaTime = 0.0f;
-		}
+//		if (ISDEBUG) {
+//			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
+//			debugFramerate = Instantiate (debugFramerate);
+//			debugFramerate.transform.SetParent(canvas.transform, false);
+//			deltaTime = 0.0f;
+//		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//If in debug mode show fps
-		if (ISDEBUG) {
-			deltaTime  += (Time.deltaTime - deltaTime) * 0.1f;
-			Text debugFramerateText = debugFramerate.GetComponent<Text> ();
-			float fps = 1.0f / deltaTime;
-			debugFramerateText.text = "framerate: " + fps.ToString();
-		}
+//		if (ISDEBUG) {
+//			deltaTime  += (Time.deltaTime - deltaTime) * 0.1f;
+//			Text debugFramerateText = debugFramerate.GetComponent<Text> ();
+//			float fps = 1.0f / deltaTime;
+//			debugFramerateText.text = "framerate: " + fps.ToString();
+//		}
 	}
 
 	/// <summary>

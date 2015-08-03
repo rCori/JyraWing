@@ -4,13 +4,13 @@ using System.Collections;
 public class PlayerShield : MonoBehaviour {
 
 	private bool shieldUp;
-	private float shieldTimeLimit;
+	//private float shieldTimeLimit;
 	private float shieldTimer;
 
 	// Use this for initialization
 	void Start () {
 		shieldUp = false;
-		shieldTimeLimit = 10f;
+		//shieldTimeLimit = 10f;
 		shieldTimer = 0f;
 	}
 	

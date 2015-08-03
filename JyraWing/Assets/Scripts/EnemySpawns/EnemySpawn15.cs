@@ -26,7 +26,7 @@ public class EnemySpawn15 : EnemySpawner {
 		EnemyAI9 enemyAI2 = enemy2.GetComponent<EnemyAI9> ();
 		enemyAI2.fireRate = 1.1f;
 		enemyAI2.fireDelay = 0.3f;
-		enemyAI2.startDelay = 1.5f;
+		enemyAI2.startDelay = 1.0f;
 		enemy2 = Instantiate (enemy2);
 		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (2);
 
@@ -37,7 +37,7 @@ public class EnemySpawn15 : EnemySpawner {
 		EnemyAI9 enemyAI3 = enemy3.GetComponent<EnemyAI9> ();
 		enemyAI3.fireRate = 0.7f;
 		enemyAI3.fireDelay = 0.6f;
-		enemyAI3.startDelay = 2.5f;
+		enemyAI3.startDelay = 1.5f;
 		enemy3 = Instantiate (enemy3);
 		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (2);
 
@@ -49,7 +49,7 @@ public class EnemySpawn15 : EnemySpawner {
 		EnemyAI9 enemyAI4 = enemy3.GetComponent<EnemyAI9> ();
 		enemyAI4.fireRate = 0.7f;
 		enemyAI4.fireDelay = 0.6f;
-		enemyAI4.startDelay = 3.5f;
+		enemyAI4.startDelay = 2.0f;
 		enemy4 = Instantiate (enemy4);
 		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (2);
 
@@ -62,7 +62,7 @@ public class EnemySpawn15 : EnemySpawner {
 		EnemyAI9 enemyAI5 = enemy5.GetComponent<EnemyAI9> ();
 		enemyAI5.fireRate = 1.3f;
 		enemyAI5.fireDelay = 0.9f;
-		enemyAI5.startDelay = 4.5f;
+		enemyAI5.startDelay = 2.5f;
 		enemy5 = Instantiate (enemy5);
 		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (2);
 
@@ -72,7 +72,7 @@ public class EnemySpawn15 : EnemySpawner {
 		
 		group.SetPowerupObject (PowerupGroup.PowerupType.Speed);
 		group.AddToSquad (enemy1);
-		group.AddToSquad (enemy2 );
+		group.AddToSquad (enemy2);
 		group.AddToSquad (enemy3);
 		group.AddToSquad (enemy4);
 		group.AddToSquad (enemy5);

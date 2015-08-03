@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn19.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
@@ -79,10 +80,12 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
      <Compile Include="Assets\Scripts\Powerups\BulletPowerup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
+     <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Singletons\GameController.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player.cs" />
