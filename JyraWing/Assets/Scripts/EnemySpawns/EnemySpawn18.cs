@@ -3,6 +3,9 @@ using System.Collections;
 
 public class EnemySpawn18 : EnemySpawner {
 
+	public int diamondHealth;
+	public int shipHealth;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
@@ -20,7 +23,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI1.time = 1.5f;
 		enemyAI1.repeat = true;
 		enemy1 = Instantiate (enemy1);
-
+		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 		//second diamond
@@ -36,6 +39,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI2.time = 1.5f;
 		enemyAI2.repeat = true;
 		enemy2 = Instantiate (enemy2);
+		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 	
@@ -52,6 +56,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI3.time = 1.5f;
 		enemyAI3.repeat = true;
 		enemy3 = Instantiate (enemy3);
+		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 
@@ -68,6 +73,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI4.time = 1.5f;
 		enemyAI4.repeat = true;
 		enemy4 = Instantiate (enemy4);
+		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 
@@ -78,28 +84,92 @@ public class EnemySpawn18 : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();
 		ai5.angle = 180f;
-		ai5.speed = 0.5f;
-		ai5.lifeTime = 40.0f;
+		ai5.speed = 1.0f;
+		ai5.lifeTime = 30.0f;
 		ai5.fireRate = 2.5f;
-		ai5.bulletSpeed = 2f;
-		ai5.hits = 5;
+		ai5.bulletSpeed = 6f;
+		ai5.hits = shipHealth;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 
 
-
+		//Second ship enemy
 		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_F");
 		enemy6.transform.position = new Vector3 (11.0f, 0.0f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAI6 ai6 = enemy6.GetComponent<EnemyAI6> ();
 		ai6.angle = 180f;
-		ai6.speed = 0.5f;
-		ai6.lifeTime = 40.0f;
+		ai6.speed = 1.0f;
+		ai6.lifeTime = 30.0f;
 		ai6.fireRate = 2.5f;
-		ai6.bulletSpeed = 2f;
-		ai6.hits = 5;
+		ai6.bulletSpeed = 6f;
+		ai6.hits = shipHealth;
 		enemy6.GetComponent<Scroll> ().speed = 0;
 		enemy6 = Instantiate (enemy6);
+
+
+		//First ship enemy
+		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		enemy7.transform.position = new Vector3 (8.0f, 2.5f, 0f);
+		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai7 = enemy7.GetComponent<EnemyAI6> ();
+		ai7.angle = 180f;
+		ai7.speed = 1.0f;
+		ai7.lifeTime = 30.0f;
+		ai7.fireRate = 2.5f;
+		ai7.bulletSpeed = 6f;
+		ai7.hits = shipHealth;
+		enemy7.GetComponent<Scroll> ().speed = 0;
+		enemy7 = Instantiate (enemy7);
+		
+		
+		//Second ship enemy
+		GameObject enemy8 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		enemy8.transform.position = new Vector3 (11.0f, 2.5f, 0f);
+		enemy8.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
+		ai8.angle = 180f;
+		ai8.speed = 1.0f;
+		ai8.lifeTime = 30.0f;
+		ai8.fireRate = 2.5f;
+		ai8.bulletSpeed = 6f;
+		ai8.hits = shipHealth;
+		enemy8.GetComponent<Scroll> ().speed = 0;
+		enemy8 = Instantiate (enemy8);
+
+
+		//First ship enemy
+		GameObject enemy9 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		enemy9.transform.position = new Vector3 (8.0f, -2.5f, 0f);
+		enemy9.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy9.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai9 = enemy9.GetComponent<EnemyAI6> ();
+		ai9.angle = 180f;
+		ai9.speed = 1.0f;
+		ai9.lifeTime = 30.0f;
+		ai9.fireRate = 2.5f;
+		ai9.bulletSpeed = 6f;
+		ai9.hits = shipHealth;
+		enemy9.GetComponent<Scroll> ().speed = 0;
+		enemy9 = Instantiate (enemy9);
+		
+		
+		//Second ship enemy
+		GameObject enemy10 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		enemy10.transform.position = new Vector3 (11.0f, -2.5f, 0f);
+		enemy10.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy10.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai10 = enemy10.GetComponent<EnemyAI6> ();
+		ai10.angle = 180f;
+		ai10.speed = 1.0f;
+		ai10.lifeTime = 30.0f;
+		ai10.fireRate = 2.5f;
+		ai10.bulletSpeed = 6f;
+		ai10.hits = shipHealth;
+		enemy10.GetComponent<Scroll> ().speed = 0;
+		enemy10 = Instantiate (enemy10);
 	}
 }

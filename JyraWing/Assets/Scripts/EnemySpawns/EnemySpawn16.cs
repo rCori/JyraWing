@@ -9,7 +9,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 		//Top diamond enemy
 		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_H");
-		enemy1.transform.position = new Vector3 (-7.0f, 2.5f, 0f);
+		enemy1.transform.position = new Vector3 (-7.0f, 3.5f, 0f);
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
@@ -24,7 +24,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 		//Bottom diamond enemy
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_H");
-		enemy2.transform.position = new Vector3 (-7.0f, -2.5f, 0f);
+		enemy2.transform.position = new Vector3 (-7.0f, -3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
@@ -39,7 +39,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 		//top-mid diamond enemy
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_H");
-		enemy3.transform.position = new Vector3 (-8.5f, 1.5f, 0f);
+		enemy3.transform.position = new Vector3 (-9.0f, 2.0f, 0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
@@ -54,7 +54,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 		//bottom-mid diamond enemy
 		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_H");
-		enemy3.transform.position = new Vector3 (-8.5f, -1.5f, 0f);
+		enemy3.transform.position = new Vector3 (-9.0f, -2.0f, 0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
 		enemyBehavior4.bulletPool = bulletPool;
@@ -67,9 +67,9 @@ public class EnemySpawn16 : EnemySpawner {
 		enemy4 = Instantiate (enemy4);
 
 
-		//bottom-mid diamond enemy
+		//middle diamon enemy
 		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_H");
-		enemy5.transform.position = new Vector3 (-9.5f, 0f, 0f);
+		enemy5.transform.position = new Vector3 (-11.0f, 0f, 0f);
 		
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
 		enemyBehavior5.bulletPool = bulletPool;

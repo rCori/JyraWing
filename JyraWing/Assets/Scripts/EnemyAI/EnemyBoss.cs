@@ -340,7 +340,6 @@ public class EnemyBoss : EnemyBehavior {
 		fireTimer = 0;
 		fireTimeLimit = 0;
 		int patternNum = bag.Next ();
-		Debug.Log ("patternNum is " + patternNum);
 		pattern = patternNum;
 	}
 

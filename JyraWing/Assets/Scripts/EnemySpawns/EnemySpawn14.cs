@@ -3,6 +3,9 @@ using System.Collections;
 
 public class EnemySpawn14 : EnemySpawner {
 
+
+	public int turretHealth;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
@@ -35,7 +38,7 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyAI2.time = 15f;
 		enemyAI2.repeat = false;
 		enemy2 = Instantiate (enemy2);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
+		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
 
 		//Top turret
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_D");
@@ -45,6 +48,8 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyBehavior3.bulletPool = bulletPool;
 
 		enemy3 = Instantiate (enemy3);
+		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 
 		//Bottom turret
@@ -55,6 +60,8 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyBehavior4.bulletPool = bulletPool;
 		
 		enemy4 = Instantiate (enemy4);
+		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 
 		//End tank at the end of the screen
@@ -68,6 +75,8 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyAI5.direction = EnemyAI5.TankDir.Left;
 
 		enemy5 = Instantiate (enemy5);
+
+
 
 		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
 		

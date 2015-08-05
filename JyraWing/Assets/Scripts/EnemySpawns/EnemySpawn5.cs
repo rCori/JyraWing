@@ -5,6 +5,7 @@ public class EnemySpawn5 : EnemySpawner {
 
 	public bool extraEnemies;
 	public bool spawnSpeedPowerup;
+	public int enemyHealth;
 
 	public override void Spawn ()
 	{
@@ -17,6 +18,9 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.z);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy1 = Instantiate (enemy1);
+		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHealth);
+
+
 
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy2.transform.position = new Vector3(spawnPos.x+0.5f,
@@ -24,6 +28,9 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.z);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy2 = Instantiate (enemy2);
+		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHealth);
+
+
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy3.transform.position = new Vector3(spawnPos.x+0.5f,
@@ -31,6 +38,8 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.z);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy3 = Instantiate (enemy3);
+		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHealth);
+
 
 		if (spawnSpeedPowerup) {
 			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
@@ -54,6 +63,9 @@ public class EnemySpawn5 : EnemySpawner {
 		                                        spawnPos.z);
 			enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			Instantiate (enemy4);
+			enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHealth);
+
+
 
 			GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 			enemy5.transform.position = new Vector3 (spawnPos.x + 0.5f,
@@ -61,6 +73,7 @@ public class EnemySpawn5 : EnemySpawner {
 			                                         spawnPos.z);
 			enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			Instantiate (enemy5);
+			enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHealth);
 
 		}
 	}

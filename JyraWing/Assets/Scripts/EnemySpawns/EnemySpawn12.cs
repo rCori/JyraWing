@@ -3,7 +3,9 @@ using System.Collections;
 
 public class EnemySpawn12 : EnemySpawner {
 
-	public int enemyHitPoints;
+
+	public int turretHealth;
+	public int shipHealth;
 
 	public override void Spawn ()
 	{
@@ -14,11 +16,15 @@ public class EnemySpawn12 : EnemySpawner {
 		enemy1.transform.position = new Vector3 (8.5f, 3.7f, 0f);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy1 = Instantiate (enemy1);
+		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy2.transform.position = new Vector3 (8.5f, -3.7f, 0f);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy2 = Instantiate (enemy2);
+		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_F");
@@ -31,7 +37,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai3.lifeTime = 20.0f;
 		ai3.fireRate = 2.5f;
 		ai3.bulletSpeed = 2f;
-		ai3.hits = enemyHitPoints;
+		ai3.hits = shipHealth;
 		enemy3.GetComponent<Scroll> ().speed = 0;
 		enemy3 = Instantiate (enemy3);
 
@@ -45,7 +51,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai4.lifeTime = 30.0f;
 		ai4.fireRate = 2.5f;
 		ai4.bulletSpeed = 2f;
-		ai4.hits = enemyHitPoints;
+		ai4.hits = shipHealth;
 		enemy4.GetComponent<Scroll> ().speed = 0;
 		enemy4 = Instantiate (enemy4);
 
@@ -59,7 +65,7 @@ public class EnemySpawn12 : EnemySpawner {
 		ai5.lifeTime = 20.0f;
 		ai5.fireRate = 2.5f;
 		ai5.bulletSpeed = 2f;
-		ai5.hits = enemyHitPoints;
+		ai5.hits = shipHealth;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 

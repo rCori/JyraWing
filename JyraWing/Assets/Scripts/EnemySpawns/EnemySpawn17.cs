@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemySpawn17 : EnemySpawner {
 
+	public int turretHealth;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
@@ -13,9 +15,9 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
-		
-		enemy1 = Instantiate (enemy1);
 
+		enemy1 = Instantiate (enemy1);
+		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		//Second bottom turret
@@ -24,8 +26,9 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
-		
+
 		enemy2 = Instantiate (enemy2);
+		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 
@@ -35,8 +38,10 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
-		
+
 		enemy3 = Instantiate (enemy3);
+		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 
 		//Third top turret
@@ -45,8 +50,9 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
 		enemyBehavior4.bulletPool = bulletPool;
-		
+
 		enemy4 = Instantiate (enemy4);
+		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		//Third top turret
@@ -55,8 +61,11 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
 		enemyBehavior5.bulletPool = bulletPool;
-		
+
 		enemy5 = Instantiate (enemy5);
+		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
+
 
 		//End tank at the end of the screen
 		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_E");
@@ -67,7 +76,7 @@ public class EnemySpawn17 : EnemySpawner {
 		
 		EnemyAI5 enemyAI6 = enemy6.GetComponent<EnemyAI5> ();
 		enemyAI6.direction = EnemyAI5.TankDir.Left;
-		
+
 		enemy6 = Instantiate (enemy6);
 	}
 

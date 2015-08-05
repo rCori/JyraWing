@@ -5,6 +5,7 @@ public class EnemySpawn11 : EnemySpawner {
 
 	public bool top;
 	public bool bottom;
+	public int turretHealth;
 
 	public override void Spawn ()
 	{

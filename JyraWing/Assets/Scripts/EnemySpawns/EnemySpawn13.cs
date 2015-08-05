@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class EnemySpawn13 : EnemySpawner {
+
+	public int turretHealth;
+
 	public override void Spawn ()
 	{
 		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
@@ -45,11 +48,15 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy6.transform.position = new Vector3 (5.5f, 3.7f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6 = Instantiate (enemy6);
-		
+		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
+
 		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy7.transform.position = new Vector3 (5.5f, -3.7f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7 = Instantiate (enemy7);
+		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
+
 
 		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
 			

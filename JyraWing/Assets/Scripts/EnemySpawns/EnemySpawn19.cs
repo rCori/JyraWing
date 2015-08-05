@@ -17,7 +17,7 @@ public class EnemySpawn19 : EnemySpawner {
 		EnemyAI7 enemyAI1 = enemy1.GetComponent<EnemyAI7> ();
 		enemyAI1.bulletSpeed = 3.5f;
 		enemyAI1.shotTime = 0.5f;
-		enemyAI1.health = 10;
+		enemyAI1.health = 40;
 		enemy1 = Instantiate (enemy1);
 		
 
