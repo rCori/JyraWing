@@ -45,14 +45,14 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy5 = Instantiate (enemy5);
 
 		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_D");
-		enemy6.transform.position = new Vector3 (5.5f, 3.7f, 0f);
+		enemy6.transform.position = new Vector3 (7.0f, 3.3f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6 = Instantiate (enemy6);
 		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_D");
-		enemy7.transform.position = new Vector3 (5.5f, -3.7f, 0f);
+		enemy7.transform.position = new Vector3 (7.0f, -3.3f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7 = Instantiate (enemy7);
 		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);

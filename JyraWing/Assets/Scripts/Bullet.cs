@@ -43,18 +43,24 @@ public class Bullet : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 0f);
 	}
 
+	/// <summary>
+	/// Shoot the player bullet at an upward angle for the spreadshot.
+	/// </summary>
 	public void ShootUp(){
 		isActive = true;
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, -2f);
 	}
 
+	/// <summary>
+	/// Shoot the player bullet at an downward angle for the spreadshot.
+	/// </summary>
 	public void ShootDown(){
 		isActive = true;
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 2f);
 	}
 
 	/// <summary>
-	/// Public interface for getting rid of a bullet.
+	/// Public interface for getting rid of a bullet and setting it inactive
 	/// </summary>
 	public void BulletDestroy(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);

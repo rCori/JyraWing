@@ -216,7 +216,7 @@ public class EnemyBoss : EnemyBehavior {
 				break;
 			case 2:
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				StartNewVelocity(new Vector2(-8.0f, 0f), 1f);
+				StartNewVelocity(new Vector2(-10.0f, 0f), 1.1f);
 				moveState++;
 				break;
 			case 3:

@@ -15,6 +15,7 @@ public class enemyBulletPool : MonoBehaviour {
 	/// </summary>
 	List<GameObject> bulletPool;
 
+	private int nextBulletIndex;
 
 	// Use this for initialization
 	void Start () {
