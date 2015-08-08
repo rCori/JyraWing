@@ -10,7 +10,7 @@ public class EnemySpawn12 : EnemySpawner {
 	public override void Spawn ()
 	{
 
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy1.transform.position = new Vector3 (8.5f, 3.3f, 0f);

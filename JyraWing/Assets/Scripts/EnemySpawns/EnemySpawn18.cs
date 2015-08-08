@@ -8,7 +8,7 @@ public class EnemySpawn18 : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//first diamond
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_H");

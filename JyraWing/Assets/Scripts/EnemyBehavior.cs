@@ -11,12 +11,12 @@ public class EnemyBehavior : MonoBehaviour {
 	Vector3 startPos;
 	Vector3 endPos;
 	MovementStatus moveStatus;
-	
+
 	int hitPoints;
 	
 	AudioSource explosionSfx;
 
-	public enemyBulletPool bulletPool;
+	public EnemyBulletPool bulletPool;
 	public GameController gameController;
 	private SoundEffectPlayer sfxPlayer;
 

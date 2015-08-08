@@ -36,20 +36,19 @@ public class EnemyBoss : EnemyBehavior {
 
 		//Set up shuffle bag
 		createShuffleBag ();
-		incrementPattern ();
+		changePattern ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Do any of the 4 patterns.
+		//Do the selected pattern.
 		if (pattern == 0) {
 			spreadShot ();
 		} else if (pattern == 1) {
 			straightShot ();
 		} else if (pattern == 2) {
 			trackAndRam();
-		}
-		else if (pattern == 3){
+		}else if (pattern == 3){
 			sprayShot ();
 		}
 
@@ -110,13 +109,15 @@ public class EnemyBoss : EnemyBehavior {
 				Shoot (new Vector2 (-6f, -3f));
 				Shoot (new Vector2 (-6f, -4f));
 				moveState = 1;
+				//The pattern has gone through an iteration
 				patternCounter++;
 				break;
 			}
 		}
 
+		//AFter 4 iterations of the pattern, go to a new pattern.
 		if (patternCounter > 3) {
-			incrementPattern();
+			changePattern();
 		}
 	}
 
@@ -155,7 +156,7 @@ public class EnemyBoss : EnemyBehavior {
 		}
 
 		if (patternCounter > 3) {
-			incrementPattern();
+			changePattern();
 		}
 
 		fireTimer += Time.deltaTime;
@@ -229,7 +230,7 @@ public class EnemyBoss : EnemyBehavior {
 		// Increment the pattern counter
 		// This pattern happens twice.
 		if (patternCounter > 3) {
-			incrementPattern();
+			changePattern();
 			moveState = 0;
 		}
 
@@ -253,6 +254,7 @@ public class EnemyBoss : EnemyBehavior {
 			fireTimer = 0.0f;
 		}
 	}
+
 
 	void sprayShot(){
 		if (GetIsTimeUp ()) {
@@ -318,7 +320,7 @@ public class EnemyBoss : EnemyBehavior {
 			// Increment the pattern counter
 			// This pattern happens twice.
 			if (patternCounter > 3) {
-				incrementPattern();
+				changePattern();
 				moveState = 0;
 			}
 			StartStandStill(0.5f);	
@@ -329,7 +331,7 @@ public class EnemyBoss : EnemyBehavior {
 	/// <summary>
 	/// Increments the pattern and resets counters used in any partiucalr pattern.
 	/// </summary>
-	void incrementPattern(){
+	void changePattern(){
 		StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
 		shuffleBagCounter++;
 		if (shuffleBagCounter > 3) {

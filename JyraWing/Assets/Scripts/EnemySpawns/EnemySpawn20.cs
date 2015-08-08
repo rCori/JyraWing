@@ -1,27 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn19 : EnemySpawner {
+public class EnemySpawn20 : EnemySpawner {
 
 	public int diamondHealth;
 
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_G");
-		enemy1.transform.position = new Vector3(9.0f, 0f,0f);
-		
-		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
-		enemyBehavior1.bulletPool = bulletPool;
-		enemyBehavior1.LeftWallException = false;
-		
-		EnemyAI7 enemyAI1 = enemy1.GetComponent<EnemyAI7> ();
-		enemyAI1.bulletSpeed = 3.5f;
-		enemyAI1.shotTime = 0.5f;
-		enemyAI1.health = 40;
-		enemy1 = Instantiate (enemy1);
-		
 
 
 

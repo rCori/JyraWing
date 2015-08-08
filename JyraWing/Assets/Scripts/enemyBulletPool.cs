@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class enemyBulletPool : MonoBehaviour {
+public class EnemyBulletPool : MonoBehaviour {
 
 	/// <summary>
 	/// Total number of bullets in the pool
@@ -14,8 +14,7 @@ public class enemyBulletPool : MonoBehaviour {
 	/// This pool will contains all bullets for all enemies
 	/// </summary>
 	List<GameObject> bulletPool;
-
-	private int nextBulletIndex;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -35,10 +34,12 @@ public class enemyBulletPool : MonoBehaviour {
 		for (int i= 0; i < totalBullets; i++) {
 			GameObject bulletObj = bulletPool [i];
 			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
-			if (!bullet.GetIsActive ()) {
+			if (!bullet.GetIsActive ()) {;
 				return bulletObj;
 			}
 		}
+		Debug.Log ("returning null bullet");
 		return null;
 	}
+	
 }

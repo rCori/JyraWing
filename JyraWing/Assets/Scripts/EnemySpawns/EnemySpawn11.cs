@@ -9,7 +9,7 @@ public class EnemySpawn11 : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		if (top) {
 			//top

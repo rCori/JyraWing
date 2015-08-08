@@ -5,7 +5,7 @@ public class EnemySpawn15 : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_I");
 
@@ -66,17 +66,5 @@ public class EnemySpawn15 : EnemySpawner {
 		enemy5 = Instantiate (enemy5);
 		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (2);
 
-		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-
-		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-		
-		group.SetPowerupObject (PowerupGroup.PowerupType.Speed);
-		group.AddToSquad (enemy1);
-		group.AddToSquad (enemy2);
-		group.AddToSquad (enemy3);
-		group.AddToSquad (enemy4);
-		group.AddToSquad (enemy5);
-		
-		controller.AddSquad (group);
 	}
 }

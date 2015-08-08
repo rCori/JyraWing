@@ -29,11 +29,6 @@ public class EnemyBullet : MonoBehaviour {
 			gameObject.transform.position = new Vector2(0,10f);
 			isActive = false;
 		}
-
-		if (other.tag == "Shield") {
-			gameObject.transform.position = new Vector2(0,10f);
-			isActive = false;
-		}
 	}
 
 	public bool GetIsActive(){
@@ -44,7 +39,6 @@ public class EnemyBullet : MonoBehaviour {
 	public void Shoot(){
 		isActive = true;
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (-5.0f, 0f);
-
 	}
 
 	public void Shoot(Vector2 i_dir){

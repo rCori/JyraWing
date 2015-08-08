@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
+     <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn19.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn20.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
@@ -98,7 +100,6 @@
      <Compile Include="Assets\Scripts\UI\LevelComplete.cs" />
      <Compile Include="Assets\Scripts\UI\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
-     <Compile Include="Assets\Scripts\enemyBulletPool.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

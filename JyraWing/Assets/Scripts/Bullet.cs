@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour {
 
 	private bool isActive;
 
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0f);

@@ -7,7 +7,7 @@ public class BossSpawn1 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool>();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_Boss");
 		enemy1.transform.position = new Vector3(spawnPos.x + 4f,

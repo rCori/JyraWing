@@ -13,7 +13,7 @@ public class EnemySpawnShip : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		enemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<enemyBulletPool> ();
+		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_F");
 		enemy1.transform.position = enemyPosition;
