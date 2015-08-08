@@ -15,13 +15,14 @@ public class GameController : MonoBehaviour {
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	private List<PowerupGroup> squadList;
+	//private Hashtable squadTable;
 
 	// Use this for initialization
 	void Start () {
 		gameOverTimer = 0.0f;
 		isGameOver = false;
 		squadList = new List<PowerupGroup> ();
-		//pixelPerfectCamera ();
+		//squadTable = new Hashtable ();
 	}
 	
 	// Update is called once per frame
@@ -92,10 +93,12 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	//REmove th powerupgroup but don't spawn anything.
+	///<summary>
+	/// Remove the powerupgroup but don't spawn anything.
+	///</summary>
 	public bool CheckSquadAndRemove(int i_id, GameObject i_lastRemaining){
 		//If the squad exists
-		if (/*squadList[i_id]!= null*/squadList.Count > i_id) {
+		if (squadList.Count > i_id) {
 			//If Squad has everything gone except the last enemy
 			if(squadList[i_id].IsSquadGone(i_lastRemaining))
 			{
@@ -108,7 +111,9 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	//Returns what the ID for the next squad should be.
+	/// <summary>
+	/// Returns what the ID for the next squad should be.
+	/// </summary>
 	public int GetNextSquadID(){
 		return squadList.Count;
 	}
@@ -134,6 +139,10 @@ public class GameController : MonoBehaviour {
 		return false;
 	}
 
+	/// <summary>
+	/// Adjusts the squad IDs of every squad with an ID less than 
+	/// </summary>
+	/// <param name="i_id">I_id.</param>
 	private void adjustSquadIDs(int i_id){
 		//Check each PowerupGroup if  it's ID needs to change.
 		for(int i = 0; i < squadList.Count; i++) {

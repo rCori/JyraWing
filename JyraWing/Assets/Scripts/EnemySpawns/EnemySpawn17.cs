@@ -78,6 +78,40 @@ public class EnemySpawn17 : EnemySpawner {
 		enemyAI6.direction = EnemyAI5.TankDir.Left;
 
 		enemy6 = Instantiate (enemy6);
+
+
+		//Ship going right
+		GameObject enemy7 = (GameObject) Resources.Load ("Enemies/Enemy_F");
+		enemy7.transform.position = new Vector2(-20.0f, -1.5f);
+		
+		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai7 = enemy7.GetComponent<EnemyAI6> ();
+		ai7.angle = 0.0f;
+		ai7.speed = 3.0f;
+		ai7.lifeTime = 15f;
+		ai7.fireRate = 0.5f;
+		ai7.bulletSpeed = 6f;
+		ai7.hits = -1;
+		enemy7.GetComponent<Scroll> ().speed = 1;
+		enemy7 = Instantiate (enemy7);
+
+
+		//Ship going left
+		GameObject enemy8 = (GameObject) Resources.Load ("Enemies/Enemy_F");
+		enemy8.transform.position = new Vector2(28.0f, 1.5f);
+		
+		enemy8.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
+		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
+		ai8.angle = 180.0f;
+		ai8.speed = 3.0f;
+		ai8.lifeTime = 12f;
+		ai8.fireRate = 0.5f;
+		ai8.bulletSpeed = 6f;
+		ai8.hits = -1;
+		enemy8.GetComponent<Scroll> ().speed = 1;
+		enemy8 = Instantiate (enemy8);
 	}
 
 }

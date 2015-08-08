@@ -2,6 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+
+/// <summary>
+/// A powerup group is a collection of enemies that when all destroyed by the
+/// player, will drop a specified powerup. Those powerups can be Speed or
+/// Bullet
+/// </summary>
 public class PowerupGroup {
 	private List<GameObject> squad;
 	int id;
@@ -56,6 +63,13 @@ public class PowerupGroup {
 		}
 	}
 
+	/// <summary>
+	/// Adjusts the squad I.
+	/// If two groups are present at the same time and the group
+	/// with the smaller id is destroyed, the group ID of the remaining
+	/// group must be adjusted. 
+	/// </summary>
+	/// <param name="amount">Amount.</param>
 	public void AdjustSquadID(int amount){
 		//typically amount will be -1
 		id += amount;

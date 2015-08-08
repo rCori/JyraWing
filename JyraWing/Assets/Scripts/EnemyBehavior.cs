@@ -6,22 +6,71 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	public enum MovementStatus {None, Lerp, Slerp, Velocity}
 
+
+	/// <summary>
+	/// How long the current move operation has been going for.
+	/// Time will be up when moveTimeLimit < moveTimer
+	/// </summary>
 	float moveTimer;
+
+	/// <summary>
+	/// How long a move operation will go for
+	/// </summary>
 	float moveTimeLimit;
+
+	/// <summary>
+	/// The start position for a movement
+	/// Used primarily by the Lerp and Slerp movement
+	/// </summary>
 	Vector3 startPos;
+
+	/// <summary>
+	/// The end position for a movement
+	/// Used primarily by the Lerp and Slerp movement
+	/// </summary>
 	Vector3 endPos;
+
+	/// <summary>
+	/// The move status.
+	/// </summary>
 	MovementStatus moveStatus;
 
+	/// <summary>
+	/// How many bullets an enemy will take before it goes down.
+	/// Default is 1.
+	/// </summary>
 	int hitPoints;
 	
 	AudioSource explosionSfx;
 
+	/// <summary>
+	/// The bullet pool. To shoot the enemy must request a bullet from the pool.
+	/// </summary>
 	public EnemyBulletPool bulletPool;
+
+	/// <summary>
+	/// The game controller.
+	/// Connection to other in game objects and events
+	/// </summary>
 	public GameController gameController;
+
+	/// <summary>
+	/// Plays sound effects for explosions.
+	/// </summary>
 	private SoundEffectPlayer sfxPlayer;
 
+
+	/// <summary>
+	/// If the enemy is part of a group that will drop a powerup when it dies, this id assigns it to that group
+	/// </summary>
 	private int powerupGroupID;
 
+
+	/// <summary>
+	/// If this is false, the enemy will be destoryed when it stouches the left barrier
+	/// If true, the enemy can pass through the barrier unharmed
+	/// By default this is false but if the enemy is going to come from the left side of the screen, this needs to be true.
+	/// </summary>
 	public bool LeftWallException;
 
 	/// <summary>
@@ -32,6 +81,7 @@ public class EnemyBehavior : MonoBehaviour {
 		moveTimeLimit = 0f;
 		moveStatus = MovementStatus.None;
 		hitPoints = 1;
+		//By default an enemy belongs to no powerup group.
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 
