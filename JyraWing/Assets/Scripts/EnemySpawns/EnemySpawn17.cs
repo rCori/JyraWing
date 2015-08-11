@@ -78,11 +78,13 @@ public class EnemySpawn17 : EnemySpawner {
 		enemyAI6.direction = EnemyAI5.TankDir.Left;
 
 		enemy6 = Instantiate (enemy6);
+		//Set the tanks health to 3
+		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 		//Ship going right
 		GameObject enemy7 = (GameObject) Resources.Load ("Enemies/Enemy_F");
-		enemy7.transform.position = new Vector2(-20.0f, -1.5f);
+		enemy7.transform.position = new Vector2(-15.0f, -1.5f);
 		
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
@@ -90,9 +92,9 @@ public class EnemySpawn17 : EnemySpawner {
 		ai7.angle = 0.0f;
 		ai7.speed = 3.0f;
 		ai7.lifeTime = 15f;
-		ai7.fireRate = 0.5f;
-		ai7.bulletSpeed = 6f;
-		ai7.hits = -1;
+		ai7.fireRate = 0.7f;
+		ai7.bulletSpeed = 4f;
+		ai7.hits = 1;
 		enemy7.GetComponent<Scroll> ().speed = 1;
 		enemy7 = Instantiate (enemy7);
 
@@ -105,11 +107,11 @@ public class EnemySpawn17 : EnemySpawner {
 		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
 		ai8.angle = 180.0f;
-		ai8.speed = 3.0f;
+		ai8.speed = 2.0f;
 		ai8.lifeTime = 12f;
-		ai8.fireRate = 0.5f;
-		ai8.bulletSpeed = 6f;
-		ai8.hits = -1;
+		ai8.fireRate = 0.7f;
+		ai8.bulletSpeed = 4f;
+		ai8.hits = 1;
 		enemy8.GetComponent<Scroll> ().speed = 1;
 		enemy8 = Instantiate (enemy8);
 	}

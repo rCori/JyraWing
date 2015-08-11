@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour {
 
 	public Player player;
+
+
 	public UIController uiController;
 
 	private float gameOverTimer;

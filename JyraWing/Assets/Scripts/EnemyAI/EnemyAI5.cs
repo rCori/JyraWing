@@ -1,50 +1,121 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAI5 : EnemyBehavior {
 
-	//Expermienting with not having a fire timer.
-	//private float shootTimer;
+/// <summary>
+/// The AI for the tank enemy
+/// Moves at two different speeds in a single direction
+/// Starts fast, then slow, then after stops and fires in a 3 bullet spread.
+/// By setting TankDir direction, the enemy can do this in any of the 4 cardinal directions
+/// </summary>
+public class EnemyAI5 : EnemyBehavior {
+	
 	private int moveState;
 
-	public enum TankDir {Left =0, Right, Up, Down};
+	public enum TankDir {Left = 0, Right, Up, Down};
 	public TankDir direction;
 
 	//public float fireRate;
 
+	/// <summary>
+	/// Fast speed vector
+	/// </summary>
 	private Vector2 fastVec;
-	private Vector2 slowVec;
-	// Use this for initialization
-	void Start () {
+
+	/// <summary>
+	/// Slow speed vector
+	/// </summary>
+	private Vector2 slowVec; 
+
+	/// <summary>
+	/// Vector for straight bullet movement
+	/// </summary>
+	private Vector2 straightBul;
+
+
+	/// <summary>
+	/// Vector for upward bullet movement
+	/// </summary>
+	private Vector2 upBul;
+
+
+	/// <summary>
+	/// Vector for downward bullet movement
+	/// </summary>
+	private Vector2 downBul;
+
+
+	void Awake(){
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
-		//shootTimer = 0.0f;
 		moveState = 0;
-		//Set the direction vectors for each and any direction.
+		//Set the direction vectors for any direction.
 		switch (direction) {
 		case TankDir.Left:
 			fastVec = new Vector2(-2.5f, 0f);
 			slowVec = new Vector2( -1.5f, 0f);
+			
+			straightBul = new Vector2 (-2f, 0);
+			
+			upBul = new Vector2(-1f,1f);
+			upBul.Normalize();
+			upBul *= 2;
+			
+			downBul = new Vector2(-1f,-1f);
+			downBul.Normalize();
+			downBul *= 2;
 			break;
 		case TankDir.Right:
 			fastVec = new Vector2(2.5f, 0f);
 			slowVec = new Vector2(1.5f, 0f);
+			
+			straightBul = new Vector2 (-2f, 0);
+			
+			upBul = new Vector2(1f,1f);
+			upBul.Normalize();
+			upBul *= 2;
+			
+			downBul = new Vector2(1f,-1f);
+			downBul.Normalize();
+			downBul *= 2;
 			transform.Rotate(0f,0f,180f);
 			break;
 		case TankDir.Up:
 			fastVec = new Vector2(0f, 1.5f);
 			slowVec = new Vector2(0f, 0.5f);
+			
+			straightBul = new Vector2(0, 2f);
+			
+			upBul = new Vector2(1f,1f);
+			upBul.Normalize();
+			upBul *= 2;
+			
+			downBul = new Vector2(-1f,1f);
+			downBul.Normalize();
+			downBul *= 2;
 			transform.Rotate(0f,0f,-90f);
 			break;
 		case TankDir.Down:
 			fastVec = new Vector2(0f, -1.5f);
 			slowVec = new Vector2(0f, -0.5f);
+			
+			straightBul = new Vector2(0, -2f);
+			
+			upBul = new Vector2(1f,-1f);
+			upBul.Normalize();
+			upBul *= 2;
+			
+			downBul = new Vector2(-1f,-1f);
+			downBul.Normalize();
+			downBul *= 2;
+			
 			transform.Rotate(0f,0f,90f);
 			break;
 		}
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
 		Movement ();
@@ -52,7 +123,7 @@ public class EnemyAI5 : EnemyBehavior {
 		if (GetIsTimeUp ()) {
 			switch(moveState){
 			case 0:
-				//Fast movement of selectged direction for 1 second
+				//Fast movement of selected direction for 1 second
 				moveState = 1;
 				StartNewVelocity(fastVec, 1f);
 				break;
@@ -73,29 +144,9 @@ public class EnemyAI5 : EnemyBehavior {
 
 	void directionalFire()
 	{
-		switch(direction)
-		{
-		case TankDir.Left:
-			Shoot (new Vector2(-2f,0f));
-			Shoot (new Vector2(-2f,0.5f));
-			Shoot (new Vector2(-2f,-0.5f));
-			break;
-		case TankDir.Right:
-			Shoot (new Vector2(2f,0f));
-			Shoot (new Vector2(2f,0.5f));
-			Shoot (new Vector2(2f,-0.5f));
-			break;
-		case TankDir.Up:
-			Shoot (new Vector2(0f,2f));
-			Shoot (new Vector2(-0.5f,2f));
-			Shoot (new Vector2(0.5f,2f));
-			break;
-		case TankDir.Down:
-			Shoot (new Vector2(0f,-2f));
-			Shoot (new Vector2(-0.5f,-2f));
-			Shoot (new Vector2(0.5f,-2f));
-			break;
-		}
+		Shoot (straightBul);
+		Shoot (upBul);
+		Shoot (downBul);
 	}
 
 	//Should only be needed for the cases where direction is left, down, or up.

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpeedPowerup : MonoBehaviour {
+public class SpeedPowerup : PowerupObject {
 	
 
 	void OnTriggerEnter2D(Collider2D other){

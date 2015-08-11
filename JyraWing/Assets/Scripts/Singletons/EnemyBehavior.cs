@@ -11,37 +11,40 @@ public class EnemyBehavior : MonoBehaviour {
 	/// How long the current move operation has been going for.
 	/// Time will be up when moveTimeLimit < moveTimer
 	/// </summary>
-	float moveTimer;
+	private float moveTimer;
 
 	/// <summary>
 	/// How long a move operation will go for
 	/// </summary>
-	float moveTimeLimit;
+	private float moveTimeLimit;
 
 	/// <summary>
 	/// The start position for a movement
 	/// Used primarily by the Lerp and Slerp movement
 	/// </summary>
-	Vector3 startPos;
+	private Vector3 startPos;
 
 	/// <summary>
 	/// The end position for a movement
 	/// Used primarily by the Lerp and Slerp movement
 	/// </summary>
-	Vector3 endPos;
+	private Vector3 endPos;
 
 	/// <summary>
 	/// The move status.
 	/// </summary>
-	MovementStatus moveStatus;
+	protected MovementStatus moveStatus;
 
 	/// <summary>
 	/// How many bullets an enemy will take before it goes down.
 	/// Default is 1.
 	/// </summary>
-	int hitPoints;
-	
-	AudioSource explosionSfx;
+	private int hitPoints;
+
+	/// <summary>
+	/// Sound effect when the enemy is destroyed
+	/// </summary>
+	private AudioSource explosionSfx;
 
 	/// <summary>
 	/// The bullet pool. To shoot the enemy must request a bullet from the pool.

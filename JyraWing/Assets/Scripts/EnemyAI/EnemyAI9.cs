@@ -10,13 +10,24 @@ public class EnemyAI9 : EnemyBehavior {
 	public float startDelay;
 	bool isFiring;
 	float fireTimer;
+
+	/// <summary>
+	/// If this is true instead of starting at the top and traveling
+	/// diagonally down, the enemy will start at the bottom of the
+	/// screen and move diagonally up.
+	/// </summary>
+	public bool isReverse;
 	// Use this for initialization
 	void Awake () {
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		state = MoveState.begin;
-		transform.position = new Vector2 (7.0f, 5.0f);
+		if (!isReverse) {
+			transform.position = new Vector2 (7.0f, 5.0f);
+		} else {
+			transform.position = new Vector2 (7.0f, -5.0f);
+		}
 		StartStandStill (startDelay);
 		isFiring = false;
 		fireTimer = 0.0f;
@@ -33,12 +44,23 @@ public class EnemyAI9 : EnemyBehavior {
 			switch (state){
 			case MoveState.begin:
 				state = MoveState.top;
-				transform.position = new Vector2 (7.0f, 3.5f);
-				StartNewVelocity (new Vector2 (-3.0f, 0.0f), 1.0f);
+				if(!isReverse){
+					transform.position = new Vector2 (7.0f, 3.5f);
+					StartNewVelocity (new Vector2 (-3.0f, 0.0f), 1.0f);
+				}
+				else{
+					transform.position = new Vector2 (7.0f, -3.5f);
+					StartNewVelocity (new Vector2 (-3.0f, 0.0f), 1.0f);
+				}
 				break;
 			case MoveState.top:
 				state = MoveState.diagonal;
-				StartNewVelocity(new Vector2(-3.0f, -3.5f), 2.0f);
+				if(!isReverse){
+					StartNewVelocity(new Vector2(-3.0f, -3.5f), 2.0f);
+				}
+				else{
+					StartNewVelocity(new Vector2(-3.0f, 3.5f), 2.0f);
+				}
 				break;
 			case MoveState.diagonal:
 				StartNewVelocity (new Vector2 (-3.0f, 0.0f), 1.0f);

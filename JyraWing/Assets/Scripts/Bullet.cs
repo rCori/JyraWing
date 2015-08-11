@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour {
 	/// </summary>
 	public void ShootUp(){
 		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, -2f);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, -8f);
 	}
 
 	/// <summary>
@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour {
 	/// </summary>
 	public void ShootDown(){
 		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 2f);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 8f);
 	}
 
 	/// <summary>

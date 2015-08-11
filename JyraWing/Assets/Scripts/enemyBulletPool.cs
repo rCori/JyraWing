@@ -31,14 +31,19 @@ public class EnemyBulletPool : MonoBehaviour {
 
 
 	public GameObject GetBullet(){
-		for (int i= 0; i < totalBullets; i++) {
-			GameObject bulletObj = bulletPool [i];
-			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
-			if (!bullet.GetIsActive ()) {;
-				return bulletObj;
+		try{
+			for (int i= 0; i < totalBullets; i++) {
+				GameObject bulletObj = bulletPool [i];
+				EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
+				if (!bullet.GetIsActive ()) {;
+					return bulletObj;
+				}
 			}
+			throw new EmptyPoolException();
 		}
-		Debug.Log ("returning null bullet");
+		catch(EmptyPoolException e){
+			Debug.LogError ("EmpyPoolException caught" + e.StackTrace);
+		}
 		return null;
 	}
 	

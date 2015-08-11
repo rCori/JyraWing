@@ -2,10 +2,27 @@
 using System.Collections;
 
 public class EnemyAI4 : EnemyBehavior {
-	
+
+	/// <summary>
+	/// The direction the enemy will fire
+	/// </summary>
 	private Vector2 fireDir;
 
+	/// <summary>
+	/// Running timer for shootin bullets
+	/// </summary>
+
+	///<summary>
+	/// Time couting up to limit when next shot is fired
+	/// </summary>
 	private float shootTimer;
+
+
+	/// <summary>
+	/// TIme between each shot.
+	/// </summary>
+	private float shootTimeLimit;
+
 	private bool isFlipped;
 	Animator animator;
 	
@@ -18,7 +35,9 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer = 0.0f;
-		
+
+		shootTimeLimit = 3.0f;
+
 		animator = gameObject.GetComponent <Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
 		SetExplosionSfx (explosionClip);
@@ -32,7 +51,7 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 		shootTimer += Time.deltaTime;
-		if (shootTimer > 2.0f) {
+		if (shootTimer > shootTimeLimit) {
 		
 			Shoot(fireDir);
 			shootTimer = 0.0f;
