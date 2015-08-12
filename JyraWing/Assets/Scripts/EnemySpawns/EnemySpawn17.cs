@@ -5,6 +5,8 @@ public class EnemySpawn17 : EnemySpawner {
 
 	public int turretHealth;
 
+	public bool turretDropsBullet;
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -80,6 +82,26 @@ public class EnemySpawn17 : EnemySpawner {
 		enemy6 = Instantiate (enemy6);
 		//Set the tanks health to 3
 		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
+
+
+		//Turrets will drop a bullet powerup
+		if (turretDropsBullet) {
+			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+			
+			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+			
+			group.SetPowerupObject (PowerupGroup.PowerupType.Bullet);
+
+			group.AddToSquad(enemy1);
+			group.AddToSquad(enemy2);
+			group.AddToSquad(enemy3);
+			group.AddToSquad(enemy4);
+			group.AddToSquad(enemy5);
+
+			controller.AddSquad(group);
+
+		}
+
 
 
 		//Ship going right

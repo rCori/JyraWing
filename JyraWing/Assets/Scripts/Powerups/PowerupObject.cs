@@ -6,23 +6,32 @@ public class PowerupObject : MonoBehaviour {
 
 	float moveTimer;
 	float moveTimeLimit;
-	Vector3 originalPos;
 	Vector3 startPos;
 	Vector3 destinationPos;
+	Vector3 velocityDir;
 
 	ShuffleBag bag;
 	int pickNum;
 
+	float oneOverRootTwo;
+
+	Vector3 lastPos;
+	
+
 	void Start(){
-		bag = new ShuffleBag (3);
+		bag = new ShuffleBag (4);
 		bag.Add (1, 1);
 		bag.Add (2, 1);
 		bag.Add (3, 1);
+		bag.Add (4, 1);
 		pickNum = 0;
-		//This will give us a time over imediatly
+		//This will give us a time over immediatly
 		moveTimer = 2f;
 		moveTimeLimit = 1f;
-		originalPos = transform.position;
+		oneOverRootTwo = (1.0f / Mathf.Sqrt (2.0f));
+		startPos = new Vector3();
+		lastPos = new Vector3();
+		destinationPos = new Vector3();
 	}
 
 	// Update is called once per frame
@@ -37,9 +46,16 @@ public class PowerupObject : MonoBehaviour {
 	void SlerpMovement(Vector3 start, Vector3 end){
 		float timerVal = moveTimer / moveTimeLimit;
 		//We want to know the difference between the start and where slerp has gotten us now
-		Vector3 diff = start - Vector3.Slerp (start, end, timerVal);
+		//Vector3 diff = start - Vector3.Slerp (start, end, timerVal);
 		//Subtract that difference from the original postiion to get a new position for the object.
-		transform.position = originalPos - diff;
+		//transform.position = originalPos - diff;
+
+		//Get the velocity direction and normalize it
+		velocityDir = Vector3.Slerp (start, end, timerVal) - lastPos;
+		velocityDir.Normalize ();
+		velocityDir.Set (velocityDir.x * 1.2f, velocityDir.y * 1.2f, velocityDir.z * 1.2f);
+		GetComponent<Rigidbody2D>().velocity = velocityDir;
+		lastPos = Vector3.Slerp (start, end, timerVal);
 		moveTimer += Time.deltaTime;
 	}
 
@@ -51,32 +67,42 @@ public class PowerupObject : MonoBehaviour {
 		//Pick a random movement pattern
 		int result = bag.Next ();
 		pickNum++;
-		if (pickNum > 2) {
+		if (pickNum > 3) {
 			bag.Add (1, 1);
 			bag.Add (2, 1);
 			bag.Add (3, 1);
+			bag.Add (4, 1);
 			pickNum = 0;
 		}
 		//Once picked fill all the values for that pick
 		//These values will be same every time
-		originalPos = transform.position;
 		moveTimer = 0f;
 		switch (result) {
 		case 1:
-			startPos = new Vector3(1f,1f);
-			destinationPos = new Vector3(-1f,1f);
+			startPos.Set(1f, 1f, 0f);
+			lastPos.Set(1f, 1f, 0f);
+			destinationPos.Set (-1f, 1f, 0f);
 			moveTimeLimit = 4.0f;
 			break;
 		case 2:
-			startPos = new Vector3(2f,-1f);
-			destinationPos = new Vector3(-3f,-1f);
-			moveTimeLimit = 5.0f;
+			startPos.Set (1f, -1f, 0f);
+			lastPos.Set (1f, -1f, 0f);
+			destinationPos.Set(-1f,-1f, 0f);
+			moveTimeLimit = 4.0f;
 			break;
 		case 3:
-			startPos = new Vector3(0f,-1f);
-			destinationPos = new Vector3(-1.5f,-0f);
-			moveTimeLimit = 3.0f;
+			startPos.Set (0f, -1f, 0f);
+			lastPos.Set (0f, -1f, 0f);
+			destinationPos.Set (-oneOverRootTwo, -oneOverRootTwo, 0f);
+			moveTimeLimit = 4.0f;
+			break;
+		case 4:
+			startPos.Set(0f, 1f, 0f);
+			lastPos.Set (0f, 1f, 0f);
+			destinationPos.Set (-oneOverRootTwo, oneOverRootTwo, 0f);
+			moveTimeLimit = 4.0f;
 			break;
 		}
+
 	}
 }

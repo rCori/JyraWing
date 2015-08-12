@@ -1,13 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Powerups\PowerupObject.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn17.cs">
     <Files>
-      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="41" Column="94" />
-      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\SpeedPowerup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\BulletPowerup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ShuffleBag.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="51" Column="45" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" Line="102" Column="4" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn12.cs" Line="76" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

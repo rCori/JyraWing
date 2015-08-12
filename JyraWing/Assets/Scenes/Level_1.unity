@@ -1169,7 +1169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2109103655}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &617805187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPosition: {x: 8, y: -2}
-  shipHealth: 1
+  shipHealth: 2
   speed: 3
   angle: 180
   lifeTime: 6
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPosition: {x: 8, y: 2}
-  shipHealth: 1
+  shipHealth: 2
   speed: 3
   angle: 180
   lifeTime: 6
@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPosition: {x: 8, y: 2}
-  shipHealth: 1
+  shipHealth: 2
   speed: 3
   angle: 180
   lifeTime: 6
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   enemyPosition: {x: 1, y: 4}
   shipHealth: 3
   speed: 3.5
-  angle: 250
+  angle: 290
   lifeTime: 5
   fireRate: .699999988
   bulletSpeed: 5
@@ -2956,7 +2956,7 @@ MonoBehaviour:
   enemyPosition: {x: 1, y: -4}
   shipHealth: 3
   speed: 3.5
-  angle: 110
+  angle: 70
   lifeTime: 5
   fireRate: .699999988
   bulletSpeed: 5
@@ -3139,6 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretHealth: 3
+  turretDropsBullet: 1
 --- !u!1001 &1502306748
 Prefab:
   m_ObjectHideFlags: 0
@@ -4017,7 +4018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2109103655}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &2034933370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,7 +4168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPosition: {x: 8, y: -2}
-  shipHealth: 1
+  shipHealth: 2
   speed: 3
   angle: 180
   lifeTime: 6
@@ -4248,7 +4249,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071457089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97, y: 0, z: 0}
+  m_LocalPosition: {x: 99, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2109103655}
@@ -4278,8 +4279,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 617805186}
   - {fileID: 1970380229}
+  - {fileID: 617805186}
   - {fileID: 1551781905}
   - {fileID: 710770356}
   - {fileID: 246145461}
