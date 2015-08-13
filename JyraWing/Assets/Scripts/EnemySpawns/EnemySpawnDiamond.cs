@@ -22,11 +22,16 @@ public class EnemySpawnDiamond: EnemySpawner {
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
+		if (enemyRepeat) {
+			enemyBehavior1.LeftWallException = false;
+		}
 
 		EnemyAI8 enemyAI1 = enemy1.GetComponent<EnemyAI8> ();
 		enemyAI1.direction = enemyDirection;
 		enemyAI1.time = enemyTime;
 		enemyAI1.repeat = enemyRepeat;
+
+
 
 		enemy1 = Instantiate (enemy1);
 		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHitPoints);

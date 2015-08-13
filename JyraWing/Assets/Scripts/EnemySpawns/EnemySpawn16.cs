@@ -133,6 +133,7 @@ public class EnemySpawn16 : EnemySpawner {
 		enemyBehavior6.bulletPool = bulletPool;
 
 		enemy6 = Instantiate (enemy6);
+		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 		//Bottom turret
@@ -143,6 +144,7 @@ public class EnemySpawn16 : EnemySpawner {
 		enemyBehavior7.bulletPool = bulletPool;
 		
 		enemy7 = Instantiate (enemy7);
+		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 	}
 
 }

@@ -14,7 +14,7 @@ public class EnemySpawn21 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
-		
+
 		EnemyAI5 enemyAI1 = enemy1.GetComponent<EnemyAI5> ();
 		enemyAI1.direction = EnemyAI5.TankDir.Left;
 		
@@ -27,10 +27,10 @@ public class EnemySpawn21 : EnemySpawner {
 		//Top tank
 		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_E");
 		enemy2.transform.position = new Vector3(10.0f, -2.0f,0f);
-		
+
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
-		
+
 		EnemyAI5 enemyAI2 = enemy2.GetComponent<EnemyAI5> ();
 		enemyAI2.direction = EnemyAI5.TankDir.Left;
 		
@@ -46,7 +46,7 @@ public class EnemySpawn21 : EnemySpawner {
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
-		
+
 		EnemyAI5 enemyAI3 = enemy3.GetComponent<EnemyAI5> ();
 		enemyAI3.direction = EnemyAI5.TankDir.Left;
 		

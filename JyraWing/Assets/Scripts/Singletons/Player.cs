@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
 		speed = speedList [0];
 		disableControls = false;
 
+
 	}
 	
 	// Update is called once per frame
@@ -131,6 +132,7 @@ public class Player : MonoBehaviour {
 			bullet1.GetComponent<Bullet> ().ShootUp ();
 			bullet2.GetComponent<Bullet> ().Shoot ();
 			bullet3.GetComponent<Bullet> ().ShootDown ();
+			fireSfx.Play();
 		}
 	}
 

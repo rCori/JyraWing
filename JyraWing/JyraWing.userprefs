@@ -1,10 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn17.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn14.cs">
     <Files>
-      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="51" Column="45" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" Line="102" Column="4" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn12.cs" Line="76" Column="59" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn14.cs" Line="62" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -5, z: 0}
+  m_LocalPosition: {x: -1, y: 5, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,12 +93,12 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
   LeftWallException: 1
-  angle: 90
-  speed: 3
+  angle: 290
+  speed: 3.5
   lifeTime: 6
   fireRate: .699999988
-  bulletSpeed: 2
-  hits: 1
+  bulletSpeed: 5
+  hits: 3
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1

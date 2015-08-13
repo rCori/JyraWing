@@ -75,7 +75,7 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyAI5.direction = EnemyAI5.TankDir.Left;
 
 		enemy5 = Instantiate (enemy5);
-
+		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();

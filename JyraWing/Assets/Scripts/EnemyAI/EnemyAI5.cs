@@ -53,8 +53,8 @@ public class EnemyAI5 : EnemyBehavior {
 		//Set the direction vectors for any direction.
 		switch (direction) {
 		case TankDir.Left:
-			fastVec = new Vector2(-2.5f, 0f);
-			slowVec = new Vector2( -1.5f, 0f);
+			fastVec = new Vector2(-1.5f, 0f);
+			slowVec = new Vector2( -0.7f, 0f);
 			
 			straightBul = new Vector2 (-2f, 0);
 			
@@ -65,6 +65,7 @@ public class EnemyAI5 : EnemyBehavior {
 			downBul = new Vector2(-1f,-1f);
 			downBul.Normalize();
 			downBul *= 2;
+			LeftWallException = false;
 			break;
 		case TankDir.Right:
 			fastVec = new Vector2(2.5f, 0f);
@@ -80,6 +81,7 @@ public class EnemyAI5 : EnemyBehavior {
 			downBul.Normalize();
 			downBul *= 2;
 			transform.Rotate(0f,0f,180f);
+			LeftWallException = true;
 			break;
 		case TankDir.Up:
 			fastVec = new Vector2(0f, 1.5f);
@@ -95,6 +97,7 @@ public class EnemyAI5 : EnemyBehavior {
 			downBul.Normalize();
 			downBul *= 2;
 			transform.Rotate(0f,0f,-90f);
+			LeftWallException = true;
 			break;
 		case TankDir.Down:
 			fastVec = new Vector2(0f, -1.5f);
@@ -111,6 +114,7 @@ public class EnemyAI5 : EnemyBehavior {
 			downBul *= 2;
 			
 			transform.Rotate(0f,0f,90f);
+			LeftWallException = true;
 			break;
 		}
 	}
@@ -125,12 +129,12 @@ public class EnemyAI5 : EnemyBehavior {
 			case 0:
 				//Fast movement of selected direction for 1 second
 				moveState = 1;
-				StartNewVelocity(fastVec, 1f);
+				StartNewVelocity(slowVec, 2.5f);
 				break;
 			case 1:
 				//slow movement of selected direciton for one second.
 				moveState = 2;
-				StartNewVelocity(slowVec, 1f);
+				StartNewVelocity(fastVec, 0.5f);
 				break;
 			case 2:
 				//Stand still for 1 second.
@@ -149,7 +153,7 @@ public class EnemyAI5 : EnemyBehavior {
 		Shoot (downBul);
 	}
 
-	//Should only be needed for the cases where direction is left, down, or up.
+	//Should only be needed for the cases where direction is right, down, or up.
 	void selfDestruct()
 	{
 		switch(direction)
