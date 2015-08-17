@@ -12,7 +12,7 @@ public class EnemyAI1 : EnemyBehavior {
 		bulletCounter++;
 		EnemyDefaults ();
 		//InitializeBullets (2);
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 	}
 

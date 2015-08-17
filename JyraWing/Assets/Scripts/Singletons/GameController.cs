@@ -9,9 +9,12 @@ public class GameController : MonoBehaviour {
 
 
 	public UIController uiController;
+	public AudioSource bgmPlayer;
 
 	private float gameOverTimer;
-	private bool isGameOver;
+
+	private enum GameOverState{None = 0, FinishSoundEffect, FinishShowScreen, KillAnimation, KillSoundEffect, KillShowScreen};
+	GameOverState gameOverState;
 
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
@@ -22,19 +25,21 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameOverTimer = 0.0f;
-		isGameOver = false;
+		gameOverState = GameOverState.None;
 		squadList = new List<PowerupGroup> ();
+		bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
 		//squadTable = new Hashtable ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(isGameOver) {
-			gameOverTimer -= Time.deltaTime;
-			if (gameOverTimer <= 0.0) {
-				Application.LoadLevel ("titleScene");
-			}
-		}
+//		if(isGameOver) {
+//			gameOverTimer -= Time.deltaTime;
+//			if (gameOverTimer <= 0.0) {
+//				Application.LoadLevel ("titleScene");
+//			}
+//		}
+		handleGameOver ();
 	}
 
 	/// <summary>
@@ -44,7 +49,7 @@ public class GameController : MonoBehaviour {
 		int lifeCount = player.LifeCount ();
 		uiController.UpdateLives(lifeCount);
 		if (lifeCount == 0) {
-			GameOver();
+			GameOver(2.5f);
 		}
 
 	}
@@ -57,23 +62,26 @@ public class GameController : MonoBehaviour {
 	}
 	
 
-	public void GameOver(){
-		uiController.ShowGameOver ();
-		player.gameObject.SetActive (false);
-		gameOverTimer = 2.0f;
-		isGameOver = true;
+	public void GameOver(float i_gameOverTimer = 0.0f){
+		bgmPlayer.volume = 0.5f;
+		gameOverState = GameOverState.KillAnimation;
+		//uiController.ShowGameOver ();
+		gameOverTimer = i_gameOverTimer;
 	}
 
 	/// <summary>
 	/// Show a little UI results panel wait a bit and then go back to level select.
 	/// </summary>
-	public void LevelFinished(){
-		uiController.ShowLevelComplete();
-		gameOverTimer = 4.5f;
-		isGameOver = true;
+	public void LevelFinished(float i_gameOverTimer = 0.0f){
+		bgmPlayer.volume = 0.5f;
+		gameOverState = GameOverState.FinishSoundEffect;
+		//uiController.ShowLevelComplete();
+		gameOverTimer = i_gameOverTimer;
 	}
 
-	//A safe way for other objects to get the position of the player
+	///<summary>
+	///A safe way for other objects to get the position of the player
+	///</summary>
 	public Vector3 GetPlayerPosition(){
 		if (player) {
 			return player.transform.position;
@@ -155,5 +163,50 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
+	}
+
+
+
+	private void handleGameOver(){
+		switch (gameOverState) {
+		case(GameOverState.FinishSoundEffect):
+			gameOverTimer -= Time.deltaTime;
+			if(gameOverTimer <= 0.0f){
+				gameOverState = GameOverState.FinishShowScreen;
+				uiController.ShowLevelComplete();
+				gameOverTimer = 5.0f;
+				bgmPlayer.volume = 1.0f;
+			}
+			break;
+		case (GameOverState.FinishShowScreen):
+			gameOverTimer -= Time.deltaTime;
+			if(gameOverTimer <= 0.0f){
+				gameOverTimer = 3.0f;
+				Application.LoadLevel ("titleScene");
+			}
+			break;
+		case (GameOverState.KillAnimation):
+			gameOverTimer -= Time.deltaTime;
+			if(gameOverTimer <= 0.0f){
+				player.gameObject.SetActive (false);
+				gameOverState = GameOverState.KillSoundEffect;
+			}
+			break;
+		case (GameOverState.KillSoundEffect):
+			gameOverTimer -= Time.deltaTime;
+			if(gameOverTimer <= 0.0f){
+				gameOverState = GameOverState.KillShowScreen;
+				uiController.ShowGameOver();
+				gameOverTimer = 3.0f;
+				bgmPlayer.volume = 1.0f;
+			}
+			break;
+		case (GameOverState.KillShowScreen):
+			gameOverTimer -= Time.deltaTime;
+			if(gameOverTimer <= 0.0f){
+				Application.LoadLevel ("titleScene");
+			}
+			break;
+		}
 	}
 }

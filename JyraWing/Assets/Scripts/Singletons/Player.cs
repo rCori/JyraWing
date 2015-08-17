@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	int hits;
 	int numBullets;
 	private AudioSource fireSfx;
+	private AudioSource damageSfx;
 	private float hitTimer;
 	private PlayerSpeed playerSpeed;
 	private PlayerBulletLevel bulletLevel;
@@ -27,7 +28,10 @@ public class Player : MonoBehaviour {
 		hits = 3;
 		numBullets = 2;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
-		fireSfx.clip = Resources.Load ("Audio/SFX/shootenem") as AudioClip;
+		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
+		damageSfx = gameObject.AddComponent<AudioSource> ();
+		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
+
 		bulletPool = new List<GameObject> ();
 		for (int i= 0; i < numBullets; i++) {
 			//Put all the bullet live in the pool
@@ -66,6 +70,7 @@ public class Player : MonoBehaviour {
 			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
 			disableControls = true;
+			damageSfx.Play();
 		}
 
 	}

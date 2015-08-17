@@ -22,6 +22,11 @@ public class EnemyBoss : EnemyBehavior {
 	//Shuffle Bag to for selecting patterns
 	ShuffleBag bag;
 
+	/// <summary>
+	/// Used for all effects this enemy has
+	/// </summary>
+	private AudioSource bossAudio;
+
 	// Use this for initialization
 	void Start () {
 		moveState = 0;
@@ -31,8 +36,10 @@ public class EnemyBoss : EnemyBehavior {
 		SetEnemyHealth (hits);
 		//InitializeBullets (20);
 		animator = gameObject.GetComponent<Animator> ();
-		AudioClip explosionClip = Resources.Load ("Audio/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
+
+		bossAudio = new AudioSource();
 
 		//Set up shuffle bag
 		createShuffleBag ();
@@ -73,7 +80,7 @@ public class EnemyBoss : EnemyBehavior {
 		//If that happens this object could be null so we check for that.
 		if (obj) {
 			GameController controller = obj.GetComponent<GameController> ();
-			controller.LevelFinished ();
+			controller.LevelFinished (5.0f);
 		}
 	}
 
@@ -214,6 +221,8 @@ public class EnemyBoss : EnemyBehavior {
 				StartStandStill(2.0f);
 				moveState++;
 				patternCounter++;
+				bossAudio.clip = Resources.Load ("Audio/SFX/bossCharge") as AudioClip;
+				sfxPlayer.PlaySoundClip(bossAudio);
 				break;
 			case 2:
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);

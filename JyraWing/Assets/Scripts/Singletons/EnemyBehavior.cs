@@ -39,12 +39,12 @@ public class EnemyBehavior : MonoBehaviour {
 	/// How many bullets an enemy will take before it goes down.
 	/// Default is 1.
 	/// </summary>
-	private int hitPoints;
+	protected int hitPoints;
 
 	/// <summary>
 	/// Sound effect when the enemy is destroyed
 	/// </summary>
-	private AudioSource explosionSfx;
+	protected AudioSource explosionSfx;
 
 	/// <summary>
 	/// The bullet pool. To shoot the enemy must request a bullet from the pool.
@@ -60,7 +60,7 @@ public class EnemyBehavior : MonoBehaviour {
 	/// <summary>
 	/// Plays sound effects for explosions.
 	/// </summary>
-	private SoundEffectPlayer sfxPlayer;
+	protected SoundEffectPlayer sfxPlayer;
 
 
 	/// <summary>
