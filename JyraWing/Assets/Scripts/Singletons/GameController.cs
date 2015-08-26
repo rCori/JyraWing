@@ -175,7 +175,9 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.FinishShowScreen;
 				uiController.ShowLevelComplete();
 				gameOverTimer = 5.0f;
+				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
 				bgmPlayer.volume = 1.0f;
+				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.FinishShowScreen):
@@ -197,8 +199,10 @@ public class GameController : MonoBehaviour {
 			if(gameOverTimer <= 0.0f){
 				gameOverState = GameOverState.KillShowScreen;
 				uiController.ShowGameOver();
-				gameOverTimer = 3.0f;
+				gameOverTimer = 5.0f;
+				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
 				bgmPlayer.volume = 1.0f;
+				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.KillShowScreen):

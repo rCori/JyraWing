@@ -1,0 +1,550 @@
+fileFormatVersion: 2
+guid: a8a56a9292d5a6f4f9044df92dc99fb2
+timeCreated: 1440477228
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: boss2_full_0
+    21300002: boss2_full_1
+    21300004: boss2_full_2
+    21300006: boss2_full_3
+    21300008: boss2_full_4
+    21300010: boss2_full_5
+    21300012: boss2_full_6
+    21300014: boss2_full_7
+    21300016: boss2_full_8
+    21300018: boss2_full_9
+    21300020: boss2_full_10
+    21300022: boss2_full_11
+    21300024: boss2_full_12
+    21300026: boss2_full_13
+    21300028: boss2_full_14
+    21300030: boss2_full_15
+    21300032: boss2_full_16
+    21300034: boss2_full_17
+    21300036: boss2_full_18
+    21300038: boss2_full_19
+    21300040: boss2_full_20
+    21300042: boss2_full_21
+    21300044: boss2_full_22
+    21300046: boss2_full_23
+    21300048: boss2_full_24
+    21300050: boss2_full_25
+    21300052: boss2_full_26
+    21300054: boss2_full_27
+    21300056: boss2_full_28
+    21300058: boss2_full_29
+    21300060: boss2_full_30
+    21300062: boss2_full_31
+    21300064: boss2_full_32
+    21300066: boss2_full_33
+    21300068: boss2_full_34
+    21300070: boss2_full_35
+    21300072: boss2_full_36
+    21300074: boss2_full_37
+    21300076: boss2_full_38
+    21300078: boss2_full_39
+    21300080: boss2_full_40
+    21300082: boss2_full_41
+    21300084: boss2_full_42
+    21300086: boss2_full_43
+    21300088: boss2_full_44
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: boss2_full_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_8
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_10
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_11
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_12
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_13
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_14
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_15
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 480
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_17
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_20
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_21
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_22
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_23
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_24
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_25
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_26
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_27
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_28
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_29
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_30
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_31
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 448
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_33
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_34
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_35
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_36
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_37
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_38
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_39
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_40
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_41
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_42
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_43
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 416
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss2_full_44
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 384
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

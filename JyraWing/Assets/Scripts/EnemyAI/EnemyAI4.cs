@@ -39,7 +39,7 @@ public class EnemyAI4 : EnemyBehavior {
 		shootTimeLimit = 3.0f;
 
 		animator = gameObject.GetComponent <Animator> ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		
 		isFlipped = true;

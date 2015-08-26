@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.2385502, y: 0, z: 0}
+  m_LocalPosition: {x: 10.2399788, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ Animator:
   m_GameObject: {fileID: 186110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba09bcb3f18d9d6468b8097f3cb1040d, type: 2}
+  m_Controller: {fileID: 9100000, guid: fcdfb72c9d1576146905b5663ac04c3e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
   LeftWallException: 0
-  hits: 1
+  hits: 3
 --- !u!212 &21214268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: e1f3f6c41e90a954599a1c1fe7c2cf83, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8a56a9292d5a6f4f9044df92dc99fb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -134,6 +134,15 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8a56a9292d5a6f4f9044df92dc99fb2,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fcdfb72c9d1576146905b5663ac04c3e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186110}

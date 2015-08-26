@@ -71,7 +71,7 @@ Animator:
   m_GameObject: {fileID: 142136}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 535cc9ce9072e9246a3d3863ba4611a6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3052f80c69cd07240b7c4a1a93270b74, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -93,8 +93,10 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
   LeftWallException: 0
-  fireDelay: 0
-  fireRate: 0
+  fireDelay: .699999988
+  fireRate: 1
+  startDelay: 2
+  isReverse: 1
 --- !u!114 &11499598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 0e8da09e815e47646a4d23ad5e2cccb2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b4c4b3e2e0e34440ac12d6ef5974d36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -140,7 +142,16 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e8da09e815e47646a4d23ad5e2cccb2,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3052f80c69cd07240b7c4a1a93270b74, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142136}

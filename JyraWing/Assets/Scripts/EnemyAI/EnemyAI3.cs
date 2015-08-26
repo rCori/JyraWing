@@ -15,7 +15,7 @@ public class EnemyAI3 : EnemyBehavior{
 		moveState = 0;
 		EnemyDefaults ();
 		//InitializeBullets (2);
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		//shootTimer = 0.0f;
 		if (reverse) {

@@ -14,7 +14,7 @@ public class EnemyAI2 : EnemyBehavior {
 	void Awake(){
 		circleTimer = 0.0f;
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 	}
 

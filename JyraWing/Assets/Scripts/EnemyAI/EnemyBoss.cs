@@ -25,7 +25,7 @@ public class EnemyBoss : EnemyBehavior {
 	/// <summary>
 	/// Used for all effects this enemy has
 	/// </summary>
-	private AudioSource bossAudio;
+	private AudioClip extraSFX;
 
 	// Use this for initialization
 	void Start () {
@@ -38,8 +38,6 @@ public class EnemyBoss : EnemyBehavior {
 		animator = gameObject.GetComponent<Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
-
-		bossAudio = new AudioSource();
 
 		//Set up shuffle bag
 		createShuffleBag ();
@@ -60,14 +58,18 @@ public class EnemyBoss : EnemyBehavior {
 		}
 
 		Movement ();
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("bossHit")) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_hit")) {
 			animator.SetInteger("animState", 0);
 		}
+
+//		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_explosion")) {
+//			Destroy (gameObject);
+//		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		DefaultTrigger (other);
-		//Additional behavior
+
 
 		if (other.tag == "Bullet") {
 			animator.SetInteger("animState", 1);
@@ -75,6 +77,7 @@ public class EnemyBoss : EnemyBehavior {
 	}
 
 	void OnDestroy(){
+		//animator.SetInteger ("animState", 3);
 		GameObject obj = GameObject.Find ("GameController");
 		//The boss object could be destoryed on account of the level ending.
 		//If that happens this object could be null so we check for that.
@@ -221,12 +224,13 @@ public class EnemyBoss : EnemyBehavior {
 				StartStandStill(2.0f);
 				moveState++;
 				patternCounter++;
-				bossAudio.clip = Resources.Load ("Audio/SFX/bossCharge") as AudioClip;
-				sfxPlayer.PlaySoundClip(bossAudio);
 				break;
 			case 2:
+				assignSFXPlayerSafe();
+				extraSFX = Resources.Load ("Audio/SFX/bossCharge") as AudioClip;
+				sfxPlayer.PlayClip(extraSFX);
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				StartNewVelocity(new Vector2(-10.0f, 0f), 1.1f);
+				StartNewVelocity(new Vector2(-10.0f, 0f), 1.0f);
 				moveState++;
 				break;
 			case 3:
@@ -332,7 +336,10 @@ public class EnemyBoss : EnemyBehavior {
 				changePattern();
 				moveState = 0;
 			}
-			StartStandStill(0.5f);	
+			StartStandStill(0.5f);
+			assignSFXPlayerSafe();
+			extraSFX = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
+			sfxPlayer.PlayClip(extraSFX);
 
 		}
 	}
@@ -344,7 +351,7 @@ public class EnemyBoss : EnemyBehavior {
 		StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
 		shuffleBagCounter++;
 		if (shuffleBagCounter > 3) {
-			createShuffleBag();
+			createShuffleBag ();
 		}
 		patternCounter = 0;
 		moveState = 0;
@@ -352,6 +359,9 @@ public class EnemyBoss : EnemyBehavior {
 		fireTimeLimit = 0;
 		int patternNum = bag.Next ();
 		pattern = patternNum;
+//		if (patternNum == 3) {
+//			bossAudio.clip = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
+//		}
 	}
 
 
@@ -362,5 +372,11 @@ public class EnemyBoss : EnemyBehavior {
 		bag.Add (1, 1);
 		bag.Add (2, 1);
 		bag.Add (3, 1);
+	}
+
+	void assignSFXPlayerSafe(){
+		if(!sfxPlayer){
+			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+		}
 	}
 }

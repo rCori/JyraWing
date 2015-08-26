@@ -28,12 +28,17 @@ public class EnemyAI6 : EnemyBehavior {
 		LeftWallException = true;
 		//Give an extra rotation of 
 		transform.Rotate(0f,0f,angle+180);
+		if ((angle >= -90.0f && angle <= 90.0f) || angle >= 270) {
+			Vector3 theScale = transform.localScale;
+			theScale.y *= -1;
+			transform.localScale = theScale;
+		}
 		SetEnemyHealth (hits);
 		radians = Mathf.Deg2Rad * angle;
 		float xVel = Mathf.Cos (radians);
 		float yVel = Mathf.Sin (radians);
 		direction = new Vector2 (xVel, yVel);
-		StartNewVelocity(direction * speed,lifeTime);
+		StartNewVelocity(direction * speed, lifeTime);
 		animator = gameObject.GetComponent<Animator> ();
 	}
 
@@ -60,8 +65,8 @@ public class EnemyAI6 : EnemyBehavior {
 		DefaultTrigger (other);
 		//Additional behavior
 		
-		if (other.tag == "Bullet") {
-			animator.SetInteger("animState", 1);
-		}
+//		if (other.tag == "Bullet") {
+//			animator.SetInteger("animState", 1);
+//		}
 	}
 }

@@ -261,6 +261,8 @@ public class Player : MonoBehaviour {
 					hitTimer -= Time.deltaTime;
 					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
 					if(hitTimer <= 0.0f){
+						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
+						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
 						hitTimer = 4.5f;
 						disableControls = false;
 					}

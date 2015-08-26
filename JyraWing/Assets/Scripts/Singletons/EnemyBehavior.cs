@@ -76,6 +76,8 @@ public class EnemyBehavior : MonoBehaviour {
 	/// </summary>
 	public bool LeftWallException;
 
+	protected AudioClip hitSfx;
+
 	/// <summary>
 	/// Initialize default values for the enemy
 	/// </summary>
@@ -87,6 +89,8 @@ public class EnemyBehavior : MonoBehaviour {
 		//By default an enemy belongs to no powerup group.
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
+		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
+
 
 	}
 
@@ -258,6 +262,13 @@ public class EnemyBehavior : MonoBehaviour {
 				}
 
 				Destroy (gameObject);
+			}
+			else
+			{
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				sfxPlayer.PlayClip(hitSfx);
 			}
 		}
 		

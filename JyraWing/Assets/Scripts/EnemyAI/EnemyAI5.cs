@@ -47,7 +47,7 @@ public class EnemyAI5 : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion1") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		moveState = 0;
 		//Set the direction vectors for any direction.
