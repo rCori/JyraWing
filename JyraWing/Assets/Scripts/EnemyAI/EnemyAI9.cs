@@ -11,6 +11,9 @@ public class EnemyAI9 : EnemyBehavior {
 	bool isFiring;
 	float fireTimer;
 
+	bool isDestroyed;
+	Animator animator;
+
 	/// <summary>
 	/// If this is true instead of starting at the top and traveling
 	/// diagonally down, the enemy will start at the bottom of the
@@ -31,10 +34,16 @@ public class EnemyAI9 : EnemyBehavior {
 		StartStandStill (startDelay);
 		isFiring = false;
 		fireTimer = 0.0f;
+
+		animator = gameObject.GetComponent<Animator> ();
+		isDestroyed = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (isDestroyed) {
+			return;
+		}
 		Movement ();
 		//Dont shoot if we haven't started to move 
 		if (state != MoveState.begin) {
@@ -71,6 +80,9 @@ public class EnemyAI9 : EnemyBehavior {
 				break;
 			}
 		}
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("enemy4_B_hit")) {
+			animator.SetInteger("animState", 0);
+		}
 
 	}
 
@@ -90,5 +102,53 @@ public class EnemyAI9 : EnemyBehavior {
 				fireTimer = 0.0f;
 			}
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (isDestroyed) {
+			return;
+		}
+		if (other.tag == "Bullet") {
+			if(hitPoints == 0)
+			{
+				return;
+			}
+			hitPoints--;
+			
+			//This will get rid of the 
+			other.GetComponent<Bullet>().BulletDestroy();
+			
+			if(hitPoints == 0)
+			{
+				
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				sfxPlayer.PlaySoundClip(explosionSfx);
+				
+				isDestroyed = true;
+				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
+				animator.SetInteger("animState", 2);
+			}
+			else
+			{
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				sfxPlayer.PlayClip(hitSfx);
+				animator.SetInteger("animState", 1);
+			}
+		}
+		
+		if (other.tag == "Player" && other.isTrigger) {
+			Player player = other.gameObject.GetComponent<Player>();
+			player.TakeDamage();
+		}
+	}
+	
+	void DestroySelf()
+	{
+		Destroy (gameObject);
 	}
 }

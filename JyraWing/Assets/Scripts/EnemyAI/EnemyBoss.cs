@@ -22,6 +22,11 @@ public class EnemyBoss : EnemyBehavior {
 	//Shuffle Bag to for selecting patterns
 	ShuffleBag bag;
 
+	bool isDestroyed;
+	/// <summary>
+	/// Enemy is in the chargin animation.
+	/// </summary>
+	bool isCharging;
 	/// <summary>
 	/// Used for all effects this enemy has
 	/// </summary>
@@ -32,6 +37,7 @@ public class EnemyBoss : EnemyBehavior {
 		moveState = 0;
 		pattern = 0;
 		patternCounter = 0;
+		isDestroyed = false;
 		EnemyDefaults ();
 		SetEnemyHealth (hits);
 		//InitializeBullets (20);
@@ -46,6 +52,9 @@ public class EnemyBoss : EnemyBehavior {
 	
 	// Update is called once per frame
 	void Update () {
+		if (isDestroyed) {
+			return;
+		}
 		//Do the selected pattern.
 		if (pattern == 0) {
 			spreadShot ();
@@ -59,7 +68,14 @@ public class EnemyBoss : EnemyBehavior {
 
 		Movement ();
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_hit")) {
-			animator.SetInteger("animState", 0);
+			if(isCharging)
+			{
+				animator.SetInteger("animState" ,2);
+			}
+			else{
+				animator.SetInteger("animState", 0);
+			}
+
 		}
 
 //		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_explosion")) {
@@ -68,12 +84,48 @@ public class EnemyBoss : EnemyBehavior {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		DefaultTrigger (other);
-
-
-		if (other.tag == "Bullet") {
-			animator.SetInteger("animState", 1);
+		if (isDestroyed) {
+			return;
 		}
+		if (other.tag == "Bullet") {
+			if(hitPoints == 0)
+			{
+				return;
+			}
+			hitPoints--;
+			
+			//This will get rid of the 
+			other.GetComponent<Bullet>().BulletDestroy();
+			
+			if(hitPoints == 0)
+			{
+				
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				sfxPlayer.PlaySoundClip(explosionSfx);
+
+				isDestroyed = true;
+				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
+				animator.SetInteger("animState", 3);
+			}
+			else
+			{
+				if(!sfxPlayer){
+					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+				}
+				sfxPlayer.PlayClip(hitSfx);
+				animator.SetInteger("animState", 1);
+			}
+		}
+		
+		if (other.tag == "Player" && other.isTrigger) {
+			Player player = other.gameObject.GetComponent<Player>();
+			player.TakeDamage();
+		}
+
+
 	}
 
 	void OnDestroy(){
@@ -95,6 +147,10 @@ public class EnemyBoss : EnemyBehavior {
 		if (GetIsTimeUp ()) {
 			switch (moveState) {
 			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
 				StartStandStill(2.0f);
 				moveState++;
 				break;
@@ -140,6 +196,10 @@ public class EnemyBoss : EnemyBehavior {
 		if (GetIsTimeUp ()) {
 			switch (moveState) {
 			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
 				StartStandStill(2.0f);
 				fireTimeLimit = Random.Range(0.7f,1.0f);
 				fireTimer = 0.0f;
@@ -213,6 +273,10 @@ public class EnemyBoss : EnemyBehavior {
 			switch(moveState)
 			{
 			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
 				fireTimer = 0.0f;
 				fireTimeLimit = 2.5f;
 				//Return to original position.
@@ -275,6 +339,9 @@ public class EnemyBoss : EnemyBehavior {
 			Vector2 dir;
 			switch (moveState) {
 			case 0:
+				//Charge state
+				animator.SetInteger("animState", 2);
+				isCharging = true;
 				//Return to original position.
 				StartStandStill(2.0f);
 				break;
@@ -368,6 +435,7 @@ public class EnemyBoss : EnemyBehavior {
 	void createShuffleBag(){
 		shuffleBagCounter = 0;
 		bag = new ShuffleBag (4);
+		//bag = new ShuffleBag (1);
 		bag.Add (0, 1);
 		bag.Add (1, 1);
 		bag.Add (2, 1);
@@ -378,5 +446,12 @@ public class EnemyBoss : EnemyBehavior {
 		if(!sfxPlayer){
 			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 		}
+	}
+
+	//This gets called on an animation
+	//Gets called at the end of boss2_explosion
+	public void DestroySelf()
+	{
+		Destroy (gameObject);
 	}
 }

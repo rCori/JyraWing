@@ -222,7 +222,9 @@ public class EnemyBehavior : MonoBehaviour {
 	/// <param name="clip">Clip.</param>
 	public void SetExplosionSfx (AudioClip clip)
 	{
+		//Add an audio source to the enemy
 		explosionSfx = gameObject.AddComponent<AudioSource> ();
+		//Set the actual audio clip to what was passed in.
 		explosionSfx.clip = clip;
 	}
 

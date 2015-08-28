@@ -73,7 +73,10 @@ public class GameController : MonoBehaviour {
 	/// Show a little UI results panel wait a bit and then go back to level select.
 	/// </summary>
 	public void LevelFinished(float i_gameOverTimer = 0.0f){
-		bgmPlayer.volume = 0.5f;
+		//Prevents a crash on exit.
+		if (bgmPlayer) {
+			bgmPlayer.volume = 0.5f;
+		}
 		gameOverState = GameOverState.FinishSoundEffect;
 		//uiController.ShowLevelComplete();
 		gameOverTimer = i_gameOverTimer;
