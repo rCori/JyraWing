@@ -24,7 +24,6 @@ public class EnemyAI4 : EnemyBehavior {
 	private float shootTimeLimit;
 
 	private bool isFlipped;
-	Animator animator;
 	
 
 
@@ -43,6 +42,8 @@ public class EnemyAI4 : EnemyBehavior {
 		SetExplosionSfx (explosionClip);
 		
 		isFlipped = true;
+		HasAnimations ownedAnimations = HasAnimations.None;
+		SetAnimations (ownedAnimations);
 	}
 	
 	// Update is called once per frame

@@ -6,7 +6,7 @@ public class EnemyBoss : EnemyBehavior {
 	
 
 	public int hits;
-	Animator animator;
+	//Animator animator;
 	float fireTimer;
 	float fireTimeLimit;
 	//which state in any given attack pattern the boss is in
@@ -21,8 +21,7 @@ public class EnemyBoss : EnemyBehavior {
 
 	//Shuffle Bag to for selecting patterns
 	ShuffleBag bag;
-
-	bool isDestroyed;
+	
 	/// <summary>
 	/// Enemy is in the chargin animation.
 	/// </summary>
@@ -33,18 +32,19 @@ public class EnemyBoss : EnemyBehavior {
 	private AudioClip extraSFX;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		moveState = 0;
 		pattern = 0;
 		patternCounter = 0;
 		isDestroyed = false;
 		EnemyDefaults ();
 		SetEnemyHealth (hits);
+		HasAnimations animationSettings;
+		animationSettings = HasAnimations.Hit | HasAnimations.Destroy;
+		SetAnimations (animationSettings);
 		//InitializeBullets (20);
-		animator = gameObject.GetComponent<Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
-
 		//Set up shuffle bag
 		createShuffleBag ();
 		changePattern ();
@@ -67,10 +67,11 @@ public class EnemyBoss : EnemyBehavior {
 		}
 
 		Movement ();
+		//Don't use HandleHitANimation because now we need to handle
+		//the other animations with special conditions.
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_hit")) {
-			if(isCharging)
-			{
-				animator.SetInteger("animState" ,2);
+			if(isCharging){
+				animator.SetInteger("animState" ,3);
 			}
 			else{
 				animator.SetInteger("animState", 0);
@@ -78,53 +79,10 @@ public class EnemyBoss : EnemyBehavior {
 
 		}
 
-//		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_explosion")) {
-//			Destroy (gameObject);
-//		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (isDestroyed) {
-			return;
-		}
-		if (other.tag == "Bullet") {
-			if(hitPoints == 0)
-			{
-				return;
-			}
-			hitPoints--;
-			
-			//This will get rid of the 
-			other.GetComponent<Bullet>().BulletDestroy();
-			
-			if(hitPoints == 0)
-			{
-				
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				sfxPlayer.PlaySoundClip(explosionSfx);
-
-				isDestroyed = true;
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				animator.SetInteger("animState", 3);
-			}
-			else
-			{
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				sfxPlayer.PlayClip(hitSfx);
-				animator.SetInteger("animState", 1);
-			}
-		}
-		
-		if (other.tag == "Player" && other.isTrigger) {
-			Player player = other.gameObject.GetComponent<Player>();
-			player.TakeDamage();
-		}
-
+		DefaultTrigger (other);
 
 	}
 
@@ -340,7 +298,7 @@ public class EnemyBoss : EnemyBehavior {
 			switch (moveState) {
 			case 0:
 				//Charge state
-				animator.SetInteger("animState", 2);
+				animator.SetInteger("animState", 3);
 				isCharging = true;
 				//Return to original position.
 				StartStandStill(2.0f);
@@ -448,10 +406,5 @@ public class EnemyBoss : EnemyBehavior {
 		}
 	}
 
-	//This gets called on an animation
-	//Gets called at the end of boss2_explosion
-	public void DestroySelf()
-	{
-		Destroy (gameObject);
-	}
+
 }

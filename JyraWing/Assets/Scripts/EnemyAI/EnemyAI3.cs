@@ -11,7 +11,7 @@ public class EnemyAI3 : EnemyBehavior{
 
 	float incrementX;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		moveState = 0;
 		EnemyDefaults ();
 		//InitializeBullets (2);
@@ -24,6 +24,12 @@ public class EnemyAI3 : EnemyBehavior{
 			modify = 1.0f;
 		}
 		incrementX = 0.0f;
+
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy3_hit");
 	}
 	
 	// Update is called once per frame
@@ -53,5 +59,6 @@ public class EnemyAI3 : EnemyBehavior{
 //			Shoot ();
 //		}
 		Movement ();
+		HandleHitAnimation ();
 	}
 }

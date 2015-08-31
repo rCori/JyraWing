@@ -10,9 +10,7 @@ public class EnemyAI9 : EnemyBehavior {
 	public float startDelay;
 	bool isFiring;
 	float fireTimer;
-
-	bool isDestroyed;
-	Animator animator;
+	
 
 	/// <summary>
 	/// If this is true instead of starting at the top and traveling
@@ -34,9 +32,9 @@ public class EnemyAI9 : EnemyBehavior {
 		StartStandStill (startDelay);
 		isFiring = false;
 		fireTimer = 0.0f;
-
-		animator = gameObject.GetComponent<Animator> ();
-		isDestroyed = false;
+		HasAnimations ownedAnimations = HasAnimations.None;
+		SetAnimations (ownedAnimations);
+		SetHitAnimationName("enemy4_B_hit");
 	}
 	
 	// Update is called once per frame
@@ -105,50 +103,7 @@ public class EnemyAI9 : EnemyBehavior {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (isDestroyed) {
-			return;
-		}
-		if (other.tag == "Bullet") {
-			if(hitPoints == 0)
-			{
-				return;
-			}
-			hitPoints--;
-			
-			//This will get rid of the 
-			other.GetComponent<Bullet>().BulletDestroy();
-			
-			if(hitPoints == 0)
-			{
-				
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				sfxPlayer.PlaySoundClip(explosionSfx);
-				
-				isDestroyed = true;
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				animator.SetInteger("animState", 2);
-			}
-			else
-			{
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				sfxPlayer.PlayClip(hitSfx);
-				animator.SetInteger("animState", 1);
-			}
-		}
-		
-		if (other.tag == "Player" && other.isTrigger) {
-			Player player = other.gameObject.GetComponent<Player>();
-			player.TakeDamage();
-		}
+		DefaultTrigger (other);
 	}
-	
-	void DestroySelf()
-	{
-		Destroy (gameObject);
-	}
+
 }

@@ -6,6 +6,13 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	public enum MovementStatus {None, Lerp, Slerp, Velocity}
 
+	[System.Flags]
+	public enum HasAnimations
+	{
+		None = 0,
+		Hit = 1,
+		Destroy = 2
+	}
 
 	/// <summary>
 	/// How long the current move operation has been going for.
@@ -76,7 +83,17 @@ public class EnemyBehavior : MonoBehaviour {
 	/// </summary>
 	public bool LeftWallException;
 
-	protected AudioClip hitSfx;
+	private AudioClip hitSfx;
+
+	/// <summary>
+	/// Bitmask for how many animations the enemy can play.
+	/// Assumes animation variable is "animState" and transitions
+	/// have the typical set up.
+	/// </summary>
+	private HasAnimations animationsOwned;
+	protected Animator animator;
+	private string hitAnimationName;
+	protected bool isDestroyed;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -90,6 +107,10 @@ public class EnemyBehavior : MonoBehaviour {
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
+		animationsOwned = HasAnimations.None;
+		animator = gameObject.GetComponent<Animator> ();
+		hitAnimationName = "NO ANIMATION SET";
+		isDestroyed = false;
 
 
 	}
@@ -242,7 +263,14 @@ public class EnemyBehavior : MonoBehaviour {
 	/// <param name="other">The Collider2D coming out of OnTriggerEnter2D.</param>
 	public void DefaultTrigger(Collider2D other)
 	{
+		//Do not activate this trigger if the enemy has been destroyed.
+		if (isDestroyed) {
+			return;
+		}
 		if (other.tag == "Bullet") {
+			if(hitPoints == 0){
+				return;
+			}
 			hitPoints--;
 			
 			//This will get rid of the 
@@ -250,27 +278,41 @@ public class EnemyBehavior : MonoBehaviour {
 			
 			if(hitPoints == 0)
 			{
-
+				
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				sfxPlayer.PlaySoundClip(explosionSfx);
-
-
-				//If there is a powerupGroup we even care about
-				if(powerupGroupID != -1){
-					gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+				//If there is a destroy animation to play, set isDestroy to true and try to play it
+				if((animationsOwned & HasAnimations.Destroy) != 0){
+					isDestroyed = true;
+					gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
+					try{
+						if(animator){
+							animator.SetInteger("animState", 2);
+						}
+						else{
+							throw new System.Exception();
+						}
+					}
+					catch(System.Exception e){
+						Debug.LogException(e);
+					}
 				}
-
-				Destroy (gameObject);
+				//If not just immediatly destroy the object.
+				else{
+					Destroy (gameObject);
+				}
 			}
-			else
-			{
+			else{
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				sfxPlayer.PlayClip(hitSfx);
+				if((animationsOwned & HasAnimations.Hit) != 0){
+					animator.SetInteger("animState", 1);
+				}
 			}
 		}
 		
@@ -294,8 +336,42 @@ public class EnemyBehavior : MonoBehaviour {
 	/// Handle powerup squad arrangments and ordering
 	/// </summary>
 	void OnDestroy() {
+		Debug.Log ("On Destroy");
 		if (powerupGroupID != -1) {
 			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
 		}
+
 	}
+
+	//Intended to be used at the end of a destroy animation
+	//That way object destruction happens exactly when it should and the
+	// destroy animation does not need to be timed. You must remember
+	//TO call this as an even at the end of that animation however.
+	public void DestroySelf()
+	{
+		Destroy (gameObject);
+	}
+
+
+	protected void SetAnimations(HasAnimations anims)
+	{
+		animationsOwned = anims;
+	}
+
+	///<summary>
+	/// If the enemy has a hit animation this function 
+	/// needs to be placed into the enemy update loop. hitAnimationName 
+	/// needs to actually be set by the sublcass enemy for this to work.
+	/// </summary>
+	protected void HandleHitAnimation(){
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName (hitAnimationName)) {
+			animator.SetInteger("animState", 0);
+		}
+	}
+
+	protected void SetHitAnimationName(string i_hitAnimationName){
+		hitAnimationName = i_hitAnimationName;
+	}
+
+
 }

@@ -16,6 +16,11 @@ public class EnemyAI2 : EnemyBehavior {
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy3_hit");
 	}
 
 	// Update is called once per frame
@@ -32,5 +37,6 @@ public class EnemyAI2 : EnemyBehavior {
 			StartNewVelocity (newVelocity, 0.1f);
 		}
 		Movement ();
+		HandleHitAnimation ();
 	}
 }

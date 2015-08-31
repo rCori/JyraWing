@@ -15,6 +15,8 @@ public class EnemyAI7 : EnemyBehavior {
 		directionCounter = 0;
 		SetEnemyHealth (health);
 		StartStandStill (0.1f);
+		HasAnimations ownedAnimations = HasAnimations.None;
+		SetAnimations (ownedAnimations);
 	}
 
 	void Update(){

@@ -18,9 +18,6 @@ public class EnemyAI6 : EnemyBehavior {
 	private float timer;
 	private Vector2 direction;
 
-	private bool isDestroyed;
-
-	Animator animator;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -36,14 +33,18 @@ public class EnemyAI6 : EnemyBehavior {
 			transform.localScale = theScale;
 		}
 		SetEnemyHealth (hits);
+
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy4_B_hit");
+
 		radians = Mathf.Deg2Rad * angle;
 		float xVel = Mathf.Cos (radians);
 		float yVel = Mathf.Sin (radians);
 		direction = new Vector2 (xVel, yVel);
 		StartNewVelocity(direction * speed, lifeTime);
-		animator = gameObject.GetComponent<Animator> ();
-		isDestroyed = false;
-
 	}
 
 
@@ -62,58 +63,10 @@ public class EnemyAI6 : EnemyBehavior {
 			Shoot(direction * speed * bulletSpeed);
 			timer = 0.0f;
 		}
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("enemy4_B_hit")) {
-			animator.SetInteger("animState", 0);
-		}
+		HandleHitAnimation ();
 		//Return from hit animation to neutral animation.
 	}
+	
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if (isDestroyed) {
-			return;
-		}
-		if (other.tag == "Bullet") {
-			if(hitPoints == 0)
-			{
-				return;
-			}
-			hitPoints--;
-			
-			//This will get rid of the 
-			other.GetComponent<Bullet>().BulletDestroy();
-			
-			if(hitPoints == 0)
-			{
-				
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				sfxPlayer.PlaySoundClip(explosionSfx);
-				
-				isDestroyed = true;
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				animator.SetInteger("animState", 2);
-			}
-			else
-			{
-				if(!sfxPlayer){
-					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				}
-				sfxPlayer.PlayClip(hitSfx);
-				animator.SetInteger("animState", 1);
-			}
-		}
-		
-		if (other.tag == "Player" && other.isTrigger) {
-			Player player = other.gameObject.GetComponent<Player>();
-			player.TakeDamage();
-		}
-	}
-
-	void DestroySelf()
-	{
-		Destroy (gameObject);
-	}
 	        
 }

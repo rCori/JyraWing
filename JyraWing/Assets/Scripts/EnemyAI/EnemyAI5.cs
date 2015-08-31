@@ -117,6 +117,8 @@ public class EnemyAI5 : EnemyBehavior {
 			LeftWallException = true;
 			break;
 		}
+		HasAnimations ownedAnimations = HasAnimations.None;
+		SetAnimations (ownedAnimations);
 	}
 	
 

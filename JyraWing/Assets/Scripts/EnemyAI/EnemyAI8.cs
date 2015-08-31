@@ -15,6 +15,11 @@ public class EnemyAI8 : EnemyBehavior {
 		SetExplosionSfx (explosionClip);
 		dir = true;
 		StartNewVelocity (direction, time);
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy3_hit");
 	}
 	
 
@@ -36,5 +41,6 @@ public class EnemyAI8 : EnemyBehavior {
 				Destroy(gameObject);
 			}
 		}
+		HandleHitAnimation ();
 	}
 }
