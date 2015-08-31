@@ -13,11 +13,10 @@ public class EnemyAI1 : EnemyBehavior {
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		HasAnimations animationsOwned;
-		//animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
-
-		animationsOwned = HasAnimations.None;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
 		SetAnimations (animationsOwned);
-		//SetHitAnimationName ("enemy_3_hit");
+		SetHitAnimationName ("enemy_3_hit");
 	}
 	
 

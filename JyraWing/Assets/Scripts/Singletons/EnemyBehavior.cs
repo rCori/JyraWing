@@ -302,7 +302,11 @@ public class EnemyBehavior : MonoBehaviour {
 				}
 				//If not just immediatly destroy the object.
 				else{
-					Destroy (gameObject);
+					//If there is a powerupGroup we even care about
+					if(powerupGroupID != -1){
+						gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+					}
+					DestroySelf ();
 				}
 			}
 			else{
@@ -336,7 +340,6 @@ public class EnemyBehavior : MonoBehaviour {
 	/// Handle powerup squad arrangments and ordering
 	/// </summary>
 	void OnDestroy() {
-		Debug.Log ("On Destroy");
 		if (powerupGroupID != -1) {
 			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
 		}
@@ -349,6 +352,10 @@ public class EnemyBehavior : MonoBehaviour {
 	//TO call this as an even at the end of that animation however.
 	public void DestroySelf()
 	{
+		//If there is a powerupGroup we even care about
+		if(powerupGroupID != -1){
+			gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+		}
 		Destroy (gameObject);
 	}
 

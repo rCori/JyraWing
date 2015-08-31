@@ -1,18 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\EnemyBehavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\enemyBulletPool.cs">
     <Files>
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="187" Column="47" />
-      <File FileName="Assets\Scripts\Powerups\PowerupGroup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\enemyBulletPool.cs" Line="52" Column="2" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\BossSpawn1.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemyAI\EnemyAI1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" Line="101" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\GameController.cs" line="142" />
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\GameController.cs" line="76" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
