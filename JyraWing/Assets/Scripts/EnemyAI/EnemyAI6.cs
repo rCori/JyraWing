@@ -45,6 +45,7 @@ public class EnemyAI6 : EnemyBehavior {
 		float yVel = Mathf.Sin (radians);
 		direction = new Vector2 (xVel, yVel);
 		StartNewVelocity(direction * speed, lifeTime);
+
 	}
 
 

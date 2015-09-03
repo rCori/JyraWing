@@ -71,7 +71,7 @@ Animator:
   m_GameObject: {fileID: 171218}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c02ffcdd6f3957244a783c7ca3794247, type: 2}
+  m_Controller: {fileID: 9100000, guid: 076f8e68791104a4288dfed8ff8fc96d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -131,7 +131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 56fbaf7b9661aa447b3d0e3318914709, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1d02383cfb8e6a45809a87ddaeb3e6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -151,7 +151,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 56fbaf7b9661aa447b3d0e3318914709,
+      objectReference: {fileID: 21300000, guid: f1d02383cfb8e6a45809a87ddaeb3e6c,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder

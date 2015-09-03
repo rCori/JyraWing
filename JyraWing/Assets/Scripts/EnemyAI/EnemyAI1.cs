@@ -16,7 +16,7 @@ public class EnemyAI1 : EnemyBehavior {
 		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
 		
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("enemy_3_hit");
+		SetHitAnimationName ("enemy3_hit");
 	}
 	
 

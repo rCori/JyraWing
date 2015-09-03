@@ -117,13 +117,19 @@ public class EnemyAI5 : EnemyBehavior {
 			LeftWallException = true;
 			break;
 		}
-		HasAnimations ownedAnimations = HasAnimations.None;
-		SetAnimations (ownedAnimations);
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("tank_hit");
 	}
 	
 
 	// Update is called once per frame
 	void Update () {
+		if (isDestroyed) {
+			return;
+		}
 		Movement ();
 		selfDestruct ();
 		if (GetIsTimeUp ()) {
@@ -146,6 +152,7 @@ public class EnemyAI5 : EnemyBehavior {
 				break;
 			}
 		}
+		HandleHitAnimation ();
 	}
 
 	void directionalFire()

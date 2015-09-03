@@ -24,8 +24,10 @@ public class EnemyAI4 : EnemyBehavior {
 	private float shootTimeLimit;
 
 	private bool isFlipped;
-	
 
+	//Keep a steady interval to update positional idle animation.
+	private float updateAnimTimer;
+	private float updateAnimTimeLimit;
 
 	//Gets called on Instantiation.
 	void Awake(){
@@ -42,12 +44,26 @@ public class EnemyAI4 : EnemyBehavior {
 		SetExplosionSfx (explosionClip);
 		
 		isFlipped = true;
-		HasAnimations ownedAnimations = HasAnimations.None;
-		SetAnimations (ownedAnimations);
+
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("pillboxHit");
+
+		//Set timers for updating thhe pillbox animation
+		//pointing up, down, or straight ahead
+		updateAnimTimer = 0f;
+		updateAnimTimeLimit = 0.5f;
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (isDestroyed) {
+			return;
+		}
 		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
@@ -58,14 +74,12 @@ public class EnemyAI4 : EnemyBehavior {
 			shootTimer = 0.0f;
 		}
 
-		//Make the sprite point up or down depending ont he situation
-		float heightDiff = gameController.GetPlayerPosition().y - gameObject.transform.position.y;
-		if (heightDiff < 1.5f && heightDiff > -1.5f) {
-			animator.SetInteger ("animState", 0);
-		} else if (heightDiff > 1.5f) {
-			animator.SetInteger ("animState", 1);
-		} else if (heightDiff < -1.5f) {
-			animator.SetInteger ("animState", 2);
+
+		//Update the animation not every update but on a regular interval
+		updateAnimTimer += Time.deltaTime;
+		if (updateAnimTimer > updateAnimTimeLimit) {
+			updateAnimation ();
+			updateAnimTimer = 0.0f;
 		}
 
 		//This is a bad fix for this issue.
@@ -73,7 +87,8 @@ public class EnemyAI4 : EnemyBehavior {
 		float widthDiff = gameController.GetPlayerPosition().x - gameObject.transform.position.x;
 		if ((widthDiff > 0 && !isFlipped) || (widthDiff < 0 && isFlipped)) {
 			flipHorizontally();
-		} 
+		}
+		HandleHitAnimation ();
 	}
 
 	void flipHorizontally()
@@ -87,5 +102,23 @@ public class EnemyAI4 : EnemyBehavior {
 		}
 		gameObject.transform.localScale = new Vector2 (4f*modify, 4f);
 
+	}
+
+	//update what frame of animation the pillbox will have
+	//This will change the sprite to point up or down.
+	private void updateAnimation()
+	{
+		//Make the sprite point up or down depending ont he situation
+		float heightDiff = gameController.GetPlayerPosition().y - gameObject.transform.position.y;
+		if (heightDiff < 1.5f && heightDiff > -1.5f) {
+			//straight ahead
+			animator.SetInteger ("animState", 0);
+		} else if (heightDiff > 1.5f) {
+			//point up
+			animator.SetInteger ("animState", 3);
+		} else if (heightDiff < -1.5f) {
+			//point down
+			animator.SetInteger ("animState", 4);
+		}
 	}
 }

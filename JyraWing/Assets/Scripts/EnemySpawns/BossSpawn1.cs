@@ -16,7 +16,7 @@ public class BossSpawn1 : EnemySpawner {
 
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyBoss boss = enemy1.GetComponent<EnemyBoss> ();
-		boss.hits = 3;
+		boss.hits = 20;
 		Instantiate (enemy1);
 	}
 }

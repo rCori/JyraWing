@@ -1,16 +1,20 @@
 fileFormatVersion: 2
-guid: 2026335bcc2f1594389e24f4878a5764
-timeCreated: 1435470119
+guid: e026ed32321516340969b079c5b38049
+timeCreated: 1441253828
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pillbox1Strip_0
-    21300002: pillbox1Strip_1
-    21300004: pillbox1Strip_2
+    21300000: pillbox2_0
+    21300002: pillbox2_1
+    21300004: pillbox2_2
+    21300006: pillbox2_3
+    21300008: pillbox2_4
+    21300010: pillbox2_5
+    21300012: pillbox2_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -52,31 +56,71 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: pillbox1Strip_0
+    - name: pillbox2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 4
+        y: 44
         width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox1Strip_1
+    - name: pillbox2_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 24
+        y: 44
         width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox1Strip_2
+    - name: pillbox2_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 44
+        y: 44
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillbox2_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillbox2_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillbox2_5
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillbox2_6
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
         width: 16
         height: 16
       alignment: 0
