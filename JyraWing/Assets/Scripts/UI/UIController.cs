@@ -40,7 +40,7 @@ public class UIController : MonoBehaviour {
 		levelEndImage = Instantiate (levelEndImage);
 		levelEndImage.transform.SetParent (canvas.transform, false);
 
-		gameOverMessage = Resources.Load("UIObjects/GameOverText") as GameObject;
+		gameOverMessage = Resources.Load("UIObjects/GameOverImage") as GameObject;
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
 
@@ -100,8 +100,10 @@ public class UIController : MonoBehaviour {
 	/// Shows game over.
 	/// </summary>
 	public void ShowGameOver(){
-		Text gameOverText = gameOverMessage.GetComponent<Text> ();
-		gameOverText.text = "Game Over";
+		Image gameOverMessageComp = gameOverMessage.GetComponent<Image> ();
+		Color myColor = gameOverMessageComp.color;
+		myColor.a = 255;
+		gameOverMessageComp.color = myColor;
 	}
 
 	/// <summary>

@@ -15,11 +15,18 @@ public class EnemyAI7 : EnemyBehavior {
 		directionCounter = 0;
 		SetEnemyHealth (health);
 		StartStandStill (0.1f);
-		HasAnimations ownedAnimations = HasAnimations.None;
-		SetAnimations (ownedAnimations);
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("largeTurretHit");
 	}
 
 	void Update(){
+		//Do not activate this trigger if the enemy has been destroyed.
+		if (isDestroyed) {
+			return;
+		}
 		Movement ();
 		if (GetIsTimeUp ()) {
 			Vector2 dir;
@@ -77,6 +84,8 @@ public class EnemyAI7 : EnemyBehavior {
 			StartStandStill(shotTime);
 
 		}
+		HandleHitAnimation ();
 	}
+
 	
 }
