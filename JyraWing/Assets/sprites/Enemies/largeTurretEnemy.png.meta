@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 68b163484853c86479426bab3b9a66e4
-timeCreated: 1441524623
+guid: e0f9f187fb3081041b9e5c19c24be7b7
+timeCreated: 1441659739
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: largeTurretEnemy_0
-    21300002: largeTurretEnemy_1
-    21300004: largeTurretEnemy_2
-    21300006: largeTurretEnemy_3
+    21300000: largeTurretEnemy 1_0
+    21300002: largeTurretEnemy 1_1
+    21300004: largeTurretEnemy 1_2
+    21300006: largeTurretEnemy 1_3
+    21300008: largeTurretEnemy 1_4
+    21300010: largeTurretEnemy 1_5
+    21300012: largeTurretEnemy 1_6
+    21300014: largeTurretEnemy 1_7
+    21300016: largeTurretEnemy 1_8
+    21300018: largeTurretEnemy 1_9
+    21300020: largeTurretEnemy 1_10
+    21300022: largeTurretEnemy 1_11
+    21300024: largeTurretEnemy 1_12
+    21300026: largeTurretEnemy 1_13
+    21300028: largeTurretEnemy 1_14
+    21300030: largeTurretEnemy 1_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,7 +65,87 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: largeTurretEnemy_0
+    - name: largeTurretEnemy 1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 296
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 296
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 296
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 296
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 198
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 198
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_6
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 198
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_7
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 198
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_8
       rect:
         serializedVersion: 2
         x: 2
@@ -63,7 +155,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: largeTurretEnemy_1
+    - name: largeTurretEnemy 1_9
       rect:
         serializedVersion: 2
         x: 100
@@ -73,7 +165,37 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: largeTurretEnemy_2
+    - name: largeTurretEnemy 1_10
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 100
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_11
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 100
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_13
       rect:
         serializedVersion: 2
         x: 100
@@ -83,10 +205,20 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: largeTurretEnemy_3
+    - name: largeTurretEnemy 1_14
       rect:
         serializedVersion: 2
-        x: 2
+        x: 198
+        y: 2
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: largeTurretEnemy 1_15
+      rect:
+        serializedVersion: 2
+        x: 296
         y: 2
         width: 96
         height: 96
