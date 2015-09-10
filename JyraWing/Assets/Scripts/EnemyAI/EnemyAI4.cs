@@ -61,7 +61,7 @@ public class EnemyAI4 : EnemyBehavior {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isDestroyed) {
+		if (isDestroyed || _paused) {
 			return;
 		}
 		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;

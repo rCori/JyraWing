@@ -8,12 +8,16 @@ public class Menu : MonoBehaviour {
 	private float selectTimeLimit;
 	private AudioSource beep;
 
+	private float spaceBetweenItems;
+	private int numberOfItems;
 	// Use this for initialization
 	void Start () {
 		curSelect = 0;
 		selectTimer = 0f;
 		selectTimeLimit = 0.5f;
 		beep = gameObject.GetComponent<AudioSource> ();
+		spaceBetweenItems = 40.0f;
+		numberOfItems = 2;
 	}
 	
 	// Update is called once per frame
@@ -22,9 +26,9 @@ public class Menu : MonoBehaviour {
 		selectTimer += Time.deltaTime;
 		//move selection down one
 		float axis = Input.GetAxis ("Vertical");
-		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
+		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != numberOfItems-1) {
 			curSelect++;
-			transform.position = new Vector2(transform.position.x, transform.position.y - 25);
+			transform.position = new Vector2(transform.position.x, transform.position.y - spaceBetweenItems);
 			selectTimer = 0f;
 			beep.Play();
 		}
@@ -32,7 +36,7 @@ public class Menu : MonoBehaviour {
 		//move selection up one
 		if (axis > 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
 			curSelect--;
-			transform.position = new Vector2(transform.position.x, transform.position.y + 25);
+			transform.position = new Vector2(transform.position.x, transform.position.y + spaceBetweenItems);
 			selectTimer = 0f;
 			beep.Play();
 		}
@@ -43,10 +47,12 @@ public class Menu : MonoBehaviour {
 				beep.Play();
 				Application.LoadLevel("Level_1");
 			}
-			/*
+
 			else if(curSelect == 1){
-				Application.LoadLevel("testScene2");
+				beep.Play();
+				Application.Quit ();
 			}
+			/*
 			else if(curSelect == 2){
 				Application.LoadLevel("testScene3");
 			}

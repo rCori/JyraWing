@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyBehavior : MonoBehaviour {
+public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	
 	public enum MovementStatus {None, Lerp, Slerp, Velocity}
 
@@ -94,6 +94,8 @@ public class EnemyBehavior : MonoBehaviour {
 	protected Animator animator;
 	private string hitAnimationName;
 	protected bool isDestroyed;
+	protected bool _paused;
+	private Vector2 storedVel;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -111,6 +113,9 @@ public class EnemyBehavior : MonoBehaviour {
 		animator = gameObject.GetComponent<Animator> ();
 		hitAnimationName = "NO ANIMATION SET";
 		isDestroyed = false;
+		_paused = false;
+		storedVel = new Vector2 (0f, 0f);
+		RegisterToList ();
 
 
 	}
@@ -343,6 +348,7 @@ public class EnemyBehavior : MonoBehaviour {
 		if (powerupGroupID != -1) {
 			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
 		}
+		RemoveFromList ();
 
 	}
 
@@ -380,5 +386,40 @@ public class EnemyBehavior : MonoBehaviour {
 		hitAnimationName = i_hitAnimationName;
 	}
 
+
+
+	/* Implementation of PauseableObject */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+
+		set
+		{
+			_paused = value;
+			if(_paused)
+			{
+				storedVel = GetComponent<Rigidbody2D>().velocity;
+				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+				animator.speed = 0f;
+			}
+			else{
+				GetComponent<Rigidbody2D>().velocity = storedVel;
+				animator.speed = 1f;
+			}
+		}
+	}
+
+	public void RegisterToList()
+	{
+		gameController.RegisterPause(this);
+	}
+	
+	public void RemoveFromList()
+	{
+		gameController.DelistPause(this);
+	}
 
 }

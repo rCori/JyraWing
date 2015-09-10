@@ -24,7 +24,7 @@ public class EnemyAI7 : EnemyBehavior {
 
 	void Update(){
 		//Do not activate this trigger if the enemy has been destroyed.
-		if (isDestroyed) {
+		if (isDestroyed || _paused) {
 			return;
 		}
 		Movement ();

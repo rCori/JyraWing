@@ -16,11 +16,25 @@ public class GameController : MonoBehaviour {
 	private enum GameOverState{None = 0, FinishSoundEffect, FinishShowScreen, KillAnimation, KillSoundEffect, KillShowScreen};
 	GameOverState gameOverState;
 
+	private bool isPaused;
+
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	private List<PowerupGroup> squadList;
 	//private Hashtable squadTable;
+
+
+	/// <summary>
+	/// Keep track of all objects that must be paused when
+	/// the game is paused by the player
+	/// </summary>
+	private List<PauseableItem> pauseList;
+
+	void Awake()
+	{
+		pauseList = new List<PauseableItem> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +42,7 @@ public class GameController : MonoBehaviour {
 		gameOverState = GameOverState.None;
 		squadList = new List<PowerupGroup> ();
 		bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
+		isPaused = false;
 		//squadTable = new Hashtable ();
 	}
 	
@@ -39,6 +54,16 @@ public class GameController : MonoBehaviour {
 //				Application.LoadLevel ("titleScene");
 //			}
 //		}
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			if (!isPaused) {
+				PauseAllItems();
+			}
+			else
+			{
+				Unpause ();
+			}
+		}
 		handleGameOver ();
 	}
 
@@ -215,5 +240,43 @@ public class GameController : MonoBehaviour {
 			}
 			break;
 		}
+	}
+
+	///Allows the user to pause all items that have been registered to pause
+	void PauseAllItems()
+	{
+		foreach(PauseableItem item in pauseList)
+		{
+			item.paused = true;
+		}
+		isPaused = true;
+	}
+
+	///Allows the user to unpause all items that have been registered to pause and resume the game
+	void Unpause()
+	{
+		foreach(PauseableItem item in pauseList)
+		{
+			item.paused = false;
+		}
+		isPaused = false;
+	}
+
+	/// <summary>
+	/// Registers and item to be globablly paused
+	/// </summary>
+	/// <param name="item">Item to register.</param>
+	public void RegisterPause(PauseableItem item)
+	{
+		pauseList.Add (item);
+	}
+
+	/// <summary>
+	/// Remove and item from the pause list
+	/// </summary>
+	/// <param name="item">Item.</param>
+	public void DelistPause(PauseableItem item)
+	{
+		pauseList.Remove (item);
 	}
 }

@@ -1,21 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\UIController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyBullet.cs">
     <Files>
-      <File FileName="Assets\Scripts\UI\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI7.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="69" Column="103" />
+      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="53" Column="33" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="410" Column="23" />
+      <File FileName="Assets\Scripts\Singletons\PauseableItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="307" Column="23" />
+      <File FileName="Assets\Scripts\Bullet.cs" Line="91" Column="69" />
+      <File FileName="Assets\Scripts\Scroll.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnemyAI\EnemyAI6.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyBoss.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\BossSpawn1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI7.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI8.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI9.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\GameController.cs" line="76" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

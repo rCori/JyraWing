@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\Singletons\EmptyPoolException.cs" />
      <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\Singletons\GameController.cs" />
+     <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player2.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />

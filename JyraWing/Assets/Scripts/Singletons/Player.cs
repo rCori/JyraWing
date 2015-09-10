@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour, PauseableItem {
 	
 	public GameController gameController;
 	private float speed;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 	private Vector3 endSavePos;
 	
 	private bool disableControls;
+	private bool _paused;
 
 	// Use this for initialization
 	void Start () {
@@ -44,12 +45,17 @@ public class Player : MonoBehaviour {
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
 		disableControls = false;
+		_paused = false;
+		RegisterToList ();
 
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_paused) {
+			return;
+		}
 		//Update position
 		updatePlayerMovement ();
 		//Update player input
@@ -275,5 +281,41 @@ public class Player : MonoBehaviour {
 				}
 			} 
 		}
+	}
+
+	//Make sure the player is removed from the list although actually this shouldn't be necssary
+	void OnDestroy()
+	{
+		RemoveFromList ();
+	}
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+		
+		set{
+			_paused = value;
+			if(_paused){
+				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
+				animator.speed = 0f;
+			}
+			else{
+				animator.speed = 1f;
+			}
+		}
+	}
+	
+	public void RegisterToList()
+	{
+		gameController.RegisterPause(this);
+	}
+	
+	public void RemoveFromList()
+	{
+		gameController.DelistPause(this);
 	}
 }
