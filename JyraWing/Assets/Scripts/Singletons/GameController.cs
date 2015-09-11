@@ -57,6 +57,10 @@ public class GameController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
 			if (!isPaused) {
+				GameObject uiCanvas = GameObject.Find ("Canvas");
+				GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
+				InGameMenu = Instantiate(InGameMenu);
+				InGameMenu.transform.SetParent(uiCanvas.transform, false);
 				PauseAllItems();
 			}
 			else
@@ -253,7 +257,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	///Allows the user to unpause all items that have been registered to pause and resume the game
-	void Unpause()
+	public void Unpause()
 	{
 		foreach(PauseableItem item in pauseList)
 		{

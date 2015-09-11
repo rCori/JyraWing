@@ -102,6 +102,7 @@
      <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
+     <Compile Include="Assets\Scripts\UI\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\LevelComplete.cs" />
      <Compile Include="Assets\Scripts\UI\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />

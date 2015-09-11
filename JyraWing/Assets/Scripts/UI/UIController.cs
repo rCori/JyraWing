@@ -18,7 +18,8 @@ public class UIController : MonoBehaviour {
 	private GameObject lifeText;
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
-	
+
+	//private IngameMenu pauseMenu;
 
 	//ISDEBUG
 	private GameObject debugFramerate;
