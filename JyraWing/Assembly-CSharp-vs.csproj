@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AspectUtility.cs" />
+     <Compile Include="Assets\Letterboxing.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI1.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI2.cs" />
@@ -102,9 +104,10 @@
      <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
-     <Compile Include="Assets\Scripts\UI\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\LevelComplete.cs" />
-     <Compile Include="Assets\Scripts\UI\Menu.cs" />
+     <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
+     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
+     <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

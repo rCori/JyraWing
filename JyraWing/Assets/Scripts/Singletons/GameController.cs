@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour {
 			}
 			else
 			{
-				Unpause ();
+				//Unpause ();
 			}
 		}
 		handleGameOver ();

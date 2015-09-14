@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IngameMenu : MonoBehaviour {
-
-	private int curSelect;
-	private float selectTimer;
-	private float selectTimeLimit;
-	private AudioSource beep;
+public class IngameMenu : Menu {
 	
-	private float spaceBetweenItems;
-	private int numberOfItems;
+
 
 	private GameObject uiCanvas;
 	private GameObject yesText;
@@ -18,12 +12,10 @@ public class IngameMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		curSelect = 0;
-		selectTimer = 0f;
-		selectTimeLimit = 0.5f;
-		beep = gameObject.GetComponent<AudioSource> ();
-		spaceBetweenItems = 350.0f;
+		InitMenu ();
 		numberOfItems = 2;
+		isVertical = false;
+
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
 		yesText = Resources.Load ("UIObjects/InGameMenu/YesText") as GameObject;
@@ -36,28 +28,17 @@ public class IngameMenu : MonoBehaviour {
 		title = Instantiate (title);
 		title.transform.SetParent (uiCanvas.transform, false);
 
+		//Amount to move selector over from a selection when that item is selected.
+		float adjustPt = Screen.width / 10.0f;
+
+		menuLocations.Add(new Vector2(noText.transform.position.x - adjustPt, noText.transform.position.y));
+		menuLocations.Add(new Vector2(yesText.transform.position.x - adjustPt, yesText.transform.position.y));
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//Timer prevents the options from being scrolled through as fast as this update happens.
-		selectTimer += Time.deltaTime;
-		//move selection down one
-		float axis = Input.GetAxis ("Horizontal");
-		if (axis > 0 && (selectTimer > selectTimeLimit) && curSelect != numberOfItems - 1) {
-			curSelect++;
-			transform.position = new Vector2 (transform.position.x + spaceBetweenItems, transform.position.y);
-			selectTimer = 0f;
-			beep.Play ();
-		}
-		
-		//move selection up one
-		if (axis < 0 && (selectTimer > selectTimeLimit) && curSelect != 0) {
-			curSelect--;
-			transform.position = new Vector2 (transform.position.x - spaceBetweenItems, transform.position.y);
-			selectTimer = 0f;
-			beep.Play ();
-		}
+		MenuScroll ();
 		
 		//Select start the game
 		if (Input.GetButton ("Fire1")) {

@@ -99,6 +99,7 @@ GameObject:
   - 92: {fileID: 19017060}
   - 124: {fileID: 19017059}
   - 81: {fileID: 19017058}
+  - 114: {fileID: 19017063}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,6 +173,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &19017063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19017057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5727d7cb708c6c3479cbac7cde74897f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76298528
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450118, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: speed
@@ -3794,7 +3806,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466094, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11440732, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: player
