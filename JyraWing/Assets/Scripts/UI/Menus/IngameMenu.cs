@@ -34,13 +34,15 @@ public class IngameMenu : Menu {
 		menuLocations.Add(new Vector2(noText.transform.position.x - adjustPt, noText.transform.position.y));
 		menuLocations.Add(new Vector2(yesText.transform.position.x - adjustPt, yesText.transform.position.y));
 
+		gameObject.transform.position = menuLocations [0];
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		MenuScroll ();
-		
-		//Select start the game
+
+		//No: Continue game, unpausing it.
 		if (Input.GetButton ("Fire1")) {
 			if (curSelect == 0) {
 				beep.Play ();
@@ -50,10 +52,19 @@ public class IngameMenu : Menu {
 				GameObject.Find ("GameController").GetComponent<GameController>().Unpause();
 				Destroy (gameObject);
 
+			//Yes: Go back to main menu
 			} else if (curSelect == 1) {
 				beep.Play ();
 				Application.LoadLevel ("titleScene");
 			}
+		}
+		if (Input.GetButton ("Fire2")) {
+			beep.Play ();
+			Destroy (title);
+			Destroy (noText);
+			Destroy (yesText);
+			GameObject.Find ("GameController").GetComponent<GameController>().Unpause();
+			Destroy (gameObject);
 		}
 	}
 }

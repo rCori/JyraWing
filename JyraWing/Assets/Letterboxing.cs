@@ -4,6 +4,7 @@ using System.Collections;
 
 
 //Create letterboxing to force aspect ratio
+//Copied from unity forums
 [RequireComponent(typeof(Camera))]
 public class Letterboxing : MonoBehaviour 
 {

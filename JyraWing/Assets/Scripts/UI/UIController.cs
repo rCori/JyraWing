@@ -192,4 +192,10 @@ public class UIController : MonoBehaviour {
 			speedSpriteImage.color = color;
 		}
 	}
+
+	public void PauseMenu(){
+		GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
+		InGameMenu = Instantiate(InGameMenu);
+		InGameMenu.transform.SetParent(canvas.transform, false);
+	}
 }

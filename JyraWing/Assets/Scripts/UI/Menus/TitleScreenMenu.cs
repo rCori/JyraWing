@@ -28,13 +28,15 @@ public class TitleScreenMenu : Menu {
 		menuLocations.Add (new Vector2 (startGame.transform.position.x-adjustPt, startGame.transform.position.y));
 		menuLocations.Add (new Vector2 (quitGame.transform.position.x-adjustPt, quitGame.transform.position.y));
 
+		gameObject.transform.position = menuLocations [0];
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		MenuScroll ();
 		//Select start the game
-		if(Input.GetButton("Fire1")){
+		if(Input.GetButton ("Fire1") || Input.GetButton ("Submit")){
 			if(curSelect == 0){
 				beep.Play();
 				Application.LoadLevel("Level_1");
@@ -44,14 +46,6 @@ public class TitleScreenMenu : Menu {
 				beep.Play();
 				Application.Quit ();
 			}
-			/*
-			else if(curSelect == 2){
-				Application.LoadLevel("testScene3");
-			}
-			else if(curSelect == 3){
-				Application.LoadLevel("firstLevel");
-			}
-			*/
 		}
 	}
 }

@@ -54,18 +54,11 @@ public class GameController : MonoBehaviour {
 //				Application.LoadLevel ("titleScene");
 //			}
 //		}
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetButtonDown("Submit"))
 		{
 			if (!isPaused) {
-				GameObject uiCanvas = GameObject.Find ("Canvas");
-				GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
-				InGameMenu = Instantiate(InGameMenu);
-				InGameMenu.transform.SetParent(uiCanvas.transform, false);
+				uiController.PauseMenu();
 				PauseAllItems();
-			}
-			else
-			{
-				//Unpause ();
 			}
 		}
 		handleGameOver ();

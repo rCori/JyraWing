@@ -16,7 +16,9 @@ public class PowerupObject : MonoBehaviour {
 	float oneOverRootTwo;
 
 	Vector3 lastPos;
-	
+
+	private AudioClip pickupSound;
+	private SoundEffectPlayer sfxPlayer;
 
 	void Start(){
 		bag = new ShuffleBag (4);
@@ -32,6 +34,8 @@ public class PowerupObject : MonoBehaviour {
 		startPos = new Vector3();
 		lastPos = new Vector3();
 		destinationPos = new Vector3();
+		pickupSound = Resources.Load ("Audio/SFX/powerupGet1") as AudioClip;
+		sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 	}
 
 	// Update is called once per frame
@@ -104,5 +108,9 @@ public class PowerupObject : MonoBehaviour {
 			break;
 		}
 
+	}
+
+	void OnDestroy(){
+		sfxPlayer.PlayClip(pickupSound);
 	}
 }

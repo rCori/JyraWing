@@ -1,16 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Scroll.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\Player.cs">
     <Files>
-      <File FileName="Assets\Letterboxing.cs" Line="10" Column="29" />
-      <File FileName="Assets\AspectUtility.cs" Line="94" Column="22" />
-      <File FileName="Assets\Scripts\UI\Menus\IngameMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\Menus\Menu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Scroll.cs" Line="32" Column="1" />
+      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="304" Column="5" />
+      <File FileName="Assets\Scripts\Powerups\SpeedPowerup.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

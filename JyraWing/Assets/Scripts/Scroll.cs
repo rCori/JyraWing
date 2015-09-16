@@ -14,7 +14,7 @@ public class Scroll : MonoBehaviour, PauseableItem {
 
 	//We need to safely register this item to the gameController
 	//This item might get created before the gameController so this ensures safety
-	private bool listSet;
+	//private bool listSet;
 
 	private bool _paused;
 
@@ -33,7 +33,6 @@ public class Scroll : MonoBehaviour, PauseableItem {
 			extraWidth = 0;
 		}
 		_paused = false;
-		listSet = false;
 		RegisterToList ();
 	}
 	
@@ -41,10 +40,6 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	void FixedUpdate () {
 		if (!paused) {
 			transform.position -= new Vector3 (speed * Time.deltaTime, 0f, 0f);
-		}
-		if (!listSet) {
-			//Safely register to the gameController
-			//RegisterToList();
 		}
 	}
 
@@ -79,10 +74,8 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	
 	public void RegisterToList()
 	{
-		//Make sure the gameController exists before we try to register to it.
 		if (GameObject.Find ("GameController")) {
 			GameObject.Find ("GameController").GetComponent<GameController> ().RegisterPause (this);
-			listSet = true;
 		}
 	}
 

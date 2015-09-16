@@ -18,7 +18,8 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
-	
+
+	private bool takingDamage;
 	private bool disableControls;
 	private bool _paused;
 
@@ -29,10 +30,13 @@ public class Player : MonoBehaviour, PauseableItem {
 		hits = 3;
 		numBullets = 2;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
+		//Shot sound
 		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
 		damageSfx = gameObject.AddComponent<AudioSource> ();
+		//Sound when the player is hit
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
 
+		//Bullet pool of player bullets.
 		bulletPool = new List<GameObject> ();
 		for (int i= 0; i < numBullets; i++) {
 			//Put all the bullet live in the pool
@@ -47,6 +51,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		disableControls = false;
 		_paused = false;
 		RegisterToList ();
+		takingDamage = false;
 
 
 	}
@@ -68,6 +73,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
+		Debug.Log (hitTimer);
 		if (hitTimer == 0.0f) {
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
@@ -77,6 +83,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			gameController.UpdatePlayerLives();
 			disableControls = true;
 			damageSfx.Play();
+			takingDamage = true;
 		}
 
 	}
@@ -217,10 +224,32 @@ public class Player : MonoBehaviour, PauseableItem {
 			float vert = Input.GetAxis ("Vertical");
 			if (vert < 0.0f) {
 				vert = -1.0f;
+				if(!takingDamage){
+					animator.SetInteger ("animState", 3);
+				}
+				else{
+					animator.SetInteger ("animState", 5);
+				}
 			} else if (vert > 0.0f) {
 				vert = 1.0f;
+				if(!takingDamage){
+					animator.SetInteger ("animState", 4);
+				}
+				else{
+					animator.SetInteger ("animState", 6);
+				}
 			}
-		
+			else if(takingDamage) 
+			{
+				animator.SetInteger ("animState", 2);
+			}
+			else{
+				animator.SetInteger ("animState", 0);
+			}
+
+
+
+
 			if (horiz < 0.0f) {
 				horiz = -1.0f;
 			} else if (horiz > 0.0f) {
@@ -261,7 +290,8 @@ public class Player : MonoBehaviour, PauseableItem {
 					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
 					endSavePos = gameObject.transform.position;
 				}
-			} else if(animator.GetInteger("animState") == 2){
+			//If the ship has returned to the screen after starting a new life
+			} else if(takingDamage){
 				//Player is flying back int
 				if(disableControls){
 					hitTimer -= Time.deltaTime;
@@ -272,11 +302,13 @@ public class Player : MonoBehaviour, PauseableItem {
 						hitTimer = 4.5f;
 						disableControls = false;
 					}
+				//The player has regained control and is flashing and they are invincible
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
+						takingDamage = false;
 					}
 				}
 			} 

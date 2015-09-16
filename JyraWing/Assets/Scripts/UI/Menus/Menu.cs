@@ -37,14 +37,15 @@ public class Menu : MonoBehaviour {
 			axis = Input.GetAxis ("Horizontal");
 		}
 
-		//Move menu selector up and down
+		//Move the selector down(veritcal) or right(horizontal)
 		if (((isVertical && axis < 0)||(!isVertical && axis > 0)) && (selectTimer > selectTimeLimit) && curSelect != numberOfItems-1) {
 			curSelect++;
 			transform.position = menuLocations[curSelect];
 			selectTimer = 0f;
 			beep.Play();
 		}
-		
+
+		//Move the selector up(veritcal) or left(horizontal)
 		//move selection up one
 		if (((isVertical && axis > 0)||(!isVertical && axis < 0)) && curSelect != 0) {
 			curSelect--;
