@@ -1,12 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SoundEffectPlayer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="304" Column="5" />
-      <File FileName="Assets\Scripts\Powerups\SpeedPowerup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\PowerupObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn15.cs" Line="130" Column="46" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI9.cs" Line="35" Column="18" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI6.cs" Line="37" Column="1" />
+      <File FileName="Assets\Scripts\SoundEffectPlayer.cs" Line="26" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

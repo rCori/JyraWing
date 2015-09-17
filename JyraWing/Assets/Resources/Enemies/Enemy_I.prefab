@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 487800}
   - 212: {fileID: 21243256}
   - 114: {fileID: 11403272}
-  - 114: {fileID: 11499598}
   - 50: {fileID: 5063496}
   - 61: {fileID: 6129700}
   - 95: {fileID: 9506078}
@@ -93,23 +92,11 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
   LeftWallException: 0
-  fireDelay: .699999988
-  fireRate: 1
   startDelay: 2
+  fireTimes:
+  - 1.5
+  - 2.0999999
   isReverse: 1
---- !u!114 &11499598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  infinite: 0
 --- !u!212 &21243256
 SpriteRenderer:
   m_ObjectHideFlags: 1

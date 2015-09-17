@@ -73,7 +73,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		Debug.Log (hitTimer);
 		if (hitTimer == 0.0f) {
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
