@@ -30,12 +30,16 @@ public class PowerupGroup {
 		i_enemy.GetComponent<EnemyBehavior> ().SetPowerupGroupID(id);
 	}
 
-	public bool IsSquadGone(GameObject i_lastRemaining){
+	public bool IsSquadGone(){
 		//Check to make sure every member of the squad no longer exists
 		for (int i = 0; i< squad.Count; i++) {
-			//If there is a squad member remaining that isn't the last one remaining.
-			if(squad[i] && squad[i] != i_lastRemaining){
-				return false;
+			if(squad[i]){
+				EnemyBehavior enemy = squad[i].GetComponent<EnemyBehavior>();
+				//If there is a squad member remaining that isn't the last one remaining.
+				//if(squad[i] && squad[i] != i_lastRemaining){
+				if(!enemy.GetIsDestroyed()){
+					return false;
+				}
 			}
 		}
 		return true;

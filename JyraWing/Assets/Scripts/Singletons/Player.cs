@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
+	private Vector3 pauseSavePos;
 
 	private bool takingDamage;
 	private bool disableControls;
@@ -53,12 +54,14 @@ public class Player : MonoBehaviour, PauseableItem {
 		RegisterToList ();
 		takingDamage = false;
 
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (_paused) {
+			//Hoping this prevents the corner drifiting bug.
+			transform.position = pauseSavePos;
+			transform.rotation.Set(0f,0f,0f,0f);
 			return;
 		}
 		//Update position
@@ -331,7 +334,9 @@ public class Player : MonoBehaviour, PauseableItem {
 		set{
 			_paused = value;
 			if(_paused){
+				pauseSavePos = transform.position;
 				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
+				//I am hoping this fixes the drift by mashing pause in the corner bug.
 				animator.speed = 0f;
 			}
 			else{

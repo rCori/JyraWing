@@ -277,7 +277,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				return;
 			}
 			hitPoints--;
-			
 			//This will get rid of the 
 			other.GetComponent<Bullet>().BulletDestroy();
 			
@@ -289,6 +288,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				sfxPlayer.PlaySoundClip(explosionSfx);
+
+
 				//If there is a destroy animation to play, set isDestroy to true and try to play it
 				if((animationsOwned & HasAnimations.Destroy) != 0){
 					isDestroyed = true;
@@ -331,6 +332,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 	}
 
+
+	public int GetPowerupGroupID()
+	{
+		return powerupGroupID;
+	}
+
 	/// <summary>
 	/// If this enemy belongs to a group that drops a powerup, set 
 	/// that this enemy belongs to that group.
@@ -345,9 +352,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// Handle powerup squad arrangments and ordering
 	/// </summary>
 	void OnDestroy() {
-		if (powerupGroupID != -1) {
-			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
-		}
+//		if (powerupGroupID != -1) {
+//			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
+//		}
+
 		RemoveFromList ();
 
 	}
@@ -386,6 +394,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		hitAnimationName = i_hitAnimationName;
 	}
 
+	public bool GetIsDestroyed(){
+		return isDestroyed;
+	}
 
 
 	/* Implementation of PauseableObject */

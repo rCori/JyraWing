@@ -10,6 +10,7 @@ public class BarrierWall : MonoBehaviour {
 	/// </summary>
 	public sides barrierMode;
 	
+	public GameController gameController;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,11 @@ public class BarrierWall : MonoBehaviour {
 			if(barrierMode == sides.Left)
 			{
 				if(!other.GetComponent<EnemyBehavior>().LeftWallException){
+					EnemyBehavior enemy = other.GetComponent<EnemyBehavior>();
+					if(enemy.GetPowerupGroupID() != -1)
+					{
+						gameController.RemoveSquad(enemy.GetPowerupGroupID());
+					}
 					Destroy(other.gameObject);
 				}
 			}

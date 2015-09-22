@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour {
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	private List<PowerupGroup> squadList;
-	//private Hashtable squadTable;
 
 
 	/// <summary>
@@ -56,7 +55,7 @@ public class GameController : MonoBehaviour {
 //		}
 		if(Input.GetButtonDown("Submit"))
 		{
-			if (!isPaused) {
+			if (!isPaused && gameOverState == GameOverState.None) {
 				uiController.PauseMenu();
 				PauseAllItems();
 			}
@@ -85,7 +84,7 @@ public class GameController : MonoBehaviour {
 	
 
 	public void GameOver(float i_gameOverTimer = 0.0f){
-		bgmPlayer.volume = 0.5f;
+		//bgmPlayer.volume = 0.5f;
 		gameOverState = GameOverState.KillAnimation;
 		//uiController.ShowGameOver ();
 		gameOverTimer = i_gameOverTimer;
@@ -96,9 +95,9 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	public void LevelFinished(float i_gameOverTimer = 0.0f){
 		//Prevents a crash on exit.
-		if (bgmPlayer) {
-			bgmPlayer.volume = 0.5f;
-		}
+//		if (bgmPlayer) {
+//			bgmPlayer.volume = 0.5f;
+//		}
 		gameOverState = GameOverState.FinishSoundEffect;
 		//uiController.ShowLevelComplete();
 		gameOverTimer = i_gameOverTimer;
@@ -131,16 +130,12 @@ public class GameController : MonoBehaviour {
 	///<summary>
 	/// Remove the powerupgroup but don't spawn anything.
 	///</summary>
-	public bool CheckSquadAndRemove(int i_id, GameObject i_lastRemaining){
+	public bool RemoveSquad(int i_id){
 		//If the squad exists
 		if (squadList.Count > i_id) {
 			//If Squad has everything gone except the last enemy
-			if(squadList[i_id].IsSquadGone(i_lastRemaining))
-			{
-				squadList.RemoveAt(i_id);
-				adjustSquadIDs(i_id);
-				
-			}
+			squadList.RemoveAt(i_id);
+			adjustSquadIDs(i_id);
 		}
 		return false;
 	}
@@ -156,9 +151,9 @@ public class GameController : MonoBehaviour {
 
 	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
 		//If the squad exists
-		if (/*squadList[i_id]!= null*/squadList.Count > i_id) {
+		if (squadList.Count > i_id) {
 			//If Squad has everything gone except the last enemy
-			if(squadList[i_id].IsSquadGone(i_lastRemaining))
+			if(squadList[i_id].IsSquadGone())
 			{
 				//Get the powerup object
 				GameObject powerup = squadList[i_id].ReturnPowerupObject();
@@ -200,9 +195,9 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.FinishShowScreen;
 				uiController.ShowLevelComplete();
 				gameOverTimer = 5.0f;
-				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
-				bgmPlayer.volume = 1.0f;
-				bgmPlayer.PlayOneShot(bgmPlayer.clip);
+//				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
+//				bgmPlayer.volume = 1.0f;
+//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.FinishShowScreen):
@@ -225,9 +220,9 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.KillShowScreen;
 				uiController.ShowGameOver();
 				gameOverTimer = 5.0f;
-				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
-				bgmPlayer.volume = 1.0f;
-				bgmPlayer.PlayOneShot(bgmPlayer.clip);
+//				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
+//				bgmPlayer.volume = 1.0f;
+//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.KillShowScreen):

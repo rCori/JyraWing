@@ -23,7 +23,9 @@ public class SoundEffectPlayer : MonoBehaviour {
 	}
 
 	public void PlayClip(AudioClip clip){
-		newSource.clip = clip;
-		newSource.PlayOneShot (newSource.clip);
+		if (newSource) {
+			newSource.clip = clip;
+			newSource.PlayOneShot (newSource.clip);
+		}
 	}
 }
