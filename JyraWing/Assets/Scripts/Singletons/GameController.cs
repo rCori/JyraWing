@@ -271,4 +271,5 @@ public class GameController : MonoBehaviour {
 	{
 		pauseList.Remove (item);
 	}
+	
 }

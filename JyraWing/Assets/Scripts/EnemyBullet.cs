@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class EnemyBullet : MonoBehaviour, PauseableItem {
-
+	
 	private bool isActive;
-
+	
 	private Vector2 storedVel;
 	private bool _paused;
 	// Use this for initialization
@@ -16,9 +16,9 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
-
+	
 	void OnTriggerEnter2D(Collider2D other){
 		//Player has two collders so we need to check if we are hitting the trigger one.
 		if (other.tag == "Player" && other.isTrigger) {
@@ -34,7 +34,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 			isActive = false;
 		}
 	}
-
+	
 	public bool GetIsActive(){
 		return isActive;
 	}
@@ -44,13 +44,13 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		isActive = true;
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (-5.0f, 0f);
 	}
-
+	
 	public void Shoot(Vector2 i_dir){
 		isActive = true;
 		GetComponent<Rigidbody2D> ().velocity = i_dir;
 	}
-
-
+	
+	
 	/* Implementation of PauseableItem interface */
 	public bool paused
 	{
@@ -75,12 +75,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 			}
 		}
 	}
-
+	
 	public void RegisterToList()
 	{
 		GameObject.Find ("GameController").GetComponent<GameController>().RegisterPause(this);
 	}
-
+	
 	public void RemoveFromList()
 	{
 		GameObject.Find ("GameController").GetComponent<GameController>().DelistPause(this);

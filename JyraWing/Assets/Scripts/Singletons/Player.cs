@@ -308,6 +308,8 @@ public class Player : MonoBehaviour, PauseableItem {
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
+						GetComponent<BoxCollider2D>().enabled = false;
+						GetComponent<BoxCollider2D>().enabled = true;
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
@@ -353,5 +355,12 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void RemoveFromList()
 	{
 		gameController.DelistPause(this);
+	}
+
+	public void OnTriggerStay2D(Collider2D other){
+		if(other.tag == "Enemy")
+		{
+			TakeDamage();
+		}
 	}
 }

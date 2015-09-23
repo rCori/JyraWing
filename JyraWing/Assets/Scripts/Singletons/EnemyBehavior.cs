@@ -326,10 +326,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			}
 		}
 		
-		if (other.tag == "Player" && other.isTrigger) {
-			Player player = other.gameObject.GetComponent<Player>();
-			player.TakeDamage();
-		}
+//		if (other.tag == "Player" && other.isTrigger) {
+//			Player player = other.gameObject.GetComponent<Player>();
+//			player.TakeDamage();
+//		}
 	}
 
 

@@ -10,6 +10,7 @@ public class TitleScreenMenu : Menu {
 
 	// Use this for initialization
 	void Start () {
+		ForceWindowed ();
 		InitMenu ();
 		numberOfItems = 2;
 		isVertical = true;
@@ -46,6 +47,14 @@ public class TitleScreenMenu : Menu {
 				beep.Play();
 				Application.Quit ();
 			}
+		}
+	}
+
+	public void ForceWindowed()
+	{
+		if (Screen.fullScreen) {
+			Screen.SetResolution(1024, 768, false);
+			Screen.fullScreen = false;
 		}
 	}
 }
