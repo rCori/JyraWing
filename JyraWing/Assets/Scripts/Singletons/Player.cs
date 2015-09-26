@@ -53,6 +53,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
+//		IncreaseBulletLevel ();
+//		IncreaseBulletLevel ();
+//		IncreaseBulletLevel ();
+
 
 	}
 	
@@ -77,6 +81,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public void TakeDamage(){
 		if (hitTimer == 0.0f) {
+			//take out taking damage for now
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 			animator.SetInteger ("animState", 1);

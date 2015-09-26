@@ -50,10 +50,16 @@ public class TitleScreenMenu : Menu {
 		}
 	}
 
+	/// <summary>
+	///If fullscreen is chosen we want to force a windowed game.
+	/// Resolution will stay the same.
+	/// </summary>
 	public void ForceWindowed()
 	{
 		if (Screen.fullScreen) {
-			Screen.SetResolution(1024, 768, false);
+			int width = Screen.width;
+			int height = Screen.height;
+			Screen.SetResolution(width, height, false);
 			Screen.fullScreen = false;
 		}
 	}

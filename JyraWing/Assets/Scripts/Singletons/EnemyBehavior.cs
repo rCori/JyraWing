@@ -6,6 +6,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	
 	public enum MovementStatus {None, Lerp, Slerp, Velocity}
 
+	///Mark this as an enum that can have multiple values ORed together
+	///THis way they can used as independant flags.
 	[System.Flags]
 	public enum HasAnimations
 	{
@@ -295,9 +297,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					isDestroyed = true;
 					gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
 					try{
+						//Try to set the destroy animation
 						if(animator){
 							animator.SetInteger("animState", 2);
 						}
+						//If the animator does not exist, then animationOwned should not have the destory animation set
+						//This was an error and it should be thrown.
 						else{
 							throw new System.Exception();
 						}
@@ -315,21 +320,32 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					DestroySelf ();
 				}
 			}
+			//The bullet hit and hitpoints are being lowered but the enemy isn't destroyed yet.
+			//Play the hit animation flash.
 			else{
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				sfxPlayer.PlayClip(hitSfx);
+				//Check for the hit animation flag to be set
 				if((animationsOwned & HasAnimations.Hit) != 0){
-					animator.SetInteger("animState", 1);
+					try{
+						//Try to set the hit flash animation
+						if(animator){
+							animator.SetInteger("animState", 1);
+						}
+						//If the animator does not exist, then animationOwned should not have the destory animation set
+						//This was an error and it should be thrown.
+						else{
+							throw new System.Exception();
+						}
+					}
+					catch(System.Exception e){
+						Debug.LogException(e);
+					}
 				}
 			}
 		}
-		
-//		if (other.tag == "Player" && other.isTrigger) {
-//			Player player = other.gameObject.GetComponent<Player>();
-//			player.TakeDamage();
-//		}
 	}
 
 
@@ -352,9 +368,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// Handle powerup squad arrangments and ordering
 	/// </summary>
 	void OnDestroy() {
-//		if (powerupGroupID != -1) {
-//			gameController.CheckSquadAndRemove (powerupGroupID, gameObject);
-//		}
+		//Null reference issue on close is blocked by a null check on gameObject.
+		if (powerupGroupID != -1 && !isDestroyed && gameController != null) {
+			gameController.RemoveSquad (powerupGroupID);
+		}
 
 		RemoveFromList ();
 
@@ -373,7 +390,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		Destroy (gameObject);
 	}
 
-
+	/// <summary>
+	/// The standard animations an enemy can have is hit and destroyed
+	/// </summary>
+	/// <param name="anims">Anims.</param>
 	protected void SetAnimations(HasAnimations anims)
 	{
 		animationsOwned = anims;
@@ -390,10 +410,22 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 	}
 
+	/// <summary>
+	/// This base class will actually need to know the name of the hit animation if the enemy posses one
+	/// It uses this name to handle the hit animation ending and returning to idle.
+	/// </summary>
+	/// <param name="i_hitAnimationName">I_hit animation name.</param>
 	protected void SetHitAnimationName(string i_hitAnimationName){
 		hitAnimationName = i_hitAnimationName;
 	}
 
+	/// <summary>
+	/// Return if isDestroyed is set.
+	/// If an enemy shoots an enemy and reduces it's health to 0, the object still exists
+	/// but the enemy is considrered dead. When it is done with it's destroy animation it will actually
+	/// be removed from the game. But while that animation happens, this can be used to determine the enemy is
+	/// dead without actually being null.
+	/// </summary>
 	public bool GetIsDestroyed(){
 		return isDestroyed;
 	}

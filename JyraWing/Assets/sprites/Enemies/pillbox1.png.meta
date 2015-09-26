@@ -1,19 +1,20 @@
 fileFormatVersion: 2
-guid: 51fceb91b15d1444e9c1bd811b867a65
-timeCreated: 1443249512
+guid: b9df7a0f08254b645a6b1fa6e231971f
+timeCreated: 1443248151
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pillbox2_0
-    21300002: pillbox2_1
-    21300004: pillbox2_2
-    21300006: pillbox2_3
-    21300008: pillbox2_4
-    21300010: pillbox2_5
-    21300012: pillbox2_6
-    21300014: pillbox2_7
-    21300016: pillbox2_8
-    21300018: pillbox2_9
+    21300000: pillbox1_0
+    21300002: pillbox1_1
+    21300004: pillbox1_2
+    21300006: pillbox1_3
+    21300008: pillbox1_4
+    21300010: pillbox1_6
+    21300012: pillbox1_7
+    21300014: pillbox1_8
+    21300016: pillbox1_9
+    21300018: pillbox1_10
+    21300020: pillbox1_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +60,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: pillbox2_0
+    - name: pillbox1_0
       rect:
         serializedVersion: 2
         x: 4
@@ -69,7 +70,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_1
+    - name: pillbox1_1
       rect:
         serializedVersion: 2
         x: 24
@@ -79,7 +80,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_2
+    - name: pillbox1_2
       rect:
         serializedVersion: 2
         x: 44
@@ -89,7 +90,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_3
+    - name: pillbox1_3
       rect:
         serializedVersion: 2
         x: 4
@@ -99,7 +100,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_4
+    - name: pillbox1_4
       rect:
         serializedVersion: 2
         x: 24
@@ -109,7 +110,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_5
+    - name: pillbox1_6
       rect:
         serializedVersion: 2
         x: 44
@@ -119,7 +120,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_6
+    - name: pillbox1_7
       rect:
         serializedVersion: 2
         x: 4
@@ -129,7 +130,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_7
+    - name: pillbox1_8
       rect:
         serializedVersion: 2
         x: 24
@@ -139,7 +140,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_8
+    - name: pillbox1_9
       rect:
         serializedVersion: 2
         x: 44
@@ -147,9 +148,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: pillbox2_9
+    - name: pillbox1_10
       rect:
         serializedVersion: 2
         x: 4
@@ -157,7 +158,17 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillbox1_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 4
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

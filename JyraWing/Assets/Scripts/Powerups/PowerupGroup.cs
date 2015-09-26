@@ -23,11 +23,18 @@ public class PowerupGroup {
 		squad = new List<GameObject> ();
 	}
 
+	/// <summary>
+	/// Register a an enemy to the squad.
+	/// Requires the gameObject has an EnemyBehaviour component.
+	/// </summary>
+	/// <param name="i_enemy">I_enemy.</param>
 	public void AddToSquad(GameObject i_enemy){
 		squad.Add (i_enemy);
 		//The enemy itself will need to know what it's id is for when it is destoryed
 		//and must call on the GameController to possibly spawn a powerup.
-		i_enemy.GetComponent<EnemyBehavior> ().SetPowerupGroupID(id);
+		if (i_enemy.GetComponent<EnemyBehavior> () != null) {
+			i_enemy.GetComponent<EnemyBehavior> ().SetPowerupGroupID (id);
+		}
 	}
 
 	public bool IsSquadGone(){
@@ -45,6 +52,13 @@ public class PowerupGroup {
 		return true;
 	}
 
+
+	/// <summary>
+	/// Returns the powerup object.
+	/// THis is the object that would spawn and is needed by the gameController
+	/// for it to spawn the object.
+	/// </summary>
+	/// <returns>The powerup object.</returns>
 	public GameObject ReturnPowerupObject(){
 		return powerupObject;
 	}
@@ -76,11 +90,33 @@ public class PowerupGroup {
 	/// <param name="amount">Amount.</param>
 	public void AdjustSquadID(int amount){
 		//typically amount will be -1
+		Debug.LogError ("Adjusting squad " + id + " to squad " + (id+amount));
 		id += amount;
 		//Now adjust the id in all the enemies
 		for (int i = 0; i< squad.Count; i++) {
 			if(squad[i]){
 				squad[i].GetComponent<EnemyBehavior>().SetPowerupGroupID(id);
+			}
+		}
+	}
+
+	///<summary> Return powerup group id</summary>
+	public int GetPowerupGroupID(){
+		return id;
+	}
+
+	/// <summary>
+	/// By setting the group ID's of all the groups members to -1,
+	/// we effectivly remove them from the group
+	/// </summary>
+	public void RemoveAllFromSquad()
+	{
+		for (int i= 0; i < squad.Count; i++) {
+			//This is some safety from null pointers I am getting on close more than anyhting else.
+			//Shouldn't affect gameplay because really squad[i] should not be null but just for good practice.
+			if(squad[i] != null && squad[i].GetComponent<EnemyBehavior> () != null)
+			{
+				squad[i].GetComponent<EnemyBehavior> ().SetPowerupGroupID (-1);
 			}
 		}
 	}

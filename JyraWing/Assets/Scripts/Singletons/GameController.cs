@@ -123,6 +123,7 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	/// <param name="i_powerupGroup">PowerupGroup to add.</param>
 	public void AddSquad(PowerupGroup i_powerupGroup){
+		//Debug.LogError ("Adding group with ID" + i_powerupGroup.GetPowerupGroupID ());
 		squadList.Add (i_powerupGroup);
 	}
 
@@ -133,8 +134,9 @@ public class GameController : MonoBehaviour {
 	public bool RemoveSquad(int i_id){
 		//If the squad exists
 		if (squadList.Count > i_id) {
-			//If Squad has everything gone except the last enemy
+			squadList[i_id].RemoveAllFromSquad();
 			squadList.RemoveAt(i_id);
+			//Debug.LogError ("Removing squad with id" + i_id);
 			adjustSquadIDs(i_id);
 		}
 		return false;
@@ -163,6 +165,7 @@ public class GameController : MonoBehaviour {
 				Instantiate(powerup);
 				squadList.RemoveAt(i_id);
 				adjustSquadIDs(i_id);
+				//Debug.LogError ("spawned and removed powerup with id " + i_id);
 
 			}
 		}

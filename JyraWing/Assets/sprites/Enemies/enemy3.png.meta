@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: af3db1c5330a71b4c948f0deeea400e7
-timeCreated: 1440974985
+guid: 2f833b3b522d1ff4facc3102fa32ed21
+timeCreated: 1443154135
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,8 +10,8 @@ TextureImporter:
     21300006: enemy3_3
     21300008: enemy3_4
     21300010: enemy3_5
-    21300012: enemy3_6
-    21300014: enemy3_7
+    21300012: enemy3_11
+    21300014: enemy3_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -115,19 +115,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy3_6
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 4
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy3_7
+    - name: enemy3_11
       rect:
         serializedVersion: 2
         x: 24
@@ -135,7 +125,17 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy3_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
