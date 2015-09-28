@@ -83,10 +83,13 @@ public class GameController : MonoBehaviour {
 	}
 	
 
+	/// <summary>
+	/// Show the GameOverScreen
+	/// </summary>
+	/// <param name="i_gameOverTimer">I_game over timer.</param>
 	public void GameOver(float i_gameOverTimer = 0.0f){
 		//bgmPlayer.volume = 0.5f;
 		gameOverState = GameOverState.KillAnimation;
-		//uiController.ShowGameOver ();
 		gameOverTimer = i_gameOverTimer;
 	}
 
@@ -123,7 +126,6 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	/// <param name="i_powerupGroup">PowerupGroup to add.</param>
 	public void AddSquad(PowerupGroup i_powerupGroup){
-		//Debug.LogError ("Adding group with ID" + i_powerupGroup.GetPowerupGroupID ());
 		squadList.Add (i_powerupGroup);
 	}
 
@@ -136,7 +138,6 @@ public class GameController : MonoBehaviour {
 		if (squadList.Count > i_id) {
 			squadList[i_id].RemoveAllFromSquad();
 			squadList.RemoveAt(i_id);
-			//Debug.LogError ("Removing squad with id" + i_id);
 			adjustSquadIDs(i_id);
 		}
 		return false;

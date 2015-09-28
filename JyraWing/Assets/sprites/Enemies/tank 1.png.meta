@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: ba87de1427e70594ea74fd441d5cd9fe
-timeCreated: 1443402637
+guid: cd12491cc3651974f963a913eb5de556
+timeCreated: 1443401664
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tank_0
-    21300002: tank_1
-    21300004: tank_2
-    21300006: tank_3
-    21300008: tank_4
-    21300010: tank_5
-    21300012: tank_6
-    21300014: tank_7
+    21300000: tank 1_0
+    21300002: tank 1_1
+    21300004: tank 1_2
+    21300006: tank 1_3
+    21300008: tank 1_4
+    21300010: tank 1_5
+    21300012: tank 1_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,27 +56,27 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: tank_0
+    - name: tank 1_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 65
+        y: 64
         width: 16
-        height: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_1
+    - name: tank 1_1
       rect:
         serializedVersion: 2
         x: 24
-        y: 65
+        y: 64
         width: 16
-        height: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_2
+    - name: tank 1_2
       rect:
         serializedVersion: 2
         x: 4
@@ -87,17 +86,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_3
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 24
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_4
+    - name: tank 1_3
       rect:
         serializedVersion: 2
         x: 24
@@ -107,7 +96,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_5
+    - name: tank 1_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tank 1_5
       rect:
         serializedVersion: 2
         x: 24
@@ -117,20 +116,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_6
+    - name: tank 1_6
       rect:
         serializedVersion: 2
         x: 4
-        y: 4
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: tank_7
-      rect:
-        serializedVersion: 2
-        x: 24
         y: 4
         width: 16
         height: 16

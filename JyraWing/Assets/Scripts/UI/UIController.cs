@@ -134,12 +134,13 @@ public class UIController : MonoBehaviour {
 	/// Inits the speed counter graphics.
 	/// </summary>
 	private void initSpeed(){
+		float spriteWidth = Screen.width/35f;
 		for (int i = 0; i < speedCount; i++) {
 			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
 			speedSprite = Instantiate(speedSprite);
 			speedSprite.transform.SetParent(canvas.transform, false);
 			speedSprite.transform.position = new Vector3(
-				speedSprite.transform.position.x + i*30,
+				speedSprite.transform.position.x + i*spriteWidth,
 				speedSprite.transform.position.y,
 				speedSprite.transform.position.z);
 			speedSpriteCollection.Add (speedSprite);

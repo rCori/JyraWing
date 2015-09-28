@@ -53,10 +53,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
-//		IncreaseBulletLevel ();
-//		IncreaseBulletLevel ();
-//		IncreaseBulletLevel ();
-
 
 	}
 	

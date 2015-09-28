@@ -90,7 +90,6 @@ public class PowerupGroup {
 	/// <param name="amount">Amount.</param>
 	public void AdjustSquadID(int amount){
 		//typically amount will be -1
-		Debug.LogError ("Adjusting squad " + id + " to squad " + (id+amount));
 		id += amount;
 		//Now adjust the id in all the enemies
 		for (int i = 0; i< squad.Count; i++) {
