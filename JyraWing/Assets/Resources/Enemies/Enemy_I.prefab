@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 487800}
   - 212: {fileID: 21243256}
   - 114: {fileID: 11403272}
-  - 114: {fileID: 11499598}
   - 50: {fileID: 5063496}
   - 61: {fileID: 6129700}
   - 95: {fileID: 9506078}
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.25843382, y: 2.77111816, z: 0}
+  m_LocalPosition: {x: 2.55922771, y: -2.42953086, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,23 +92,11 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
   LeftWallException: 0
-  fireDelay: .699999988
-  fireRate: 1
   startDelay: 2
+  fireTimes:
+  - 1.5
+  - 2.0999999
   isReverse: 1
---- !u!114 &11499598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  infinite: 0
 --- !u!212 &21243256
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -134,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 975c865a1bd61cb4c83f5bebe9e4aab8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b7826b6908bf034db842c5aa822f8d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

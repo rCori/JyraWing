@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: 4.5, z: 0}
+  m_LocalPosition: {x: -7, y: -2, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   gameController: {fileID: 0}
-  LeftWallException: 0
-  direction: {x: 0, y: -4}
-  time: 1.5
-  repeat: 1
+  LeftWallException: 1
+  direction: {x: 2, y: 0}
+  time: 15
+  repeat: 0
 --- !u!212 &21268712
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,7 +133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: af3db1c5330a71b4c948f0deeea400e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f833b3b522d1ff4facc3102fa32ed21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

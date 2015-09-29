@@ -16,11 +16,25 @@ public class GameController : MonoBehaviour {
 	private enum GameOverState{None = 0, FinishSoundEffect, FinishShowScreen, KillAnimation, KillSoundEffect, KillShowScreen};
 	GameOverState gameOverState;
 
+	private bool isPaused;
+
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	private List<PowerupGroup> squadList;
-	//private Hashtable squadTable;
+	
+
+
+	/// <summary>
+	/// Keep track of all objects that must be paused when
+	/// the game is paused by the player
+	/// </summary>
+	private List<PauseableItem> pauseList;
+
+	void Awake()
+	{
+		pauseList = new List<PauseableItem> ();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +42,7 @@ public class GameController : MonoBehaviour {
 		gameOverState = GameOverState.None;
 		squadList = new List<PowerupGroup> ();
 		bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
-		//squadTable = new Hashtable ();
+		isPaused = false;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +53,13 @@ public class GameController : MonoBehaviour {
 //				Application.LoadLevel ("titleScene");
 //			}
 //		}
+		if(Input.GetButtonDown("Submit"))
+		{
+			if (!isPaused && gameOverState == GameOverState.None) {
+				uiController.PauseMenu();
+				PauseAllItems();
+			}
+		}
 		handleGameOver ();
 	}
 
@@ -62,10 +83,13 @@ public class GameController : MonoBehaviour {
 	}
 	
 
+	/// <summary>
+	/// Show the GameOverScreen
+	/// </summary>
+	/// <param name="i_gameOverTimer">I_game over timer.</param>
 	public void GameOver(float i_gameOverTimer = 0.0f){
-		bgmPlayer.volume = 0.5f;
+		//bgmPlayer.volume = 0.5f;
 		gameOverState = GameOverState.KillAnimation;
-		//uiController.ShowGameOver ();
 		gameOverTimer = i_gameOverTimer;
 	}
 
@@ -74,9 +98,9 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	public void LevelFinished(float i_gameOverTimer = 0.0f){
 		//Prevents a crash on exit.
-		if (bgmPlayer) {
-			bgmPlayer.volume = 0.5f;
-		}
+//		if (bgmPlayer) {
+//			bgmPlayer.volume = 0.5f;
+//		}
 		gameOverState = GameOverState.FinishSoundEffect;
 		//uiController.ShowLevelComplete();
 		gameOverTimer = i_gameOverTimer;
@@ -109,16 +133,12 @@ public class GameController : MonoBehaviour {
 	///<summary>
 	/// Remove the powerupgroup but don't spawn anything.
 	///</summary>
-	public bool CheckSquadAndRemove(int i_id, GameObject i_lastRemaining){
+	public bool RemoveSquad(int i_id){
 		//If the squad exists
 		if (squadList.Count > i_id) {
-			//If Squad has everything gone except the last enemy
-			if(squadList[i_id].IsSquadGone(i_lastRemaining))
-			{
-				squadList.RemoveAt(i_id);
-				adjustSquadIDs(i_id);
-				
-			}
+			squadList[i_id].RemoveAllFromSquad();
+			squadList.RemoveAt(i_id);
+			adjustSquadIDs(i_id);
 		}
 		return false;
 	}
@@ -134,19 +154,25 @@ public class GameController : MonoBehaviour {
 
 	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
 		//If the squad exists
-		if (/*squadList[i_id]!= null*/squadList.Count > i_id) {
-			//If Squad has everything gone except the last enemy
-			if(squadList[i_id].IsSquadGone(i_lastRemaining))
+		if (squadList.Count > i_id) {
+			//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
+			//foreach(PowerupGroup group in squadList)
 			{
-				//Get the powerup object
-				GameObject powerup = squadList[i_id].ReturnPowerupObject();
-				//Set the position to the last enemy.
-				powerup.transform.position = i_lastRemaining.transform.position;
-				//Instantiate the powerup
-				Instantiate(powerup);
-				squadList.RemoveAt(i_id);
-				adjustSquadIDs(i_id);
+				//If Squad has everything gone except the last enemy
+				if(squadList[i_id].IsSquadGone())
+				{
+					//Get the powerup object
+					GameObject powerup = squadList[i_id].ReturnPowerupObject();
+					//Set the position to the last enemy.
+					powerup.transform.position = i_lastRemaining.transform.position;
+					//Instantiate the powerup
+					Instantiate(powerup);
+					squadList.RemoveAt(i_id);
+					adjustSquadIDs(i_id);
+					return true;
+					//Debug.LogError ("spawned and removed powerup with id " + i_id);
 
+				}
 			}
 		}
 		return false;
@@ -178,9 +204,9 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.FinishShowScreen;
 				uiController.ShowLevelComplete();
 				gameOverTimer = 5.0f;
-				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
-				bgmPlayer.volume = 1.0f;
-				bgmPlayer.PlayOneShot(bgmPlayer.clip);
+//				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
+//				bgmPlayer.volume = 1.0f;
+//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.FinishShowScreen):
@@ -203,9 +229,9 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.KillShowScreen;
 				uiController.ShowGameOver();
 				gameOverTimer = 5.0f;
-				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
-				bgmPlayer.volume = 1.0f;
-				bgmPlayer.PlayOneShot(bgmPlayer.clip);
+//				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
+//				bgmPlayer.volume = 1.0f;
+//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.KillShowScreen):
@@ -216,4 +242,43 @@ public class GameController : MonoBehaviour {
 			break;
 		}
 	}
+
+	///Allows the user to pause all items that have been registered to pause
+	void PauseAllItems()
+	{
+		foreach(PauseableItem item in pauseList)
+		{
+			item.paused = true;
+		}
+		isPaused = true;
+	}
+
+	///Allows the user to unpause all items that have been registered to pause and resume the game
+	public void Unpause()
+	{
+		foreach(PauseableItem item in pauseList)
+		{
+			item.paused = false;
+		}
+		isPaused = false;
+	}
+
+	/// <summary>
+	/// Registers and item to be globablly paused
+	/// </summary>
+	/// <param name="item">Item to register.</param>
+	public void RegisterPause(PauseableItem item)
+	{
+		pauseList.Add (item);
+	}
+
+	/// <summary>
+	/// Remove and item from the pause list
+	/// </summary>
+	/// <param name="item">Item.</param>
+	public void DelistPause(PauseableItem item)
+	{
+		pauseList.Remove (item);
+	}
+	
 }

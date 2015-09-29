@@ -18,7 +18,8 @@ public class UIController : MonoBehaviour {
 	private GameObject lifeText;
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
-	
+
+	//private IngameMenu pauseMenu;
 
 	//ISDEBUG
 	private GameObject debugFramerate;
@@ -40,7 +41,7 @@ public class UIController : MonoBehaviour {
 		levelEndImage = Instantiate (levelEndImage);
 		levelEndImage.transform.SetParent (canvas.transform, false);
 
-		gameOverMessage = Resources.Load("UIObjects/GameOverText") as GameObject;
+		gameOverMessage = Resources.Load("UIObjects/GameOverImage") as GameObject;
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
 
@@ -100,8 +101,10 @@ public class UIController : MonoBehaviour {
 	/// Shows game over.
 	/// </summary>
 	public void ShowGameOver(){
-		Text gameOverText = gameOverMessage.GetComponent<Text> ();
-		gameOverText.text = "Game Over";
+		Image gameOverMessageComp = gameOverMessage.GetComponent<Image> ();
+		Color myColor = gameOverMessageComp.color;
+		myColor.a = 255;
+		gameOverMessageComp.color = myColor;
 	}
 
 	/// <summary>
@@ -131,12 +134,13 @@ public class UIController : MonoBehaviour {
 	/// Inits the speed counter graphics.
 	/// </summary>
 	private void initSpeed(){
+		float spriteWidth = Screen.width/35f;
 		for (int i = 0; i < speedCount; i++) {
 			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
 			speedSprite = Instantiate(speedSprite);
 			speedSprite.transform.SetParent(canvas.transform, false);
 			speedSprite.transform.position = new Vector3(
-				speedSprite.transform.position.x + i*30,
+				speedSprite.transform.position.x + i*spriteWidth,
 				speedSprite.transform.position.y,
 				speedSprite.transform.position.z);
 			speedSpriteCollection.Add (speedSprite);
@@ -188,5 +192,11 @@ public class UIController : MonoBehaviour {
 			}
 			speedSpriteImage.color = color;
 		}
+	}
+
+	public void PauseMenu(){
+		GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
+		InGameMenu = Instantiate(InGameMenu);
+		InGameMenu.transform.SetParent(canvas.transform, false);
 	}
 }

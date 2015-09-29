@@ -5,12 +5,12 @@ public class EnemyAI9 : EnemyBehavior {
 
 	enum MoveState {begin = 0, top, diagonal, bottom};
 	MoveState state;
-	public float fireDelay;
-	public float fireRate;
 	public float startDelay;
-	bool isFiring;
 	float fireTimer;
-	
+	public float[] fireTimes;
+	// OOOHHHH OOHHHH GET YO ASS WHOOPED
+	//Keep track of what time is next in the bullets to fire.
+	int shotsFired;
 
 	/// <summary>
 	/// If this is true instead of starting at the top and traveling
@@ -30,16 +30,20 @@ public class EnemyAI9 : EnemyBehavior {
 			transform.position = new Vector2 (7.0f, -5.0f);
 		}
 		StartStandStill (startDelay);
-		isFiring = false;
 		fireTimer = 0.0f;
-		HasAnimations ownedAnimations = HasAnimations.None;
-		SetAnimations (ownedAnimations);
-		SetHitAnimationName("enemy4_B_hit");
+
+		shotsFired = 0;
+
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy4_B_hit");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isDestroyed) {
+		if (isDestroyed || _paused) {
 			return;
 		}
 		Movement ();
@@ -70,7 +74,7 @@ public class EnemyAI9 : EnemyBehavior {
 				}
 				break;
 			case MoveState.diagonal:
-				StartNewVelocity (new Vector2 (-3.0f, 0.0f), 1.0f);
+				StartNewVelocity (new Vector2 (-3.0f, 0.0f), 2.0f);
 				state = MoveState.bottom;
 				break;
 			case MoveState.bottom:
@@ -83,23 +87,20 @@ public class EnemyAI9 : EnemyBehavior {
 		}
 
 	}
+	
 
 	void Shooting(){
+		//advance the timer
 		fireTimer += Time.deltaTime;
-		//If we have waited past the delay to shoot
-		if (isFiring) {
-			if (fireTimer > fireRate) {
+		//if there are more bullets to fire
+		if (shotsFired != fireTimes.Length) {
+			//If the fireTimer has gone far enough to shoot again.
+			if(fireTimer > fireTimes[shotsFired]){
+				shotsFired++;
 				Shoot ();
-				fireTimer = 0.0f;
-			}
-		//We are still waiting to shoot.
-		} else {
-			if(fireTimer > fireDelay){
-				//Now we can start shooting
-				isFiring = true;
-				fireTimer = 0.0f;
 			}
 		}
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

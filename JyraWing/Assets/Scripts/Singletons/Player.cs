@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour, PauseableItem {
 	
 	public GameController gameController;
 	private float speed;
@@ -18,8 +18,11 @@ public class Player : MonoBehaviour {
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
-	
+	private Vector3 pauseSavePos;
+
+	private bool takingDamage;
 	private bool disableControls;
+	private bool _paused;
 
 	// Use this for initialization
 	void Start () {
@@ -28,10 +31,13 @@ public class Player : MonoBehaviour {
 		hits = 3;
 		numBullets = 2;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
+		//Shot sound
 		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
 		damageSfx = gameObject.AddComponent<AudioSource> ();
+		//Sound when the player is hit
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
 
+		//Bullet pool of player bullets.
 		bulletPool = new List<GameObject> ();
 		for (int i= 0; i < numBullets; i++) {
 			//Put all the bullet live in the pool
@@ -44,12 +50,20 @@ public class Player : MonoBehaviour {
 		bulletLevel = new PlayerBulletLevel ();
 		speed = speedList [0];
 		disableControls = false;
-
+		_paused = false;
+		RegisterToList ();
+		takingDamage = false;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_paused) {
+			//Hoping this prevents the corner drifiting bug.
+			transform.position = pauseSavePos;
+			transform.rotation.Set(0f,0f,0f,0f);
+			return;
+		}
 		//Update position
 		updatePlayerMovement ();
 		//Update player input
@@ -63,6 +77,7 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	public void TakeDamage(){
 		if (hitTimer == 0.0f) {
+			//take out taking damage for now
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 			animator.SetInteger ("animState", 1);
@@ -71,6 +86,7 @@ public class Player : MonoBehaviour {
 			gameController.UpdatePlayerLives();
 			disableControls = true;
 			damageSfx.Play();
+			takingDamage = true;
 		}
 
 	}
@@ -211,10 +227,32 @@ public class Player : MonoBehaviour {
 			float vert = Input.GetAxis ("Vertical");
 			if (vert < 0.0f) {
 				vert = -1.0f;
+				if(!takingDamage){
+					animator.SetInteger ("animState", 3);
+				}
+				else{
+					animator.SetInteger ("animState", 5);
+				}
 			} else if (vert > 0.0f) {
 				vert = 1.0f;
+				if(!takingDamage){
+					animator.SetInteger ("animState", 4);
+				}
+				else{
+					animator.SetInteger ("animState", 6);
+				}
 			}
-		
+			else if(takingDamage) 
+			{
+				animator.SetInteger ("animState", 2);
+			}
+			else{
+				animator.SetInteger ("animState", 0);
+			}
+
+
+
+
 			if (horiz < 0.0f) {
 				horiz = -1.0f;
 			} else if (horiz > 0.0f) {
@@ -255,7 +293,8 @@ public class Player : MonoBehaviour {
 					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
 					endSavePos = gameObject.transform.position;
 				}
-			} else if(animator.GetInteger("animState") == 2){
+			//If the ship has returned to the screen after starting a new life
+			} else if(takingDamage){
 				//Player is flying back int
 				if(disableControls){
 					hitTimer -= Time.deltaTime;
@@ -266,14 +305,63 @@ public class Player : MonoBehaviour {
 						hitTimer = 4.5f;
 						disableControls = false;
 					}
+				//The player has regained control and is flashing and they are invincible
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
+						GetComponent<BoxCollider2D>().enabled = false;
+						GetComponent<BoxCollider2D>().enabled = true;
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
+						takingDamage = false;
 					}
 				}
 			} 
+		}
+	}
+
+	//Make sure the player is removed from the list although actually this shouldn't be necssary
+	void OnDestroy()
+	{
+		RemoveFromList ();
+	}
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+		
+		set{
+			_paused = value;
+			if(_paused){
+				pauseSavePos = transform.position;
+				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
+				//I am hoping this fixes the drift by mashing pause in the corner bug.
+				animator.speed = 0f;
+			}
+			else{
+				animator.speed = 1f;
+			}
+		}
+	}
+	
+	public void RegisterToList()
+	{
+		gameController.RegisterPause(this);
+	}
+	
+	public void RemoveFromList()
+	{
+		gameController.DelistPause(this);
+	}
+
+	public void OnTriggerStay2D(Collider2D other){
+		if(other.tag == "Enemy")
+		{
+			TakeDamage();
 		}
 	}
 }

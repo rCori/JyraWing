@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PowerupObject : MonoBehaviour {
+public class PowerupObject : MonoBehaviour, PauseableItem {
 
 
 	float moveTimer;
@@ -16,7 +16,12 @@ public class PowerupObject : MonoBehaviour {
 	float oneOverRootTwo;
 
 	Vector3 lastPos;
-	
+	Vector3 saveVelocity;
+
+	protected bool _paused;
+
+	private AudioClip pickupSound;
+	private SoundEffectPlayer sfxPlayer;
 
 	void Start(){
 		bag = new ShuffleBag (4);
@@ -29,13 +34,23 @@ public class PowerupObject : MonoBehaviour {
 		moveTimer = 2f;
 		moveTimeLimit = 1f;
 		oneOverRootTwo = (1.0f / Mathf.Sqrt (2.0f));
+
+		_paused = false;
+
 		startPos = new Vector3();
 		lastPos = new Vector3();
 		destinationPos = new Vector3();
+		pickupSound = Resources.Load ("Audio/SFX/powerupGet1") as AudioClip;
+		sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+		RegisterToList();
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//DO not update if paused.
+		if (_paused) {
+			return;
+		}
 		//Once time is up pick a new movement pattern.
 		if (moveTimer > moveTimeLimit) {
 			PickMode ();
@@ -104,5 +119,49 @@ public class PowerupObject : MonoBehaviour {
 			break;
 		}
 
+	}
+
+	/// <summary>
+	/// Plaies the pickupsfx when the player collides with it.
+	/// </summary>
+	public void PlayPickupsfx(){
+		sfxPlayer.PlayClip(pickupSound);
+	}
+
+
+
+	void OnDestroy(){
+		RemoveFromList ();
+	}
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+		
+		set{
+			_paused = value;
+			if(_paused){
+				saveVelocity = GetComponent<Rigidbody2D>().velocity;
+				GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+			}
+			else{
+				GetComponent<Rigidbody2D>().velocity = saveVelocity;
+			}
+
+		}
+	}
+
+	public void RegisterToList()
+	{
+		GameObject.Find ("GameController").GetComponent<GameController>().RegisterPause(this);
+	}
+	
+	public void RemoveFromList()
+	{
+		GameObject.Find ("GameController").GetComponent<GameController>().DelistPause(this);
 	}
 }

@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour, PauseableItem {
 
 	private bool isActive;
 
+	private bool _paused;
+	private Vector2 storedVel;
 
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
+		storedVel = new Vector2 (0f, 0f);
+		_paused = false;
+		RegisterToList();
 
 	}
 	
@@ -67,6 +72,38 @@ public class Bullet : MonoBehaviour {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
+	}
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+		
+		set
+		{
+			_paused = value;
+			if(_paused)
+			{
+				storedVel = GetComponent<Rigidbody2D>().velocity;
+				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+			}
+			else{
+				GetComponent<Rigidbody2D>().velocity = storedVel;
+			}
+		}
+	}
+	
+	public void RegisterToList()
+	{
+		GameObject.Find ("GameController").GetComponent<GameController>().RegisterPause(this);
+	}
+	
+	public void RemoveFromList()
+	{
+		GameObject.Find ("GameController").GetComponent<GameController>().DelistPause(this);
 	}
 
 }

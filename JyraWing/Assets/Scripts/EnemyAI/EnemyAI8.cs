@@ -25,6 +25,9 @@ public class EnemyAI8 : EnemyBehavior {
 
 	// Update is called once per frame
 	void Update () {
+		if (_paused) {
+			return;
+		}
 		Movement ();
 		if (GetIsTimeUp ()) {
 			if(repeat){

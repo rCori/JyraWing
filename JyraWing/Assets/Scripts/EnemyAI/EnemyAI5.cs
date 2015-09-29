@@ -127,7 +127,7 @@ public class EnemyAI5 : EnemyBehavior {
 
 	// Update is called once per frame
 	void Update () {
-		if (isDestroyed) {
+		if (isDestroyed || _paused) {
 			return;
 		}
 		Movement ();

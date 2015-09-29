@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Scroll : MonoBehaviour {
+public class Scroll : MonoBehaviour, PauseableItem {
 
 	public float speed;
 	public bool infinite;
@@ -11,6 +11,12 @@ public class Scroll : MonoBehaviour {
 	//This should show all of the background each time.
 	private float extraWidth;
 	private float horzExtent;
+
+	//We need to safely register this item to the gameController
+	//This item might get created before the gameController so this ensures safety
+	//private bool listSet;
+
+	private bool _paused;
 
 	// Use this for initialization
 	void Start(){
@@ -26,11 +32,15 @@ public class Scroll : MonoBehaviour {
 			Debug.Log ("Scrolling background is not wide enough");
 			extraWidth = 0;
 		}
+		_paused = false;
+		RegisterToList ();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		transform.position -= new Vector3(speed * Time.deltaTime, 0f, 0f);
+		if (!paused) {
+			transform.position -= new Vector3 (speed * Time.deltaTime, 0f, 0f);
+		}
 	}
 
 	/// <summary>
@@ -40,6 +50,40 @@ public class Scroll : MonoBehaviour {
 		if (infinite) {
 			Vector3 newPos = new Vector3(horzExtent + (extraWidth*3/2), 0f, 0f);
 			transform.position = newPos;
+		}
+	}
+
+	void OnDestroy()
+	{
+		RemoveFromList ();
+	}
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+		
+		set
+		{
+			_paused = value;
+		}
+	}
+	
+	public void RegisterToList()
+	{
+		if (GameObject.Find ("GameController")) {
+			GameObject.Find ("GameController").GetComponent<GameController> ().RegisterPause (this);
+		}
+	}
+
+	//We can remove from the list without checking, it will be safe.
+	public void RemoveFromList()
+	{
+		if (GameObject.Find ("GameController")) {
+			GameObject.Find ("GameController").GetComponent<GameController> ().DelistPause (this);
 		}
 	}
 }
