@@ -55,7 +55,7 @@ public class PowerupGroup {
 
 	/// <summary>
 	/// Returns the powerup object.
-	/// THis is the object that would spawn and is needed by the gameController
+	/// This is the object that would spawn and is needed by the gameController
 	/// for it to spawn the object.
 	/// </summary>
 	/// <returns>The powerup object.</returns>

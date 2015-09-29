@@ -349,10 +349,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	}
 
 
-	public int GetPowerupGroupID()
-	{
-		return powerupGroupID;
-	}
+	//	public int GetPowerupGroupID()
+	//	{
+	//		return powerupGroupID;
+	//	}
 
 	/// <summary>
 	/// If this enemy belongs to a group that drops a powerup, set 

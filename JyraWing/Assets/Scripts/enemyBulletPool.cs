@@ -19,6 +19,7 @@ public class EnemyBulletPool : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Create the bullet pool, a list of GameObjects with the EnemyBullet script on it.
 		bulletPool = new List<GameObject> ();
 		for (int i = 0; i < totalBullets; i++) {
 			//Put all the bullet live in the pool
@@ -40,10 +41,11 @@ public class EnemyBulletPool : MonoBehaviour {
 					return bulletObj;
 				}
 			}
-			throw new EmptyPoolException();
+			//If there is no bullet available that is an exception to throw.
+			throw new System.Exception();
 		}
-		catch(EmptyPoolException e){
-			Debug.LogError ("EmpyPoolException caught" + e.StackTrace);
+		catch(System.Exception e){
+			Debug.LogException(e);
 		}
 		return null;
 	}

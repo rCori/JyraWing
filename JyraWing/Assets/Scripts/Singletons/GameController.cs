@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	private List<PowerupGroup> squadList;
+	
 
 
 	/// <summary>
@@ -42,7 +43,6 @@ public class GameController : MonoBehaviour {
 		squadList = new List<PowerupGroup> ();
 		bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
 		isPaused = false;
-		//squadTable = new Hashtable ();
 	}
 	
 	// Update is called once per frame
@@ -155,19 +155,24 @@ public class GameController : MonoBehaviour {
 	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
 		//If the squad exists
 		if (squadList.Count > i_id) {
-			//If Squad has everything gone except the last enemy
-			if(squadList[i_id].IsSquadGone())
+			//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
+			//foreach(PowerupGroup group in squadList)
 			{
-				//Get the powerup object
-				GameObject powerup = squadList[i_id].ReturnPowerupObject();
-				//Set the position to the last enemy.
-				powerup.transform.position = i_lastRemaining.transform.position;
-				//Instantiate the powerup
-				Instantiate(powerup);
-				squadList.RemoveAt(i_id);
-				adjustSquadIDs(i_id);
-				//Debug.LogError ("spawned and removed powerup with id " + i_id);
+				//If Squad has everything gone except the last enemy
+				if(squadList[i_id].IsSquadGone())
+				{
+					//Get the powerup object
+					GameObject powerup = squadList[i_id].ReturnPowerupObject();
+					//Set the position to the last enemy.
+					powerup.transform.position = i_lastRemaining.transform.position;
+					//Instantiate the powerup
+					Instantiate(powerup);
+					squadList.RemoveAt(i_id);
+					adjustSquadIDs(i_id);
+					return true;
+					//Debug.LogError ("spawned and removed powerup with id " + i_id);
 
+				}
 			}
 		}
 		return false;
