@@ -8,8 +8,9 @@ public class PlayerSpeed{
 	//What level of speed is allowed to the player.
 	private int speedCap;
 
-	public PlayerSpeed(float[] i_speedList){
-		speedList = i_speedList;
+	public PlayerSpeed(){
+		speedList = new float[]{2.4f, 3.0f, 3.8f};
+		//speedList = i_speedList;
 		speedIndex = 0;
 		speedCap = 0;
 	}

@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour, PauseableItem {
-	
+
+	public bool DEBUGNODAMAGE;
+	public bool DEBUGMAXBULLETLEVEL;
+	public bool DEBUGMAXSPEEDLEVEL;
+
 	public GameController gameController;
 	private float speed;
 	private List<GameObject> bulletPool;
@@ -45,15 +49,25 @@ public class Player : MonoBehaviour, PauseableItem {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		float[] speedList = new float[]{2.2f, 2.9f, 3.6f};
-		playerSpeed = new PlayerSpeed (speedList);
+		//float[] speedList = new float[]{2.2f, 2.9f, 3.6f};
+		//playerSpeed = new PlayerSpeed (speedList);
+		playerSpeed = new PlayerSpeed ();
 		bulletLevel = new PlayerBulletLevel ();
-		speed = speedList [0];
+		speed = playerSpeed.GetCurrentSpeed();
 		disableControls = false;
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
-
+		if (DEBUGMAXBULLETLEVEL) {
+			IncreaseBulletLevel();
+			IncreaseBulletLevel();
+			IncreaseBulletLevel();
+		}
+		if (DEBUGMAXSPEEDLEVEL) {
+			playerSpeed.IncreaseSpeedCap ();
+			playerSpeed.IncreaseSpeedCap ();
+			playerSpeed.IncreaseSpeedCap ();
+		}
 	}
 	
 	// Update is called once per frame
@@ -76,7 +90,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		if (hitTimer == 0.0f) {
+		if (hitTimer == 0.0f && !DEBUGNODAMAGE) {
 			//take out taking damage for now
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
@@ -119,6 +133,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		GameObject bullet2 = new GameObject();
 		GameObject bullet3 = new GameObject();
 		int counter = 0;
+		//Test that we have 3 available bullets.
 		for (int i= 0; i < numBullets; i++) {
 			GameObject bulletObj = bulletPool[i];
 			Bullet bullet = bulletObj.GetComponent<Bullet>();
@@ -222,43 +237,89 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private void updatePlayerMovement(){
 		if (!disableControls) {
-			//Update position
-			float horiz = Input.GetAxis ("Horizontal");
-			float vert = Input.GetAxis ("Vertical");
-			if (vert < 0.0f) {
-				vert = -1.0f;
-				if(!takingDamage){
-					animator.SetInteger ("animState", 3);
-				}
-				else{
-					animator.SetInteger ("animState", 5);
-				}
-			} else if (vert > 0.0f) {
-				vert = 1.0f;
-				if(!takingDamage){
-					animator.SetInteger ("animState", 4);
-				}
-				else{
-					animator.SetInteger ("animState", 6);
-				}
+//			//Update position
+//			float horiz = Input.GetAxis ("Horizontal");
+//			float vert = Input.GetAxis ("Vertical");
+//			if (vert < 0.0f) {
+//				vert = -1.0f;
+//				if(!takingDamage){
+//					animator.SetInteger ("animState", 3);
+//				}
+//				else{
+//					animator.SetInteger ("animState", 5);
+//				}
+//			} else if (vert > 0.0f) {
+//				vert = 1.0f;
+//				if(!takingDamage){
+//					animator.SetInteger ("animState", 4);
+//				}
+//				else{
+//					animator.SetInteger ("animState", 6);
+//				}
+//			}
+//			else if(takingDamage) 
+//			{
+//				animator.SetInteger ("animState", 2);
+//			}
+//			else{
+//				animator.SetInteger ("animState", 0);
+//			}
+//
+//
+//			if (horiz < 0.0f) {
+//				horiz = -1.0f;
+//			} else if (horiz > 0.0f) {
+//				horiz = 1.0f;
+//			}
+		
+			float horiz = 0.0f;
+			float vert = 0.0f;
+
+			if(Input.GetButton("Right")){
+				horiz = 1.0f;
+				Debug.Log ("Right");
 			}
-			else if(takingDamage) 
-			{
-				animator.SetInteger ("animState", 2);
+			else if(Input.GetButton("Left")){
+				horiz = -1.0f;
+				Debug.Log ("Left");
 			}
 			else{
-				animator.SetInteger ("animState", 0);
+				Debug.Log ("not left or right");
 			}
 
-
-
-
-			if (horiz < 0.0f) {
-				horiz = -1.0f;
-			} else if (horiz > 0.0f) {
-				horiz = 1.0f;
+			if(Input.GetButton("Up")){
+				vert = 1.0f;
+				//Handle the up or up-and-flashing animations
+				if(takingDamage){
+					animator.SetInteger("animState", 6); //down and flashing
+				}
+				else{
+					animator.SetInteger("animState", 4); //down
+				}
+				Debug.Log ("Up");
 			}
-		
+			else if (Input.GetButton ("Down")){
+				vert = -1.0f;
+				//Handle the down or down-and-flashing animation
+				if(takingDamage){
+					animator.SetInteger("animState", 5); // up and flashing
+				}
+				else{
+					animator.SetInteger ("animState", 3); //up
+				}
+				Debug.Log ("Down");
+			}
+			//If not miving up or down we still need to set the animation to neutral or neutral-and-flashing
+			else{
+				if(takingDamage){
+					animator.SetInteger("animState", 2);//neutral and flashing
+				}
+				else{
+					animator.SetInteger ("animState", 0); //neutral
+				}
+				Debug.Log ("not up or down");
+			}
+
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
 		}
 	}
@@ -309,8 +370,6 @@ public class Player : MonoBehaviour, PauseableItem {
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
-						GetComponent<BoxCollider2D>().enabled = false;
-						GetComponent<BoxCollider2D>().enabled = true;
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
@@ -358,6 +417,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		gameController.DelistPause(this);
 	}
 
+	//By having the player handle it's own collision with enemy objects the
+	//"hiding inside an enemy" bug has been handled.
 	public void OnTriggerStay2D(Collider2D other){
 		if(other.tag == "Enemy")
 		{

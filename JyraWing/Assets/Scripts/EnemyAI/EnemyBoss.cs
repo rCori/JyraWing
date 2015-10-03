@@ -4,7 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyBoss : EnemyBehavior {
 	
-
+	struct BossSavedState{
+		public Vector2 store_Velocity;
+		public int store_moveState;
+		public int store_pattern;
+		public float store_fireTimer;
+	};
 	public int hits;
 	//Animator animator;
 	float fireTimer;
@@ -31,6 +36,8 @@ public class EnemyBoss : EnemyBehavior {
 	/// </summary>
 	private AudioClip extraSFX;
 
+	private BossSavedState bossSavedState;
+
 	// Use this for initialization
 	void Awake () {
 		moveState = 0;
@@ -48,11 +55,13 @@ public class EnemyBoss : EnemyBehavior {
 		//Set up shuffle bag
 		createShuffleBag ();
 		changePattern ();
+		//Is the boss paused or not
+		_paused = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isDestroyed) {
+		if (isDestroyed || _paused) {
 			return;
 		}
 		//Do the selected pattern.
@@ -60,9 +69,9 @@ public class EnemyBoss : EnemyBehavior {
 			spreadShot ();
 		} else if (pattern == 1) {
 			straightShot ();
-		} else if (pattern == 2) {
-			trackAndRam();
-		}else if (pattern == 3){
+//		} else if (pattern == 2) {
+//			trackAndRam();
+		}else if (pattern == 2){
 			sprayShot ();
 		}
 
@@ -93,7 +102,7 @@ public class EnemyBoss : EnemyBehavior {
 		//If that happens this object could be null so we check for that.
 		if (obj) {
 			GameController controller = obj.GetComponent<GameController> ();
-			controller.LevelFinished (5.0f);
+			controller.LevelFinished (2.5f);
 		}
 	}
 
@@ -375,7 +384,7 @@ public class EnemyBoss : EnemyBehavior {
 	void changePattern(){
 		StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
 		shuffleBagCounter++;
-		if (shuffleBagCounter > 3) {
+		if (shuffleBagCounter > 2) {
 			createShuffleBag ();
 		}
 		patternCounter = 0;
@@ -397,7 +406,7 @@ public class EnemyBoss : EnemyBehavior {
 		bag.Add (0, 1);
 		bag.Add (1, 1);
 		bag.Add (2, 1);
-		bag.Add (3, 1);
+		//bag.Add (3, 1);
 	}
 
 	void assignSFXPlayerSafe(){
@@ -405,6 +414,44 @@ public class EnemyBoss : EnemyBehavior {
 			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 		}
 	}
+
+	/* Implementation of PauseableObject */
+//	public bool paused
+//	{
+//		get
+//		{
+//			return _paused;
+//		}
+//		
+//		set
+//		{
+//			_paused = value;
+//			if(_paused)
+//			{
+//				bossSavedState.store_Velocity = GetComponent<Rigidbody2D>().velocity;
+//				bossSavedState.store_pattern = pattern;
+//				bossSavedState.store_moveState = moveState;
+//				bossSavedState.store_fireTimer = fireTimer;
+//				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+//				animator.speed = 0f;
+//			}
+//			else{
+//				GetComponent<Rigidbody2D>().velocity = bossSavedState.store_Velocity;
+//				//pattern = 
+//				animator.speed = 1f;
+//			}
+//		}
+//	}
+//	
+//	public void RegisterToList()
+//	{
+//		gameController.RegisterPause(this);
+//	}
+//	
+//	public void RemoveFromList()
+//	{
+//		gameController.DelistPause(this);
+//	}
 
 
 }

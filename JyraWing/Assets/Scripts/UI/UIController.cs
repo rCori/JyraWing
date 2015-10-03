@@ -27,15 +27,15 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//lifeSpriteCollection = new List<GameObject> ();
-		lifeCount = 3;
-		initLives (lifeCount);
-
-		speedCount = 4;
-		speedSpriteCollection = new List<GameObject> ();
-		initSpeed ();
-		UpdateAvailableSpeed (1);
-		UpdateActivatedSpeed (1,1);
+//		//lifeSpriteCollection = new List<GameObject> ();
+//		lifeCount = 3;
+//		initLives (lifeCount);
+//
+//		speedCount = 4;
+//		speedSpriteCollection = new List<GameObject> ();
+//		initSpeed ();
+//		UpdateAvailableSpeed (1);
+//		UpdateActivatedSpeed (1,1);
 
 		levelEndImage = Resources.Load("UIObjects/LevelFinishedImage") as GameObject;
 		levelEndImage = Instantiate (levelEndImage);
@@ -53,6 +53,19 @@ public class UIController : MonoBehaviour {
 //		}
 	}
 	
+
+	public void Initialize(int i_lifeCount){
+		//lifeSpriteCollection = new List<GameObject> ();
+		lifeCount = i_lifeCount;
+		initLives (lifeCount);
+		
+		speedCount = 4;
+		speedSpriteCollection = new List<GameObject> ();
+		initSpeed ();
+		UpdateAvailableSpeed (1);
+		UpdateActivatedSpeed (1,1);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		//If in debug mode show fps

@@ -10,7 +10,7 @@ public class EnemyAI7 : EnemyBehavior {
 	public int health;
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/miniBossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		directionCounter = 0;
 		SetEnemyHealth (health);
