@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour {
 				initializeUI = true;
 			}
 		}
-		if(Input.GetButtonDown("Submit"))
+		if(Input.GetButtonDown("Pause"))
 		{
 			if (!isPaused && gameOverState == GameOverState.None) {
 				uiController.PauseMenu();

@@ -3,13 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class EnemyBoss : EnemyBehavior {
-	
-	struct BossSavedState{
-		public Vector2 store_Velocity;
-		public int store_moveState;
-		public int store_pattern;
-		public float store_fireTimer;
-	};
+
 	public int hits;
 	//Animator animator;
 	float fireTimer;
@@ -35,8 +29,6 @@ public class EnemyBoss : EnemyBehavior {
 	/// Used for all effects this enemy has
 	/// </summary>
 	private AudioClip extraSFX;
-
-	private BossSavedState bossSavedState;
 
 	// Use this for initialization
 	void Awake () {

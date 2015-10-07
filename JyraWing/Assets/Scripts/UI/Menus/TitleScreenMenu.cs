@@ -37,7 +37,7 @@ public class TitleScreenMenu : Menu {
 	void Update () {
 		MenuScroll ();
 		//Select start the game
-		if(Input.GetButton ("Fire1") || Input.GetButton ("Submit")){
+		if(Input.GetButton ("Fire") || Input.GetButton ("Pause")){
 			if(curSelect == 0){
 				beep.Play();
 				Application.LoadLevel("Level_1");

@@ -43,7 +43,7 @@ public class IngameMenu : Menu {
 		MenuScroll ();
 
 		//No: Continue game, unpausing it.
-		if (Input.GetButton ("Fire1")) {
+		if (Input.GetButton ("Fire")) {
 			if (curSelect == 0) {
 				beep.Play ();
 				Destroy (title);
@@ -58,7 +58,7 @@ public class IngameMenu : Menu {
 				Application.LoadLevel ("titleScene");
 			}
 		}
-		if (Input.GetButton ("Fire2")) {
+		if (Input.GetButton ("Toggle Speed")) {
 			beep.Play ();
 			Destroy (title);
 			Destroy (noText);

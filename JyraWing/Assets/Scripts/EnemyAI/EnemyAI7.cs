@@ -20,6 +20,7 @@ public class EnemyAI7 : EnemyBehavior {
 		
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("largeTurretHit");
+		priorityAudio = true;
 	}
 
 	void Update(){

@@ -99,6 +99,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	protected bool powerWillSpawn;
 	protected bool _paused;
 	private Vector2 storedVel;
+	protected bool priorityAudio;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -119,6 +120,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		_paused = false;
 		powerWillSpawn = false;
 		storedVel = new Vector2 (0f, 0f);
+		priorityAudio = false;
 		RegisterToList ();
 
 
@@ -291,7 +293,13 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				sfxPlayer.PlaySoundClip(explosionSfx);
+				//If the enemy has priority in audio, it will create a new audio source only for it so it cannot be interrupted. 
+				if(priorityAudio){
+					sfxPlayer.PlayPrioritySoundClip(explosionSfx);
+				}
+				else{
+					sfxPlayer.PlaySoundClip(explosionSfx);
+				}
 
 
 				//If there is a destroy animation to play, set isDestroy to true and try to play it

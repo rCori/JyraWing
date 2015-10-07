@@ -48,7 +48,7 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	/// </summary>
 	void OnBecameInvisible(){
 		if (infinite) {
-			Vector3 newPos = new Vector3(horzExtent + (extraWidth*3/2), 0f, 0f);
+			Vector3 newPos = new Vector3(horzExtent + (extraWidth*3/2)-0.5f, 0f, 0f);
 			transform.position = newPos;
 		}
 	}
