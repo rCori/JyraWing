@@ -7,16 +7,19 @@ public class GameController : MonoBehaviour {
 
 	public Player player;
 
+	private bool initializeUI;
 
 	public UIController uiController;
 	public AudioSource bgmPlayer;
 
 	private float gameOverTimer;
 
-	private enum GameOverState{None = 0, FinishSoundEffect, FinishShowScreen, KillAnimation, KillSoundEffect, KillShowScreen};
+	private enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimation, KillNoEffect, KillShowScreen};
 	GameOverState gameOverState;
 
 	private bool isPaused;
+
+	int nextSquadID;
 
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
@@ -41,19 +44,23 @@ public class GameController : MonoBehaviour {
 		gameOverTimer = 0.0f;
 		gameOverState = GameOverState.None;
 		squadList = new List<PowerupGroup> ();
-		bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
+		//bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
 		isPaused = false;
+		nextSquadID = 0;
+		initializeUI = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if(isGameOver) {
-//			gameOverTimer -= Time.deltaTime;
-//			if (gameOverTimer <= 0.0) {
-//				Application.LoadLevel ("titleScene");
-//			}
-//		}
-		if(Input.GetButtonDown("Submit"))
+		//We will continue to try to initializeUI until it finally happens and then we wont do it again.
+		if (!initializeUI) {
+			if(player != null)
+			{
+				uiController.Initialize(player.LifeCount ());
+				initializeUI = true;
+			}
+		}
+		if(Input.GetButtonDown("Pause"))
 		{
 			if (!isPaused && gameOverState == GameOverState.None) {
 				uiController.PauseMenu();
@@ -101,7 +108,7 @@ public class GameController : MonoBehaviour {
 //		if (bgmPlayer) {
 //			bgmPlayer.volume = 0.5f;
 //		}
-		gameOverState = GameOverState.FinishSoundEffect;
+		gameOverState = GameOverState.FinishNoEffect;
 		//uiController.ShowLevelComplete();
 		gameOverTimer = i_gameOverTimer;
 	}
@@ -126,6 +133,7 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	/// <param name="i_powerupGroup">PowerupGroup to add.</param>
 	public void AddSquad(PowerupGroup i_powerupGroup){
+		//Debug.LogError ("Adding squad with ID " + i_powerupGroup.GetPowerupGroupID ());
 		squadList.Add (i_powerupGroup);
 	}
 
@@ -135,10 +143,17 @@ public class GameController : MonoBehaviour {
 	///</summary>
 	public bool RemoveSquad(int i_id){
 		//If the squad exists
-		if (squadList.Count > i_id) {
-			squadList[i_id].RemoveAllFromSquad();
-			squadList.RemoveAt(i_id);
-			adjustSquadIDs(i_id);
+		if (squadList.Count > 0) {
+			foreach (PowerupGroup group in squadList) {
+				if (group.GetPowerupGroupID () == i_id) {
+					//I may be able to get rid of this. I will try.
+					group.RemoveAllFromSquad ();
+					squadList.Remove (group);
+					//Debug.LogError ("Removing squad " + group.GetPowerupGroupID ());
+					return true;
+					//adjustSquadIDs(i_id);
+				}
+			}
 		}
 		return false;
 	}
@@ -148,62 +163,97 @@ public class GameController : MonoBehaviour {
 	/// Returns what the ID for the next squad should be.
 	/// </summary>
 	public int GetNextSquadID(){
-		return squadList.Count;
+		nextSquadID++;
+		return nextSquadID;
 	}
 
-
-	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
-		//If the squad exists
-		if (squadList.Count > i_id) {
-			//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
-			//foreach(PowerupGroup group in squadList)
-			{
-				//If Squad has everything gone except the last enemy
-				if(squadList[i_id].IsSquadGone())
-				{
-					//Get the powerup object
-					GameObject powerup = squadList[i_id].ReturnPowerupObject();
-					//Set the position to the last enemy.
-					powerup.transform.position = i_lastRemaining.transform.position;
-					//Instantiate the powerup
-					Instantiate(powerup);
-					squadList.RemoveAt(i_id);
-					adjustSquadIDs(i_id);
-					return true;
-					//Debug.LogError ("spawned and removed powerup with id " + i_id);
-
+	public bool CheckIsSquadGone(int i_id){
+		if (squadList.Count > 0) {
+			foreach (PowerupGroup group in squadList) {
+				//If this is the group we are looking for.
+				if (group.GetPowerupGroupID () == i_id) {
+					//If Squad has everything gone except the last enemy
+					if (group.IsSquadGone ()) {
+						//Debug.LogError ("Spawning powerup ID " + group.GetPowerupGroupID ());
+						return true;
+					}
 				}
 			}
 		}
 		return false;
 	}
 
+	public bool SpawnGroupPower(int i_id, Vector3 i_position){
+		if (squadList.Count > 0) {
+			foreach (PowerupGroup group in squadList) {
+				//If this is the group we are looking for.
+				if (group.GetPowerupGroupID () == i_id) {
+					//Get the powerup object
+					GameObject powerup = group.ReturnPowerupObject ();
+					//Set the position to the position given
+					powerup.transform.position = i_position;
+					//Instantiate the powerup
+					Instantiate (powerup);
+					return true;
+				}
+
+			}
+		}
+		return false;
+	}
+
+
+//	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
+//		//If the squad exists
+//		//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
+//		if (squadList.Count > 0) {
+//			foreach (PowerupGroup group in squadList) {
+//				//If this is the group we are looking for.
+//				if (group.GetPowerupGroupID () == i_id) {
+//					//If Squad has everything gone except the last enemy
+//					if (group.IsSquadGone ()) {
+//						//Get the powerup object
+//						GameObject powerup = group.ReturnPowerupObject ();
+//						//Set the position to the last enemy.
+//						powerup.transform.position = i_lastRemaining.transform.position;
+//						//Instantiate the powerup
+//						Instantiate (powerup);
+//						squadList.Remove (group);
+//						//Debug.LogError ("Spawning powerup ID " + group.GetPowerupGroupID ());
+//						return true;
+//					}
+//				}
+//			}
+//		}
+//		return false;
+//	}
+
 	/// <summary>
 	/// Adjusts the squad IDs of every squad with an ID less than 
 	/// </summary>
 	/// <param name="i_id">I_id.</param>
-	private void adjustSquadIDs(int i_id){
-		//Check each PowerupGroup if  it's ID needs to change.
-		for(int i = 0; i < squadList.Count; i++) {
-			//If the id of the squad was above that which we removed, it needs
-			//to be brought down one to "fill the hole"
-			if( i >= i_id){
-				squadList[i].AdjustSquadID(-1);
-			}
-		}
-
-	}
+//	private void adjustSquadIDs(int i_id){
+//		//Check each PowerupGroup if  it's ID needs to change.
+//		for(int i = 0; i < squadList.Count; i++) {
+//			//If the id of the squad was above that which we removed, it needs
+//			//to be brought down one to "fill the hole"
+//			if( i >= i_id){
+//				squadList[i].AdjustSquadID(-1);
+//			}
+//		}
+//
+//	}
 
 
 
 	private void handleGameOver(){
 		switch (gameOverState) {
-		case(GameOverState.FinishSoundEffect):
+		case(GameOverState.FinishNoEffect):
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
 				gameOverState = GameOverState.FinishShowScreen;
 				uiController.ShowLevelComplete();
-				gameOverTimer = 5.0f;
+				gameOverTimer = 3.0f;
 //				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
 //				bgmPlayer.volume = 1.0f;
 //				bgmPlayer.PlayOneShot(bgmPlayer.clip);
@@ -212,7 +262,6 @@ public class GameController : MonoBehaviour {
 		case (GameOverState.FinishShowScreen):
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
-				gameOverTimer = 3.0f;
 				Application.LoadLevel ("titleScene");
 			}
 			break;
@@ -220,15 +269,15 @@ public class GameController : MonoBehaviour {
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
 				player.gameObject.SetActive (false);
-				gameOverState = GameOverState.KillSoundEffect;
+				gameOverState = GameOverState.KillNoEffect;
 			}
 			break;
-		case (GameOverState.KillSoundEffect):
+		case (GameOverState.KillNoEffect):
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
 				gameOverState = GameOverState.KillShowScreen;
 				uiController.ShowGameOver();
-				gameOverTimer = 5.0f;
+				gameOverTimer = 3.0f;
 //				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
 //				bgmPlayer.volume = 1.0f;
 //				bgmPlayer.PlayOneShot(bgmPlayer.clip);

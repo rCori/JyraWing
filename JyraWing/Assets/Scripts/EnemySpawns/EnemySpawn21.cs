@@ -62,7 +62,7 @@ public class EnemySpawn21 : EnemySpawner {
 		//hardcoding groupID, in the future I cannot do that.
 		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 
-		group.SetPowerupObject (PowerupGroup.PowerupType.Bullet);
+		group.SetPowerupObject (PowerupGroup.PowerupType.Speed);
 
 		group.AddToSquad (enemy1);
 		group.AddToSquad (enemy2);

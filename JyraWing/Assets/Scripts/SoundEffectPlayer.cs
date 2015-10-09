@@ -3,9 +3,11 @@ using System.Collections;
 
 public class SoundEffectPlayer : MonoBehaviour {
 	AudioSource newSource;
+	AudioSource priorityAudioSource;
 	// Use this for initialization
 	void Start () {
 		newSource =  gameObject.AddComponent<AudioSource>();
+		priorityAudioSource = gameObject.AddComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -27,5 +29,11 @@ public class SoundEffectPlayer : MonoBehaviour {
 			newSource.clip = clip;
 			newSource.PlayOneShot (newSource.clip);
 		}
+	}
+
+	public void PlayPrioritySoundClip(AudioSource source){
+		priorityAudioSource.clip = source.clip;
+		priorityAudioSource.PlayOneShot (priorityAudioSource.clip);
+
 	}
 }

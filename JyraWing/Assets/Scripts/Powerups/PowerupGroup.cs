@@ -29,6 +29,7 @@ public class PowerupGroup {
 	/// </summary>
 	/// <param name="i_enemy">I_enemy.</param>
 	public void AddToSquad(GameObject i_enemy){
+		Debug.Assert (i_enemy.GetComponent<EnemyBehavior> () != null);
 		squad.Add (i_enemy);
 		//The enemy itself will need to know what it's id is for when it is destoryed
 		//and must call on the GameController to possibly spawn a powerup.
@@ -39,7 +40,7 @@ public class PowerupGroup {
 
 	public bool IsSquadGone(){
 		//Check to make sure every member of the squad no longer exists
-		for (int i = 0; i< squad.Count; i++) {
+		for (int i = 0; i < squad.Count; i++) {
 			if(squad[i]){
 				EnemyBehavior enemy = squad[i].GetComponent<EnemyBehavior>();
 				//If there is a squad member remaining that isn't the last one remaining.
@@ -88,16 +89,16 @@ public class PowerupGroup {
 	/// group must be adjusted. 
 	/// </summary>
 	/// <param name="amount">Amount.</param>
-	public void AdjustSquadID(int amount){
-		//typically amount will be -1
-		id += amount;
-		//Now adjust the id in all the enemies
-		for (int i = 0; i< squad.Count; i++) {
-			if(squad[i]){
-				squad[i].GetComponent<EnemyBehavior>().SetPowerupGroupID(id);
-			}
-		}
-	}
+//	public void AdjustSquadID(int amount){
+//		//typically amount will be -1
+//		id += amount;
+//		//Now adjust the id in all the enemies
+//		for (int i = 0; i< squad.Count; i++) {
+//			if(squad[i]){
+//				squad[i].GetComponent<EnemyBehavior>().SetPowerupGroupID(id);
+//			}
+//		}
+//	}
 
 	///<summary> Return powerup group id</summary>
 	public int GetPowerupGroupID(){

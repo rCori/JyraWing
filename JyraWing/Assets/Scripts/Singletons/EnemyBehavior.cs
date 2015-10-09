@@ -96,8 +96,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	protected Animator animator;
 	private string hitAnimationName;
 	protected bool isDestroyed;
+	protected bool powerWillSpawn;
 	protected bool _paused;
 	private Vector2 storedVel;
+	protected bool priorityAudio;
 
 	/// <summary>
 	/// Initialize default values for the enemy
@@ -116,7 +118,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		hitAnimationName = "NO ANIMATION SET";
 		isDestroyed = false;
 		_paused = false;
+		powerWillSpawn = false;
 		storedVel = new Vector2 (0f, 0f);
+		priorityAudio = false;
 		RegisterToList ();
 
 
@@ -289,12 +293,26 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
 				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				sfxPlayer.PlaySoundClip(explosionSfx);
+				//If the enemy has priority in audio, it will create a new audio source only for it so it cannot be interrupted. 
+				if(priorityAudio){
+					sfxPlayer.PlayPrioritySoundClip(explosionSfx);
+				}
+				else{
+					sfxPlayer.PlaySoundClip(explosionSfx);
+				}
 
 
 				//If there is a destroy animation to play, set isDestroy to true and try to play it
 				if((animationsOwned & HasAnimations.Destroy) != 0){
 					isDestroyed = true;
+					//If this group has a powerup to spawn see if it should be done.
+					if(powerupGroupID != -1){
+						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						if(ret)
+						{
+							powerWillSpawn = true;
+						}
+					}
 					gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
 					try{
 						//Try to set the destroy animation
@@ -315,7 +333,11 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				else{
 					//If there is a powerupGroup we even care about
 					if(powerupGroupID != -1){
-						gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						if(ret)
+						{
+							powerWillSpawn = true;
+						}
 					}
 					DestroySelf ();
 				}
@@ -384,8 +406,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void DestroySelf()
 	{
 		//If there is a powerupGroup we even care about
-		if(powerupGroupID != -1){
-			gameController.CheckSquadAndSpawn(powerupGroupID, gameObject);
+		if(powerWillSpawn){
+			Debug.Assert(powerupGroupID != -1);
+			gameController.SpawnGroupPower(powerupGroupID, gameObject.transform.position);
 		}
 		Destroy (gameObject);
 	}

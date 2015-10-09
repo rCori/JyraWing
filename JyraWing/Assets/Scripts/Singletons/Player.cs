@@ -3,7 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour, PauseableItem {
-	
+
+	public bool DEBUGNODAMAGE;
+	public bool DEBUGMAXBULLETLEVEL;
+	public bool DEBUGMAXSPEEDLEVEL;
+
+	[System.Flags]
+	public enum Direction
+	{
+		None = 0,
+		Up = 1,
+		Down = 2,
+		Left = 4,
+		Right = 8
+	}
+
+	public enum VertDir
+	{
+		None = 0,
+		Up = 1,
+		Down = 2
+	}
+
+	public enum HorizDir
+	{
+		None = 0,
+		Left = 1,
+		Right = 2
+	}
+
+
 	public GameController gameController;
 	private float speed;
 	private List<GameObject> bulletPool;
@@ -23,6 +52,10 @@ public class Player : MonoBehaviour, PauseableItem {
 	private bool takingDamage;
 	private bool disableControls;
 	private bool _paused;
+
+//	//We want to know what buttons the player has held down
+//	private VertDir vertDir;
+//	private HorizDir horizDir;
 
 	// Use this for initialization
 	void Start () {
@@ -45,15 +78,27 @@ public class Player : MonoBehaviour, PauseableItem {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		float[] speedList = new float[]{2.2f, 2.9f, 3.6f};
-		playerSpeed = new PlayerSpeed (speedList);
+		//float[] speedList = new float[]{2.2f, 2.9f, 3.6f};
+		//playerSpeed = new PlayerSpeed (speedList);
+		playerSpeed = new PlayerSpeed ();
 		bulletLevel = new PlayerBulletLevel ();
-		speed = speedList [0];
+		speed = playerSpeed.GetCurrentSpeed();
 		disableControls = false;
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
 
+		//Set direction to non
+		if (DEBUGMAXBULLETLEVEL) {
+			IncreaseBulletLevel();
+			IncreaseBulletLevel();
+			IncreaseBulletLevel();
+		}
+		if (DEBUGMAXSPEEDLEVEL) {
+			playerSpeed.IncreaseSpeedCap ();
+			playerSpeed.IncreaseSpeedCap ();
+			playerSpeed.IncreaseSpeedCap ();
+		}
 	}
 	
 	// Update is called once per frame
@@ -76,7 +121,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		if (hitTimer == 0.0f) {
+		if (hitTimer == 0.0f && !DEBUGNODAMAGE) {
 			//take out taking damage for now
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
@@ -119,6 +164,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		GameObject bullet2 = new GameObject();
 		GameObject bullet3 = new GameObject();
 		int counter = 0;
+		//Test that we have 3 available bullets.
 		for (int i= 0; i < numBullets; i++) {
 			GameObject bulletObj = bulletPool[i];
 			Bullet bullet = bulletObj.GetComponent<Bullet>();
@@ -225,6 +271,8 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Update position
 			float horiz = Input.GetAxis ("Horizontal");
 			float vert = Input.GetAxis ("Vertical");
+//			Debug.Log ("horiz: " + horiz);
+//			Debug.Log ("cert: " + vert);
 			if (vert < 0.0f) {
 				vert = -1.0f;
 				if(!takingDamage){
@@ -250,21 +298,113 @@ public class Player : MonoBehaviour, PauseableItem {
 				animator.SetInteger ("animState", 0);
 			}
 
-
-
-
-			if (horiz < 0.0f) {
-				horiz = -1.0f;
-			} else if (horiz > 0.0f) {
-				horiz = 1.0f;
-			}
-		
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+
+//			if (horiz < 0.0f) {
+//				horiz = -1.0f;
+//			} else if (horiz > 0.0f) {
+//				horiz = 1.0f;
+//			}
+//		
+//			float horiz = 0.0f;
+//			float vert = 0.0f;
+//
+//			if(Input.GetButtonDown("Right")){
+//				horizDir = HorizDir.Right;
+//			}
+//			else if(Input.GetButtonUp("Right")){
+//				if(Input.GetButton ("Left")){
+//					horizDir = HorizDir.Left;
+//				}
+//				else{
+//					horizDir = HorizDir.None;
+//				}
+//			}
+//
+//			if(Input.GetButtonDown("Left")){
+//				horizDir = HorizDir.Left;
+//			}
+//			else if(Input.GetButtonUp("Left")){
+//				if(Input.GetButton("Right")){
+//					horizDir = HorizDir.Right;
+//				}
+//				else{
+//					horizDir = HorizDir.None;
+//				}
+//			}
+//
+//			if(Input.GetButtonDown("Up")){
+//				vertDir = VertDir.Up;
+//			}
+//			else if(Input.GetButtonUp("Up")){
+//				if(Input.GetButton ("Down")){
+//					vertDir = VertDir.Down;
+//				}
+//				else{
+//					vertDir = VertDir.None;
+//				}
+//			}
+//
+//			if (Input.GetButtonDown ("Down")){
+//				vertDir = VertDir.Down;
+//			}
+//			else if(Input.GetButtonUp("Down")){
+//				if(Input.GetButton ("Up")){
+//					vertDir = VertDir.Up;
+//				}
+//				else{
+//					vertDir = VertDir.None;
+//				}
+//			}
+//
+//			if(vertDir == VertDir.Down){
+//				vert = -1.0f;
+//				//Handle the down or down-and-flashing animation
+//				if(takingDamage){
+//					animator.SetInteger("animState", 5); // up and flashing
+//				}
+//				else{
+//					animator.SetInteger ("animState", 3); //up
+//				}
+//			}
+//
+//			if(vertDir == VertDir.Up){
+//				vert = 1.0f;
+//				//Handle the up or up-and-flashing animations
+//				if(takingDamage){
+//					animator.SetInteger("animState", 6); //down and flashing
+//				}
+//				else{
+//					animator.SetInteger("animState", 4); //down
+//				}
+//			}
+//
+//			if(vertDir == VertDir.None){
+//				vert = 0.0f;
+//				if(takingDamage){
+//					animator.SetInteger("animState", 2);//neutral and flashing
+//				}
+//				else{
+//					animator.SetInteger ("animState", 0); //neutral
+//				}
+//			}
+//
+//			if(horizDir == HorizDir.Left){
+//				horiz = -1.0f;
+//			}
+//			if(horizDir == HorizDir.Right){
+//				horiz = 1.0f;
+//			}
+//			if(horizDir == HorizDir.None){
+//				horiz = 0.0f;
+//			}
+
+
 		}
 	}
 
 	private void updateInput(){
-		if(Input.GetButtonDown("Fire1") && !disableControls){
+		if(Input.GetButtonDown("Fire") && !disableControls){
 			if(bulletLevel.GetBulletLevel() != 3){
 				shoot ();
 			}
@@ -272,7 +412,7 @@ public class Player : MonoBehaviour, PauseableItem {
 				spreadShot ();
 			}
 		}
-		if (Input.GetButtonDown ("Fire2")) {
+		if (Input.GetButtonDown ("Toggle Speed")) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
@@ -309,8 +449,6 @@ public class Player : MonoBehaviour, PauseableItem {
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
-						GetComponent<BoxCollider2D>().enabled = false;
-						GetComponent<BoxCollider2D>().enabled = true;
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
@@ -358,6 +496,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		gameController.DelistPause(this);
 	}
 
+	//By having the player handle it's own collision with enemy objects the
+	//"hiding inside an enemy" bug has been handled.
 	public void OnTriggerStay2D(Collider2D other){
 		if(other.tag == "Enemy")
 		{
