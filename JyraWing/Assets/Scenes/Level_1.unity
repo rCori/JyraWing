@@ -484,7 +484,7 @@ Prefab:
       objectReference: {fileID: 815409762}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGMAXSPEEDLEVEL
