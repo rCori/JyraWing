@@ -44,13 +44,13 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float hitTimer;
 	private PlayerSpeed playerSpeed;
 	private PlayerBulletLevel bulletLevel;
+	private PlayerInputController playerInputController;
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
 	private Vector3 pauseSavePos;
 
 	private bool takingDamage;
-	private bool disableControls;
 	private bool _paused;
 
 //	//We want to know what buttons the player has held down
@@ -78,12 +78,12 @@ public class Player : MonoBehaviour, PauseableItem {
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		//float[] speedList = new float[]{2.2f, 2.9f, 3.6f};
-		//playerSpeed = new PlayerSpeed (speedList);
+		//Helper classes and components for the player
 		playerSpeed = new PlayerSpeed ();
 		bulletLevel = new PlayerBulletLevel ();
+		playerInputController = new PlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
-		disableControls = false;
+
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
@@ -115,6 +115,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		updateInput ();
 
 		updateHitAnimation ();
+
+		playerInputController.PlayerInputUpdate ();
 	}
 
 	/// <summary>
@@ -129,7 +131,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
-			disableControls = true;
+			playerInputController.DisableControls(true);
 			damageSfx.Play();
 			takingDamage = true;
 		}
@@ -267,22 +269,19 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	private void updatePlayerMovement(){
-		if (!disableControls) {
+		if(!playerInputController.GetDisabledControls()){
 			//Update position
-			float horiz = Input.GetAxis ("Horizontal");
-			float vert = Input.GetAxis ("Vertical");
-//			Debug.Log ("horiz: " + horiz);
-//			Debug.Log ("cert: " + vert);
-			if (vert < 0.0f) {
-				vert = -1.0f;
+			int horiz = playerInputController.GetHorizontalMovement();
+			int vert = playerInputController.GetVerticalMovement();
+
+			if (vert ==  -1) {
 				if(!takingDamage){
 					animator.SetInteger ("animState", 3);
 				}
 				else{
 					animator.SetInteger ("animState", 5);
 				}
-			} else if (vert > 0.0f) {
-				vert = 1.0f;
+			} else if (vert == 1) {
 				if(!takingDamage){
 					animator.SetInteger ("animState", 4);
 				}
@@ -299,112 +298,11 @@ public class Player : MonoBehaviour, PauseableItem {
 			}
 
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
-
-//			if (horiz < 0.0f) {
-//				horiz = -1.0f;
-//			} else if (horiz > 0.0f) {
-//				horiz = 1.0f;
-//			}
-//		
-//			float horiz = 0.0f;
-//			float vert = 0.0f;
-//
-//			if(Input.GetButtonDown("Right")){
-//				horizDir = HorizDir.Right;
-//			}
-//			else if(Input.GetButtonUp("Right")){
-//				if(Input.GetButton ("Left")){
-//					horizDir = HorizDir.Left;
-//				}
-//				else{
-//					horizDir = HorizDir.None;
-//				}
-//			}
-//
-//			if(Input.GetButtonDown("Left")){
-//				horizDir = HorizDir.Left;
-//			}
-//			else if(Input.GetButtonUp("Left")){
-//				if(Input.GetButton("Right")){
-//					horizDir = HorizDir.Right;
-//				}
-//				else{
-//					horizDir = HorizDir.None;
-//				}
-//			}
-//
-//			if(Input.GetButtonDown("Up")){
-//				vertDir = VertDir.Up;
-//			}
-//			else if(Input.GetButtonUp("Up")){
-//				if(Input.GetButton ("Down")){
-//					vertDir = VertDir.Down;
-//				}
-//				else{
-//					vertDir = VertDir.None;
-//				}
-//			}
-//
-//			if (Input.GetButtonDown ("Down")){
-//				vertDir = VertDir.Down;
-//			}
-//			else if(Input.GetButtonUp("Down")){
-//				if(Input.GetButton ("Up")){
-//					vertDir = VertDir.Up;
-//				}
-//				else{
-//					vertDir = VertDir.None;
-//				}
-//			}
-//
-//			if(vertDir == VertDir.Down){
-//				vert = -1.0f;
-//				//Handle the down or down-and-flashing animation
-//				if(takingDamage){
-//					animator.SetInteger("animState", 5); // up and flashing
-//				}
-//				else{
-//					animator.SetInteger ("animState", 3); //up
-//				}
-//			}
-//
-//			if(vertDir == VertDir.Up){
-//				vert = 1.0f;
-//				//Handle the up or up-and-flashing animations
-//				if(takingDamage){
-//					animator.SetInteger("animState", 6); //down and flashing
-//				}
-//				else{
-//					animator.SetInteger("animState", 4); //down
-//				}
-//			}
-//
-//			if(vertDir == VertDir.None){
-//				vert = 0.0f;
-//				if(takingDamage){
-//					animator.SetInteger("animState", 2);//neutral and flashing
-//				}
-//				else{
-//					animator.SetInteger ("animState", 0); //neutral
-//				}
-//			}
-//
-//			if(horizDir == HorizDir.Left){
-//				horiz = -1.0f;
-//			}
-//			if(horizDir == HorizDir.Right){
-//				horiz = 1.0f;
-//			}
-//			if(horizDir == HorizDir.None){
-//				horiz = 0.0f;
-//			}
-
-
 		}
 	}
 
 	private void updateInput(){
-		if(Input.GetButtonDown("Fire") && !disableControls){
+		if(playerInputController.GetFireButton() || playerInputController.GetAutoFire()){
 			if(bulletLevel.GetBulletLevel() != 3){
 				shoot ();
 			}
@@ -412,7 +310,7 @@ public class Player : MonoBehaviour, PauseableItem {
 				spreadShot ();
 			}
 		}
-		if (Input.GetButtonDown ("Toggle Speed")) {
+		if (playerInputController.GetToggleSpeed()) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
@@ -424,6 +322,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		//Handle taking damage and animation
 		if (hitTimer > 0.0f) {
 			//player intially hit
+			//Debug.Log ( "animation state is: " + animator.GetInteger("animState"));
 			if(animator.GetInteger("animState") == 1){
 				hitTimer -= Time.deltaTime;
 				if(hitTimer <= 0.0f){
@@ -436,14 +335,14 @@ public class Player : MonoBehaviour, PauseableItem {
 			//If the ship has returned to the screen after starting a new life
 			} else if(takingDamage){
 				//Player is flying back int
-				if(disableControls){
+				if(playerInputController.GetDisabledControls()){
 					hitTimer -= Time.deltaTime;
 					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
 					if(hitTimer <= 0.0f){
 						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
 						hitTimer = 4.5f;
-						disableControls = false;
+						playerInputController.DisableControls(false);
 					}
 				//The player has regained control and is flashing and they are invincible
 				}else{
