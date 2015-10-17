@@ -201,50 +201,7 @@ public class GameController : MonoBehaviour {
 		}
 		return false;
 	}
-
-
-//	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
-//		//If the squad exists
-//		//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
-//		if (squadList.Count > 0) {
-//			foreach (PowerupGroup group in squadList) {
-//				//If this is the group we are looking for.
-//				if (group.GetPowerupGroupID () == i_id) {
-//					//If Squad has everything gone except the last enemy
-//					if (group.IsSquadGone ()) {
-//						//Get the powerup object
-//						GameObject powerup = group.ReturnPowerupObject ();
-//						//Set the position to the last enemy.
-//						powerup.transform.position = i_lastRemaining.transform.position;
-//						//Instantiate the powerup
-//						Instantiate (powerup);
-//						squadList.Remove (group);
-//						//Debug.LogError ("Spawning powerup ID " + group.GetPowerupGroupID ());
-//						return true;
-//					}
-//				}
-//			}
-//		}
-//		return false;
-//	}
-
-	/// <summary>
-	/// Adjusts the squad IDs of every squad with an ID less than 
-	/// </summary>
-	/// <param name="i_id">I_id.</param>
-//	private void adjustSquadIDs(int i_id){
-//		//Check each PowerupGroup if  it's ID needs to change.
-//		for(int i = 0; i < squadList.Count; i++) {
-//			//If the id of the squad was above that which we removed, it needs
-//			//to be brought down one to "fill the hole"
-//			if( i >= i_id){
-//				squadList[i].AdjustSquadID(-1);
-//			}
-//		}
-//
-//	}
-
-
+	
 
 	private void handleGameOver(){
 		switch (gameOverState) {
@@ -254,9 +211,6 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.FinishShowScreen;
 				uiController.ShowLevelComplete();
 				gameOverTimer = 3.0f;
-//				bgmPlayer.clip = Resources.Load ("Audio/BGM/victoryJingle") as AudioClip;
-//				bgmPlayer.volume = 1.0f;
-//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.FinishShowScreen):
@@ -278,9 +232,6 @@ public class GameController : MonoBehaviour {
 				gameOverState = GameOverState.KillShowScreen;
 				uiController.ShowGameOver();
 				gameOverTimer = 3.0f;
-//				bgmPlayer.clip = Resources.Load ("Audio/BGM/losingTheme") as AudioClip;
-//				bgmPlayer.volume = 1.0f;
-//				bgmPlayer.PlayOneShot(bgmPlayer.clip);
 			}
 			break;
 		case (GameOverState.KillShowScreen):
@@ -293,7 +244,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	///Allows the user to pause all items that have been registered to pause
-	void PauseAllItems()
+	public void PauseAllItems()
 	{
 		foreach(PauseableItem item in pauseList)
 		{
