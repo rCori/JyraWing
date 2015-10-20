@@ -283,7 +283,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				return;
 			}
 			hitPoints--;
-			//This will get rid of the 
+			//This will get rid of the bullet
 			other.GetComponent<Bullet>().BulletDestroy();
 			
 			if(hitPoints == 0)
@@ -371,10 +371,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	}
 
 
-	//	public int GetPowerupGroupID()
-	//	{
-	//		return powerupGroupID;
-	//	}
 
 	/// <summary>
 	/// If this enemy belongs to a group that drops a powerup, set 
@@ -451,6 +447,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public bool GetIsDestroyed(){
 		return isDestroyed;
+	}
+
+	public MovementStatus GetMovementStatus(){
+		return moveStatus;
 	}
 
 

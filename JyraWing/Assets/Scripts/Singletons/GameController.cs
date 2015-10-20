@@ -5,26 +5,39 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
+	/// <summary>
+	/// The GameController has a reference to the player and the Player holds a reference to it.
+	/// </summary>
 	public Player player;
 
+	/// <summary>
+	/// false if the UI elements in the scene have been created, true if they have been. 
+	/// </summary>
 	private bool initializeUI;
 
+	/// <summary>
+	/// The user interface controller that is in the scene
+	/// </summary>
 	public UIController uiController;
+
+	/// <summary>
+	/// The AudioSource of the GameObject in scene that should be playing the background music.
+	/// </summary>
 	public AudioSource bgmPlayer;
 
-	private float gameOverTimer;
+	protected float gameOverTimer;
 
-	private enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimation, KillNoEffect, KillShowScreen};
+	protected enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimation, KillNoEffect, KillShowScreen};
 	GameOverState gameOverState;
 
-	private bool isPaused;
+	protected bool isPaused;
 
 	int nextSquadID;
 
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
-	private List<PowerupGroup> squadList;
+	protected List<PowerupGroup> squadList;
 	
 
 
@@ -32,7 +45,7 @@ public class GameController : MonoBehaviour {
 	/// Keep track of all objects that must be paused when
 	/// the game is paused by the player
 	/// </summary>
-	private List<PauseableItem> pauseList;
+	protected List<PauseableItem> pauseList;
 
 	void Awake()
 	{
@@ -44,7 +57,6 @@ public class GameController : MonoBehaviour {
 		gameOverTimer = 0.0f;
 		gameOverState = GameOverState.None;
 		squadList = new List<PowerupGroup> ();
-		//bgmPlayer = GameObject.Find ("BGMPlayer").GetComponent<AudioSource> ();
 		isPaused = false;
 		nextSquadID = 0;
 		initializeUI = false;
@@ -149,9 +161,7 @@ public class GameController : MonoBehaviour {
 					//I may be able to get rid of this. I will try.
 					group.RemoveAllFromSquad ();
 					squadList.Remove (group);
-					//Debug.LogError ("Removing squad " + group.GetPowerupGroupID ());
 					return true;
-					//adjustSquadIDs(i_id);
 				}
 			}
 		}
@@ -203,7 +213,7 @@ public class GameController : MonoBehaviour {
 	}
 	
 
-	private void handleGameOver(){
+	protected void handleGameOver(){
 		switch (gameOverState) {
 		case(GameOverState.FinishNoEffect):
 			gameOverTimer -= Time.deltaTime;

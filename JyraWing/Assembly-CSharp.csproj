@@ -88,6 +88,9 @@
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />
      <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\GameControllerRewrite.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\IPowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
@@ -100,6 +103,8 @@
      <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
+     <Compile Include="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" />
+     <Compile Include="Assets\Scripts\TestDoubles\GameControllerTestDouble.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
