@@ -91,6 +91,7 @@
      <Compile Include="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Rewrites\GameControllerRewrite.cs" />
      <Compile Include="Assets\Scripts\Rewrites\IPowerupGroupController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\PowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />

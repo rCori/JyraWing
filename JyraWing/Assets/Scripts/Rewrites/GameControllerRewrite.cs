@@ -38,6 +38,8 @@ using System.Collections;
  * For powerups:
  * Initialize the powerup group.
  * Signal the spawning of powerup
+ * Get the powerup gameobject from a group
+ * Position and spawn a powerup
  * Adding a powerup squad to the squad list
  * Remove a squad from the squad list
  * Get the length of the squad list
@@ -56,6 +58,15 @@ public class GameControllerRewrite {
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
 		bool returnValue = powerupGroupController.CheckShouldSpawnPowerupGroup(i_powerupgroupID);
 		return returnValue;
+	}
+
+	public GameObject GetPowerupFromGroupByID(int i_powerupGroupID){
+		GameObject returnObject = powerupGroupController.GetPowerupFromGroupByID (i_powerupGroupID);
+		return returnObject;
+	}
+
+	public void SpawnPowerupAtPostion(Vector3 i_position, GameObject obj){
+
 	}
 
 	public int GetNextSquadID(){
