@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour {
 	/// <summary>
 	/// The AudioSource of the GameObject in scene that should be playing the background music.
 	/// </summary>
-	public AudioSource bgmPlayer;
+	//public AudioSource bgmPlayer;
 
 	protected float gameOverTimer;
 
@@ -116,12 +116,7 @@ public class GameController : MonoBehaviour {
 	/// Show a little UI results panel wait a bit and then go back to level select.
 	/// </summary>
 	public void LevelFinished(float i_gameOverTimer = 0.0f){
-		//Prevents a crash on exit.
-//		if (bgmPlayer) {
-//			bgmPlayer.volume = 0.5f;
-//		}
 		gameOverState = GameOverState.FinishNoEffect;
-		//uiController.ShowLevelComplete();
 		gameOverTimer = i_gameOverTimer;
 	}
 

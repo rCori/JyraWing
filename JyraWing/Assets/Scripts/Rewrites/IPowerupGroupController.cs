@@ -9,7 +9,20 @@ public interface IPowerupGroupController {
 
 	GameObject GetPowerupFromGroupByID(int i_powerupGroupID);
 
-	void SpawnPowerupAtPostion(Vector3 i_position, GameObject obj);
+	//This is heavily Unity API dependent. It may have to be part
+	//of GameControllerBehaviour.
+	//void SpawnPowerupAtPostion(Vector3 i_position, GameObject obj);
+	
+	void AddSquad(PowerupGroup group);
+
+	void RemoveSquad(PowerupGroup group);
 
 	int GetNextSquadID();
+
+	int GetNumberOfSquads();
+
+	bool IsSquadListed(PowerupGroup group);
+	bool IsSquadListed(int groupID);
+
+
 }

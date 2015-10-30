@@ -1,13 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rewrites\GameControllerRewrite.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rewrites\PowerupGroupController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rewrites\IPowerupGroupController.cs" Line="12" Column="63" />
-      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="68" Column="70" />
-      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="192" Column="4" />
+      <File FileName="Assets\Scripts\Rewrites\PowerupGroupController.cs" Line="32" Column="10" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="2" Column="26" />
+      <File FileName="Assets\Scripts\Rewrites\IPowerupGroupController.cs" Line="13" Column="31" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="39" Column="81" />
+      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="155" Column="34" />
       <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Rewrites\PowerupGroupController.cs" Line="18" Column="63" />
+      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Singletons\PlayerInputController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Powerups\PowerupGroup.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

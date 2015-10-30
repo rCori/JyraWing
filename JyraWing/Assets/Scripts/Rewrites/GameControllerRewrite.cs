@@ -22,7 +22,7 @@ using System.Collections;
  * Registering pausable items to a list
  * Receive the event of the level being finished
  * Handle the event of the level being finished
- * Receive the even of a player game over
+ * Receive the event of a player game over
  * Handle the event of a player game over
  * Safe return of the player position
  * 
@@ -36,7 +36,7 @@ using System.Collections;
  * Now in all of these responsibilities, what are some individual units of function we can think of?
  * 
  * For powerups:
- * Initialize the powerup group.
+ * Initialize the powerup group.(I think the constructor can implicitly do this)
  * Signal the spawning of powerup
  * Get the powerup gameobject from a group
  * Position and spawn a powerup
@@ -45,6 +45,8 @@ using System.Collections;
  * Get the length of the squad list
  * Get the next squad ID.
  * Check if a squad still exists
+ * Owns the squad list.
+ * Owns the next squad ID.
  */
 
 public class GameControllerRewrite {
