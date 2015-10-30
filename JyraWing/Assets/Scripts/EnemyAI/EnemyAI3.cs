@@ -53,11 +53,6 @@ public class EnemyAI3 : EnemyBehavior{
 				break;
 			}
 		}
-//		shootTimer += Time.deltaTime;
-//		if (shootTimer > 0.8f) {
-//			shootTimer = 0.0f;
-//			Shoot ();
-//		}
 		Movement ();
 		HandleHitAnimation ();
 	}

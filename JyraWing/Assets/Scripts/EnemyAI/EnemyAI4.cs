@@ -2,15 +2,11 @@
 using System.Collections;
 
 public class EnemyAI4 : EnemyBehavior {
-
+	
 	/// <summary>
 	/// The direction the enemy will fire
 	/// </summary>
 	private Vector2 fireDir;
-
-	/// <summary>
-	/// Running timer for shootin bullets
-	/// </summary>
 
 	///<summary>
 	/// Time couting up to limit when next shot is fired
@@ -28,6 +24,11 @@ public class EnemyAI4 : EnemyBehavior {
 	//Keep a steady interval to update positional idle animation.
 	private float updateAnimTimer;
 	private float updateAnimTimeLimit;
+
+	//Two extra directions for shieldable bullets to be shot in
+	Vector2 upDir;
+	Vector2 straightDir;
+	Vector2 downDir;
 
 	//Gets called on Instantiation.
 	void Awake(){
@@ -67,10 +68,31 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
+
+		//Now set the up and down bullet velocity
+		float xDir = 0.0f;
+		//firing to the left
+		if (fireDir.x < 0) {
+			xDir = -1f;
+		} else {
+			xDir = 1f;
+		}
+
+		upDir.Set (xDir, -0.5f);
+		straightDir.Set (xDir, -0f);
+		downDir.Set (xDir, 0.5f);
+
 		shootTimer += Time.deltaTime;
 		if (shootTimer > shootTimeLimit) {
 		
 			Shoot(fireDir);
+			//Only shoot 
+			if(shieldableBullets)
+			{
+				Shoot(upDir,true);
+				Shoot(straightDir, true);
+				Shoot (downDir, true);
+			}
 			shootTimer = 0.0f;
 		}
 

@@ -82,6 +82,16 @@ public class PlayerInputController {
 		}
 	}
 
+
+	public bool GetShieldButton(){
+		if (!disableControls) {
+			bool retVal = Input.GetButton ("Shield");
+			return retVal;
+		} else {
+			return false;
+		}
+	}
+
 	public void DisableControls(bool i_disable){
 		disableControls = i_disable;
 	}

@@ -7,6 +7,10 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
 	private Vector2 storedVel;
 	private bool _paused;
+	//This bullet can either be absorbed by a shield or it can't.
+
+	public bool shieldable;
+
 	// Use this for initialization
 	void Start () {
 		isActive = false;
@@ -23,7 +27,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		//Player has two collders so we need to check if we are hitting the trigger one.
 		if (other.tag == "Player" && other.isTrigger) {
 			Player player = other.gameObject.GetComponent<Player>();
-			player.TakeDamage();
+			//If the bullet is a shieldable one and the player has a shield
+			//up, do not take damage but reset the bullet.
+			if(!shieldable || !player.HasShield())
+			{
+				player.TakeDamage();
+			}
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 			gameObject.transform.position = new Vector2(0,10f);
 			isActive = false;
@@ -49,7 +58,11 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		isActive = true;
 		GetComponent<Rigidbody2D> ().velocity = i_dir;
 	}
-	
+
+	public bool GetIsShieldable(){
+		return shieldable;
+	}
+
 	
 	/* Implementation of PauseableItem interface */
 	public bool paused

@@ -5,6 +5,8 @@ public class EnemySpawn13 : EnemySpawner {
 
 	public int turretHealth;
 
+	public bool shieldableBullets;
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();

@@ -61,6 +61,13 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public EnemyBulletPool bulletPool;
 
 	/// <summary>
+	/// The shieldable bullet pool.
+	/// Works the same as the other bullet pool but the bullets
+	/// in this pool have the shieldable property.
+	/// </summary>
+	public EnemyBulletPool shieldableBulletPool;
+
+	/// <summary>
 	/// The game controller.
 	/// Connection to other in game objects and events
 	/// </summary>
@@ -84,6 +91,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// By default this is false but if the enemy is going to come from the left side of the screen, this needs to be true.
 	/// </summary>
 	public bool LeftWallException;
+
+
+	/// <summary>
+	/// Enables or disables the behavior of shooting bullets that can bve defelected with
+	/// the player shield.
+	/// </summary>
+	public bool shieldableBullets;
+
 
 	private AudioClip hitSfx;
 
@@ -201,8 +216,15 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		return (moveTimer > moveTimeLimit);
 	}
 
-	public void Shoot(){
-		GameObject bulletObj = bulletPool.GetBullet();
+	public void Shoot(bool shieldable = false){
+		GameObject bulletObj;
+		//Determine what kind of bullet we will get, shieldable or not
+		
+		if(!shieldable){
+			bulletObj = bulletPool.GetBullet();
+		} else {
+			bulletObj = shieldableBulletPool.GetBullet();
+		}
 		//We check if the bullet is valid, if it is then shoot it.
 		if(bulletObj)
 		{
@@ -220,8 +242,15 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// Shoots an enemy bullet with a specified velocity
 	/// </summary>
 	/// <param name="i_dir">Enemy bullet velocity.</param>
-	public void Shoot(Vector2 i_dir){
-		GameObject bulletObj = bulletPool.GetBullet();
+	public void Shoot(Vector2 i_dir, bool shieldable = false){
+		GameObject bulletObj;
+		//Determine what kind of bullet we will get, shieldable or not
+
+		if(!shieldable){
+			bulletObj = bulletPool.GetBullet();
+		} else {
+			bulletObj = shieldableBulletPool.GetBullet();
+		}
 		//We check if the bullet is valid, if it is then shoot it.
 		if(bulletObj)
 		{

@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour {
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
+	private GameObject shieldText;
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
 
@@ -27,15 +28,6 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		//lifeSpriteCollection = new List<GameObject> ();
-//		lifeCount = 3;
-//		initLives (lifeCount);
-//
-//		speedCount = 4;
-//		speedSpriteCollection = new List<GameObject> ();
-//		initSpeed ();
-//		UpdateAvailableSpeed (1);
-//		UpdateActivatedSpeed (1,1);
 
 		levelEndImage = Resources.Load("UIObjects/LevelFinishedImage") as GameObject;
 		levelEndImage = Instantiate (levelEndImage);
@@ -44,6 +36,10 @@ public class UIController : MonoBehaviour {
 		gameOverMessage = Resources.Load("UIObjects/GameOverImage") as GameObject;
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
+
+		shieldText = Resources.Load ("UIObjects/ShieldText") as GameObject;
+		shieldText = Instantiate (shieldText);
+		shieldText.transform.SetParent(canvas.transform, false);
 
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
@@ -205,6 +201,12 @@ public class UIController : MonoBehaviour {
 			}
 			speedSpriteImage.color = color;
 		}
+	}
+
+	public void UpdatePlayerShield(float shieldPercentage){
+		Text shieldTexObj = shieldText.GetComponent<Text>();
+		int shieldInteger = (int)shieldPercentage;
+		shieldTexObj.text = shieldInteger.ToString ();
 	}
 
 	public void PauseMenu(){

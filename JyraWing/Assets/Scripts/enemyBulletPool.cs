@@ -15,15 +15,25 @@ public class EnemyBulletPool : MonoBehaviour {
 	/// </summary>
 	List<GameObject> bulletPool;
 	
-
+	/// <summary>
+	/// What kind of bullet pool is this? A pool of shieldable bullets or a pool of unshieldable bullets?
+	/// </summary>
+	public bool shieldablePool;
 
 	// Use this for initialization
 	void Start () {
 		//Create the bullet pool, a list of GameObjects with the EnemyBullet script on it.
 		bulletPool = new List<GameObject> ();
 		for (int i = 0; i < totalBullets; i++) {
-			//Put all the bullet live in the pool
-			GameObject bullet = Resources.Load ("EnemyBullet") as GameObject;
+			//Create bullet to put in pool.
+			GameObject bullet;
+			//Determine what kind of bullets are going in the pool
+			if(shieldablePool){
+				bullet = Resources.Load ("EnemyBulletShieldable") as GameObject;
+			}
+			else{
+				bullet = Resources.Load ("EnemyBullet") as GameObject;
+			}
 			bullet.transform.position = new Vector2(0f,10f);
 			bullet = Instantiate(bullet);
 			bullet.gameObject.SetActive(true);

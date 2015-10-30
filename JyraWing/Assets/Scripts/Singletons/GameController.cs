@@ -88,7 +88,12 @@ public class GameController : MonoBehaviour {
 		uiController.UpdateAvailableSpeed(speedCountCap+1);
 		uiController.UpdateActivatedSpeed(speedCount+1, speedCountCap+1);
 	}
-	
+
+	public void UpdatePlayerShield(){
+		float shieldPercentage = player.GetShieldPercentage ();
+		uiController.UpdatePlayerShield (shieldPercentage);
+	}
+
 
 	/// <summary>
 	/// Show the GameOverScreen
@@ -202,47 +207,6 @@ public class GameController : MonoBehaviour {
 		return false;
 	}
 
-
-//	public bool CheckSquadAndSpawn(int i_id, GameObject i_lastRemaining){
-//		//If the squad exists
-//		//I am going to start converting all of this stuff to not rely on the index into the list and treat the PowerupGroupID as something else.
-//		if (squadList.Count > 0) {
-//			foreach (PowerupGroup group in squadList) {
-//				//If this is the group we are looking for.
-//				if (group.GetPowerupGroupID () == i_id) {
-//					//If Squad has everything gone except the last enemy
-//					if (group.IsSquadGone ()) {
-//						//Get the powerup object
-//						GameObject powerup = group.ReturnPowerupObject ();
-//						//Set the position to the last enemy.
-//						powerup.transform.position = i_lastRemaining.transform.position;
-//						//Instantiate the powerup
-//						Instantiate (powerup);
-//						squadList.Remove (group);
-//						//Debug.LogError ("Spawning powerup ID " + group.GetPowerupGroupID ());
-//						return true;
-//					}
-//				}
-//			}
-//		}
-//		return false;
-//	}
-
-	/// <summary>
-	/// Adjusts the squad IDs of every squad with an ID less than 
-	/// </summary>
-	/// <param name="i_id">I_id.</param>
-//	private void adjustSquadIDs(int i_id){
-//		//Check each PowerupGroup if  it's ID needs to change.
-//		for(int i = 0; i < squadList.Count; i++) {
-//			//If the id of the squad was above that which we removed, it needs
-//			//to be brought down one to "fill the hole"
-//			if( i >= i_id){
-//				squadList[i].AdjustSquadID(-1);
-//			}
-//		}
-//
-//	}
 
 
 

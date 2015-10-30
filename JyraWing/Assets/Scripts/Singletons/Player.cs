@@ -50,6 +50,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	private Vector3 endSavePos;
 	private Vector3 pauseSavePos;
 
+	private float shieldPower;
+	private float maxShieldPower;
+
 	private bool takingDamage;
 	private bool _paused;
 
@@ -83,6 +86,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		bulletLevel = new PlayerBulletLevel ();
 		playerInputController = new PlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
+
+		//Set the maximum number of seconds we can use the shield
+		maxShieldPower = 2f;
+		shieldPower = maxShieldPower;
 
 		_paused = false;
 		RegisterToList ();
@@ -268,6 +275,34 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 
+	public bool HasShield(){
+		if (shieldPower != 0) {
+			return playerInputController.GetShieldButton ();
+		} else {
+			return false;
+		}
+	}
+
+	public float GetShieldPercentage(){
+		return (shieldPower / maxShieldPower) * 100;
+	}
+
+	private void updateShield(){
+		if (playerInputController.GetShieldButton () && shieldPower > 0f) {
+			shieldPower -= Time.deltaTime;
+			if(shieldPower < 0f){
+				shieldPower = 0f;
+			}
+		}
+		else if(!playerInputController.GetShieldButton () && shieldPower <= maxShieldPower){
+			shieldPower += Time.deltaTime;
+			if(shieldPower > maxShieldPower){
+				shieldPower = maxShieldPower;
+			}
+		}
+		gameController.UpdatePlayerShield ();
+	}
+
 	private void updatePlayerMovement(){
 		if(!playerInputController.GetDisabledControls()){
 			//Update position
@@ -314,8 +349,8 @@ public class Player : MonoBehaviour, PauseableItem {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
-			
 		}
+		updateShield ();
 	}
 
 	private void updateHitAnimation(){
