@@ -10,9 +10,9 @@ public interface ILevelController {
 	}
 
 	//Called when the player successfully finishes the level
-	void FinisheLevel();
+	void FinishLevel(float startTimer);
 	//Called when the player is killed.
-	void PlayerKilled();
+	void PlayerKilled(float startTimer);
 
 	//Return flags set during the stages of Finishing a level or game over
 	bool ShouldDisablePlayer();

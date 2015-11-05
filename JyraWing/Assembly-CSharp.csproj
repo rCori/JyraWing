@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\Rewrites\IPlayerController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\IPowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\IUIController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\LevelController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\PowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
