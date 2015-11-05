@@ -24,6 +24,20 @@ public class LevelController : ILevelController {
 	//Application.Load the title scene
 	bool loadTitleScene;
 
+	//Constructor that sets all the flags false and no game over state
+	public LevelController(){
+		//Set all of the flags to false
+		disablePlayer = false;
+		showLevelCompleteUI = false;
+		showGameOverScreenUI = false;
+		loadTitleScene = false;
+		//Set the timer past 0, something invalid
+		gameOverTimer = -1.0f;
+		//Set the game over state to not be transitioning through a game over or level complete
+		_gameOverState = GameOverState.None;
+
+	}
+
 	//Called when player finishes the level by destroying the end boss
 	public void FinishLevel(float startTimer = 2.5f){
 		_gameOverState = GameOverState.FinishNoEffect;
@@ -32,7 +46,10 @@ public class LevelController : ILevelController {
 	}
 
 	//Called when player dies
-	public void PlayerKilled(float startTimer){
+	public void PlayerKilled(float startTimer= 2.5f){
+		_gameOverState = GameOverState.KillAnimation;
+		//Time until the next phase of the gameover sequence
+		gameOverTimer = startTimer;
 	}
 
 	// implement the GameOverState gameoverState property
@@ -89,6 +106,7 @@ public class LevelController : ILevelController {
 			case GameOverState.KillAnimation:
 				gameOverState = GameOverState.KillNoEffect;
 				disablePlayer = true;
+				gameOverTimer = 1.2f;
 				break;
 			//Show the game over screen
 			case GameOverState.KillNoEffect:
