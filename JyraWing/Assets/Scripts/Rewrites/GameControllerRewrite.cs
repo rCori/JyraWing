@@ -47,12 +47,49 @@ using System.Collections;
  * Check if a squad still exists
  * Owns the squad list.
  * Owns the next squad ID.
+ * 
+ * For UIController
+ * This includes code from UIController and GameController
+ * Own, Set and Get the GameObjects for speed display UI
+ * Own, Set and Get the GameObject for life text UI
+ * Own, Set and Get the GameObject for Game Over message UI
+ * Own, Set and Get the GameObject for Level Complete message UI
+ * Own, Set and Get the GameObject for InGame pause menu
+ * Set string displayed by Life UI component
+ * Set available speed level
+ * Set activated speed level
+ * Show the level complete message
+ * Show the game over message
+ * Handle the transitions in and out of showing and not showing either the level complete message or the game over message based on time
+ * Create Pause InGameMenu when player presses start
+ * Remove Pause InGameMenu when player backs out of menu
+ * 
+ * For PauseController
+ * Own the isPaused flag
+ * Own the List of pausable items
+ * Pause all items in the pausable item list 
+ * Unpause all items in the pausable item list
+ * Register an item to the list of PauseableItems
+ * Remove an item from the list of PauseableItems
+ * 
+ * For LevelController
+ * Own the GameOverState enum
+ * Set GameOverState
+ * Get GameOverState
+ * Load scenes based on GameOverState(Unity API, handled by behaviour
+ * 
+ * For PlayerController
+ * Get the player location
+ * Set the player object enabled
  */
+
+//This is used in ILevelController
+public enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimation, KillNoEffect, KillShowScreen};
 
 public class GameControllerRewrite {
 
 	IPowerupGroupController powerupGroupController;
-
+	
 	public void InitializePowerupGroup(){
 		powerupGroupController.InitializePowerupGroup ();
 	}
@@ -67,8 +104,12 @@ public class GameControllerRewrite {
 		return returnObject;
 	}
 
-	public void SpawnPowerupAtPostion(Vector3 i_position, GameObject obj){
+	public void AddSquad(PowerupGroup group){
+		powerupGroupController.AddSquad (group);
+	}
 
+	public void RemoveSquad(PowerupGroup group){
+		powerupGroupController.RemoveSquad(group);
 	}
 
 	public int GetNextSquadID(){
@@ -76,8 +117,17 @@ public class GameControllerRewrite {
 		return returnValue;
 	}
 
-	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController)
-	{
+	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
 		powerupGroupController = i_powerupGroupController;
+	}
+
+	public bool IsSquadListed(int groupID){
+		bool returnValue = powerupGroupController.IsSquadListed(groupID);
+		return returnValue;
+	}
+
+	public bool IsSquadListed(PowerupGroup group){
+		bool returnValue = powerupGroupController.IsSquadListed(group);
+		return returnValue;
 	}
 }

@@ -89,7 +89,11 @@
      <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
      <Compile Include="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Rewrites\GameControllerRewrite.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\ILevelController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\IPauseController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\IPlayerController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\IPowerupGroupController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\IUIController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\PowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />

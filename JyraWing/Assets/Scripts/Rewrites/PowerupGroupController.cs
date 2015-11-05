@@ -24,20 +24,42 @@ public class PowerupGroupController : IPowerupGroupController {
 	public void InitializePowerupGroup(){
 	}
 
-	///TODO
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
+		//Iterate through all PowerupGroups in squadList
+		foreach (PowerupGroup currentGroup in squadList) {
+			//If the group searched for is found
+			if(currentGroup.GetPowerupGroupID() == i_powerupgroupID){
+				//If the group has been destroyed without the group being
+				//removed without having the squad itself removed, then a
+				//powerup should be spawned
+				if(currentGroup.IsSquadGone ()){
+					return true;
+				}
+				//If not, the group was found but we should spawn a powerup
+				//so return false now.
+				else{
+					return false;
+				}
+			}
+		}
+		//If the group was never found, no powerup should spawn
 		return false;
 	}
-
-	/// TODO
+	
 	public GameObject GetPowerupFromGroupByID(int i_powerupGroupID){
+		//Iterate through all PowerupGroups in squadList
+		foreach (PowerupGroup currentGroup in squadList) {
+			//Check if we have founf the selected PowerupGroup
+			if(currentGroup.GetPowerupGroupID() == i_powerupGroupID){
+				//Return that PowerupGroup's GameObject
+				return currentGroup.ReturnPowerupObject();
+			}
+		}
+		//If the PowerupGroup was never found then return a null object
 		GameObject obj = new GameObject();
 		return obj;
 	}
-
-	//Explained in interface file
-	//public void SpawnPowerupAtPostion(Vector3 i_position, GameObject obj){
-	//}
+	
 
 	public void AddSquad(PowerupGroup group){
 		//Check if the group is not already present

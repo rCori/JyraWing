@@ -33,12 +33,11 @@ public class GameController : MonoBehaviour {
 	protected bool isPaused;
 
 	int nextSquadID;
-
+	 
 	/// <summary>
 	/// Keep track of and handle every PowerupGroup that currently exists.
 	/// </summary>
 	protected List<PowerupGroup> squadList;
-	
 
 
 	/// <summary>
@@ -187,6 +186,7 @@ public class GameController : MonoBehaviour {
 		}
 		return false;
 	}
+
 
 	public bool SpawnGroupPower(int i_id, Vector3 i_position){
 		if (squadList.Count > 0) {
