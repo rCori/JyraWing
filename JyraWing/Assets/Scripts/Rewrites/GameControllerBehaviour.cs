@@ -6,7 +6,8 @@ public class GameControllerBehaviour : MonoBehaviour {
 	GameControllerRewrite gameController;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		gameController = new GameControllerRewrite ();
 	
 	}
 	
