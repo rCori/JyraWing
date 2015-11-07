@@ -178,7 +178,6 @@ public class GameController : MonoBehaviour {
 				if (group.GetPowerupGroupID () == i_id) {
 					//If Squad has everything gone except the last enemy
 					if (group.IsSquadGone ()) {
-						//Debug.LogError ("Spawning powerup ID " + group.GetPowerupGroupID ());
 						return true;
 					}
 				}

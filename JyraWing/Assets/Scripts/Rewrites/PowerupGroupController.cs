@@ -21,9 +21,6 @@ public class PowerupGroupController : IPowerupGroupController {
 		squadList = new List<PowerupGroup>();
 	}
 
-	public void InitializePowerupGroup(){
-	}
-
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
 		//Iterate through all PowerupGroups in squadList
 		foreach (PowerupGroup currentGroup in squadList) {

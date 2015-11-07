@@ -102,9 +102,6 @@ public enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimat
 public class GameControllerRewrite {
 
 	IPowerupGroupController powerupGroupController;
-	
-	public void InitializePowerupGroup(){
-		powerupGroupController.InitializePowerupGroup ();
 
 	ILevelController levelController;
 
