@@ -16,7 +16,7 @@ public class PowerupGroupController : IPowerupGroupController {
 	private List<PowerupGroup> squadList;
 
 	//Constructor. All it needs to do is initialize two fields
-	PowerupGroupController(){
+	public PowerupGroupController(){
 		nextSquadID = 0;
 		squadList = new List<PowerupGroup>();
 	}
@@ -45,19 +45,18 @@ public class PowerupGroupController : IPowerupGroupController {
 		//If the group was never found, no powerup should spawn
 		return false;
 	}
-	
-	public GameObject GetPowerupFromGroupByID(int i_powerupGroupID){
+
+	public PowerupGroup.PowerupType GetPowerupTypeFromGroupByID(int i_powerupGroupID){
 		//Iterate through all PowerupGroups in squadList
 		foreach (PowerupGroup currentGroup in squadList) {
 			//Check if we have founf the selected PowerupGroup
 			if(currentGroup.GetPowerupGroupID() == i_powerupGroupID){
 				//Return that PowerupGroup's GameObject
-				return currentGroup.ReturnPowerupObject();
+				return currentGroup.ReturnPowerupType();
 			}
 		}
-		//If the PowerupGroup was never found then return a null object
-		GameObject obj = new GameObject();
-		return obj;
+		//If the PowerupGroup was never found then return a None type
+		return PowerupGroup.PowerupType.None;
 	}
 	
 

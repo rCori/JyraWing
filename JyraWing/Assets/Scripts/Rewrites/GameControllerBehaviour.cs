@@ -20,7 +20,18 @@ public class GameControllerBehaviour : MonoBehaviour {
 	//Not sure about this yet
 	public void SpawnPowerupAtPostion(Vector3 i_position, int squadID){
 		//Get the powerup gameobject itself with the squad ID we have
-		GameObject powerup = gameController.GetPowerupFromGroupByID (squadID);
+		PowerupGroup.PowerupType powerupType = gameController.GetPowerupTypeFromGroupByID (squadID);
+		GameObject powerup = new GameObject ();
+		switch(powerupType){
+		case PowerupGroup.PowerupType.Speed:
+			powerup = Resources.Load ("Pickups/SpeedPowerup") as GameObject;
+			break;
+		case PowerupGroup.PowerupType.Bullet:
+			powerup = Resources.Load ("Pickups/BulletPowerup") as GameObject;
+			break;
+		default:
+			break;
+		}
 		//If the powerup is null, the input squad ID is invalid so throw
 		//an exception
 		try{

@@ -73,7 +73,7 @@ public class EnemySpawn12 : EnemySpawner {
 
 		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 		
-		group.SetPowerupObject (PowerupGroup.PowerupType.Speed);
+		group.SetPowerupType (PowerupGroup.PowerupType.Speed);
 
 		group.AddToSquad (enemy3);
 		group.AddToSquad (enemy4);

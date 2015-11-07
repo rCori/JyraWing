@@ -119,9 +119,9 @@ public class GameControllerRewrite {
 		return returnValue;
 	}
 
-	public GameObject GetPowerupFromGroupByID(int i_powerupGroupID){
-		GameObject returnObject = powerupGroupController.GetPowerupFromGroupByID (i_powerupGroupID);
-		return returnObject;
+	public PowerupGroup.PowerupType GetPowerupTypeFromGroupByID(int i_powerupGroupID){
+		PowerupGroup.PowerupType returnPowerupType = powerupGroupController.GetPowerupTypeFromGroupByID (i_powerupGroupID);
+		return returnPowerupType;
 	}
 
 	public void AddSquad(PowerupGroup group){

@@ -7,7 +7,7 @@ public interface IPowerupGroupController {
 
 	bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID);
 
-	GameObject GetPowerupFromGroupByID(int i_powerupGroupID);
+	PowerupGroup.PowerupType GetPowerupTypeFromGroupByID(int i_powerupGroupID);
 
 	//This is heavily Unity API dependent. It may have to be part
 	//of GameControllerBehaviour.

@@ -194,7 +194,21 @@ public class GameController : MonoBehaviour {
 				//If this is the group we are looking for.
 				if (group.GetPowerupGroupID () == i_id) {
 					//Get the powerup object
-					GameObject powerup = group.ReturnPowerupObject ();
+					GameObject powerup = new GameObject();
+					//Find what powerup object we should be spawning
+					PowerupGroup.PowerupType powerupType = group.ReturnPowerupType();
+					//Use a switch case to load the correct powerup type
+					switch(powerupType){
+					case PowerupGroup.PowerupType.Speed:
+						powerup = Resources.Load ("Pickups/SpeedPowerup") as GameObject;
+						break;
+					case PowerupGroup.PowerupType.Bullet:
+						powerup = Resources.Load ("Pickups/BulletPowerup") as GameObject;
+						break;
+					default:
+						break;
+					}
+					//GameObject powerup = group.ReturnPowerupObject ();
 					//Set the position to the position given
 					powerup.transform.position = i_position;
 					//Instantiate the powerup
