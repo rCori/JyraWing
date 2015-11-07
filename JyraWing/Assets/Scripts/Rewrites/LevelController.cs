@@ -39,14 +39,14 @@ public class LevelController : ILevelController {
 	}
 
 	//Called when player finishes the level by destroying the end boss
-	public void FinishLevel(float startTimer = 2.5f){
+	public void FinishLevel(float startTimer){
 		_gameOverState = GameOverState.FinishNoEffect;
 		//Time until the next phase of the gameover sequence
 		gameOverTimer = startTimer;
 	}
 
 	//Called when player dies
-	public void PlayerKilled(float startTimer= 2.5f){
+	public void PlayerKilled(float startTimer){
 		_gameOverState = GameOverState.KillAnimation;
 		//Time until the next phase of the gameover sequence
 		gameOverTimer = startTimer;

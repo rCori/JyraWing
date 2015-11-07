@@ -35,7 +35,8 @@ using System.Collections;
  * 
  * Now in all of these responsibilities, what are some individual units of function we can think of?
  * 
- * For powerups:
+ * 
+ * For PowerupGroupController:
  * Initialize the powerup group.(I think the constructor can implicitly do this)
  * Signal the spawning of powerup
  * Get the powerup gameobject from a group
@@ -47,6 +48,7 @@ using System.Collections;
  * Check if a squad still exists
  * Owns the squad list.
  * Owns the next squad ID.
+ * 
  * 
  * For UIController
  * This includes code from UIController and GameController
@@ -64,6 +66,7 @@ using System.Collections;
  * Create Pause InGameMenu when player presses start
  * Remove Pause InGameMenu when player backs out of menu
  * 
+ * 
  * For PauseController
  * Own the isPaused flag
  * Own the List of pausable items
@@ -72,15 +75,25 @@ using System.Collections;
  * Register an item to the list of PauseableItems
  * Remove an item from the list of PauseableItems
  * 
+ * 
  * For LevelController
  * Own the GameOverState enum
  * Set GameOverState
  * Get GameOverState
- * Load scenes based on GameOverState(Unity API, handled by behaviour
+ * 
+ * Set flags from handling GameOverState for showing the level complete ui, 
+ * showing the game over ui, disabling the player, and loading the title scene
+ * 
  * 
  * For PlayerController
  * Get the player location
  * Set the player object enabled
+ * Get the player speed count
+ * Get the player speed count cap
+ * Get the player life count
+ * 
+ * Life player count shouldn't be part of the player code, but part of the PlayerController contained
+ * in the gameController. Same with the speed variables
  */
 
 //This is used in ILevelController
@@ -92,6 +105,13 @@ public class GameControllerRewrite {
 	
 	public void InitializePowerupGroup(){
 		powerupGroupController.InitializePowerupGroup ();
+
+	ILevelController levelController;
+
+
+	//Set the powerup group controller for the game controller
+	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
+		powerupGroupController = i_powerupGroupController;
 	}
 
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
@@ -117,10 +137,6 @@ public class GameControllerRewrite {
 		return returnValue;
 	}
 
-	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
-		powerupGroupController = i_powerupGroupController;
-	}
-
 	public bool IsSquadListed(int groupID){
 		bool returnValue = powerupGroupController.IsSquadListed(groupID);
 		return returnValue;
@@ -130,4 +146,41 @@ public class GameControllerRewrite {
 		bool returnValue = powerupGroupController.IsSquadListed(group);
 		return returnValue;
 	}
+
+	//Set the level controller interface for the game controller
+	public void SetLevelController(ILevelController i_levelController){
+		levelController = i_levelController;
+	}
+
+	//Called when the player finishes the level
+	public void FinishLevel(float startTimer = 2.5f){
+		levelController.FinishLevel (startTimer);
+	}
+
+	public void PlayerKilled(float startTimer = 2.5f){
+		levelController.PlayerKilled (startTimer);
+	}
+
+	//Access to the HandleGameOver function 
+	public void HandleGameOver(float timeChange){
+		//Only bother handling game over state if FinishLevel or PlayerKilled have been called
+		if (levelController.gameOverState != GameOverState.None) {
+			levelController.HandleGameOver (timeChange);
+			//Check all the flags that can be handled here
+			if(levelController.ShouldDisablePlayer()){
+				//This call doesn't exist yet but it is supposed to disable the player
+				//playerController.DisablePlayer();
+			}
+			if(levelController.ShouldShowGameOverUI()){
+				//The game over ui object should be displayed now 
+				//uiController.gameOverUIObject = true;
+			}
+			if(levelController.ShouldShowLevelCompleteUI()){
+				//The level complete ui object should be shown now
+				//uiController.levelCompleteUIObject = true;
+			}
+		}
+	}
+
+
 }

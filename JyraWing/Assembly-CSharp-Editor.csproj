@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\Tests\GameControllerTest.cs" />
      <Compile Include="Assets\Editor\Tests\LevelControllerTest.cs" />
+     <Compile Include="Assets\Editor\Tests\PowerupGroupControllerTest.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Editor\AssertionComponentEditor.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Editor\AssertionExplorerWindow.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Editor\AssertionListRenderer.cs" />

@@ -12,7 +12,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Finish the level
-		controller.FinishLevel ();
+		controller.FinishLevel (2.5f);
 		//Handle game over after 5 seconds have passed
 		controller.HandleGameOver (5.0f);
 
@@ -31,7 +31,7 @@ public class LevelControllerTest {
 
 		//Act
 		//Finish the level
-		controller.FinishLevel ();
+		controller.FinishLevel (2.5f);
 		//Handle game over after 5 seconds have passed
 		controller.HandleGameOver (5.0f);
 		GameOverState curState = controller.gameOverState;
@@ -51,7 +51,7 @@ public class LevelControllerTest {
 
 		//Act
 		//Finish the level
-		controller.FinishLevel ();
+		controller.FinishLevel (2.5f);
 		//Handle the game over after 5 seconds. That will transition to start of FinishShowScreen state
 		controller.HandleGameOver (5.0f);
 		//Wait 5 more seconds to the end of the FinishShowScreen state to set the load TitleScene flag.
@@ -70,7 +70,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Player gets game over
-		controller.PlayerKilled ();
+		controller.PlayerKilled (2.5f);
 		//Handle the game after 5 seconds. That will transition to KillNoEffect state
 		controller.HandleGameOver (5.0f);
 		bool DisablePlayer = controller.ShouldDisablePlayer ();
@@ -87,7 +87,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Player gets game over
-		controller.PlayerKilled ();
+		controller.PlayerKilled (2.5f);
 		//Handle the game after 5 seconds. That will transition to KillNoEffect state
 		controller.HandleGameOver (5.0f);
 		GameOverState state = controller.gameOverState;
@@ -105,7 +105,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Player gets game over
-		controller.PlayerKilled ();
+		controller.PlayerKilled (2.5f);
 		//Handle the game after 5 seconds. That will transition to KillNoEffect state
 		controller.HandleGameOver (5.0f);
 		//After another 5 seconds we are at the end of the KillNoEffect state and are in KillShowScreen state
@@ -126,7 +126,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Player gets game over
-		controller.PlayerKilled ();
+		controller.PlayerKilled (2.5f);
 		//Handle the game after 5 seconds. That will transition to KillNoEffect state
 		controller.HandleGameOver (5.0f);
 		//After another 5 seconds we are at the end of the KillNoEffect state and are in KillShowScreen state
@@ -147,7 +147,7 @@ public class LevelControllerTest {
 		
 		//Act
 		//Player gets game over
-		controller.PlayerKilled ();
+		controller.PlayerKilled (2.5f);
 		//Handle the game after 5 seconds. That will transition to KillNoEffect state
 		controller.HandleGameOver (5.0f);
 		//After another 5 seconds we are at the end of the KillNoEffect state and are in KillShowScreen state

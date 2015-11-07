@@ -13,7 +13,8 @@ public class GameControllerBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		//HandleGameOver is time dependent
+		gameController.HandleGameOver (Time.deltaTime);
 	}
 
 	//Not sure about this yet
@@ -40,6 +41,5 @@ public class GameControllerBehaviour : MonoBehaviour {
 		Instantiate (powerup);
 
 	}
-
 
 }
