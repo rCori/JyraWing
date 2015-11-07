@@ -47,7 +47,7 @@ public class Menu : MonoBehaviour {
 
 		//Move the selector up(veritcal) or left(horizontal)
 		//move selection up one
-		if (((isVertical && axis > 0)||(!isVertical && axis < 0)) && curSelect != 0) {
+		if (((isVertical && axis > 0)||(!isVertical && axis < 0)) && (selectTimer > selectTimeLimit) && curSelect != 0) {
 			curSelect--;
 			transform.position = menuLocations[curSelect];
 			selectTimer = 0f;

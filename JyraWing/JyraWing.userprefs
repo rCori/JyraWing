@@ -1,14 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn11.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Menus\Menu.cs">
     <Files>
-      <File FileName="Assets\Scripts\Singletons\Player.cs" Line="307" Column="12" />
-      <File FileName="Assets\Scripts\UI\UIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="90" Column="17" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" Line="23" Column="10" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="102" Column="2" />
+      <File FileName="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" Line="16" Column="20" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI6.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="41" Column="18" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Menus\Menu.cs" Line="61" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

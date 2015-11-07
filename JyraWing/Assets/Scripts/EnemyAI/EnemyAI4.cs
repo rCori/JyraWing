@@ -27,7 +27,6 @@ public class EnemyAI4 : EnemyBehavior {
 
 	//Two extra directions for shieldable bullets to be shot in
 	Vector2 upDir;
-	Vector2 straightDir;
 	Vector2 downDir;
 
 	//Gets called on Instantiation.
@@ -36,6 +35,11 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
+
+		//Set the up and down directions for shieldable bullets
+		upDir.Set (-1f, -3f);
+		downDir.Set (-1f, 3f);
+
 		shootTimer = 0.0f;
 
 		shootTimeLimit = 3.0f;
@@ -78,9 +82,6 @@ public class EnemyAI4 : EnemyBehavior {
 			xDir = 1f;
 		}
 
-		upDir.Set (xDir, -0.5f);
-		straightDir.Set (xDir, -0f);
-		downDir.Set (xDir, 0.5f);
 
 		shootTimer += Time.deltaTime;
 		if (shootTimer > shootTimeLimit) {
@@ -90,8 +91,7 @@ public class EnemyAI4 : EnemyBehavior {
 			if(shieldableBullets)
 			{
 				Shoot(upDir,true);
-				Shoot(straightDir, true);
-				Shoot (downDir, true);
+				Shoot(downDir, true);
 			}
 			shootTimer = 0.0f;
 		}
