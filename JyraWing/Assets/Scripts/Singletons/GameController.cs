@@ -89,8 +89,7 @@ public class GameController : MonoBehaviour {
 		uiController.UpdateActivatedSpeed(speedCount+1, speedCountCap+1);
 	}
 
-	public void UpdatePlayerShield(){
-		float shieldPercentage = player.GetShieldPercentage ();
+	public void UpdatePlayerShield(float shieldPercentage){
 		uiController.UpdatePlayerShield (shieldPercentage);
 	}
 

@@ -45,13 +45,11 @@ public class Player : MonoBehaviour, PauseableItem {
 	private PlayerSpeed playerSpeed;
 	private PlayerBulletLevel bulletLevel;
 	private PlayerInputController playerInputController;
+	private IPlayerShield playerShield;
 
 	private Vector3 startSavePos;
 	private Vector3 endSavePos;
 	private Vector3 pauseSavePos;
-
-	private float shieldPower;
-	private float maxShieldPower;
 
 	private bool takingDamage;
 	private bool _paused;
@@ -87,9 +85,19 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerInputController = new PlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
 
-		//Set the maximum number of seconds we can use the shield
-		maxShieldPower = 2f;
-		shieldPower = maxShieldPower;
+		//The shield we will get assigned by instantiating the shield GameObject and then extracting
+		//the shield interface from that game object
+		GameObject playerShieldObject = Resources.Load ("PlayerShield") as GameObject;
+		playerShieldObject = Instantiate (playerShieldObject);
+		//Use the GameObject to get the PlayerShield interface
+		PlayerShieldBehaviour playerShieldBehaviour = playerShieldObject.GetComponent<PlayerShieldBehaviour>();
+		//Get the same GameController reference from the player for player shield
+		playerShieldBehaviour.gameController = gameController;
+		playerShield = playerShieldBehaviour.GetPlayerShield();
+
+//		//Set the maximum number of seconds we can use the shield
+//		maxShieldPower = 2f;
+//		shieldPower = maxShieldPower;
 
 		_paused = false;
 		RegisterToList ();
@@ -124,6 +132,9 @@ public class Player : MonoBehaviour, PauseableItem {
 		updateHitAnimation ();
 
 		playerInputController.PlayerInputUpdate ();
+
+		//update the position of the shield sprite
+		playerShield.spritePosition = gameObject.transform.position;
 	}
 
 	/// <summary>
@@ -276,32 +287,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	public bool HasShield(){
-		if (shieldPower != 0) {
-			return playerInputController.GetShieldButton ();
-		} else {
-			return false;
-		}
+		return playerShield.HasShield(playerInputController.GetShieldButton ());
 	}
-
-	public float GetShieldPercentage(){
-		return (shieldPower / maxShieldPower) * 100;
-	}
-
-	private void updateShield(){
-		if (playerInputController.GetShieldButton () && shieldPower > 0f) {
-			shieldPower -= Time.deltaTime;
-			if(shieldPower < 0f){
-				shieldPower = 0f;
-			}
-		}
-		else if(!playerInputController.GetShieldButton () && shieldPower <= maxShieldPower){
-			shieldPower += Time.deltaTime;
-			if(shieldPower > maxShieldPower){
-				shieldPower = maxShieldPower;
-			}
-		}
-		gameController.UpdatePlayerShield ();
-	}
+	
 
 	private void updatePlayerMovement(){
 		if(!playerInputController.GetDisabledControls()){
@@ -350,7 +338,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.UpdatePlayerSpeed();
 		}
-		updateShield ();
+		//updateShield ();
 	}
 
 	private void updateHitAnimation(){

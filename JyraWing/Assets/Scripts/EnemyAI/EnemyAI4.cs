@@ -73,15 +73,6 @@ public class EnemyAI4 : EnemyBehavior {
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 
-		//Now set the up and down bullet velocity
-		float xDir = 0.0f;
-		//firing to the left
-		if (fireDir.x < 0) {
-			xDir = -1f;
-		} else {
-			xDir = 1f;
-		}
-
 
 		shootTimer += Time.deltaTime;
 		if (shootTimer > shootTimeLimit) {

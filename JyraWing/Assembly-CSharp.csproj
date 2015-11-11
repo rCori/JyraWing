@@ -94,11 +94,13 @@
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\Singletons\GameController.cs" />
+     <Compile Include="Assets\Scripts\Singletons\IPlayerShield.cs" />
      <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerInputController.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
+     <Compile Include="Assets\Scripts\Singletons\PlayerShieldBehaviour.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
