@@ -37,17 +37,13 @@ using System.Collections;
  * 
  * 
  * For PowerupGroupController:
- * Initialize the powerup group.(I think the constructor can implicitly do this)
+ * Initialize the powerup group list.(I think the constructor can implicitly do this)
  * Signal the spawning of powerup
- * Get the powerup gameobject from a group
- * Position and spawn a powerup
+ * Get the powerup type from a group
  * Adding a powerup squad to the squad list
  * Remove a squad from the squad list
- * Get the length of the squad list
  * Get the next squad ID.
  * Check if a squad still exists
- * Owns the squad list.
- * Owns the next squad ID.
  * 
  * 
  * For UIController
