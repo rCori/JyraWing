@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerShieldBehaviour : MonoBehaviour {
 
 	private IPlayerShield playerShield;
-	private PlayerInputController playerInputController;
+	public PlayerInputController playerInputController;
 
 	private Animator animator;
 

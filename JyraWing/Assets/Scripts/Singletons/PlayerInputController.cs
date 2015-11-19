@@ -8,6 +8,7 @@ public class PlayerInputController {
 	bool autoFireState;
 
 	bool disableControls;
+	bool disableShield;
 
 	int horizontalVel;
 	int verticalVel;
@@ -84,7 +85,7 @@ public class PlayerInputController {
 
 
 	public bool GetShieldButton(){
-		if (!disableControls) {
+		if (!disableShield) {
 			bool retVal = Input.GetButton ("Shield");
 			return retVal;
 		} else {
@@ -94,6 +95,10 @@ public class PlayerInputController {
 
 	public void DisableControls(bool i_disable){
 		disableControls = i_disable;
+	}
+
+	public void DisableShield(bool i_disable){
+		disableShield = i_disable;
 	}
 
 	public bool GetDisabledControls(){

@@ -93,6 +93,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerShieldBehaviour playerShieldBehaviour = playerShieldObject.GetComponent<PlayerShieldBehaviour>();
 		//Get the same GameController reference from the player for player shield
 		playerShieldBehaviour.gameController = gameController;
+		playerShieldBehaviour.playerInputController = playerInputController;
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
 //		//Set the maximum number of seconds we can use the shield
@@ -150,6 +151,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
 			playerInputController.DisableControls(true);
+			playerInputController.DisableShield(true);
 			damageSfx.Play();
 			takingDamage = true;
 		}
@@ -374,6 +376,7 @@ public class Player : MonoBehaviour, PauseableItem {
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
+						playerInputController.DisableShield(false);
 					}
 				}
 			} 
