@@ -14,6 +14,8 @@ public interface IPauseController{
 		get;
 	}
 
+	//The list of pauseable objects is also a concrete part of the interface
+	//that should be visible to the user of any implementation. It must exist
 	List<PauseableItem> PauseList {
 		get;
 	}
