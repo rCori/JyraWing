@@ -4,54 +4,52 @@ using System.Collections.Generic;
 
 public interface IUIController {
 
-
-	//The available speed levels to the player
-	int availableSpeed {
+	//How many speed levels the UI will show are available
+	int AvailalbeSpeed {
 		get;
 		set;
 	}
 
-	//The current speed level of the player
-	int activatedSpeed {
+	//How many speed levels the UI will show are active
+	int ActiveSpeed {
 		get;
 		set;
 	}
 
-	//The message that the life text UI object will display
-	string lifeTestString {
-		get;
-		set;
-	}
-
-	//The ui objects that indicate the player's speed
-	List<GameObject> speedSpriteUIObjects {
-		get;
-		set;
-	}
-
-	//The ui object that displays how many lives the player has remaining
-	GameObject lifeTextUIObject {
-		get;
-		set;
-	}
-
-	//The ui object that displays when the player has died
-	GameObject gameOverUIObject {
-		get;
-		set;
-	}
-
-	//The ui object that displays when the player has finished the level
-	GameObject levelCompleteUIObject {
-		get;
-		set;
-	}
-
-	//The game object wthat creates the in game pause menu when
-	//instantiated
-	GameObject inGamePauseUIObject {
-		get;
-		set;
-	}
+	//These four functions outline all of the interaction the client of the interface
+	//should have to have with a life count variaible
+	void SetDefaultLifeCount(int defaultLifeCount);
 	
+	/// Set the life count back to the default
+	void InitializeLifeCount();
+	
+	void IncreaseLifeCount();
+
+	void DecreaseLifeCount();
+
+	//This will return the integer of how many lives are left. It's up the the MonoBehaviour to make a string
+	//or whatever representation out of it.
+	int GetLifeCount();
+
+	//When the MonoBehaviour needs to know if the UI gameobject for life count needs to be updated they will 
+	//call this to see if the state of the life count has changed
+	bool ShouldUpdateLifeCount(bool resetFlag = true);
+
+	//When the MonoBehaviour that updates the GameObject for the UI representation of the life count has
+	//updated that UI element, it will call this to reset the flag.
+	//I want some way to enforce this happens.
+	void FinishedLifeCountUpdate();
+
+
+	//The speed variables are more directly modifiable for the user so this is the only function
+	//relates to speed UI that we need.
+
+	//When the MonoBehaviour needs to know if the UI gameobjects for speed need to be updated they will 
+	//call this to see if the state of the life count has changed
+	bool ShouldUpdateSpeed(bool resetFlag = true);
+
+	//When the MonoBehaviour that updates the GameObject for the UI representation of the life count has
+	//updated that UI element, it will call this to reset the flag
+	void FinishedSpeedUpdate();
+
 }
