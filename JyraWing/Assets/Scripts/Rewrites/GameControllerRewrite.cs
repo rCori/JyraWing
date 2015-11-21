@@ -101,6 +101,11 @@ public class GameControllerRewrite {
 		powerupGroupController = i_powerupGroupController;
 	}
 
+	//Set the GameController's UI controller module
+	public void SetUIController(IUIController i_uiController){
+		uiController = i_uiController;
+	}
+
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
 		bool returnValue = powerupGroupController.CheckShouldSpawnPowerupGroup(i_powerupgroupID);
 		return returnValue;
@@ -204,9 +209,5 @@ public class GameControllerRewrite {
 		pauseController.DelistPauseableItem (item);
 	}
 
-	//Set the GameController's UI controller module
-	public void SetUIController(IUIController i_uiController){
-		uiController = i_uiController;
-	}
 
 }
