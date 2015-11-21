@@ -57,7 +57,6 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI9.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
-     <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" />
@@ -96,7 +95,9 @@
      <Compile Include="Assets\Scripts\Rewrites\IPowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\IUIController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\LevelController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\PauseController.cs" />
      <Compile Include="Assets\Scripts\Rewrites\PowerupGroupController.cs" />
+     <Compile Include="Assets\Scripts\Rewrites\UIControllerRewrite.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
@@ -115,6 +116,7 @@
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
      <Compile Include="Assets\Scripts\UI\UIController.cs" />
+     <Compile Include="Assets\Scripts\enemyBulletPool.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />
@@ -173,17 +175,11 @@
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\LaserScope.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\SuperSimpleSelfIllumination.shader" />
      <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleBlend.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

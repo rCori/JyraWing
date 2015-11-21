@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rewrites\GameControllerBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="120" Column="61" />
-      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="26" Column="26" />
-      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="209" Column="7" />
-      <File FileName="Assets\Scripts\Rewrites\PowerupGroupController.cs" Line="46" Column="48" />
-      <File FileName="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" Line="60" Column="30" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="209" Column="15" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="10" Column="49" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

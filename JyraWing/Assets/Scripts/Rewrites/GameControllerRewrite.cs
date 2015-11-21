@@ -48,19 +48,10 @@ using System.Collections;
  * 
  * For UIController
  * This includes code from UIController and GameController
- * Own, Set and Get the GameObjects for speed display UI
- * Own, Set and Get the GameObject for life text UI
- * Own, Set and Get the GameObject for Game Over message UI
- * Own, Set and Get the GameObject for Level Complete message UI
- * Own, Set and Get the GameObject for InGame pause menu
- * Set string displayed by Life UI component
- * Set available speed level
- * Set activated speed level
- * Show the level complete message
- * Show the game over message
- * Handle the transitions in and out of showing and not showing either the level complete message or the game over message based on time
- * Create Pause InGameMenu when player presses start
- * Remove Pause InGameMenu when player backs out of menu
+ * Initialize what the default life count is
+ * Reset the life count to that default
+ * Increase lives by one
+ * Decrease lives by one
  * 
  * 
  * For PauseController
@@ -102,6 +93,8 @@ public class GameControllerRewrite {
 	ILevelController levelController;
 
 	IPauseController pauseController;
+
+	IUIController uiController;
 
 	//Set the powerup group controller for the game controller
 	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
@@ -209,6 +202,11 @@ public class GameControllerRewrite {
 	public void DelistPauseableItem(PauseableItem item)
 	{
 		pauseController.DelistPauseableItem (item);
+	}
+
+	//Set the GameController's UI controller module
+	public void SetUIController(IUIController i_uiController){
+		uiController = i_uiController;
 	}
 
 }

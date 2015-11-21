@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelController : ILevelController {
 
-	//If gameOverTImer has reached 0 in HandleGameOver, this state will determine what happens in the rest of the function
+	//If gameOverTimer has reached 0 in HandleGameOver, this state will determine what happens in the rest of the function
 	private GameOverState _gameOverState;
 
 	//Used by HandleGameOver
