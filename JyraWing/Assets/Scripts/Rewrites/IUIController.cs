@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public interface IUIController {
 
 	//How many speed levels the UI will show are available
-	int AvailalbeSpeed {
+	int AvailableSpeed {
 		get;
 		set;
 	}
