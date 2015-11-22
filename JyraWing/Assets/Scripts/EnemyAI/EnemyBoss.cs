@@ -95,7 +95,11 @@ public class EnemyBoss : EnemyBehavior {
 		if (obj) {
 			GameController controller = obj.GetComponent<GameController> ();
 			controller.LevelFinished (2.5f);
+			//Use the new gameController now
+			GameControllerRewrite controller2 = obj.GetComponent<GameControllerRewrite>();
+			controller2.FinishLevel(2.5f);
 		}
+	
 	}
 
 	/// <summary>

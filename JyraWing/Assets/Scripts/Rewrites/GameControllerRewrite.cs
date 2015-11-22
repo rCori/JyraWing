@@ -96,6 +96,10 @@ public class GameControllerRewrite {
 
 	IUIController uiController;
 
+	public Vector3 playerPosition;
+	
+	/*IPowerupGroupController functions */
+
 	//Set the powerup group controller for the game controller
 	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
 		powerupGroupController = i_powerupGroupController;
@@ -120,8 +124,8 @@ public class GameControllerRewrite {
 		powerupGroupController.AddSquad (group);
 	}
 
-	public void RemoveSquad(PowerupGroup group){
-		powerupGroupController.RemoveSquad(group);
+	public void RemoveSquad(int groupID){
+		powerupGroupController.RemoveSquad(groupID);
 	}
 
 	public int GetNextSquadID(){
@@ -139,6 +143,28 @@ public class GameControllerRewrite {
 		return returnValue;
 	}
 
+	public bool IsPowerupSpawnQueued(){
+		return powerupGroupController.IsPowerupSpawnQueued ();
+	}
+
+	public void QueuePowerupSpawn(Vector3 i_position, PowerupGroup.PowerupType type){
+		powerupGroupController.QueuePowerupSpawn (i_position, type);
+	}
+
+	public PowerupGroup.PowerupType QueuedPowerupType{
+		get{
+			return powerupGroupController.QueuedPowerupType;
+		}
+	}
+	
+	public Vector3 QueuedPowerupLocation{
+		get{
+			return powerupGroupController.QueuedPowerupLocation;
+		}
+	}
+
+	/* ILevelController */
+
 	//Set the level controller interface for the game controller
 	public void SetLevelController(ILevelController i_levelController){
 		levelController = i_levelController;
@@ -152,7 +178,7 @@ public class GameControllerRewrite {
 	public void PlayerKilled(float startTimer = 2.5f){
 		levelController.PlayerKilled (startTimer);
 	}
-
+	
 	//Access to the HandleGameOver function 
 	public void HandleGameOver(float timeChange){
 		//Only bother handling game over state if FinishLevel or PlayerKilled have been called
@@ -173,6 +199,66 @@ public class GameControllerRewrite {
 			}
 		}
 	}
+
+	public bool IsNotGameOver(){
+		return levelController.gameOverState == GameOverState.None;
+	}
+
+	/* IUIController functions */
+
+	public void SetDefaultLifeCount(int defaultLifeCount){
+		uiController.SetDefaultLifeCount (defaultLifeCount);
+	}
+
+	public void InitializeLifeCount(){
+		uiController.InitializeLifeCount ();
+	}
+
+	public void IncreaseLifeCount(){
+		uiController.IncreaseLifeCount ();
+	}
+
+	public void DecreaseLifeCount(){
+		//Decrease lives displayed in the UI
+		uiController.DecreaseLifeCount ();
+		//If the lifeCount is 0 then the player has been killed
+		if (uiController.GetLifeCount () == 0) {
+			//Player was killed so inform the levelController to start that up.
+			levelController.PlayerKilled(2.5f);
+		}
+	}
+
+	public int GetLifeCount(){
+		return uiController.GetLifeCount ();
+	}
+
+	public bool ShouldUpdateLifeCount(bool resetFlag = false){
+		return uiController.ShouldUpdateLifeCount (resetFlag);
+	}
+
+	public bool ShouldUpdateSpeed(bool resetFlag = false){
+		return uiController.ShouldUpdateSpeed (resetFlag);
+	}
+
+	public int AvailableSpeed{
+		get{
+			return uiController.AvailableSpeed;
+		}
+		set{
+			uiController.AvailableSpeed = value;
+		}
+	}
+	
+	public int ActiveSpeed{
+		get{
+			return uiController.ActiveSpeed;
+		}
+		set{
+			uiController.ActiveSpeed = value;
+		}
+	}
+
+	/* IPauseController functions */
 
 	//Set the pause controller interface for the game controller
 	public void SetPauseController(IPauseController i_pauseController){
@@ -208,6 +294,12 @@ public class GameControllerRewrite {
 	{
 		pauseController.DelistPauseableItem (item);
 	}
-
+		
+	public bool IsPaused{
+		get{
+			return pauseController.IsPaused;
+		}
+	}
+	
 
 }

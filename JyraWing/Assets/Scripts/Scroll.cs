@@ -76,6 +76,7 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	{
 		if (GameObject.Find ("GameController")) {
 			GameObject.Find ("GameController").GetComponent<GameController> ().RegisterPause (this);
+			GameObject.Find ("GameController").GetComponent<GameControllerRewrite>().RegisterPauseableItem(this);
 		}
 	}
 
@@ -84,6 +85,7 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	{
 		if (GameObject.Find ("GameController")) {
 			GameObject.Find ("GameController").GetComponent<GameController> ().DelistPause (this);
+			GameObject.Find ("GameController").GetComponent<GameControllerRewrite>().DelistPauseableItem(this);
 		}
 	}
 }

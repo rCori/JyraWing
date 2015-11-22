@@ -79,13 +79,16 @@ public class EnemySpawn14 : EnemySpawner {
 
 
 		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		
-		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-		
+		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
+
+		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+		PowerupGroup group = new PowerupGroup (controller2.GetNextSquadID());
+
 		group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 		group.AddToSquad (enemy1);
 		group.AddToSquad (enemy2);
 		
 		controller.AddSquad (group);
+		controller2.AddSquad (group);
 	}
 }

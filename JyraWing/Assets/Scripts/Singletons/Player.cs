@@ -34,6 +34,7 @@ public class Player : MonoBehaviour, PauseableItem {
 
 
 	public GameController gameController;
+	public GameControllerRewrite gameController2;
 	private float speed;
 	private List<GameObject> bulletPool;
 	Animator animator;
@@ -131,6 +132,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.UpdatePlayerLives();
+			gameController2.DecreaseLifeCount();
 			playerInputController.DisableControls(true);
 			damageSfx.Play();
 			takingDamage = true;
@@ -231,6 +233,12 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void IncreaseSpeedCap(){
 		playerSpeed.IncreaseSpeedCap ();
 		gameController.UpdatePlayerSpeed ();
+		//Set the gameController speed variables
+		//Speed cap is how many levels of speed are available to the player
+		gameController2.AvailableSpeed = playerSpeed.GetSpeedCap ();
+		//speed level is how many levels of speed the player has activated
+		gameController2.ActiveSpeed = playerSpeed.GetSpeedLevel ();
+		gameController2.ShouldUpdateSpeed ();
 	}
 
 	public void IncreaseBulletLevel(){
@@ -313,6 +321,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		if (playerInputController.GetToggleSpeed()) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
+			gameController2.ActiveSpeed = playerSpeed.GetSpeedLevel();
+			gameController2.ShouldUpdateSpeed();
 			gameController.UpdatePlayerSpeed();
 			
 		}
@@ -388,11 +398,13 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		gameController.RegisterPause(this);
+		gameController2.RegisterPauseableItem (this);
 	}
 	
 	public void RemoveFromList()
 	{
 		gameController.DelistPause(this);
+		gameController2.DelistPauseableItem (this);
 	}
 
 	//By having the player handle it's own collision with enemy objects the

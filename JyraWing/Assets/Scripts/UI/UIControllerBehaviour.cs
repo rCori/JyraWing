@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class UIController : MonoBehaviour {
+public class UIControllerBehaviour: MonoBehaviour {
 
 	//const bool ISDEBUG = false;
 

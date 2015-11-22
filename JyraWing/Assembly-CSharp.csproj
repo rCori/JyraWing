@@ -115,7 +115,7 @@
      <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
-     <Compile Include="Assets\Scripts\UI\UIController.cs" />
+     <Compile Include="Assets\Scripts\UI\UIControllerBehaviour.cs" />
      <Compile Include="Assets\Scripts\enemyBulletPool.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />

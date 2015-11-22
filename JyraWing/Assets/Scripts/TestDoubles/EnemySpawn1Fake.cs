@@ -53,7 +53,7 @@ public class EnemySpawn1Fake : EnemySpawner {
 			GameControllerTestDouble controller = GameObject.Find ("GameController").GetComponent<GameControllerTestDouble> ();
 			
 			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			
+
 			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 			
 			group.AddToSquad (enemy1);

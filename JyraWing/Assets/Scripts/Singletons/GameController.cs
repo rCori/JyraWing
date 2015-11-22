@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
+	///<summary>
+	/// The MonoBehaviour for the UI controller.
+	/// </summary>
+	public UIControllerBehaviour uiControllerBehaviour;
+
 	/// <summary>
 	/// The GameController has a reference to the player and the Player holds a reference to it.
 	/// </summary>
@@ -14,11 +19,6 @@ public class GameController : MonoBehaviour {
 	/// false if the UI elements in the scene have been created, true if they have been. 
 	/// </summary>
 	private bool initializeUI;
-
-	/// <summary>
-	/// The user interface controller that is in the scene
-	/// </summary>
-	public UIController uiController;
 
 	/// <summary>
 	/// The AudioSource of the GameObject in scene that should be playing the background music.
@@ -67,14 +67,14 @@ public class GameController : MonoBehaviour {
 		if (!initializeUI) {
 			if(player != null)
 			{
-				uiController.Initialize(player.LifeCount ());
+				uiControllerBehaviour.Initialize(player.LifeCount ());
 				initializeUI = true;
 			}
 		}
 		if(Input.GetButtonDown("Pause"))
 		{
 			if (!isPaused && gameOverState == GameOverState.None) {
-				uiController.PauseMenu();
+				uiControllerBehaviour.PauseMenu();
 				PauseAllItems();
 			}
 		}
@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour {
 	/// </summary>
 	public void UpdatePlayerLives(){
 		int lifeCount = player.LifeCount ();
-		uiController.UpdateLives(lifeCount);
+		uiControllerBehaviour.UpdateLives(lifeCount);
 		if (lifeCount == 0) {
 			GameOver(2.5f);
 		}
@@ -96,8 +96,8 @@ public class GameController : MonoBehaviour {
 	public void UpdatePlayerSpeed(){
 		int speedCount = player.SpeedCount ();
 		int speedCountCap = player.SpeedCountCap ();
-		uiController.UpdateAvailableSpeed(speedCountCap+1);
-		uiController.UpdateActivatedSpeed(speedCount+1, speedCountCap+1);
+		uiControllerBehaviour.UpdateAvailableSpeed(speedCountCap+1);
+		uiControllerBehaviour.UpdateActivatedSpeed(speedCount+1, speedCountCap+1);
 	}
 	
 
@@ -227,7 +227,7 @@ public class GameController : MonoBehaviour {
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
 				gameOverState = GameOverState.FinishShowScreen;
-				uiController.ShowLevelComplete();
+				uiControllerBehaviour.ShowLevelComplete();
 				gameOverTimer = 3.0f;
 			}
 			break;
@@ -248,7 +248,7 @@ public class GameController : MonoBehaviour {
 			gameOverTimer -= Time.deltaTime;
 			if(gameOverTimer <= 0.0f){
 				gameOverState = GameOverState.KillShowScreen;
-				uiController.ShowGameOver();
+				uiControllerBehaviour.ShowGameOver();
 				gameOverTimer = 3.0f;
 			}
 			break;
@@ -298,5 +298,5 @@ public class GameController : MonoBehaviour {
 	{
 		pauseList.Remove (item);
 	}
-	
+
 }

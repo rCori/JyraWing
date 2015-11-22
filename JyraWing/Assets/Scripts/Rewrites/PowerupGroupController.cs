@@ -15,10 +15,33 @@ public class PowerupGroupController : IPowerupGroupController {
 	/// </summary>
 	private List<PowerupGroup> squadList;
 
+	/// <summary>
+	/// Keep track if QueduedPowerupType and QueuedPOwerupLocation need to be actually used to spawn something
+	/// </summary>
+	private bool isPowerupSpawnQueued;
+
+	private PowerupGroup.PowerupType queuedPowerupType;
+
+	private Vector3 queuedPowerupLocation;
+
 	//Constructor. All it needs to do is initialize two fields
 	public PowerupGroupController(){
 		nextSquadID = 0;
 		squadList = new List<PowerupGroup>();
+		queuedPowerupType = PowerupGroup.PowerupType.None;
+		queuedPowerupLocation = new Vector3 (0f, 0f);
+	}
+
+	public PowerupGroup.PowerupType QueuedPowerupType{
+		get{
+			return queuedPowerupType;
+		}
+	}
+
+	public Vector3 QueuedPowerupLocation{
+		get{
+			return queuedPowerupLocation;
+		}
 	}
 
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
@@ -70,20 +93,24 @@ public class PowerupGroupController : IPowerupGroupController {
 		}
 	}
 	
-	public void RemoveSquad(PowerupGroup group){
+	public void RemoveSquad(int groupID){
 		//Make sure the group is present
-		bool isPresent = IsSquadListed (group);
+		bool isPresent = IsSquadListed (groupID);
 		//If the squad is not listed, return early
 		if (!isPresent) {
 			return;
 		}
 		//If it is handle it
 		else {
-			//We must set the squad IDs of any remaining squad members 
-			//to -1, taking them out of the squad before removing it
-			group.RemoveAllFromSquad ();
-			//Now remove the group from the actual list
-			squadList.Remove(group);
+			foreach (PowerupGroup group in squadList) {
+				if (group.GetPowerupGroupID () == groupID) {
+					//We must set the squad IDs of any remaining squad members 
+					//to -1, taking them out of the squad before removing it
+					group.RemoveAllFromSquad ();
+					//Now remove the group from the actual list
+					squadList.Remove (group);
+				}
+			}
 		}
 	}
 
@@ -126,6 +153,21 @@ public class PowerupGroupController : IPowerupGroupController {
 		//If we have gone through squadList and not found the group
 		//it is not present so return false.
 		return false;
+	}
+
+	public bool IsPowerupSpawnQueued(){
+		bool returnValue = isPowerupSpawnQueued;
+		//Reset the flag, the user cannot control this
+		if (isPowerupSpawnQueued) {
+			isPowerupSpawnQueued = false;
+		}
+		return returnValue;
+	}
+
+	public void QueuePowerupSpawn(Vector3 i_position, PowerupGroup.PowerupType type){
+		isPowerupSpawnQueued = true;
+		queuedPowerupType = type;
+		queuedPowerupLocation = i_position;
 	}
 
 }

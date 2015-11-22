@@ -2,12 +2,18 @@
 using System.Collections;
 public class GameControllerBehaviour : MonoBehaviour {
 
+	public Player player;
 
 	GameControllerRewrite gameController;
 
+	UIControllerBehaviour uiControllerBehaviour;
+
+	bool initializeUI;
+	
 	// Use this for initialization
 	void Awake () {
 		gameController = new GameControllerRewrite ();
+		initializeUI = false;
 	
 	}
 	
@@ -15,12 +21,48 @@ public class GameControllerBehaviour : MonoBehaviour {
 	void Update () {
 		//HandleGameOver is time dependent
 		gameController.HandleGameOver (Time.deltaTime);
+		if (!initializeUI) {
+			if(player){
+				gameController.SetDefaultLifeCount(player.LifeCount());
+				gameController.InitializeLifeCount();
+				uiControllerBehaviour.Initialize(gameController.GetLifeCount());
+			}
+		}
+		//When the pause button is pressed, the uiCOntrollerBehvaiour will create
+		//the ingame menu and all items will pause
+		if (Input.GetButtonDown ("Pause")) {
+			if(gameController.IsPaused && gameController.IsNotGameOver())
+			{
+				uiControllerBehaviour.PauseMenu();
+				gameController.PauseAllItems();
+			}
+		}
+		//When the flag to update lives is checked, this will get the uiControllerBehaviour to update that
+		if (gameController.ShouldUpdateLifeCount ()) {
+			uiControllerBehaviour.UpdateLives(gameController.GetLifeCount());
+		}
+		//When the flag to update speed values is checked, this will get the uiControllerBehaviour to update that.
+		if (gameController.ShouldUpdateSpeed ()) {
+			uiControllerBehaviour.UpdateAvailableSpeed(gameController.AvailableSpeed);
+			uiControllerBehaviour.UpdateActivatedSpeed(gameController.ActiveSpeed, gameController.AvailableSpeed);
+		}
+
+		//The gameController has a null-checked player position at all times
+		//Set the player position in GameController.
+		if (player) {
+			gameController.playerPosition = player.transform.position;
+		} else {
+			gameController.playerPosition = new Vector3(0f,0f,0f);
+
+		}
+
+		if (gameController.IsPowerupSpawnQueued()) {
+			SpawnPowerupAtPostion(gameController.QueuedPowerupLocation, gameController.QueuedPowerupType);
+		}
 	}
 
 	//Not sure about this yet
-	public void SpawnPowerupAtPostion(Vector3 i_position, int squadID){
-		//Get the powerup gameobject itself with the squad ID we have
-		PowerupGroup.PowerupType powerupType = gameController.GetPowerupTypeFromGroupByID (squadID);
+	public void SpawnPowerupAtPostion(Vector3 i_position, PowerupGroup.PowerupType powerupType){
 		GameObject powerup = new GameObject ();
 		switch(powerupType){
 		case PowerupGroup.PowerupType.Speed:
@@ -51,6 +93,10 @@ public class GameControllerBehaviour : MonoBehaviour {
 		//Instantiate the powerup GameObject
 		Instantiate (powerup);
 
+	}
+
+	public GameControllerRewrite GetGameController(){
+		return gameController;
 	}
 
 }

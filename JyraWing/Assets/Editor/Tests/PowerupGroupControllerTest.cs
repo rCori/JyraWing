@@ -23,7 +23,7 @@ public class PowerupGroupControllerTest{
 		PowerupGroup group = new PowerupGroup (powerupGroupController.GetNextSquadID());
 		//Act
 		powerupGroupController.AddSquad (group);
-		powerupGroupController.RemoveSquad(group);
+		powerupGroupController.RemoveSquad(group.GetPowerupGroupID());
 		//Assert
 		//Check that the group is present in the PowerupGroupController
 		bool isGroupPresent = powerupGroupController.IsSquadListed (group);

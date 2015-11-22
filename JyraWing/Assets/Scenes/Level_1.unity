@@ -921,6 +921,22 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: -2}
   tankHealth: 3
   direction: 0
+--- !u!1 &342846696 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134778, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
+  m_PrefabInternal: {fileID: 1650284043}
+--- !u!114 &342846697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342846696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0899bb86a8206e4d9689556b1f694f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 0}
 --- !u!1 &478166548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,7 +3778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f0ee245a98c8845ba4f4e0b00d2677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBullets: 25
 --- !u!4 &1516269791
 Transform:
   m_ObjectHideFlags: 0
@@ -4088,6 +4103,10 @@ Prefab:
       propertyPath: bgmPlayer
       value: 
       objectReference: {fileID: 1148420676}
+    - target: {fileID: 11440732, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
   m_IsPrefabParent: 0

@@ -67,6 +67,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public GameController gameController;
 
 	/// <summary>
+	/// The new new game controller replacement
+	/// </summary>
+	private GameControllerRewrite gameController2;
+
+
+	/// <summary>
 	/// Plays sound effects for explosions.
 	/// </summary>
 	protected SoundEffectPlayer sfxPlayer;
@@ -112,6 +118,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		//By default an enemy belongs to no powerup group.
 		powerupGroupID = -1;
 		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
+		gameController2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		animationsOwned = HasAnimations.None;
 		animator = gameObject.GetComponent<Animator> ();
@@ -308,6 +315,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					//If this group has a powerup to spawn see if it should be done.
 					if(powerupGroupID != -1){
 						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						ret = gameController2.CheckShouldSpawnPowerupGroup(powerupGroupID);
 						if(ret)
 						{
 							powerWillSpawn = true;
@@ -334,6 +342,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					//If there is a powerupGroup we even care about
 					if(powerupGroupID != -1){
 						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						ret = gameController2.CheckShouldSpawnPowerupGroup(powerupGroupID);
 						if(ret)
 						{
 							powerWillSpawn = true;
@@ -389,6 +398,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		//Null reference issue on close is blocked by a null check on gameObject.
 		if (powerupGroupID != -1 && !isDestroyed && gameController != null) {
 			gameController.RemoveSquad (powerupGroupID);
+			gameController2.RemoveSquad(powerupGroupID);
 		}
 
 		RemoveFromList ();
@@ -405,6 +415,11 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		if(powerWillSpawn){
 			Debug.Assert(powerupGroupID != -1);
 			gameController.SpawnGroupPower(powerupGroupID, gameObject.transform.position);
+			//Tell the game controller to tell it's monbehavior to spawn a powerup
+			//supply the location of where that gameobject should spawn and the type
+			//of powerup to spawn.
+			gameController2.QueuePowerupSpawn(gameObject.transform.position,
+			                                  gameController2.GetPowerupTypeFromGroupByID(powerupGroupID));
 		}
 		Destroy (gameObject);
 	}
@@ -481,11 +496,13 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		gameController.RegisterPause(this);
+		gameController2.RegisterPauseableItem (this);
 	}
 	
 	public void RemoveFromList()
 	{
 		gameController.DelistPause(this);
+		gameController2.DelistPauseableItem (this);
 	}
 
 }

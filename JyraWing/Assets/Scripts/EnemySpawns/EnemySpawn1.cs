@@ -51,9 +51,11 @@ public class EnemySpawn1 : EnemySpawner {
 		if(SpawnSpeedPowerup){
 
 			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+			GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
 
-			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			
+			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+			PowerupGroup group = new PowerupGroup (controller2.GetNextSquadID());
+
 			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 			
 			group.AddToSquad (enemy1);
@@ -63,6 +65,7 @@ public class EnemySpawn1 : EnemySpawner {
 			group.AddToSquad (enemy5);
 			
 			controller.AddSquad (group);
+			controller2.AddSquad(group);
 
 		}
 
