@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyBullet.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Rewrites\UIControllerRewrite.cs">
     <Files>
-      <File FileName="Assets\Scripts\Rewrites\IPowerupGroupController.cs" Line="9" Column="1" />
-      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="9" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="111" Column="45" />
-      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="284" Column="28" />
-      <File FileName="Assets\Scripts\EnemyBullet.cs" Line="82" Column="78" />
+      <File FileName="Assets\Scripts\Rewrites\IUIController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rewrites\UIControllerRewrite.cs" Line="17" Column="37" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerRewrite.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Rewrites\GameControllerBehaviour.cs" Line="25" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

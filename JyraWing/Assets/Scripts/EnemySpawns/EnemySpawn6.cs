@@ -34,7 +34,7 @@ public class EnemySpawn6 : EnemySpawner {
 		enemy3 = Instantiate (enemy3);
 
 		if (spawnBullet) {
-			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
 			GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
 
 			//hardcoding groupID, in the future I cannot do that.
@@ -45,7 +45,7 @@ public class EnemySpawn6 : EnemySpawner {
 
 			group.AddToSquad (enemy3);
 			
-			controller.AddSquad (group);
+			//controller.AddSquad (group);
 			controller2.AddSquad(group);
 		}
 	}

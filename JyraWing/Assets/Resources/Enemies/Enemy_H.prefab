@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
-  gameController: {fileID: 0}
   LeftWallException: 1
   direction: {x: 2, y: 0}
   time: 15

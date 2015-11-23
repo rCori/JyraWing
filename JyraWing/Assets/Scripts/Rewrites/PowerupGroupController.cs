@@ -109,6 +109,7 @@ public class PowerupGroupController : IPowerupGroupController {
 					group.RemoveAllFromSquad ();
 					//Now remove the group from the actual list
 					squadList.Remove (group);
+					break;
 				}
 			}
 		}

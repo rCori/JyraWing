@@ -22,9 +22,9 @@ public class UIControllerRewrite : IUIController {
 
 	public UIControllerRewrite(){
 		//Set all of these variables to 0
-		lifeCount = 0;
+		lifeCount = 3;
 		activeSpeed = 0;
-		availableSpeed = 0;
+		availableSpeed = 1;
 		defaultLifeCount = 0;
 		updateLifeCount = false;
 		updateSpeed = false;

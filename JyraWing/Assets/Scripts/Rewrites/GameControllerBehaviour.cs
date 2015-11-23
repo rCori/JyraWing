@@ -6,13 +6,18 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	GameControllerRewrite gameController;
 
-	UIControllerBehaviour uiControllerBehaviour;
+	public UIControllerBehaviour uiControllerBehaviour;
 
 	bool initializeUI;
 	
 	// Use this for initialization
 	void Awake () {
 		gameController = new GameControllerRewrite ();
+		//Set all of the controller modules
+		gameController.SetPauseController (new PauseController ());
+		gameController.SetLevelController (new LevelController ());
+		gameController.SetPowerupGroupController (new PowerupGroupController ());
+		gameController.SetUIController (new UIControllerRewrite ());
 		initializeUI = false;
 	
 	}
@@ -26,6 +31,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 				gameController.SetDefaultLifeCount(player.LifeCount());
 				gameController.InitializeLifeCount();
 				uiControllerBehaviour.Initialize(gameController.GetLifeCount());
+				initializeUI = true;
 			}
 		}
 		//When the pause button is pressed, the uiCOntrollerBehvaiour will create

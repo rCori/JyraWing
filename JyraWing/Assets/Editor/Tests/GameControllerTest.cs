@@ -18,22 +18,22 @@ public class GameControllerTest {
 		Assert.That (enemy.GetMovementStatus() == EnemyBehavior.MovementStatus.Velocity);
 	}
 
-	[Test]
-	public void GameControllerPausesAllItems(){
-		//Arrange
-		GameControllerTestDouble gameControllerTestDouble = GameObject.Find ("GameController").GetComponent<GameControllerTestDouble> ();
-		Player player = GameObject.Find("Player").GetComponent<Player> ();
-		gameControllerTestDouble.player = player;
-		player.gameController = gameControllerTestDouble;
-
-		//Act
-		player.RegisterToList();
-		gameControllerTestDouble.PauseAllItems ();
-		int totalItemsPaused = gameControllerTestDouble.GetTotalItemsPaused ();
-
-		//Assert
-		Assert.That (totalItemsPaused == 1);
-	}
+//	[Test]
+//	public void GameControllerPausesAllItems(){
+//		//Arrange
+//		GameControllerTestDouble gameControllerTestDouble = GameObject.Find ("GameController").GetComponent<GameControllerTestDouble> ();
+//		Player player = GameObject.Find("Player").GetComponent<Player> ();
+//		gameControllerTestDouble.player = player;
+//		player.gameController = gameControllerTestDouble;
+//
+//		//Act
+//		player.RegisterToList();
+//		gameControllerTestDouble.PauseAllItems ();
+//		int totalItemsPaused = gameControllerTestDouble.GetTotalItemsPaused ();
+//
+//		//Assert
+//		Assert.That (totalItemsPaused == 1);
+//	}
 
 	[Test]
 	public void GameControllerSpawnsPowerup(){

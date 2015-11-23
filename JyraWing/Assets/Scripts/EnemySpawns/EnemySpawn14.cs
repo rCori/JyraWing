@@ -78,8 +78,8 @@ public class EnemySpawn14 : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
-		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
+		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 
 		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 		PowerupGroup group = new PowerupGroup (controller2.GetNextSquadID());
@@ -88,7 +88,7 @@ public class EnemySpawn14 : EnemySpawner {
 		group.AddToSquad (enemy1);
 		group.AddToSquad (enemy2);
 		
-		controller.AddSquad (group);
+		//controller.AddSquad (group);
 		controller2.AddSquad (group);
 	}
 }

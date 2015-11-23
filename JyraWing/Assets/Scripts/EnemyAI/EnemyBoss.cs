@@ -277,7 +277,7 @@ public class EnemyBoss : EnemyBehavior {
 		// Move during the stand still.
 		if (moveState == 2) {
 			float bossY = gameObject.transform.position.y;
-			float playerY = gameController.GetPlayerPosition().y;
+			float playerY = gameController2.playerPosition.y;
 			if(bossY>playerY){
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, -1.2f);
 			}
