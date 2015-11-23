@@ -308,6 +308,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			return;
 		}
 		if (other.tag == "Bullet") {
+
 			if(hitPoints == 0){
 				return;
 			}

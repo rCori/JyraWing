@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI10.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI2.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI3.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
@@ -84,6 +85,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
      <Compile Include="Assets\Scripts\IBullet.cs" />
      <Compile Include="Assets\Scripts\Powerups\BulletPowerup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
