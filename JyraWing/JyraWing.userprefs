@@ -1,14 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\EnemyBehavior.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawn18.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI10.cs" Line="14" Column="13" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI7.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="310" Column="31" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" Line="121" Column="65" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI6.cs" Line="82" Column="5" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="100" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
