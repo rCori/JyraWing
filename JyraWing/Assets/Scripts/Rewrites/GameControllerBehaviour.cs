@@ -65,6 +65,27 @@ public class GameControllerBehaviour : MonoBehaviour {
 		if (gameController.IsPowerupSpawnQueued()) {
 			SpawnPowerupAtPostion(gameController.QueuedPowerupLocation, gameController.QueuedPowerupType);
 		}
+
+		//Check levelController flags for game state changes
+		//Disable the player
+		if (gameController.ShouldDisablePlayer ()) {
+			player.gameObject.SetActive (false);
+		}
+
+		//Load the title scene
+		if (gameController.ShouldLoadTitleScene ()) {
+			Application.LoadLevel("TitleScene");
+		}
+
+		//Show the game over message
+		if (gameController.ShouldShowGameOverUI ()) {
+			uiControllerBehaviour.ShowGameOver();
+		}
+
+		//Show the level complete ui
+		if (gameController.ShouldShowGameOverUI ()) {
+			uiControllerBehaviour.ShowLevelComplete();
+		}
 	}
 
 	//Not sure about this yet

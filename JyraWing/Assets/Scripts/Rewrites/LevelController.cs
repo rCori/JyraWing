@@ -65,17 +65,41 @@ public class LevelController : ILevelController {
 
 	//Return the flags set by HandleGameOver
 	//Other functions need them
-	public bool ShouldDisablePlayer(){
-		return disablePlayer;
+	public bool ShouldDisablePlayer(bool resetFlag = true){
+		//Save the value to return if we end up resetting it
+		bool returnValue = disablePlayer;
+		//If specified, reset the flag
+		if (disablePlayer && resetFlag) {
+			disablePlayer = false;
+		}
+		return returnValue;
 	}
-	public bool ShouldShowLevelCompleteUI(){
-		return showLevelCompleteUI;
+	public bool ShouldShowLevelCompleteUI(bool resetFlag = true){
+		//Save the value to return if we end up resetting it
+		bool returnValue = showLevelCompleteUI;
+		//If specified, reset the flag
+		if (showLevelCompleteUI && resetFlag) {
+			showLevelCompleteUI = false;
+		}
+		return returnValue;
 	}
-	public bool ShouldShowGameOverUI(){
-		return showGameOverScreenUI;
+	public bool ShouldShowGameOverUI(bool resetFlag = true){
+		//Save the value to return if we end up resetting it
+		bool returnValue = showGameOverScreenUI;
+		//If specified, reset the flag
+		if (showGameOverScreenUI && resetFlag) {
+			showGameOverScreenUI = false;
+		}
+		return returnValue;
 	}
-	public bool ShouldLoadTitleScene(){
-		return loadTitleScene;
+	public bool ShouldLoadTitleScene(bool resetFlag = true){
+		//Save the value to return if we end up resetting it
+		bool returnValue = loadTitleScene;
+		//If specified, reset the flag
+		if (loadTitleScene && resetFlag) {
+			loadTitleScene = false;
+		}
+		return returnValue;
 	}
 
 	//Needs to be kept up to date with the time.deltaTime in the MonoBehaviour

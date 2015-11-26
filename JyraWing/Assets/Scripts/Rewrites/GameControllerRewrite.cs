@@ -181,23 +181,23 @@ public class GameControllerRewrite {
 	
 	//Access to the HandleGameOver function 
 	public void HandleGameOver(float timeChange){
-		//Only bother handling game over state if FinishLevel or PlayerKilled have been called
-		if (levelController.gameOverState != GameOverState.None) {
-			levelController.HandleGameOver (timeChange);
-			//Check all the flags that can be handled here
-			if(levelController.ShouldDisablePlayer()){
-				//This call doesn't exist yet but it is supposed to disable the player
-				//playerController.DisablePlayer();
-			}
-			if(levelController.ShouldShowGameOverUI()){
-				//The game over ui object should be displayed now 
-				//uiController.gameOverUIObject = true;
-			}
-			if(levelController.ShouldShowLevelCompleteUI()){
-				//The level complete ui object should be shown now
-				//uiController.levelCompleteUIObject = true;
-			}
-		}
+		levelController.HandleGameOver (timeChange);
+	}
+
+	public bool ShouldDisablePlayer(bool resetFlag = true){
+		return levelController.ShouldDisablePlayer (resetFlag);
+	}
+
+	public bool ShouldShowGameOverUI(bool resetFlag = true){
+		return levelController.ShouldShowGameOverUI (resetFlag);
+	}
+
+	public bool ShouldShowLevelCompleteUI(bool resetFlag = true){
+		return levelController.ShouldShowLevelCompleteUI (resetFlag);
+	}
+
+	public bool ShouldLoadTitleScene(bool resetFlag = true){
+		return levelController.ShouldLoadTitleScene (resetFlag);
 	}
 
 	public bool IsNotGameOver(){
