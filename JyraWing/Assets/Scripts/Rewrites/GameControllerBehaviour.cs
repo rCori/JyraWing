@@ -44,12 +44,12 @@ public class GameControllerBehaviour : MonoBehaviour {
 			}
 		}
 		//When the flag to update lives is checked, this will get the uiControllerBehaviour to update that
-		if (gameController.ShouldUpdateLifeCount ()) {
+		if (gameController.ShouldUpdateLifeCount (true)) {
 			uiControllerBehaviour.UpdateLives(gameController.GetLifeCount());
 		}
 		//When the flag to update speed values is checked, this will get the uiControllerBehaviour to update that.
-		if (gameController.ShouldUpdateSpeed ()) {
-			uiControllerBehaviour.UpdateAvailableSpeed(gameController.AvailableSpeed);
+		if (gameController.ShouldUpdateSpeed (true)) {
+			//uiControllerBehaviour.UpdateAvailableSpeed(gameController.AvailableSpeed+1);
 			uiControllerBehaviour.UpdateActivatedSpeed(gameController.ActiveSpeed, gameController.AvailableSpeed);
 		}
 

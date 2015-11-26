@@ -87,7 +87,7 @@ public class EnemySpawn17 : EnemySpawner {
 		//Turrets will drop a bullet powerup
 		if (turretDropsBullet) {
 			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-			GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
+			GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 
 			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 			PowerupGroup group = new PowerupGroup (controller2.GetNextSquadID());

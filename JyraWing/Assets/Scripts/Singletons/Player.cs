@@ -322,6 +322,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController2.ActiveSpeed = playerSpeed.GetSpeedLevel();
+			gameController2.AvailableSpeed = playerSpeed.GetSpeedCap();
 			gameController2.ShouldUpdateSpeed();
 			//gameController.UpdatePlayerSpeed();
 			

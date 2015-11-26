@@ -62,7 +62,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		speedCount = 4;
 		speedSpriteCollection = new List<GameObject> ();
 		initSpeed ();
-		UpdateAvailableSpeed (1);
+		//UpdateAvailableSpeed (1);
 		UpdateActivatedSpeed (1,1);
 	}
 
@@ -190,7 +190,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// <param name="available">Available.</param>
 	/// <param name="speedCap">Speed cap.</param>
 	public void UpdateActivatedSpeed(int available, int speedCap){
-		for (int i = 0; i< speedCap; i++) {
+		for (int i = 0; i< speedCount; i++) {
 			GameObject speedSprite = speedSpriteCollection [i];
 			Image speedSpriteImage = speedSprite.GetComponent<Image> ();
 			Color color = new Color();
@@ -200,8 +200,11 @@ public class UIControllerBehaviour: MonoBehaviour {
 			if(i < available){
 				color.a = 1.0f;
 			}
-			else{
+			else if(i < speedCap){
 				color.a = 0.5f;
+			}
+			else{
+				color.a = 0.0f;
 			}
 			speedSpriteImage.color = color;
 		}

@@ -24,8 +24,8 @@ public class UIControllerRewrite : IUIController {
 		//Set all of these variables to 0
 		lifeCount = 3;
 		activeSpeed = 0;
-		availableSpeed = 1;
-		defaultLifeCount = 0;
+		availableSpeed = 0;
+		defaultLifeCount = 3;
 		updateLifeCount = false;
 		updateSpeed = false;
 	}
@@ -33,7 +33,7 @@ public class UIControllerRewrite : IUIController {
 	/* Implementation of the interface properties */
 	public int AvailableSpeed{
 		get{
-			return availableSpeed;
+			return availableSpeed + 1;
 		}
 		set{
 			availableSpeed = value;
@@ -43,7 +43,7 @@ public class UIControllerRewrite : IUIController {
 	}
 	public int ActiveSpeed{
 		get{
-			return activeSpeed;
+			return activeSpeed + 1;
 		}
 		set{
 			activeSpeed = value;

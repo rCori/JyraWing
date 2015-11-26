@@ -56,7 +56,7 @@ public class EnemySpawn21 : EnemySpawner {
 
 		
 		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerRewrite> ();
+		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 
 		//hardcoding groupID, in the future I cannot do that.
 		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
