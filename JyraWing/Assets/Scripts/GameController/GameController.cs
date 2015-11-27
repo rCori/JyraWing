@@ -86,7 +86,7 @@ using System.Collections;
 //This is used in ILevelController
 public enum GameOverState{None = 0, FinishNoEffect, FinishShowScreen, KillAnimation, KillNoEffect, KillShowScreen};
 
-public class GameControllerRewrite {
+public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 

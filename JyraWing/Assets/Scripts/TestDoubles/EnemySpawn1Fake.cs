@@ -50,7 +50,7 @@ public class EnemySpawn1Fake : EnemySpawner {
 		
 		if(SpawnSpeedPowerup){
 			
-			GameControllerTestDouble controller = GameObject.Find ("GameController").GetComponent<GameControllerTestDouble> ();
+			GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 			
 			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 

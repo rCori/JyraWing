@@ -34,7 +34,7 @@ public class Player : MonoBehaviour, PauseableItem {
 
 
 	//public GameController gameController;
-	private GameControllerRewrite gameController2;
+	private GameController gameController;
 	private float speed;
 	private List<GameObject> bulletPool;
 	Animator animator;
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		bulletLevel = new PlayerBulletLevel ();
 		playerInputController = new PlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
-		gameController2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
+		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
 		_paused = false;
 		RegisterToList ();
 		takingDamage = false;
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			//gameController.UpdatePlayerLives();
-			gameController2.DecreaseLifeCount();
+			gameController.DecreaseLifeCount();
 			playerInputController.DisableControls(true);
 			damageSfx.Play();
 			takingDamage = true;
@@ -161,12 +161,12 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// IN DIRE NEED OF OPTIMAZATION
 	/// </summary>
 	private void spreadShot(){
-//		Bullet bullet1;
-//		Bullet bullet2;
-//		Bullet bullet3;
-		GameObject bullet1 = new GameObject();
-		GameObject bullet2 = new GameObject();
-		GameObject bullet3 = new GameObject();
+//		GameObject bullet1;
+//		GameObject bullet2;
+//		GameObject bullet3;
+		GameObject bullet1 = bulletPool[0];
+		GameObject bullet2 = bulletPool[1];
+		GameObject bullet3 = bulletPool[2];
 		int counter = 0;
 		//Test that we have 3 available bullets.
 		for (int i= 0; i < numBullets; i++) {
@@ -177,17 +177,14 @@ public class Player : MonoBehaviour, PauseableItem {
 				switch(counter){
 				case 0:
 					bullet1 = bulletObj;
-					//bullet.ShootUp();
 					counter++;
 					break;
 				case 1:
 					bullet2 = bulletObj;
-					//bullet.Shoot();
 					counter++;
 					break;
 				case 2:
 					bullet3 = bulletObj;
-					//bullet.ShootDown();
 					counter++;
 					break;
 				default:
@@ -235,10 +232,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		//gameController.UpdatePlayerSpeed ();
 		//Set the gameController speed variables
 		//Speed cap is how many levels of speed are available to the player
-		gameController2.AvailableSpeed = playerSpeed.GetSpeedCap ();
+		gameController.AvailableSpeed = playerSpeed.GetSpeedCap ();
 		//speed level is how many levels of speed the player has activated
-		gameController2.ActiveSpeed = playerSpeed.GetSpeedLevel ();
-		gameController2.ShouldUpdateSpeed ();
+		gameController.ActiveSpeed = playerSpeed.GetSpeedLevel ();
+		gameController.ShouldUpdateSpeed ();
 	}
 
 	public void IncreaseBulletLevel(){
@@ -321,9 +318,9 @@ public class Player : MonoBehaviour, PauseableItem {
 		if (playerInputController.GetToggleSpeed()) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
-			gameController2.ActiveSpeed = playerSpeed.GetSpeedLevel();
-			gameController2.AvailableSpeed = playerSpeed.GetSpeedCap();
-			gameController2.ShouldUpdateSpeed();
+			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
+			gameController.AvailableSpeed = playerSpeed.GetSpeedCap();
+			gameController.ShouldUpdateSpeed();
 			//gameController.UpdatePlayerSpeed();
 			
 		}
@@ -399,13 +396,13 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		//gameController.RegisterPause(this);
-		gameController2.RegisterPauseableItem (this);
+		gameController.RegisterPauseableItem (this);
 	}
 	
 	public void RemoveFromList()
 	{
 		//gameController.DelistPause(this);
-		gameController2.DelistPauseableItem (this);
+		gameController.DelistPauseableItem (this);
 	}
 
 	//By having the player handle it's own collision with enemy objects the

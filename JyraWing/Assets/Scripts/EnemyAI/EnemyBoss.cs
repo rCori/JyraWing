@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -94,7 +94,7 @@ public class EnemyBoss : EnemyBehavior {
 		//If that happens this object could be null so we check for that.
 		if (obj) {
 			//Use the new gameController now
-			GameControllerRewrite controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
 			controller.FinishLevel(2.5f);
 		}
 	
@@ -275,7 +275,7 @@ public class EnemyBoss : EnemyBehavior {
 		// Move during the stand still.
 		if (moveState == 2) {
 			float bossY = gameObject.transform.position.y;
-			float playerY = gameController2.playerPosition.y;
+			float playerY = gameController.playerPosition.y;
 			if(bossY>playerY){
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, -1.2f);
 			}

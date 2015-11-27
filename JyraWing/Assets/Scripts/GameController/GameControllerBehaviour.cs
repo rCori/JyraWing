@@ -4,7 +4,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	public Player player;
 
-	GameControllerRewrite gameController;
+	GameController gameController;
 
 	public UIControllerBehaviour uiControllerBehaviour;
 
@@ -12,7 +12,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
-		gameController = new GameControllerRewrite ();
+		gameController = new GameController();
 		//Set all of the controller modules
 		gameController.SetPauseController (new PauseController ());
 		gameController.SetLevelController (new LevelController ());
@@ -122,7 +122,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	}
 
-	public GameControllerRewrite GetGameController(){
+	public GameController GetGameController(){
 		return gameController;
 	}
 

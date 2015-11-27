@@ -70,10 +70,10 @@ public class EnemySpawn12 : EnemySpawner {
 		enemy5 = Instantiate (enemy5);
 
 		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		GameControllerRewrite controller2 = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+		GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 
 		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-		PowerupGroup group = new PowerupGroup (controller2.GetNextSquadID());
+		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 
 		group.SetPowerupType (PowerupGroup.PowerupType.Speed);
 
@@ -82,7 +82,7 @@ public class EnemySpawn12 : EnemySpawner {
 		group.AddToSquad (enemy5);
 		
 		//controller.AddSquad (group);
-		controller2.AddSquad (group);
+		controller.AddSquad (group);
 
 	}
 }
