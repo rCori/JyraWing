@@ -83,7 +83,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 		}
 
 		//Show the level complete ui
-		if (gameController.ShouldShowGameOverUI ()) {
+		if (gameController.ShouldShowLevelCompleteUI ()) {
 			uiControllerBehaviour.ShowLevelComplete();
 		}
 	}

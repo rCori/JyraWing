@@ -93,11 +93,9 @@ public class EnemyBoss : EnemyBehavior {
 		//The boss object could be destoryed on account of the level ending.
 		//If that happens this object could be null so we check for that.
 		if (obj) {
-			GameController controller = obj.GetComponent<GameController> ();
-			controller.LevelFinished (2.5f);
 			//Use the new gameController now
-			GameControllerRewrite controller2 = obj.GetComponent<GameControllerRewrite>();
-			controller2.FinishLevel(2.5f);
+			GameControllerRewrite controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			controller.FinishLevel(2.5f);
 		}
 	
 	}
