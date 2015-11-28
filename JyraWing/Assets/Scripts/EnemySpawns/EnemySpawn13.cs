@@ -10,7 +10,8 @@ public class EnemySpawn13 : EnemySpawner {
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		
+		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
+
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_A");
 		enemy1.transform.position = new Vector3(10f, 1f,
 		                                        0f);
@@ -49,6 +50,8 @@ public class EnemySpawn13 : EnemySpawner {
 		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy6.transform.position = new Vector3 (7.0f, 3.3f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy6.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 		enemy6 = Instantiate (enemy6);
 		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
@@ -56,16 +59,20 @@ public class EnemySpawn13 : EnemySpawner {
 		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_D");
 		enemy7.transform.position = new Vector3 (7.0f, -3.3f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
+		enemy7.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 		enemy7 = Instantiate (enemy7);
 		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
-		GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-			
+		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+		GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+
 		//hardcoding groupID, in the future I cannot do that.
+		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			
-		group.SetPowerupObject (PowerupGroup.PowerupType.Bullet);
+
+		group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 			
 		group.AddToSquad (enemy1);
 		group.AddToSquad (enemy2);
@@ -73,6 +80,7 @@ public class EnemySpawn13 : EnemySpawner {
 		group.AddToSquad (enemy4);
 		group.AddToSquad (enemy5);
 			
+		//controller.AddSquad (group);
 		controller.AddSquad (group);
 		
 	}

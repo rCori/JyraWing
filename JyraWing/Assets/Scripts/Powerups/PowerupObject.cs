@@ -157,11 +157,13 @@ public class PowerupObject : MonoBehaviour, PauseableItem {
 
 	public void RegisterToList()
 	{
-		GameObject.Find ("GameController").GetComponent<GameController>().RegisterPause(this);
+		//GameObject.Find ("GameController").GetComponent<GameController>().RegisterPause(this);
+		GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
 	}
 	
 	public void RemoveFromList()
 	{
-		GameObject.Find ("GameController").GetComponent<GameController>().DelistPause(this);
+		//GameObject.Find ("GameController").GetComponent<GameController>().DelistPause(this);
+		GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
 	}
 }

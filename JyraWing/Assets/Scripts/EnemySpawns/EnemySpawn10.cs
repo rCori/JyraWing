@@ -40,12 +40,14 @@ public class EnemySpawn10 : EnemySpawner {
 
 
 		if (spawnBulletPowerup) {
+			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
 			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-			
+
 			//hardcoding groupID, in the future I cannot do that.
+			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			
-			group.SetPowerupObject (PowerupGroup.PowerupType.Bullet);
+
+			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 			
 			group.AddToSquad (enemy1);
 			group.AddToSquad (enemy2);
@@ -53,7 +55,8 @@ public class EnemySpawn10 : EnemySpawner {
 			group.AddToSquad (enemy4);
 			group.AddToSquad (enemy5);
 			
-			controller.AddSquad (group);
+			//controller.AddSquad (group);
+			controller.AddSquad(group);
 		}
 
 	}

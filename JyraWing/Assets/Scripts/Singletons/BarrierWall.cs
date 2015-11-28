@@ -9,8 +9,6 @@ public class BarrierWall : MonoBehaviour {
 	/// The barrier mode. Determine what side it is on
 	/// </summary>
 	public sides barrierMode;
-	
-	public GameController gameController;
 
 	// Use this for initialization
 	void Start () {

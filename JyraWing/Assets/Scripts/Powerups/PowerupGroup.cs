@@ -12,13 +12,13 @@ using System.Collections.Generic;
 public class PowerupGroup {
 	private List<GameObject> squad;
 	int id;
-	//GameController gameController;
-	GameObject powerupObject;
 
 	public enum PowerupType{None = 0, Speed, Bullet};
 
+	PowerupType powerupType;
+
 	public PowerupGroup(int i_id){
-		powerupObject = new GameObject ();
+		powerupType = PowerupType.None;
 		id = i_id;
 		squad = new List<GameObject> ();
 	}
@@ -52,53 +52,21 @@ public class PowerupGroup {
 		}
 		return true;
 	}
+	
 
-
-	/// <summary>
-	/// Returns the powerup object.
-	/// This is the object that would spawn and is needed by the gameController
-	/// for it to spawn the object.
+	///<summary>
+	/// In a redesigned version of this code, this is supposed to replace ReturnPowerupObject
 	/// </summary>
-	/// <returns>The powerup object.</returns>
-	public GameObject ReturnPowerupObject(){
-		return powerupObject;
+	public PowerupType ReturnPowerupType(){
+		return powerupType;
 	}
 
-	/// <summary>
-	/// Creates the appropriate GameObject for memeber powerupObject
+	///<summary>
+	/// In a code redesign this should replace SetPowerupObject
 	/// </summary>
-	/// <param name="i_type">The type of powerupObject.</param>
-	public void SetPowerupObject(PowerupType i_type){
-		switch (i_type) {
-		case PowerupType.None:
-			break;
-		case PowerupType.Speed:
-			powerupObject = Resources.Load ("Pickups/SpeedPowerup") as GameObject;
-			break;
-		case PowerupType.Bullet:
-			powerupObject = Resources.Load ("Pickups/BulletPowerup") as GameObject;
-			break;
-
-		}
+	public void SetPowerupType(PowerupType i_type){
+		powerupType = i_type;
 	}
-
-	/// <summary>
-	/// Adjusts the squad I.
-	/// If two groups are present at the same time and the group
-	/// with the smaller id is destroyed, the group ID of the remaining
-	/// group must be adjusted. 
-	/// </summary>
-	/// <param name="amount">Amount.</param>
-//	public void AdjustSquadID(int amount){
-//		//typically amount will be -1
-//		id += amount;
-//		//Now adjust the id in all the enemies
-//		for (int i = 0; i< squad.Count; i++) {
-//			if(squad[i]){
-//				squad[i].GetComponent<EnemyBehavior>().SetPowerupGroupID(id);
-//			}
-//		}
-//	}
 
 	///<summary> Return powerup group id</summary>
 	public int GetPowerupGroupID(){

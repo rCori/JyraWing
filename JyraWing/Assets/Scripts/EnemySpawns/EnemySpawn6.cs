@@ -34,16 +34,19 @@ public class EnemySpawn6 : EnemySpawner {
 		enemy3 = Instantiate (enemy3);
 
 		if (spawnBullet) {
-			GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-			
+			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+			GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+
 			//hardcoding groupID, in the future I cannot do that.
+			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			
-			group.SetPowerupObject (PowerupGroup.PowerupType.Bullet);
+
+			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
 
 			group.AddToSquad (enemy3);
 			
-			controller.AddSquad (group);
+			//controller.AddSquad (group);
+			controller.AddSquad(group);
 		}
 	}
 }

@@ -71,7 +71,13 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// The game controller.
 	/// Connection to other in game objects and events
 	/// </summary>
-	public GameController gameController;
+	//public GameController gameController;
+
+	/// <summary>
+	/// The new new game controller replacement
+	/// </summary>
+	protected GameController gameController;
+
 
 	/// <summary>
 	/// Plays sound effects for explosions.
@@ -126,7 +132,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		hitPoints = 1;
 		//By default an enemy belongs to no powerup group.
 		powerupGroupID = -1;
-		gameController = GameObject.Find ("GameController").GetComponent<GameController>();
+		//gameController = GameObject.Find ("GameController").GetComponent<GameController>();
+		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
 		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		animationsOwned = HasAnimations.None;
 		animator = gameObject.GetComponent<Animator> ();
@@ -137,6 +144,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		storedVel = new Vector2 (0f, 0f);
 		priorityAudio = false;
 		RegisterToList ();
+		shieldableBullets = false;
 
 
 	}
@@ -313,7 +321,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				return;
 			}
 			hitPoints--;
-			//This will get rid of the 
+			//This will get rid of the bullet
 			other.GetComponent<Bullet>().BulletDestroy();
 			
 			if(hitPoints == 0)
@@ -337,7 +345,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					isDestroyed = true;
 					//If this group has a powerup to spawn see if it should be done.
 					if(powerupGroupID != -1){
-						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						//bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						bool ret = gameController.CheckShouldSpawnPowerupGroup(powerupGroupID);
 						if(ret)
 						{
 							powerWillSpawn = true;
@@ -363,7 +372,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				else{
 					//If there is a powerupGroup we even care about
 					if(powerupGroupID != -1){
-						bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						//bool ret = gameController.CheckIsSquadGone(powerupGroupID);
+						bool ret = gameController.CheckShouldSpawnPowerupGroup(powerupGroupID);
 						if(ret)
 						{
 							powerWillSpawn = true;
@@ -401,10 +411,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	}
 
 
-	//	public int GetPowerupGroupID()
-	//	{
-	//		return powerupGroupID;
-	//	}
 
 	/// <summary>
 	/// If this enemy belongs to a group that drops a powerup, set 
@@ -422,7 +428,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	void OnDestroy() {
 		//Null reference issue on close is blocked by a null check on gameObject.
 		if (powerupGroupID != -1 && !isDestroyed && gameController != null) {
-			gameController.RemoveSquad (powerupGroupID);
+			//gameController.RemoveSquad (powerupGroupID);
+			gameController.RemoveSquad(powerupGroupID);
 		}
 
 		RemoveFromList ();
@@ -438,7 +445,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		//If there is a powerupGroup we even care about
 		if(powerWillSpawn){
 			Debug.Assert(powerupGroupID != -1);
-			gameController.SpawnGroupPower(powerupGroupID, gameObject.transform.position);
+			//gameController.SpawnGroupPower(powerupGroupID, gameObject.transform.position);
+			//Tell the game controller to tell it's monbehavior to spawn a powerup
+			//supply the location of where that gameobject should spawn and the type
+			//of powerup to spawn.
+			gameController.QueuePowerupSpawn(gameObject.transform.position,
+			                                  gameController.GetPowerupTypeFromGroupByID(powerupGroupID));
 		}
 		Destroy (gameObject);
 	}
@@ -458,7 +470,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// needs to actually be set by the sublcass enemy for this to work.
 	/// </summary>
 	protected void HandleHitAnimation(){
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName (hitAnimationName)) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName(hitAnimationName) && !isDestroyed) {
 			animator.SetInteger("animState", 0);
 		}
 	}
@@ -481,6 +493,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public bool GetIsDestroyed(){
 		return isDestroyed;
+	}
+
+	public MovementStatus GetMovementStatus(){
+		return moveStatus;
 	}
 
 
@@ -510,12 +526,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
 	public void RegisterToList()
 	{
-		gameController.RegisterPause(this);
+		//gameController.RegisterPause(this);
+		gameController.RegisterPauseableItem (this);
 	}
 	
 	public void RemoveFromList()
 	{
-		gameController.DelistPause(this);
+		//gameController.DelistPause(this);
+		gameController.DelistPauseableItem (this);
 	}
 
 }

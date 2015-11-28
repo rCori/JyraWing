@@ -25,13 +25,19 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Can't set gameController on awake
+		if (gameController == null) {
+			gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour> ().GetGameController ();
+		}
 		//Only poll these values once per Update for consistency
 		bool ShieldButton = playerInputController.GetShieldButton ();
 		float ShieldPercentage = playerShield.GetShieldPercentage ();
 		//Update the status of the shieldplayerShield.GetShieldPercentage ()
 		playerShield.UpdateShield (Time.deltaTime, ShieldButton);
 		//Update the ui that shows the player shield left
-		gameController.UpdatePlayerShield (ShieldPercentage);
+		if (gameController != null) {
+			gameController.ShieldPercentage = (int)ShieldPercentage;
+		}
 		//update the position of the GameObject
 		gameObject.transform.position = playerShield.spritePosition;
 		//Later we will do some other stuff with animation state and such of the actual gameobject

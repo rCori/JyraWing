@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -93,9 +93,11 @@ public class EnemyBoss : EnemyBehavior {
 		//The boss object could be destoryed on account of the level ending.
 		//If that happens this object could be null so we check for that.
 		if (obj) {
-			GameController controller = obj.GetComponent<GameController> ();
-			controller.LevelFinished (2.5f);
+			//Use the new gameController now
+			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			controller.FinishLevel(2.5f);
 		}
+	
 	}
 
 	/// <summary>
@@ -273,7 +275,7 @@ public class EnemyBoss : EnemyBehavior {
 		// Move during the stand still.
 		if (moveState == 2) {
 			float bossY = gameObject.transform.position.y;
-			float playerY = gameController.GetPlayerPosition().y;
+			float playerY = gameController.playerPosition.y;
 			if(bossY>playerY){
 				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, -1.2f);
 			}

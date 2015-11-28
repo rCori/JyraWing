@@ -8,8 +8,8 @@ public class LevelFinish : MonoBehaviour {
 		//Once this become visible the level ends.
 		GameObject obj = GameObject.Find ("GameController");
 		if (obj) {
-			GameController controller = obj.GetComponent<GameController> ();
-			controller.LevelFinished (2.5f);
+			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			controller.FinishLevel(2.5f);
 		}
 	}
 }

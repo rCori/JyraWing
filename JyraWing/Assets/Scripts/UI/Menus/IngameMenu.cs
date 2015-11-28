@@ -49,7 +49,7 @@ public class IngameMenu : Menu {
 				Destroy (title);
 				Destroy (noText);
 				Destroy (yesText);
-				GameObject.Find ("GameController").GetComponent<GameController>().Unpause();
+				GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
 				Destroy (gameObject);
 
 			//Yes: Go back to main menu
@@ -63,7 +63,7 @@ public class IngameMenu : Menu {
 			Destroy (title);
 			Destroy (noText);
 			Destroy (yesText);
-			GameObject.Find ("GameController").GetComponent<GameController>().Unpause();
+			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
 			Destroy (gameObject);
 		}
 	}

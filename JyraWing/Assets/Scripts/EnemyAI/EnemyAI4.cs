@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyAI4 : EnemyBehavior {
@@ -32,7 +32,7 @@ public class EnemyAI4 : EnemyBehavior {
 	//Gets called on Instantiation.
 	void Awake(){
 		EnemyDefaults ();
-		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
+		fireDir = gameController.playerPosition - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 
@@ -69,7 +69,7 @@ public class EnemyAI4 : EnemyBehavior {
 		if (isDestroyed || _paused) {
 			return;
 		}
-		fireDir = gameController.GetPlayerPosition() - gameObject.transform.position;
+		fireDir = gameController.playerPosition - gameObject.transform.position;
 		fireDir.Normalize ();
 		fireDir.Set(fireDir.x*4, fireDir.y*4);
 
@@ -97,7 +97,7 @@ public class EnemyAI4 : EnemyBehavior {
 
 		//This is a bad fix for this issue.
 		//Make the sprite flip horizontally depending on the situation
-		float widthDiff = gameController.GetPlayerPosition().x - gameObject.transform.position.x;
+		float widthDiff = gameController.playerPosition.x - gameObject.transform.position.x;
 		if ((widthDiff > 0 && !isFlipped) || (widthDiff < 0 && isFlipped)) {
 			flipHorizontally();
 		}
@@ -122,7 +122,7 @@ public class EnemyAI4 : EnemyBehavior {
 	private void updateAnimation()
 	{
 		//Make the sprite point up or down depending ont he situation
-		float heightDiff = gameController.GetPlayerPosition().y - gameObject.transform.position.y;
+		float heightDiff = gameController.playerPosition.y - gameObject.transform.position.y;
 		if (heightDiff < 1.5f && heightDiff > -1.5f) {
 			//straight ahead
 			animator.SetInteger ("animState", 0);

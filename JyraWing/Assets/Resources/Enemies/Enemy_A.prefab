@@ -48,7 +48,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6177914
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
-  gameController: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
+  shieldableBullets: 0
 --- !u!212 &21279602
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -124,7 +125,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -172,6 +175,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 16976f356e4def941927cb9e62e40d10, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 185572}
