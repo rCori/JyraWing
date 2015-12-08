@@ -103,7 +103,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// Enables or disables the behavior of shooting bullets that can bve defelected with
 	/// the player shield.
 	/// </summary>
-	public bool shieldableBullets;
+	public bool shieldableBullets = false;
 
 
 	private AudioClip hitSfx;

@@ -51,7 +51,7 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy6.transform.position = new Vector3 (7.0f, 3.3f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = false;
+		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
 		enemy6 = Instantiate (enemy6);
 		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
@@ -60,7 +60,7 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy7.transform.position = new Vector3 (7.0f, -3.3f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = false;
+		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
 		enemy7 = Instantiate (enemy7);
 		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
