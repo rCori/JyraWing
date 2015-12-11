@@ -95,7 +95,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();
 		ai5.angle = 180f;
 		ai5.speed = 1.0f;
-		ai5.lifeTime = 30.0f;
+		ai5.lifeTime = 20.0f;
 		ai5.fireRate = 2.5f;
 		ai5.bulletSpeed = 6f;
 		ai5.hits = shipHealth;
@@ -112,7 +112,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai6 = enemy6.GetComponent<EnemyAI6> ();
 		ai6.angle = 180f;
 		ai6.speed = 1.0f;
-		ai6.lifeTime = 30.0f;
+		ai6.lifeTime = 20.0f;
 		ai6.fireRate = 2.5f;
 		ai6.bulletSpeed = 6f;
 		ai6.hits = shipHealth;
@@ -130,7 +130,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai7 = enemy7.GetComponent<EnemyAI6> ();
 		ai7.angle = 180f;
 		ai7.speed = 1.0f;
-		ai7.lifeTime = 30.0f;
+		ai7.lifeTime = 20.0f;
 		ai7.fireRate = 2.5f;
 		ai7.bulletSpeed = 6f;
 		ai7.hits = shipHealth;
@@ -148,7 +148,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
 		ai8.angle = 180f;
 		ai8.speed = 1.0f;
-		ai8.lifeTime = 30.0f;
+		ai8.lifeTime = 20.0f;
 		ai8.fireRate = 2.5f;
 		ai8.bulletSpeed = 6f;
 		ai8.hits = shipHealth;
@@ -166,7 +166,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai9 = enemy9.GetComponent<EnemyAI6> ();
 		ai9.angle = 180f;
 		ai9.speed = 1.0f;
-		ai9.lifeTime = 30.0f;
+		ai9.lifeTime = 20.0f;
 		ai9.fireRate = 2.5f;
 		ai9.bulletSpeed = 6f;
 		ai9.hits = shipHealth;
@@ -184,7 +184,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyAI6 ai10 = enemy10.GetComponent<EnemyAI6> ();
 		ai10.angle = 180f;
 		ai10.speed = 1.0f;
-		ai10.lifeTime = 30.0f;
+		ai10.lifeTime = 20.0f;
 		ai10.fireRate = 2.5f;
 		ai10.bulletSpeed = 6f;
 		ai10.hits = shipHealth;

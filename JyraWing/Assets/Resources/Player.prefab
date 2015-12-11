@@ -48,7 +48,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6111910
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -106,7 +106,6 @@ MonoBehaviour:
   DEBUGNODAMAGE: 0
   DEBUGMAXBULLETLEVEL: 0
   DEBUGMAXSPEEDLEVEL: 0
-  gameController: {fileID: 0}
 --- !u!212 &21236188
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +124,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -143,6 +144,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -7,6 +7,8 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 
 	public int Health;
 
+	public EnemyAI10.FireDirection Direction;
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -18,12 +20,9 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;
 		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
 		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
-		//		if (direction == EnemyAI5.TankDir.Left) {
-		//			enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
-		//		} else {
-		//			enemy1.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		//		}
+
 		enemy1.GetComponent<EnemyAI10> ().Health = Health;
+		enemy1.GetComponent<EnemyAI10> ().fireDirection = Direction;
 		enemy1 = Instantiate (enemy1);
 	}
 }
