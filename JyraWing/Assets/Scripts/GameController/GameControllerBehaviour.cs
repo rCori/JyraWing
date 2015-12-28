@@ -8,14 +8,17 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	public UIControllerBehaviour uiControllerBehaviour;
 
+	public string NextLevel = "";
+
 	bool initializeUI;
-	
+
 	// Use this for initialization
 	void Awake () {
 		gameController = new GameController();
 		//Set all of the controller modules
 		gameController.SetPauseController (new PauseController ());
 		gameController.SetLevelController (new LevelController ());
+		LevelController.NextLevel = NextLevel;
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
 		gameController.SetUIController (new UIControllerRewrite ());
 		initializeUI = false;
@@ -74,7 +77,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 		//Load the title scene
 		if (gameController.ShouldLoadTitleScene ()) {
-			Application.LoadLevel("TitleScene");
+			Application.LoadLevel("LevelTransition");
 		}
 
 		//Show the game over message

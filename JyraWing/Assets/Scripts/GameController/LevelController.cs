@@ -3,6 +3,9 @@ using System.Collections;
 
 public class LevelController : ILevelController {
 
+	//Interfaces cannot have static members, so this must go here
+	public static string NextLevel;
+
 	//If gameOverTimer has reached 0 in HandleGameOver, this state will determine what happens in the rest of the function
 	private GameOverState _gameOverState;
 
@@ -23,7 +26,7 @@ public class LevelController : ILevelController {
 	bool showGameOverScreenUI;
 	//Application.Load the title scene
 	bool loadTitleScene;
-
+	
 	//Constructor that sets all the flags false and no game over state
 	public LevelController(){
 		//Set all of the flags to false
@@ -145,4 +148,5 @@ public class LevelController : ILevelController {
 			}
 		}
 	}
+
 }
