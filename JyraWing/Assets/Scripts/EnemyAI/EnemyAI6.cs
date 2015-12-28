@@ -5,6 +5,7 @@ public class EnemyAI6 : EnemyBehavior {
 
 	//The value to apply to the z component of rotation
 	public float angle;
+	public float shieldableAngleAdjustment = 15.0f;
 
 	public float speed;
 	public float lifeTime;
@@ -48,13 +49,13 @@ public class EnemyAI6 : EnemyBehavior {
 		direction = new Vector2 (xVel, yVel);
 
 		//Now make left and right directions for shooting shieldable bullets
-		radians = Mathf.Deg2Rad * (angle-15.0f);
+		radians = Mathf.Deg2Rad * (angle-shieldableAngleAdjustment);
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		leftDir = new Vector2 (xVel, yVel);
 
 		//Now make left and right directions for shooting shieldable bullets
-		radians = Mathf.Deg2Rad * (angle+15.0f);
+		radians = Mathf.Deg2Rad * (angle+shieldableAngleAdjustment);
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		rightDir = new Vector2 (xVel, yVel);
