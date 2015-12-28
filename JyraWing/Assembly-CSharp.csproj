@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn21.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn22.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn23.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn24.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
@@ -101,6 +102,7 @@
      <Compile Include="Assets\Scripts\GameController\UIControllerRewrite.cs" />
      <Compile Include="Assets\Scripts\IBullet.cs" />
      <Compile Include="Assets\Scripts\LevelFinish.cs" />
+     <Compile Include="Assets\Scripts\LevelTransitionDetails\LevelTransitionLoad.cs" />
      <Compile Include="Assets\Scripts\Powerups\BulletPowerup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />

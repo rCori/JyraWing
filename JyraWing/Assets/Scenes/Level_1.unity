@@ -490,7 +490,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGMAXSPEEDLEVEL
@@ -957,6 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 957318869}
   uiControllerBehaviour: {fileID: 1721298326}
+  NextLevel: Level_2
 --- !u!1 &478166548
 GameObject:
   m_ObjectHideFlags: 0
