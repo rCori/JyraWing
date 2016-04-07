@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PauseContollerTest {
 	//Test that the pause flag is set when PauseAllItems is called
+	/*
 	[Test]
 	public void IsPausedFlag_IsSet(){
 		//Arrange
@@ -17,5 +18,5 @@ public class PauseContollerTest {
 		bool IsScenePaused = pauseController.IsPaused;
 		Assert.That (IsScenePaused);
 	}
-
+	*/
 }

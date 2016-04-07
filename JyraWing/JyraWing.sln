@@ -5,8 +5,6 @@ Project("{10958A39-956C-C7A3-CDF9-A9162028DCC1}") = "JyraWing", "Assembly-CSharp
 EndProject
 Project("{10958A39-956C-C7A3-CDF9-A9162028DCC1}") = "JyraWing", "Assembly-CSharp-Editor.csproj", "{A224F650-C17D-9659-3654-2149C07C46D1}"
 EndProject
-Project("{10958A39-956C-C7A3-CDF9-A9162028DCC1}") = "JyraWing", "Assembly-UnityScript.unityproj", "{C5A279B2-05D8-507B-E5B2-2632257B293B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{A224F650-C17D-9659-3654-2149C07C46D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A224F650-C17D-9659-3654-2149C07C46D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A224F650-C17D-9659-3654-2149C07C46D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5A279B2-05D8-507B-E5B2-2632257B293B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5A279B2-05D8-507B-E5B2-2632257B293B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5A279B2-05D8-507B-E5B2-2632257B293B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5A279B2-05D8-507B-E5B2-2632257B293B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> refs/remotes/origin/TestFrameworkImplementation
@@ -51,5 +45,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal

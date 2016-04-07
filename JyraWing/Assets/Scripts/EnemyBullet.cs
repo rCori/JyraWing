@@ -34,14 +34,13 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 				player.TakeDamage();
 			}
 			else{
-				Debug.Log ("player did not just take damage");
+				//Debug.Log ("player did not just take damage");
 			}
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 			gameObject.transform.position = new Vector2(0,10f);
 			isActive = false;
 		}
 		if (other.tag == "Barrier") {
-			Player player = other.gameObject.GetComponent<Player>();
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 			gameObject.transform.position = new Vector2(0,10f);
 			isActive = false;
