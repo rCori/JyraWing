@@ -14,7 +14,6 @@ public class EnemyAI5 : EnemyBehavior {
 
 	public enum TankDir {Left = 0, Right, Up, Down};
 	public TankDir direction;
-
 	//public float fireRate;
 
 	/// <summary>
@@ -157,7 +156,7 @@ public class EnemyAI5 : EnemyBehavior {
 
 	void directionalFire()
 	{
-		Shoot (straightBul);
+		Shoot (straightBul, shieldableBullets);
 		Shoot (upBul);
 		Shoot (downBul);
 	}
