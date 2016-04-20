@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI7.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI8.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI9.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Turret.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
