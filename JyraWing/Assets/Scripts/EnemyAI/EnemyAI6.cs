@@ -11,6 +11,7 @@ public class EnemyAI6 : EnemyBehavior {
 	public float lifeTime;
 	public float fireRate;
 	public float bulletSpeed;
+	public bool shootInDirection = true;
 
 	public int hits;
 
@@ -29,12 +30,14 @@ public class EnemyAI6 : EnemyBehavior {
 		//This enemy is not destoryed by touching the left wall.
 		LeftWallException = true;
 		//Give an extra rotation of 
+		/*
 		transform.Rotate(0f,0f,angle+180);
 		if ((angle >= -90.0f && angle <= 90.0f) || angle >= 270) {
 			Vector3 theScale = transform.localScale;
 			theScale.y *= -1;
 			transform.localScale = theScale;
 		}
+		*/
 		SetEnemyHealth (hits);
 
 		HasAnimations animationsOwned;
@@ -49,13 +52,21 @@ public class EnemyAI6 : EnemyBehavior {
 		direction = new Vector2 (xVel, yVel);
 
 		//Now make left and right directions for shooting shieldable bullets
-		radians = Mathf.Deg2Rad * (angle-shieldableAngleAdjustment);
+
+		if (shootInDirection) {
+			radians = Mathf.Deg2Rad * (angle - shieldableAngleAdjustment);
+		} else {
+			radians = Mathf.Deg2Rad * (-shieldableAngleAdjustment);
+		}
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		leftDir = new Vector2 (xVel, yVel);
 
-		//Now make left and right directions for shooting shieldable bullets
-		radians = Mathf.Deg2Rad * (angle+shieldableAngleAdjustment);
+		if (shootInDirection) {
+			radians = Mathf.Deg2Rad * (angle + shieldableAngleAdjustment);
+		} else {
+			radians = Mathf.Deg2Rad * (shieldableAngleAdjustment);
+		}
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		rightDir = new Vector2 (xVel, yVel);
@@ -78,7 +89,11 @@ public class EnemyAI6 : EnemyBehavior {
 		}
 		timer += Time.deltaTime;
 		if (timer > fireRate) {
-			Shoot(direction * speed * bulletSpeed);
+			if (shootInDirection) {
+				Shoot (direction * speed * bulletSpeed);
+			} else {
+				Shoot (Vector2.left * speed * bulletSpeed);
+			}
 			if(shieldableBullets){
 				Shoot (leftDir * speed * bulletSpeed *1.5f, true);
 				Shoot (rightDir * speed * bulletSpeed *1.5f, true);

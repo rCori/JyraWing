@@ -11,6 +11,7 @@ public class EnemySpawnShip : EnemySpawner {
 	public float fireRate;
 	public float bulletSpeed;
 	public bool shieldableBullets;
+	public bool shootInDirection;
 
 	public override void Spawn ()
 	{
@@ -31,6 +32,7 @@ public class EnemySpawnShip : EnemySpawner {
 		ai1.fireRate = fireRate;
 		ai1.bulletSpeed = bulletSpeed;
 		ai1.hits = shipHealth;
+		ai1.shootInDirection = shootInDirection;
 		enemy1.GetComponent<Scroll> ().speed = 1;
 		enemy1 = Instantiate (enemy1);
 	}

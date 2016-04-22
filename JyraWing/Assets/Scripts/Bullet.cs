@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	private bool _paused;
 	private Vector2 storedVel;
 
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0f);
@@ -18,16 +19,14 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		RegisterToList();
 
 	}
-	
-	
+		
+
 	///<summary>
 	///Recycle the bullet when it hits the barrier
 	/// </summary>
 	public void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Barrier") {
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-			gameObject.transform.position = new Vector2(0,10f);
-			isActive = false;
+			BulletDestroy ();
 		}
 	}
 

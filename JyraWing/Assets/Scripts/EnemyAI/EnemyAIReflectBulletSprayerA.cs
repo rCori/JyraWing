@@ -38,6 +38,8 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
         fireDirections[5] = new Vector2(-0.5f, -0.5f).normalized * bulletSpeed;
         fireDirections[6] = new Vector2(0.0f, -1.0f).normalized * bulletSpeed;
         fireDirections[7] = new Vector2(0.5f, -0.5f).normalized * bulletSpeed;
+
+		LeftWallException = true;
     }
 
     // Update is called once per frame
