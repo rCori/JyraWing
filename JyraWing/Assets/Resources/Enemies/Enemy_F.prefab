@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -3, z: 0}
+  m_LocalPosition: {x: 18, y: 2, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,12 +98,12 @@ MonoBehaviour:
   shieldableBullets: 0
   angle: 180
   shieldableAngleAdjustment: 15
-  speed: 2.5
-  lifeTime: 4
-  fireRate: 1.6
-  bulletSpeed: 2.3
-  shootInDirection: 0
-  hits: 2
+  speed: 1
+  lifeTime: 12
+  fireRate: 5
+  bulletSpeed: 3
+  shootInDirection: 1
+  hits: 1
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -93,8 +93,10 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
      <Compile Include="Assets\Scripts\GameController\GameController.cs" />
