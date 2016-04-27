@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn5 : EnemySpawner {
+public class EnemySpawnTurretWall : EnemySpawner {
 
 	public bool extraEnemies;
 	public bool spawnSpeedPowerup;

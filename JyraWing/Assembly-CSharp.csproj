@@ -87,7 +87,6 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn26.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
@@ -98,6 +97,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
      <Compile Include="Assets\Scripts\GameController\GameController.cs" />
      <Compile Include="Assets\Scripts\GameController\GameControllerBehaviour.cs" />

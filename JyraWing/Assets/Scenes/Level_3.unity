@@ -1792,7 +1792,7 @@ GameObject:
   - 212: {fileID: 996225197}
   - 114: {fileID: 996225195}
   m_Layer: 0
-  m_Name: EnemySpawn5_0
+  m_Name: EnemySpawnTurretWall_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1818,12 +1818,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 996225193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c8a0235c86c7345b4fa4d3dfbde113, type: 3}
+  m_Script: {fileID: 11500000, guid: e79a1ea5c1fd5cb42b8c6d2f957e41ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   extraEnemies: 0
-  spawnSpeedPowerup: 1
-  enemyHealth: 2
+  spawnSpeedPowerup: 0
+  enemyHealth: 1
 --- !u!212 &996225197
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3729,7 +3729,7 @@ GameObject:
   - 212: {fileID: 1660909177}
   - 114: {fileID: 1660909176}
   m_Layer: 0
-  m_Name: EnemySpawn5_1
+  m_Name: EnemySpawnTurretWall_1
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1660909174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c8a0235c86c7345b4fa4d3dfbde113, type: 3}
+  m_Script: {fileID: 11500000, guid: e79a1ea5c1fd5cb42b8c6d2f957e41ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   extraEnemies: 1
