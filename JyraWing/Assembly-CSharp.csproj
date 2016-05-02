@@ -76,7 +76,6 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn19.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn20.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn21.cs" />
@@ -93,6 +92,8 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiniBoss.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />

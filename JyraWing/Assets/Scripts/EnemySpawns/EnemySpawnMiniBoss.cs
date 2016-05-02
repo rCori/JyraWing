@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn19 : EnemySpawner {
+public class EnemySpawnMiniBoss : EnemySpawner {
 
 	public int diamondHealth;
 
