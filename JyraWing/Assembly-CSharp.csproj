@@ -117,6 +117,7 @@
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />
      <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
+     <Compile Include="Assets\Scripts\ScreenWrap.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />

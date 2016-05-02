@@ -1,14 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelFinish.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI7.cs" Line="52" Column="21" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnMiniBoss.cs" Line="23" Column="33" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" Line="7" Column="2" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs" Line="69" Column="19" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" Line="16" Column="2" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn25.cs" Line="23" Column="98" />
+      <File FileName="Assets\Scripts\Scroll.cs" Line="12" Column="2" />
+      <File FileName="Assets\Scripts\ScreenWrap.cs" Line="7" Column="28" />
+      <File FileName="Assets\Scripts\LevelFinish.cs" Line="11" Column="30" />
+      <File FileName="Assets\Scripts\EnemySpawner.cs" Line="6" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

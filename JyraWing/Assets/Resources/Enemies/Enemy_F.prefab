@@ -95,13 +95,13 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 1
-  shieldableBullets: 0
-  angle: 160
+  shieldableBullets: 1
+  angle: 180
   shieldableAngleAdjustment: 15
   speed: 2
   lifeTime: 4
   fireRate: 1
-  bulletSpeed: 2
+  bulletSpeed: 3
   shootInDirection: 0
   hits: 2
 --- !u!114 &11494714
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  infinite: 0
 --- !u!212 &21202418
 SpriteRenderer:
   m_ObjectHideFlags: 1

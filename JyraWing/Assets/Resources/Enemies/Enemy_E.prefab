@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  infinite: 0
 --- !u!114 &11449520
 MonoBehaviour:
   m_ObjectHideFlags: 1
