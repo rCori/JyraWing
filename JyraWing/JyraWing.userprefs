@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelFinish.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs">
     <Files>
-      <File FileName="Assets\Scripts\Scroll.cs" Line="12" Column="2" />
-      <File FileName="Assets\Scripts\ScreenWrap.cs" Line="7" Column="28" />
-      <File FileName="Assets\Scripts\LevelFinish.cs" Line="11" Column="30" />
-      <File FileName="Assets\Scripts\EnemySpawner.cs" Line="6" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn23.cs" Line="30" Column="36" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI5.cs" Line="11" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" Line="4" Column="33" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" Line="4" Column="43" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" Line="33" Column="96" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
