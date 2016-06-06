@@ -40,6 +40,8 @@ public class EnemyBoss2Base : MonoBehaviour {
 
 		patternTimeLimit = 8.0f;
 		patternTimer = 0.0f;
+
+		createShuffleBag ();
 	}
 	
 	// Update is called once per frame
@@ -116,10 +118,18 @@ public class EnemyBoss2Base : MonoBehaviour {
 
 	//Set the bullet pools of the two turrent bullet pools
 	public void SetBulletPools(EnemyBulletPool bulletPool, EnemyBulletPool shieldBulletPool){
+		TopTurret.bulletPool = bulletPool;
+		TopTurret.shieldableBulletPool = shieldBulletPool;
 
+		MiddleTurret.bulletPool = bulletPool;
+		MiddleTurret.shieldableBulletPool = shieldBulletPool;
+
+		BottomTurret.bulletPool = bulletPool;
+		BottomTurret.shieldableBulletPool = shieldBulletPool;
 	}
 
 	//Set the health of the individual turrents
 	public void SetTurretHealth(int bottom, int middle, int top){
+		
 	}
 }

@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class EnemyAI6 : EnemyBehavior {
-
+public class EnemyAIShipArc : EnemyBehavior {
 
 	[System.Serializable]
 	public struct MoveInstruction {
@@ -15,6 +13,8 @@ public class EnemyAI6 : EnemyBehavior {
 
 	public List<MoveInstruction> MoveInstructionList;
 
+	private int currentMovementStep;
+
 	//The value to apply to the z component of rotation
 	public float angle;
 	public float shieldableAngleAdjustment = 15.0f;
@@ -23,7 +23,6 @@ public class EnemyAI6 : EnemyBehavior {
 	public float lifeTime;
 	public float fireRate;
 	public float bulletSpeed;
-	public bool shootInDirection = true;
 
 	public int hits;
 
@@ -57,20 +56,14 @@ public class EnemyAI6 : EnemyBehavior {
 
 		//Now make left and right directions for shooting shieldable bullets
 
-		if (shootInDirection) {
-			radians = Mathf.Deg2Rad * (angle - shieldableAngleAdjustment);
-		} else {
-			radians = Mathf.Deg2Rad * (-shieldableAngleAdjustment);
-		}
+		radians = Mathf.Deg2Rad * (angle - shieldableAngleAdjustment);
+
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		leftDir = new Vector2 (xVel, yVel);
 
-		if (shootInDirection) {
-			radians = Mathf.Deg2Rad * (angle + shieldableAngleAdjustment);
-		} else {
-			radians = Mathf.Deg2Rad * (shieldableAngleAdjustment);
-		}
+		radians = Mathf.Deg2Rad * (angle + shieldableAngleAdjustment);
+
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
 		rightDir = new Vector2 (xVel, yVel);
@@ -87,17 +80,29 @@ public class EnemyAI6 : EnemyBehavior {
 		if (isDestroyed || _paused) {
 			return;
 		}
-		Movement ();
+		Movement();
 		if (GetIsTimeUp ()) {
-			Destroy(gameObject);
+
+			if(currentMovementStep < MoveInstructionList.Count) {
+				if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.Velocity) {
+					StartNewVelocity (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].time);
+				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.ArcVelocity) {
+					StartArcVelocity (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].endVelocities, MoveInstructionList [currentMovementStep].time);
+				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.None) {
+					StartStandStill (MoveInstructionList [currentMovementStep].time);
+				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.Lerp) {
+					StartNewMovement (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].time);
+				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.Lerp) {
+					StartNewSphericalMovement (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].time);
+				}
+				currentMovementStep++;
+			} else {
+				Destroy(gameObject);
+			}
 		}
 		timer += Time.deltaTime;
 		if (timer > fireRate) {
-			if (shootInDirection) {
-				Shoot (direction * speed * bulletSpeed);
-			} else {
-				Shoot (Vector2.left * speed * bulletSpeed);
-			}
+			Shoot (direction * speed * bulletSpeed);
 			if(shieldableBullets){
 				Shoot (leftDir * speed * bulletSpeed *1.5f, true);
 				Shoot (rightDir * speed * bulletSpeed *1.5f, true);
@@ -108,7 +113,5 @@ public class EnemyAI6 : EnemyBehavior {
 		HandleHitAnimation ();
 		//Return from hit animation to neutral animation.
 	}
-	
 
-	        
 }

@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &557980
 Transform:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &83101413
 Transform:
   m_ObjectHideFlags: 0
@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &221258008
 Transform:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &311649945
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &414680107
 Transform:
   m_ObjectHideFlags: 0
@@ -702,6 +702,92 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414680106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &474717061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 474717062}
+  - 114: {fileID: 474717064}
+  - 114: {fileID: 474717063}
+  - 114: {fileID: 474717065}
+  m_Layer: 0
+  m_Name: EnemySpawnReflectBulletSprayerArc_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &474717062
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474717061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1504962257}
+  m_RootOrder: 12
+--- !u!114 &474717063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474717061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: -2}
+  Health: 2
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -3, y: 0}
+    endVelocities: {x: 0, y: 0}
+    time: 2
+  - type: 4
+    startVelocity: {x: -3, y: 0}
+    endVelocities: {x: 0, y: 3}
+    time: 0.5
+  - type: 4
+    startVelocity: {x: 0, y: 3}
+    endVelocities: {x: 3, y: 0}
+    time: 0.5
+  - type: 3
+    startVelocity: {x: 3, y: 0}
+    endVelocities: {x: 0, y: 0}
+    time: 2
+  fireRate: 1
+  bulletSpeed: 1
+--- !u!114 &474717064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474717061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &474717065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 474717061}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -1573,7 +1659,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &842583374
 Transform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1716,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &937318312
 Transform:
   m_ObjectHideFlags: 0
@@ -1651,15 +1737,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 937318311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b16ed448092795418a8939e8538c5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPosition: {x: 7, y: 3}
   Health: 1
-  locations:
-  - {x: -7, y: -3}
-  times:
-  - 4
+  moveInstructionList: []
   fireRate: 0.8
   bulletSpeed: 1.1
 --- !u!114 &937318314
@@ -1794,7 +1877,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1010529496
 Transform:
   m_ObjectHideFlags: 0
@@ -1953,7 +2036,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1192256191
 Transform:
   m_ObjectHideFlags: 0
@@ -2295,6 +2378,7 @@ Transform:
   - {fileID: 1010529496}
   - {fileID: 1723962085}
   - {fileID: 1192256191}
+  - {fileID: 474717062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &1532542325
@@ -2354,7 +2438,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1686660076
 Transform:
   m_ObjectHideFlags: 0
@@ -2450,7 +2534,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1716280922
 Transform:
   m_ObjectHideFlags: 0
@@ -2503,7 +2587,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1723962085
 Transform:
   m_ObjectHideFlags: 0
@@ -2524,25 +2608,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1723962084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b16ed448092795418a8939e8538c5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bfeb6c11d715d04b8350067ef7cb2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 0, y: 4}
+  enemyPosition: {x: 0, y: 0}
   Health: 0
-  locations:
-  - {x: 0, y: 3}
-  - {x: 6, y: 3}
-  - {x: 6, y: -3}
-  - {x: 0, y: -3}
-  - {x: 0, y: -5}
-  times:
-  - 1
-  - 3
-  - 3
-  - 3
-  - 1
-  fireRate: 0.7
-  bulletSpeed: 1.5
+  locations: []
+  times: []
+  fireRate: 0
+  bulletSpeed: 0
 --- !u!114 &1723962087
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,16 +1,23 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn23.cs" Line="30" Column="36" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI5.cs" Line="11" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" Line="4" Column="33" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" Line="4" Column="43" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" Line="33" Column="96" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" Line="121" Column="13" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyBoss2Turret.cs" Line="85" Column="22" />
+      <File FileName="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" Line="33" Column="101" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" Line="14" Column="9" />
+      <File FileName="Assets\Scripts\SoundEffectPlayer.cs" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAI4.cs" Line="49" Column="35" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="272" Column="19" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\EnemyBehavior.cs" line="131" column="1" />
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\EnemyBehavior.cs" line="449" column="1" />
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\Singletons\EnemyBehavior.cs" line="545" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

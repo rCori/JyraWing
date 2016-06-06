@@ -8,7 +8,6 @@ public class EnemyAI9 : EnemyBehavior {
 	public float startDelay;
 	float fireTimer;
 	public float[] fireTimes;
-	// OOOHHHH OOHHHH GET YO ASS WHOOPED
 	//Keep track of what time is next in the bullets to fire.
 	int shotsFired;
 

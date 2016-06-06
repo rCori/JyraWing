@@ -69,6 +69,9 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		//Default firing mode
 		Mode = Boss2TurretMode.TrackNormal;
 
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		SetExplosionSfx (explosionClip);
+
 		//RIght now there are no animations
 		HasAnimations animationsOwned = HasAnimations.None;
 		SetAnimations (animationsOwned);
@@ -79,6 +82,7 @@ public class EnemyBoss2Turret : EnemyBehavior {
 	
 	// Update is called once per frame
 	void Update () {
+		FanBulletUpdate ();
 		if (isDestroyed || _paused) {
 			return;
 		}
