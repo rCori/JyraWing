@@ -35,13 +35,14 @@ public class EnemyBoss2Base : MonoBehaviour {
 		BottomTurret = BottomTurretBehavior.GetComponent<EnemyBoss2Turret> ();
 
 		shuffleBagCounter = 0;
-
 		pattern = 0;
 
-		patternTimeLimit = 8.0f;
+		patternTimeLimit = 10.0f;
 		patternTimer = 0.0f;
 
 		createShuffleBag ();
+		changePattern ();
+
 	}
 	
 	// Update is called once per frame
@@ -50,58 +51,23 @@ public class EnemyBoss2Base : MonoBehaviour {
 		if (patternTimer > patternTimeLimit) {
 			//Change fire pattern
 			changePattern();
-
-			switch(pattern){
-			case 0:
-				if(TopTurret != null){
-					TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
-				}
-				if(MiddleTurret != null){
-					MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
-				}
-				if(BottomTurret != null){
-					BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
-				}
-				break;
-			case 1:
-				if(TopTurret != null){
-					TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
-				}
-				if(MiddleTurret != null){
-					MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
-				}
-				if(BottomTurret != null){
-					BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
-				}
-				break;
-			case 2:
-				if(TopTurret != null){
-					TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackNormal;
-				}
-				if(MiddleTurret != null){
-					MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanShield;
-				}
-				if(BottomTurret != null){
-					BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackNormal;
-				}
-				break;
-			}
-
 			//reset the timer
 			patternTimer = 0.0f;
 		}
+	}
 
-
+	public void SetTurrets(EnemyBoss2Turret TopTurret, EnemyBoss2Turret MiddleTurret, EnemyBoss2Turret BottomTurret) {
+		this.TopTurret = TopTurret;
+		this.MiddleTurret = MiddleTurret;
+		this.BottomTurret = BottomTurret;
 	}
 
 	void createShuffleBag(){
 		shuffleBagCounter = 0;
-		bag = new ShuffleBag (4);
-		//bag = new ShuffleBag (1);
+		bag = new ShuffleBag (3);
 		bag.Add (0, 1);
 		bag.Add (1, 1);
 		bag.Add (2, 1);
-		//bag.Add (3, 1);
 	}
 
 	void changePattern(){
@@ -113,23 +79,41 @@ public class EnemyBoss2Base : MonoBehaviour {
 		}
 		int patternNum = bag.Next ();
 		pattern = patternNum;
-	}
 
-
-	//Set the bullet pools of the two turrent bullet pools
-	public void SetBulletPools(EnemyBulletPool bulletPool, EnemyBulletPool shieldBulletPool){
-		TopTurret.bulletPool = bulletPool;
-		TopTurret.shieldableBulletPool = shieldBulletPool;
-
-		MiddleTurret.bulletPool = bulletPool;
-		MiddleTurret.shieldableBulletPool = shieldBulletPool;
-
-		BottomTurret.bulletPool = bulletPool;
-		BottomTurret.shieldableBulletPool = shieldBulletPool;
-	}
-
-	//Set the health of the individual turrents
-	public void SetTurretHealth(int bottom, int middle, int top){
-		
+		switch(pattern){
+		case 0:
+			if(TopTurret != null){
+				TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
+			}
+			if(MiddleTurret != null){
+				MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
+			}
+			if(BottomTurret != null){
+				BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
+			}
+			break;
+		case 1:
+			if(TopTurret != null){
+				TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
+			}
+			if(MiddleTurret != null){
+				MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackShield;
+			}
+			if(BottomTurret != null){
+				BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanNormal;
+			}
+			break;
+		case 2:
+			if(TopTurret != null){
+				TopTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackNormal;
+			}
+			if(MiddleTurret != null){
+				MiddleTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.FanShield;
+			}
+			if(BottomTurret != null){
+				BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackNormal;
+			}
+			break;
+		}
 	}
 }

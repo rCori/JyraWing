@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3490124, y: -0.038597226, z: 0}
+  m_LocalPosition: {x: 4.5999646, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 423180}
@@ -193,8 +193,8 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  fanningBulletSpeed: 0
-  trackingBulletSpeed: 0
+  fanningBulletSpeed: 2.5
+  trackingBulletSpeed: 2.5
 --- !u!114 &11462590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,8 +210,8 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  fanningBulletSpeed: 1.5
-  trackingBulletSpeed: 1.5
+  fanningBulletSpeed: 2
+  trackingBulletSpeed: 2
 --- !u!114 &11463614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,8 +227,8 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  fanningBulletSpeed: 0
-  trackingBulletSpeed: 0
+  fanningBulletSpeed: 2
+  trackingBulletSpeed: 2
 --- !u!212 &21239666
 SpriteRenderer:
   m_ObjectHideFlags: 1

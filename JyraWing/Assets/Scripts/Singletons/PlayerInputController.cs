@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerInputController {
 
 	float autoFireTimer;
-	const float AUTOFIRETIMELIMIT = 1/16f;
+	const float AUTOFIRETIMELIMIT = 1/3f;
 	bool autoFireState;
 
 	bool disableControls;

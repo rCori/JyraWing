@@ -45,16 +45,16 @@ public class EnemyBoss2Turret : EnemyBehavior {
 			//Change timers appropriatly
 			switch(_mode){
 			case Boss2TurretMode.TrackNormal:
-				shootTimeLimit = 1.0f;
+				shootTimeLimit = 1.4f;
 				break;
 			case Boss2TurretMode.TrackShield:
-				shootTimeLimit = 0.7f;
+				shootTimeLimit = 1.7f;
 				break;
 			case Boss2TurretMode.FanNormal:
-				shootTimeLimit = 0.5f;
+				shootTimeLimit = 1.5f;
 				break;
 			case Boss2TurretMode.FanShield:
-				shootTimeLimit = 0.5f;
+				shootTimeLimit = 1.5f;
 				break;
 			}
 			//Reset fanning.
@@ -76,15 +76,36 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		HasAnimations animationsOwned = HasAnimations.None;
 		SetAnimations (animationsOwned);
 
+		shootTimer = 0.0f;
+
 		//Initialize all of the bullet fanning directions
 		InitFanningDirections ();
+
+		_mode = Boss2TurretMode.TrackNormal;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		FanBulletUpdate ();
 		if (isDestroyed || _paused) {
 			return;
+		}
+		switch (_mode) {
+		case Boss2TurretMode.TrackNormal:
+			TrackBulletUpdate (false);
+			Debug.Log ("Track normal");
+			break;
+		case Boss2TurretMode.TrackShield:
+			TrackBulletUpdate (true);
+			Debug.Log ("Track shield");
+			break;
+		case Boss2TurretMode.FanNormal:
+			FanBulletUpdate (false);
+			Debug.Log ("Fan normal");
+			break;
+		case Boss2TurretMode.FanShield:
+			FanBulletUpdate (true);
+			Debug.Log ("Fan shield");
+			break;
 		}
 	}
 
@@ -92,17 +113,17 @@ public class EnemyBoss2Turret : EnemyBehavior {
 	void InitFanningDirections(){
 		//Initialize all of the bullet fanning directions
 		fanningDirections = new List<Vector2> ();
-		float yDir = -2.0f;
+		float yDir = -0.7f;
 		for (int i = 0; i < 5; i++) {
 			//Get the direction and normalize it
 			Vector2 fanBulletDirection = new Vector2();
 			fanBulletDirection = transform.position;
 			fanBulletDirection.Normalize ();
-			fanBulletDirection -= new Vector2 (-1.0f, yDir);
-			
+			Debug.Log ("yDir: " + yDir);
+			fanBulletDirection = new Vector2 (-1.0f, yDir).normalized * fanningBulletSpeed;
 			//Add it to the list and advance the direction
 			fanningDirections.Add(fanBulletDirection);
-			yDir += 1.0f;
+			yDir += 0.35f;
 		}
 	}
 
@@ -111,9 +132,14 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		shootTimer += Time.deltaTime;
 		//Time to shoot has triggered.
 		if (shootTimer > shootTimeLimit) {
+			Debug.Log ("Fan shooting");
 			Shoot(fanningDirections[fanBulletNum], shield);
 			//Reset timer
 			shootTimer = 0.0f;
+			fanBulletNum++;
+			if (fanBulletNum > 4) {
+				fanBulletNum = 0;
+			}
 		}
 	}
 
@@ -126,10 +152,10 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		shootTimer += Time.deltaTime;
 		//Time to shoot has triggered
 		if (shootTimer > shootTimeLimit) {
+			Debug.Log ("Track shooting");
 			//Get the direction we are firing in.
 			Vector2 fireDir = gameController.playerPosition - gameObject.transform.position;
-			fireDir.Normalize();
-			fireDir.Set(fireDir.x*4, fireDir.y*4);
+			fireDir = fireDir.normalized * trackingBulletSpeed;
 			//Shoot the bullet
 			Shoot (fireDir,shield);
 			//Reset timer

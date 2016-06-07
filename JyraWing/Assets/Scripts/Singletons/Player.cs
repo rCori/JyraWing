@@ -64,7 +64,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		animator = gameObject.GetComponent <Animator> ();
 		hitTimer = 0.0f;
 		hits = 3;
-		numBullets = 2;
+		numBullets = 20;
 		fireSfx = gameObject.AddComponent<AudioSource> ();
 		//Shot sound
 		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
@@ -153,7 +153,6 @@ public class Player : MonoBehaviour, PauseableItem {
 			animator.SetInteger ("animState", 1);
 			//Get the length of the animation.
 			hitTimer = 2.5f;
-			//gameController.UpdatePlayerLives();
 			gameController.DecreaseLifeCount();
 			playerInputController.DisableControls(true);
 			playerInputController.DisableShield(true);
@@ -184,9 +183,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// IN DIRE NEED OF OPTIMAZATION
 	/// </summary>
 	private void spreadShot(){
-//		GameObject bullet1;
-//		GameObject bullet2;
-//		GameObject bullet3;
 		GameObject bullet1 = bulletPool[0];
 		GameObject bullet2 = bulletPool[1];
 		GameObject bullet3 = bulletPool[2];
@@ -252,7 +248,6 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	public void IncreaseSpeedCap(){
 		playerSpeed.IncreaseSpeedCap ();
-		//gameController.UpdatePlayerSpeed ();
 		//Set the gameController speed variables
 		//Speed cap is how many levels of speed are available to the player
 		gameController.AvailableSpeed = playerSpeed.GetSpeedCap ();
@@ -336,12 +331,13 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private void updateInput(){
 		if(playerInputController.GetFireButton() || playerInputController.GetAutoFire()){
-			if(bulletLevel.GetBulletLevel() != 3){
-				shoot ();
-			}
-			else{
-				spreadShot ();
-			}
+//			if(bulletLevel.GetBulletLevel() != 3){
+//				shoot ();
+//			}
+//			else{
+//				spreadShot ();
+//			}
+			shoot();
 		}
 		if (playerInputController.GetToggleSpeed()) {
 			playerSpeed.IncreaseSpeed();
@@ -349,10 +345,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
 			gameController.AvailableSpeed = playerSpeed.GetSpeedCap();
 			gameController.ShouldUpdateSpeed();
-			//gameController.UpdatePlayerSpeed();
-
 		}
-		//updateShield ();
 	}
 
 	private void updateHitAnimation(){
