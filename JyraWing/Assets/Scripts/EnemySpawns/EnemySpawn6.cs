@@ -10,7 +10,7 @@ public class EnemySpawn6 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 
 		Vector3 spawnPos = gameObject.transform.position;
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy1.transform.position = new Vector3(spawnPos.x+0.5f,
 		                                        spawnPos.y,
 		                                        spawnPos.z);
@@ -18,7 +18,7 @@ public class EnemySpawn6 : EnemySpawner {
 		enemy1.GetComponent<EnemyAI5> ().direction = EnemyAI5.TankDir.Left;
 		enemy1 = Instantiate (enemy1);
 		
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy2.transform.position = new Vector3(spawnPos.x+0.5f,
 		                                        spawnPos.y-1.5f,
 		                                        spawnPos.z);
@@ -26,7 +26,7 @@ public class EnemySpawn6 : EnemySpawner {
 		enemy2.GetComponent<EnemyAI5> ().direction = EnemyAI5.TankDir.Left;
 		enemy2 = Instantiate (enemy2);
 		
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy3.transform.position = new Vector3(spawnPos.x+0.5f,
 		                                        spawnPos.y+1.5f,
 		                                        spawnPos.z);

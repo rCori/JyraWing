@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 public class GameControllerBehaviour : MonoBehaviour {
 
 	public Player player;
@@ -77,7 +79,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 		//Load the title scene
 		if (gameController.ShouldLoadTitleScene ()) {
-			Application.LoadLevel("LevelTransition");
+			SceneManager.LoadScene("LevelTransition");
 		}
 
 		//Show the game over message

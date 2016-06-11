@@ -14,6 +14,8 @@ public class EnemyBoss2Turret : EnemyBehavior {
 
 	public float fanningBulletSpeed;
 	public float trackingBulletSpeed;
+	public delegate void EventHandler();
+	public event EventHandler TurretDestoyedEvent;
 
 	/// <summary>
 	/// The direction the enemy will fire
@@ -89,22 +91,19 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		if (isDestroyed || _paused) {
 			return;
 		}
+		Movement ();
 		switch (_mode) {
 		case Boss2TurretMode.TrackNormal:
 			TrackBulletUpdate (false);
-			Debug.Log ("Track normal");
 			break;
 		case Boss2TurretMode.TrackShield:
 			TrackBulletUpdate (true);
-			Debug.Log ("Track shield");
 			break;
 		case Boss2TurretMode.FanNormal:
 			FanBulletUpdate (false);
-			Debug.Log ("Fan normal");
 			break;
 		case Boss2TurretMode.FanShield:
 			FanBulletUpdate (true);
-			Debug.Log ("Fan shield");
 			break;
 		}
 	}
@@ -119,7 +118,6 @@ public class EnemyBoss2Turret : EnemyBehavior {
 			Vector2 fanBulletDirection = new Vector2();
 			fanBulletDirection = transform.position;
 			fanBulletDirection.Normalize ();
-			Debug.Log ("yDir: " + yDir);
 			fanBulletDirection = new Vector2 (-1.0f, yDir).normalized * fanningBulletSpeed;
 			//Add it to the list and advance the direction
 			fanningDirections.Add(fanBulletDirection);
@@ -132,7 +130,6 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		shootTimer += Time.deltaTime;
 		//Time to shoot has triggered.
 		if (shootTimer > shootTimeLimit) {
-			Debug.Log ("Fan shooting");
 			Shoot(fanningDirections[fanBulletNum], shield);
 			//Reset timer
 			shootTimer = 0.0f;
@@ -152,7 +149,6 @@ public class EnemyBoss2Turret : EnemyBehavior {
 		shootTimer += Time.deltaTime;
 		//Time to shoot has triggered
 		if (shootTimer > shootTimeLimit) {
-			Debug.Log ("Track shooting");
 			//Get the direction we are firing in.
 			Vector2 fireDir = gameController.playerPosition - gameObject.transform.position;
 			fireDir = fireDir.normalized * trackingBulletSpeed;
@@ -162,4 +158,11 @@ public class EnemyBoss2Turret : EnemyBehavior {
 			shootTimer = 0.0f;
 		}
 	}
+		
+
+	void OnDestroy() {
+		RemoveFromList ();
+		TurretDestoyedEvent ();
+	}
+
 }

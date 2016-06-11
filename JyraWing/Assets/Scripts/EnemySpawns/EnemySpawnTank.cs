@@ -13,7 +13,7 @@ public class EnemySpawnTank : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
         EnemyBulletPool shieldableBulletPool = GameObject.Find("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool>();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy1.transform.position = enemyPosition;
 
         //EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
@@ -23,7 +23,6 @@ public class EnemySpawnTank : EnemySpawner {
         EnemyAI5 ai1 = enemy1.GetComponent<EnemyAI5> ();
 		ai1.direction = direction;
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (tankHealth);
         enemy1.GetComponent<EnemyBehavior>().shieldableBullets = shieldableBullets;
     }
 }

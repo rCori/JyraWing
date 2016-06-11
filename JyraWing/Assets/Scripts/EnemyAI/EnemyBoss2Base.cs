@@ -8,6 +8,9 @@ public class EnemyBoss2Base : MonoBehaviour {
 	public GameObject MiddleTurretBehavior;
 	public GameObject BottomTurretBehavior;
 
+	public delegate void OnSubSectionDestroy ();
+	public OnSubSectionDestroy topTurretDestoryed;
+
 	//References from the GameObjects to the EnemyBoss2Turrey EnemyBehavior
 	private EnemyBoss2Turret TopTurret;
 	private EnemyBoss2Turret MiddleTurret;
@@ -43,6 +46,9 @@ public class EnemyBoss2Base : MonoBehaviour {
 		createShuffleBag ();
 		changePattern ();
 
+		TopTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
+		MiddleTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
+		BottomTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
 	}
 	
 	// Update is called once per frame
@@ -114,6 +120,19 @@ public class EnemyBoss2Base : MonoBehaviour {
 				BottomTurret.Mode = EnemyBoss2Turret.Boss2TurretMode.TrackNormal;
 			}
 			break;
+		}
+	}
+	public void CheckAllTurretsAreDestroyed(){
+		if (TopTurret.GetIsDestroyed () && MiddleTurret.GetIsDestroyed () && BottomTurret.GetIsDestroyed ()) {
+			//animator.SetInteger ("animState", 3);
+			GameObject obj = GameObject.Find ("GameController");
+			//The boss object could be destoryed on account of the level ending.
+			//If that happens this object could be null so we check for that.
+			if (obj) {
+				//Use the new gameController now
+				GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+				controller.FinishLevel(2.5f);
+			}
 		}
 	}
 }

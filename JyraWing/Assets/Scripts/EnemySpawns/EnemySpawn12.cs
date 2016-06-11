@@ -12,19 +12,16 @@ public class EnemySpawn12 : EnemySpawner {
 
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy1.transform.position = new Vector3 (8.5f, 3.3f, 0f);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy2.transform.position = new Vector3 (8.5f, -3.3f, 0f);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy2 = Instantiate (enemy2);
-		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
-
 
 
 		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_F");

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelTransitionLoad : MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class LevelTransitionLoad : MonoBehaviour {
 		timeToLoad -= Time.deltaTime;
 		//If time is up, load the next level
 		if (timeToLoad < 0) {
-			Application.LoadLevel(nextLevel);
+			SceneManager.LoadScene(nextLevel);
 		}
 	}
 }

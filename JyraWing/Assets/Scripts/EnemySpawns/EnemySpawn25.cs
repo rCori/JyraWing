@@ -10,7 +10,7 @@ public class EnemySpawn25 : EnemySpawner {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Bullet sprayer going right down the middle
-		GameObject enemyBulletSprayer = (GameObject) Resources.Load ("Enemies/Enemy_ReflectBulletSprayer");
+		GameObject enemyBulletSprayer = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
 		enemyBulletSprayer.transform.position = new Vector3 (6.0f, 0.0f,0.0f);
 
 		enemyBulletSprayer.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;

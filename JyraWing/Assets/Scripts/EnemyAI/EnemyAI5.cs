@@ -43,6 +43,7 @@ public class EnemyAI5 : EnemyBehavior {
 	/// </summary>
 	private Vector2 downBul;
 
+	public int TANK_HEALTH = 5;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -121,6 +122,7 @@ public class EnemyAI5 : EnemyBehavior {
 		
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("tank_hit");
+		SetEnemyHealth (TANK_HEALTH);
 	}
 	
 

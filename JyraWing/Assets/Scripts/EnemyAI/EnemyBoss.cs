@@ -408,44 +408,5 @@ public class EnemyBoss : EnemyBehavior {
 			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 		}
 	}
-
-	/* Implementation of PauseableObject */
-//	public bool paused
-//	{
-//		get
-//		{
-//			return _paused;
-//		}
-//		
-//		set
-//		{
-//			_paused = value;
-//			if(_paused)
-//			{
-//				bossSavedState.store_Velocity = GetComponent<Rigidbody2D>().velocity;
-//				bossSavedState.store_pattern = pattern;
-//				bossSavedState.store_moveState = moveState;
-//				bossSavedState.store_fireTimer = fireTimer;
-//				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-//				animator.speed = 0f;
-//			}
-//			else{
-//				GetComponent<Rigidbody2D>().velocity = bossSavedState.store_Velocity;
-//				//pattern = 
-//				animator.speed = 1f;
-//			}
-//		}
-//	}
-//	
-//	public void RegisterToList()
-//	{
-//		gameController.RegisterPause(this);
-//	}
-//	
-//	public void RemoveFromList()
-//	{
-//		gameController.DelistPause(this);
-//	}
-
-
+		
 }

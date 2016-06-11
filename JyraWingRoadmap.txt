@@ -33,3 +33,14 @@ So that's a lot to do.
 I can't really make up good time estimates for this stuff right now.
 I am working on the boss for level 2 right now. Should be done by 6/13/16. During this time I will
 also need to make the change to firing, but that should be trivial.
+
+6/8/16
+Boss for level 2 doesn't have animations but it at least works. The change to firing works. I am going to start
+reworking all of the AI so fire rates and health are always the same for any instance of an enemy. Alterations
+to these rates need to be different colors.
+I am going back on some of the changes I said I would make.
+I want to finish this game eventually and I can't do that if I am turning it into something else all of the time.
+The game I was making was still valuable and I want to finish it. I am still going to make the change to making
+enemy health consistent because that's just a good design thing, but other than that, the player fire rate, the
+new art, I want to keep everything as it was before. SO now I need to implement the level 2 boss art I have
+finished and I can move onto level 3.

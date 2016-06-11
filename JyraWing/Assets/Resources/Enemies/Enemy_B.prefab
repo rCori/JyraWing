@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  infinite: 0
 --- !u!212 &21202418
 SpriteRenderer:
   m_ObjectHideFlags: 1

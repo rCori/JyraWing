@@ -41,31 +41,28 @@ public class EnemySpawn14 : EnemySpawner {
 		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
 
 		//Top turret
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy3.transform.position = new Vector3(7.0f, 3.5f,0f);
 
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
 
 		enemy3 = Instantiate (enemy3);
-		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 
 		//Bottom turret
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy4.transform.position = new Vector3(7.0f, -3.5f,0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
 		enemyBehavior4.bulletPool = bulletPool;
 		
 		enemy4 = Instantiate (enemy4);
-		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
-
 
 
 		//End tank at the end of the screen
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy5.transform.position = new Vector3(24.0f, 0f,0f);
 
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
@@ -75,7 +72,6 @@ public class EnemySpawn14 : EnemySpawner {
 		enemyAI5.direction = EnemyAI5.TankDir.Left;
 
 		enemy5 = Instantiate (enemy5);
-		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();

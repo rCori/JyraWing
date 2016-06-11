@@ -47,22 +47,20 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy5 = Instantiate (enemy5);
 
-		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy6.transform.position = new Vector3 (7.0f, 3.3f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
 		enemy6 = Instantiate (enemy6);
-		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
-		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy7.transform.position = new Vector3 (7.0f, -3.3f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
 		enemy7 = Instantiate (enemy7);
-		enemy7.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();

@@ -19,7 +19,7 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 		
-		GameObject enemy = (GameObject) Resources.Load ("Enemies/Enemy_ReflectBulletSprayer");
+		GameObject enemy = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
 		enemy.transform.position = enemyPosition;
 		
 		enemy.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;

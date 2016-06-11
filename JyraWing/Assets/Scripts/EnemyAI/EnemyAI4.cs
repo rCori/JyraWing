@@ -25,6 +25,8 @@ public class EnemyAI4 : EnemyBehavior {
 	private float updateAnimTimer;
 	private float updateAnimTimeLimit;
 
+	public int TURRET_HEALTH = 3;
+
 	//Two extra directions for shieldable bullets to be shot in
 	Vector2 upDir;
 	Vector2 downDir;
@@ -60,6 +62,7 @@ public class EnemyAI4 : EnemyBehavior {
 		//pointing up, down, or straight ahead
 		updateAnimTimer = 0f;
 		updateAnimTimeLimit = 0.5f;
+		SetEnemyHealth (TURRET_HEALTH);
 
 
 	}

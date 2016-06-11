@@ -65,13 +65,12 @@ public class EnemySpawn24 : EnemySpawner {
 		//bottom standard turret
 		{
 
-			GameObject standardTurret = (GameObject)Resources.Load ("Enemies/Enemy_D");
+			GameObject standardTurret = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 			standardTurret.transform.position = new Vector3 (8.0f, 3.0f, 0f);
 			standardTurret.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			standardTurret.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			standardTurret = Instantiate (standardTurret);
 			standardTurret.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-			standardTurret.GetComponent<EnemyBehavior> ().SetEnemyHealth (TurretHealth);
 		}
 
 	}

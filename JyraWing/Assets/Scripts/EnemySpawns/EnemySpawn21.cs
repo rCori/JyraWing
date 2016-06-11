@@ -9,7 +9,7 @@ public class EnemySpawn21 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Middle tank
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy1.transform.position = new Vector3(10.0f, 0f,0f);
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -19,13 +19,11 @@ public class EnemySpawn21 : EnemySpawner {
 		enemyAI1.direction = EnemyAI5.TankDir.Left;
 		
 		enemy1 = Instantiate (enemy1);
-		//Set the tanks health to 3
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 
 		//Top tank
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy2.transform.position = new Vector3(10.0f, -2.0f,0f);
 
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
@@ -35,13 +33,11 @@ public class EnemySpawn21 : EnemySpawner {
 		enemyAI2.direction = EnemyAI5.TankDir.Left;
 		
 		enemy2 = Instantiate (enemy2);
-		//Set the tanks health to 3
-		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 
 		//Bottom tank
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy3.transform.position = new Vector3(10.0f, 2.0f,0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
@@ -51,8 +47,6 @@ public class EnemySpawn21 : EnemySpawner {
 		enemyAI3.direction = EnemyAI5.TankDir.Left;
 		
 		enemy3 = Instantiate (enemy3);
-		//Set the tanks health to 3
-		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 		
 		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();

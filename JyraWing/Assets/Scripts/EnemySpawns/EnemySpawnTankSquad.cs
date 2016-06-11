@@ -25,7 +25,7 @@ public class EnemySpawnTankSquad : EnemySpawner {
 
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
-				GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_E");
+				GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 				enemy1.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
 				//EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
@@ -35,7 +35,6 @@ public class EnemySpawnTankSquad : EnemySpawner {
 				EnemyAI5 ai1 = enemy1.GetComponent<EnemyAI5> ();
 				ai1.direction = EnemyAI5.TankDir.Left;
 				enemy1 = Instantiate (enemy1);
-				enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (tankHealth);
 				enemy1.GetComponent<EnemyBehavior>().shieldableBullets = shieldableBullets;
 			}
 		}

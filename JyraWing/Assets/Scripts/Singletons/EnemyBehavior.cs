@@ -394,6 +394,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 							powerWillSpawn = true;
 						}
 					}
+					isDestroyed = true;
 					DestroySelf ();
 				}
 			}
@@ -448,7 +449,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 
 		RemoveFromList ();
-
 	}
 
 	//Intended to be used at the end of a destroy animation

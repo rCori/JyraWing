@@ -53,7 +53,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 		}
 
 		if (sprayer) {
-			GameObject sprayerEnemy = (GameObject) Resources.Load ("Enemies/Enemy_ReflectBulletSprayer");
+			GameObject sprayerEnemy = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
 			sprayerEnemy.transform.position = new Vector3(11.0f,0f,0f);
 
 			sprayerEnemy.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;

@@ -20,7 +20,7 @@ public class EnemySpawn26 : EnemySpawner {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Bullet sprayer going diagonaly through the right half of the screen and then back up
-		GameObject enemyBulletSprayer = (GameObject) Resources.Load ("Enemies/Enemy_ReflectBulletSprayer");
+		GameObject enemyBulletSprayer = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
 		enemyBulletSprayer.transform.position = new Vector3 (6.0f, yFactor * 3.5f,0.0f);
 
 		enemyBulletSprayer.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
@@ -78,7 +78,7 @@ public class EnemySpawn26 : EnemySpawner {
 		} else {
 
 			//top tank
-			GameObject topTank = (GameObject)Resources.Load ("Enemies/Enemy_E");
+			GameObject topTank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 			topTank.transform.position = new Vector3 (10.0f, 2f, 0f);
 
 			EnemyBehavior topTankBehavior = topTank.GetComponent<EnemyBehavior> ();
@@ -88,12 +88,11 @@ public class EnemySpawn26 : EnemySpawner {
 			topTankAI.direction = EnemyAI5.TankDir.Left;
 
 			topTank = Instantiate (topTank);
-			topTank.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 
 			//bottom tank
-			GameObject bottomTank = (GameObject)Resources.Load ("Enemies/Enemy_E");
+			GameObject bottomTank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 			bottomTank.transform.position = new Vector3 (10.0f, -2f, 0f);
 
 			EnemyBehavior bottomTankBehavior = topTank.GetComponent<EnemyBehavior> ();
@@ -103,7 +102,6 @@ public class EnemySpawn26 : EnemySpawner {
 			bottomTankAI.direction = EnemyAI5.TankDir.Left;
 
 			bottomTank = Instantiate (bottomTank);
-			bottomTank.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 		}
 
 	}

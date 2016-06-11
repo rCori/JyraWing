@@ -12,65 +12,60 @@ public class EnemySpawn17 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//First bottom turret
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy1.transform.position = new Vector3 (7.0f, -3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
 
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		//Second bottom turret
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy2.transform.position = new Vector3 (10.0f, -1.5f, 0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
 
 		enemy2 = Instantiate (enemy2);
-		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 
 		//Second top turret
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy3.transform.position = new Vector3 (10.0f, 1.5f, 0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
 
 		enemy3 = Instantiate (enemy3);
-		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 
 		//Third top turret
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy4.transform.position = new Vector3 (13.0f, 3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
 		enemyBehavior4.bulletPool = bulletPool;
 
 		enemy4 = Instantiate (enemy4);
-		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 		//Third top turret
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_D");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 		enemy5.transform.position = new Vector3 (16.0f, 3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
 		enemyBehavior5.bulletPool = bulletPool;
 
 		enemy5 = Instantiate (enemy5);
-		enemy5.GetComponent<EnemyBehavior> ().SetEnemyHealth (turretHealth);
 
 
 
 		//End tank at the end of the screen
-		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_E");
+		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy6.transform.position = new Vector3(24.0f, 0f,0f);
 		
 		EnemyBehavior enemyBehavior6 = enemy6.GetComponent<EnemyBehavior> ();
@@ -81,7 +76,6 @@ public class EnemySpawn17 : EnemySpawner {
 
 		enemy6 = Instantiate (enemy6);
 		//Set the tanks health to 3
-		enemy6.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
 
 
 		//Turrets will drop a bullet powerup

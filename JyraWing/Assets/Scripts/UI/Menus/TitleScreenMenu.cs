@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TitleScreenMenu : Menu {
 
@@ -47,11 +48,11 @@ public class TitleScreenMenu : Menu {
 		if(Input.GetButton ("Fire") || Input.GetButton ("Pause")){
 			if(curSelect == 0){
 				beep.Play();
-				Application.LoadLevel("Level_1");
+				SceneManager.LoadScene("Level_1");
 			}
 			else if(curSelect == 1){
 				beep.Play();
-				Application.LoadLevel("Level_2");
+				SceneManager.LoadScene("Level_2");
 			}
 			else if(curSelect == 2){
 				beep.Play();
