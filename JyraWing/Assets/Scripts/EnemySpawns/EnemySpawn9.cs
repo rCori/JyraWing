@@ -10,10 +10,10 @@ public class EnemySpawn9 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 		
 		//mid-bot
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy1.transform.position = new Vector3 (6.0f, -1.5f, 0f);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyAI6 ai1 = enemy1.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai1 = enemy1.GetComponent<EnemyAIShipArc> ();
 		ai1.angle = 155f;
 		ai1.speed = 2.0f;
 		ai1.lifeTime = 12.0f;
@@ -24,10 +24,10 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy1 = Instantiate (enemy1);
 		
 		//mid-top
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy2.transform.position = new Vector3 (6.0f, 1.5f, 0f);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyAI6 ai2 = enemy2.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai2 = enemy2.GetComponent<EnemyAIShipArc> ();
 		ai2.angle = 205f;
 		ai2.speed = 2f;
 		ai2.lifeTime = 12.0f;
@@ -38,10 +38,10 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy2 = Instantiate (enemy2);
 		
 		//mid
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy3.transform.position = new Vector3 (6.0f, 0.0f, 0f);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyAI6 ai3 = enemy3.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai3 = enemy3.GetComponent<EnemyAIShipArc> ();
 		ai3.angle = 180f;
 		ai3.speed = 2f;
 		ai3.lifeTime = 7.0f;
@@ -53,10 +53,10 @@ public class EnemySpawn9 : EnemySpawner {
 
 
 		//top
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy4.transform.position = new Vector3 (6.0f, 3.0f, 0f);
 		enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyAI6 ai4 = enemy4.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai4 = enemy4.GetComponent<EnemyAIShipArc> ();
 		ai4.angle = 180f;
 		ai4.speed = 2f;
 		ai4.lifeTime = 12.0f;
@@ -67,10 +67,10 @@ public class EnemySpawn9 : EnemySpawner {
 		enemy4 = Instantiate (enemy4);		
 
 		//bottom
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy5.transform.position = new Vector3 (6.0f, -3.0f, 0f);
 		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai5 = enemy5.GetComponent<EnemyAIShipArc> ();
 		ai5.angle = 180f;
 		ai5.speed = 2f;
 		ai5.lifeTime = 12.0f;

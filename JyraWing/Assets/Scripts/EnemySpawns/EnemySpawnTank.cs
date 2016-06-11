@@ -5,7 +5,7 @@ public class EnemySpawnTank : EnemySpawner {
 
 	public Vector2 enemyPosition;
 	public int tankHealth;
-	public EnemyAI5.TankDir direction;
+	public EnemyAITank.TankDir direction;
     public bool shieldableBullets = false;
 
 	public override void Spawn ()
@@ -20,7 +20,7 @@ public class EnemySpawnTank : EnemySpawner {
         enemy1.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
         enemy1.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;
 
-        EnemyAI5 ai1 = enemy1.GetComponent<EnemyAI5> ();
+        EnemyAITank ai1 = enemy1.GetComponent<EnemyAITank> ();
 		ai1.direction = direction;
 		enemy1 = Instantiate (enemy1);
         enemy1.GetComponent<EnemyBehavior>().shieldableBullets = shieldableBullets;

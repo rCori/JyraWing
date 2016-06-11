@@ -9,8 +9,8 @@ public class EnemySpawn3 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_C");
-		EnemyAI3 ai1 = (EnemyAI3)enemy1.GetComponent("EnemyAI3");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondSwipe");
+		EnemyAISwipe ai1 = (EnemyAISwipe)enemy1.GetComponent("EnemyAISwipe");
 		ai1.reverse = false;
 		enemy1.transform.position = new Vector3(spawnPos.x-3f,
 		                                        spawnPos.y-5.0f,
@@ -18,8 +18,8 @@ public class EnemySpawn3 : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		Instantiate (enemy1);
 		
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_C");
-		EnemyAI3 ai2 = (EnemyAI3)enemy2.GetComponent("EnemyAI3");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondSwipe");
+		EnemyAISwipe ai2 = (EnemyAISwipe)enemy2.GetComponent("EnemyAISwipe");
 		ai2.reverse = true;
 		enemy2.transform.position = new Vector3(spawnPos.x-3f,
 		                                        spawnPos.y+5.0f,

@@ -44,3 +44,6 @@ The game I was making was still valuable and I want to finish it. I am still goi
 enemy health consistent because that's just a good design thing, but other than that, the player fire rate, the
 new art, I want to keep everything as it was before. SO now I need to implement the level 2 boss art I have
 finished and I can move onto level 3.
+
+6/11/16
+I am going to try a level with the new art assets  on a new branch to see if I like it and if it is worth it to me.

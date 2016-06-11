@@ -11,14 +11,14 @@ public class EnemySpawn14 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Top diamond enemy
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy1.transform.position = new Vector3(-7.0f, 2f,0f);
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
 		enemyBehavior1.LeftWallException = true;
 
-		EnemyAI8 enemyAI1 = enemy1.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI1.direction = new Vector2 (2f, 0f);
 		enemyAI1.time = 15f;
 		enemyAI1.repeat = false;
@@ -26,14 +26,14 @@ public class EnemySpawn14 : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
 
 		//Bottom diamond enemy
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy2.transform.position = new Vector3(-7.0f, -2f,0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
 		enemyBehavior2.LeftWallException = true;
 
-		EnemyAI8 enemyAI2 = enemy2.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI2 = enemy2.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI2.direction = new Vector2 (2f, 0f);
 		enemyAI2.time = 15f;
 		enemyAI2.repeat = false;
@@ -68,8 +68,8 @@ public class EnemySpawn14 : EnemySpawner {
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
 		enemyBehavior5.bulletPool = bulletPool;
 
-		EnemyAI5 enemyAI5 = enemy5.GetComponent<EnemyAI5> ();
-		enemyAI5.direction = EnemyAI5.TankDir.Left;
+		EnemyAITank enemyAItank = enemy5.GetComponent<EnemyAITank> ();
+		enemyAItank.direction = EnemyAITank.TankDir.Left;
 
 		enemy5 = Instantiate (enemy5);
 

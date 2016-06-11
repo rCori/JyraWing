@@ -8,14 +8,14 @@ public class EnemySpawn16 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Top diamond enemy
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy1.transform.position = new Vector3 (-7.0f, 3.5f, 0f);
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
 		enemyBehavior1.LeftWallException = true;
 
-		EnemyAI8 enemyAI1 = enemy1.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI1.direction = new Vector2 (4f, 0f);
 		enemyAI1.time = 7f;
 		enemyAI1.repeat = false;
@@ -23,14 +23,14 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//Bottom diamond enemy
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy2.transform.position = new Vector3 (-7.0f, -3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
 		enemyBehavior2.LeftWallException = true;
 		
-		EnemyAI8 enemyAI2 = enemy2.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI2 = enemy2.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI2.direction = new Vector2 (4f, 0f);
 		enemyAI2.time = 7f;
 		enemyAI2.repeat = false;
@@ -38,14 +38,14 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//bottom left diamond enemy
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy3.transform.position = new Vector3 (-2.0f, -4.0f, 0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
 		enemyBehavior3.LeftWallException = true;
 		
-		EnemyAI8 enemyAI3 = enemy3.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI3 = enemy3.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI3.direction = new Vector2 (0f, 4f);
 		enemyAI3.time = 7f;
 		enemyAI3.repeat = false;
@@ -53,14 +53,14 @@ public class EnemySpawn16 : EnemySpawner {
 		
 		
 		//bottom right diamond enemy
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy3.transform.position = new Vector3 (2.0f, -4.0f, 0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
 		enemyBehavior4.bulletPool = bulletPool;
 		enemyBehavior4.LeftWallException = true;
 		
-		EnemyAI8 enemyAI4 = enemy4.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI4 = enemy4.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI4.direction = new Vector2 (0f, 4f);
 		enemyAI4.time = 7f;
 		enemyAI4.repeat = false;
@@ -68,14 +68,14 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//middle diamond enemy
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy5 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy5.transform.position = new Vector3 (-7.0f, 0f, 0f);
 		
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
 		enemyBehavior5.bulletPool = bulletPool;
 		enemyBehavior5.LeftWallException = true;
 		
-		EnemyAI8 enemyAI5 = enemy5.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI5 = enemy5.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI5.direction = new Vector2 (4f, 0f);
 		enemyAI5.time = 7f;
 		enemyAI5.repeat = false;

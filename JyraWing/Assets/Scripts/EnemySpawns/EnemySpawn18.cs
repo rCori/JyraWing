@@ -12,7 +12,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//first diamond
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy1.transform.position = new Vector3(4.0f, -4.5f,0f);
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -21,7 +21,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyBehavior1.shieldableBullets = false;
 		enemyBehavior1.LeftWallException = false;
 		
-		EnemyAI8 enemyAI1 = enemy1.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI1.direction = new Vector2 (0f, 4f);
 		enemyAI1.time = 1.5f;
 		enemyAI1.repeat = true;
@@ -30,7 +30,7 @@ public class EnemySpawn18 : EnemySpawner {
 
 
 		//second diamond
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy2.transform.position = new Vector3(8.0f, 4.5f,0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
@@ -39,7 +39,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyBehavior2.shieldableBullets = false;
 		enemyBehavior2.LeftWallException = false;
 		
-		EnemyAI8 enemyAI2 = enemy2.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI2 = enemy2.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI2.direction = new Vector2 (0f, -4f);
 		enemyAI2.time = 1.5f;
 		enemyAI2.repeat = true;
@@ -49,7 +49,7 @@ public class EnemySpawn18 : EnemySpawner {
 
 	
 		//third diamond
-		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy3.transform.position = new Vector3(12.0f, -4.5f,0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
@@ -58,7 +58,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyBehavior3.shieldableBullets = false;
 		enemyBehavior3.LeftWallException = false;
 		
-		EnemyAI8 enemyAI3 = enemy3.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI3 = enemy3.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI3.direction = new Vector2 (0f, 4f);
 		enemyAI3.time = 1.5f;
 		enemyAI3.repeat = true;
@@ -68,7 +68,7 @@ public class EnemySpawn18 : EnemySpawner {
 
 
 		//fourth diamond
-		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy4.transform.position = new Vector3(16.0f, 4.5f,0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
@@ -77,7 +77,7 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyBehavior4.shieldableBullets = false;
 		enemyBehavior4.LeftWallException = false;
 		
-		EnemyAI8 enemyAI4 = enemy4.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI4 = enemy4.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI4.direction = new Vector2 (0f, -4f);
 		enemyAI4.time = 1.5f;
 		enemyAI4.repeat = true;
@@ -87,12 +87,12 @@ public class EnemySpawn18 : EnemySpawner {
 
 
 		//First ship enemy
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy5.transform.position = new Vector3 (8.0f, 0.0f, 0f);
 		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy5.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy5.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai5 = enemy5.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai5 = enemy5.GetComponent<EnemyAIShipArc> ();
 		ai5.angle = 180f;
 		ai5.speed = 1.0f;
 		ai5.lifeTime = 20.0f;
@@ -104,12 +104,12 @@ public class EnemySpawn18 : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().shieldableBullets = true;
 
 		//Second ship enemy
-		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy6 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy6.transform.position = new Vector3 (11.0f, 0.0f, 0f);
 		enemy6.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai6 = enemy6.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai6 = enemy6.GetComponent<EnemyAIShipArc> ();
 		ai6.angle = 180f;
 		ai6.speed = 1.0f;
 		ai6.lifeTime = 20.0f;
@@ -122,12 +122,12 @@ public class EnemySpawn18 : EnemySpawner {
 
 
 		//First ship enemy
-		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy7.transform.position = new Vector3 (8.0f, 2.5f, 0f);
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai7 = enemy7.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai7 = enemy7.GetComponent<EnemyAIShipArc> ();
 		ai7.angle = 180f;
 		ai7.speed = 1.0f;
 		ai7.lifeTime = 20.0f;
@@ -140,12 +140,12 @@ public class EnemySpawn18 : EnemySpawner {
 
 		
 		//Second ship enemy
-		GameObject enemy8 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy8 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy8.transform.position = new Vector3 (11.0f, 2.5f, 0f);
 		enemy8.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy8.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai8 = enemy8.GetComponent<EnemyAIShipArc> ();
 		ai8.angle = 180f;
 		ai8.speed = 1.0f;
 		ai8.lifeTime = 20.0f;
@@ -158,12 +158,12 @@ public class EnemySpawn18 : EnemySpawner {
 
 
 		//First ship enemy
-		GameObject enemy9 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy9 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy9.transform.position = new Vector3 (8.0f, -2.5f, 0f);
 		enemy9.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy9.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy9.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai9 = enemy9.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai9 = enemy9.GetComponent<EnemyAIShipArc> ();
 		ai9.angle = 180f;
 		ai9.speed = 1.0f;
 		ai9.lifeTime = 20.0f;
@@ -176,12 +176,12 @@ public class EnemySpawn18 : EnemySpawner {
 
 		
 		//Second ship enemy
-		GameObject enemy10 = (GameObject)Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy10 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy10.transform.position = new Vector3 (11.0f, -2.5f, 0f);
 		enemy10.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy10.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy10.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai10 = enemy10.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai10 = enemy10.GetComponent<EnemyAIShipArc> ();
 		ai10.angle = 180f;
 		ai10.speed = 1.0f;
 		ai10.lifeTime = 20.0f;

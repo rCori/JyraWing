@@ -15,8 +15,8 @@ public class EnemySpawn21 : EnemySpawner {
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
 
-		EnemyAI5 enemyAI1 = enemy1.GetComponent<EnemyAI5> ();
-		enemyAI1.direction = EnemyAI5.TankDir.Left;
+		EnemyAITank enemyAI1 = enemy1.GetComponent<EnemyAITank> ();
+		enemyAI1.direction = EnemyAITank.TankDir.Left;
 		
 		enemy1 = Instantiate (enemy1);
 
@@ -29,8 +29,8 @@ public class EnemySpawn21 : EnemySpawner {
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
 		enemyBehavior2.bulletPool = bulletPool;
 
-		EnemyAI5 enemyAI2 = enemy2.GetComponent<EnemyAI5> ();
-		enemyAI2.direction = EnemyAI5.TankDir.Left;
+		EnemyAITank enemyAI2 = enemy2.GetComponent<EnemyAITank> ();
+		enemyAI2.direction = EnemyAITank.TankDir.Left;
 		
 		enemy2 = Instantiate (enemy2);
 
@@ -43,8 +43,8 @@ public class EnemySpawn21 : EnemySpawner {
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
 		enemyBehavior3.bulletPool = bulletPool;
 
-		EnemyAI5 enemyAI3 = enemy3.GetComponent<EnemyAI5> ();
-		enemyAI3.direction = EnemyAI5.TankDir.Left;
+		EnemyAITank enemyAI3 = enemy3.GetComponent<EnemyAITank> ();
+		enemyAI3.direction = EnemyAITank.TankDir.Left;
 		
 		enemy3 = Instantiate (enemy3);
 

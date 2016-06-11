@@ -9,14 +9,14 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_G");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/BossEnemies/Enemy_MiniBoss1");
 		enemy1.transform.position = new Vector3(9.0f, 0f,0f);
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior1.bulletPool = bulletPool;
 		enemyBehavior1.LeftWallException = false;
 		
-		EnemyAI7 enemyAI1 = enemy1.GetComponent<EnemyAI7> ();
+		EnemyAIMiniBoss1 enemyAI1 = enemy1.GetComponent<EnemyAIMiniBoss1> ();
 		enemyAI1.bulletSpeed = 3.5f;
 		enemyAI1.shotTime = 0.5f;
 		enemyAI1.health = 40;

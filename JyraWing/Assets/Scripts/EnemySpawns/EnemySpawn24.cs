@@ -12,12 +12,12 @@ public class EnemySpawn24 : EnemySpawner {
 
 		//Top ship
 		{
-			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/Enemy_F");
+			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 			shipEnemy.transform.position = new Vector3 (11.0f, 2.5f, 0f);
 			shipEnemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
-			EnemyAI6 ai = shipEnemy.GetComponent<EnemyAI6> ();
+			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
 			ai.angle = 180f;
 			ai.speed = 2.0f;
 			ai.lifeTime = 7.0f;
@@ -31,12 +31,12 @@ public class EnemySpawn24 : EnemySpawner {
 
 		//bottom ship enemy
 		{
-			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/Enemy_F");
+			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 			shipEnemy.transform.position = new Vector3 (11.0f, -2.5f, 0f);
 			shipEnemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
-			EnemyAI6 ai = shipEnemy.GetComponent<EnemyAI6> ();
+			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
 			ai.angle = 180f;
 			ai.speed = 2.0f;
 			ai.lifeTime = 7.0f;
@@ -50,15 +50,14 @@ public class EnemySpawn24 : EnemySpawner {
 
 		//Center water turret
 		{
-			GameObject waterTurretEnemy = (GameObject)Resources.Load ("Enemies/Enemy_J");
+			GameObject waterTurretEnemy = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
 			waterTurretEnemy.transform.position = new Vector3 (8.0f, 0.0f, 0f);
 		
 			waterTurretEnemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			waterTurretEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			waterTurretEnemy.GetComponent<EnemyBehavior> ().LeftWallException = false;
 		
-			waterTurretEnemy.GetComponent<EnemyAI10> ().Health = TurretHealth;
-			waterTurretEnemy.GetComponent<EnemyAI10> ().fireDirection = EnemyAI10.FireDirection.LEFT;
+			waterTurretEnemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = EnemyAIWaterTurret.FireDirection.LEFT;
 			waterTurretEnemy = Instantiate (waterTurretEnemy);
 		}
 

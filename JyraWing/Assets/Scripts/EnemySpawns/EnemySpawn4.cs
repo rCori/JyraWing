@@ -10,7 +10,7 @@ public class EnemySpawn4 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 	
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy1.transform.position = new Vector3 (spawnPos.x,
 	                                        	 spawnPos.y,
 	                                       		 spawnPos.z);

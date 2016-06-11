@@ -10,7 +10,7 @@ public class Boss2Spawn1 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 		EnemyBulletPool shieldableBulletPool = GameObject.Find("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool>();
 
-		GameObject bossBase = (GameObject) Resources.Load ("Enemies/Enemy_Boss2");
+		GameObject bossBase = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss2");
 		bossBase.transform.position = new Vector3(spawnPos.x - 2f,
 			spawnPos.y,
 			spawnPos.z);

@@ -28,7 +28,7 @@ public class EnemySpawn25 : EnemySpawner {
 
 
 		//Ship coming through from the top
-		GameObject topShip = (GameObject) Resources.Load("Enemies/Enemy_F");
+		GameObject topShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		topShip.transform.position = new Vector3 (6.0f, 3.0f,0.0f);
 
 		topShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
@@ -36,7 +36,7 @@ public class EnemySpawn25 : EnemySpawner {
 
 		topShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		topShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-		EnemyAI6 topShipAI = topShip.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc topShipAI = topShip.GetComponent<EnemyAIShipArc> ();
 		topShipAI.angle = 180f;
 		topShipAI.speed = 2.5f;
 		topShipAI.fireRate = 1.6f;
@@ -49,7 +49,7 @@ public class EnemySpawn25 : EnemySpawner {
 
 
 		//Ship coming through from the bottom
-		GameObject bottomShip = (GameObject) Resources.Load("Enemies/Enemy_F");
+		GameObject bottomShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		bottomShip.transform.position = new Vector3 (6.0f, -3.0f,0.0f);
 
 		bottomShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
@@ -57,7 +57,7 @@ public class EnemySpawn25 : EnemySpawner {
 
 		bottomShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		bottomShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-		EnemyAI6 bottomShipAI = bottomShip.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc bottomShipAI = bottomShip.GetComponent<EnemyAIShipArc> ();
 		bottomShipAI.angle = 180f;
 		bottomShipAI.speed = 2.5f;
 		bottomShipAI.fireRate = 1.2f;

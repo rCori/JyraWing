@@ -9,13 +9,13 @@ public class BossSpawn1 : EnemySpawner {
 
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_Boss");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss");
 		enemy1.transform.position = new Vector3(spawnPos.x + 4f,
 			                                    spawnPos.y,
 			                                    spawnPos.z);
 
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		EnemyBoss boss = enemy1.GetComponent<EnemyBoss> ();
+		EnemyBoss1 boss = enemy1.GetComponent<EnemyBoss1> ();
 		boss.hits = 25;
 		Instantiate (enemy1);
 	}

@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 421352}
   - 212: {fileID: 21246128}
+  - 114: {fileID: 11487210}
   - 95: {fileID: 9506680}
   - 61: {fileID: 6159212}
   - 50: {fileID: 5035964}
-  - 114: {fileID: 11487210}
   m_Layer: 0
   m_Name: Enemy_ReflectBulletSprayerArc
   m_TagString: Untagged

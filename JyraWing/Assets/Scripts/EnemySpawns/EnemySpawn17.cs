@@ -71,8 +71,8 @@ public class EnemySpawn17 : EnemySpawner {
 		EnemyBehavior enemyBehavior6 = enemy6.GetComponent<EnemyBehavior> ();
 		enemyBehavior6.bulletPool = bulletPool;
 		
-		EnemyAI5 enemyAI6 = enemy6.GetComponent<EnemyAI5> ();
-		enemyAI6.direction = EnemyAI5.TankDir.Left;
+		EnemyAITank enemyAI6 = enemy6.GetComponent<EnemyAITank> ();
+		enemyAI6.direction = EnemyAITank.TankDir.Left;
 
 		enemy6 = Instantiate (enemy6);
 		//Set the tanks health to 3
@@ -102,12 +102,12 @@ public class EnemySpawn17 : EnemySpawner {
 
 
 		//Ship going right
-		GameObject enemy7 = (GameObject) Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy7.transform.position = new Vector2(-15.0f, -1.5f);
 		
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai7 = enemy7.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai7 = enemy7.GetComponent<EnemyAIShipArc> ();
 		ai7.angle = 0.0f;
 		ai7.speed = 3.0f;
 		ai7.lifeTime = 15f;
@@ -119,12 +119,12 @@ public class EnemySpawn17 : EnemySpawner {
 
 
 		//Ship going left
-		GameObject enemy8 = (GameObject) Resources.Load ("Enemies/Enemy_F");
+		GameObject enemy8 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 		enemy8.transform.position = new Vector2(28.0f, 1.5f);
 		
 		enemy8.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAI6 ai8 = enemy8.GetComponent<EnemyAI6> ();
+		EnemyAIShipArc ai8 = enemy8.GetComponent<EnemyAIShipArc> ();
 		ai8.angle = 180.0f;
 		ai8.speed = 2.0f;
 		ai8.lifeTime = 12f;

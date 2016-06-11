@@ -11,7 +11,7 @@ public class EnemySpawn20 : EnemySpawner {
 
 
 
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/Enemy_B");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_B");
 		enemy2.transform.position = new Vector3(20.0f, -1.5f,0f);
 
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
@@ -23,7 +23,7 @@ public class EnemySpawn20 : EnemySpawner {
 
 
 
-		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/Enemy_B");
+		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_B");
 		enemy3.transform.position = new Vector3(21.0f, -0.5f,0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
@@ -35,7 +35,7 @@ public class EnemySpawn20 : EnemySpawner {
 
 
 
-		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/Enemy_B");
+		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_B");
 		enemy4.transform.position = new Vector3(22.0f, 0.5f,0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();

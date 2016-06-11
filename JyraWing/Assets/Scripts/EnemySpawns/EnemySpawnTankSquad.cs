@@ -32,8 +32,8 @@ public class EnemySpawnTankSquad : EnemySpawner {
 				enemy1.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
 				enemy1.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;
 
-				EnemyAI5 ai1 = enemy1.GetComponent<EnemyAI5> ();
-				ai1.direction = EnemyAI5.TankDir.Left;
+				EnemyAITank ai1 = enemy1.GetComponent<EnemyAITank> ();
+				ai1.direction = EnemyAITank.TankDir.Left;
 				enemy1 = Instantiate (enemy1);
 				enemy1.GetComponent<EnemyBehavior>().shieldableBullets = shieldableBullets;
 			}

@@ -29,14 +29,14 @@ public class EnemySpawnShipSquad : EnemySpawner {
 				EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 				//Middle row
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/Enemy_F");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
 				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 				enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 				enemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
 				enemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-				EnemyAI6 ai1 = enemy.GetComponent<EnemyAI6> ();
+				EnemyAIBasicShip ai1 = enemy.GetComponent<EnemyAIBasicShip> ();
 				ai1.angle = 180;
 				ai1.speed = speed;
 				ai1.lifeTime = lifeTime + i*speed;

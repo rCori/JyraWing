@@ -38,7 +38,7 @@ public class EnemySpawn26 : EnemySpawner {
 
 		if (ships) {
 			//Ship coming through from the top
-			GameObject topShip = (GameObject) Resources.Load("Enemies/Enemy_F");
+			GameObject topShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 			topShip.transform.position = new Vector3 (6.0f, 3.0f,0.0f);
 
 			topShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
@@ -46,7 +46,7 @@ public class EnemySpawn26 : EnemySpawner {
 
 			topShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 			topShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-			EnemyAI6 topShipAI = topShip.GetComponent<EnemyAI6> ();
+			EnemyAIShipArc topShipAI = topShip.GetComponent<EnemyAIShipArc> ();
 			topShipAI.angle = 180f;
 			topShipAI.speed = 2.5f;
 			topShipAI.fireRate = 1.6f;
@@ -57,7 +57,7 @@ public class EnemySpawn26 : EnemySpawner {
 			topShip = Instantiate (topShip);
 
 			//Ship coming through from the top
-			GameObject bottomShip = (GameObject) Resources.Load("Enemies/Enemy_F");
+			GameObject bottomShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 			bottomShip.transform.position = new Vector3 (6.0f, -3.0f,0.0f);
 
 			bottomShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
@@ -65,7 +65,7 @@ public class EnemySpawn26 : EnemySpawner {
 
 			bottomShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 			bottomShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-			EnemyAI6 bottomShipAI = topShip.GetComponent<EnemyAI6> ();
+			EnemyAIShipArc bottomShipAI = topShip.GetComponent<EnemyAIShipArc> ();
 			bottomShipAI.angle = 180f;
 			bottomShipAI.speed = 2.5f;
 			bottomShipAI.fireRate = 1.6f;
@@ -84,8 +84,8 @@ public class EnemySpawn26 : EnemySpawner {
 			EnemyBehavior topTankBehavior = topTank.GetComponent<EnemyBehavior> ();
 			topTankBehavior.bulletPool = bulletPool;
 
-			EnemyAI5 topTankAI = topTank.GetComponent<EnemyAI5> ();
-			topTankAI.direction = EnemyAI5.TankDir.Left;
+			EnemyAITank topTankAI = topTank.GetComponent<EnemyAITank> ();
+			topTankAI.direction = EnemyAITank.TankDir.Left;
 
 			topTank = Instantiate (topTank);
 
@@ -98,8 +98,8 @@ public class EnemySpawn26 : EnemySpawner {
 			EnemyBehavior bottomTankBehavior = topTank.GetComponent<EnemyBehavior> ();
 			bottomTankBehavior.bulletPool = bulletPool;
 
-			EnemyAI5 bottomTankAI = topTank.GetComponent<EnemyAI5> ();
-			bottomTankAI.direction = EnemyAI5.TankDir.Left;
+			EnemyAITank bottomTankAI = topTank.GetComponent<EnemyAITank> ();
+			bottomTankAI.direction = EnemyAITank.TankDir.Left;
 
 			bottomTank = Instantiate (bottomTank);
 		}
