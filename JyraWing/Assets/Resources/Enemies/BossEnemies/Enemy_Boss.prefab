@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.241566, y: 0, z: 0}
+  m_LocalPosition: {x: 10.581566, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  hits: 0
+  hits: 25
 --- !u!212 &21214268
 SpriteRenderer:
   m_ObjectHideFlags: 1

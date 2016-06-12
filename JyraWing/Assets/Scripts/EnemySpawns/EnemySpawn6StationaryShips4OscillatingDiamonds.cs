@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn18 : EnemySpawner {
-
-	public int diamondHealth;
-	public int shipHealth;
+public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 
 	public override void Spawn ()
 	{
@@ -12,7 +9,7 @@ public class EnemySpawn18 : EnemySpawner {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//first diamond
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy1.transform.position = new Vector3(4.0f, -4.5f,0f);
 		
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -26,11 +23,10 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI1.time = 1.5f;
 		enemyAI1.repeat = true;
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 		//second diamond
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy2.transform.position = new Vector3(8.0f, 4.5f,0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
@@ -44,12 +40,11 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI2.time = 1.5f;
 		enemyAI2.repeat = true;
 		enemy2 = Instantiate (enemy2);
-		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 	
 		//third diamond
-		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy3.transform.position = new Vector3(12.0f, -4.5f,0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
@@ -63,12 +58,11 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI3.time = 1.5f;
 		enemyAI3.repeat = true;
 		enemy3 = Instantiate (enemy3);
-		enemy3.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 
 		//fourth diamond
-		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy4.transform.position = new Vector3(16.0f, 4.5f,0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
@@ -82,7 +76,6 @@ public class EnemySpawn18 : EnemySpawner {
 		enemyAI4.time = 1.5f;
 		enemyAI4.repeat = true;
 		enemy4 = Instantiate (enemy4);
-		enemy4.GetComponent<EnemyBehavior> ().SetEnemyHealth (diamondHealth);
 
 
 
@@ -98,7 +91,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai5.lifeTime = 20.0f;
 		ai5.fireRate = 2.5f;
 		ai5.bulletSpeed = 6f;
-		ai5.hits = shipHealth;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 		enemy5.GetComponent<EnemyBehavior> ().shieldableBullets = true;
@@ -115,7 +107,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai6.lifeTime = 20.0f;
 		ai6.fireRate = 2.5f;
 		ai6.bulletSpeed = 6f;
-		ai6.hits = shipHealth;
 		enemy6.GetComponent<Scroll> ().speed = 0;
 		enemy6 = Instantiate (enemy6);
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = true;
@@ -133,7 +124,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai7.lifeTime = 20.0f;
 		ai7.fireRate = 2.5f;
 		ai7.bulletSpeed = 6f;
-		ai7.hits = shipHealth;
 		enemy7.GetComponent<Scroll> ().speed = 0;
 		enemy7 = Instantiate (enemy7);
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBullets = false;
@@ -151,7 +141,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai8.lifeTime = 20.0f;
 		ai8.fireRate = 2.5f;
 		ai8.bulletSpeed = 6f;
-		ai8.hits = shipHealth;
 		enemy8.GetComponent<Scroll> ().speed = 0;
 		enemy8 = Instantiate (enemy8);
 		enemy8.GetComponent<EnemyBehavior> ().shieldableBullets = false;
@@ -169,7 +158,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai9.lifeTime = 20.0f;
 		ai9.fireRate = 2.5f;
 		ai9.bulletSpeed = 6f;
-		ai9.hits = shipHealth;
 		enemy9.GetComponent<Scroll> ().speed = 0;
 		enemy9 = Instantiate (enemy9);
 		enemy9.GetComponent<EnemyBehavior> ().shieldableBullets = false;
@@ -187,7 +175,6 @@ public class EnemySpawn18 : EnemySpawner {
 		ai10.lifeTime = 20.0f;
 		ai10.fireRate = 2.5f;
 		ai10.bulletSpeed = 6f;
-		ai10.hits = shipHealth;
 		enemy10.GetComponent<Scroll> ().speed = 0;
 		enemy10 = Instantiate (enemy10);
 		enemy10.GetComponent<EnemyBehavior> ().shieldableBullets = false;

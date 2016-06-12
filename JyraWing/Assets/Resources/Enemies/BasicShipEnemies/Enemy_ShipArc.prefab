@@ -95,7 +95,7 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 1
-  shieldableBullets: 1
+  shieldableBullets: 0
   MoveInstructionList: []
   angle: 180
   shieldableAngleAdjustment: 15
@@ -103,7 +103,7 @@ MonoBehaviour:
   lifeTime: 7
   fireRate: 2.5
   bulletSpeed: 6
-  hits: 3
+  hits: 1
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1

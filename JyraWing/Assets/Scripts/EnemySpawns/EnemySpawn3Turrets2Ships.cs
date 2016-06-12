@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn24 : EnemySpawner {
+public class EnemySpawn3Turrets2Ships : EnemySpawner {
 
-	public int ShipHealth = 3;
-	public int TurretHealth = 3;
 
 	public override void Spawn(){
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -23,7 +21,6 @@ public class EnemySpawn24 : EnemySpawner {
 			ai.lifeTime = 7.0f;
 			ai.fireRate = 2.5f;
 			ai.bulletSpeed = 6f;
-			ai.hits = ShipHealth;
 			shipEnemy.GetComponent<Scroll> ().speed = 0;
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
@@ -42,7 +39,6 @@ public class EnemySpawn24 : EnemySpawner {
 			ai.lifeTime = 7.0f;
 			ai.fireRate = 2.5f;
 			ai.bulletSpeed = 6f;
-			ai.hits = ShipHealth;
 			shipEnemy.GetComponent<Scroll> ().speed = 0;
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = true;

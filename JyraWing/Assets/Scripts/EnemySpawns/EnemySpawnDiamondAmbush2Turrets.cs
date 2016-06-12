@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn16 : EnemySpawner {
+public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Top diamond enemy
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy1.transform.position = new Vector3 (-7.0f, 3.5f, 0f);
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -23,7 +23,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//Bottom diamond enemy
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy2.transform.position = new Vector3 (-7.0f, -3.5f, 0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
@@ -38,7 +38,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//bottom left diamond enemy
-		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy3 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy3.transform.position = new Vector3 (-2.0f, -4.0f, 0f);
 		
 		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
@@ -53,7 +53,7 @@ public class EnemySpawn16 : EnemySpawner {
 		
 		
 		//bottom right diamond enemy
-		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy4 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy3.transform.position = new Vector3 (2.0f, -4.0f, 0f);
 		
 		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
@@ -68,7 +68,7 @@ public class EnemySpawn16 : EnemySpawner {
 
 
 		//middle diamond enemy
-		GameObject enemy5 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy5 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy5.transform.position = new Vector3 (-7.0f, 0f, 0f);
 		
 		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();

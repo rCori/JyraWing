@@ -34,6 +34,8 @@ public class EnemyAIShipArc : EnemyBehavior {
 	private Vector2 leftDir;
 	private Vector2 rightDir;
 
+	private int SHIP_HEALTH = 3;
+
 	void Awake(){
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
@@ -68,8 +70,8 @@ public class EnemyAIShipArc : EnemyBehavior {
 		yVel = Mathf.Sin (radians);
 		rightDir = new Vector2 (xVel, yVel);
 
-
 		StartNewVelocity(direction * speed, lifeTime);
+		SetEnemyHealth (SHIP_HEALTH);
 
 	}
 

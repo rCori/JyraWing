@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454552}
   - 212: {fileID: 21279602}
-  - 114: {fileID: 11430608}
+  - 114: {fileID: 11496190}
   - 114: {fileID: 11428432}
   - 95: {fileID: 9549262}
   - 50: {fileID: 5049476}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14, y: 1, z: 0}
+  m_LocalPosition: {x: 27.5, y: 1.5, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &11430608
+--- !u!114 &11496190
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,16 +101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 185572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505897a38d0b6754d81f0f1250fa33b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 35dc9b9c11484d54fb172d3de073ef4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  direction: {x: 0, y: 0}
-  time: 0
-  repeat: 0
 --- !u!212 &21279602
 SpriteRenderer:
   m_ObjectHideFlags: 1

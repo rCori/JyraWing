@@ -29,7 +29,7 @@ public class EnemySpawnShipSquad : EnemySpawner {
 				EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
 				//Middle row
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_BasicEnemyShip");
 				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
 				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;

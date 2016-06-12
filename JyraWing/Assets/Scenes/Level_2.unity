@@ -889,7 +889,7 @@ GameObject:
   - 114: {fileID: 370078306}
   - 114: {fileID: 370078304}
   m_Layer: 0
-  m_Name: EnemySpawn18_0
+  m_Name: EnemySpawn6StationaryShips4OscillatingDiamonds_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 370078302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44466f7c467d6f40b0b538006fb3673, type: 3}
+  m_Script: {fileID: 11500000, guid: c414ea23f6aa450498863d82a8d3f886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   diamondHealth: 2
@@ -1048,62 +1048,6 @@ MonoBehaviour:
   bulletSpeed: 2.5
   shieldableBullets: 1
   shootInDirection: 0
---- !u!1 &629401996
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 629402000}
-  - 114: {fileID: 629401999}
-  - 114: {fileID: 629401997}
-  m_Layer: 0
-  m_Name: EnemySpawn11_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &629401997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 629401996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &629401999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 629401996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4cc0df61e2f97142a5dd42e88e910b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  top: 1
-  bottom: 1
-  turretHealth: 3
-  shieldableBullets: 1
---- !u!4 &629402000
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 629401996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2099354107}
-  m_RootOrder: 0
 --- !u!1 &668638357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1114,7 @@ GameObject:
   - 114: {fileID: 889059076}
   - 114: {fileID: 889059074}
   m_Layer: 0
-  m_Name: EnemySpawn24_0
+  m_Name: EnemySpawn3Turrets2Ships_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1208,11 +1152,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 889059072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6135cd0d7a09141ad27a4efba05c40, type: 3}
+  m_Script: {fileID: 11500000, guid: c4a86ff3309315642b6a3c5e39999011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShipHealth: 3
-  TurretHealth: 3
 --- !u!1 &902334241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1567,7 @@ GameObject:
   - 114: {fileID: 994088363}
   - 114: {fileID: 994088361}
   m_Layer: 0
-  m_Name: EnemySpawn22_0
+  m_Name: EnemySpawnTwoWaterTurrets_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1663,7 +1605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 994088359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f7118c72f39f54ca512bd8884a37c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b1a983d78ab4d24d92061ba895932a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 3
@@ -1782,7 +1724,7 @@ GameObject:
   - 114: {fileID: 1079002265}
   - 114: {fileID: 1079002264}
   m_Layer: 0
-  m_Name: EnemySpawn3_0
+  m_Name: EnemySpawn2DiamondsSwipe_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1808,7 +1750,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1079002262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7d1daf09957ec40a89b6fbd5fb9488, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f41200d8ed0ec24e884c87b8d2ca9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1079002265
@@ -1927,6 +1869,62 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1168760168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1168760171}
+  - 114: {fileID: 1168760170}
+  - 114: {fileID: 1168760169}
+  m_Layer: 0
+  m_Name: EnemySpawnTopBottomTurrets_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1168760169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168760168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &1168760170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168760168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  top: 1
+  bottom: 1
+  turretHealth: 3
+  shieldableBullets: 1
+--- !u!4 &1168760171
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168760168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 0
 --- !u!1 &1181520347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1936,7 @@ GameObject:
   - 114: {fileID: 1181520350}
   - 114: {fileID: 1181520348}
   m_Layer: 0
-  m_Name: EnemySpawn23_0
+  m_Name: EnemySpawnDiamondSpecialEncounterArcCrossover_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1964,11 +1962,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181520347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00d0e01cbdd49e4fbbd5941a7cbe208, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b01a07d0d728b4c8ccb7f43ccc665d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 3
-  vertShift: 9
+  vertShift: 5
   oscillation: -1.5
 --- !u!4 &1181520351
 Transform:
@@ -2364,7 +2362,7 @@ GameObject:
   - 114: {fileID: 1553124322}
   - 114: {fileID: 1553124325}
   m_Layer: 0
-  m_Name: EnemySpawn16_0
+  m_Name: EnemySpawnDiamondAmbush2Turrets_0
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2402,7 +2400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553124320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0640a4086a1fd8d44ae9a3b40d13d003, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b20b3af80a69ec4686507b780c3eb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1639672202
@@ -2881,7 +2879,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 629402000}
+  - {fileID: 1168760171}
   - {fileID: 1639672203}
   - {fileID: 994088360}
   - {fileID: 370078303}

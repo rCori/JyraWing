@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn1 : EnemySpawner {
+public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 
 	public float VerticalShift;
 

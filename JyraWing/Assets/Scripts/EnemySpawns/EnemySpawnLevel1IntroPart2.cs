@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn12 : EnemySpawner {
-
+public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 
 	public int turretHealth;
 	public int shipHealth;

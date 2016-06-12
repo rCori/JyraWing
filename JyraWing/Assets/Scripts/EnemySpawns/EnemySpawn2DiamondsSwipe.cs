@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn3 : EnemySpawner {
+public class EnemySpawn2DiamondsSwipe : EnemySpawner {
 
 	public override void Spawn ()
 	{

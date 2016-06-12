@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn11 : EnemySpawner {
+public class EnemySpawnTopBottomTurrets : EnemySpawner {
 
 	public bool top;
 	public bool bottom;

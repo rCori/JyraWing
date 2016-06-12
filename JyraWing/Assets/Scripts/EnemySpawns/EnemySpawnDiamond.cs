@@ -17,7 +17,7 @@ public class EnemySpawnDiamond: EnemySpawner {
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy1.transform.position = enemyPosition;
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();

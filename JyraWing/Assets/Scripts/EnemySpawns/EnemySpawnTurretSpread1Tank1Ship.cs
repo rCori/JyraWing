@@ -1,11 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn17 : EnemySpawner {
-
-	public int turretHealth;
-
-	public bool turretDropsBullet;
+public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 	public override void Spawn ()
 	{
@@ -78,61 +74,42 @@ public class EnemySpawn17 : EnemySpawner {
 		//Set the tanks health to 3
 
 
-		//Turrets will drop a bullet powerup
-		if (turretDropsBullet) {
-			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-			GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+//		//Turrets will drop a bullet powerup
+//		if (turretDropsBullet) {
+//			//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+//			GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+//
+//			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+//			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+//
+//			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
+//
+//			group.AddToSquad(enemy1);
+//			group.AddToSquad(enemy2);
+//			group.AddToSquad(enemy3);
+//			group.AddToSquad(enemy4);
+//			group.AddToSquad(enemy5);
+//
+//			//controller.AddSquad(group);
+//			controller.AddSquad(group);
+//
+//		}
 
-			//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-			PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
 
-			group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
-
-			group.AddToSquad(enemy1);
-			group.AddToSquad(enemy2);
-			group.AddToSquad(enemy3);
-			group.AddToSquad(enemy4);
-			group.AddToSquad(enemy5);
-
-			//controller.AddSquad(group);
-			controller.AddSquad(group);
-
-		}
-
-
-
-		//Ship going right
 		GameObject enemy7 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-		enemy7.transform.position = new Vector2(-15.0f, -1.5f);
+		enemy7.transform.position = new Vector2(28.0f, 1.5f);
 		
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai7 = enemy7.GetComponent<EnemyAIShipArc> ();
-		ai7.angle = 0.0f;
-		ai7.speed = 3.0f;
-		ai7.lifeTime = 15f;
+		ai7.angle = 180.0f;
+		ai7.speed = 2.0f;
+		ai7.lifeTime = 12f;
 		ai7.fireRate = 0.7f;
 		ai7.bulletSpeed = 4f;
 		ai7.hits = 1;
 		enemy7.GetComponent<Scroll> ().speed = 1;
 		enemy7 = Instantiate (enemy7);
-
-
-		//Ship going left
-		GameObject enemy8 = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-		enemy8.transform.position = new Vector2(28.0f, 1.5f);
-		
-		enemy8.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAIShipArc ai8 = enemy8.GetComponent<EnemyAIShipArc> ();
-		ai8.angle = 180.0f;
-		ai8.speed = 2.0f;
-		ai8.lifeTime = 12f;
-		ai8.fireRate = 0.7f;
-		ai8.bulletSpeed = 4f;
-		ai8.hits = 1;
-		enemy8.GetComponent<Scroll> ().speed = 1;
-		enemy8 = Instantiate (enemy8);
 	}
 
 }

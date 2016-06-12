@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn13 : EnemySpawner {
-
-	public int turretHealth;
+public class EnemySpawnLevel1Intro : EnemySpawner {
 
 	public bool shieldableBullets;
 
@@ -63,23 +61,23 @@ public class EnemySpawn13 : EnemySpawner {
 		enemy7 = Instantiate (enemy7);
 
 
-		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
-
-		//hardcoding groupID, in the future I cannot do that.
-		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-
-		group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
-			
-		group.AddToSquad (enemy1);
-		group.AddToSquad (enemy2);
-		group.AddToSquad (enemy3);
-		group.AddToSquad (enemy4);
-		group.AddToSquad (enemy5);
-			
-		//controller.AddSquad (group);
-		controller.AddSquad (group);
+//		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
+//		GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
+//
+//		//hardcoding groupID, in the future I cannot do that.
+//		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+//		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
+//
+//		group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
+//			
+//		group.AddToSquad (enemy1);
+//		group.AddToSquad (enemy2);
+//		group.AddToSquad (enemy3);
+//		group.AddToSquad (enemy4);
+//		group.AddToSquad (enemy5);
+//			
+//		//controller.AddSquad (group);
+//		controller.AddSquad (group);
 		
 	}
 }

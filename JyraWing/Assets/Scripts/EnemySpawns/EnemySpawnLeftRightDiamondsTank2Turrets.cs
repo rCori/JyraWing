@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn14 : EnemySpawner {
+public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 
 
 	public int turretHealth;
@@ -11,7 +11,7 @@ public class EnemySpawn14 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		//Top diamond enemy
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy1.transform.position = new Vector3(-7.0f, 2f,0f);
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -26,7 +26,7 @@ public class EnemySpawn14 : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
 
 		//Bottom diamond enemy
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy2.transform.position = new Vector3(-7.0f, -2f,0f);
 		
 		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();

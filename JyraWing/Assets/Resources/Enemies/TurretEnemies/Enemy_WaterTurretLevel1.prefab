@@ -108,8 +108,8 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  FireRate: 0.5
-  BulletSpeed: 2
+  FireRate: 0.8
+  BulletSpeed: 1.5
   fireDirection: 0
   WATER_TURRET_HEALTH: 2
 --- !u!212 &21271948

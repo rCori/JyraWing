@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemySpawn22 : EnemySpawner {
+public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
 	public int EnemyHealth = 3;
 	public float EnemyFireRate = 0.5f;

@@ -11,8 +11,6 @@ public class EnemySpawnTankSquad : EnemySpawner {
 	public float yShift;
 
 	public bool shieldableBullets = false;
-	public int tankHealth;
-
 
 	public override void Spawn ()
 	{
@@ -23,10 +21,10 @@ public class EnemySpawnTankSquad : EnemySpawner {
 		float yOffset = -columns / 2f + yShift;
 		float xOffset = 8.0f;
 
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
+		for (int i = 0; i < columns; i++) {
+			for (int j = 0; j < rows; j++) {
 				GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
-				enemy1.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
+				enemy1.transform.position = new Vector2 (xOffset + i*columnSpacing, yOffset + j*rowSpacing);
 
 				//EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
 				enemy1.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
