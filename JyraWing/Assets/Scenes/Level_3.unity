@@ -373,7 +373,7 @@ GameObject:
   - 114: {fileID: 391330829}
   - 114: {fileID: 391330827}
   m_Layer: 0
-  m_Name: EnemySpawn15_0
+  m_Name: EnemySpawnTankSquad_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -399,9 +399,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 391330825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb8eb3c7d6232394a8939c4240026953, type: 3}
+  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rows: 2
+  columns: 2
+  rowSpacing: 2
+  columnSpacing: 2
+  yShift: 0
+  shieldableBullets: 0
 --- !u!114 &391330829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,17 +910,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 670778669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b16ed448092795418a8939e8538c5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 6, y: 3}
-  Health: 5
-  locations:
-  - {x: -6, y: 3}
-  times:
-  - 3
-  fireRate: 1.5
-  bulletSpeed: 4
+  enemyPosition: {x: 6, y: 5}
+  moveInstructionList:
+  - type: 4
+    startVelocity: {x: 0, y: -3}
+    endVelocities: {x: -3, y: 0}
+    time: 2
+  - type: 3
+    startVelocity: {x: -3, y: 0}
+    endVelocities: {x: 0, y: 0}
+    time: 6
 --- !u!114 &670778673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,7 +1260,7 @@ GameObject:
   - 114: {fileID: 767840492}
   - 114: {fileID: 767840490}
   m_Layer: 0
-  m_Name: EnemySpawnShip12_0
+  m_Name: EnemySpawnLevel1IntroPart2_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1278,11 +1286,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 767840488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63a98a59f39ceb4392791e829050f2a, type: 3}
+  m_Script: {fileID: 11500000, guid: b8dca81e5ee2ff542b440252d63f359c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHealth: 2
-  shipHealth: 2
+  turretHealth: 0
+  shipHealth: 0
 --- !u!114 &767840492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,7 +1314,7 @@ GameObject:
   - 114: {fileID: 796022012}
   - 114: {fileID: 796022011}
   m_Layer: 0
-  m_Name: EnemySpawn16_0
+  m_Name: EnemySpawnDiamondAmbush2Turrets_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 796022009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0640a4086a1fd8d44ae9a3b40d13d003, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b20b3af80a69ec4686507b780c3eb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &934172109
@@ -1358,7 +1366,7 @@ GameObject:
   - 114: {fileID: 934172113}
   - 114: {fileID: 934172111}
   m_Layer: 0
-  m_Name: EnemySpawn11_0
+  m_Name: EnemySpawnTopBottomTurrets_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1384,12 +1392,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 934172109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4cc0df61e2f97142a5dd42e88e910b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   top: 1
-  bottom: 0
-  turretHealth: 2
+  bottom: 1
   shieldableBullets: 0
 --- !u!114 &934172113
 MonoBehaviour:
@@ -1525,7 +1532,7 @@ GameObject:
   - 114: {fileID: 1071769495}
   - 114: {fileID: 1071769493}
   m_Layer: 0
-  m_Name: EnemySpawn26_0
+  m_Name: EnemySpawnCornerSprayer2Tanks_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1551,7 +1558,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1071769491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5430f92dce19741bb4255b6edac639, type: 3}
+  m_Script: {fileID: 11500000, guid: 2844526c0b8f53642988b318b4f760e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   swapSprayerSide: 0
@@ -1667,7 +1674,7 @@ GameObject:
   - 114: {fileID: 1080141706}
   - 114: {fileID: 1080141704}
   m_Layer: 0
-  m_Name: EnemySpawnShip20_0
+  m_Name: EnemySpawnDiamondScatteredArray_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1693,10 +1700,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1080141702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b00f2e5565c2b24796d28b99a830f53, type: 3}
+  m_Script: {fileID: 11500000, guid: 55ae40506e6134d48a5acba1d4cb1283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondHealth: 2
 --- !u!114 &1080141706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1726,7 @@ GameObject:
   - 114: {fileID: 1100377882}
   - 114: {fileID: 1100377880}
   m_Layer: 0
-  m_Name: EnemySpawn17_0
+  m_Name: EnemySpawnTurretSpread1Tank1Ship_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1746,11 +1752,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100377878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eeef1579e713ae40a540628332657bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f4847c6a87ed0b448b6a1fb3c31361e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretHealth: 2
-  turretDropsBullet: 1
 --- !u!114 &1100377882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,17 +2134,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243096856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b16ed448092795418a8939e8538c5bf, type: 3}
+  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 6, y: -3}
-  Health: 5
-  locations:
-  - {x: -6, y: -3}
-  times:
-  - 3
-  fireRate: 1.5
-  bulletSpeed: 4
+  enemyPosition: {x: 6, y: -5}
+  moveInstructionList:
+  - type: 4
+    startVelocity: {x: 0, y: 3}
+    endVelocities: {x: -3, y: 0}
+    time: 2
+  - type: 3
+    startVelocity: {x: -3, y: 0}
+    endVelocities: {x: 0, y: 0}
+    time: 6
 --- !u!114 &1243096860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,7 +2170,7 @@ GameObject:
   - 114: {fileID: 1243819213}
   - 114: {fileID: 1243819211}
   m_Layer: 0
-  m_Name: EnemySpawn26_1
+  m_Name: EnemySpawnCornerSprayer2Tanks_1
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2190,11 +2196,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243819209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5430f92dce19741bb4255b6edac639, type: 3}
+  m_Script: {fileID: 11500000, guid: 2844526c0b8f53642988b318b4f760e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swapSprayerSide: 1
-  ships: 1
+  swapSprayerSide: 0
+  ships: 0
 --- !u!114 &1243819213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2540,7 +2546,7 @@ GameObject:
   - 114: {fileID: 1497373486}
   - 114: {fileID: 1497373484}
   m_Layer: 0
-  m_Name: EnemySpawn23_0
+  m_Name: EnemySpawnDiamondSpecialEncounterArcCrossover_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2566,12 +2572,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1497373482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00d0e01cbdd49e4fbbd5941a7cbe208, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b01a07d0d728b4c8ccb7f43ccc665d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 1
-  vertShift: 0
-  oscillation: -0.5
+  EnemyHealth: 3
+  vertShift: 5
+  oscillation: -1.5
 --- !u!114 &1497373486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2804,7 +2810,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGMAXSPEEDLEVEL
@@ -2838,7 +2844,7 @@ GameObject:
   - 114: {fileID: 1581295251}
   - 114: {fileID: 1581295249}
   m_Layer: 0
-  m_Name: EnemySpawn25_0
+  m_Name: EnemySpawnMiddleSprayerTopBottomShip_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2864,7 +2870,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581295247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ee87f5b9182cd429d4d804589fe8bb, type: 3}
+  m_Script: {fileID: 11500000, guid: aac547b9efe74fc44a13336809b1d2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1581295251
@@ -2964,7 +2970,7 @@ GameObject:
   - 114: {fileID: 1630861191}
   - 114: {fileID: 1630861189}
   m_Layer: 0
-  m_Name: EnemySpawn11_1
+  m_Name: EnemySpawnTopBottomTurrets_1
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2990,13 +2996,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630861187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4cc0df61e2f97142a5dd42e88e910b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   top: 1
   bottom: 1
-  turretHealth: 2
-  shieldableBullets: 1
+  shieldableBullets: 0
 --- !u!114 &1630861191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3395,7 +3400,7 @@ GameObject:
   - 114: {fileID: 1919485178}
   - 114: {fileID: 1919485176}
   m_Layer: 0
-  m_Name: EnemySpawn22_0
+  m_Name: EnemySpawnTwoWaterTurrets_0
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3421,12 +3426,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919485174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f7118c72f39f54ca512bd8884a37c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b1a983d78ab4d24d92061ba895932a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 1
-  EnemyFireRate: 0.7
-  EnemyBulletSpeed: 2.2
+  EnemyHealth: 3
+  EnemyFireRate: 0.5
+  EnemyBulletSpeed: 2
 --- !u!114 &1919485178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3450,7 +3455,7 @@ GameObject:
   - 114: {fileID: 1928460388}
   - 114: {fileID: 1928460386}
   m_Layer: 0
-  m_Name: EnemySpawn23_1
+  m_Name: EnemySpawnDiamondSpecialEncounterArcCrossover_1
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3476,12 +3481,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1928460384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00d0e01cbdd49e4fbbd5941a7cbe208, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b01a07d0d728b4c8ccb7f43ccc665d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 3
-  vertShift: 0
-  oscillation: -1
+  vertShift: 5
+  oscillation: -1.5
 --- !u!114 &1928460388
 MonoBehaviour:
   m_ObjectHideFlags: 0

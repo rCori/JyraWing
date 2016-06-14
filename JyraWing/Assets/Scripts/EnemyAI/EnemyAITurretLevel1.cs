@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyAI4 : EnemyBehavior {
+public class EnemyAITurretLevel1 : EnemyBehavior {
 	
 	/// <summary>
 	/// The direction the enemy will fire
@@ -25,7 +25,7 @@ public class EnemyAI4 : EnemyBehavior {
 	private float updateAnimTimer;
 	private float updateAnimTimeLimit;
 
-	public int TURRET_HEALTH = 3;
+	private int TURRET_HEALTH = 3;
 
 	//Two extra directions for shieldable bullets to be shot in
 	Vector2 upDir;

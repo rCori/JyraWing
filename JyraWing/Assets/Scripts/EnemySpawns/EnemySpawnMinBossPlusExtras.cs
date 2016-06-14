@@ -68,10 +68,6 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 				new Vector2(11.0f, -3.0f),
 			};
 			sprayerEnemy.GetComponent<EnemyAIReflectBulletSprayerA>().times = new List<float> {1.5f,3.0f,3.0f,1.7f};
-
-			sprayerEnemy.GetComponent<EnemyAIReflectBulletSprayerA>().fireRate = 1.3f;
-			sprayerEnemy.GetComponent<EnemyAIReflectBulletSprayerA>().bulletSpeed = 1.2f;
-
 		}
 	}
 }

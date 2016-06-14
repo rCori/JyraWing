@@ -46,8 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI10.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
@@ -60,6 +58,7 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleOscillate.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAISwipe.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAITank.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIWaterTurret.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss1.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
@@ -71,8 +70,6 @@
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn25.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn26.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
@@ -82,6 +79,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondAmbush2Turrets.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondScatteredArray.cs" />
@@ -91,6 +89,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1SpecialShipCrossingEncounter.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiddleSprayerTopBottomShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiniBoss.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />

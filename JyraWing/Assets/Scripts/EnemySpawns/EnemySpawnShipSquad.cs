@@ -10,7 +10,6 @@ public class EnemySpawnShipSquad : EnemySpawner {
 	public float columnSpacing;
 	public float yShift;
 
-	public int shipHealth;
 	public float speed;
 	public float lifeTime;
 	public float fireRate;
@@ -42,7 +41,6 @@ public class EnemySpawnShipSquad : EnemySpawner {
 				ai1.lifeTime = lifeTime + i*speed;
 				ai1.fireRate = fireRate;
 				ai1.bulletSpeed = bulletSpeed;
-				ai1.hits = shipHealth;
 				ai1.shootInDirection = true;
 				enemy.GetComponent<Scroll> ().speed = 1;
 				enemy = Instantiate (enemy);

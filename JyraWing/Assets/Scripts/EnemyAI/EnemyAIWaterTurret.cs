@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAI10 : EnemyBehavior{
+public class EnemyAIWaterTurret : EnemyBehavior{
 
 	public enum FireDirection{
 		LEFT = 0,
@@ -9,8 +9,7 @@ public class EnemyAI10 : EnemyBehavior{
 		UP,
 		DOWN,
 	}
-	
-	public int Health = 2;
+
 	//Define the rate of fire
 	public float FireRate = 0.5f;
 	//Define how fast the bullets fire
@@ -18,13 +17,14 @@ public class EnemyAI10 : EnemyBehavior{
 	//WHat direction the enemy is facing
 	public FireDirection fireDirection;
 
+	private int WATER_TURRET_HEALTH = 2;
+
 	Vector2 shootDir;
 	
 	float timer;
 	
 	void Awake(){
 		EnemyDefaults ();
-		SetEnemyHealth (Health);
 		
 		//Set the explosions sound
 		animator = gameObject.GetComponent <Animator> ();
@@ -56,6 +56,8 @@ public class EnemyAI10 : EnemyBehavior{
 		
 		//Set timer to it's upper limit 
 		timer = FireRate;
+
+		SetEnemyHealth (WATER_TURRET_HEALTH);
 	}
 	
 	// Update is called once per frame

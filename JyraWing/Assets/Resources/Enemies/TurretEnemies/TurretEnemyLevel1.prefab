@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 3, z: 0}
+  m_LocalPosition: {x: 16, y: 3.5, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,14 +101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 133786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6266ba72beedc4844896efe2c85efdf0, type: 3}
+  m_Script: {fileID: 11500000, guid: d48a0a9137704734bab41b8d783854ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 1
-  TURRET_HEALTH: 3
 --- !u!212 &21204952
 SpriteRenderer:
   m_ObjectHideFlags: 1

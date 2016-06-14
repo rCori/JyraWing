@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySpawn26 : EnemySpawner {
+public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 
 	public bool swapSprayerSide = false;
 
@@ -31,9 +31,6 @@ public class EnemySpawn26 : EnemySpawner {
 		enemyBulletSprayer.GetComponent<EnemyBehavior>().SetEnemyHealth(3);
 		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().locations = new List<Vector2> {new Vector2(0.0f, yFactor * -3.5f), new Vector2(-6.0f,  yFactor * 3.5f)};
 		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().times = new List<float> {1.5f, 1.5f};
-
-		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().fireRate = 0.8f;
-		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().bulletSpeed = 2.0f;
 
 
 		if (ships) {

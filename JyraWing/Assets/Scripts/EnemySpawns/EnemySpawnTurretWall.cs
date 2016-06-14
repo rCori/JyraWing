@@ -5,7 +5,6 @@ public class EnemySpawnTurretWall : EnemySpawner {
 
 	public bool extraEnemies;
 	public bool spawnSpeedPowerup;
-	public int enemyHealth;
 
 	public override void Spawn ()
 	{

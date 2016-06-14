@@ -7,11 +7,13 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
     public List<Vector2> locations;
     public List<float> times;
 
-    public float fireRate = 2.0f;
     private float fireTimer;
     private int currentMovementStep;
 
-    public float bulletSpeed = 0.5f;
+	private float FIRE_RATE = 1.5f;
+    private float BULLET_SPEED = 0.5f;
+	private int SPRAYER_HEALTH = 2;
+
 
     private Vector2[] fireDirections;
 
@@ -30,16 +32,17 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
         fireTimer = 0.0f;
 
         fireDirections = new Vector2[8];
-        fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * bulletSpeed;
-        fireDirections[1] = new Vector2(0.5f, 0.5f).normalized * bulletSpeed;
-        fireDirections[2] = new Vector2(0.0f, 1.0f).normalized * bulletSpeed;
-        fireDirections[3] = new Vector2(-0.5f, 0.5f).normalized * bulletSpeed;
-        fireDirections[4] = new Vector2(-1.0f, 0.0f).normalized * bulletSpeed;
-        fireDirections[5] = new Vector2(-0.5f, -0.5f).normalized * bulletSpeed;
-        fireDirections[6] = new Vector2(0.0f, -1.0f).normalized * bulletSpeed;
-        fireDirections[7] = new Vector2(0.5f, -0.5f).normalized * bulletSpeed;
+		fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * BULLET_SPEED;
+		fireDirections[1] = new Vector2(0.5f, 0.5f).normalized * BULLET_SPEED;
+		fireDirections[2] = new Vector2(0.0f, 1.0f).normalized * BULLET_SPEED;
+		fireDirections[3] = new Vector2(-0.5f, 0.5f).normalized * BULLET_SPEED;
+		fireDirections[4] = new Vector2(-1.0f, 0.0f).normalized * BULLET_SPEED;
+		fireDirections[5] = new Vector2(-0.5f, -0.5f).normalized * BULLET_SPEED;
+		fireDirections[6] = new Vector2(0.0f, -1.0f).normalized * BULLET_SPEED;
+		fireDirections[7] = new Vector2(0.5f, -0.5f).normalized * BULLET_SPEED;
 
 		LeftWallException = true;
+		SetEnemyHealth (SPRAYER_HEALTH);
     }
 
     // Update is called once per frame
@@ -62,7 +65,7 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
 
 
         fireTimer += Time.deltaTime;
-        if(fireTimer > fireRate){
+		if(fireTimer > FIRE_RATE){
             Shoot(fireDirections[0], true);
             Shoot(fireDirections[1], true);
             Shoot(fireDirections[2], true);

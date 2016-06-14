@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemySpawnShip : EnemySpawner {
 
 	public Vector2 enemyPosition;
-	public int shipHealth;
 	public float speed;
 	public float angle;
 	public float lifeTime;
@@ -31,7 +30,6 @@ public class EnemySpawnShip : EnemySpawner {
 		ai1.lifeTime = lifeTime;
 		ai1.fireRate = fireRate;
 		ai1.bulletSpeed = bulletSpeed;
-		ai1.hits = shipHealth;
 		ai1.shootInDirection = shootInDirection;
 		enemy1.GetComponent<Scroll> ().speed = 1;
 		enemy1 = Instantiate (enemy1);

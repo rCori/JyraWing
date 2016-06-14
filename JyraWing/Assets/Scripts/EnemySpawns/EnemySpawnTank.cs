@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemySpawnTank : EnemySpawner {
 
 	public Vector2 enemyPosition;
-	public int tankHealth;
 	public EnemyAITank.TankDir direction;
     public bool shieldableBullets = false;
 
@@ -16,7 +15,6 @@ public class EnemySpawnTank : EnemySpawner {
 		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
 		enemy1.transform.position = enemyPosition;
 
-        //EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
         enemy1.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
         enemy1.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;
 

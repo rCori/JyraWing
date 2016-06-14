@@ -6,17 +6,8 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 
 	public Vector2 enemyPosition;
 
-	public int Health;
-
-	/*
-    public List<Vector2> initialVelocities;
-	public List<Vector2> endVelocities;
-    public List<float> times;
-	*/
 	public List<EnemyAIReflectBulletSprayerArc.MoveInstruction> moveInstructionList;
 
-    public float fireRate;
-    public float bulletSpeed;
 
     public override void Spawn ()
 	{
@@ -32,13 +23,6 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 
 		enemy = Instantiate (enemy);
 
-        enemy.GetComponent<EnemyBehavior>().SetEnemyHealth(Health);
 		enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().MoveInstructionList = moveInstructionList;
-		//enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().endVelocities = endVelocities;
-		//enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().times = times;
-
-		enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().fireRate = fireRate;
-		enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().bulletSpeed = bulletSpeed;
-
     }
 }

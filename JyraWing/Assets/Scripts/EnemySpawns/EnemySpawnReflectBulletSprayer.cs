@@ -32,8 +32,5 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().locations = locations;
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().times = times;
 
-        enemy.GetComponent<EnemyAIReflectBulletSprayerA>().fireRate = fireRate;
-        enemy.GetComponent<EnemyAIReflectBulletSprayerA>().bulletSpeed = bulletSpeed;
-
     }
 }

@@ -5,7 +5,6 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 
 	public bool top;
 	public bool bottom;
-	public int turretHealth;
 
 	public bool shieldableBullets;
 
@@ -36,7 +35,6 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 			enemy3.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			enemy3 = Instantiate (enemy3);
 			enemy3.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
-			enemy3.GetComponent<EnemyBehavior>().SetEnemyHealth(turretHealth);
 		}
 
 		if (bottom) {
