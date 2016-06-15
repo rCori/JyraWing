@@ -68,17 +68,10 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5DiamondsOscillating.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6StationaryShips4OscillatingDiamonds.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondAmbush2Turrets.cs" />
