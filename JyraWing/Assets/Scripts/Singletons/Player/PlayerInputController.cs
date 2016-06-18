@@ -3,16 +3,6 @@ using System.Collections;
 
 public class PlayerInputController : MonoBehaviour {
 
-	float autoFireTimer;
-	const float AUTOFIRETIMELIMIT = 1/3f;
-	bool autoFireState;
-
-	bool disableControls;
-	bool disableShield;
-
-	int horizontalVel;
-	int verticalVel;
-
 	private string fireButtonString, autoFireButtonString, changeSpeedButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
 	private string upDownAxisString, leftRightAxisString;
 
@@ -22,13 +12,12 @@ public class PlayerInputController : MonoBehaviour {
 	public static event ButtonEvent FireButton, AutoFireButton, ChangeSpeedButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
 	public static event AxisEvent LeftRightEvent, UpDownEvent;
 
+	private float prevLeftRight, prevUpDown;
+
 	// Use this for initialization
 	void Start () {
-		autoFireTimer = 0.0f;
-		autoFireState = false;
-		disableControls = false;
-		horizontalVel = 0;
-		verticalVel = 0;
+		prevLeftRight = 0f;
+		prevUpDown = 0f;
 		initDefaultControls ();
 	}
 
@@ -41,8 +30,8 @@ public class PlayerInputController : MonoBehaviour {
 		ButtonUpdate(leftButtonString, LeftButton);
 		ButtonUpdate(rightButtonString, RightButton);
 
-		AxisUpdate(upDownAxisString, UpDownEvent);
-		AxisUpdate (leftRightAxisString, LeftRightEvent);
+		prevUpDown = AxisUpdate(upDownAxisString, UpDownEvent, prevUpDown);
+		prevLeftRight = AxisUpdate (leftRightAxisString, LeftRightEvent, prevLeftRight);
 	}
 
 	private void initDefaultControls() {
@@ -70,11 +59,16 @@ public class PlayerInputController : MonoBehaviour {
 		}
 	}
 
-	private void AxisUpdate(string axisString, AxisEvent axisEvent) {
-		if (Input.GetAxisRaw (axisString) != 0) {
+	private float AxisUpdate(string axisString, AxisEvent axisEvent, float prevValue) {
+		if (Input.GetAxisRaw (axisString) != 0 && prevValue == 0) {
+			if (axisEvent != null) {
+				axisEvent (Input.GetAxisRaw (axisString));
+			}
+		} else if(Input.GetAxisRaw (axisString) == 0 && prevValue != 0) {
 			if (axisEvent != null) {
 				axisEvent (Input.GetAxisRaw (axisString));
 			}
 		}
+		return Input.GetAxisRaw (axisString);
 	}
 }

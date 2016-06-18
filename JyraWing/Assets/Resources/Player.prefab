@@ -14,6 +14,9 @@ GameObject:
   - 61: {fileID: 6121212}
   - 61: {fileID: 6111910}
   - 95: {fileID: 9514882}
+  - 114: {fileID: 11474094}
+  - 114: {fileID: 11409544}
+  - 114: {fileID: 11480598}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -64,7 +67,8 @@ Transform:
   m_GameObject: {fileID: 102590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22407754}
   m_Father: {fileID: 0}
@@ -147,6 +151,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11409544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0440728fd70795d4facb5f0bf95d0365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11414098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +232,28 @@ MonoBehaviour:
   DEBUGNODAMAGE: 0
   DEBUGMAXBULLETLEVEL: 0
   DEBUGMAXSPEEDLEVEL: 0
+--- !u!114 &11474094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da681bbe205ce474392604179f826794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11480598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf39908b535754f48b038b940f769c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21236188
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -243,7 +280,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 598768ffb871b26438a7475b46c1fc96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a05d0d4043eb6e642973fb380205c831, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -281,6 +318,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22464990}
   m_Father: {fileID: 450118}
@@ -299,6 +337,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 22407754}
   m_RootOrder: 0

@@ -55,9 +55,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	private bool takingDamage;
 	private bool _paused;
 
-//	//We want to know what buttons the player has held down
-//	private VertDir vertDir;
-//	private HorizDir horizDir;
 
 	// Use this for initialization
 	void Start () {
@@ -72,14 +69,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		//Sound when the player is hit
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
 
-		//Bullet pool of player bullets.
-//		bulletPool = new List<GameObject> ();
-//		for (int i= 0; i < numBullets; i++) {
-//			//Put all the bullet live in the pool
-//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-//			bullet = Instantiate(bullet);
-//			bulletPool.Add(bullet);
-//		}
 		//Helper classes and components for the player
 		playerSpeed = new PlayerSpeed ();
 		bulletLevel = new PlayerBulletLevel ();
@@ -98,9 +87,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerShieldBehaviour.playerInputController = playerInputController;
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
-//		//Set the maximum number of seconds we can use the shield
-//		maxShieldPower = 2f;
-//		shieldPower = maxShieldPower;
 
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
@@ -119,8 +105,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			playerSpeed.IncreaseSpeedCap ();
 			playerSpeed.IncreaseSpeedCap ();
 		}
-
-//		RegisterFire ();
+		PlayerInputController.ChangeSpeedButton += ToggleSpeed;
 	}
 	
 	// Update is called once per frame
@@ -133,10 +118,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 		//Update position
 		updatePlayerMovement ();
-		//Update player input
-		updateInput ();
 
-		updateHitAnimation ();
+		//updateHitAnimation ();
 
 		playerInputController.PlayerInputUpdate ();
 
@@ -152,7 +135,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			//take out taking damage for now
 			hits--;
 			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
-			animator.SetInteger ("animState", 1);
+			//animator.SetInteger ("animState", 1);
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.DecreaseLifeCount();
@@ -162,67 +145,6 @@ public class Player : MonoBehaviour, PauseableItem {
 			takingDamage = true;
 		}
 
-	}
-
-	/// <summary>
-	/// Shoot A bullet from the stack
-	/// </summary>
-//	private void shoot(){
-//		for (int i= 0; i < numBullets; i++) {
-//			GameObject bulletObj = bulletPool[i];
-//			Bullet bullet = bulletObj.GetComponent<Bullet>();
-//			if(!bullet.GetIsActive()){
-//				bulletObj.transform.position = transform.position;
-//				bullet.Shoot();
-//				fireSfx.Play();
-//				return;
-//			}
-//		}
-//	}
-//
-	/// <summary>
-	/// Spread shot 
-	/// IN DIRE NEED OF OPTIMAZATION
-	/// </summary>
-	private void spreadShot(){
-//		GameObject bullet1 = bulletPool[0];
-//		GameObject bullet2 = bulletPool[1];
-//		GameObject bullet3 = bulletPool[2];
-//		int counter = 0;
-//		//Test that we have 3 available bullets.
-//		for (int i= 0; i < numBullets; i++) {
-//			GameObject bulletObj = bulletPool[i];
-//			Bullet bullet = bulletObj.GetComponent<Bullet>();
-//			if(!bullet.GetIsActive()){
-//				//bulletObj.transform.position = transform.position;
-//				switch(counter){
-//				case 0:
-//					bullet1 = bulletObj;
-//					counter++;
-//					break;
-//				case 1:
-//					bullet2 = bulletObj;
-//					counter++;
-//					break;
-//				case 2:
-//					bullet3 = bulletObj;
-//					counter++;
-//					break;
-//				default:
-//					break;
-//				}
-//			}
-//			if(counter == 3) break;
-//		}
-//		if (counter == 3) {
-//			bullet1.transform.position = transform.position;
-//			bullet2.transform.position = transform.position;
-//			bullet3.transform.position = transform.position;
-//			bullet1.GetComponent<Bullet> ().ShootUp ();
-//			bullet2.GetComponent<Bullet> ().Shoot ();
-//			bullet3.GetComponent<Bullet> ().ShootDown ();
-//			fireSfx.Play();
-//		}
 	}
 
 	//Public interface needed by the game controller
@@ -258,66 +180,26 @@ public class Player : MonoBehaviour, PauseableItem {
 		gameController.ShouldUpdateSpeed ();
 	}
 
-	public void IncreaseBulletLevel(){
-//		bulletLevel.IncrementBulletLevel ();
-//		switch (bulletLevel.GetBulletLevel ()) {
-//		case 1:
-//		{
-//			//Put an extra bullet in the pool
-//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-//			bullet = Instantiate(bullet);
-//			numBullets++;
-//			bulletPool.Add(bullet);
-//		}
-//			break;
-//		case 2:
-//		{
-//			//Put an extra bullet in the pool
-//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-//			bullet = Instantiate(bullet);
-//			numBullets++;
-//			bulletPool.Add(bullet);
-//		}
-//			break;
-//		case 3:
-//			for(int i = 0; i<9; i++){
-//				//Put all the bullet live in the pool
-//				GameObject bulletSpread = (GameObject)Resources.Load ("Bullet");
-//				bulletSpread = Instantiate(bulletSpread);
-//				bulletPool.Add(bulletSpread);
-//				numBullets++;
-//			}
-//			break;
-//		default:
-//			break;
-//		}
-	}
-
 	public bool HasShield(){
 		return playerShield.HasShield(playerInputController.GetShieldButton ());
 	}
-	
 
 	private void updatePlayerMovement(){
 		if(!playerInputController.GetDisabledControls()){
 			//Update position
 			int horiz = playerInputController.GetHorizontalMovement();
 			int vert = playerInputController.GetVerticalMovement();
-
+			/*
 			if (vert ==  -1) {
 				if(!takingDamage){
-					if (!animator.GetBool ("moveHeld")) {
-						animator.SetInteger ("animState", 3);
-					}
+					animator.SetInteger ("animState", 3);
 				}
 				else{
 					animator.SetInteger ("animState", 5);
 				}
 			} else if (vert == 1) {
 				if(!takingDamage){
-					if (!animator.GetBool ("moveHeld")) {
-						animator.SetInteger ("animState", 4);
-					}
+					animator.SetInteger ("animState", 4);
 				}
 				else{
 					animator.SetInteger ("animState", 6);
@@ -328,27 +210,15 @@ public class Player : MonoBehaviour, PauseableItem {
 				animator.SetInteger ("animState", 2);
 			}
 			else{
-				if (animator.GetBool ("moveHeld")) {
-					animator.SetBool ("moveHeld", false);
-				}
 				animator.SetInteger ("animState", 0);
 			}
-
+			*/
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
 		}
 	}
 
-	private void updateInput(){
-//		if(playerInputController.GetFireButton() || playerInputController.GetAutoFire()){
-//			if(bulletLevel.GetBulletLevel() != 3){
-//				shoot ();
-//			}
-//			else{
-//				spreadShot ();
-//			}
-//			shoot();
-//		}
-		if (playerInputController.GetToggleSpeed()) {
+	public void ToggleSpeed(bool down) {
+		if (down) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
 			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
@@ -356,22 +226,6 @@ public class Player : MonoBehaviour, PauseableItem {
 			gameController.ShouldUpdateSpeed();
 		}
 	}
-
-//	private void RegisterFire() {
-//		PlayerInputController.FireButton += PlayerFire;
-//	}
-//
-//	private void PlayerFire(bool down) {
-//		Debug.Log ("fire");
-//		if (down) {
-//			if (bulletLevel.GetBulletLevel () != 3) {
-//				shoot ();
-//			} else {
-//				spreadShot ();
-//			}
-//		}
-//
-//	}
 
 	private void updateHitAnimation(){
 		//Handle taking damage and animation
@@ -381,7 +235,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			if(animator.GetInteger("animState") == 1){
 				hitTimer -= Time.deltaTime;
 				if(hitTimer <= 0.0f){
-					animator.SetInteger ("animState", 2);
+					//animator.SetInteger ("animState", 2);
 					hitTimer = 0.5f;
 					startSavePos = gameObject.transform.position;
 					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
@@ -404,7 +258,7 @@ public class Player : MonoBehaviour, PauseableItem {
 				}else{
 					hitTimer -= Time.deltaTime;
 					if(hitTimer <= 0.0f){
-						animator.SetInteger ("animState", 0);
+						//animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
 						//playerInputController.DisableShield(false);
