@@ -36,7 +36,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	//public GameController gameController;
 	private GameController gameController;
 	private float speed;
-	private List<GameObject> bulletPool;
+	//private List<GameObject> bulletPool;
 	Animator animator;
 	int hits;
 	int numBullets;
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float hitTimer;
 	private PlayerSpeed playerSpeed;
 	private PlayerBulletLevel bulletLevel;
-	private PlayerInputController playerInputController;
+	private OldPlayerInputController playerInputController;
 	private IPlayerShield playerShield;
 
 	private Vector3 startSavePos;
@@ -73,17 +73,17 @@ public class Player : MonoBehaviour, PauseableItem {
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
 
 		//Bullet pool of player bullets.
-		bulletPool = new List<GameObject> ();
-		for (int i= 0; i < numBullets; i++) {
-			//Put all the bullet live in the pool
-			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-			bullet = Instantiate(bullet);
-			bulletPool.Add(bullet);
-		}
+//		bulletPool = new List<GameObject> ();
+//		for (int i= 0; i < numBullets; i++) {
+//			//Put all the bullet live in the pool
+//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
+//			bullet = Instantiate(bullet);
+//			bulletPool.Add(bullet);
+//		}
 		//Helper classes and components for the player
 		playerSpeed = new PlayerSpeed ();
 		bulletLevel = new PlayerBulletLevel ();
-		playerInputController = new PlayerInputController ();
+		playerInputController = new OldPlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
 
 
@@ -110,15 +110,17 @@ public class Player : MonoBehaviour, PauseableItem {
 
 		//Set direction to non
 		if (DEBUGMAXBULLETLEVEL) {
-			IncreaseBulletLevel();
-			IncreaseBulletLevel();
-			IncreaseBulletLevel();
+//			IncreaseBulletLevel();
+//			IncreaseBulletLevel();
+//			IncreaseBulletLevel();
 		}
 		if (DEBUGMAXSPEEDLEVEL) {
 			playerSpeed.IncreaseSpeedCap ();
 			playerSpeed.IncreaseSpeedCap ();
 			playerSpeed.IncreaseSpeedCap ();
 		}
+
+//		RegisterFire ();
 	}
 	
 	// Update is called once per frame
@@ -154,8 +156,8 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.DecreaseLifeCount();
-			playerInputController.DisableControls(true);
-			playerInputController.DisableShield(true);
+			//playerInputController.DisableControls(true);
+			//playerInputController.DisableShield(true);
 			damageSfx.Play();
 			takingDamage = true;
 		}
@@ -165,62 +167,62 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// <summary>
 	/// Shoot A bullet from the stack
 	/// </summary>
-	private void shoot(){
-		for (int i= 0; i < numBullets; i++) {
-			GameObject bulletObj = bulletPool[i];
-			Bullet bullet = bulletObj.GetComponent<Bullet>();
-			if(!bullet.GetIsActive()){
-				bulletObj.transform.position = transform.position;
-				bullet.Shoot();
-				fireSfx.Play();
-				return;
-			}
-		}
-	}
-
+//	private void shoot(){
+//		for (int i= 0; i < numBullets; i++) {
+//			GameObject bulletObj = bulletPool[i];
+//			Bullet bullet = bulletObj.GetComponent<Bullet>();
+//			if(!bullet.GetIsActive()){
+//				bulletObj.transform.position = transform.position;
+//				bullet.Shoot();
+//				fireSfx.Play();
+//				return;
+//			}
+//		}
+//	}
+//
 	/// <summary>
 	/// Spread shot 
 	/// IN DIRE NEED OF OPTIMAZATION
 	/// </summary>
 	private void spreadShot(){
-		GameObject bullet1 = bulletPool[0];
-		GameObject bullet2 = bulletPool[1];
-		GameObject bullet3 = bulletPool[2];
-		int counter = 0;
-		//Test that we have 3 available bullets.
-		for (int i= 0; i < numBullets; i++) {
-			GameObject bulletObj = bulletPool[i];
-			Bullet bullet = bulletObj.GetComponent<Bullet>();
-			if(!bullet.GetIsActive()){
-				//bulletObj.transform.position = transform.position;
-				switch(counter){
-				case 0:
-					bullet1 = bulletObj;
-					counter++;
-					break;
-				case 1:
-					bullet2 = bulletObj;
-					counter++;
-					break;
-				case 2:
-					bullet3 = bulletObj;
-					counter++;
-					break;
-				default:
-					break;
-				}
-			}
-			if(counter == 3) break;
-		}
-		if (counter == 3) {
-			bullet1.transform.position = transform.position;
-			bullet2.transform.position = transform.position;
-			bullet3.transform.position = transform.position;
-			bullet1.GetComponent<Bullet> ().ShootUp ();
-			bullet2.GetComponent<Bullet> ().Shoot ();
-			bullet3.GetComponent<Bullet> ().ShootDown ();
-			fireSfx.Play();
-		}
+//		GameObject bullet1 = bulletPool[0];
+//		GameObject bullet2 = bulletPool[1];
+//		GameObject bullet3 = bulletPool[2];
+//		int counter = 0;
+//		//Test that we have 3 available bullets.
+//		for (int i= 0; i < numBullets; i++) {
+//			GameObject bulletObj = bulletPool[i];
+//			Bullet bullet = bulletObj.GetComponent<Bullet>();
+//			if(!bullet.GetIsActive()){
+//				//bulletObj.transform.position = transform.position;
+//				switch(counter){
+//				case 0:
+//					bullet1 = bulletObj;
+//					counter++;
+//					break;
+//				case 1:
+//					bullet2 = bulletObj;
+//					counter++;
+//					break;
+//				case 2:
+//					bullet3 = bulletObj;
+//					counter++;
+//					break;
+//				default:
+//					break;
+//				}
+//			}
+//			if(counter == 3) break;
+//		}
+//		if (counter == 3) {
+//			bullet1.transform.position = transform.position;
+//			bullet2.transform.position = transform.position;
+//			bullet3.transform.position = transform.position;
+//			bullet1.GetComponent<Bullet> ().ShootUp ();
+//			bullet2.GetComponent<Bullet> ().Shoot ();
+//			bullet3.GetComponent<Bullet> ().ShootDown ();
+//			fireSfx.Play();
+//		}
 	}
 
 	//Public interface needed by the game controller
@@ -257,38 +259,38 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	public void IncreaseBulletLevel(){
-		bulletLevel.IncrementBulletLevel ();
-		switch (bulletLevel.GetBulletLevel ()) {
-		case 1:
-		{
-			//Put an extra bullet in the pool
-			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-			bullet = Instantiate(bullet);
-			numBullets++;
-			bulletPool.Add(bullet);
-		}
-			break;
-		case 2:
-		{
-			//Put an extra bullet in the pool
-			GameObject bullet = (GameObject)Resources.Load ("Bullet");
-			bullet = Instantiate(bullet);
-			numBullets++;
-			bulletPool.Add(bullet);
-		}
-			break;
-		case 3:
-			for(int i = 0; i<9; i++){
-				//Put all the bullet live in the pool
-				GameObject bulletSpread = (GameObject)Resources.Load ("Bullet");
-				bulletSpread = Instantiate(bulletSpread);
-				bulletPool.Add(bulletSpread);
-				numBullets++;
-			}
-			break;
-		default:
-			break;
-		}
+//		bulletLevel.IncrementBulletLevel ();
+//		switch (bulletLevel.GetBulletLevel ()) {
+//		case 1:
+//		{
+//			//Put an extra bullet in the pool
+//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
+//			bullet = Instantiate(bullet);
+//			numBullets++;
+//			bulletPool.Add(bullet);
+//		}
+//			break;
+//		case 2:
+//		{
+//			//Put an extra bullet in the pool
+//			GameObject bullet = (GameObject)Resources.Load ("Bullet");
+//			bullet = Instantiate(bullet);
+//			numBullets++;
+//			bulletPool.Add(bullet);
+//		}
+//			break;
+//		case 3:
+//			for(int i = 0; i<9; i++){
+//				//Put all the bullet live in the pool
+//				GameObject bulletSpread = (GameObject)Resources.Load ("Bullet");
+//				bulletSpread = Instantiate(bulletSpread);
+//				bulletPool.Add(bulletSpread);
+//				numBullets++;
+//			}
+//			break;
+//		default:
+//			break;
+//		}
 	}
 
 	public bool HasShield(){
@@ -304,14 +306,18 @@ public class Player : MonoBehaviour, PauseableItem {
 
 			if (vert ==  -1) {
 				if(!takingDamage){
-					animator.SetInteger ("animState", 3);
+					if (!animator.GetBool ("moveHeld")) {
+						animator.SetInteger ("animState", 3);
+					}
 				}
 				else{
 					animator.SetInteger ("animState", 5);
 				}
 			} else if (vert == 1) {
 				if(!takingDamage){
-					animator.SetInteger ("animState", 4);
+					if (!animator.GetBool ("moveHeld")) {
+						animator.SetInteger ("animState", 4);
+					}
 				}
 				else{
 					animator.SetInteger ("animState", 6);
@@ -322,6 +328,9 @@ public class Player : MonoBehaviour, PauseableItem {
 				animator.SetInteger ("animState", 2);
 			}
 			else{
+				if (animator.GetBool ("moveHeld")) {
+					animator.SetBool ("moveHeld", false);
+				}
 				animator.SetInteger ("animState", 0);
 			}
 
@@ -330,15 +339,15 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	private void updateInput(){
-		if(playerInputController.GetFireButton() || playerInputController.GetAutoFire()){
+//		if(playerInputController.GetFireButton() || playerInputController.GetAutoFire()){
 //			if(bulletLevel.GetBulletLevel() != 3){
 //				shoot ();
 //			}
 //			else{
 //				spreadShot ();
 //			}
-			shoot();
-		}
+//			shoot();
+//		}
 		if (playerInputController.GetToggleSpeed()) {
 			playerSpeed.IncreaseSpeed();
 			speed = playerSpeed.GetCurrentSpeed();
@@ -347,6 +356,22 @@ public class Player : MonoBehaviour, PauseableItem {
 			gameController.ShouldUpdateSpeed();
 		}
 	}
+
+//	private void RegisterFire() {
+//		PlayerInputController.FireButton += PlayerFire;
+//	}
+//
+//	private void PlayerFire(bool down) {
+//		Debug.Log ("fire");
+//		if (down) {
+//			if (bulletLevel.GetBulletLevel () != 3) {
+//				shoot ();
+//			} else {
+//				spreadShot ();
+//			}
+//		}
+//
+//	}
 
 	private void updateHitAnimation(){
 		//Handle taking damage and animation
@@ -365,14 +390,15 @@ public class Player : MonoBehaviour, PauseableItem {
 			//If the ship has returned to the screen after starting a new life
 			} else if(takingDamage){
 				//Player is flying back int
-				if(playerInputController.GetDisabledControls()){
+				//if(playerInputController.GetDisabledControls()){
+				if(false) {
 					hitTimer -= Time.deltaTime;
 					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
 					if(hitTimer <= 0.0f){
 						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
 						hitTimer = 4.5f;
-						playerInputController.DisableControls(false);
+						//playerInputController.DisableControls(false);
 					}
 				//The player has regained control and is flashing and they are invincible
 				}else{
@@ -381,7 +407,7 @@ public class Player : MonoBehaviour, PauseableItem {
 						animator.SetInteger ("animState", 0);
 						hitTimer = 0.0f;
 						takingDamage = false;
-						playerInputController.DisableShield(false);
+						//playerInputController.DisableShield(false);
 					}
 				}
 			} 
@@ -428,6 +454,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		gameController.DelistPauseableItem (this);
 	}
 
+	public void TransitionSide(int value) {
+		animator.SetBool ("moveHeld", true);
+	}
+
 	//By having the player handle it's own collision with enemy objects the
 	//"hiding inside an enemy" bug has been handled.
 	public void OnTriggerStay2D(Collider2D other){
@@ -436,4 +466,5 @@ public class Player : MonoBehaviour, PauseableItem {
 			TakeDamage();
 		}
 	}
+
 }

@@ -475,7 +475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGMAXSPEEDLEVEL
@@ -488,6 +488,19 @@ Prefab:
     - target: {fileID: 5013394, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 21236188, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a05d0d4043eb6e642973fb380205c831,
+        type: 3}
+    - target: {fileID: 450118, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450118, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
@@ -2331,6 +2344,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1 &1403862293 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 102590, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+  m_PrefabInternal: {fileID: 131039973}
+--- !u!114 &1403862300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1403862293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da681bbe205ce474392604179f826794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1504962256
 GameObject:
   m_ObjectHideFlags: 0

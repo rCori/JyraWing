@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerInputController {
+public class OldPlayerInputController {
 
 	float autoFireTimer;
 	const float AUTOFIRETIMELIMIT = 1/3f;
@@ -13,15 +13,17 @@ public class PlayerInputController {
 	int horizontalVel;
 	int verticalVel;
 
+
 	// Use this for initialization
-	public PlayerInputController () {
+	public OldPlayerInputController () {
 		autoFireTimer = 0.0f;
 		autoFireState = false;
 		disableControls = false;
 		horizontalVel = 0;
 		verticalVel = 0;
 	}
-	
+		
+
 	// Update is called once per frame
 	public void PlayerInputUpdate() {
 		//update the auto fire button state

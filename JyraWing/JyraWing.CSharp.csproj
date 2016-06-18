@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>WebPlayer:6</UnityBuildTarget>
-    <UnityVersion>5.3.4f1</UnityVersion>
+    <UnityVersion>5.3.5f1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_4;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_4;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -56,25 +56,33 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI1.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI10.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI11.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI2.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI3.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI5.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI6.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI7.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI8.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAI9.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerArc.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipLevel1SpecialEncounter.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleCircle.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleOscillate.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAISwipe.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAITank.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIWaterTurret.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss1.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Turret.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
@@ -82,34 +90,33 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn12.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn13.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn14.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn15.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn19.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn20.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn21.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn22.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn23.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn24.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5DiamondsOscillating.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6StationaryShips4OscillatingDiamonds.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondAmbush2Turrets.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondScatteredArray.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSpecialEncounterArcCrossovers.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1SpecialShipCrossingEncounter.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiddleSprayerTopBottomShip.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiniBoss.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayerArc.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTopBottomTurrets.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretSpread1Tank1Ship.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTwoWaterTurrets.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
     <Compile Include="Assets\Scripts\GameController\GameController.cs" />
     <Compile Include="Assets\Scripts\GameController\GameControllerBehaviour.cs" />
@@ -128,18 +135,23 @@
     <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
     <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />
     <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
+    <Compile Include="Assets\Scripts\ScreenWrap.cs" />
     <Compile Include="Assets\Scripts\Scroll.cs" />
     <Compile Include="Assets\Scripts\ShuffleBag.cs" />
     <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
     <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
-    <Compile Include="Assets\Scripts\Singletons\IPlayerShield.cs" />
+    <Compile Include="Assets\Scripts\Singletons\OldPlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
-    <Compile Include="Assets\Scripts\Singletons\Player.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\IPlayerShield.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\IPlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerInputController.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerShield.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerShieldBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerSpeed.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerWeaponBehaviour.cs" />
     <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />
-    <Compile Include="Assets\Scripts\Singletons\PlayerInputController.cs" />
-    <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
-    <Compile Include="Assets\Scripts\Singletons\PlayerShieldBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
     <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
     <Compile Include="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />

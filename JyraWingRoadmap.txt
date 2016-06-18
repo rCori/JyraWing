@@ -47,3 +47,7 @@ finished and I can move onto level 3.
 
 6/11/16
 I am going to try a level with the new art assets  on a new branch to see if I like it and if it is worth it to me.
+
+6/14/16
+I just finished reorganizing all of the files to rename into more descriptive things. No more 
+"EneemySpawn12"

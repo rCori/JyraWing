@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerShieldBehaviour : MonoBehaviour {
 
 	private IPlayerShield playerShield;
-	public PlayerInputController playerInputController;
+	public OldPlayerInputController playerInputController;
 
 	private Animator animator;
 
@@ -18,7 +18,7 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		//Set the PlayerShield interface to the one implementation it has
 		SetPlayerShield (new PlayerShield());
 		//We will need player input for the player shield to update correctly.
-		playerInputController = new PlayerInputController ();
+		playerInputController = new OldPlayerInputController ();
 		//Set the gameobjects animator
 		animator = gameObject.GetComponent<Animator> ();
 	}

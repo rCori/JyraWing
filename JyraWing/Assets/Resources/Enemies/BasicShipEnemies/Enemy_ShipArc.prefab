@@ -99,8 +99,8 @@ MonoBehaviour:
   MoveInstructionList: []
   angle: 180
   shieldableAngleAdjustment: 15
-  speed: 1
-  lifeTime: 20
+  speed: 2
+  lifeTime: 7
   fireRate: 2.5
   bulletSpeed: 6
   hits: 1
