@@ -52,9 +52,20 @@ public class Player : MonoBehaviour, PauseableItem {
 	private Vector3 endSavePos;
 	private Vector3 pauseSavePos;
 
-	private bool takingDamage;
+	//private bool takingDamage;
+	public enum TakingDamage
+	{
+		NONE = 0,
+		EXPLODE,
+		RETURNING,
+		BLINKING
+	}
+	private TakingDamage takingDamage;
+
 	private bool _paused;
 
+	public delegate void PlayerEvent (TakingDamage takingDamage);
+	public static event PlayerEvent HitEvent;
 
 	// Use this for initialization
 	void Start () {
@@ -75,7 +86,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerInputController = new OldPlayerInputController ();
 		speed = playerSpeed.GetCurrentSpeed();
 
-
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
 		//the shield interface from that game object
 		GameObject playerShieldObject = Resources.Load ("PlayerShield") as GameObject;
@@ -87,12 +97,9 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerShieldBehaviour.playerInputController = playerInputController;
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
-
-
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
 		_paused = false;
 		RegisterToList ();
-		takingDamage = false;
 
 		//Set direction to non
 		if (DEBUGMAXBULLETLEVEL) {
@@ -119,9 +126,9 @@ public class Player : MonoBehaviour, PauseableItem {
 		//Update position
 		updatePlayerMovement ();
 
-		//updateHitAnimation ();
-
 		playerInputController.PlayerInputUpdate ();
+
+		updateHitStatus (Time.deltaTime);
 
 		//update the position of the shield sprite
 		playerShield.spritePosition = gameObject.transform.position;
@@ -142,9 +149,9 @@ public class Player : MonoBehaviour, PauseableItem {
 			//playerInputController.DisableControls(true);
 			//playerInputController.DisableShield(true);
 			damageSfx.Play();
-			takingDamage = true;
+			takingDamage = TakingDamage.EXPLODE;
+			HitEvent (TakingDamage.EXPLODE);
 		}
-
 	}
 
 	//Public interface needed by the game controller
@@ -227,46 +234,74 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 
-	private void updateHitAnimation(){
-		//Handle taking damage and animation
+	private void updateHitStatus(float delta) {
 		if (hitTimer > 0.0f) {
-			//player intially hit
-			//Debug.Log ( "animation state is: " + animator.GetInteger("animState"));
-			if(animator.GetInteger("animState") == 1){
-				hitTimer -= Time.deltaTime;
-				if(hitTimer <= 0.0f){
-					//animator.SetInteger ("animState", 2);
-					hitTimer = 0.5f;
-					startSavePos = gameObject.transform.position;
-					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
-					endSavePos = gameObject.transform.position;
+			hitTimer -= delta;
+			if (hitTimer <= 0f) {
+				switch (takingDamage) {
+				case TakingDamage.EXPLODE:
+					Debug.Log ("Explode finished");
+					hitTimer = 2.0f;
+					takingDamage = TakingDamage.RETURNING;
+					break;
+				case TakingDamage.RETURNING:
+					Debug.Log ("Returning finished");
+					hitTimer = 2.5f;
+					takingDamage = TakingDamage.BLINKING;
+					break;
+				case TakingDamage.BLINKING:
+					Debug.Log ("Blinking finished");
+					hitTimer = 0f;
+					takingDamage = TakingDamage.NONE;
+					break;
+				case TakingDamage.NONE:
+					break;
+				default:
+					break;
 				}
-			//If the ship has returned to the screen after starting a new life
-			} else if(takingDamage){
-				//Player is flying back int
-				//if(playerInputController.GetDisabledControls()){
-				if(false) {
-					hitTimer -= Time.deltaTime;
-					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
-					if(hitTimer <= 0.0f){
-						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
-						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
-						hitTimer = 4.5f;
-						//playerInputController.DisableControls(false);
-					}
-				//The player has regained control and is flashing and they are invincible
-				}else{
-					hitTimer -= Time.deltaTime;
-					if(hitTimer <= 0.0f){
-						//animator.SetInteger ("animState", 0);
-						hitTimer = 0.0f;
-						takingDamage = false;
-						//playerInputController.DisableShield(false);
-					}
-				}
-			} 
+			}
 		}
 	}
+
+//	private void updateHitAnimation(){
+//		//Handle taking damage and animation
+//		if (hitTimer > 0.0f) {
+//			//player intially hit
+//			if(animator.GetInteger("animState") == 1){
+//				hitTimer -= Time.deltaTime;
+//				if(hitTimer <= 0.0f){
+//					//animator.SetInteger ("animState", 2);
+//					hitTimer = 0.5f;
+//					startSavePos = gameObject.transform.position;
+//					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
+//					endSavePos = gameObject.transform.position;
+//				}
+//			//If the ship has returned to the screen after starting a new life
+//			} else if(takingDamage){
+//				//Player is flying back int
+//				//if(playerInputController.GetDisabledControls()){
+//				if(false) {
+//					hitTimer -= Time.deltaTime;
+//					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
+//					if(hitTimer <= 0.0f){
+//						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
+//						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
+//						hitTimer = 4.5f;
+//						//playerInputController.DisableControls(false);
+//					}
+//				//The player has regained control and is flashing and they are invincible
+//				}else{
+//					hitTimer -= Time.deltaTime;
+//					if(hitTimer <= 0.0f){
+//						//animator.SetInteger ("animState", 0);
+//						hitTimer = 0.0f;
+//						takingDamage = false;
+//						//playerInputController.DisableShield(false);
+//					}
+//				}
+//			} 
+//		}
+//	}
 
 	//Make sure the player is removed from the list although actually this shouldn't be necssary
 	void OnDestroy()

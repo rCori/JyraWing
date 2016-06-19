@@ -11,6 +11,7 @@ public class PlayerAnimation : MonoBehaviour {
 		isHit = false;
 		animator = gameObject.GetComponent <Animator> ();
 		PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
+		Player.HitEvent += HitAnimation;
 	}
 	
 	// Update is called once per frame
@@ -27,17 +28,18 @@ public class PlayerAnimation : MonoBehaviour {
 			} else if (animator.GetInteger ("animState") == 3) {
 				animator.ResetTrigger ("NeutralToDownToDown");
 				animator.SetTrigger ("DownToDownToNeutral");
+			} else {
+				animator.SetInteger ("animState", 0);
 			}
-			animator.SetInteger ("animState", 0);
 		} else if (value ==  -1) {
 			if (animator.GetInteger ("animState") == 4) {
-				animator.SetInteger ("animState", 0);
+				//animator.SetInteger ("animState", 0);
 				ResetTriggers ();
 			}
 			animator.SetInteger ("animState", 3);
 		} else if (value == 1) {
 			if (animator.GetInteger ("animState") == 3) {
-				animator.SetInteger ("animState", 0);
+				//animator.SetInteger ("animState", 0);
 				ResetTriggers ();
 			}
 			animator.SetInteger ("animState", 4);
@@ -47,16 +49,11 @@ public class PlayerAnimation : MonoBehaviour {
 	public void TransitionToUp() {
 		ResetTriggers ();
 		animator.SetTrigger ("NeutralToUpToUp");
-		animator.ResetTrigger ("UpToUpToNeutral");
-		animator.ResetTrigger ("DownToDownToNeutral");
-		animator.ResetTrigger ("NeutralToDownToDown");
 	}
 
 	public void TransitionToDown() {
+		ResetTriggers ();
 		animator.SetTrigger ("NeutralToDownToDown");
-		animator.ResetTrigger ("UpToUpToNeutral");
-		animator.ResetTrigger ("DownToDownToNeutral");
-		animator.ResetTrigger ("NeutralToUpToUp");
 	}
 
 	public void TransitionToNeutral() {
@@ -69,5 +66,11 @@ public class PlayerAnimation : MonoBehaviour {
 		animator.ResetTrigger ("DownToDownToNeutral");
 		animator.ResetTrigger ("NeutralToUpToUp");
 		animator.ResetTrigger ("NeutralToDownToDown");
+	}
+
+	private void HitAnimation(Player.TakingDamage takingDamage) {
+		Debug.Log ("Play hit animation");
+		animator.SetInteger ("animState", 1);
+		isHit = true;
 	}
 }

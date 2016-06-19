@@ -60,15 +60,15 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	private float AxisUpdate(string axisString, AxisEvent axisEvent, float prevValue) {
-		if (Input.GetAxisRaw (axisString) != 0 && prevValue == 0) {
+		//if (Input.GetAxisRaw (axisString) != 0 && prevValue == 0) {
 			if (axisEvent != null) {
 				axisEvent (Input.GetAxisRaw (axisString));
 			}
-		} else if(Input.GetAxisRaw (axisString) == 0 && prevValue != 0) {
-			if (axisEvent != null) {
-				axisEvent (Input.GetAxisRaw (axisString));
-			}
-		}
+//		} else if(Input.GetAxisRaw (axisString) == 0 && prevValue != 0) {
+//			if (axisEvent != null) {
+//				axisEvent (Input.GetAxisRaw (axisString));
+//			}
+//		}
 		return Input.GetAxisRaw (axisString);
 	}
 }
