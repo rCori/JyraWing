@@ -52,6 +52,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	private Vector3 endSavePos;
 	private Vector3 pauseSavePos;
 
+	private float horiz;
+	private float vert;
+
 	//private bool takingDamage;
 	public enum TakingDamage
 	{
@@ -112,7 +115,13 @@ public class Player : MonoBehaviour, PauseableItem {
 			playerSpeed.IncreaseSpeedCap ();
 			playerSpeed.IncreaseSpeedCap ();
 		}
+
+		horiz = 0f;
+		vert = 0f;
+
 		PlayerInputController.ChangeSpeedButton += ToggleSpeed;
+		PlayerInputController.UpDownEvent += updatePlayerVert;
+		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 	}
 	
 	// Update is called once per frame
@@ -124,7 +133,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			return;
 		}
 		//Update position
-		updatePlayerMovement ();
+		//updatePlayerMovement ();
 
 		playerInputController.PlayerInputUpdate ();
 
@@ -146,8 +155,8 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.DecreaseLifeCount();
-			//playerInputController.DisableControls(true);
-			//playerInputController.DisableShield(true);
+			playerInputController.DisableControls(true);
+			playerInputController.DisableShield(true);
 			damageSfx.Play();
 			takingDamage = TakingDamage.EXPLODE;
 			HitEvent (TakingDamage.EXPLODE);
@@ -191,38 +200,52 @@ public class Player : MonoBehaviour, PauseableItem {
 		return playerShield.HasShield(playerInputController.GetShieldButton ());
 	}
 
-	private void updatePlayerMovement(){
-		if(!playerInputController.GetDisabledControls()){
-			//Update position
-			int horiz = playerInputController.GetHorizontalMovement();
-			int vert = playerInputController.GetVerticalMovement();
-			/*
-			if (vert ==  -1) {
-				if(!takingDamage){
-					animator.SetInteger ("animState", 3);
-				}
-				else{
-					animator.SetInteger ("animState", 5);
-				}
-			} else if (vert == 1) {
-				if(!takingDamage){
-					animator.SetInteger ("animState", 4);
-				}
-				else{
-					animator.SetInteger ("animState", 6);
-				}
-			}
-			else if(takingDamage) 
-			{
-				animator.SetInteger ("animState", 2);
-			}
-			else{
-				animator.SetInteger ("animState", 0);
-			}
-			*/
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
-		}
+	private void updatePlayerVert(float value) {
+		vert = value;
+		updatePlayerMovement ();
 	}
+
+	private void updatePlayerHoriz(float value) {
+		horiz = value;
+		updatePlayerMovement ();
+	}
+
+	private void updatePlayerMovement() {
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+	}
+
+//	private void updatePlayerMovement(){
+//		if(!playerInputController.GetDisabledControls()){
+//			//Update position
+//			int horiz = playerInputController.GetHorizontalMovement();
+//			int vert = playerInputController.GetVerticalMovement();
+//			/*
+//			if (vert ==  -1) {
+//				if(!takingDamage){
+//					animator.SetInteger ("animState", 3);
+//				}
+//				else{
+//					animator.SetInteger ("animState", 5);
+//				}
+//			} else if (vert == 1) {
+//				if(!takingDamage){
+//					animator.SetInteger ("animState", 4);
+//				}
+//				else{
+//					animator.SetInteger ("animState", 6);
+//				}
+//			}
+//			else if(takingDamage) 
+//			{
+//				animator.SetInteger ("animState", 2);
+//			}
+//			else{
+//				animator.SetInteger ("animState", 0);
+//			}
+//			*/
+//			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+//		}
+//	}
 
 	public void ToggleSpeed(bool down) {
 		if (down) {
@@ -237,28 +260,47 @@ public class Player : MonoBehaviour, PauseableItem {
 	private void updateHitStatus(float delta) {
 		if (hitTimer > 0.0f) {
 			hitTimer -= delta;
-			if (hitTimer <= 0f) {
-				switch (takingDamage) {
-				case TakingDamage.EXPLODE:
-					Debug.Log ("Explode finished");
+			switch (takingDamage) {
+			case TakingDamage.EXPLODE:
+				if (hitTimer <= 0f) {
 					hitTimer = 2.0f;
 					takingDamage = TakingDamage.RETURNING;
-					break;
-				case TakingDamage.RETURNING:
-					Debug.Log ("Returning finished");
+
+					startSavePos = gameObject.transform.position;
+					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
+					endSavePos = gameObject.transform.position;
+
+					HitEvent (takingDamage);
+				}
+				break;
+			case TakingDamage.RETURNING:
+				if (hitTimer <= 0f) {
 					hitTimer = 2.5f;
 					takingDamage = TakingDamage.BLINKING;
-					break;
-				case TakingDamage.BLINKING:
-					Debug.Log ("Blinking finished");
+
+					SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
+					sfxPlayer.PlayClip (Resources.Load ("Audio/BGM/newLife") as AudioClip);
+					playerInputController.DisableControls(false);
+					playerInputController.DisableShield(false);
+					HitEvent (takingDamage);
+				} else {
+					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
+				}
+				break;
+			case TakingDamage.BLINKING:
+				if (hitTimer <= 0f) {
 					hitTimer = 0f;
 					takingDamage = TakingDamage.NONE;
-					break;
-				case TakingDamage.NONE:
-					break;
-				default:
-					break;
+					HitEvent (takingDamage);
 				}
+				break;
+			case TakingDamage.NONE:
+				if (hitTimer <= 0f) {
+					HitEvent (takingDamage);
+				}
+				break;
+			default:
+				break;
 			}
 		}
 	}
