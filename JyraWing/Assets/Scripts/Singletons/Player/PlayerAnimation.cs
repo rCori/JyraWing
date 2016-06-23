@@ -4,12 +4,14 @@ using System.Collections;
 public class PlayerAnimation : MonoBehaviour {
 
 	private bool isHit;
+	private bool animStuck;
 	private Animator animator;
 
 
 	// Use this for initialization
 	void Start () {
 		isHit = false;
+		animStuck = false;
 		animator = gameObject.GetComponent <Animator> ();
 		PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
 		Player.HitEvent += HitAnimation;
@@ -37,21 +39,17 @@ public class PlayerAnimation : MonoBehaviour {
 			} else if (value == 1) {
 				animator.SetInteger ("animState", 4);
 			}
+		} else {
+			if (!animStuck) {
+				if (value == 0) {
+					animator.SetInteger ("animState", 2);
+				} else if (value == -1) {
+					animator.SetInteger ("animState", 5);
+				} else if (value == 1) {
+					animator.SetInteger ("animState", 6);
+				}
+			}
 		}
-//		} else {
-//			if (value == 0) {
-//				if (animator.GetInteger ("animState") == 7) {
-//					animator.SetInteger ("animState", 8);
-//				} else if (animator.GetInteger ("animState") == 3) {
-//					animator.SetInteger ("animState", 10);
-//				}
-//				animator.SetInteger ("animState", 2);
-//			} else if (value == -1) {
-//				animator.SetInteger ("animState", 5);
-//			} else if (value == 1) {
-//				animator.SetInteger ("animState", 6);
-//			}
-//		}
 	}
 
 	public void TransitionToUp() {
@@ -72,11 +70,13 @@ public class PlayerAnimation : MonoBehaviour {
 		case Player.TakingDamage.EXPLODE:
 			animator.SetInteger ("animState", 1);
 			isHit = true;
-			break;
-		case Player.TakingDamage.BLINKING:
-			animator.SetInteger ("animState", 2);
+			animStuck = true;
 			break;
 		case Player.TakingDamage.RETURNING:
+			animator.SetInteger ("animState", 2);
+			animStuck = false;
+			break;
+		case Player.TakingDamage.BLINKING:
 			animator.SetInteger ("animState", 2);
 			break;
 		case Player.TakingDamage.NONE:

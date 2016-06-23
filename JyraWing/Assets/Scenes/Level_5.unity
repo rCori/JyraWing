@@ -475,7 +475,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11441482, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111910, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111910, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111910, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111910, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}

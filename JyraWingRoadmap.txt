@@ -51,3 +51,6 @@ I am going to try a level with the new art assets  on a new branch to see if I l
 6/14/16
 I just finished reorganizing all of the files to rename into more descriptive things. No more 
 "EneemySpawn12"
+
+6/22/16
+The Player's sprite and animation ahs been switched up. Next I want to get all of the enemies.

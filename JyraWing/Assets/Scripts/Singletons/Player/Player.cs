@@ -211,7 +211,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	private void updatePlayerMovement() {
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+		if (takingDamage == TakingDamage.BLINKING || takingDamage == TakingDamage.NONE) {
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
+		}
 	}
 
 //	private void updatePlayerMovement(){
