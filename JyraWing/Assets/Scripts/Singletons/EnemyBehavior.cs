@@ -486,6 +486,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	protected void HandleHitAnimation(){
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName(hitAnimationName) && !isDestroyed) {
+			Debug.Log ("Handling hit animation");
 			animator.SetInteger("animState", 0);
 		}
 	}

@@ -56,7 +56,7 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
 		
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("pillboxHit");
+		SetHitAnimationName ("NONE");
 
 		//Set timers for updating thhe pillbox animation
 		//pointing up, down, or straight ahead
@@ -79,62 +79,29 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 
 		shootTimer += Time.deltaTime;
 		if (shootTimer > shootTimeLimit) {
-		
-			Shoot(fireDir);
-			//Only shoot 
-			if(shieldableBullets)
-			{
-				Shoot(upDir,true);
-				Shoot(downDir, true);
-			}
+			Debug.Log ("starting shoot animation");
 			shootTimer = 0.0f;
+			StartShootAnimation ();
 		}
+			
+	}
+		
 
-
-		//Update the animation not every update but on a regular interval
-		updateAnimTimer += Time.deltaTime;
-		if (updateAnimTimer > updateAnimTimeLimit) {
-			updateAnimation ();
-			updateAnimTimer = 0.0f;
-		}
-
-		//This is a bad fix for this issue.
-		//Make the sprite flip horizontally depending on the situation
-		float widthDiff = gameController.playerPosition.x - gameObject.transform.position.x;
-		if ((widthDiff > 0 && !isFlipped) || (widthDiff < 0 && isFlipped)) {
-			flipHorizontally();
-		}
-		HandleHitAnimation ();
+	public void StartShootAnimation() {
+		animator.SetInteger ("animState", 3);
 	}
 
-	void flipHorizontally()
-	{
-		isFlipped = !isFlipped;
-		float modify;
-		if (isFlipped) {
-			modify = -1;
-		} else {
-			modify = 1;
-		}
-		gameObject.transform.localScale = new Vector2 (4f*modify, 4f);
-
+	public void EndShootAnimation() {
+		animator.SetInteger ("animState", 0);
 	}
 
-	//update what frame of animation the pillbox will have
-	//This will change the sprite to point up or down.
-	private void updateAnimation()
-	{
-		//Make the sprite point up or down depending ont he situation
-		float heightDiff = gameController.playerPosition.y - gameObject.transform.position.y;
-		if (heightDiff < 1.5f && heightDiff > -1.5f) {
-			//straight ahead
-			animator.SetInteger ("animState", 0);
-		} else if (heightDiff > 1.5f) {
-			//point up
-			animator.SetInteger ("animState", 3);
-		} else if (heightDiff < -1.5f) {
-			//point down
-			animator.SetInteger ("animState", 4);
+	public void ShootAtSetTarget() {
+		Shoot(fireDir);
+		//Only shoot 
+		if(shieldableBullets)
+		{
+			Shoot(upDir,true);
+			Shoot(downDir, true);
 		}
 	}
 }
