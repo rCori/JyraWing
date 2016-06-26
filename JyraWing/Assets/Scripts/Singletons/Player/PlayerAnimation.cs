@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerAnimation : MonoBehaviour {
@@ -6,7 +7,6 @@ public class PlayerAnimation : MonoBehaviour {
 	private bool isHit;
 	private bool animStuck;
 	private Animator animator;
-
 
 	// Use this for initialization
 	void Start () {

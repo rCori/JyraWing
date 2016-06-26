@@ -22,6 +22,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 	//private IngameMenu pauseMenu;
 
+	public GameObject sliderObject;
+	private Slider slider;
+
 	//ISDEBUG
 	private GameObject debugFramerate;
 	private float deltaTime;
@@ -40,6 +43,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 		shieldText = Resources.Load ("UIObjects/ShieldText") as GameObject;
 		shieldText = Instantiate (shieldText);
 		shieldText.transform.SetParent(canvas.transform, false);
+
+		slider = sliderObject.GetComponent<Slider> ();
 
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
@@ -209,6 +214,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	public void UpdatePlayerShield(int shieldPercentage){
 		Text shieldTexObj = shieldText.GetComponent<Text>();
 		shieldTexObj.text = shieldPercentage.ToString ();
+		slider.value = (float)shieldPercentage/100.0f;
 	}
 
 	public void PauseMenu(){
