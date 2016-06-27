@@ -53,10 +53,10 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		isFlipped = true;
 
 		HasAnimations animationsOwned;
-		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		animationsOwned = HasAnimations.Destroy;
 		
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("NONE");
+		//SetHitAnimationName ("NONE");
 
 		//Set timers for updating thhe pillbox animation
 		//pointing up, down, or straight ahead
@@ -89,10 +89,6 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 
 	public void StartShootAnimation() {
 		animator.SetInteger ("animState", 3);
-	}
-
-	public void EndShootAnimation() {
-		animator.SetInteger ("animState", 0);
 	}
 
 	public void ShootAtSetTarget() {

@@ -337,8 +337,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			}
 			hitPoints--;
 			//This will get rid of the bullet
-			other.GetComponent<Bullet>().BulletDestroy();
-			
+			//other.GetComponent<Bullet>().BulletDestroy();
+			other.GetComponent<Bullet>().BulletHit();
+
 			if(hitPoints == 0)
 			{
 				
@@ -479,6 +480,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		animationsOwned = anims;
 	}
 
+	public void SetAnimationToDefault() {
+		animator.SetInteger("animState", 0);
+	}
+
 	///<summary>
 	/// If the enemy has a hit animation this function 
 	/// needs to be placed into the enemy update loop. hitAnimationName 
@@ -486,7 +491,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	protected void HandleHitAnimation(){
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName(hitAnimationName) && !isDestroyed) {
-			Debug.Log ("Handling hit animation");
 			animator.SetInteger("animState", 0);
 		}
 	}

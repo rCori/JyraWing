@@ -7,16 +7,17 @@ public class Bullet : MonoBehaviour, PauseableItem {
 
 	private bool _paused;
 	private Vector2 storedVel;
-
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0f);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (0f, 0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
 		storedVel = new Vector2 (0f, 0f);
 		_paused = false;
 		RegisterToList();
+		animator = GetComponent<Animator> ();
 
 	}
 		
@@ -30,6 +31,10 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		}
 	}
 
+	public void BulletHit() {
+		animator.SetInteger ("animState", 1);
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (0f, 0f);
+	}
 
 	/// <summary>
 	/// Public interface. Determine if the bullet is active or avaialble for reuse now.
@@ -70,6 +75,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	public void BulletDestroy(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
+		animator.SetInteger ("animState", 0);
 		isActive = false;
 	}
 

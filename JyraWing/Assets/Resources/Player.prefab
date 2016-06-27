@@ -133,7 +133,7 @@ GameObject:
   - 224: {fileID: 22460704}
   - 114: {fileID: 11421658}
   m_Layer: 5
-  m_Name: ShieldMeter
+  m_Name: PlayerShieldMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

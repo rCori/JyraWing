@@ -47,10 +47,10 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		SetEnemyHealth (hits);
 
 		HasAnimations animationsOwned;
-		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		animationsOwned = HasAnimations.Destroy;
 
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("enemy4_B_hit");
+		//SetHitAnimationName ("enemy4_B_hit");
 
 		radians = Mathf.Deg2Rad * angle;
 		float xVel = Mathf.Cos (radians);

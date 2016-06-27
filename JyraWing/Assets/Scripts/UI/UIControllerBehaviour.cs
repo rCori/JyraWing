@@ -16,13 +16,12 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
-	private GameObject shieldText;
+//	private GameObject shieldText;
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private List<GameObject> speedSpriteCollection;
 
 	//private IngameMenu pauseMenu;
 
-	public GameObject sliderObject;
 	private Slider slider;
 
 	//ISDEBUG
@@ -40,11 +39,12 @@ public class UIControllerBehaviour: MonoBehaviour {
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
 
-		shieldText = Resources.Load ("UIObjects/ShieldText") as GameObject;
-		shieldText = Instantiate (shieldText);
-		shieldText.transform.SetParent(canvas.transform, false);
+//		shieldText = Resources.Load ("UIObjects/ShieldText") as GameObject;
+//		shieldText = Instantiate (shieldText);
+//		shieldText.transform.SetParent(canvas.transform, false);
 
-		slider = sliderObject.GetComponent<Slider> ();
+		slider = GameObject.Find ("PlayerShieldMeter").GetComponent<Slider> ();
+
 
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
@@ -212,8 +212,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 	}
 
 	public void UpdatePlayerShield(int shieldPercentage){
-		Text shieldTexObj = shieldText.GetComponent<Text>();
-		shieldTexObj.text = shieldPercentage.ToString ();
+//		Text shieldTexObj = shieldText.GetComponent<Text>();
+//		shieldTexObj.text = shieldPercentage.ToString ();
 		slider.value = (float)shieldPercentage/100.0f;
 	}
 

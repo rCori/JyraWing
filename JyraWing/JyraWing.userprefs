@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\EnemyBehavior.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" Line="59" Column="29" />
-      <File FileName="Assets\Scripts\UI\UIControllerBehaviour.cs" Line="214" Column="32" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAITank.cs" Line="121" Column="20" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAITankShield.cs" Line="46" Column="35" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="5" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -8,7 +8,7 @@ using System.Collections;
 /// Starts fast, then slow, then after stops and fires in a 3 bullet spread.
 /// By setting TankDir direction, the enemy can do this in any of the 4 cardinal directions
 /// </summary>
-public class EnemyAITank : EnemyBehavior {
+public class EnemyAITankShield : EnemyBehavior {
 	
 	private int moveState;
 
@@ -43,7 +43,7 @@ public class EnemyAITank : EnemyBehavior {
 	/// </summary>
 	private Vector2 downBul;
 
-	public int TANK_HEALTH = 5;
+	public int SHIELD_TANK_HEALTH = 7;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -122,7 +122,7 @@ public class EnemyAITank : EnemyBehavior {
 		
 		SetAnimations (animationsOwned);
 		//SetHitAnimationName ("tank_hit");
-		SetEnemyHealth (TANK_HEALTH);
+		SetEnemyHealth (SHIELD_TANK_HEALTH);
 	}
 	
 
@@ -158,9 +158,9 @@ public class EnemyAITank : EnemyBehavior {
 
 	void directionalFire()
 	{
-		Shoot (straightBul);
-		Shoot (upBul);
-		Shoot (downBul);
+		Shoot (straightBul, true);
+		Shoot (upBul, true);
+		Shoot (downBul, true);
 	}
 
 	//Should only be needed for the cases where direction is right, down, or up.

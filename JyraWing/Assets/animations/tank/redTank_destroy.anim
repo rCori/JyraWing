@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: tank_destroy
+  m_Name: redTank_destroy
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -29,7 +29,7 @@ AnimationClip:
     - time: 0.33333334
       value: {fileID: 21300008, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300010, guid: ba87de1427e70594ea74fd441d5cd9fe, type: 3}
+      value: {fileID: 21300010, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -53,7 +53,7 @@ AnimationClip:
     - {fileID: 21300004, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
     - {fileID: 21300008, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
     - {fileID: 21300008, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
-    - {fileID: 21300010, guid: ba87de1427e70594ea74fd441d5cd9fe, type: 3}
+    - {fileID: 21300010, guid: d68aee514749ef34c823d696c0b14eac, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

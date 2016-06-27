@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6bacef4a83331d146b961b79ded4ff91
-timeCreated: 1466904201
+timeCreated: 1466990774
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,7 +16,7 @@ TextureImporter:
     21300018: RedTank 0
     21300020: RedTank 1
     21300022: GreenTank 0
-    21300024: Enemies 1_0
+    21300024: GreenTank 1
     21300026: RedSiloTurret 0
     21300028: RedSiloTurret 1
     21300030: RedSiloTurret 2
@@ -368,7 +368,7 @@ TextureImporter:
         - {x: 36.5, y: -30.5}
         - {x: 36.5, y: 23.5}
         - {x: 35.5, y: 27.5}
-    - name: Enemies 1_0
+    - name: GreenTank 1
       rect:
         serializedVersion: 2
         x: 391
