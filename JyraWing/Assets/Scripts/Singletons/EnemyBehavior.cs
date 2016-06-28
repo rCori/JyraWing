@@ -399,6 +399,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					DestroySelf ();
 				}
 			}
+
 			//The bullet hit and hitpoints are being lowered but the enemy isn't destroyed yet.
 			//Play the hit animation flash.
 			else{

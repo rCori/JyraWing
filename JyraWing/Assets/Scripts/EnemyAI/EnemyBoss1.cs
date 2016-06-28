@@ -39,7 +39,7 @@ public class EnemyBoss1 : EnemyBehavior {
 		EnemyDefaults ();
 		SetEnemyHealth (hits);
 		HasAnimations animationSettings;
-		animationSettings = HasAnimations.Hit | HasAnimations.Destroy;
+		animationSettings = HasAnimations.Destroy;
 		SetAnimations (animationSettings);
 		//InitializeBullets (20);
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
@@ -68,6 +68,7 @@ public class EnemyBoss1 : EnemyBehavior {
 		}
 
 		Movement ();
+		/*
 		//Don't use HandleHitANimation because now we need to handle
 		//the other animations with special conditions.
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_hit")) {
@@ -79,6 +80,7 @@ public class EnemyBoss1 : EnemyBehavior {
 			}
 
 		}
+		*/
 
 	}
 
@@ -301,7 +303,7 @@ public class EnemyBoss1 : EnemyBehavior {
 			switch (moveState) {
 			case 0:
 				//Charge state
-				animator.SetInteger("animState", 3);
+				//animator.SetInteger("animState", 3);
 				isCharging = true;
 				//Return to original position.
 				StartStandStill(2.0f);
