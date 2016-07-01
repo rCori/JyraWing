@@ -57,23 +57,25 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 	private void UpdateShieldAppearance(float shieldPercentage, bool hasShield){
 		//If the shield is active
 		if (hasShield) {
-			if (shieldPercentage > 66.0f) {
-				animator.SetInteger ("animState", 0);
-			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
-				animator.SetInteger ("animState", 1);
-			} else if (shieldPercentage < 33.0f) {
-				animator.SetInteger ("animState", 2);
-			}
+			animator.SetInteger ("animState", 0);
+//			if (shieldPercentage > 66.0f) {
+//				animator.SetInteger ("animState", 0);
+//			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
+//				animator.SetInteger ("animState", 1);
+//			} else if (shieldPercentage < 33.0f) {
+//				animator.SetInteger ("animState", 2);
+//			}
 		//Shield is inactive
 		} 
 		else {
-			if (shieldPercentage > 66.0f) {
-				animator.SetInteger ("animState", 3);
-			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
-				animator.SetInteger ("animState", 4);
-			} else if (shieldPercentage < 33.0f) {
-				animator.SetInteger ("animState", 5);
-			}
+			animator.SetInteger ("animState", 3);
+//			if (shieldPercentage > 66.0f) {
+//				animator.SetInteger ("animState", 3);
+//			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
+//				animator.SetInteger ("animState", 4);
+//			} else if (shieldPercentage < 33.0f) {
+//				animator.SetInteger ("animState", 5);
+//			}
 		}
 
 	}

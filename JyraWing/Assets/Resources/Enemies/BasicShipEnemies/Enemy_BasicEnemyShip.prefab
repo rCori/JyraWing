@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 2.5, z: 0}
+  m_LocalPosition: {x: 8, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -100,10 +100,10 @@ MonoBehaviour:
   MoveInstructionList: []
   angle: 180
   shieldableAngleAdjustment: 15
-  speed: 3.5
+  speed: 3
   lifeTime: 6
-  fireRate: 1.2
-  bulletSpeed: 5
+  fireRate: 0.7
+  bulletSpeed: 2
   shootInDirection: 0
   hits: 1
   SHIP_HEALTH: 3

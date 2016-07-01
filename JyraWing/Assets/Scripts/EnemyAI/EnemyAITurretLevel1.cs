@@ -79,7 +79,6 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 
 		shootTimer += Time.deltaTime;
 		if (shootTimer > shootTimeLimit) {
-			Debug.Log ("starting shoot animation");
 			shootTimer = 0.0f;
 			StartShootAnimation ();
 		}
