@@ -24,7 +24,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
 		gameController.SetUIController (new UIControllerRewrite ());
 		initializeUI = false;
-	
+		PlayerInputController.StartButton += PauseBehavior;
 	}
 	
 	// Update is called once per frame
@@ -41,13 +41,13 @@ public class GameControllerBehaviour : MonoBehaviour {
 		}
 		//When the pause button is pressed, the uiCOntrollerBehvaiour will create
 		//the ingame menu and all items will pause
-		if (Input.GetButtonDown ("Pause")) {
-			if(gameController.IsPaused && gameController.IsNotGameOver())
-			{
-				uiControllerBehaviour.PauseMenu();
-				gameController.PauseAllItems();
-			}
-		}
+//		if (Input.GetButtonDown ("Pause")) {
+//			if(!gameController.IsPaused && gameController.IsNotGameOver())
+//			{
+//				uiControllerBehaviour.PauseMenu();
+//				gameController.PauseAllItems();
+//			}
+//		}
 		//When the flag to update lives is checked, this will get the uiControllerBehaviour to update that
 		if (gameController.ShouldUpdateLifeCount (true)) {
 			uiControllerBehaviour.UpdateLives(gameController.GetLifeCount());
@@ -133,6 +133,15 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	public GameController GetGameController(){
 		return gameController;
+	}
+
+	public void PauseBehavior(bool down) {
+		if (down) {
+			if (!gameController.IsPaused && gameController.IsNotGameOver ()) {
+				uiControllerBehaviour.PauseMenu ();
+				gameController.PauseAllItems ();
+			}
+		}
 	}
 
 }

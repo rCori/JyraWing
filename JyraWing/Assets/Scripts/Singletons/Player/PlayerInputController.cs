@@ -29,6 +29,7 @@ public class PlayerInputController : MonoBehaviour {
 		ButtonUpdate(downButtonString, DownButton);
 		ButtonUpdate(leftButtonString, LeftButton);
 		ButtonUpdate(rightButtonString, RightButton);
+		ButtonUpdate (startButtonString, StartButton);
 
 		prevUpDown = AxisUpdate(upDownAxisString, UpDownEvent, prevUpDown);
 		prevLeftRight = AxisUpdate (leftRightAxisString, LeftRightEvent, prevLeftRight);
@@ -44,7 +45,7 @@ public class PlayerInputController : MonoBehaviour {
 		rightButtonString = "Right";
 		upDownAxisString = "Vertical";
 		leftRightAxisString = "Horizontal";
-		startButtonString = "Start";
+		startButtonString = "Pause";
 	}
 
 	private void ButtonUpdate(string butttonString, ButtonEvent buttonEvent) {

@@ -10,9 +10,14 @@ public class Scroll : MonoBehaviour, PauseableItem {
 
 	private bool _paused;
 
+	void Start() {
+		_paused = false;
+		RegisterToList ();
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (!paused) {
+		if (!_paused) {
 			transform.position -= new Vector3 (speed * Time.deltaTime, 0f, 0f);
 		}
 	}
