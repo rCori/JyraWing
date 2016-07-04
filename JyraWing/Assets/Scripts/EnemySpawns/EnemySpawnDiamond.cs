@@ -11,8 +11,6 @@ public class EnemySpawnDiamond: EnemySpawner {
 
 	public bool enemyRepeat;
 
-	public int enemyHitPoints;
-
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -31,10 +29,7 @@ public class EnemySpawnDiamond: EnemySpawner {
 		enemyAI1.time = enemyTime;
 		enemyAI1.repeat = enemyRepeat;
 
-
-
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHitPoints);
 
 	}
 }

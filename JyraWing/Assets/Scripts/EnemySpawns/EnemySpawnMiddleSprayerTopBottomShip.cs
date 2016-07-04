@@ -34,11 +34,6 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 		topShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		topShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 		EnemyAIShipArc topShipAI = topShip.GetComponent<EnemyAIShipArc> ();
-		topShipAI.angle = 180f;
-		topShipAI.speed = 2.5f;
-		topShipAI.fireRate = 1.6f;
-		topShipAI.bulletSpeed = 2.3f;
-		topShipAI.lifeTime = 4f;
 		topShip.GetComponent<Scroll> ().speed = 1;
 		topShip = Instantiate (topShip);
 
@@ -54,11 +49,6 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 		bottomShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		bottomShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 		EnemyAIShipArc bottomShipAI = bottomShip.GetComponent<EnemyAIShipArc> ();
-		bottomShipAI.angle = 180f;
-		bottomShipAI.speed = 2.5f;
-		bottomShipAI.fireRate = 1.2f;
-		bottomShipAI.bulletSpeed = 2.3f;
-		bottomShipAI.lifeTime = 4f;
 		bottomShip.GetComponent<Scroll> ().speed = 1;
 		bottomShip = Instantiate (bottomShip);
 	}

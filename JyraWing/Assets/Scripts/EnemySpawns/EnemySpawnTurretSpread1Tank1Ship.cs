@@ -102,12 +102,6 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 		enemy7.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai7 = enemy7.GetComponent<EnemyAIShipArc> ();
-		ai7.angle = 180.0f;
-		ai7.speed = 2.0f;
-		ai7.lifeTime = 12f;
-		ai7.fireRate = 0.7f;
-		ai7.bulletSpeed = 4f;
-		ai7.hits = 1;
 		enemy7.GetComponent<Scroll> ().speed = 1;
 		enemy7 = Instantiate (enemy7);
 	}

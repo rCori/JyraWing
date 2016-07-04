@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class EnemyAIShipArc : EnemyBehavior {
+public class EnemyAITypeBFighter : EnemyBehavior {
 
 	[System.Serializable]
 	public struct MoveInstruction {
@@ -19,7 +19,7 @@ public class EnemyAIShipArc : EnemyBehavior {
 	private float timer;
 	private float bulletSpeed = 3.4f;
 	private float fireRate = 1.5f;
-	private int SHIP_HEALTH = 3;
+	private int SHIP_HEALTH = 4;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -29,10 +29,9 @@ public class EnemyAIShipArc : EnemyBehavior {
 		LeftWallException = true;
 
 		HasAnimations animationsOwned;
-		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		animationsOwned = HasAnimations.Destroy;
 
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("enemy4_B_hit");
 
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
@@ -51,7 +50,7 @@ public class EnemyAIShipArc : EnemyBehavior {
 		}
 		timer += Time.deltaTime;
 		if (timer > fireRate) {
-			Shoot (Vector2.left * bulletSpeed);
+			Shoot (Vector2.left * bulletSpeed, true);
 			timer = 0.0f;
 		}
 		HandleHitAnimation ();
@@ -76,5 +75,4 @@ public class EnemyAIShipArc : EnemyBehavior {
 			Destroy(gameObject);
 		}
 	}
-
 }

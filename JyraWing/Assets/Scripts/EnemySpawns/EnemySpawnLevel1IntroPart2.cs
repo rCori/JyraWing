@@ -28,12 +28,6 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy3.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai3 = enemy3.GetComponent<EnemyAIShipArc> ();
-		ai3.angle = 180f;
-		ai3.speed = 1.5f;
-		ai3.lifeTime = 20.0f;
-		ai3.fireRate = 2.5f;
-		ai3.bulletSpeed = 2f;
-		ai3.hits = shipHealth;
 		enemy3.GetComponent<Scroll> ().speed = 0;
 		enemy3 = Instantiate (enemy3);
 
@@ -42,12 +36,6 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 		enemy4.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy4.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai4 = enemy4.GetComponent<EnemyAIShipArc> ();
-		ai4.angle = 180f;
-		ai4.speed = 1.5f;
-		ai4.lifeTime = 30.0f;
-		ai4.fireRate = 2.5f;
-		ai4.bulletSpeed = 2f;
-		ai4.hits = shipHealth;
 		enemy4.GetComponent<Scroll> ().speed = 0;
 		enemy4 = Instantiate (enemy4);
 
@@ -56,12 +44,6 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy5.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai5 = enemy5.GetComponent<EnemyAIShipArc> ();
-		ai5.angle = 180f;
-		ai5.speed = 1.5f;
-		ai5.lifeTime = 20.0f;
-		ai5.fireRate = 2.5f;
-		ai5.bulletSpeed = 2f;
-		ai5.hits = shipHealth;
 		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 

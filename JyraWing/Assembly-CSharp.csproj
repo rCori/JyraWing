@@ -60,6 +60,8 @@
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAITank.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAITankShield.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel2.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITypeBFighter.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIWaterTurret.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss1.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondScatteredArray.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSpecialEncounterArcCrossovers.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />
@@ -92,9 +95,12 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTankSquad1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipsArcAway.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnSpiderTurret.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTopBottomTurrets.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTopBottomTurrets1.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurret.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretSpread1Tank1Ship.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTwoWaterTurrets.cs" />

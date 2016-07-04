@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6bacef4a83331d146b961b79ded4ff91
-timeCreated: 1466990774
+timeCreated: 1467598089
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -89,7 +89,7 @@ TextureImporter:
     21300164: SpiderTurret 1
     21300166: SpiderTurret 2
     21300168: SpiderTurret 3
-    21300170: Enemies 1_1
+    21300170: SpiderTurret 4
     21300172: Frigate
     21300174: FrigateEmblem
     21300176: TypeAFighter 0
@@ -1616,7 +1616,7 @@ TextureImporter:
         - {x: -38, y: -36.5}
         - {x: 38, y: -36.5}
         - {x: 38, y: 36.5}
-    - name: Enemies 1_1
+    - name: SpiderTurret 4
       rect:
         serializedVersion: 2
         x: 324
