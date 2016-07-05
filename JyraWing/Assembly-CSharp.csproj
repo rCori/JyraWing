@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2Ships2BFightersArcAway.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5DiamondsOscillating.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6StationaryShips4OscillatingDiamonds.cs" />

@@ -25,7 +25,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 		}
 		fireSfx = gameObject.AddComponent<AudioSource> ();
 		//Shot sound
-		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
+		fireSfx.clip = Resources.Load ("Audio/SFX/click4") as AudioClip;
 		_paused = false;
 		RegisterToList ();
 	}

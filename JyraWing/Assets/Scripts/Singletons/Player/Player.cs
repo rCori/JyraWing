@@ -40,7 +40,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	Animator animator;
 	int hits;
 	int numBullets;
-	private AudioSource fireSfx;
 	private AudioSource damageSfx;
 	private float hitTimer;
 	private PlayerSpeed playerSpeed;
@@ -76,9 +75,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		hitTimer = 0.0f;
 		hits = 3;
 		numBullets = 20;
-		fireSfx = gameObject.AddComponent<AudioSource> ();
-		//Shot sound
-		fireSfx.clip = Resources.Load ("Audio/SFX/beep3") as AudioClip;
 		damageSfx = gameObject.AddComponent<AudioSource> ();
 		//Sound when the player is hit
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;

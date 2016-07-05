@@ -136,7 +136,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		powerupGroupID = -1;
 		//gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
-		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
+		hitSfx = Resources.Load ("Audio/SFX/Click_Electronic_10") as AudioClip;
 		animationsOwned = HasAnimations.None;
 		animator = gameObject.GetComponent<Animator> ();
 		hitAnimationName = "NO ANIMATION SET";
