@@ -28,8 +28,6 @@ public class EnemySpawnShip : EnemySpawner {
 		ai1.angle = angle;
 		ai1.speed = speed;
 		ai1.lifeTime = lifeTime;
-		ai1.fireRate = fireRate;
-		ai1.bulletSpeed = bulletSpeed;
 		ai1.shootInDirection = shootInDirection;
 		enemy1.GetComponent<Scroll> ().speed = 1;
 		enemy1 = Instantiate (enemy1);

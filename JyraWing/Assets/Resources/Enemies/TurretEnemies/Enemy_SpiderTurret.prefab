@@ -97,7 +97,7 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
-  fireDirection: 3
+  fireDirection: 0
 --- !u!114 &11455000
 MonoBehaviour:
   m_ObjectHideFlags: 1

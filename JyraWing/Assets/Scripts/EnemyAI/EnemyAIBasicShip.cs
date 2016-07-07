@@ -21,21 +21,17 @@ public class EnemyAIBasicShip : EnemyBehavior {
 
 	public float speed;
 	public float lifeTime;
-	public float fireRate;
-	public float bulletSpeed;
 	public bool shootInDirection = true;
 
-	public int hits;
 
 	private float radians;
 
 	private float timer;
 	private Vector2 direction;
+	private float bulletSpeed = 3.4f;
+	private float fireRate = 1.5f;
 
-	private Vector2 leftDir;
-	private Vector2 rightDir;
-
-	public int SHIP_HEALTH = 3;
+	private int SHIP_HEALTH = 3;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -43,8 +39,6 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		SetExplosionSfx (explosionClip);
 		//This enemy is not destoryed by touching the left wall.
 		LeftWallException = true;
-
-		SetEnemyHealth (hits);
 
 		HasAnimations animationsOwned;
 		animationsOwned = HasAnimations.Destroy;
@@ -66,7 +60,6 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		}
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
-		leftDir = new Vector2 (xVel, yVel);
 
 		if (shootInDirection) {
 			radians = Mathf.Deg2Rad * (angle + shieldableAngleAdjustment);
@@ -75,8 +68,6 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		}
 		xVel = Mathf.Cos (radians);
 		yVel = Mathf.Sin (radians);
-		rightDir = new Vector2 (xVel, yVel);
-
 
 		StartNewVelocity(direction * speed, lifeTime);
 		SetEnemyHealth (SHIP_HEALTH);
@@ -100,11 +91,6 @@ public class EnemyAIBasicShip : EnemyBehavior {
 				Shoot (direction * speed * bulletSpeed);
 			} else {
 				Shoot (Vector2.left * speed * bulletSpeed);
-			}
-			if(shieldableBullets){
-				Shoot (leftDir * speed * bulletSpeed *1.5f, true);
-				Shoot (rightDir * speed * bulletSpeed *1.5f, true);
-
 			}
 			timer = 0.0f;
 		}
