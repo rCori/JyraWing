@@ -1,94 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>10.0.20506</ProductVersion>
-	<SchemaVersion>2.0</SchemaVersion>
-	<RootNamespace></RootNamespace>
-	<ProjectGuid>{829B114E-E46D-3BA8-48E0-2BDB913E615D}</ProjectGuid>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
-	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-	<FileAlignment>512</FileAlignment>
-	<BaseDirectory>Assets</BaseDirectory>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{829B114E-E46D-3BA8-48E0-2BDB913E615D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	<DebugSymbols>true</DebugSymbols>
-	<DebugType>full</DebugType>
-	<Optimize>false</Optimize>
-	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_2_3;UNITY_5_2;UNITY_5;UNITY_64;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	<DebugType>pdbonly</DebugType>
-	<Optimize>true</Optimize>
-	<OutputPath>Temp\bin\Release\</OutputPath>
-	<ErrorReport>prompt</ErrorReport>
-	<WarningLevel>4</WarningLevel>
-	<NoWarn>0169</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-	<Reference Include="System" />
+    <Reference Include="System" />
     <Reference Include="System.XML" />
-	<Reference Include="System.Core" />
-	<Reference Include="System.Xml.Linq" />
-	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
-	</Reference>
-	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-	</Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI1.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI10.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI11.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI2.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI3.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI4.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI5.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI6.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI7.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI8.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyAI9.cs" />
-     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerArc.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipLevel1SpecialEncounter.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleCircle.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleOscillate.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAISwipe.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITank.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITankShield.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel2.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITypeBFighter.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIWaterTurret.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Turret.cs" />
      <Compile Include="Assets\Scripts\EnemyBullet.cs" />
      <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn1.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn10.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn12.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn13.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn14.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn15.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn16.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn17.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn18.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn19.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn20.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn21.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn22.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn23.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn24.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn7.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn8.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn9.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2Ships2BFightersArcAway.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5DiamondsOscillating.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6StationaryShips4OscillatingDiamonds.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondAmbush2Turrets.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondScatteredArray.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSpecialEncounterArcCrossovers.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1SpecialShipCrossingEncounter.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiddleSprayerTopBottomShip.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMinBossPlusExtras.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnMiniBoss.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayerArc.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTank.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTankSquad1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipsArcAway.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnSpiderTurret.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTank.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTopBottomTurrets1.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurret.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretSpread1Tank1Ship.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTwoWaterTurrets.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
      <Compile Include="Assets\Scripts\GameController\GameController.cs" />
      <Compile Include="Assets\Scripts\GameController\GameControllerBehaviour.cs" />
@@ -107,98 +124,40 @@
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />
      <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
+     <Compile Include="Assets\Scripts\ScreenWrap.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\Singletons\IPlayerShield.cs" />
+     <Compile Include="Assets\Scripts\Singletons\OldPlayerInputController.cs" />
      <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
-     <Compile Include="Assets\Scripts\Singletons\Player.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\IPlayerShield.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\IPlayerWeapon.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerAnimation.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerInputController.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerShield.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerShieldBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerSpeed.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerWeapon.cs" />
+     <Compile Include="Assets\Scripts\Singletons\Player\PlayerWeaponBehaviour.cs" />
      <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />
-     <Compile Include="Assets\Scripts\Singletons\PlayerInputController.cs" />
-     <Compile Include="Assets\Scripts\Singletons\PlayerShield.cs" />
-     <Compile Include="Assets\Scripts\Singletons\PlayerShieldBehaviour.cs" />
-     <Compile Include="Assets\Scripts\Singletons\PlayerSpeed.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
      <Compile Include="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
      <Compile Include="Assets\Scripts\UI\UIControllerBehaviour.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\CheckMethod.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ActionBase.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\BoolComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ColliderComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ComparerBase.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\FloatComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\GeneralComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\IntComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\IsRenderedByCamera.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\StringComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\TransformComparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\ValueDoesNotChange.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector2Comparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector3Comparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\Vector4Comparer.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\Comparers\VectorComparerBase.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\InvalidPathException.cs" />
-     <Compile Include="Assets\UnityTestTools\Assertions\MemberResolver.cs" />
-     <Compile Include="Assets\UnityTestTools\Common\ITestResult.cs" />
-     <Compile Include="Assets\UnityTestTools\Common\TestResultState.cs" />
-     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Scripts\GameScore.cs" />
-     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\CodeBasedAssertionExample.cs" />
-     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\CustomComponent.cs" />
-     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\DynamicIntegrationTest.cs" />
-     <Compile Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\ThrowCustomException.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\DTOFormatter.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\ITestRunnerCallback.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTest.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTestAttribute.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\IntegrationTestsProvider.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\NetworkResultSender.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\ResultDTO.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestComponent.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestResult.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestResultRenderer.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunner.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerCallbackList.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestRunnerConfigurator.cs" />
-     <Compile Include="Assets\UnityTestTools\IntegrationTestsFramework\TestingAssets\CallTesting.cs" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Cursor.shader" />
-     <None Include="Assets\UnityTestTools\LICENSE.txt" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditiveBlend.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Additive.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\Fallback.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\Multiply.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\CharacterSelfIlluminationReflective.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\PlanarRealtimeReflection.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\ReflectiveBackgroundPlanar.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\EnemySelfIlluminationReflective.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\AngryInclude.cginc" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleAdditive.shader" />
-     <None Include="Assets\UnityTestTools\changelog.txt" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\LaserScope.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\BackgroundAndCharacters\SuperSimpleSelfIllumination.shader" />
-     <None Include="Assets\UnityTestTools\Examples\IntegrationTestsFrameworkExamples\AngryBotsTests\Shaders\Fx\ParticleBlend.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="Mono.Cecil">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-	   Other similar extension points exist, see Microsoft.Common.targets.
+       Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

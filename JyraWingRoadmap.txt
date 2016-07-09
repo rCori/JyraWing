@@ -1,0 +1,56 @@
+JyraWing design plans:
+These are a list of things to be done in order to finish JyraWing
+
+Design:
+Redo first level to use new mechanics/design
+Balance out level 2
+Make a boss for level 2.
+Work out level 3 and 4.
+Balance level 3 and 4
+bosses for level 3 and 4
+All of level 5.
+
+I am changing the shooting mechanics slightly, and it will require me to rebalance everything
+a little. I am taking out autofire and opting for a "fire as fast as you can press the button"
+style, because that's what I like. This is going to make enemy encounters different. It will
+also remove that powerup. Maybe keep autofire, but the fire rate isn't super fast.
+
+With only one powerup left, the speed, I am taking out powerups completely. Instead you will have the
+shield mechanic which is the "twist" that this will hang on. With all of the levels put together I
+am shooting for the game being 20 minutes long. Maybe even compress that to 15. Lives will be lives
+from the beginning.  As a free download, that's about as much time as I can hope take from the
+average player. Should I consider WebGL? Support for it seems to be a little wonky right now.
+Maybe worth investigating.
+
+I am not going to use my own art anymore. I am going to start taking open source and buying art.
+That's a lot of art to replace.
+
+The enemy types are fine, but each enemy visual look needs to fire at the same speed and have
+the same amount of health. Throwing out similar looking enemies that do different things is confusing
+to the player. I should start getting recolors of the different enemies.
+
+So that's a lot to do. 
+I can't really make up good time estimates for this stuff right now.
+I am working on the boss for level 2 right now. Should be done by 6/13/16. During this time I will
+also need to make the change to firing, but that should be trivial.
+
+6/8/16
+Boss for level 2 doesn't have animations but it at least works. The change to firing works. I am going to start
+reworking all of the AI so fire rates and health are always the same for any instance of an enemy. Alterations
+to these rates need to be different colors.
+I am going back on some of the changes I said I would make.
+I want to finish this game eventually and I can't do that if I am turning it into something else all of the time.
+The game I was making was still valuable and I want to finish it. I am still going to make the change to making
+enemy health consistent because that's just a good design thing, but other than that, the player fire rate, the
+new art, I want to keep everything as it was before. SO now I need to implement the level 2 boss art I have
+finished and I can move onto level 3.
+
+6/11/16
+I am going to try a level with the new art assets  on a new branch to see if I like it and if it is worth it to me.
+
+6/14/16
+I just finished reorganizing all of the files to rename into more descriptive things. No more 
+"EneemySpawn12"
+
+6/22/16
+The Player's sprite and animation ahs been switched up. Next I want to get all of the enemies.

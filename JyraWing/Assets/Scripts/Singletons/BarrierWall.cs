@@ -5,6 +5,8 @@ public class BarrierWall : MonoBehaviour {
 
 	public enum sides {Left = 0, Right, Top, Bottom}
 
+	public static float RIGHT_X;
+
 	/// <summary>
 	/// The barrier mode. Determine what side it is on
 	/// </summary>
@@ -12,7 +14,9 @@ public class BarrierWall : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		if (gameObject.name == "Right Barrier") {
+			RIGHT_X = transform.position.x;
+		}
 	}
 	
 	// Update is called once per frame

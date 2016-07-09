@@ -1,0 +1,59 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyAISwipe : EnemyBehavior{
+
+	int moveState;
+	//float shootTimer;
+
+	public bool reverse;
+	private float modify;
+
+	float incrementX;
+	// Use this for initialization
+	void Awake () {
+		moveState = 0;
+		EnemyDefaults ();
+		//InitializeBullets (2);
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		SetExplosionSfx (explosionClip);
+		//shootTimer = 0.0f;
+		if (reverse) {
+			modify = -1.0f;
+		} else {
+			modify = 1.0f;
+		}
+		incrementX = 0.0f;
+
+		HasAnimations animationsOwned;
+		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		
+		SetAnimations (animationsOwned);
+		SetHitAnimationName ("enemy3_hit");
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(GetIsTimeUp())
+		{
+			switch (moveState) {
+			case 0:
+				moveState = 1;
+				StartNewMovement(new Vector3(5.0f - incrementX, -3.5f*modify), 2.5f);
+				break;
+			case 1:
+				moveState = 0;
+				StartNewMovement(new Vector3(5.0f - incrementX, 3.5f*modify), 3.5f);
+				incrementX += 3.0f;
+				modify = -modify;
+				if(incrementX > 12.0f)
+				{
+					Destroy (gameObject);
+				}
+				break;
+			}
+		}
+		Movement ();
+		HandleHitAnimation ();
+	}
+}

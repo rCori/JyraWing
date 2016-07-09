@@ -11,13 +11,11 @@ public class EnemySpawnDiamond: EnemySpawner {
 
 	public bool enemyRepeat;
 
-	public int enemyHitPoints;
-
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_H");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 		enemy1.transform.position = enemyPosition;
 
 		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -26,15 +24,12 @@ public class EnemySpawnDiamond: EnemySpawner {
 			enemyBehavior1.LeftWallException = false;
 		}
 
-		EnemyAI8 enemyAI1 = enemy1.GetComponent<EnemyAI8> ();
+		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
 		enemyAI1.direction = enemyDirection;
 		enemyAI1.time = enemyTime;
 		enemyAI1.repeat = enemyRepeat;
 
-
-
 		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHitPoints);
 
 	}
 }

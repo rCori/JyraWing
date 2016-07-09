@@ -1,0 +1,523 @@
+fileFormatVersion: 2
+guid: ace2cb0586c8ab34f84a43b998dfb6ec
+timeCreated: 1467348074
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PlayerBullet 0
+    21300002: PlayerBullet 1
+    21300004: PlayerBullet 2
+    21300006: PlayerBullet 3
+    21300008: EnemyBullet 0
+    21300010: EnemyBullet 1
+    21300012: EnemyBullet 2
+    21300014: EnemyBullet 3
+    21300016: EnemyShieldBullet 0
+    21300018: EnemyShieldBullet 1
+    21300020: PlayerShield 0
+    21300022: PlayerShield 1
+    21300024: PlayerShield 3
+    21300026: PlayerShield 2
+    21300028: PlayerShield 4
+    21300030: PlayerShield 5
+    21300032: PlayerShield 6
+    21300034: PlayerShield 7
+    21300036: PlayerShield 8
+    21300038: PlayerShield 9
+    21300040: PlayerShield 10
+    21300042: PlayerShield 11
+    21300044: PlayerShield 12
+    21300046: PlayerShield 13
+    21300048: PlayerShield 14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PlayerBullet 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1008
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerBullet 1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1008
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerBullet 2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1008
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerBullet 3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1008
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: EnemyBullet 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 724
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 16}
+        - {x: -16, y: 11}
+        - {x: -16, y: -10}
+        - {x: -14, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 11}
+        - {x: 10, y: 16}
+    - name: EnemyBullet 1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 724
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -16, y: 15}
+        - {x: -16, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -15}
+        - {x: 16, y: 12}
+        - {x: 11, y: 16}
+    - name: EnemyBullet 2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 724
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: EnemyBullet 3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 724
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 16}
+        - {x: -16, y: 15}
+        - {x: -16, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -15}
+        - {x: 16, y: 12}
+        - {x: 11, y: 16}
+    - name: EnemyShieldBullet 0
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 680
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: EnemyShieldBullet 1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 680
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerShield 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 30.5}
+        - {x: -29.5, y: 20.5}
+        - {x: -30.5, y: 16.5}
+        - {x: -30.5, y: -8.5}
+        - {x: -27.5, y: -6.5}
+        - {x: 9.5, y: 27.5}
+        - {x: 9.5, y: 30.5}
+    - name: PlayerShield 1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.5, y: 21.5}
+        - {x: 21.5, y: 30.5}
+        - {x: -18.5, y: 30.5}
+        - {x: -30.5, y: 26.5}
+        - {x: -30.5, y: -15.5}
+        - {x: -26.5, y: -20.5}
+        - {x: -19.5, y: -26.5}
+        - {x: -17.5, y: -26.5}
+        - {x: -15.5, y: -25.5}
+        - {x: -15.5, y: -22.5}
+        - {x: 28.5, y: 10.5}
+    - name: PlayerShield 3
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 30.5}
+        - {x: -30.5, y: 20.5}
+        - {x: -30.5, y: -20.5}
+        - {x: -27.5, y: -30.5}
+        - {x: 19.5, y: -30.5}
+        - {x: 30.5, y: -21.5}
+        - {x: 30.5, y: 23.5}
+        - {x: 17.5, y: 30.5}
+      - - {x: 21.5, y: -19.5}
+        - {x: 20.5, y: -18.5}
+        - {x: 17.5, y: -19.5}
+    - name: PlayerShield 2
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 30.5}
+        - {x: -30.5, y: 15.5}
+        - {x: -30.5, y: -27.5}
+        - {x: -21.5, y: -30.5}
+        - {x: 19.5, y: -30.5}
+        - {x: 28.5, y: -20.5}
+        - {x: 30.5, y: -13.5}
+        - {x: 30.5, y: 30.5}
+    - name: PlayerShield 4
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 30.5}
+        - {x: -30.5, y: 27.5}
+        - {x: -30.5, y: -30.5}
+        - {x: 30.5, y: -30.5}
+        - {x: 30.5, y: 29.5}
+        - {x: 26.5, y: 30.5}
+      - - {x: -20.5, y: -13.5}
+        - {x: 11.5, y: 19.5}
+        - {x: 24.5, y: -5.5}
+        - {x: 6.5, y: -25.5}
+    - name: PlayerShield 5
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 758
+        width: 62
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 30.5}
+        - {x: -31, y: 20.5}
+        - {x: -31, y: -18.5}
+        - {x: -19, y: -30.5}
+        - {x: 19, y: -30.5}
+        - {x: 31, y: -17.5}
+        - {x: 31, y: 27.5}
+        - {x: 21, y: 30.5}
+      - - {x: -10, y: -5.5}
+        - {x: 8, y: 10.5}
+        - {x: 24, y: -5.5}
+        - {x: 6, y: -25.5}
+    - name: PlayerShield 6
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 30.5}
+        - {x: -30.5, y: 27.5}
+        - {x: -30.5, y: -30.5}
+        - {x: 30.5, y: -30.5}
+        - {x: 30.5, y: 29.5}
+        - {x: 26.5, y: 30.5}
+    - name: PlayerShield 7
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 30.5}
+        - {x: -30.5, y: 27.5}
+        - {x: -30.5, y: -30.5}
+        - {x: 30.5, y: -30.5}
+        - {x: 30.5, y: 29.5}
+        - {x: 26.5, y: 30.5}
+    - name: PlayerShield 8
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 30.5}
+        - {x: -30.5, y: 20.5}
+        - {x: -30.5, y: -17.5}
+        - {x: -19.5, y: -30.5}
+        - {x: 20.5, y: -30.5}
+        - {x: 30.5, y: -20.5}
+        - {x: 30.5, y: 30.5}
+    - name: PlayerShield 9
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 30.5}
+        - {x: -30.5, y: 20.5}
+        - {x: -30.5, y: -17.5}
+        - {x: -19.5, y: -30.5}
+        - {x: 20.5, y: -30.5}
+        - {x: 30.5, y: -20.5}
+        - {x: 30.5, y: 30.5}
+      - - {x: -6.5, y: 25.5}
+        - {x: 12.5, y: 22.5}
+        - {x: -2.5, y: -6.5}
+        - {x: -21.5, y: -14.5}
+    - name: PlayerShield 10
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: 30.5}
+        - {x: -30.5, y: 20.5}
+        - {x: -30.5, y: -17.5}
+        - {x: -19.5, y: -30.5}
+        - {x: 20.5, y: -30.5}
+        - {x: 30.5, y: -20.5}
+        - {x: 30.5, y: 30.5}
+      - - {x: -24.5, y: 5.5}
+        - {x: -6.5, y: 25.5}
+        - {x: 20.5, y: 13.5}
+        - {x: -11.5, y: -19.5}
+    - name: PlayerShield 11
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.5, y: 30.5}
+        - {x: -30.5, y: 27.5}
+        - {x: -30.5, y: -28.5}
+        - {x: -27.5, y: -30.5}
+        - {x: 27.5, y: -30.5}
+        - {x: 30.5, y: -22.5}
+        - {x: 30.5, y: 27.5}
+        - {x: 26.5, y: 30.5}
+      - - {x: -21.5, y: 19.5}
+        - {x: -20.5, y: 18.5}
+        - {x: -17.5, y: 19.5}
+    - name: PlayerShield 12
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 30.5}
+        - {x: -13.5, y: 29.5}
+        - {x: -12.5, y: 25.5}
+        - {x: -28.5, y: 14.5}
+        - {x: -30.5, y: 11.5}
+        - {x: -30.5, y: -17.5}
+        - {x: -19.5, y: -30.5}
+        - {x: 22.5, y: -30.5}
+        - {x: 30.5, y: -28.5}
+        - {x: 30.5, y: 30.5}
+    - name: PlayerShield 13
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30.5, y: 15.5}
+        - {x: 23.5, y: 26.5}
+        - {x: 17.5, y: 27.5}
+        - {x: 15.5, y: 25.5}
+        - {x: 16.5, y: 22.5}
+        - {x: -27.5, y: -9.5}
+        - {x: -28.5, y: -10.5}
+        - {x: -28.5, y: -18.5}
+        - {x: -17.5, y: -30.5}
+        - {x: 14.5, y: -30.5}
+        - {x: 22.5, y: -23.5}
+        - {x: 27.5, y: -18.5}
+        - {x: 30.5, y: -11.5}
+    - name: PlayerShield 14
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 758
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.5, y: 6.5}
+        - {x: -9.5, y: -25.5}
+        - {x: -9.5, y: -30.5}
+        - {x: 16.5, y: -30.5}
+        - {x: 30.5, y: -17.5}
+        - {x: 30.5, y: 9.5}
+        - {x: 28.5, y: 9.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

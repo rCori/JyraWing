@@ -12,28 +12,28 @@ public class EnemySpawn1Fake : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 		
 		
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy1.transform.position = new Vector3(6f,
 		                                        VerticalShift + 0.5f,
 		                                        0f);
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy1 = Instantiate (enemy1);
 		
-		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy2 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy2.transform.position = new Vector3(7f,
 		                                        VerticalShift - 0.5f,
 		                                        0f);
 		enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy2 = Instantiate (enemy2);		
 		
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy3.transform.position = new Vector3(8f,
 		                                        VerticalShift + 0.5f,
 		                                        0f);
 		enemy3.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		enemy3 = Instantiate (enemy3);		
 		
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy4.transform.position = new Vector3(9f,
 		                                        VerticalShift - 0.5f,
 		                                        0f);
@@ -41,7 +41,7 @@ public class EnemySpawn1Fake : EnemySpawner {
 		enemy4 = Instantiate (enemy4);
 		
 		
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/Enemy_A");
+		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
 		enemy5.transform.position = new Vector3(10f,
 		                                        VerticalShift + 0.5f,
 		                                        0f);

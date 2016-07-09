@@ -1,0 +1,1957 @@
+fileFormatVersion: 2
+guid: 6bacef4a83331d146b961b79ded4ff91
+timeCreated: 1467598089
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BoxTurrets 0
+    21300002: BoxTurrets 1
+    21300004: BoxTurrets 2
+    21300006: BoxTurrets 3
+    21300008: BoxTurrets 4
+    21300010: BoxTurrets 5
+    21300012: BoxTurrets 6
+    21300014: BoxTurrets 7
+    21300016: BoxTurrets 8
+    21300018: RedTank 0
+    21300020: RedTank 1
+    21300022: GreenTank 0
+    21300024: GreenTank 1
+    21300026: RedSiloTurret 0
+    21300028: RedSiloTurret 1
+    21300030: RedSiloTurret 2
+    21300032: RedSiloTurret 3
+    21300034: RedSiloTurret 4
+    21300036: RedSiloTurret 5
+    21300038: RedSiloTurret 6
+    21300040: RedSiloTurret 7
+    21300042: RedSiloTurret 8
+    21300044: RedSiloTurret 9
+    21300046: RedSiloTurret 10
+    21300048: RedSiloTurret 11
+    21300050: RedSiloTurret 12
+    21300052: RedSiloTurret 13
+    21300054: RedSiloTurret 14
+    21300056: SphereProbe 0
+    21300058: SphereProbe 1
+    21300060: SphereProbe 2
+    21300062: SphereProbe 3
+    21300064: SphereProbe 4
+    21300066: SphereProbe 5
+    21300068: SphereProbe 6
+    21300070: SphereProbe 7
+    21300072: SphereProbe 8
+    21300074: SphereProbe 9
+    21300076: SphereProbe 10
+    21300078: SphereProbe 11
+    21300080: SphereProbe 12
+    21300082: SphereProbe 13
+    21300084: SphereProbe 14
+    21300086: GreenTurret 0
+    21300088: GreenTurret 1
+    21300090: BigProbe 0
+    21300092: BigProbe 1
+    21300094: TinyRedShip 0
+    21300096: TinyRedShip 1
+    21300098: YellowOrb 0
+    21300100: YellowOrb 1
+    21300102: YellowOrb 2
+    21300104: YellowOrb 3
+    21300106: HitSpark 7
+    21300108: HitSpark 0
+    21300110: HitSpark 1
+    21300112: HitSpark 6
+    21300114: HitSpark 2
+    21300116: HitSpark 3
+    21300118: HitSpark 4
+    21300120: HitSpark 5
+    21300122: HitSpark 8
+    21300124: HitSpark 9
+    21300126: MissleSilo
+    21300128: LargeYellowTank 0
+    21300130: LargeYellowTank 1
+    21300132: LargeYellowTank 2
+    21300134: LargeYellowTank 3
+    21300136: RedAngledShip 0
+    21300138: RedAngledShip 1
+    21300140: RedAngledShip 2
+    21300142: RedAngledShip 3
+    21300144: RedAngledShip 4
+    21300146: RedAngledShip 5
+    21300148: RedAngledShip 6
+    21300150: RedAngledShip 7
+    21300152: RedAngledShip 8
+    21300154: RedAngledShip 9
+    21300156: RedAngledShip 10
+    21300158: RedAngledShip 11
+    21300160: MediumRedTank
+    21300162: SpiderTurret 0
+    21300164: SpiderTurret 1
+    21300166: SpiderTurret 2
+    21300168: SpiderTurret 3
+    21300170: SpiderTurret 4
+    21300172: Frigate
+    21300174: FrigateEmblem
+    21300176: TypeAFighter 0
+    21300178: TypeAFighter 1
+    21300180: TypeAFighter 2
+    21300182: SmallGreenTank
+    21300184: TypeDFighter 0
+    21300186: TypeDFighter 1
+    21300188: TypeDFighter 2
+    21300190: TypeBFighter 0
+    21300192: TypeBFighter 1
+    21300194: TypeBFighter 2
+    21300196: TypeCFighter 0
+    21300198: TypeCFighter 1
+    21300200: TypeCFighter 2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BoxTurrets 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 694
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: 50}
+        - {x: -36, y: 50}
+        - {x: -36, y: -53}
+        - {x: 34, y: -53}
+        - {x: 36, y: -41}
+    - name: BoxTurrets 1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 694
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 32}
+        - {x: -36, y: -47}
+        - {x: -34, y: -53}
+        - {x: 34, y: -53}
+        - {x: 36, y: -49}
+        - {x: 36, y: 32}
+    - name: BoxTurrets 2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 694
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39, y: 53}
+        - {x: 10, y: 53}
+        - {x: -1, y: 41}
+        - {x: 0, y: 34}
+        - {x: 3, y: 31}
+        - {x: -1, y: 34}
+        - {x: -1, y: 40}
+        - {x: -3, y: 47}
+        - {x: -10, y: 53}
+        - {x: -47, y: 53}
+        - {x: -47, y: -28}
+        - {x: -43, y: -53}
+        - {x: 36, y: -53}
+        - {x: 46, y: -27}
+        - {x: 46, y: 45}
+        - {x: 45, y: 52}
+    - name: BoxTurrets 3
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 694
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 53}
+        - {x: -54, y: -24}
+        - {x: -35, y: -53}
+        - {x: 46, y: -53}
+        - {x: 54, y: -16}
+        - {x: 54, y: 53}
+    - name: BoxTurrets 4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 583
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: 52}
+        - {x: -55, y: 52}
+        - {x: -55, y: -23}
+        - {x: -44, y: -53}
+        - {x: 34, y: -53}
+        - {x: 34, y: -51}
+        - {x: 55, y: -23}
+        - {x: 55, y: 39}
+    - name: BoxTurrets 5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 583
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 48}
+        - {x: 23, y: 46}
+        - {x: -25, y: 48}
+        - {x: -55, y: 48}
+        - {x: -55, y: -28}
+        - {x: -35, y: -53}
+        - {x: 33, y: -53}
+        - {x: 55, y: -28}
+        - {x: 55, y: 48}
+    - name: BoxTurrets 6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 583
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: 40}
+        - {x: -55, y: -37}
+        - {x: -49, y: -53}
+        - {x: 44, y: -53}
+        - {x: 55, y: -50}
+        - {x: 55, y: 40}
+    - name: BoxTurrets 7
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 583
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: 32}
+        - {x: -55, y: -43}
+        - {x: -36, y: -53}
+        - {x: 38, y: -53}
+        - {x: 55, y: -43}
+        - {x: 55, y: 32}
+    - name: BoxTurrets 8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 472
+        width: 110
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 32}
+        - {x: -46, y: -45}
+        - {x: -37, y: -53}
+        - {x: 38, y: -53}
+        - {x: 46, y: -43}
+        - {x: 46, y: 32}
+    - name: RedTank 0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 499
+        width: 87
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38.5, y: 28.5}
+        - {x: -38.5, y: -24.5}
+        - {x: -33.5, y: -30.5}
+        - {x: 35.5, y: -30.5}
+        - {x: 38.5, y: -28.5}
+        - {x: 38.5, y: 28.5}
+    - name: RedTank 1
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 499
+        width: 87
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.5, y: 29.5}
+        - {x: -40.5, y: -30.5}
+        - {x: 35.5, y: -30.5}
+        - {x: 36.5, y: -29.5}
+        - {x: 36.5, y: 29.5}
+    - name: GreenTank 0
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 499
+        width: 87
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.5, y: 28.5}
+        - {x: -40.5, y: 28.5}
+        - {x: -40.5, y: -30.5}
+        - {x: 36.5, y: -30.5}
+        - {x: 36.5, y: 23.5}
+        - {x: 35.5, y: 27.5}
+    - name: GreenTank 1
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 499
+        width: 87
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 30.5}
+        - {x: -39.5, y: -27.5}
+        - {x: -38.5, y: -29.5}
+        - {x: 37.5, y: -29.5}
+        - {x: 37.5, y: 25.5}
+        - {x: 35.5, y: 30.5}
+    - name: RedSiloTurret 0
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 1
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 13, y: -16}
+        - {x: 16, y: -15}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 2
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 3
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 4
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 768
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 5
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 731
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 6
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 731
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 7
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 731
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 8
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 731
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 9
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 731
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 694
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 11
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 694
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 12
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 694
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 13
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 694
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: RedSiloTurret 14
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 694
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 16}
+        - {x: -16, y: 12}
+        - {x: -16, y: -11}
+        - {x: -10, y: -16}
+        - {x: 11, y: -16}
+        - {x: 16, y: -13}
+        - {x: 16, y: 16}
+    - name: SphereProbe 0
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 640
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 24}
+        - {x: -21.5, y: 18}
+        - {x: -21.5, y: -9}
+        - {x: -14.5, y: -23}
+        - {x: 7.5, y: -23}
+        - {x: 21.5, y: -17}
+        - {x: 21.5, y: 20}
+        - {x: 12.5, y: 24}
+    - name: SphereProbe 1
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 640
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 24}
+        - {x: -21.5, y: 18}
+        - {x: -21.5, y: -9}
+        - {x: -14.5, y: -23}
+        - {x: 7.5, y: -23}
+        - {x: 21.5, y: -17}
+        - {x: 21.5, y: 20}
+        - {x: 12.5, y: 24}
+    - name: SphereProbe 2
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 640
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 24}
+        - {x: -21.5, y: 18}
+        - {x: -21.5, y: -9}
+        - {x: -14.5, y: -23}
+        - {x: 7.5, y: -23}
+        - {x: 21.5, y: -17}
+        - {x: 21.5, y: 20}
+        - {x: 12.5, y: 24}
+    - name: SphereProbe 3
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 640
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 24}
+        - {x: -21.5, y: 18}
+        - {x: -21.5, y: -9}
+        - {x: -14.5, y: -23}
+        - {x: 7.5, y: -23}
+        - {x: 21.5, y: -17}
+        - {x: 21.5, y: 20}
+        - {x: 12.5, y: 24}
+    - name: SphereProbe 4
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 588
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 5
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 588
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 6
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 588
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 7
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 588
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 8
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 535
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 9
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 535
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 10
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 535
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 11
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 535
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 12
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 482
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 13
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 482
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: SphereProbe 14
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 482
+        width: 45
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 24}
+        - {x: -21.5, y: 17}
+        - {x: -21.5, y: -10}
+        - {x: -14.5, y: -24}
+        - {x: 7.5, y: -24}
+        - {x: 21.5, y: -18}
+        - {x: 21.5, y: 19}
+        - {x: 10.5, y: 24}
+    - name: GreenTurret 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 37}
+        - {x: -39.5, y: 14}
+        - {x: -39.5, y: -22}
+        - {x: -29.5, y: -37}
+        - {x: 31.5, y: -37}
+        - {x: 39.5, y: -30}
+        - {x: 39.5, y: 16}
+        - {x: 33.5, y: 37}
+    - name: GreenTurret 1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 315
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 37}
+        - {x: -39.5, y: 14}
+        - {x: -39.5, y: -22}
+        - {x: -29.5, y: -37}
+        - {x: 31.5, y: -37}
+        - {x: 39.5, y: -30}
+        - {x: 39.5, y: 16}
+        - {x: 33.5, y: 37}
+    - name: BigProbe 0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 310
+        width: 60
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 39.5}
+        - {x: -30, y: -13.5}
+        - {x: -14, y: -39.5}
+        - {x: 17, y: -39.5}
+        - {x: 30, y: -29.5}
+        - {x: 30, y: 39.5}
+    - name: BigProbe 1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 310
+        width: 60
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 39.5}
+        - {x: -23, y: 36.5}
+        - {x: -23, y: -12.5}
+        - {x: -18, y: -39.5}
+        - {x: 23, y: -39.5}
+        - {x: 23, y: 37.5}
+        - {x: 21, y: 39.5}
+    - name: TinyRedShip 0
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 382
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: TinyRedShip 1
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 382
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: YellowOrb 0
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 419
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 26}
+        - {x: -25, y: 24}
+        - {x: -25, y: -16}
+        - {x: -23, y: -23}
+        - {x: -12, y: -29}
+        - {x: 22, y: -29}
+        - {x: 25, y: -21}
+        - {x: 25, y: 26}
+    - name: YellowOrb 1
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 419
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 29}
+        - {x: -24, y: 21}
+        - {x: -24, y: -18}
+        - {x: -2, y: -29}
+        - {x: 15, y: -29}
+        - {x: 24, y: -26}
+        - {x: 24, y: 27}
+        - {x: 15, y: 29}
+    - name: YellowOrb 2
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 419
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 28}
+        - {x: -25, y: 10}
+        - {x: -25, y: -18}
+        - {x: -19, y: -25}
+        - {x: 17, y: -25}
+        - {x: 25, y: -18}
+        - {x: 25, y: 8}
+        - {x: 10, y: 28}
+    - name: YellowOrb 3
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 419
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 29}
+        - {x: -24, y: 28}
+        - {x: -24, y: -29}
+        - {x: 2, y: -29}
+        - {x: 24, y: -22}
+        - {x: 24, y: 21}
+        - {x: -3, y: 29}
+    - name: HitSpark 7
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 547
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 0
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 570
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 1
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 567
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 6
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 546
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 2
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 568
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 3
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 568
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 4
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 545
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 5
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 545
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 8
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 523
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HitSpark 9
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 524
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MissleSilo
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 551
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: LargeYellowTank 0
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 726
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 37}
+        - {x: -39.5, y: -37}
+        - {x: 39.5, y: -37}
+        - {x: 39.5, y: 37}
+    - name: LargeYellowTank 1
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 726
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 37}
+        - {x: -39.5, y: -37}
+        - {x: 39.5, y: -37}
+        - {x: 39.5, y: 37}
+    - name: LargeYellowTank 2
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 647
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 37}
+        - {x: -39.5, y: -37}
+        - {x: 39.5, y: -37}
+        - {x: 39.5, y: 37}
+    - name: LargeYellowTank 3
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 647
+        width: 79
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39.5, y: 37}
+        - {x: -39.5, y: -37}
+        - {x: 39.5, y: -37}
+        - {x: 39.5, y: 37}
+    - name: RedAngledShip 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 34}
+        - {x: -45, y: -29}
+        - {x: -19, y: -45}
+        - {x: 14, y: -45}
+        - {x: 36, y: -13}
+        - {x: 36, y: 20}
+        - {x: 26, y: 34}
+    - name: RedAngledShip 1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 220
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 31}
+        - {x: -41, y: 27}
+        - {x: -48, y: 19}
+        - {x: -48, y: -29}
+        - {x: -18, y: -45}
+        - {x: 31, y: -45}
+        - {x: 34, y: -31}
+        - {x: 34, y: 14}
+        - {x: 13, y: 31}
+    - name: RedAngledShip 2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 220
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 28}
+        - {x: -47, y: 18}
+        - {x: -47, y: -38}
+        - {x: -28, y: -42}
+        - {x: 39, y: -42}
+        - {x: 39, y: 18}
+        - {x: 31, y: 28}
+    - name: RedAngledShip 3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 220
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 29}
+        - {x: -20, y: 29}
+        - {x: -46, y: 8}
+        - {x: -46, y: -25}
+        - {x: -36, y: -38}
+        - {x: 28, y: -38}
+        - {x: 46, y: -30}
+        - {x: 46, y: 1}
+        - {x: 36, y: 23}
+    - name: RedAngledShip 4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 28}
+        - {x: -31, y: 25}
+        - {x: -39, y: 5}
+        - {x: -39, y: -38}
+        - {x: -23, y: -42}
+        - {x: 32, y: -42}
+        - {x: 47, y: -27}
+        - {x: 47, y: 24}
+        - {x: 29, y: 28}
+    - name: RedAngledShip 5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 130
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 31}
+        - {x: -34, y: 15}
+        - {x: -34, y: 0}
+        - {x: -24, y: -43}
+        - {x: -23, y: -45}
+        - {x: 27, y: -45}
+        - {x: 48, y: -28}
+        - {x: 48, y: 12}
+        - {x: 26, y: 31}
+    - name: RedAngledShip 6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 130
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 34}
+        - {x: -36, y: 22}
+        - {x: -36, y: -19}
+        - {x: -20, y: -45}
+        - {x: 21, y: -45}
+        - {x: 45, y: -22}
+        - {x: 45, y: 34}
+    - name: RedAngledShip 7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 130
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34, y: -41}
+        - {x: 48, y: -16}
+        - {x: 48, y: 31}
+        - {x: 40, y: 42}
+        - {x: -10, y: 42}
+        - {x: -34, y: 32}
+        - {x: -34, y: -41}
+    - name: RedAngledShip 8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35, y: 33}
+        - {x: 19, y: 45}
+        - {x: -6, y: 45}
+        - {x: -17, y: 37}
+        - {x: -40, y: 20}
+        - {x: -40, y: 7}
+        - {x: -29, y: -32}
+        - {x: -24, y: -34}
+        - {x: 30, y: -34}
+        - {x: 45, y: -24}
+        - {x: 45, y: 22}
+        - {x: 44, y: 23}
+    - name: RedAngledShip 9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 40
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 43}
+        - {x: -46, y: 11}
+        - {x: -46, y: -20}
+        - {x: -11, y: -36}
+        - {x: 24, y: -36}
+        - {x: 46, y: -20}
+        - {x: 46, y: 30}
+        - {x: 42, y: 43}
+    - name: RedAngledShip 10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 40
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 45}
+        - {x: -45, y: 38}
+        - {x: -46, y: 26}
+        - {x: -46, y: -26}
+        - {x: -41, y: -31}
+        - {x: -30, y: -34}
+        - {x: 27, y: -34}
+        - {x: 39, y: -21}
+        - {x: 39, y: 31}
+        - {x: 16, y: 45}
+    - name: RedAngledShip 11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 40
+        width: 96
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 37}
+        - {x: 7, y: 42}
+        - {x: -29, y: 42}
+        - {x: -32, y: 38}
+        - {x: -48, y: 26}
+        - {x: -48, y: -14}
+        - {x: -37, y: -37}
+        - {x: -28, y: -41}
+        - {x: -11, y: -41}
+        - {x: 30, y: -30}
+        - {x: 34, y: -21}
+        - {x: 34, y: 3}
+    - name: MediumRedTank
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 220
+        width: 146
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 63, y: 40}
+        - {x: 54, y: 45}
+        - {x: -58, y: 45}
+        - {x: -73, y: 28}
+        - {x: -73, y: -22}
+        - {x: -72, y: -29}
+        - {x: -69, y: -39}
+        - {x: -58, y: -45}
+        - {x: 63, y: -45}
+        - {x: 73, y: -30}
+        - {x: 73, y: 28}
+    - name: SpiderTurret 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 394
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: 36.5}
+        - {x: -35, y: 29.5}
+        - {x: -35, y: -33.5}
+        - {x: 35, y: -33.5}
+        - {x: 35, y: 36.5}
+    - name: SpiderTurret 1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 394
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 36.5}
+        - {x: -35, y: 31.5}
+        - {x: -35, y: -33.5}
+        - {x: 31, y: -33.5}
+        - {x: 38, y: -8.5}
+        - {x: 38, y: 34.5}
+        - {x: 37, y: 36.5}
+    - name: SpiderTurret 2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 394
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: 36.5}
+        - {x: -38, y: 21.5}
+        - {x: -38, y: -36.5}
+        - {x: 38, y: -36.5}
+        - {x: 38, y: 17.5}
+        - {x: 31, y: 36.5}
+    - name: SpiderTurret 3
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 394
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 36.5}
+        - {x: -38, y: 32.5}
+        - {x: -38, y: -36.5}
+        - {x: 38, y: -36.5}
+        - {x: 38, y: 36.5}
+    - name: SpiderTurret 4
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 394
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 36.5}
+        - {x: -38, y: 32.5}
+        - {x: -38, y: -33.5}
+        - {x: 35, y: -33.5}
+        - {x: 35, y: 35.5}
+        - {x: 30, y: 36.5}
+    - name: Frigate
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 318
+        width: 122
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -61, y: -71.5}
+        - {x: -60, y: -79.5}
+        - {x: 12, y: -79.5}
+        - {x: 61, y: -49.5}
+        - {x: 61, y: 37.5}
+        - {x: 26, y: 79.5}
+        - {x: -43, y: 79.5}
+        - {x: -61, y: 65.5}
+    - name: FrigateEmblem
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 588
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 16.5}
+        - {x: -18.5, y: 12.5}
+        - {x: -18.5, y: -12.5}
+        - {x: -12.5, y: -16.5}
+        - {x: 13.5, y: -16.5}
+        - {x: 18.5, y: -13.5}
+        - {x: 18.5, y: 12.5}
+        - {x: 17.5, y: 16.5}
+    - name: TypeAFighter 0
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 590
+        width: 49
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 28}
+        - {x: -24.5, y: 12}
+        - {x: -24.5, y: -12}
+        - {x: -11.5, y: -22}
+        - {x: 6.5, y: -28}
+        - {x: 23.5, y: -28}
+        - {x: 24.5, y: -25}
+        - {x: 24.5, y: 21}
+        - {x: 21.5, y: 28}
+    - name: TypeAFighter 1
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 590
+        width: 49
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16.5, y: 28}
+        - {x: 9.5, y: 28}
+        - {x: -23.5, y: 17}
+        - {x: -24.5, y: 16}
+        - {x: -24.5, y: -10}
+        - {x: -8.5, y: -19}
+        - {x: 11.5, y: -25}
+        - {x: 24.5, y: -25}
+        - {x: 24.5, y: 11}
+        - {x: 19.5, y: 27}
+    - name: TypeAFighter 2
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 590
+        width: 49
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 6}
+        - {x: -20.5, y: 2}
+        - {x: -24.5, y: -1}
+        - {x: -24.5, y: -14}
+        - {x: 0.5, y: -28}
+        - {x: 19.5, y: -28}
+        - {x: 24.5, y: -20}
+        - {x: 24.5, y: 25}
+        - {x: 6.5, y: 25}
+        - {x: -21.5, y: 19}
+    - name: SmallGreenTank
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 619
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: TypeDFighter 0
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 523
+        width: 49
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 32.5}
+        - {x: -23.5, y: 6.5}
+        - {x: -23.5, y: -21.5}
+        - {x: -5.5, y: -28.5}
+        - {x: 24.5, y: -28.5}
+        - {x: 24.5, y: 19.5}
+        - {x: 21.5, y: 32.5}
+      - - {x: -20.5, y: 32.5}
+        - {x: -24.5, y: 26.5}
+        - {x: -24.5, y: 13.5}
+        - {x: -20.5, y: 12.5}
+        - {x: -11.5, y: 12.5}
+        - {x: -4.5, y: 24.5}
+        - {x: -4.5, y: 32.5}
+    - name: TypeDFighter 1
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 523
+        width: 49
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: -13.5}
+        - {x: -12.5, y: -10.5}
+        - {x: -21.5, y: -10.5}
+        - {x: -24.5, y: -12.5}
+        - {x: -24.5, y: -23.5}
+        - {x: -17.5, y: -32.5}
+        - {x: -10.5, y: -32.5}
+        - {x: -6.5, y: -31.5}
+        - {x: -4.5, y: -30.5}
+        - {x: -4.5, y: -24.5}
+      - - {x: 0.5, y: 30.5}
+        - {x: -23.5, y: 22.5}
+        - {x: -23.5, y: -7.5}
+        - {x: -10.5, y: -20.5}
+        - {x: 11.5, y: -32.5}
+        - {x: 20.5, y: -32.5}
+        - {x: 24.5, y: -9.5}
+        - {x: 24.5, y: 30.5}
+    - name: TypeDFighter 2
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 523
+        width: 49
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.5, y: -11.5}
+        - {x: -20.5, y: -12.5}
+        - {x: -20.5, y: -21.5}
+        - {x: -13.5, y: -32.5}
+        - {x: -4.5, y: -32.5}
+        - {x: 1.5, y: -28.5}
+        - {x: 1.5, y: -18.5}
+        - {x: -7.5, y: -11.5}
+      - - {x: 21.5, y: 32.5}
+        - {x: 12.5, y: 32.5}
+        - {x: -15.5, y: 13.5}
+        - {x: -23.5, y: 4.5}
+        - {x: -23.5, y: -10.5}
+        - {x: 12.5, y: -31.5}
+        - {x: 23.5, y: -31.5}
+        - {x: 24.5, y: -28.5}
+        - {x: 24.5, y: 31.5}
+      - - {x: -1.5, y: 32.5}
+        - {x: -9.5, y: 32.5}
+        - {x: -11.5, y: 30.5}
+        - {x: -20.5, y: 19.5}
+        - {x: -20.5, y: 16.5}
+        - {x: -14.5, y: 12.5}
+        - {x: -6.5, y: 12.5}
+        - {x: 0.5, y: 21.5}
+        - {x: 1.5, y: 25.5}
+        - {x: 1.5, y: 30.5}
+    - name: TypeBFighter 0
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 726
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: -8.5}
+        - {x: -7.5, y: -32.5}
+        - {x: 0.5, y: -36.5}
+        - {x: 23.5, y: -36.5}
+        - {x: 23.5, y: 35.5}
+        - {x: 10.5, y: 35.5}
+        - {x: -26.5, y: 12.5}
+    - name: TypeBFighter 1
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 726
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: -6.5}
+        - {x: 6.5, y: -30.5}
+        - {x: 25.5, y: -30.5}
+        - {x: 25.5, y: 20.5}
+        - {x: 22.5, y: 36.5}
+        - {x: -1.5, y: 36.5}
+        - {x: -26.5, y: 17.5}
+    - name: TypeBFighter 2
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 653
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 32.5}
+        - {x: -26.5, y: 10.5}
+        - {x: -26.5, y: -10.5}
+        - {x: 5.5, y: -36.5}
+        - {x: 21.5, y: -36.5}
+        - {x: 25.5, y: -22.5}
+        - {x: 25.5, y: 32.5}
+    - name: TypeCFighter 0
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 657
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: -13}
+        - {x: 17, y: 32}
+        - {x: -1, y: 32}
+        - {x: -17, y: 13}
+        - {x: -17, y: -18}
+        - {x: -6, y: -32}
+        - {x: 16, y: -32}
+        - {x: 13, y: -20}
+        - {x: 11, y: -15}
+    - name: TypeCFighter 1
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 658
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 32}
+        - {x: -17, y: 21}
+        - {x: -17, y: -19}
+        - {x: -1, y: -32}
+        - {x: 17, y: -32}
+        - {x: 17, y: 32}
+    - name: TypeCFighter 2
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 593
+        width: 34
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 4}
+        - {x: -16, y: 3}
+        - {x: -13, y: 3}
+        - {x: -15, y: 3}
+        - {x: -17, y: 2}
+        - {x: -17, y: -20}
+        - {x: 0, y: -32}
+        - {x: 17, y: -32}
+        - {x: 17, y: 31}
+        - {x: 16, y: 32}
+        - {x: -7, y: 32}
+        - {x: -17, y: 21}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

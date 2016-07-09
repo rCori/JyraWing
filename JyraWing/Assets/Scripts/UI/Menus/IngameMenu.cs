@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class IngameMenu : Menu {
-	
-
-
 	private GameObject uiCanvas;
 	private GameObject yesText;
 	private GameObject noText;
@@ -55,7 +53,7 @@ public class IngameMenu : Menu {
 			//Yes: Go back to main menu
 			} else if (curSelect == 1) {
 				beep.Play ();
-				Application.LoadLevel ("titleScene");
+				SceneManager.LoadScene("titleScene");
 			}
 		}
 		if (Input.GetButton ("Toggle Speed")) {

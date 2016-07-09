@@ -1,12 +1,12 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyAI\EnemyAI10.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn24.cs" Line="23" Column="19" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAI10.cs" Line="4" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawn11.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyBulletPool.cs" Line="55" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" Line="32" Column="32" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" Line="25" Column="63" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" Line="43" Column="4" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" Line="70" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -8,8 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/titleScene.unity
   - enabled: 1
+    path: Assets/Scenes/LevelTransition.unity
+  - enabled: 1
     path: Assets/Scenes/Level_1.unity
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
   - enabled: 1
-    path: Assets/Scenes/LevelTransition.unity
+    path: Assets/Scenes/Level_3.unity
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+  - enabled: 1
+    path: Assets/Scenes/Level_5.unity

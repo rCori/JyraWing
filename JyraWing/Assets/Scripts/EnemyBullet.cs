@@ -11,16 +11,25 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 
 	public bool shieldable;
 
+	private readonly float TIME_LIMIT = 7f;
+	private float timer = 0f;
+
 	// Use this for initialization
 	void Start () {
 		isActive = false;
 		_paused = false;
+		timer = 0f;
 		RegisterToList();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (isActive) {
+			timer += Time.deltaTime;
+		}
+		if (timer > TIME_LIMIT) {
+			Recycle ();
+		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D other){
@@ -34,17 +43,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 				player.TakeDamage();
 			}
 			else{
-				Debug.Log ("player did not just take damage");
+				//Debug.Log ("player did not just take damage");
 			}
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-			gameObject.transform.position = new Vector2(0,10f);
-			isActive = false;
+			Recycle ();
 		}
 		if (other.tag == "Barrier") {
-			Player player = other.gameObject.GetComponent<Player>();
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-			gameObject.transform.position = new Vector2(0,10f);
-			isActive = false;
+			Recycle ();
 		}
 	}
 	
@@ -67,6 +71,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		return shieldable;
 	}
 
+	private void Recycle(){
+		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+		gameObject.transform.position = new Vector2(0,10f);
+		isActive = false;
+		timer = 0.0f;
+	}
 	
 	/* Implementation of PauseableItem interface */
 	public bool paused

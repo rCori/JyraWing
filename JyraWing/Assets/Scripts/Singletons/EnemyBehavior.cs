@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	
-	public enum MovementStatus {None, Lerp, Slerp, Velocity}
+	public enum MovementStatus {None, Lerp, Slerp, Velocity, ArcVelocity}
 
 	///Mark this as an enum that can have multiple values ORed together
 	///THis way they can used as independant flags.
@@ -122,6 +122,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	private Vector2 storedVel;
 	protected bool priorityAudio;
 
+	private Vector2 endArcVelocity;
+	private Vector2 startArcVelocity;
 	/// <summary>
 	/// Initialize default values for the enemy
 	/// </summary>
@@ -134,7 +136,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		powerupGroupID = -1;
 		//gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
-		hitSfx = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
+		hitSfx = Resources.Load ("Audio/SFX/Click_Electronic_10") as AudioClip;
 		animationsOwned = HasAnimations.None;
 		animator = gameObject.GetComponent<Animator> ();
 		hitAnimationName = "NO ANIMATION SET";
@@ -142,6 +144,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		_paused = false;
 		powerWillSpawn = false;
 		storedVel = new Vector2 (0f, 0f);
+		endArcVelocity = new Vector2 (0f, 0f);
+		startArcVelocity = new Vector2 (0f, 0f);
 		priorityAudio = false;
 		RegisterToList ();
 		shieldableBullets = false;
@@ -192,6 +196,16 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		gameObject.GetComponent<Rigidbody2D> ().velocity = i_vel;
 	} 
 
+	public void StartArcVelocity(Vector2 inital_vel, Vector2 end_vel, float i_time) {
+		moveStatus = MovementStatus.ArcVelocity;
+		startPos = gameObject.transform.position;
+		moveTimeLimit = i_time;
+		moveTimer = 0f;
+		gameObject.GetComponent<Rigidbody2D> ().velocity = inital_vel;
+		startArcVelocity = inital_vel;
+		endArcVelocity = end_vel;
+	}
+
 	/// <summary>
 	/// Starts a movement operation where the enemy has no current path or velocity.
 	/// </summary>
@@ -206,11 +220,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void Movement(){
 		moveTimer += Time.deltaTime;
 		if (moveTimer < moveTimeLimit) {
-			if(moveStatus == MovementStatus.Lerp){
-				gameObject.transform.position = Vector2.Lerp(startPos, endPos,moveTimer/moveTimeLimit);
-			}
-			else if(moveStatus == MovementStatus.Slerp){
-				gameObject.transform.position = Vector3.Slerp(startPos, endPos,moveTimer/moveTimeLimit);
+			if (moveStatus == MovementStatus.Lerp) {
+				gameObject.transform.position = Vector2.Lerp (startPos, endPos, moveTimer / moveTimeLimit);
+			} else if (moveStatus == MovementStatus.Slerp) {
+				gameObject.transform.position = Vector3.Slerp (startPos, endPos, moveTimer / moveTimeLimit);
+			} else if (moveStatus == MovementStatus.ArcVelocity) {
+				gameObject.GetComponent<Rigidbody2D> ().velocity = Vector2.Lerp (startArcVelocity, endArcVelocity, moveTimer / moveTimeLimit);
 			}
 		}
 	}
@@ -322,8 +337,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			}
 			hitPoints--;
 			//This will get rid of the bullet
-			other.GetComponent<Bullet>().BulletDestroy();
-			
+			//other.GetComponent<Bullet>().BulletDestroy();
+			other.GetComponent<Bullet>().BulletHit();
+
 			if(hitPoints == 0)
 			{
 				
@@ -379,9 +395,11 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 							powerWillSpawn = true;
 						}
 					}
+					isDestroyed = true;
 					DestroySelf ();
 				}
 			}
+
 			//The bullet hit and hitpoints are being lowered but the enemy isn't destroyed yet.
 			//Play the hit animation flash.
 			else{
@@ -433,7 +451,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 
 		RemoveFromList ();
-
 	}
 
 	//Intended to be used at the end of a destroy animation
@@ -462,6 +479,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	protected void SetAnimations(HasAnimations anims)
 	{
 		animationsOwned = anims;
+	}
+
+	public void SetAnimationToDefault() {
+		animator.SetInteger("animState", 0);
 	}
 
 	///<summary>
