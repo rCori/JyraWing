@@ -86,7 +86,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy5.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy5.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai5 = enemy5.GetComponent<EnemyAIShipArc> ();
-		enemy5.GetComponent<Scroll> ().speed = 0;
 		enemy5 = Instantiate (enemy5);
 		enemy5.GetComponent<EnemyBehavior> ().shieldableBullets = true;
 
@@ -97,7 +96,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy6.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai6 = enemy6.GetComponent<EnemyAIShipArc> ();
-		enemy6.GetComponent<Scroll> ().speed = 0;
 		enemy6 = Instantiate (enemy6);
 		enemy6.GetComponent<EnemyBehavior> ().shieldableBullets = true;
 
@@ -109,7 +107,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy7.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai7 = enemy7.GetComponent<EnemyAIShipArc> ();
-		enemy7.GetComponent<Scroll> ().speed = 0;
 		enemy7 = Instantiate (enemy7);
 		enemy7.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 
@@ -121,7 +118,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy8.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy8.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai8 = enemy8.GetComponent<EnemyAIShipArc> ();
-		enemy8.GetComponent<Scroll> ().speed = 0;
 		enemy8 = Instantiate (enemy8);
 		enemy8.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 
@@ -133,7 +129,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy9.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy9.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai9 = enemy9.GetComponent<EnemyAIShipArc> ();
-		enemy9.GetComponent<Scroll> ().speed = 0;
 		enemy9 = Instantiate (enemy9);
 		enemy9.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 
@@ -145,7 +140,6 @@ public class EnemySpawn6StationaryShips4OscillatingDiamonds : EnemySpawner {
 		enemy10.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy10.GetComponent<EnemyBehavior> ().LeftWallException = true;
 		EnemyAIShipArc ai10 = enemy10.GetComponent<EnemyAIShipArc> ();
-		enemy10.GetComponent<Scroll> ().speed = 0;
 		enemy10 = Instantiate (enemy10);
 		enemy10.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 	}

@@ -4,6 +4,7 @@ using System.Collections;
 public interface IPlayerWeapon {
 
 	bool UpdateAutoFire (float delta);
+	void AutoFire(bool down);
 	int WeaponLevel {
 		get;
 		set;

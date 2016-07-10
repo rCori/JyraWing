@@ -14,6 +14,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	// Use this for initialization
 	void Start () {
 		PlayerInputController.FireButton += ShootBehavior;
+		PlayerInputController.AutoFireButton += AutoFireBehaviour;
 		playerWeapon = new PlayerWeapon ();
 		//Bullet pool of player bullets.
 		bulletPool = new List<GameObject> ();
@@ -60,6 +61,10 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 		}
 	}
 
+	public void AutoFireBehaviour(bool down) {
+		playerWeapon.AutoFire (down);
+	}
+
 	/* Implementation of PauseableObject */
 	public bool paused
 	{
@@ -86,5 +91,10 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 		if (GameObject.Find ("GameController")) {
 			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
 		}
+	}
+
+	void OnDestroy() {
+		PlayerInputController.FireButton -= ShootBehavior;
+		PlayerInputController.AutoFireButton -= AutoFireBehaviour;
 	}
 }

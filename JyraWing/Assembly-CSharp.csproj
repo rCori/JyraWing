@@ -96,6 +96,8 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTank.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTankSquad1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipArc.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipArcSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipsArcAway.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnSpiderTurret.cs" />

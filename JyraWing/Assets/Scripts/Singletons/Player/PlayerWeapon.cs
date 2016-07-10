@@ -11,7 +11,6 @@ public class PlayerWeapon : IPlayerWeapon {
 		_numBullets = 20;
 		_isAutoFire = false;
 		autoFireTimer = 1f;
-		PlayerInputController.AutoFireButton += AutoFire;
 	}
 
 	private int _weaponLevel;
@@ -45,6 +44,7 @@ public class PlayerWeapon : IPlayerWeapon {
 		_isAutoFire = down;
 		autoFireTimer = 1f;
 	}
+
 	public bool UpdateAutoFire (float delta) {
 		autoFireTimer += delta;
 		if (autoFireTimer > AUTOFIRETIMELIMIT) {
@@ -53,5 +53,4 @@ public class PlayerWeapon : IPlayerWeapon {
 		}
 		return false;
 	}
-
 }

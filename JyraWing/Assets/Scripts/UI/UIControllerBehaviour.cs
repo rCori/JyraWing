@@ -18,7 +18,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject lifeText;
 //	private GameObject shieldText;
 	// Player speed will be represented by multiple sprites in different states of opacity
-	private List<GameObject> speedSpriteCollection;
+	//private List<GameObject> speedSpriteCollection;
 
 	//private IngameMenu pauseMenu;
 
@@ -61,10 +61,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 		initLives (lifeCount);
 		
 		speedCount = 4;
-		speedSpriteCollection = new List<GameObject> ();
+		//speedSpriteCollection = new List<GameObject> ();
 		initSpeed ();
 		//UpdateAvailableSpeed (1);
-		UpdateActivatedSpeed (1,1);
+		//UpdateActivatedSpeed (1,1);
 	}
 
 	// Update is called once per frame
@@ -103,8 +103,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// <param name="i_curLife">The life to removed from HUD.</param>
 	private void DecreaseLives(){
 		lifeCount--;
-		if(lifeCount >= 0)
-		{
+		if(lifeCount >= 0) {
 			Text lifeMessageText = lifeText.GetComponent<Text>();
 			lifeMessageText.text = "Lives: " + lifeCount;
 		}
@@ -148,17 +147,17 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// Inits the speed counter graphics.
 	/// </summary>
 	private void initSpeed(){
-		float spriteWidth = Screen.width/35f;
-		for (int i = 0; i < speedCount; i++) {
-			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
-			speedSprite = Instantiate(speedSprite);
-			speedSprite.transform.SetParent(canvas.transform, false);
-			speedSprite.transform.position = new Vector3(
-				speedSprite.transform.position.x + i*spriteWidth,
-				speedSprite.transform.position.y,
-				speedSprite.transform.position.z);
-			speedSpriteCollection.Add (speedSprite);
-		}
+//		float spriteWidth = Screen.width/35f;
+//		for (int i = 0; i < speedCount; i++) {
+//			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
+//			speedSprite = Instantiate(speedSprite);
+//			speedSprite.transform.SetParent(canvas.transform, false);
+//			speedSprite.transform.position = new Vector3(
+//				speedSprite.transform.position.x + i*spriteWidth,
+//				speedSprite.transform.position.y,
+//				speedSprite.transform.position.z);
+//			speedSpriteCollection.Add (speedSprite);
+//		}
 	}
 
 	/// <summary>
@@ -166,23 +165,23 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// how many the player can activate.
 	/// </summary>
 	/// <param name="available">Available.</param>
-	public void UpdateAvailableSpeed(int available){
-		for(int i = 0; i< speedCount; i++){
-			GameObject speedSprite = speedSpriteCollection[i];
-			Image speedSpriteImage = speedSprite.GetComponent<Image>();
-			Color color = new Color();
-			color.r = speedSpriteImage.color.r;
-			color.g = speedSpriteImage.color.g;
-			color.b = speedSpriteImage.color.b;
-			if(i < available){
-				color.a = 0.5f;
-			}
-			else{
-				color.a = 0.0f;
-			}
-			speedSpriteImage.color = color;
-		}
-	}
+//	public void UpdateAvailableSpeed(int available){
+//		for(int i = 0; i< speedCount; i++){
+//			GameObject speedSprite = speedSpriteCollection[i];
+//			Image speedSpriteImage = speedSprite.GetComponent<Image>();
+//			Color color = new Color();
+//			color.r = speedSpriteImage.color.r;
+//			color.g = speedSpriteImage.color.g;
+//			color.b = speedSpriteImage.color.b;
+//			if(i < available){
+//				color.a = 0.5f;
+//			}
+//			else{
+//				color.a = 0.0f;
+//			}
+//			speedSpriteImage.color = color;
+//		}
+//	}
 
 	/// <summary>
 	/// Updates the speed markers with how many the
@@ -190,26 +189,26 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	/// <param name="available">Available.</param>
 	/// <param name="speedCap">Speed cap.</param>
-	public void UpdateActivatedSpeed(int available, int speedCap){
-		for (int i = 0; i< speedCount; i++) {
-			GameObject speedSprite = speedSpriteCollection [i];
-			Image speedSpriteImage = speedSprite.GetComponent<Image> ();
-			Color color = new Color();
-			color.r = speedSpriteImage.color.r;
-			color.g = speedSpriteImage.color.g;
-			color.b = speedSpriteImage.color.b;
-			if(i < available){
-				color.a = 1.0f;
-			}
-			else if(i < speedCap){
-				color.a = 0.5f;
-			}
-			else{
-				color.a = 0.0f;
-			}
-			speedSpriteImage.color = color;
-		}
-	}
+//	public void UpdateActivatedSpeed(int available, int speedCap){
+//		for (int i = 0; i< speedCount; i++) {
+//			GameObject speedSprite = speedSpriteCollection [i];
+//			Image speedSpriteImage = speedSprite.GetComponent<Image> ();
+//			Color color = new Color();
+//			color.r = speedSpriteImage.color.r;
+//			color.g = speedSpriteImage.color.g;
+//			color.b = speedSpriteImage.color.b;
+//			if(i < available){
+//				color.a = 1.0f;
+//			}
+//			else if(i < speedCap){
+//				color.a = 0.5f;
+//			}
+//			else{
+//				color.a = 0.0f;
+//			}
+//			speedSpriteImage.color = color;
+//		}
+//	}
 
 	public void UpdatePlayerShield(int shieldPercentage){
 //		Text shieldTexObj = shieldText.GetComponent<Text>();

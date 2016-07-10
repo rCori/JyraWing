@@ -72,4 +72,31 @@ public class PlayerInputController : MonoBehaviour {
 		}
 		return Input.GetAxisRaw (axisString);
 	}
+
+	public static void RemoveAllEvents() {
+		RemoveButtonEvents (FireButton);
+		RemoveButtonEvents (AutoFireButton);
+		RemoveButtonEvents (ChangeSpeedButton);
+		RemoveButtonEvents (UpButton);
+		RemoveButtonEvents (DownButton);
+		RemoveButtonEvents (LeftButton);
+		RemoveButtonEvents (RightButton);
+		RemoveButtonEvents (StartButton);
+		RemoveAxisEvents (LeftRightEvent);
+		RemoveAxisEvents (UpDownEvent);
+	}
+
+	private static void RemoveAxisEvents(AxisEvent axisEvent) {
+//		foreach (System.Delegate subscriber in axisEvent.GetInvocationList()) {
+//			axisEvent -= subscriber;
+//		}
+		axisEvent = null;
+	}
+
+	private static void RemoveButtonEvents(ButtonEvent buttonEvent) {
+//		foreach (System.Delegate subscriber in buttonEvent.GetInvocationList()) {
+//			buttonEvent -= subscriber;
+//		}
+		buttonEvent = null;
+	}
 }

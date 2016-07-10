@@ -1,16 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" Line="32" Column="32" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" Line="20" Column="1" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnShipSquad.cs" Line="25" Column="63" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" Line="43" Column="4" />
-      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" Line="70" Column="45" />
+      <File FileName="Assets\Scripts\UI\UIControllerBehaviour.cs" Line="150" Column="3" />
+      <File FileName="Assets\Scripts\GameController\GameControllerBehaviour.cs" Line="56" Column="3" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" Line="29" Column="57" />
+      <File FileName="Assets\Scripts\EnemySpawns\EnemySpawnTankSquad.cs" Line="46" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\GameController\LevelController.cs" line="46" column="1" />
+      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\GameController\LevelController.cs" line="117" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

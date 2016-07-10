@@ -87,4 +87,9 @@ public class PlayerAnimation : MonoBehaviour {
 			break;
 		}
 	}
+
+	void OnDestroy() {
+		PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
+		Player.HitEvent -= HitAnimation;
+	}
 }

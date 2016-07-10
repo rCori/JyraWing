@@ -303,49 +303,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 
-//	private void updateHitAnimation(){
-//		//Handle taking damage and animation
-//		if (hitTimer > 0.0f) {
-//			//player intially hit
-//			if(animator.GetInteger("animState") == 1){
-//				hitTimer -= Time.deltaTime;
-//				if(hitTimer <= 0.0f){
-//					//animator.SetInteger ("animState", 2);
-//					hitTimer = 0.5f;
-//					startSavePos = gameObject.transform.position;
-//					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
-//					endSavePos = gameObject.transform.position;
-//				}
-//			//If the ship has returned to the screen after starting a new life
-//			} else if(takingDamage){
-//				//Player is flying back int
-//				//if(playerInputController.GetDisabledControls()){
-//				if(false) {
-//					hitTimer -= Time.deltaTime;
-//					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
-//					if(hitTimer <= 0.0f){
-//						SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
-//						sfxPlayer.PlayClip(Resources.Load ("Audio/BGM/newLife") as AudioClip);
-//						hitTimer = 4.5f;
-//						//playerInputController.DisableControls(false);
-//					}
-//				//The player has regained control and is flashing and they are invincible
-//				}else{
-//					hitTimer -= Time.deltaTime;
-//					if(hitTimer <= 0.0f){
-//						//animator.SetInteger ("animState", 0);
-//						hitTimer = 0.0f;
-//						takingDamage = false;
-//						//playerInputController.DisableShield(false);
-//					}
-//				}
-//			} 
-//		}
-//	}
-
 	//Make sure the player is removed from the list although actually this shouldn't be necssary
 	void OnDestroy()
 	{
+		RemoveListeners ();
 		RemoveFromList ();
 	}
 
@@ -394,6 +355,12 @@ public class Player : MonoBehaviour, PauseableItem {
 		{
 			TakeDamage();
 		}
+	}
+
+	public void RemoveListeners() {
+		PlayerInputController.ChangeSpeedButton -= ToggleSpeed;
+		PlayerInputController.UpDownEvent -= updatePlayerVert;
+		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 	}
 
 }

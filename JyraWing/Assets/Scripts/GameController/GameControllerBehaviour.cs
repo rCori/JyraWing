@@ -53,10 +53,10 @@ public class GameControllerBehaviour : MonoBehaviour {
 			uiControllerBehaviour.UpdateLives(gameController.GetLifeCount());
 		}
 		//When the flag to update speed values is checked, this will get the uiControllerBehaviour to update that.
-		if (gameController.ShouldUpdateSpeed (true)) {
-			//uiControllerBehaviour.UpdateAvailableSpeed(gameController.AvailableSpeed+1);
-			uiControllerBehaviour.UpdateActivatedSpeed(gameController.ActiveSpeed, gameController.AvailableSpeed);
-		}
+//		if (gameController.ShouldUpdateSpeed (true)) {
+//			//uiControllerBehaviour.UpdateAvailableSpeed(gameController.AvailableSpeed+1);
+//			uiControllerBehaviour.UpdateActivatedSpeed(gameController.ActiveSpeed, gameController.AvailableSpeed);
+//		}
 
 		//The gameController has a null-checked player position at all times
 		//Set the player position in GameController.
@@ -142,6 +142,10 @@ public class GameControllerBehaviour : MonoBehaviour {
 				gameController.PauseAllItems ();
 			}
 		}
+	}
+
+	void OnDestroy() {
+		PlayerInputController.StartButton -= PauseBehavior;
 	}
 
 }
