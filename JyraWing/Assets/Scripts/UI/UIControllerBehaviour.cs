@@ -16,6 +16,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
+	private GameObject scoreText;
 //	private GameObject shieldText;
 	// Player speed will be represented by multiple sprites in different states of opacity
 	//private List<GameObject> speedSpriteCollection;
@@ -43,9 +44,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 //		shieldText = Instantiate (shieldText);
 //		shieldText.transform.SetParent(canvas.transform, false);
 
-		slider = GameObject.Find ("PlayerShieldMeter").GetComponent<Slider> ();
+		//slider = GameObject.Find ("PlayerShieldMeter").GetComponent<Slider> ();
+		slider = GameObject.FindWithTag("ShieldMeter").GetComponent<Slider>();
 
-
+		ScoreController.AddToScoreEvent += UpdateScore;
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
 //			debugFramerate = Instantiate (debugFramerate);
@@ -59,12 +61,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 		//lifeSpriteCollection = new List<GameObject> ();
 		lifeCount = i_lifeCount;
 		initLives (lifeCount);
-		
 		speedCount = 4;
-		//speedSpriteCollection = new List<GameObject> ();
-		initSpeed ();
-		//UpdateAvailableSpeed (1);
-		//UpdateActivatedSpeed (1,1);
+		initScore ();
+
 	}
 
 	// Update is called once per frame
@@ -95,6 +94,17 @@ public class UIControllerBehaviour: MonoBehaviour {
 		//Add to the collection
 		//lifeSpriteCollection.Add(lifeText);
 
+	}
+
+	private void initScore() {
+		scoreText = Resources.Load("UIObjects/ScoreText") as GameObject;
+		Text scoreMessageText = scoreText.GetComponent<Text> ();
+		scoreMessageText.text = "Score: " + ScoreController.GetScore();
+		scoreText = Instantiate (scoreText);
+		scoreText.transform.SetParent (canvas.transform, false);
+		scoreText.GetComponent<RectTransform>().position = new Vector2(
+			scoreText.GetComponent<RectTransform>().position.x, 
+			scoreText.GetComponent<RectTransform>().position.y);
 	}
 
 	/// <summary>
@@ -143,82 +153,21 @@ public class UIControllerBehaviour: MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Inits the speed counter graphics.
-	/// </summary>
-	private void initSpeed(){
-//		float spriteWidth = Screen.width/35f;
-//		for (int i = 0; i < speedCount; i++) {
-//			GameObject speedSprite = Resources.Load ("UIObjects/SpeedCounter") as GameObject;
-//			speedSprite = Instantiate(speedSprite);
-//			speedSprite.transform.SetParent(canvas.transform, false);
-//			speedSprite.transform.position = new Vector3(
-//				speedSprite.transform.position.x + i*spriteWidth,
-//				speedSprite.transform.position.y,
-//				speedSprite.transform.position.z);
-//			speedSpriteCollection.Add (speedSprite);
-//		}
-	}
-
-	/// <summary>
-	/// Updates the speed markers with how
-	/// how many the player can activate.
-	/// </summary>
-	/// <param name="available">Available.</param>
-//	public void UpdateAvailableSpeed(int available){
-//		for(int i = 0; i< speedCount; i++){
-//			GameObject speedSprite = speedSpriteCollection[i];
-//			Image speedSpriteImage = speedSprite.GetComponent<Image>();
-//			Color color = new Color();
-//			color.r = speedSpriteImage.color.r;
-//			color.g = speedSpriteImage.color.g;
-//			color.b = speedSpriteImage.color.b;
-//			if(i < available){
-//				color.a = 0.5f;
-//			}
-//			else{
-//				color.a = 0.0f;
-//			}
-//			speedSpriteImage.color = color;
-//		}
-//	}
-
-	/// <summary>
-	/// Updates the speed markers with how many the
-	/// player has active currently..
-	/// </summary>
-	/// <param name="available">Available.</param>
-	/// <param name="speedCap">Speed cap.</param>
-//	public void UpdateActivatedSpeed(int available, int speedCap){
-//		for (int i = 0; i< speedCount; i++) {
-//			GameObject speedSprite = speedSpriteCollection [i];
-//			Image speedSpriteImage = speedSprite.GetComponent<Image> ();
-//			Color color = new Color();
-//			color.r = speedSpriteImage.color.r;
-//			color.g = speedSpriteImage.color.g;
-//			color.b = speedSpriteImage.color.b;
-//			if(i < available){
-//				color.a = 1.0f;
-//			}
-//			else if(i < speedCap){
-//				color.a = 0.5f;
-//			}
-//			else{
-//				color.a = 0.0f;
-//			}
-//			speedSpriteImage.color = color;
-//		}
-//	}
 
 	public void UpdatePlayerShield(int shieldPercentage){
-//		Text shieldTexObj = shieldText.GetComponent<Text>();
-//		shieldTexObj.text = shieldPercentage.ToString ();
-		slider.value = (float)shieldPercentage/100.0f;
+		if (slider) {
+			slider.value = (float)shieldPercentage / 100.0f;
+		}
 	}
 
 	public void PauseMenu(){
 		GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
 		InGameMenu = Instantiate(InGameMenu);
 		InGameMenu.transform.SetParent(canvas.transform, false);
+	}
+
+	public void UpdateScore(int score) {
+		Text scoreMessageText = scoreText.GetComponent<Text> ();
+		scoreMessageText.text = "Score: " + score;
 	}
 }

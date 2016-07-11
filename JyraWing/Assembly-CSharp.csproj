@@ -122,6 +122,10 @@
      <Compile Include="Assets\Scripts\IBullet.cs" />
      <Compile Include="Assets\Scripts\LevelFinish.cs" />
      <Compile Include="Assets\Scripts\LevelTransitionDetails\LevelTransitionLoad.cs" />
+     <Compile Include="Assets\Scripts\PointSystem\AwardPoints.cs" />
+     <Compile Include="Assets\Scripts\PointSystem\PointAttraction.cs" />
+     <Compile Include="Assets\Scripts\PointSystem\ScoreController.cs" />
+     <Compile Include="Assets\Scripts\PointSystem\ScoreControllerBehavior.cs" />
      <Compile Include="Assets\Scripts\Powerups\BulletPowerup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
      <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />

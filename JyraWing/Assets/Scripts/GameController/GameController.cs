@@ -97,7 +97,7 @@ public class GameController {
 	IUIController uiController;
 
 	public Vector3 playerPosition;
-	
+
 	/*IPowerupGroupController functions */
 
 	//Set the powerup group controller for the game controller

@@ -8,7 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466094}
-  - 114: {fileID: 11440732}
+  - 114: {fileID: 11492278}
+  - 114: {fileID: 11491482}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -25,10 +26,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11440732
+--- !u!114 &11491482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be85692fa278a1b4faf66cd960518a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11492278
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -41,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   uiControllerBehaviour: {fileID: 0}
-  NextLevel: 
+  NextLevel: Level_2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

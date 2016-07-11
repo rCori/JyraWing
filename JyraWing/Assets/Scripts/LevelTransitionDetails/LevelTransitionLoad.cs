@@ -18,7 +18,6 @@ public class LevelTransitionLoad : MonoBehaviour {
 		timeToLoad -= Time.deltaTime;
 		//If time is up, load the next level
 		if (timeToLoad < 0) {
-			//PlayerInputController.RemoveAllEvents ();
 			SceneManager.LoadScene(nextLevel);
 		}
 	}

@@ -1,0 +1,644 @@
+fileFormatVersion: 2
+guid: 9ba377b31b1703647a33fd79cf2a1da8
+timeCreated: 1468196874
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PointIcon0_0
+    21300002: PointIcon0_1
+    21300004: PointIcon0_2
+    21300006: PointIcon0_3
+    21300008: PointIcon0_4
+    21300010: PointIcon0_5
+    21300012: PointIcon0_6
+    21300014: PointIcon0_7
+    21300016: PointIcon1_0
+    21300018: PointIcon1_1
+    21300020: PointIcon1_2
+    21300022: PointIcon1_3
+    21300024: PointIcon1_4
+    21300026: PointIcon1_5
+    21300028: PointIcon1_6
+    21300030: PointIcon1_7
+    21300032: PointIcon2_0
+    21300034: PointIcon2_1
+    21300036: PointIcon2_2
+    21300038: PointIcon2_3
+    21300040: PointIcon2_4
+    21300042: PointIcon2_5
+    21300044: PointIcon2_6
+    21300046: PointIcon2_7
+    21300048: PointIcon3_0
+    21300050: PointIcon3_1
+    21300052: PointIcon3_2
+    21300054: PointIcon3_3
+    21300056: PointIcon3_4
+    21300058: PointIcon3_5
+    21300060: PointIcon3_6
+    21300062: PointIcon3_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PointIcon0_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_3
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_4
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_5
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon0_7
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 266
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PointIcon1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 27}
+        - {x: -20, y: 12}
+        - {x: -21, y: 7}
+        - {x: -21, y: -21}
+        - {x: 21, y: -21}
+        - {x: 21, y: -7}
+        - {x: 2, y: 27}
+    - name: PointIcon1_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 27}
+        - {x: -21, y: -3}
+        - {x: -21, y: -21}
+        - {x: -19, y: -25}
+        - {x: -5, y: -25}
+        - {x: 21, y: -19}
+        - {x: 21, y: -8}
+        - {x: 1, y: 27}
+    - name: PointIcon1_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 27}
+        - {x: -13, y: 10}
+        - {x: -20, y: -11}
+        - {x: -20, y: -24}
+        - {x: -15, y: -27}
+        - {x: 2, y: -27}
+        - {x: 20, y: -17}
+        - {x: 20, y: -4}
+        - {x: 7, y: 27}
+    - name: PointIcon1_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 27}
+        - {x: -15, y: -4}
+        - {x: -15, y: -27}
+        - {x: -1, y: -27}
+        - {x: 15, y: -12}
+        - {x: 15, y: 1}
+        - {x: 10, y: 27}
+    - name: PointIcon1_4
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 27}
+        - {x: -9, y: -27}
+        - {x: 8, y: -27}
+        - {x: 8, y: 27}
+    - name: PointIcon1_5
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 27}
+        - {x: -16, y: 2}
+        - {x: -16, y: -12}
+        - {x: 0, y: -27}
+        - {x: 14, y: -27}
+        - {x: 14, y: -2}
+        - {x: 7, y: 27}
+    - name: PointIcon1_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 27}
+        - {x: -9, y: 24}
+        - {x: -21, y: -7}
+        - {x: -21, y: -15}
+        - {x: 6, y: -27}
+        - {x: 15, y: -27}
+        - {x: 19, y: -23}
+        - {x: 19, y: -16}
+        - {x: 8, y: 27}
+    - name: PointIcon1_7
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 212
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 27}
+        - {x: -21, y: -7}
+        - {x: -21, y: -19}
+        - {x: 6, y: -25}
+        - {x: 19, y: -25}
+        - {x: 21, y: -24}
+        - {x: 21, y: -7}
+        - {x: 6, y: 27}
+    - name: PointIcon2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 30.5}
+        - {x: -24.5, y: -4.5}
+        - {x: -24.5, y: -24.5}
+        - {x: -10.5, y: -30.5}
+        - {x: 16.5, y: -30.5}
+        - {x: 24.5, y: -24.5}
+        - {x: 24.5, y: -3.5}
+        - {x: 9.5, y: 30.5}
+    - name: PointIcon2_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 30.5}
+        - {x: -24.5, y: -6.5}
+        - {x: -24.5, y: -20.5}
+        - {x: -21.5, y: -28.5}
+        - {x: -10.5, y: -30.5}
+        - {x: 9.5, y: -30.5}
+        - {x: 24.5, y: -15.5}
+        - {x: 24.5, y: -4.5}
+        - {x: 0.5, y: 30.5}
+    - name: PointIcon2_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.5, y: 30.5}
+        - {x: -19.5, y: 0.5}
+        - {x: -22.5, y: -8.5}
+        - {x: -22.5, y: -25.5}
+        - {x: -7.5, y: -30.5}
+        - {x: 9.5, y: -30.5}
+        - {x: 22.5, y: -13.5}
+        - {x: 22.5, y: 4.5}
+        - {x: 4.5, y: 30.5}
+    - name: PointIcon2_3
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 30.5}
+        - {x: -9.5, y: 25.5}
+        - {x: -16.5, y: -10.5}
+        - {x: -16.5, y: -26.5}
+        - {x: -7.5, y: -30.5}
+        - {x: 16.5, y: -30.5}
+        - {x: 16.5, y: 30.5}
+    - name: PointIcon2_4
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 29.5}
+        - {x: -8.5, y: -28.5}
+        - {x: -6.5, y: -30.5}
+        - {x: 8.5, y: -30.5}
+        - {x: 8.5, y: 29.5}
+    - name: PointIcon2_5
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 30.5}
+        - {x: -9.5, y: 28.5}
+        - {x: -15.5, y: 0.5}
+        - {x: -15.5, y: -9.5}
+        - {x: -5.5, y: -30.5}
+        - {x: 16.5, y: -30.5}
+        - {x: 17.5, y: -26.5}
+        - {x: 17.5, y: 10.5}
+        - {x: 8.5, y: 30.5}
+    - name: PointIcon2_6
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: -11.5}
+        - {x: 8.5, y: 28.5}
+        - {x: 5.5, y: 30.5}
+        - {x: -0.5, y: 30.5}
+        - {x: -6.5, y: 25.5}
+        - {x: -21.5, y: 1.5}
+        - {x: -21.5, y: -10.5}
+        - {x: -11.5, y: -28.5}
+        - {x: -8.5, y: -30.5}
+        - {x: 5.5, y: -30.5}
+        - {x: 17.5, y: -27.5}
+        - {x: 23.5, y: -21.5}
+        - {x: 23.5, y: -17.5}
+    - name: PointIcon2_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 151
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.5, y: 30.5}
+        - {x: -6.5, y: 20.5}
+        - {x: -24.5, y: -8.5}
+        - {x: -24.5, y: -15.5}
+        - {x: -19.5, y: -21.5}
+        - {x: -5.5, y: -30.5}
+        - {x: 12.5, y: -30.5}
+        - {x: 24.5, y: -21.5}
+        - {x: 24.5, y: -9.5}
+        - {x: 4.5, y: 30.5}
+    - name: PointIcon3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 35}
+        - {x: -34.5, y: 21}
+        - {x: -34.5, y: 0}
+        - {x: -25.5, y: -30}
+        - {x: 26.5, y: -30}
+        - {x: 34.5, y: -9}
+        - {x: 34.5, y: 17}
+        - {x: 2.5, y: 35}
+    - name: PointIcon3_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.5, y: 36}
+        - {x: -5.5, y: 36}
+        - {x: -34.5, y: 10}
+        - {x: -34.5, y: 4}
+        - {x: -23.5, y: -26}
+        - {x: -16.5, y: -33}
+        - {x: 24.5, y: -30}
+        - {x: 34.5, y: -7}
+        - {x: 34.5, y: 21}
+        - {x: 30.5, y: 25}
+    - name: PointIcon3_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 36}
+        - {x: -29.5, y: 2}
+        - {x: -29.5, y: -6}
+        - {x: -21.5, y: -31}
+        - {x: -14.5, y: -36}
+        - {x: -6.5, y: -36}
+        - {x: 27.5, y: -24}
+        - {x: 31.5, y: 6}
+        - {x: 31.5, y: 30}
+        - {x: 5.5, y: 36}
+    - name: PointIcon3_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.5, y: 35}
+        - {x: -8.5, y: 35}
+        - {x: -20.5, y: -4}
+        - {x: -20.5, y: -11}
+        - {x: -18.5, y: -36}
+        - {x: 2.5, y: -36}
+        - {x: 18.5, y: -17}
+        - {x: 20.5, y: 0}
+        - {x: 20.5, y: 29}
+    - name: PointIcon3_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 35}
+        - {x: -7.5, y: 33}
+        - {x: -7.5, y: -35}
+        - {x: -6.5, y: -36}
+        - {x: 7.5, y: -36}
+        - {x: 8.5, y: -35}
+        - {x: 8.5, y: 33}
+        - {x: 6.5, y: 35}
+    - name: PointIcon3_5
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: 35}
+        - {x: -4.5, y: 35}
+        - {x: -19.5, y: 27}
+        - {x: -19.5, y: 13}
+        - {x: -16.5, y: -17}
+        - {x: 0.5, y: -36}
+        - {x: 17.5, y: -36}
+        - {x: 21.5, y: -23}
+        - {x: 21.5, y: 6}
+        - {x: 11.5, y: 33}
+    - name: PointIcon3_6
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 79
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 36}
+        - {x: -30.5, y: 32}
+        - {x: -30.5, y: -1}
+        - {x: -26.5, y: -24}
+        - {x: 6.5, y: -36}
+        - {x: 21.5, y: -36}
+        - {x: 30.5, y: -10}
+        - {x: 30.5, y: 7}
+        - {x: 6.5, y: 36}
+    - name: PointIcon3_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 69
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 36}
+        - {x: -18.5, y: 36}
+        - {x: -34.5, y: 21}
+        - {x: -34.5, y: -9}
+        - {x: -24.5, y: -27}
+        - {x: 12.5, y: -33}
+        - {x: 17.5, y: -33}
+        - {x: 24.5, y: -27}
+        - {x: 34.5, y: 3}
+        - {x: 34.5, y: 10}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
