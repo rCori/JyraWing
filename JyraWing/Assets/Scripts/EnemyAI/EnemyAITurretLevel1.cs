@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyAITurretLevel1 : EnemyBehavior {
 	
@@ -64,7 +65,20 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		updateAnimTimeLimit = 0.5f;
 		SetEnemyHealth (TURRET_HEALTH);
 
+		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
+		EnemyBehavior.PointObjectRelative origin1PointObject = new EnemyBehavior.PointObjectRelative ();
+		origin1PointObject.pointObject = pointIcon;
+		origin1PointObject.relativePos = new Vector2 (-0.1f, 0.2f);
 
+		GameObject pointIcon2 = Resources.Load ("Pickups/PointIcons/PointIcon2_0") as GameObject;
+		EnemyBehavior.PointObjectRelative origin2PointObject = new EnemyBehavior.PointObjectRelative ();
+		origin2PointObject.pointObject = pointIcon;
+		origin2PointObject.relativePos = new Vector2 (0.2f, -0.3f);
+
+		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
+		pointSpawns.Add (origin1PointObject);
+		pointSpawns.Add (origin2PointObject);
+		SetPointObject (pointSpawns);
 	}
 	
 	// Update is called once per frame

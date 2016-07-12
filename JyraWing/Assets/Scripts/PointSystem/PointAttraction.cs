@@ -5,12 +5,6 @@ public class PointAttraction : MonoBehaviour {
 
 	private float strengthOfAttraction = 30.0f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-
-
 	void OnTriggerStay2D(Collider2D other) {
 		if (other.tag == "Player") {
 			Debug.Log ("Player in range to attract");

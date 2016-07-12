@@ -14,7 +14,6 @@ public class ScoreController {
 
 	public static void AddToScore(int addition) {
 		CurrentScore += addition;
-		Debug.Log ("CurrentScore: " + CurrentScore);
 		AddToScoreEvent (CurrentScore);
 	}
 

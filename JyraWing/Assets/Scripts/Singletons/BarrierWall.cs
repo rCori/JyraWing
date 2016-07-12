@@ -39,6 +39,9 @@ public class BarrierWall : MonoBehaviour {
 				}
 			}
 		}
+		if (other.tag == "PointIcon") {
+			Destroy (other.transform.parent.gameObject);
+		}
 
 		if (other.tag == "PowerUp") {
 			Destroy (other.gameObject);

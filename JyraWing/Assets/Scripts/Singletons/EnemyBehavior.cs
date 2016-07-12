@@ -124,6 +124,15 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
 	private Vector2 endArcVelocity;
 	private Vector2 startArcVelocity;
+
+	public struct PointObjectRelative {
+		public GameObject pointObject;
+		public Vector2 relativePos;
+	};
+
+	private List<PointObjectRelative> PointObjects;
+	private bool hasPointObjectToSpawn;
+
 	/// <summary>
 	/// Initialize default values for the enemy
 	/// </summary>
@@ -149,8 +158,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		priorityAudio = false;
 		RegisterToList ();
 		shieldableBullets = false;
-
-
+		PointObjects = null;
+		hasPointObjectToSpawn = false;
 	}
 
 	/// <summary>
@@ -469,15 +478,26 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			gameController.QueuePowerupSpawn(gameObject.transform.position,
 			                                  gameController.GetPowerupTypeFromGroupByID(powerupGroupID));
 		}
+		if (hasPointObjectToSpawn) {
+			foreach (PointObjectRelative point in PointObjects) {
+				point.pointObject.transform.position = transform.position + (Vector3)point.relativePos;
+				Instantiate (point.pointObject);
+			}
+		}
+
 		Destroy (gameObject);
+	}
+
+	public void SetPointObject(List<PointObjectRelative> PointObjects) {
+		this.PointObjects = PointObjects;
+		hasPointObjectToSpawn = true;
 	}
 
 	/// <summary>
 	/// The standard animations an enemy can have is hit and destroyed
 	/// </summary>
 	/// <param name="anims">Anims.</param>
-	protected void SetAnimations(HasAnimations anims)
-	{
+	protected void SetAnimations(HasAnimations anims) {
 		animationsOwned = anims;
 	}
 

@@ -9,6 +9,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 	//The UI canvas for drawin all of these UI elements
 	public GameObject canvas;
+	public GameObject playerCanvas;
+
 	//Number of lives the player has
 	private int lifeCount;
 	//The level of speed the player is at
@@ -17,17 +19,14 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject levelEndImage;
 	private GameObject lifeText;
 	private GameObject scoreText;
-//	private GameObject shieldText;
+
 	// Player speed will be represented by multiple sprites in different states of opacity
-	//private List<GameObject> speedSpriteCollection;
-
-	//private IngameMenu pauseMenu;
-
 	private Slider slider;
 
 	//ISDEBUG
 	private GameObject debugFramerate;
 	private float deltaTime;
+
 
 	// Use this for initialization
 	void Start () {
@@ -44,8 +43,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 //		shieldText = Instantiate (shieldText);
 //		shieldText.transform.SetParent(canvas.transform, false);
 
-		//slider = GameObject.Find ("PlayerShieldMeter").GetComponent<Slider> ();
-		slider = GameObject.FindWithTag("ShieldMeter").GetComponent<Slider>();
+		slider = (Resources.Load("UIObjects/PlayerShieldMeter") as GameObject).GetComponent<Slider>();
+		slider = Instantiate (slider);
+		slider.transform.SetParent(playerCanvas.transform, false);
+		//slider = GameObject.FindWithTag("ShieldMeter").GetComponent<Slider>();
 
 		ScoreController.AddToScoreEvent += UpdateScore;
 //		if (ISDEBUG) {

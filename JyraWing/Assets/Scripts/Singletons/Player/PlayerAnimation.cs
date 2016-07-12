@@ -30,9 +30,17 @@ public class PlayerAnimation : MonoBehaviour {
 				} else if (animator.GetInteger ("animState") == 3) {
 					animator.SetInteger ("animState", 0);
 				} else if (animator.GetInteger ("animState") == 7) {
-					animator.SetInteger ("animState", 8);
+					if (animator.GetCurrentAnimatorStateInfo (0).IsName ("playerNeutralToUp")) {
+						animator.SetInteger ("animState", 0);
+					} else {
+						animator.SetInteger ("animState", 8);
+					}
 				} else if (animator.GetInteger ("animState") == 9) {
-					animator.SetInteger ("animState", 10);
+					if (animator.GetCurrentAnimatorStateInfo (0).IsName ("playerNeutralToDown")) {
+						animator.SetInteger ("animState", 0);
+					} else {
+						animator.SetInteger ("animState", 10);
+					}
 				}
 			} else if (value == -1) {
 				animator.SetInteger ("animState", 3);

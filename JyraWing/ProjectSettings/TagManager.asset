@@ -11,6 +11,7 @@ TagManager:
   - EnemyBullet
   - PowerUp
   - ShieldMeter
+  - PointIcon
   layers:
   - Default
   - TransparentFX
