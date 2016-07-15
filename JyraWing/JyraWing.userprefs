@@ -1,21 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyAI\EnemyAITankShield.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\CountdownTimer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="11" Column="16" />
-      <File FileName="Assets\Scripts\Singletons\BarrierWall.cs" Line="41" Column="4" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" Line="31" Column="40" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAITurretLevel1.cs" Line="81" Column="32" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAITank.cs" Line="127" Column="1" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAITankShield.cs" Line="135" Column="56" />
+      <File FileName="Assets\Scripts\UI\UIControllerBehaviour.cs" Line="44" Column="19" />
+      <File FileName="Assets\Scripts\GameController\GameController.cs" Line="210" Column="46" />
+      <File FileName="Assets\Scripts\GameController\GameControllerBehaviour.cs" Line="77" Column="40" />
+      <File FileName="Assets\Scripts\UI\CountdownTimer.cs" Line="42" Column="20" />
+      <File FileName="Assets\Scripts\GameController\LevelController.cs" Line="76" Column="22" />
+      <File FileName="Assets\Scripts\Singletons\Player\PlayerInputController.cs" Line="61" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\GameController\LevelController.cs" line="46" column="1" />
-      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\GameController\LevelController.cs" line="117" column="1" />
-      <Breakpoint file="C:\Users\Ryan\Documents\JyraWingRepo\JyraWing\Assets\Scripts\GameController\GameControllerBehaviour.cs" line="96" column="6" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

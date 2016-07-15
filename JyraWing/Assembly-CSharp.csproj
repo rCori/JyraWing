@@ -150,6 +150,7 @@
      <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />
      <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
      <Compile Include="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" />
+     <Compile Include="Assets\Scripts\UI\CountdownTimer.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />

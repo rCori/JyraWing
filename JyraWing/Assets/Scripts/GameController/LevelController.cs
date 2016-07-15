@@ -26,7 +26,10 @@ public class LevelController : ILevelController {
 	bool showGameOverScreenUI;
 	//Application.Load the title scene
 	bool loadTitleScene;
-	
+
+	public delegate void PlayerKilledDelegate();
+	public static event PlayerKilledDelegate PlayerKilledEvent;
+
 	//Constructor that sets all the flags false and no game over state
 	public LevelController(){
 		//Set all of the flags to false
@@ -134,16 +137,21 @@ public class LevelController : ILevelController {
 				gameOverState = GameOverState.KillNoEffect;
 				disablePlayer = true;
 				gameOverTimer = 1.2f;
+				Debug.Log ("KillAnimation");
 				break;
 			//Show the game over screen
 			case GameOverState.KillNoEffect:
 				gameOverState = GameOverState.KillShowScreen;
 				showGameOverScreenUI = true;
 				gameOverTimer = 3.0f;
+				Debug.Log ("KillNoEffect");
 				break;
 			//Load the title scene after showing game over
 			case GameOverState.KillShowScreen:
-				loadTitleScene = true;
+				//loadTitleScene = true;
+				PlayerKilledEvent ();
+				gameOverState = GameOverState.None;
+				//Debug.Log ("KillShowScreen");
 				break;
 			}
 		}

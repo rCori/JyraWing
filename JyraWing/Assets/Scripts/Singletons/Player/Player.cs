@@ -212,39 +212,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 
-//	private void updatePlayerMovement(){
-//		if(!playerInputController.GetDisabledControls()){
-//			//Update position
-//			int horiz = playerInputController.GetHorizontalMovement();
-//			int vert = playerInputController.GetVerticalMovement();
-//			/*
-//			if (vert ==  -1) {
-//				if(!takingDamage){
-//					animator.SetInteger ("animState", 3);
-//				}
-//				else{
-//					animator.SetInteger ("animState", 5);
-//				}
-//			} else if (vert == 1) {
-//				if(!takingDamage){
-//					animator.SetInteger ("animState", 4);
-//				}
-//				else{
-//					animator.SetInteger ("animState", 6);
-//				}
-//			}
-//			else if(takingDamage) 
-//			{
-//				animator.SetInteger ("animState", 2);
-//			}
-//			else{
-//				animator.SetInteger ("animState", 0);
-//			}
-//			*/
-//			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
-//		}
-//	}
-
 	public void ToggleSpeed(bool down) {
 		if (down) {
 			playerSpeed.IncreaseSpeed();
