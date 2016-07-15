@@ -3,7 +3,6 @@ using System.Collections;
 
 
 public interface ILevelController {
-	
 
 	GameOverState gameOverState {
 		get;

@@ -49,6 +49,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 		//slider = GameObject.FindWithTag("ShieldMeter").GetComponent<Slider>();
 
 		ScoreController.AddToScoreEvent += UpdateScore;
+		CountdownTimer.PlayerContinueEvent += HideGameOver;
+		CountdownTimer.PlayerContinueEvent += ResetLives;
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
 //			debugFramerate = Instantiate (debugFramerate);
@@ -131,6 +133,13 @@ public class UIControllerBehaviour: MonoBehaviour {
 		gameOverMessageComp.color = myColor;
 	}
 
+	public void HideGameOver() {
+		Image gameOverMessageComp = gameOverMessage.GetComponent<Image> ();
+		Color myColor = gameOverMessageComp.color;
+		myColor.a = 0;
+		gameOverMessageComp.color = myColor;
+	}
+
 	/// <summary>
 	/// Updates the lives.
 	/// </summary>
@@ -170,5 +179,17 @@ public class UIControllerBehaviour: MonoBehaviour {
 	public void UpdateScore(int score) {
 		Text scoreMessageText = scoreText.GetComponent<Text> ();
 		scoreMessageText.text = "Score: " + score;
+	}
+
+	public void ResetLives() {
+		lifeCount = 3;
+		Text lifeMessageText = lifeText.GetComponent<Text>();
+		lifeMessageText.text = "Lives: " + lifeCount;
+	}
+
+	void OnDestroy() {
+		ScoreController.AddToScoreEvent -= UpdateScore;
+		CountdownTimer.PlayerContinueEvent -= HideGameOver;
+		CountdownTimer.PlayerContinueEvent -= ResetLives;
 	}
 }

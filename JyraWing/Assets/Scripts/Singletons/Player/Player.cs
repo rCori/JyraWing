@@ -118,6 +118,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.ChangeSpeedButton += ToggleSpeed;
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
+		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
 	}
 	
 	// Update is called once per frame
@@ -328,6 +329,13 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.ChangeSpeedButton -= ToggleSpeed;
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
+		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
+	}
+
+	public void ResetTakingDamage() {
+		takingDamage = TakingDamage.NONE;
+		hitTimer = 0.0f;
+		playerInputController.DisableShield(false);
 	}
 
 }

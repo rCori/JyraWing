@@ -12,6 +12,8 @@ public class CountdownTimer : MonoBehaviour {
 	private float secondTimer;
 	private static float SECOND_LENGTH = 2.0f;
 
+	public delegate void PlayerKilledDelegate();
+	public static event PlayerKilledDelegate PlayerContinueEvent;
 
 	private Text textDisplay;
 
@@ -19,7 +21,6 @@ public class CountdownTimer : MonoBehaviour {
 	void Start () {
 		countdownStarted = false;
 		textDisplay = GetComponent<Text> ();
-		PlayerInputController.StartButton += ContinueGame;
 		LevelController.PlayerKilledEvent += EndGame;
 	}
 
@@ -34,12 +35,12 @@ public class CountdownTimer : MonoBehaviour {
 	}
 
 	public void ContinueGame(bool down) {
-		Debug.Log ("COntinueGame");
 		if (countdownStarted && down) {
 			countdownStarted = false;
 			countdownVal = 9;
 			textDisplay.text = "";
 			//Respawn player
+			PlayerContinueEvent();
 		}
 	}
 

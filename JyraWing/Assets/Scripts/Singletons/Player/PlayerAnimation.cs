@@ -15,6 +15,7 @@ public class PlayerAnimation : MonoBehaviour {
 		animator = gameObject.GetComponent <Animator> ();
 		PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
 		Player.HitEvent += HitAnimation;
+		CountdownTimer.PlayerContinueEvent += ResetHitAnimation;
 	}
 	
 	// Update is called once per frame
@@ -96,8 +97,14 @@ public class PlayerAnimation : MonoBehaviour {
 		}
 	}
 
+	public void ResetHitAnimation() {
+		animator.SetInteger ("animState", 0);
+		isHit = false;
+	}
+
 	void OnDestroy() {
 		PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
 		Player.HitEvent -= HitAnimation;
+		CountdownTimer.PlayerContinueEvent -= ResetHitAnimation;
 	}
 }

@@ -137,21 +137,19 @@ public class LevelController : ILevelController {
 				gameOverState = GameOverState.KillNoEffect;
 				disablePlayer = true;
 				gameOverTimer = 1.2f;
-				Debug.Log ("KillAnimation");
 				break;
 			//Show the game over screen
 			case GameOverState.KillNoEffect:
 				gameOverState = GameOverState.KillShowScreen;
 				showGameOverScreenUI = true;
 				gameOverTimer = 3.0f;
-				Debug.Log ("KillNoEffect");
 				break;
 			//Load the title scene after showing game over
 			case GameOverState.KillShowScreen:
 				//loadTitleScene = true;
-				PlayerKilledEvent ();
 				gameOverState = GameOverState.None;
-				//Debug.Log ("KillShowScreen");
+				gameOverTimer = 0.0f;
+				PlayerKilledEvent ();
 				break;
 			}
 		}
