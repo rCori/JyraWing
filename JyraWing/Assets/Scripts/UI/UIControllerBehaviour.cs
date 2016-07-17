@@ -51,6 +51,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 		ScoreController.AddToScoreEvent += UpdateScore;
 		CountdownTimer.PlayerContinueEvent += HideGameOver;
 		CountdownTimer.PlayerContinueEvent += ResetLives;
+		//LevelController.FinishLevelEvent += ShowLevelComplete;
+		LevelControllerBehavior.FinishLevelEvent += ShowLevelComplete;
+		//LevelController.GameOverEvent += ShowGameOver;
+		LevelControllerBehavior.GameOverEvent += ShowGameOver;
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
 //			debugFramerate = Instantiate (debugFramerate);
@@ -191,5 +195,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 		ScoreController.AddToScoreEvent -= UpdateScore;
 		CountdownTimer.PlayerContinueEvent -= HideGameOver;
 		CountdownTimer.PlayerContinueEvent -= ResetLives;
+		//LevelController.FinishLevelEvent += ShowLevelComplete;
+		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
+		//LevelController.GameOverEvent -= ShowGameOver;
+		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 /*
  * Goals:
  * Rewrite GameController to be more testable.
@@ -63,11 +63,6 @@ using System.Collections;
  * Remove an item from the list of PauseableItems
  * 
  * 
- * For LevelController
- * Own the GameOverState enum
- * Set GameOverState
- * Get GameOverState
- * 
  * Set flags from handling GameOverState for showing the level complete ui, 
  * showing the game over ui, disabling the player, and loading the title scene
  * 
@@ -90,8 +85,6 @@ public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 
-	ILevelController levelController;
-
 	IPauseController pauseController;
 
 	IUIController uiController;
@@ -99,6 +92,9 @@ public class GameController {
 	public Vector3 playerPosition;
 
 	/*IPowerupGroupController functions */
+
+	public delegate void GameControllerEvent();
+	public static event GameControllerEvent GameOverEvent;
 
 	//Set the powerup group controller for the game controller
 	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
@@ -162,46 +158,11 @@ public class GameController {
 			return powerupGroupController.QueuedPowerupLocation;
 		}
 	}
-
-	/* ILevelController */
-
-	//Set the level controller interface for the game controller
-	public void SetLevelController(ILevelController i_levelController){
-		levelController = i_levelController;
-	}
-
-	//Called when the player finishes the level
-	public void FinishLevel(float startTimer = 2.5f){
-		levelController.FinishLevel (startTimer);
-	}
+		
 
 	public void PlayerKilled(float startTimer = 2.5f){
-		levelController.PlayerKilled (startTimer);
-	}
-	
-	//Access to the HandleGameOver function 
-	public void HandleGameOver(float timeChange){
-		levelController.HandleGameOver (timeChange);
-	}
-
-	public bool ShouldDisablePlayer(bool resetFlag = true){
-		return levelController.ShouldDisablePlayer (resetFlag);
-	}
-
-	public bool ShouldShowGameOverUI(bool resetFlag = true){
-		return levelController.ShouldShowGameOverUI (resetFlag);
-	}
-
-	public bool ShouldShowLevelCompleteUI(bool resetFlag = true){
-		return levelController.ShouldShowLevelCompleteUI (resetFlag);
-	}
-
-	public bool ShouldLoadTitleScene(bool resetFlag = true){
-		return levelController.ShouldLoadTitleScene (resetFlag);
-	}
-
-	public bool IsNotGameOver(){
-		return levelController.gameOverState == GameOverState.None;
+		//levelController.PlayerKilled (startTimer);
+		GameOverEvent ();
 	}
 
 	/* IUIController functions */
@@ -224,7 +185,7 @@ public class GameController {
 		//If the lifeCount is 0 then the player has been killed
 		if (uiController.GetLifeCount () == 0) {
 			//Player was killed so inform the levelController to start that up.
-			levelController.PlayerKilled(2.5f);
+			GameOverEvent();
 		}
 	}
 

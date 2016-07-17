@@ -21,7 +21,8 @@ public class CountdownTimer : MonoBehaviour {
 	void Start () {
 		countdownStarted = false;
 		textDisplay = GetComponent<Text> ();
-		LevelController.PlayerKilledEvent += EndGame;
+		//LevelController.PlayerKilledEvent += EndGame;
+		LevelControllerBehavior.PlayerKilledEvent += EndGame;
 	}
 
 	// Update is called once per frame
@@ -61,5 +62,10 @@ public class CountdownTimer : MonoBehaviour {
 			}
 			textDisplay.text = countdownVal + "";
 		}
+	}
+
+	void OnDestroy() {
+		//LevelController.PlayerKilledEvent -= EndGame;
+		LevelControllerBehavior.PlayerKilledEvent -= EndGame;
 	}
 }

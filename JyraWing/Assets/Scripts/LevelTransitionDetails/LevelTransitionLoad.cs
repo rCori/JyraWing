@@ -10,7 +10,7 @@ public class LevelTransitionLoad : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		nextLevel = LevelController.NextLevel;
+		nextLevel = LevelControllerBehavior.NextLevel;
 	}
 	
 	// Update is called once per frame

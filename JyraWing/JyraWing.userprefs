@@ -1,15 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Singletons\Player\PlayerAnimation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\Tests\LevelControllerTest.cs">
     <Files>
-      <File FileName="Assets\Scripts\Singletons\Player\PlayerAnimation.cs" Line="108" Column="39" />
-      <File FileName="Assets\Scripts\GameController\LevelController.cs" Line="151" Column="26" />
-      <File FileName="Assets\Scripts\GameController\GameControllerBehaviour.cs" Line="137" Column="37" />
-      <File FileName="Assets\Scripts\Singletons\Player\Player.cs" Line="338" Column="46" />
-      <File FileName="Assets\Scripts\GameController\GameController.cs" Line="214" Column="35" />
-      <File FileName="Assets\Scripts\GameController\IUIController.cs" Line="31" Column="2" />
-      <File FileName="Assets\Scripts\GameController\UIControllerRewrite.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\UIControllerBehaviour.cs" Line="192" Column="38" />
+      <File FileName="Assets\Scripts\GameController\GameControllerBehaviour.cs" Line="62" Column="4" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyBoss1.cs" Line="72" Column="15" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawns\BossSpawn1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameController\NewLevelController\ILevelController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameController\NewLevelController\LevelControllerBehavior.cs" Line="10" Column="33" />
+      <File FileName="Assets\Scripts\GameController\GameController.cs" Line="65" Column="4" />
+      <File FileName="Assets\Scripts\LevelTransitionDetails\LevelTransitionLoad.cs" Line="25" Column="1" />
+      <File FileName="Assets\Editor\Tests\LevelControllerTest.cs" Line="82" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

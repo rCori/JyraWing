@@ -7,6 +7,7 @@ public class Boss2Spawn1 : EnemySpawner {
 	public override void Spawn(){
 		Vector3 spawnPos = gameObject.transform.position;
 
+		LevelControllerBehavior levelControllerBehavior = GameObject.Find ("LevelController").GetComponent<LevelControllerBehavior> ();
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 		EnemyBulletPool shieldableBulletPool = GameObject.Find("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool>();
 
@@ -40,6 +41,7 @@ public class Boss2Spawn1 : EnemySpawner {
 		bossBaseBehavior.TopTurretBehavior.GetComponent<EnemyBehavior> ().SetEnemyHealth (20);
 		bossBaseBehavior.MiddleTurretBehavior.GetComponent<EnemyBehavior> ().SetEnemyHealth (35);
 		bossBaseBehavior.BottomTurretBehavior.GetComponent<EnemyBehavior> ().SetEnemyHealth (20);
+		bossBaseBehavior.levelControllerBehavior = levelControllerBehavior;
 	}
 
 }

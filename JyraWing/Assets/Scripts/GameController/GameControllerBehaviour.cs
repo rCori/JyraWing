@@ -19,19 +19,20 @@ public class GameControllerBehaviour : MonoBehaviour {
 		gameController = new GameController();
 		//Set all of the controller modules
 		gameController.SetPauseController (new PauseController ());
-		gameController.SetLevelController (new LevelController ());
-		LevelController.NextLevel = NextLevel;
+		//gameController.SetLevelController (new LevelController ());
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
 		gameController.SetUIController (new UIControllerRewrite ());
+		LevelControllerBehavior.NextLevel = NextLevel;
 		initializeUI = false;
 		PlayerInputController.StartButton += PauseBehavior;
 		CountdownTimer.PlayerContinueEvent += RestartPlayer;
+		LevelControllerBehavior.DisablePlayerEvent += DisablePlayer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//HandleGameOver is time dependent
-		gameController.HandleGameOver (Time.deltaTime);
+		//gameController.HandleGameOver (Time.deltaTime);
 		if (!initializeUI) {
 			if(player){
 				gameController.SetDefaultLifeCount(player.LifeCount());
@@ -58,27 +59,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 		if (gameController.IsPowerupSpawnQueued()) {
 			SpawnPowerupAtPostion(gameController.QueuedPowerupLocation, gameController.QueuedPowerupType);
 		}
-
-		//Check levelController flags for game state changes
-		//Disable the player
-		if (gameController.ShouldDisablePlayer ()) {
-			player.gameObject.SetActive (false);
-		}
-
-		//Load the title scene
-		if (gameController.ShouldLoadTitleScene ()) {
-			SceneManager.LoadScene("LevelTransition");
-		}
-
-		//Show the game over message
-		if (gameController.ShouldShowGameOverUI ()) {
-			uiControllerBehaviour.ShowGameOver();
-		}
-
-		//Show the level complete ui
-		if (gameController.ShouldShowLevelCompleteUI ()) {
-			uiControllerBehaviour.ShowLevelComplete();
-		}
+			
 
 		if (gameController.ShouldUpdateShieldPercentage ()) {
 			uiControllerBehaviour.UpdatePlayerShield(gameController.ShieldPercentage);
@@ -125,7 +106,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	public void PauseBehavior(bool down) {
 		if (down) {
-			if (!gameController.IsPaused && gameController.IsNotGameOver ()) {
+			if (!gameController.IsPaused/* && gameController.IsNotGameOver ()*/) {
 				uiControllerBehaviour.PauseMenu ();
 				gameController.PauseAllItems ();
 			}
@@ -137,9 +118,14 @@ public class GameControllerBehaviour : MonoBehaviour {
 		gameController.InitializeLifeCount();
 	}
 
+	public void DisablePlayer() {
+		player.gameObject.SetActive (false);
+	}
+
 	void OnDestroy() {
 		PlayerInputController.StartButton -= PauseBehavior;
 		CountdownTimer.PlayerContinueEvent -= RestartPlayer;
+		LevelControllerBehavior.DisablePlayerEvent -= DisablePlayer;
 	}
 
 }
