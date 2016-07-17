@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float hitTimer;
 	//private PlayerSpeed playerSpeed;
 	//private PlayerBulletLevel bulletLevel;
-	private OldPlayerInputController playerInputController;
+	//private OldPlayerInputController playerInputController;
 	private IPlayerShield playerShield;
 
 	private Vector3 startSavePos;
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		//Helper classes and components for the player
 		//playerSpeed = new PlayerSpeed ();
 		//bulletLevel = new PlayerBulletLevel ();
-		playerInputController = new OldPlayerInputController ();
+		//playerInputController = new OldPlayerInputController ();
 		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerShieldBehaviour playerShieldBehaviour = playerShieldObject.GetComponent<PlayerShieldBehaviour>();
 		//Get the same GameController reference from the player for player shield
 		playerShieldBehaviour.gameController = gameController;
-		playerShieldBehaviour.playerInputController = playerInputController;
+		//playerShieldBehaviour.playerInputController = playerInputController;
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
@@ -132,12 +132,13 @@ public class Player : MonoBehaviour, PauseableItem {
 		//Update position
 		//updatePlayerMovement ();
 
-		playerInputController.PlayerInputUpdate ();
+		//playerInputController.PlayerInputUpdate ();
 
 		updateHitStatus (Time.deltaTime);
 
 		//update the position of the shield sprite
 		playerShield.spritePosition = gameObject.transform.position;
+
 	}
 
 	/// <summary>
@@ -152,11 +153,12 @@ public class Player : MonoBehaviour, PauseableItem {
 			//Get the length of the animation.
 			hitTimer = 2.5f;
 			gameController.DecreaseLifeCount();
-			playerInputController.DisableControls(true);
-			playerInputController.DisableShield(true);
+			//playerInputController.DisableControls(true);
+			//playerInputController.DisableShield(true);
 			damageSfx.Play();
 			takingDamage = TakingDamage.EXPLODE;
 			HitEvent (TakingDamage.EXPLODE);
+			playerShield.DeactivateShield ();
 		}
 	}
 
@@ -194,7 +196,7 @@ public class Player : MonoBehaviour, PauseableItem {
 //	}
 
 	public bool HasShield(){
-		return playerShield.HasShield(playerInputController.GetShieldButton ());
+		return playerShield.HasShield();
 	}
 
 	private void updatePlayerVert(float value) {
@@ -246,8 +248,8 @@ public class Player : MonoBehaviour, PauseableItem {
 
 					SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 					sfxPlayer.PlayClip (Resources.Load ("Audio/BGM/newLife") as AudioClip);
-					playerInputController.DisableControls(false);
-					playerInputController.DisableShield(false);
+					//playerInputController.DisableControls(false);
+					//playerInputController.DisableShield(false);
 					HitEvent (takingDamage);
 				} else {
 					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
@@ -335,7 +337,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void ResetTakingDamage() {
 		takingDamage = TakingDamage.NONE;
 		hitTimer = 0.0f;
-		playerInputController.DisableShield(false);
+		//playerInputController.DisableShield(false);
 	}
 
 	public bool IsPlayerTakingDamage() {

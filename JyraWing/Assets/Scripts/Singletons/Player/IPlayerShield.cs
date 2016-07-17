@@ -17,15 +17,24 @@ public interface IPlayerShield {
 	float GetShieldPercentage();
 
 	/// <summary>
-	/// Return if shield is active. Requires the status of the player activating the shield(pressing the shield
-	/// button) as a boolean argument
+	/// Return if shield is active.
 	/// </summary>
-	bool HasShield(bool button);
+	bool HasShield();
 
 	/// <summary>
 	/// Update shield based on a time change presented as a float argument.
 	/// Requires the status of the player activating the shield(pressing the shield button) as a boolean argument
 	/// </summary>
-	void UpdateShield(float timeDifference, bool button);
+	void UpdateShield(float timeDifference);
+
+	///<summary>
+	/// Turn the shield on if the shieldPercentage allows it to be
+	/// </summary>
+	void ActivateShield();
+
+	///<summary>
+	/// Turn the shield off regardless of shieldPercentage value
+	/// </summary>
+	void DeactivateShield();
 
 }

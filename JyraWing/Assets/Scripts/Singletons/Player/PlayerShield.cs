@@ -6,6 +6,7 @@ public class PlayerShield: IPlayerShield  {
 
 	private float shieldPower;
 	private float maxShieldPower;
+	private bool shieldActive;
 
 	public Vector3 _spritePosition;
 
@@ -17,6 +18,7 @@ public class PlayerShield: IPlayerShield  {
 		maxShieldPower = 2f;
 		//Intitialize shield should be full
 		shieldPower = maxShieldPower;
+		shieldActive = false;
 	}
 
 	public float GetShieldPercentage(){
@@ -24,23 +26,19 @@ public class PlayerShield: IPlayerShield  {
 		return (shieldPower / maxShieldPower) * 100;
 	}
 
-	public bool HasShield(bool button){
-		//If the player has shield
-		if (shieldPower != 0) {
-			return button;
-		} else {
-			return false;
-		}
+	public bool HasShield(){
+		return shieldActive;
 	}
 
-	public void UpdateShield(float timeDifference, bool button){
-		if (button && shieldPower > 0f) {
+	public void UpdateShield(float timeDifference){
+		if (shieldActive && shieldPower > 0f) {
 			shieldPower -= Time.deltaTime;
 			if(shieldPower < 0f){
 				shieldPower = 0f;
+				shieldActive = false;
 			}
 		}
-		else if(!button && shieldPower <= maxShieldPower){
+		else if(!shieldActive && shieldPower <= maxShieldPower){
 			shieldPower += Time.deltaTime;
 			if(shieldPower > maxShieldPower){
 				shieldPower = maxShieldPower;
@@ -56,5 +54,15 @@ public class PlayerShield: IPlayerShield  {
 		set{
 			_spritePosition = value;
 		}
+	}
+
+	public void ActivateShield() {
+		if (shieldPower > 0f) {
+			shieldActive = true;
+		}
+	}
+
+	public void DeactivateShield() {
+		shieldActive = false;
 	}
 }

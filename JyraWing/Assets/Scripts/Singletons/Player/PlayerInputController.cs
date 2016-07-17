@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerInputController : MonoBehaviour {
 
-	private string fireButtonString, autoFireButtonString, changeSpeedButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
+	private string fireButtonString, autoFireButtonString, shieldButtonString, changeSpeedButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
 	private string upDownAxisString, leftRightAxisString;
 
 	public delegate void ButtonEvent(bool down);
 	public delegate void AxisEvent (float value);
 
-	public static event ButtonEvent FireButton, AutoFireButton, ChangeSpeedButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
+	public static event ButtonEvent FireButton, AutoFireButton, ShieldButton, ChangeSpeedButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
 	public static event AxisEvent LeftRightEvent, UpDownEvent;
 
 	private float prevLeftRight, prevUpDown;
@@ -24,6 +24,7 @@ public class PlayerInputController : MonoBehaviour {
 	void Update() {
 		ButtonUpdate(fireButtonString, FireButton);
 		ButtonUpdate(autoFireButtonString, AutoFireButton);
+		ButtonUpdate (shieldButtonString, ShieldButton);
 		ButtonUpdate(changeSpeedButtonString, ChangeSpeedButton);
 		ButtonUpdate(upButtonString, UpButton);
 		ButtonUpdate(downButtonString, DownButton);
@@ -38,6 +39,7 @@ public class PlayerInputController : MonoBehaviour {
 	private void initDefaultControls() {
 		fireButtonString = "Fire";
 		autoFireButtonString = "Auto Fire";
+		shieldButtonString = "Shield";
 		changeSpeedButtonString = "Toggle Speed";
 		upButtonString = "Up";
 		downButtonString = "Down";
@@ -76,6 +78,7 @@ public class PlayerInputController : MonoBehaviour {
 	public static void RemoveAllEvents() {
 		RemoveButtonEvents (FireButton);
 		RemoveButtonEvents (AutoFireButton);
+		RemoveButtonEvents (ShieldButton);
 		RemoveButtonEvents (ChangeSpeedButton);
 		RemoveButtonEvents (UpButton);
 		RemoveButtonEvents (DownButton);
@@ -87,16 +90,10 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	private static void RemoveAxisEvents(AxisEvent axisEvent) {
-//		foreach (System.Delegate subscriber in axisEvent.GetInvocationList()) {
-//			axisEvent -= subscriber;
-//		}
 		axisEvent = null;
 	}
 
 	private static void RemoveButtonEvents(ButtonEvent buttonEvent) {
-//		foreach (System.Delegate subscriber in buttonEvent.GetInvocationList()) {
-//			buttonEvent -= subscriber;
-//		}
 		buttonEvent = null;
 	}
 }
