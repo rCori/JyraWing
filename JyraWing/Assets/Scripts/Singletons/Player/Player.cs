@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour, PauseableItem {
 
 	public bool DEBUGNODAMAGE;
-	public bool DEBUGMAXBULLETLEVEL;
-	public bool DEBUGMAXSPEEDLEVEL;
+//	public bool DEBUGMAXBULLETLEVEL;
+//	public bool DEBUGMAXSPEEDLEVEL;
 
 	[System.Flags]
 	public enum Direction
@@ -42,8 +42,8 @@ public class Player : MonoBehaviour, PauseableItem {
 	int numBullets;
 	private AudioSource damageSfx;
 	private float hitTimer;
-	private PlayerSpeed playerSpeed;
-	private PlayerBulletLevel bulletLevel;
+	//private PlayerSpeed playerSpeed;
+	//private PlayerBulletLevel bulletLevel;
 	private OldPlayerInputController playerInputController;
 	private IPlayerShield playerShield;
 
@@ -80,10 +80,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
 
 		//Helper classes and components for the player
-		playerSpeed = new PlayerSpeed ();
-		bulletLevel = new PlayerBulletLevel ();
+		//playerSpeed = new PlayerSpeed ();
+		//bulletLevel = new PlayerBulletLevel ();
 		playerInputController = new OldPlayerInputController ();
-		speed = playerSpeed.GetCurrentSpeed();
+		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
 		//the shield interface from that game object
@@ -100,22 +100,22 @@ public class Player : MonoBehaviour, PauseableItem {
 		_paused = false;
 		RegisterToList ();
 
-		//Set direction to non
-		if (DEBUGMAXBULLETLEVEL) {
-//			IncreaseBulletLevel();
-//			IncreaseBulletLevel();
-//			IncreaseBulletLevel();
-		}
-		if (DEBUGMAXSPEEDLEVEL) {
-			playerSpeed.IncreaseSpeedCap ();
-			playerSpeed.IncreaseSpeedCap ();
-			playerSpeed.IncreaseSpeedCap ();
-		}
+//		//Set direction to non
+//		if (DEBUGMAXBULLETLEVEL) {
+////			IncreaseBulletLevel();
+////			IncreaseBulletLevel();
+////			IncreaseBulletLevel();
+//		}
+//		if (DEBUGMAXSPEEDLEVEL) {
+//			playerSpeed.IncreaseSpeedCap ();
+//			playerSpeed.IncreaseSpeedCap ();
+//			playerSpeed.IncreaseSpeedCap ();
+//		}
 
 		horiz = 0f;
 		vert = 0f;
 
-		PlayerInputController.ChangeSpeedButton += ToggleSpeed;
+		//PlayerInputController.ChangeSpeedButton += ToggleSpeed;
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
@@ -175,23 +175,23 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Getter for the speed level of the player 
 	/// </summary>
 	/// <returns>Speed count.</returns>
-	public int SpeedCount(){
-		return playerSpeed.GetSpeedLevel ();
-	}
-
-	public int SpeedCountCap(){
-		return playerSpeed.GetSpeedCap ();
-	}
-
-	public void IncreaseSpeedCap(){
-		playerSpeed.IncreaseSpeedCap ();
-		//Set the gameController speed variables
-		//Speed cap is how many levels of speed are available to the player
-		gameController.AvailableSpeed = playerSpeed.GetSpeedCap ();
-		//speed level is how many levels of speed the player has activated
-		gameController.ActiveSpeed = playerSpeed.GetSpeedLevel ();
-		gameController.ShouldUpdateSpeed ();
-	}
+//	public int SpeedCount(){
+//		return playerSpeed.GetSpeedLevel ();
+//	}
+//
+//	public int SpeedCountCap(){
+//		return playerSpeed.GetSpeedCap ();
+//	}
+//
+//	public void IncreaseSpeedCap(){
+//		playerSpeed.IncreaseSpeedCap ();
+//		//Set the gameController speed variables
+//		//Speed cap is how many levels of speed are available to the player
+//		gameController.AvailableSpeed = playerSpeed.GetSpeedCap ();
+//		//speed level is how many levels of speed the player has activated
+//		gameController.ActiveSpeed = playerSpeed.GetSpeedLevel ();
+//		gameController.ShouldUpdateSpeed ();
+//	}
 
 	public bool HasShield(){
 		return playerShield.HasShield(playerInputController.GetShieldButton ());
@@ -213,15 +213,15 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 
-	public void ToggleSpeed(bool down) {
-		if (down) {
-			playerSpeed.IncreaseSpeed();
-			speed = playerSpeed.GetCurrentSpeed();
-			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
-			gameController.AvailableSpeed = playerSpeed.GetSpeedCap();
-			gameController.ShouldUpdateSpeed();
-		}
-	}
+//	public void ToggleSpeed(bool down) {
+//		if (down) {
+//			playerSpeed.IncreaseSpeed();
+//			speed = playerSpeed.GetCurrentSpeed();
+//			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
+//			gameController.AvailableSpeed = playerSpeed.GetSpeedCap();
+//			gameController.ShouldUpdateSpeed();
+//		}
+//	}
 
 	private void updateHitStatus(float delta) {
 		if (hitTimer > 0.0f) {
@@ -326,7 +326,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	public void RemoveListeners() {
-		PlayerInputController.ChangeSpeedButton -= ToggleSpeed;
+		//PlayerInputController.ChangeSpeedButton -= ToggleSpeed;
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
@@ -336,6 +336,14 @@ public class Player : MonoBehaviour, PauseableItem {
 		takingDamage = TakingDamage.NONE;
 		hitTimer = 0.0f;
 		playerInputController.DisableShield(false);
+	}
+
+	public bool IsPlayerTakingDamage() {
+		if (takingDamage != TakingDamage.NONE) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

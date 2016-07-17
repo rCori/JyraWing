@@ -9,6 +9,8 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	private List<GameObject> bulletPool;
 	private AudioSource fireSfx;
 
+	public Player player;
+
 	protected bool _paused;
 
 	// Use this for initialization
@@ -47,7 +49,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	}
 
 	public void ShootBehavior(bool down) {
-		if (down && !_paused) {
+		if (down && !_paused && !player.IsPlayerTakingDamage()) {
 			for (int i = 0; i < playerWeapon.NumBullets; i++) {
 				GameObject bulletObj = bulletPool [i];
 				Bullet bullet = bulletObj.GetComponent<Bullet> ();

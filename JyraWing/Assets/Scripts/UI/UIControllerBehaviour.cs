@@ -14,7 +14,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	//Number of lives the player has
 	private int lifeCount;
 	//The level of speed the player is at
-	private int speedCount;
+	//private int speedCount;
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
@@ -68,7 +68,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		//lifeSpriteCollection = new List<GameObject> ();
 		lifeCount = i_lifeCount;
 		initLives (lifeCount);
-		speedCount = 4;
+		//speedCount = 4;
 		initScore ();
 
 	}

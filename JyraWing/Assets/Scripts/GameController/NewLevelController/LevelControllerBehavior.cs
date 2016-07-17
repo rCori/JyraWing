@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 
@@ -30,7 +31,6 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 
 
 	IEnumerator gameOverRoutine() {
-		Debug.Log ("Starting game over coroutine");
 		yield return new WaitForSeconds (2f);
 		DisablePlayerEvent ();
 		yield return new WaitForSeconds (1.2f);
