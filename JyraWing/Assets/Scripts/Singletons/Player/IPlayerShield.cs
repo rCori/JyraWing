@@ -11,6 +11,10 @@ public interface IPlayerShield {
 		set;
 	}
 
+	bool shieldEnabled {
+		get;
+	}
+
 	///<summary>
 	///Return how much shield the player has as a percentage
 	///</summary>
@@ -37,4 +41,13 @@ public interface IPlayerShield {
 	/// </summary>
 	void DeactivateShield();
 
+	///<summary>
+	/// Enable the shield to be usable by the player
+	/// </summary>
+	void EnableShield();
+
+	///<summary>
+	/// Take the shield away from the player
+	/// </summary>
+	void DisableShield();
 }

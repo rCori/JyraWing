@@ -9,6 +9,7 @@ public class PlayerShield: IPlayerShield  {
 	private bool shieldActive;
 
 	public Vector3 _spritePosition;
+	private bool enabled;
 
 	/// <summary>
 	/// Constructor that initializes maxShieldPower and sets shieldPower to be full
@@ -19,6 +20,7 @@ public class PlayerShield: IPlayerShield  {
 		//Intitialize shield should be full
 		shieldPower = maxShieldPower;
 		shieldActive = false;
+		enabled = true;;
 	}
 
 	public float GetShieldPercentage(){
@@ -56,13 +58,27 @@ public class PlayerShield: IPlayerShield  {
 		}
 	}
 
+	public bool shieldEnabled {
+		get {
+			return enabled;
+		}
+	}
+
 	public void ActivateShield() {
-		if (shieldPower > 0f) {
+		if (shieldPower > 0f && enabled) {
 			shieldActive = true;
 		}
 	}
 
 	public void DeactivateShield() {
 		shieldActive = false;
+	}
+
+	public void EnableShield() {
+		enabled = true;
+	}
+
+	public void DisableShield() {
+		enabled = false;
 	}
 }

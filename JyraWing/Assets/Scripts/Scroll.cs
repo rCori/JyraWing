@@ -43,16 +43,17 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	
 	public void RegisterToList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+		if (GameObject.Find ("PauseController")) {
+			//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
 	}
 
 	//We can remove from the list without checking, it will be safe.
 	public void RemoveFromList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 		}
 	}
 }

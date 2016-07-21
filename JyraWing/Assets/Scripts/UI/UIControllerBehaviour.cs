@@ -55,6 +55,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.FinishLevelEvent += ShowLevelComplete;
 		//LevelController.GameOverEvent += ShowGameOver;
 		LevelControllerBehavior.GameOverEvent += ShowGameOver;
+		PauseControllerBehavior.PauseEvent += PauseMenu;
 //		if (ISDEBUG) {
 //			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
 //			debugFramerate = Instantiate (debugFramerate);
@@ -199,5 +200,6 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
 		//LevelController.GameOverEvent -= ShowGameOver;
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
+		PauseControllerBehavior.PauseEvent -= PauseMenu;
 	}
 }

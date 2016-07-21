@@ -117,6 +117,7 @@
      <Compile Include="Assets\Scripts\GameController\NewLevelController\ILevelController.cs" />
      <Compile Include="Assets\Scripts\GameController\NewLevelController\LevelControllerBehavior.cs" />
      <Compile Include="Assets\Scripts\GameController\PauseController.cs" />
+     <Compile Include="Assets\Scripts\GameController\PauseControllerBehavior.cs" />
      <Compile Include="Assets\Scripts\GameController\PowerupGroupController.cs" />
      <Compile Include="Assets\Scripts\GameController\UIControllerRewrite.cs" />
      <Compile Include="Assets\Scripts\IBullet.cs" />
@@ -135,7 +136,6 @@
      <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\Singletons\OldPlayerInputController.cs" />
      <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player\IPlayerShield.cs" />
      <Compile Include="Assets\Scripts\Singletons\Player\IPlayerWeapon.cs" />

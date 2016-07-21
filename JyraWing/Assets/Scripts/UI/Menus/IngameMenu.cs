@@ -8,6 +8,9 @@ public class IngameMenu : Menu {
 	private GameObject noText;
 	private GameObject title;
 
+	public delegate void IngameMenuDelegate();
+	public static event IngameMenuDelegate UnpauseEvent;
+
 	// Use this for initialization
 	void Start () {
 		InitMenu ();
@@ -47,7 +50,7 @@ public class IngameMenu : Menu {
 				Destroy (title);
 				Destroy (noText);
 				Destroy (yesText);
-				GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
+				UnpauseEvent ();
 				Destroy (gameObject);
 
 			//Yes: Go back to main menu
@@ -61,7 +64,7 @@ public class IngameMenu : Menu {
 			Destroy (title);
 			Destroy (noText);
 			Destroy (yesText);
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
+			UnpauseEvent ();
 			Destroy (gameObject);
 		}
 	}

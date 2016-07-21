@@ -158,7 +158,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			damageSfx.Play();
 			takingDamage = TakingDamage.EXPLODE;
 			HitEvent (TakingDamage.EXPLODE);
-			playerShield.DeactivateShield ();
+			playerShield.DisableShield ();
 		}
 	}
 
@@ -237,7 +237,6 @@ public class Player : MonoBehaviour, PauseableItem {
 					startSavePos = gameObject.transform.position;
 					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
 					endSavePos = gameObject.transform.position;
-
 					HitEvent (takingDamage);
 				}
 				break;
@@ -259,6 +258,7 @@ public class Player : MonoBehaviour, PauseableItem {
 				if (hitTimer <= 0f) {
 					hitTimer = 0f;
 					takingDamage = TakingDamage.NONE;
+					playerShield.EnableShield ();
 					HitEvent (takingDamage);
 				}
 				break;
@@ -305,13 +305,19 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		//gameController.RegisterPause(this);
-		gameController.RegisterPauseableItem (this);
+		//gameController.RegisterPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+		}
 	}
 	
 	public void RemoveFromList()
 	{
 		//gameController.DelistPause(this);
-		gameController.DelistPauseableItem (this);
+		//gameController.DelistPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
+		}
 	}
 
 	public void TransitionSide(int value) {

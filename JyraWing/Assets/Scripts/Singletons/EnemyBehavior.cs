@@ -568,13 +568,19 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		//gameController.RegisterPause(this);
-		gameController.RegisterPauseableItem (this);
+		//gameController.RegisterPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+		}
 	}
 	
 	public void RemoveFromList()
 	{
 		//gameController.DelistPause(this);
-		gameController.DelistPauseableItem (this);
+		//gameController.DelistPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
+		}
 	}
 
 }

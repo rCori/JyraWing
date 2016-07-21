@@ -83,15 +83,21 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 
 	public void RegisterToList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+//		if (GameObject.Find ("GameController")) {
+//			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+//		}
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
 	}
 
 	public void RemoveFromList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+//		if (GameObject.Find ("GameController")) {
+//			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+//		}
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 		}
 	}
 

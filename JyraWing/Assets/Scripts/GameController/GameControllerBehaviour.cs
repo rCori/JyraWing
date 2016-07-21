@@ -18,13 +18,11 @@ public class GameControllerBehaviour : MonoBehaviour {
 	void Awake () {
 		gameController = new GameController();
 		//Set all of the controller modules
-		gameController.SetPauseController (new PauseController ());
-		//gameController.SetLevelController (new LevelController ());
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
 		gameController.SetUIController (new UIControllerRewrite ());
 		LevelControllerBehavior.NextLevel = NextLevel;
 		initializeUI = false;
-		PlayerInputController.StartButton += PauseBehavior;
+		//PlayerInputController.StartButton += PauseBehavior;
 		CountdownTimer.PlayerContinueEvent += RestartPlayer;
 		LevelControllerBehavior.DisablePlayerEvent += DisablePlayer;
 	}
@@ -53,14 +51,12 @@ public class GameControllerBehaviour : MonoBehaviour {
 			gameController.playerPosition = player.transform.position;
 		} else {
 			gameController.playerPosition = new Vector3(0f,0f,0f);
-
 		}
 
 		if (gameController.IsPowerupSpawnQueued()) {
 			SpawnPowerupAtPostion(gameController.QueuedPowerupLocation, gameController.QueuedPowerupType);
 		}
 			
-
 		if (gameController.ShouldUpdateShieldPercentage ()) {
 			uiControllerBehaviour.UpdatePlayerShield(gameController.ShieldPercentage);
 		}
@@ -103,16 +99,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 	public GameController GetGameController(){
 		return gameController;
 	}
-
-	public void PauseBehavior(bool down) {
-		if (down) {
-			if (!gameController.IsPaused/* && gameController.IsNotGameOver ()*/) {
-				uiControllerBehaviour.PauseMenu ();
-				gameController.PauseAllItems ();
-			}
-		}
-	}
-
+	
 	public void RestartPlayer() {
 		player.gameObject.SetActive (true);
 		gameController.InitializeLifeCount();
@@ -123,7 +110,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		PlayerInputController.StartButton -= PauseBehavior;
+		//PlayerInputController.StartButton -= PauseBehavior;
 		CountdownTimer.PlayerContinueEvent -= RestartPlayer;
 		LevelControllerBehavior.DisablePlayerEvent -= DisablePlayer;
 	}

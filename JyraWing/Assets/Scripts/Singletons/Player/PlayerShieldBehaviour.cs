@@ -44,7 +44,8 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		//Later we will do some other stuff with animation state and such of the actual gameobject
 		//Poll this value after the update to shield has happened
 		bool HasShield = playerShield.HasShield ();
-		UpdateShieldAppearance (HasShield);
+		bool ShieldEnabled = playerShield.shieldEnabled;
+		UpdateShieldAppearance (HasShield, ShieldEnabled);
 	}
 
 	public IPlayerShield GetPlayerShield(){
@@ -55,13 +56,18 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		playerShield = newPlayerShield;
 	}
 
-	private void UpdateShieldAppearance(bool hasShield){
+	private void UpdateShieldAppearance(bool hasShield, bool shieldEnabled){
+		//If the shield is not enabled, that animation takes prescedence
+		if (!shieldEnabled) {
+			animator.SetInteger ("animState", 2);
+			return;
+		}
 		//If the shield is active
 		if (hasShield) {
 			animator.SetInteger ("animState", 0);
 		//Shield is inactive
 		} else {
-			animator.SetInteger ("animState", 3);
+			animator.SetInteger ("animState", 1);
 		}
 
 	}
