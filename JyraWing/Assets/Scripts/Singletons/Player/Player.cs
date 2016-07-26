@@ -36,15 +36,11 @@ public class Player : MonoBehaviour, PauseableItem {
 	//public GameController gameController;
 	private GameController gameController;
 	private float speed;
-	//private List<GameObject> bulletPool;
 	Animator animator;
 	int hits;
 	int numBullets;
 	private AudioSource damageSfx;
 	private float hitTimer;
-	//private PlayerSpeed playerSpeed;
-	//private PlayerBulletLevel bulletLevel;
-	//private OldPlayerInputController playerInputController;
 	private IPlayerShield playerShield;
 
 	private Vector3 startSavePos;
@@ -66,8 +62,10 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private bool _paused;
 
-	public delegate void PlayerEvent (TakingDamage takingDamage);
-	public static event PlayerEvent HitEvent;
+	public delegate void PlayerDamageEvent (TakingDamage takingDamage);
+	public static event PlayerDamageEvent HitEvent;
+	public delegate void PlayerEvent ();
+	public static event PlayerEvent InitLives, TakeDamageEvent, ResetEvent;
 
 	// Use this for initialization
 	void Start () {
@@ -78,11 +76,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		damageSfx = gameObject.AddComponent<AudioSource> ();
 		//Sound when the player is hit
 		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
-
-		//Helper classes and components for the player
-		//playerSpeed = new PlayerSpeed ();
-		//bulletLevel = new PlayerBulletLevel ();
-		//playerInputController = new OldPlayerInputController ();
 		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
@@ -100,18 +93,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		_paused = false;
 		RegisterToList ();
 
-//		//Set direction to non
-//		if (DEBUGMAXBULLETLEVEL) {
-////			IncreaseBulletLevel();
-////			IncreaseBulletLevel();
-////			IncreaseBulletLevel();
-//		}
-//		if (DEBUGMAXSPEEDLEVEL) {
-//			playerSpeed.IncreaseSpeedCap ();
-//			playerSpeed.IncreaseSpeedCap ();
-//			playerSpeed.IncreaseSpeedCap ();
-//		}
-
 		horiz = 0f;
 		vert = 0f;
 
@@ -119,6 +100,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
+		Player.TakeDamageEvent += TakeDamage;
 	}
 	
 	// Update is called once per frame
@@ -129,11 +111,6 @@ public class Player : MonoBehaviour, PauseableItem {
 			transform.rotation.Set(0f,0f,0f,0f);
 			return;
 		}
-		//Update position
-		//updatePlayerMovement ();
-
-		//playerInputController.PlayerInputUpdate ();
-
 		updateHitStatus (Time.deltaTime);
 
 		//update the position of the shield sprite
@@ -145,25 +122,22 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		if (hitTimer == 0.0f && !DEBUGNODAMAGE) {
-			//take out taking damage for now
-			hits--;
-			GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
-			//animator.SetInteger ("animState", 1);
-			//Get the length of the animation.
-			hitTimer = 2.5f;
-			gameController.DecreaseLifeCount();
-			//playerInputController.DisableControls(true);
-			//playerInputController.DisableShield(true);
-			damageSfx.Play();
-			takingDamage = TakingDamage.EXPLODE;
-			HitEvent (TakingDamage.EXPLODE);
-			playerShield.DisableShield ();
+		//take out taking damage for now
+		hits--;
+		GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
+		//Get the length of the animation.
+		hitTimer = 2.5f;
+		damageSfx.Play();
+		takingDamage = TakingDamage.EXPLODE;
+		HitEvent (TakingDamage.EXPLODE);
+		playerShield.DisableShield ();
+		if (hits == 0) {
+			gameController.PlayerKilled ();
 		}
 	}
 
-	//Public interface needed by the game controller
 
+	//Public interface needed by the game controller
 	/// <summary>
 	/// Getter for the number of lives remaining
 	/// </summary>
@@ -172,28 +146,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	{
 		return hits;
 	}
-
-	/// <summary>
-	/// Getter for the speed level of the player 
-	/// </summary>
-	/// <returns>Speed count.</returns>
-//	public int SpeedCount(){
-//		return playerSpeed.GetSpeedLevel ();
-//	}
-//
-//	public int SpeedCountCap(){
-//		return playerSpeed.GetSpeedCap ();
-//	}
-//
-//	public void IncreaseSpeedCap(){
-//		playerSpeed.IncreaseSpeedCap ();
-//		//Set the gameController speed variables
-//		//Speed cap is how many levels of speed are available to the player
-//		gameController.AvailableSpeed = playerSpeed.GetSpeedCap ();
-//		//speed level is how many levels of speed the player has activated
-//		gameController.ActiveSpeed = playerSpeed.GetSpeedLevel ();
-//		gameController.ShouldUpdateSpeed ();
-//	}
 
 	public bool HasShield(){
 		return playerShield.HasShield();
@@ -214,17 +166,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (horiz, vert) * speed;
 		}
 	}
-
-//	public void ToggleSpeed(bool down) {
-//		if (down) {
-//			playerSpeed.IncreaseSpeed();
-//			speed = playerSpeed.GetCurrentSpeed();
-//			gameController.ActiveSpeed = playerSpeed.GetSpeedLevel();
-//			gameController.AvailableSpeed = playerSpeed.GetSpeedCap();
-//			gameController.ShouldUpdateSpeed();
-//		}
-//	}
-
+		
 	private void updateHitStatus(float delta) {
 		if (hitTimer > 0.0f) {
 			hitTimer -= delta;
@@ -235,7 +177,7 @@ public class Player : MonoBehaviour, PauseableItem {
 					takingDamage = TakingDamage.RETURNING;
 
 					startSavePos = gameObject.transform.position;
-					gameObject.transform.position = new Vector2 (-7.5f, startSavePos.y);
+					gameObject.transform.position = new Vector2 (-9.5f, startSavePos.y);
 					endSavePos = gameObject.transform.position;
 					HitEvent (takingDamage);
 				}
@@ -247,8 +189,6 @@ public class Player : MonoBehaviour, PauseableItem {
 
 					SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 					sfxPlayer.PlayClip (Resources.Load ("Audio/BGM/newLife") as AudioClip);
-					//playerInputController.DisableControls(false);
-					//playerInputController.DisableShield(false);
 					HitEvent (takingDamage);
 				} else {
 					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
@@ -304,8 +244,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	
 	public void RegisterToList()
 	{
-		//gameController.RegisterPause(this);
-		//gameController.RegisterPauseableItem (this);
 		if (GameObject.Find ("PauseController")) {
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
@@ -313,37 +251,42 @@ public class Player : MonoBehaviour, PauseableItem {
 	
 	public void RemoveFromList()
 	{
-		//gameController.DelistPause(this);
-		//gameController.DelistPauseableItem (this);
 		if (GameObject.Find ("PauseController")) {
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 		}
 	}
 
-	public void TransitionSide(int value) {
-		animator.SetBool ("moveHeld", true);
-	}
-
 	//By having the player handle it's own collision with enemy objects the
 	//"hiding inside an enemy" bug has been handled.
-	public void OnTriggerStay2D(Collider2D other){
-		if(other.tag == "Enemy")
-		{
-			TakeDamage();
+	public void OnTriggerEnter2D(Collider2D other){
+		bool bulletHit = false;
+		bool enemyHit = false;
+		if (other.tag == "EnemyBullet" && hitTimer == 0.0f && !DEBUGNODAMAGE) {
+			EnemyBullet enemyBullet = other.GetComponent<EnemyBullet> ();
+			if (!(enemyBullet.GetIsShieldable () && HasShield ())) {
+				enemyHit = true;
+			}
+		}
+		if(other.tag == "Enemy" && hitTimer == 0.0f && !DEBUGNODAMAGE) {
+			bulletHit = true;
+		}
+		if (enemyHit || bulletHit) {
+			TakeDamageEvent ();
 		}
 	}
 
 	public void RemoveListeners() {
-		//PlayerInputController.ChangeSpeedButton -= ToggleSpeed;
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
+		Player.TakeDamageEvent -= TakeDamage;
 	}
 
 	public void ResetTakingDamage() {
-		takingDamage = TakingDamage.NONE;
+		takingDamage = TakingDamage.RETURNING;
+		animator.SetInteger ("animState", 0);
 		hitTimer = 0.0f;
-		//playerInputController.DisableShield(false);
+		hits = 3;
 	}
 
 	public bool IsPlayerTakingDamage() {

@@ -12,7 +12,7 @@ public class PauseControllerBehavior : MonoBehaviour {
 	void Awake () {
 		pauseController = new PauseController ();
 		PlayerInputController.StartButton += PauseBehavior;
-		IngameMenu.UnpauseEvent += () => PauseBehavior(true);
+		IngameMenu.UnpauseEvent += () => pauseController.Unpause ();
 	}
 	
 	// Update is called once per frame
@@ -24,18 +24,6 @@ public class PauseControllerBehavior : MonoBehaviour {
 	public void SetPauseController(IPauseController i_pauseController){
 		pauseController = i_pauseController;
 	}
-
-//	///Allows the user to pause all items that have been registered to pause
-//	public void PauseAllItems()
-//	{
-//		pauseController.PauseAllItems ();
-//	}
-//
-//	///Allows the user to unpause all items that have been registered to pause and resume the game
-//	public void Unpause()
-//	{
-//		pauseController.Unpause ();
-//	}
 
 	/// <summary>
 	/// Registers and item to be globablly paused
@@ -68,14 +56,12 @@ public class PauseControllerBehavior : MonoBehaviour {
 				if (PauseEvent != null) {
 					PauseEvent ();
 				}
-			} else {
-				pauseController.Unpause ();
 			}
 		}
 	}
 
 	void OnDestroy() {
 		PlayerInputController.StartButton -= PauseBehavior;
-		IngameMenu.UnpauseEvent -= () => PauseBehavior(true);
+		IngameMenu.UnpauseEvent -= () => pauseController.Unpause ();
 	}
 }

@@ -11,6 +11,9 @@ public class PlayerShield: IPlayerShield  {
 	public Vector3 _spritePosition;
 	private bool enabled;
 
+	public delegate void ShieldEvent (int value);
+	public static event ShieldEvent SetShieldPercentageEvent; 
+
 	/// <summary>
 	/// Constructor that initializes maxShieldPower and sets shieldPower to be full
 	/// </summary>
@@ -20,7 +23,7 @@ public class PlayerShield: IPlayerShield  {
 		//Intitialize shield should be full
 		shieldPower = maxShieldPower;
 		shieldActive = false;
-		enabled = true;;
+		enabled = true;
 	}
 
 	public float GetShieldPercentage(){
@@ -46,6 +49,12 @@ public class PlayerShield: IPlayerShield  {
 				shieldPower = maxShieldPower;
 			}
 		}
+		SetShieldPercentage((shieldPower/maxShieldPower)*100.0f);
+	}
+
+	private void SetShieldPercentage(float shieldPercentage) {
+		shieldPower = (shieldPercentage/100.0f)*maxShieldPower;
+		SetShieldPercentageEvent((int)shieldPercentage);
 	}
 
 	//property implementation is straightforward get and set

@@ -65,7 +65,6 @@ public class CountdownTimer : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		//LevelController.PlayerKilledEvent -= EndGame;
 		LevelControllerBehavior.PlayerKilledEvent -= EndGame;
 	}
 }

@@ -34,11 +34,6 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		//bool ShieldButton = playerInputController.GetShieldButton ();
 		//Update the status of the shieldplayerShield.GetShieldPercentage ()
 		playerShield.UpdateShield (Time.deltaTime);
-		float ShieldPercentage = playerShield.GetShieldPercentage ();
-		//Update the ui that shows the player shield left
-		if (gameController != null) {
-			gameController.ShieldPercentage = (int)ShieldPercentage;
-		}
 		//update the position of the GameObject
 		gameObject.transform.position = playerShield.spritePosition;
 		//Later we will do some other stuff with animation state and such of the actual gameobject

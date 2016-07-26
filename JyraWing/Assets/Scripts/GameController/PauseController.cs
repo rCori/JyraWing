@@ -36,8 +36,6 @@ public class PauseController : IPauseController {
 
 	//Pause every item in pauseList
 	public void PauseAllItems(){
-		//iterate through every registered item
-		Debug.Log("pausing game");
 		foreach(PauseableItem item in pauseList)
 		{
 			item.paused = true;

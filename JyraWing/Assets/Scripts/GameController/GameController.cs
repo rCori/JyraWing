@@ -85,8 +85,7 @@ public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 
-
-	IUIController uiController;
+	//IUIController uiController;
 
 	public Vector3 playerPosition;
 
@@ -101,9 +100,9 @@ public class GameController {
 	}
 
 	//Set the GameController's UI controller module
-	public void SetUIController(IUIController i_uiController){
-		uiController = i_uiController;
-	}
+//	public void SetUIController(IUIController i_uiController){
+//		uiController = i_uiController;
+//	}
 
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
 		bool returnValue = powerupGroupController.CheckShouldSpawnPowerupGroup(i_powerupgroupID);
@@ -160,77 +159,8 @@ public class GameController {
 		
 
 	public void PlayerKilled(float startTimer = 2.5f){
-		//levelController.PlayerKilled (startTimer);
 		GameOverEvent ();
 	}
-
-	/* IUIController functions */
-
-	public void SetDefaultLifeCount(int defaultLifeCount){
-		uiController.SetDefaultLifeCount (defaultLifeCount);
-	}
-
-	public void InitializeLifeCount(){
-		uiController.InitializeLifeCount ();
-	}
-
-	public void IncreaseLifeCount(){
-		uiController.IncreaseLifeCount ();
-	}
-
-	public void DecreaseLifeCount(){
-		//Decrease lives displayed in the UI
-		uiController.DecreaseLifeCount ();
-		//If the lifeCount is 0 then the player has been killed
-		if (uiController.GetLifeCount () == 0) {
-			//Player was killed so inform the levelController to start that up.
-			GameOverEvent();
-		}
-	}
-
-	public int GetLifeCount(){
-		return uiController.GetLifeCount ();
-	}
-
-	public bool ShouldUpdateLifeCount(bool resetFlag = false){
-		return uiController.ShouldUpdateLifeCount (resetFlag);
-	}
-
-	public bool ShouldUpdateSpeed(bool resetFlag = false){
-		return uiController.ShouldUpdateSpeed (resetFlag);
-	}
-
-	public bool ShouldUpdateShieldPercentage (bool resetFlag = false){
-		return uiController.ShouldUpdateShieldPercentage (resetFlag);
-	}
-
-	public int AvailableSpeed{
-		get{
-			return uiController.AvailableSpeed;
-		}
-		set{
-			uiController.AvailableSpeed = value;
-		}
-	}
-	
-	public int ActiveSpeed{
-		get{
-			return uiController.ActiveSpeed;
-		}
-		set{
-			uiController.ActiveSpeed = value;
-		}
-	}
-
-	public int ShieldPercentage{
-		get{
-			return uiController.ShieldPercentage;
-		}
-		set{
-			uiController.ShieldPercentage = value;
-		}
-	}
-
-
+		
 
 }

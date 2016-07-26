@@ -119,7 +119,7 @@
      <Compile Include="Assets\Scripts\GameController\PauseController.cs" />
      <Compile Include="Assets\Scripts\GameController\PauseControllerBehavior.cs" />
      <Compile Include="Assets\Scripts\GameController\PowerupGroupController.cs" />
-     <Compile Include="Assets\Scripts\GameController\UIControllerRewrite.cs" />
+     <Compile Include="Assets\Scripts\GameController\UIController.cs" />
      <Compile Include="Assets\Scripts\IBullet.cs" />
      <Compile Include="Assets\Scripts\LevelFinish.cs" />
      <Compile Include="Assets\Scripts\LevelTransitionDetails\LevelTransitionLoad.cs" />

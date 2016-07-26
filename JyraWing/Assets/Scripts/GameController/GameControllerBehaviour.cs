@@ -19,32 +19,14 @@ public class GameControllerBehaviour : MonoBehaviour {
 		gameController = new GameController();
 		//Set all of the controller modules
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
-		gameController.SetUIController (new UIControllerRewrite ());
 		LevelControllerBehavior.NextLevel = NextLevel;
 		initializeUI = false;
-		//PlayerInputController.StartButton += PauseBehavior;
 		CountdownTimer.PlayerContinueEvent += RestartPlayer;
 		LevelControllerBehavior.DisablePlayerEvent += DisablePlayer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//HandleGameOver is time dependent
-		//gameController.HandleGameOver (Time.deltaTime);
-		if (!initializeUI) {
-			if(player){
-				gameController.SetDefaultLifeCount(player.LifeCount());
-				gameController.InitializeLifeCount();
-				uiControllerBehaviour.Initialize(gameController.GetLifeCount());
-				initializeUI = true;
-			}
-		}
-
-		//When the flag to update lives is checked, this will get the uiControllerBehaviour to update that
-		if (gameController.ShouldUpdateLifeCount (true)) {
-			uiControllerBehaviour.UpdateLives(gameController.GetLifeCount());
-		}
-
 		//The gameController has a null-checked player position at all times
 		//Set the player position in GameController.
 		if (player) {
@@ -56,10 +38,7 @@ public class GameControllerBehaviour : MonoBehaviour {
 		if (gameController.IsPowerupSpawnQueued()) {
 			SpawnPowerupAtPostion(gameController.QueuedPowerupLocation, gameController.QueuedPowerupType);
 		}
-			
-		if (gameController.ShouldUpdateShieldPercentage ()) {
-			uiControllerBehaviour.UpdatePlayerShield(gameController.ShieldPercentage);
-		}
+
 	}
 
 	//Not sure about this yet
@@ -102,7 +81,6 @@ public class GameControllerBehaviour : MonoBehaviour {
 	
 	public void RestartPlayer() {
 		player.gameObject.SetActive (true);
-		gameController.InitializeLifeCount();
 	}
 
 	public void DisablePlayer() {
@@ -110,7 +88,6 @@ public class GameControllerBehaviour : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		//PlayerInputController.StartButton -= PauseBehavior;
 		CountdownTimer.PlayerContinueEvent -= RestartPlayer;
 		LevelControllerBehavior.DisablePlayerEvent -= DisablePlayer;
 	}
