@@ -158,7 +158,6 @@ public class UIControllerBehaviour: MonoBehaviour {
 	}
 
 	public void ResetLives() {
-		Debug.Log ("Resseting lives");
 		uiController.IncreaseLifeCount ();
 		uiController.IncreaseLifeCount ();
 		uiController.IncreaseLifeCount ();

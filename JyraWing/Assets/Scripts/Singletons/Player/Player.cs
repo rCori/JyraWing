@@ -169,7 +169,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		startSavePos = gameObject.transform.position;
 		takingDamage = TakingDamage.RETURNING;
 		HitEvent (TakingDamage.RETURNING);
-		Debug.Log ("TakingDamage.RETURNING");
 		yield return new WaitForSeconds (2f);
 		float startTime = Time.time;
 		while (Time.time < startTime + 2.5f) {
@@ -179,12 +178,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		gameObject.transform.position = endSavePos;
 		takingDamage = TakingDamage.BLINKING;
 		HitEvent (TakingDamage.BLINKING);
-		Debug.Log ("TakingDamage.BLINKING");
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds (4.0f);
 		playerShield.EnableShield ();
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
-		Debug.Log ("TakingDamage.NONE");
 		HitEvent (TakingDamage.NONE);
 	}
 
