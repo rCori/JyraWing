@@ -85,11 +85,7 @@ public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 
-	//IUIController uiController;
-
 	public Vector3 playerPosition;
-
-	/*IPowerupGroupController functions */
 
 	public delegate void GameControllerEvent();
 	public static event GameControllerEvent GameOverEvent;
@@ -98,11 +94,6 @@ public class GameController {
 	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
 		powerupGroupController = i_powerupGroupController;
 	}
-
-	//Set the GameController's UI controller module
-//	public void SetUIController(IUIController i_uiController){
-//		uiController = i_uiController;
-//	}
 
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
 		bool returnValue = powerupGroupController.CheckShouldSpawnPowerupGroup(i_powerupgroupID);

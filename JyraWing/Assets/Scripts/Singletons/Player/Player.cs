@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour, PauseableItem {
 
 	public bool DEBUGNODAMAGE;
-//	public bool DEBUGMAXBULLETLEVEL;
-//	public bool DEBUGMAXSPEEDLEVEL;
 
 	[System.Flags]
 	public enum Direction
@@ -33,7 +31,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 
-	//public GameController gameController;
 	private GameController gameController;
 	private float speed;
 	Animator animator;
@@ -50,7 +47,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float horiz;
 	private float vert;
 
-	//private bool takingDamage;
 	public enum TakingDamage
 	{
 		NONE = 0,
@@ -86,7 +82,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerShieldBehaviour playerShieldBehaviour = playerShieldObject.GetComponent<PlayerShieldBehaviour>();
 		//Get the same GameController reference from the player for player shield
 		playerShieldBehaviour.gameController = gameController;
-		//playerShieldBehaviour.playerInputController = playerInputController;
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
@@ -96,10 +91,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		horiz = 0f;
 		vert = 0f;
 
-		//PlayerInputController.ChangeSpeedButton += ToggleSpeed;
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
+		CountdownTimer.PlayerContinueEvent += () =>  StartCoroutine (returningFromHitRoutine ());
 		Player.TakeDamageEvent += TakeDamage;
 	}
 	
@@ -111,7 +106,6 @@ public class Player : MonoBehaviour, PauseableItem {
 			transform.rotation.Set(0f,0f,0f,0f);
 			return;
 		}
-		updateHitStatus (Time.deltaTime);
 
 		//update the position of the shield sprite
 		playerShield.spritePosition = gameObject.transform.position;
@@ -129,6 +123,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		hitTimer = 2.5f;
 		damageSfx.Play();
 		takingDamage = TakingDamage.EXPLODE;
+		StartCoroutine(returningFromHitRoutine());
 		HitEvent (TakingDamage.EXPLODE);
 		playerShield.DisableShield ();
 		if (hits == 0) {
@@ -167,50 +162,30 @@ public class Player : MonoBehaviour, PauseableItem {
 		}
 	}
 		
-	private void updateHitStatus(float delta) {
-		if (hitTimer > 0.0f) {
-			hitTimer -= delta;
-			switch (takingDamage) {
-			case TakingDamage.EXPLODE:
-				if (hitTimer <= 0f) {
-					hitTimer = 2.0f;
-					takingDamage = TakingDamage.RETURNING;
-
-					startSavePos = gameObject.transform.position;
-					gameObject.transform.position = new Vector2 (-9.5f, startSavePos.y);
-					endSavePos = gameObject.transform.position;
-					HitEvent (takingDamage);
-				}
-				break;
-			case TakingDamage.RETURNING:
-				if (hitTimer <= 0f) {
-					hitTimer = 2.5f;
-					takingDamage = TakingDamage.BLINKING;
-
-					SoundEffectPlayer sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
-					sfxPlayer.PlayClip (Resources.Load ("Audio/BGM/newLife") as AudioClip);
-					HitEvent (takingDamage);
-				} else {
-					gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, hitTimer/0.5f);
-				}
-				break;
-			case TakingDamage.BLINKING:
-				if (hitTimer <= 0f) {
-					hitTimer = 0f;
-					takingDamage = TakingDamage.NONE;
-					playerShield.EnableShield ();
-					HitEvent (takingDamage);
-				}
-				break;
-			case TakingDamage.NONE:
-				if (hitTimer <= 0f) {
-					HitEvent (takingDamage);
-				}
-				break;
-			default:
-				break;
-			}
+	IEnumerator returningFromHitRoutine(){
+		yield return new WaitForSeconds (2f);
+		endSavePos = new Vector2 (-2.5f, 0f);
+		gameObject.transform.position = new Vector2 (-9.5f, 0f);
+		startSavePos = gameObject.transform.position;
+		takingDamage = TakingDamage.RETURNING;
+		HitEvent (TakingDamage.RETURNING);
+		Debug.Log ("TakingDamage.RETURNING");
+		yield return new WaitForSeconds (2f);
+		float startTime = Time.time;
+		while (Time.time < startTime + 2.5f) {
+			gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, (Time.time - startTime) / 1.2f);
+			yield return null;
 		}
+		gameObject.transform.position = endSavePos;
+		takingDamage = TakingDamage.BLINKING;
+		HitEvent (TakingDamage.BLINKING);
+		Debug.Log ("TakingDamage.BLINKING");
+		yield return new WaitForSeconds (2.0f);
+		playerShield.EnableShield ();
+		hitTimer = 0.0f;
+		takingDamage = TakingDamage.NONE;
+		Debug.Log ("TakingDamage.NONE");
+		HitEvent (TakingDamage.NONE);
 	}
 
 	//Make sure the player is removed from the list although actually this shouldn't be necssary
@@ -279,13 +254,13 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
+		CountdownTimer.PlayerContinueEvent -= () =>  StartCoroutine (returningFromHitRoutine ());
 		Player.TakeDamageEvent -= TakeDamage;
 	}
 
 	public void ResetTakingDamage() {
 		takingDamage = TakingDamage.RETURNING;
-		animator.SetInteger ("animState", 0);
-		hitTimer = 0.0f;
+		hitTimer = 2.0f;
 		hits = 3;
 	}
 

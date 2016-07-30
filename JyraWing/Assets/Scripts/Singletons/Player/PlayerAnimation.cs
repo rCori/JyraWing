@@ -86,6 +86,7 @@ public class PlayerAnimation : MonoBehaviour {
 			animStuck = false;
 			break;
 		case Player.TakingDamage.BLINKING:
+			Debug.Log ("Setting animState = 2");
 			animator.SetInteger ("animState", 2);
 			break;
 		case Player.TakingDamage.NONE:
@@ -98,8 +99,10 @@ public class PlayerAnimation : MonoBehaviour {
 	}
 
 	public void ResetHitAnimation() {
-		animator.SetInteger ("animState", 0);
-		isHit = false;
+		isHit = true;
+		animator.SetTrigger("blinkTrigger");
+		animator.SetInteger ("animState", 2);
+		Debug.Log ("ResetHitAnimation");
 	}
 
 	void OnDestroy() {
