@@ -145,7 +145,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		powerupGroupID = -1;
 		//gameController = GameObject.Find ("GameController").GetComponent<GameController>();
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
-		hitSfx = Resources.Load ("Audio/SFX/Click_Electronic_10") as AudioClip;
+		hitSfx = Resources.Load ("Audio/SFX/hit1") as AudioClip;
 		animationsOwned = HasAnimations.None;
 		animator = gameObject.GetComponent<Animator> ();
 		hitAnimationName = "NO ANIMATION SET";
@@ -568,13 +568,19 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		//gameController.RegisterPause(this);
-		gameController.RegisterPauseableItem (this);
+		//gameController.RegisterPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+		}
 	}
 	
 	public void RemoveFromList()
 	{
 		//gameController.DelistPause(this);
-		gameController.DelistPauseableItem (this);
+		//gameController.DelistPauseableItem (this);
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
+		}
 	}
 
 }

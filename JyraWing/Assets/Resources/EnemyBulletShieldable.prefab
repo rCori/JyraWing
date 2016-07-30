@@ -15,7 +15,7 @@ GameObject:
   - 95: {fileID: 9523010}
   m_Layer: 0
   m_Name: EnemyBulletShieldable
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

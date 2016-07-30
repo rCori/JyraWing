@@ -7,6 +7,7 @@ public class BossSpawn1 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 
+		LevelControllerBehavior levelControllerBehavior = GameObject.Find ("LevelController").GetComponent<LevelControllerBehavior> ();
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
 
 		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss");
@@ -17,6 +18,7 @@ public class BossSpawn1 : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 		EnemyBoss1 boss = enemy1.GetComponent<EnemyBoss1> ();
 		boss.hits = 25;
+		boss.levelControllerBehavior = levelControllerBehavior;
 		Instantiate (enemy1);
 	}
 }

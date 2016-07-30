@@ -35,16 +35,6 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	void OnTriggerEnter2D(Collider2D other){
 		//Player has two collders so we need to check if we are hitting the trigger one.
 		if (other.tag == "Player" && other.isTrigger) {
-			Player player = other.gameObject.GetComponent<Player>();
-			//If the bullet is a shieldable one and the player has a shield
-			//up, do not take damage but reset the bullet.
-			if(!shieldable || !player.HasShield())
-			{
-				player.TakeDamage();
-			}
-			else{
-				//Debug.Log ("player did not just take damage");
-			}
 			Recycle ();
 		}
 		if (other.tag == "Barrier") {
@@ -105,11 +95,13 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
 	public void RegisterToList()
 	{
-		GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+		//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 	}
 	
 	public void RemoveFromList()
 	{
-		GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+		//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 	}
 }

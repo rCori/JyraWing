@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemyBoss2Base : MonoBehaviour {
 
+	public LevelControllerBehavior levelControllerBehavior;
+
 	//Public game objects for the 3 turrets
 	public GameObject TopTurretBehavior;
 	public GameObject MiddleTurretBehavior;
@@ -131,7 +133,7 @@ public class EnemyBoss2Base : MonoBehaviour {
 			if (obj) {
 				//Use the new gameController now
 				GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
-				controller.FinishLevel(2.5f);
+				levelControllerBehavior.HandleLevelFinished ();
 			}
 		}
 	}

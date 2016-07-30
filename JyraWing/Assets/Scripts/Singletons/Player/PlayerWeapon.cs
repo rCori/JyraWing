@@ -6,6 +6,8 @@ public class PlayerWeapon : IPlayerWeapon {
 	float autoFireTimer;
 	const float AUTOFIRETIMELIMIT = 1/3f;
 
+
+
 	public PlayerWeapon() {
 		_weaponLevel = 1;
 		_numBullets = 20;

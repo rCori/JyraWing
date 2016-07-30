@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class EnemyBoss1 : EnemyBehavior {
 
+	public LevelControllerBehavior levelControllerBehavior;
+
 	public int hits;
 	//Animator animator;
 	float fireTimer;
@@ -68,19 +70,6 @@ public class EnemyBoss1 : EnemyBehavior {
 		}
 
 		Movement ();
-		/*
-		//Don't use HandleHitANimation because now we need to handle
-		//the other animations with special conditions.
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("boss2_hit")) {
-			if(isCharging){
-				animator.SetInteger("animState" ,3);
-			}
-			else{
-				animator.SetInteger("animState", 0);
-			}
-
-		}
-		*/
 
 	}
 
@@ -97,7 +86,7 @@ public class EnemyBoss1 : EnemyBehavior {
 		if (obj) {
 			//Use the new gameController now
 			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
-			controller.FinishLevel(2.5f);
+			levelControllerBehavior.HandleLevelFinished ();
 		}
 	
 	}

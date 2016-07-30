@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerShieldBehaviour : MonoBehaviour {
 
 	private IPlayerShield playerShield;
-	public OldPlayerInputController playerInputController;
+	//public OldPlayerInputController playerInputController;
 
 	private Animator animator;
 
@@ -18,9 +18,10 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		//Set the PlayerShield interface to the one implementation it has
 		SetPlayerShield (new PlayerShield());
 		//We will need player input for the player shield to update correctly.
-		playerInputController = new OldPlayerInputController ();
+		//playerInputController = new OldPlayerInputController ();
 		//Set the gameobjects animator
 		animator = gameObject.GetComponent<Animator> ();
+		PlayerInputController.ShieldButton += OnShieldButton;
 	}
 	
 	// Update is called once per frame
@@ -30,20 +31,16 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 			gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour> ().GetGameController ();
 		}
 		//Only poll these values once per Update for consistency
-		bool ShieldButton = playerInputController.GetShieldButton ();
-		float ShieldPercentage = playerShield.GetShieldPercentage ();
+		//bool ShieldButton = playerInputController.GetShieldButton ();
 		//Update the status of the shieldplayerShield.GetShieldPercentage ()
-		playerShield.UpdateShield (Time.deltaTime, ShieldButton);
-		//Update the ui that shows the player shield left
-		if (gameController != null) {
-			gameController.ShieldPercentage = (int)ShieldPercentage;
-		}
+		playerShield.UpdateShield (Time.deltaTime);
 		//update the position of the GameObject
 		gameObject.transform.position = playerShield.spritePosition;
 		//Later we will do some other stuff with animation state and such of the actual gameobject
 		//Poll this value after the update to shield has happened
-		bool HasShield = playerShield.HasShield (ShieldButton);
-		UpdateShieldAppearance (ShieldPercentage, HasShield);
+		bool HasShield = playerShield.HasShield ();
+		bool ShieldEnabled = playerShield.shieldEnabled;
+		UpdateShieldAppearance (HasShield, ShieldEnabled);
 	}
 
 	public IPlayerShield GetPlayerShield(){
@@ -53,31 +50,36 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 	public void SetPlayerShield(IPlayerShield newPlayerShield){
 		playerShield = newPlayerShield;
 	}
-	
-	private void UpdateShieldAppearance(float shieldPercentage, bool hasShield){
+
+	private void UpdateShieldAppearance(bool hasShield, bool shieldEnabled){
+		//If the shield is not enabled, that animation takes prescedence
+		if (!shieldEnabled) {
+			animator.SetInteger ("animState", 2);
+			return;
+		}
 		//If the shield is active
 		if (hasShield) {
 			animator.SetInteger ("animState", 0);
-//			if (shieldPercentage > 66.0f) {
-//				animator.SetInteger ("animState", 0);
-//			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
-//				animator.SetInteger ("animState", 1);
-//			} else if (shieldPercentage < 33.0f) {
-//				animator.SetInteger ("animState", 2);
-//			}
 		//Shield is inactive
-		} 
-		else {
-			animator.SetInteger ("animState", 3);
-//			if (shieldPercentage > 66.0f) {
-//				animator.SetInteger ("animState", 3);
-//			} else if (shieldPercentage < 66.0f && shieldPercentage > 33.0f) {
-//				animator.SetInteger ("animState", 4);
-//			} else if (shieldPercentage < 33.0f) {
-//				animator.SetInteger ("animState", 5);
-//			}
+		} else {
+			animator.SetInteger ("animState", 1);
 		}
 
+	}
+
+	/// <summary>
+	/// Event for the shield button
+	/// </summary>
+	public void OnShieldButton(bool down) {
+		if (down) {
+			playerShield.ActivateShield ();
+		} else {
+			playerShield.DeactivateShield ();
+		}
+	}
+
+	void OnDestroy() {
+		PlayerInputController.ShieldButton -= OnShieldButton;
 	}
 
 }

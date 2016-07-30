@@ -8,6 +8,9 @@ public class IngameMenu : Menu {
 	private GameObject noText;
 	private GameObject title;
 
+	public delegate void IngameMenuDelegate();
+	public static event IngameMenuDelegate UnpauseEvent;
+
 	// Use this for initialization
 	void Start () {
 		InitMenu ();
@@ -41,28 +44,31 @@ public class IngameMenu : Menu {
 		MenuScroll ();
 
 		//No: Continue game, unpausing it.
-		if (Input.GetButton ("Fire")) {
+		if (Input.GetButtonDown ("Fire")) {
 			if (curSelect == 0) {
-				beep.Play ();
-				Destroy (title);
-				Destroy (noText);
-				Destroy (yesText);
-				GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
-				Destroy (gameObject);
-
+				if (UnpauseEvent != null) {
+					UnpauseEvent ();
+				}
+				RemoveMenu ();
 			//Yes: Go back to main menu
 			} else if (curSelect == 1) {
 				beep.Play ();
 				SceneManager.LoadScene("titleScene");
 			}
 		}
-		if (Input.GetButton ("Toggle Speed")) {
-			beep.Play ();
-			Destroy (title);
-			Destroy (noText);
-			Destroy (yesText);
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().Unpause();
-			Destroy (gameObject);
+		if (Input.GetButtonDown ("Pause")) {
+			if (UnpauseEvent != null) {
+				UnpauseEvent ();
+			}
+			RemoveMenu ();
 		}
+	}
+
+	public void RemoveMenu() {
+		beep.Play ();
+		Destroy (title);
+		Destroy (noText);
+		Destroy (yesText);
+		Destroy (gameObject);
 	}
 }

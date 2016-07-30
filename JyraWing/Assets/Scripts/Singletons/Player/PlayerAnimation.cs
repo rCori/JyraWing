@@ -98,8 +98,9 @@ public class PlayerAnimation : MonoBehaviour {
 	}
 
 	public void ResetHitAnimation() {
-		animator.SetInteger ("animState", 0);
-		isHit = false;
+		isHit = true;
+		animator.SetTrigger("blinkTrigger");
+		animator.SetInteger ("animState", 2);
 	}
 
 	void OnDestroy() {

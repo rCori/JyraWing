@@ -652,6 +652,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 2.7}
+--- !u!1 &164074333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 164074335}
+  - 114: {fileID: 164074334}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &164074334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164074333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62f055e29e7df14393f4c0e698845e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &164074335
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164074333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &205947437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1421,10 @@ Prefab:
       propertyPath: DEBUGNODAMAGE
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11435900, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 957318869}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
   m_IsPrefabParent: 0
@@ -2442,7 +2486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 8, y: 1.5}
+  position: {x: 8, y: 1.7}
 --- !u!1 &1046290392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4197,6 +4241,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: -3.5}
+--- !u!1 &1898007525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1898007526}
+  - 114: {fileID: 1898007527}
+  m_Layer: 0
+  m_Name: PauseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898007526
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898007525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+--- !u!114 &1898007527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898007525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2936bdff19930ec4f91a90f9f172db73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1909223944
 GameObject:
   m_ObjectHideFlags: 0

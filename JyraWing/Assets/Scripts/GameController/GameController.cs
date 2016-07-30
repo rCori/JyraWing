@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 /*
  * Goals:
  * Rewrite GameController to be more testable.
@@ -63,11 +63,6 @@ using System.Collections;
  * Remove an item from the list of PauseableItems
  * 
  * 
- * For LevelController
- * Own the GameOverState enum
- * Set GameOverState
- * Get GameOverState
- * 
  * Set flags from handling GameOverState for showing the level complete ui, 
  * showing the game over ui, disabling the player, and loading the title scene
  * 
@@ -90,24 +85,14 @@ public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 
-	ILevelController levelController;
-
-	IPauseController pauseController;
-
-	IUIController uiController;
-
 	public Vector3 playerPosition;
 
-	/*IPowerupGroupController functions */
+	public delegate void GameControllerEvent();
+	public static event GameControllerEvent GameOverEvent;
 
 	//Set the powerup group controller for the game controller
 	public void SetPowerupGroupController(IPowerupGroupController i_powerupGroupController){
 		powerupGroupController = i_powerupGroupController;
-	}
-
-	//Set the GameController's UI controller module
-	public void SetUIController(IUIController i_uiController){
-		uiController = i_uiController;
 	}
 
 	public bool CheckShouldSpawnPowerupGroup(int i_powerupgroupID){
@@ -162,157 +147,11 @@ public class GameController {
 			return powerupGroupController.QueuedPowerupLocation;
 		}
 	}
-
-	/* ILevelController */
-
-	//Set the level controller interface for the game controller
-	public void SetLevelController(ILevelController i_levelController){
-		levelController = i_levelController;
-	}
-
-	//Called when the player finishes the level
-	public void FinishLevel(float startTimer = 2.5f){
-		levelController.FinishLevel (startTimer);
-	}
+		
 
 	public void PlayerKilled(float startTimer = 2.5f){
-		levelController.PlayerKilled (startTimer);
-	}
-	
-	//Access to the HandleGameOver function 
-	public void HandleGameOver(float timeChange){
-		levelController.HandleGameOver (timeChange);
-	}
-
-	public bool ShouldDisablePlayer(bool resetFlag = true){
-		return levelController.ShouldDisablePlayer (resetFlag);
-	}
-
-	public bool ShouldShowGameOverUI(bool resetFlag = true){
-		return levelController.ShouldShowGameOverUI (resetFlag);
-	}
-
-	public bool ShouldShowLevelCompleteUI(bool resetFlag = true){
-		return levelController.ShouldShowLevelCompleteUI (resetFlag);
-	}
-
-	public bool ShouldLoadTitleScene(bool resetFlag = true){
-		return levelController.ShouldLoadTitleScene (resetFlag);
-	}
-
-	public bool IsNotGameOver(){
-		return levelController.gameOverState == GameOverState.None;
-	}
-
-	/* IUIController functions */
-
-	public void SetDefaultLifeCount(int defaultLifeCount){
-		uiController.SetDefaultLifeCount (defaultLifeCount);
-	}
-
-	public void InitializeLifeCount(){
-		uiController.InitializeLifeCount ();
-	}
-
-	public void IncreaseLifeCount(){
-		uiController.IncreaseLifeCount ();
-	}
-
-	public void DecreaseLifeCount(){
-		//Decrease lives displayed in the UI
-		uiController.DecreaseLifeCount ();
-		//If the lifeCount is 0 then the player has been killed
-		if (uiController.GetLifeCount () == 0) {
-			//Player was killed so inform the levelController to start that up.
-			levelController.PlayerKilled(2.5f);
-		}
-	}
-
-	public int GetLifeCount(){
-		return uiController.GetLifeCount ();
-	}
-
-	public bool ShouldUpdateLifeCount(bool resetFlag = false){
-		return uiController.ShouldUpdateLifeCount (resetFlag);
-	}
-
-	public bool ShouldUpdateSpeed(bool resetFlag = false){
-		return uiController.ShouldUpdateSpeed (resetFlag);
-	}
-
-	public bool ShouldUpdateShieldPercentage (bool resetFlag = false){
-		return uiController.ShouldUpdateShieldPercentage (resetFlag);
-	}
-
-	public int AvailableSpeed{
-		get{
-			return uiController.AvailableSpeed;
-		}
-		set{
-			uiController.AvailableSpeed = value;
-		}
-	}
-	
-	public int ActiveSpeed{
-		get{
-			return uiController.ActiveSpeed;
-		}
-		set{
-			uiController.ActiveSpeed = value;
-		}
-	}
-
-	public int ShieldPercentage{
-		get{
-			return uiController.ShieldPercentage;
-		}
-		set{
-			uiController.ShieldPercentage = value;
-		}
-	}
-
-	/* IPauseController functions */
-
-	//Set the pause controller interface for the game controller
-	public void SetPauseController(IPauseController i_pauseController){
-		pauseController = i_pauseController;
-	}
-
-	///Allows the user to pause all items that have been registered to pause
-	public void PauseAllItems()
-	{
-		pauseController.PauseAllItems ();
-	}
-	
-	///Allows the user to unpause all items that have been registered to pause and resume the game
-	public void Unpause()
-	{
-		pauseController.Unpause ();
-	}
-	
-	/// <summary>
-	/// Registers and item to be globablly paused
-	/// </summary>
-	/// <param name="item">Item to register.</param>
-	public void RegisterPauseableItem(PauseableItem item)
-	{
-		pauseController.RegisterPausableItem (item);
-	}
-	
-	/// <summary>
-	/// Remove and item from the pause list
-	/// </summary>
-	/// <param name="item">Item.</param>
-	public void DelistPauseableItem(PauseableItem item)
-	{
-		pauseController.DelistPauseableItem (item);
+		GameOverEvent ();
 	}
 		
-	public bool IsPaused{
-		get{
-			return pauseController.IsPaused;
-		}
-	}
-	
 
 }

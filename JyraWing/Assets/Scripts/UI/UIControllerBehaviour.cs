@@ -11,10 +11,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 	public GameObject canvas;
 	public GameObject playerCanvas;
 
-	//Number of lives the player has
-	private int lifeCount;
 	//The level of speed the player is at
-	private int speedCount;
+	//private int speedCount;
 	private GameObject gameOverMessage;
 	private GameObject levelEndImage;
 	private GameObject lifeText;
@@ -27,9 +25,12 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject debugFramerate;
 	private float deltaTime;
 
+	private IUIController uiController;
 
 	// Use this for initialization
 	void Start () {
+
+		uiController = new UIController ();
 
 		levelEndImage = Resources.Load("UIObjects/LevelFinishedImage") as GameObject;
 		levelEndImage = Instantiate (levelEndImage);
@@ -39,45 +40,26 @@ public class UIControllerBehaviour: MonoBehaviour {
 		gameOverMessage = Instantiate (gameOverMessage);
 		gameOverMessage.transform.SetParent(canvas.transform, false);
 
-//		shieldText = Resources.Load ("UIObjects/ShieldText") as GameObject;
-//		shieldText = Instantiate (shieldText);
-//		shieldText.transform.SetParent(canvas.transform, false);
-
 		slider = (Resources.Load("UIObjects/PlayerShieldMeter") as GameObject).GetComponent<Slider>();
 		slider = Instantiate (slider);
 		slider.transform.SetParent(playerCanvas.transform, false);
-		//slider = GameObject.FindWithTag("ShieldMeter").GetComponent<Slider>();
+
+		Initialize (uiController.GetStartingLifeCount ());
 
 		ScoreController.AddToScoreEvent += UpdateScore;
 		CountdownTimer.PlayerContinueEvent += HideGameOver;
 		CountdownTimer.PlayerContinueEvent += ResetLives;
-//		if (ISDEBUG) {
-//			debugFramerate = Resources.Load("UIObjects/DEBUGFramerateText") as GameObject;
-//			debugFramerate = Instantiate (debugFramerate);
-//			debugFramerate.transform.SetParent(canvas.transform, false);
-//			deltaTime = 0.0f;
-//		}
+		LevelControllerBehavior.FinishLevelEvent += ShowLevelComplete;
+		LevelControllerBehavior.GameOverEvent += ShowGameOver;
+		PauseControllerBehavior.PauseEvent += PauseMenu;
+		Player.TakeDamageEvent += DecreaseLives;
+		PlayerShield.SetShieldPercentageEvent += UpdatePlayerShield;
 	}
 	
 
 	public void Initialize(int i_lifeCount){
-		//lifeSpriteCollection = new List<GameObject> ();
-		lifeCount = i_lifeCount;
-		initLives (lifeCount);
-		speedCount = 4;
+		initLives (i_lifeCount);
 		initScore ();
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-		//If in debug mode show fps
-//		if (ISDEBUG) {
-//			deltaTime  += (Time.deltaTime - deltaTime) * 0.1f;
-//			Text debugFramerateText = debugFramerate.GetComponent<Text> ();
-//			float fps = 1.0f / deltaTime;
-//			debugFramerateText.text = "framerate: " + fps.ToString();
-//		}
 	}
 
 	/// <summary>
@@ -87,15 +69,12 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private void initLives(int lives){
 		lifeText = Resources.Load("UIObjects/LifeText") as GameObject;
 		Text lifeMessageText = lifeText.GetComponent<Text>();
-		lifeMessageText.text = "Lives: " + lifeCount;
+		lifeMessageText.text = "Lives: " + lives;
 		lifeText = Instantiate (lifeText);
 		lifeText.transform.SetParent(canvas.transform, false);
 		lifeText.GetComponent<RectTransform>().position = new Vector2(
 			lifeText.GetComponent<RectTransform>().position.x, 
 			lifeText.GetComponent<RectTransform>().position.y);
-		//We need to set positions at some point
-		//Add to the collection
-		//lifeSpriteCollection.Add(lifeText);
 
 	}
 
@@ -115,11 +94,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	/// <param name="i_curLife">The life to removed from HUD.</param>
 	private void DecreaseLives(){
-		lifeCount--;
-		if(lifeCount >= 0) {
-			Text lifeMessageText = lifeText.GetComponent<Text>();
-			lifeMessageText.text = "Lives: " + lifeCount;
-		}
+		uiController.DecreaseLifeCount ();
+		Text lifeMessageText = lifeText.GetComponent<Text>();
+		lifeMessageText.text = "Lives: " + uiController.GetLifeCount();
 	}
 
 
@@ -145,9 +122,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	public void UpdateLives(int i_lives){
 		//Remove a life
-		if (i_lives == lifeCount - 1) {
-			DecreaseLives();
-		}
+		uiController.DecreaseLifeCount();
 	}
 
 	/// <summary>
@@ -155,7 +130,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	public void ShowLevelComplete(){
 		//Set the alpha to max, making it visible.
-		if (lifeCount != 0) {
+		if (uiController.GetLifeCount() != 0) {
 			Image levelEndImageComp = levelEndImage.GetComponent<Image> ();
 			Color myColor = levelEndImageComp.color;
 			myColor.a = 255;
@@ -166,6 +141,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 	public void UpdatePlayerShield(int shieldPercentage){
 		if (slider) {
+			uiController.SetShieldPercentage (shieldPercentage);
 			slider.value = (float)shieldPercentage / 100.0f;
 		}
 	}
@@ -182,14 +158,21 @@ public class UIControllerBehaviour: MonoBehaviour {
 	}
 
 	public void ResetLives() {
-		lifeCount = 3;
+		uiController.IncreaseLifeCount ();
+		uiController.IncreaseLifeCount ();
+		uiController.IncreaseLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
-		lifeMessageText.text = "Lives: " + lifeCount;
+		lifeMessageText.text = "Lives: " + uiController.GetStartingLifeCount ();
 	}
 
 	void OnDestroy() {
 		ScoreController.AddToScoreEvent -= UpdateScore;
 		CountdownTimer.PlayerContinueEvent -= HideGameOver;
 		CountdownTimer.PlayerContinueEvent -= ResetLives;
+		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
+		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
+		PauseControllerBehavior.PauseEvent -= PauseMenu;
+		Player.TakeDamageEvent -= DecreaseLives;
+		PlayerShield.SetShieldPercentageEvent -= UpdatePlayerShield;
 	}
 }

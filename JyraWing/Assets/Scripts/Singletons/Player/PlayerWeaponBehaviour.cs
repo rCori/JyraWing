@@ -9,6 +9,8 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	private List<GameObject> bulletPool;
 	private AudioSource fireSfx;
 
+	public Player player;
+
 	protected bool _paused;
 
 	// Use this for initialization
@@ -26,7 +28,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 		}
 		fireSfx = gameObject.AddComponent<AudioSource> ();
 		//Shot sound
-		fireSfx.clip = Resources.Load ("Audio/SFX/click4") as AudioClip;
+		fireSfx.clip = Resources.Load ("Audio/SFX/shoot3") as AudioClip;
 		_paused = false;
 		RegisterToList ();
 	}
@@ -47,7 +49,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	}
 
 	public void ShootBehavior(bool down) {
-		if (down && !_paused) {
+		if (down && !_paused && !player.IsPlayerTakingDamage()) {
 			for (int i = 0; i < playerWeapon.NumBullets; i++) {
 				GameObject bulletObj = bulletPool [i];
 				Bullet bullet = bulletObj.GetComponent<Bullet> ();
@@ -81,15 +83,21 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 
 	public void RegisterToList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+//		if (GameObject.Find ("GameController")) {
+//			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
+//		}
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
 	}
 
 	public void RemoveFromList()
 	{
-		if (GameObject.Find ("GameController")) {
-			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+//		if (GameObject.Find ("GameController")) {
+//			GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
+//		}
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 		}
 	}
 
