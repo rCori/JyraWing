@@ -37,13 +37,15 @@ public class EnemyAIShipArc : EnemyBehavior {
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
 
-		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
-		EnemyBehavior.PointObjectRelative originOnePointObject = new EnemyBehavior.PointObjectRelative ();
-		originOnePointObject.pointObject = pointIcon;
-		originOnePointObject.relativePos = new Vector2 (0f, 0f);
-		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
-		pointSpawns.Add (originOnePointObject);
-		SetPointObject (pointSpawns);
+//		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
+//		EnemyBehavior.PointObjectRelative originOnePointObject = new EnemyBehavior.PointObjectRelative ();
+//		originOnePointObject.pointObject = pointIcon;
+//		originOnePointObject.relativePos = new Vector2 (0f, 0f);
+//		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
+//		pointSpawns.Add (originOnePointObject);
+//		SetPointObject (pointSpawns);
+
+		GivePointObject ("PointIcon1_0", 0.0f);
 	}
 
 

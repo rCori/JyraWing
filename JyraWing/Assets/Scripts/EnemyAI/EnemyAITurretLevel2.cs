@@ -66,6 +66,9 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 		timer = FireRate;
 
 		SetEnemyHealth (TURRET_HEALTH);
+
+		GivePointObject ("PointIcon3_0", 0.2f);
+
 	}
 
 	// Update is called once per frame

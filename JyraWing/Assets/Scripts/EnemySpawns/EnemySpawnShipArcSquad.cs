@@ -28,7 +28,6 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 				//Middle row
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 				enemy.transform.position = new Vector2 (xLoc, yLoc);
-				Debug.Log ("xLoc: " + xLoc + " yLoc: " + yLoc);
 
 				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 				enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;

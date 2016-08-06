@@ -7,7 +7,6 @@ public class EnemySpawnDiamondSquad : EnemySpawner {
 	public Vector2 enemyDirection;
 	public float enemyTime;
 	public bool enemyRepeat;
-	public int enemyHitPoints;
 
 	public int rows;
 	public int columns;
@@ -22,7 +21,7 @@ public class EnemySpawnDiamondSquad : EnemySpawner {
 		float xOffset = enemyPosition.x;
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
-				GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillateFixed");
+				GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 				enemy1.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
 				EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
@@ -36,7 +35,6 @@ public class EnemySpawnDiamondSquad : EnemySpawner {
 				enemyAI1.repeat = enemyRepeat;
 
 				enemy1 = Instantiate (enemy1);
-				enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (enemyHitPoints);
 			}
 		}
 	}

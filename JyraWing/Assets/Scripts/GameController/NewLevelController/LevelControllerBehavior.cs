@@ -33,18 +33,14 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 	IEnumerator gameOverRoutine() {
 		yield return new WaitForSeconds (2f);
 		DisablePlayerEvent ();
-		//yield return new WaitForSeconds (1.2f);
-		//GameOverEvent();
 		yield return new WaitForSeconds (3.0f);
 		PlayerKilledEvent ();
 		yield break;
 	}
 
 	IEnumerator levelFinishedRoutine() {
-		Debug.Log ("Starting level finished coroutine");
 		yield return new WaitForSeconds (2f);
 		FinishLevelEvent();
-		Debug.Log ("Level Finished  2 seconds later");
 		yield return new WaitForSeconds (3f);
 		SceneManager.LoadScene ("LevelTransition");
 		yield break;

@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerWeapon : IPlayerWeapon {
 
 	float autoFireTimer;
-	const float AUTOFIRETIMELIMIT = 1/3f;
+	const float AUTOFIRETIMELIMIT = 1/6f;
 
 
 

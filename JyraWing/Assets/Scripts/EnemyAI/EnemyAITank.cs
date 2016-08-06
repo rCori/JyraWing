@@ -124,20 +124,23 @@ public class EnemyAITank : EnemyBehavior {
 		//SetHitAnimationName ("tank_hit");
 		SetEnemyHealth (TANK_HEALTH);
 
-		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon3_0") as GameObject;
-		EnemyBehavior.PointObjectRelative origin1PointObject = new EnemyBehavior.PointObjectRelative ();
-		origin1PointObject.pointObject = pointIcon;
-		origin1PointObject.relativePos = new Vector2 (0.1f, 0.1f);
+//		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon3_0") as GameObject;
+//		EnemyBehavior.PointObjectRelative origin1PointObject = new EnemyBehavior.PointObjectRelative ();
+//		origin1PointObject.pointObject = pointIcon;
+//		origin1PointObject.relativePos = new Vector2 (0.1f, 0.1f);
+//
+//		GameObject pointIcon2 = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
+//		EnemyBehavior.PointObjectRelative origin2PointObject = new EnemyBehavior.PointObjectRelative ();
+//		origin2PointObject.pointObject = pointIcon;
+//		origin2PointObject.relativePos = new Vector2 (-0.3f, -0.3f);
+//
+//		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
+//		pointSpawns.Add (origin1PointObject);
+//		pointSpawns.Add (origin2PointObject);
+//		SetPointObject (pointSpawns);
 
-		GameObject pointIcon2 = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
-		EnemyBehavior.PointObjectRelative origin2PointObject = new EnemyBehavior.PointObjectRelative ();
-		origin2PointObject.pointObject = pointIcon;
-		origin2PointObject.relativePos = new Vector2 (-0.3f, -0.3f);
-
-		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
-		pointSpawns.Add (origin1PointObject);
-		pointSpawns.Add (origin2PointObject);
-		SetPointObject (pointSpawns);
+		GivePointObject ("PointIcon3_0", 0.2f);
+		GivePointObject ("PointIcon1_0", 0.6f);
 	}
 	
 

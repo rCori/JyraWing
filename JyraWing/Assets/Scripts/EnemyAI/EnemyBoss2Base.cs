@@ -51,6 +51,7 @@ public class EnemyBoss2Base : MonoBehaviour {
 		TopTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
 		MiddleTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
 		BottomTurret.TurretDestoyedEvent += CheckAllTurretsAreDestroyed;
+
 	}
 	
 	// Update is called once per frame

@@ -15,13 +15,15 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 
 	public List<MoveInstruction> MoveInstructionList;
 
-    public float fireRate = 2.0f;
+    public float fireRate = 1.0f;
     private float fireTimer;
     private int currentMovementStep;
 
-    public float bulletSpeed = 0.5f;
+    public float bulletSpeed = 1.5f;
 
     private Vector2[] fireDirections;
+
+	private int SPRAYER_HEALTH = 4;
 
 	void Awake() {
         EnemyDefaults();
@@ -35,7 +37,7 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
         SetHitAnimationName("reflectBulletSprayer_hit");
 
         currentMovementStep = 0;
-        fireTimer = 0.0f;
+        fireTimer = 0.8f;
 
         fireDirections = new Vector2[8];
         fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * bulletSpeed;
@@ -48,6 +50,11 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
         fireDirections[7] = new Vector2(0.5f, -0.5f).normalized * bulletSpeed;
 
 		LeftWallException = true;
+		SetEnemyHealth (SPRAYER_HEALTH);
+
+
+		GivePointObject ("PointIcon0_0", 0.1f);
+		GivePointObject ("PointIcon0_0", 0.1f);
     }
 
     // Update is called once per frame

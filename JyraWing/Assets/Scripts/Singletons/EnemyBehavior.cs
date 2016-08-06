@@ -488,11 +488,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		Destroy (gameObject);
 	}
 
-	public void SetPointObject(List<PointObjectRelative> PointObjects) {
-		this.PointObjects = PointObjects;
-		hasPointObjectToSpawn = true;
-	}
-
 	/// <summary>
 	/// The standard animations an enemy can have is hit and destroyed
 	/// </summary>
@@ -565,10 +560,37 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 	}
 
+	public void SetPointObject(List<PointObjectRelative> PointObjects) {
+		this.PointObjects = PointObjects;
+		hasPointObjectToSpawn = true;
+	}
+
+	//Add another point object to the enemy based on point token name and radius
+	//from the center. Location based on distance will be a random point from the
+	//origin of the enemies last location with this radius.
+	public void GivePointObject(string name, float distance) {
+		if (PointObjects == null) {
+			PointObjects = new List<PointObjectRelative> ();
+		}
+		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/" + name) as GameObject;
+		EnemyBehavior.PointObjectRelative pointObject = new EnemyBehavior.PointObjectRelative ();
+		pointObject.pointObject = pointIcon;
+		//Now to get this location based on it being distance awway from the gameObject.transform.position.
+		//First a vector in a random location
+		Vector2 radius = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+		//Then normalize it
+		radius.Normalize ();
+		//Multiplied by distance this is a random vector of magnitude distance
+		radius *= distance;
+		pointObject.relativePos = radius;
+		PointObjects.Add (pointObject);
+		if (!hasPointObjectToSpawn) {
+			hasPointObjectToSpawn = true;
+		}
+	}
+
 	public void RegisterToList()
 	{
-		//gameController.RegisterPause(this);
-		//gameController.RegisterPauseableItem (this);
 		if (GameObject.Find ("PauseController")) {
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
@@ -576,8 +598,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	
 	public void RemoveFromList()
 	{
-		//gameController.DelistPause(this);
-		//gameController.DelistPauseableItem (this);
 		if (GameObject.Find ("PauseController")) {
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 		}

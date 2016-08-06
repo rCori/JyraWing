@@ -35,6 +35,10 @@ public class EnemyAITypeBFighter : EnemyBehavior {
 
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
+
+		GivePointObject ("PointIcon0_0", 0.1f);
+		GivePointObject ("PointIcon1_0", 0.15f);
+
 	}
 
 

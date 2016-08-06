@@ -51,6 +51,11 @@ public class EnemyBoss1 : EnemyBehavior {
 		changePattern ();
 		//Is the boss paused or not
 		_paused = false;
+
+		for (int i = 0; i < 10; i++) {
+			GivePointObject ("PointIcon3_0", i*0.1f);
+		}
+
 	}
 	
 	// Update is called once per frame

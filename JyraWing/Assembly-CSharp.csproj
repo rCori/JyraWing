@@ -46,10 +46,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Effect.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
+     <Compile Include="Assets\Scripts\EnemyAI\EnemyAINewBoss2.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerArc.cs" />
      <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" />
@@ -70,6 +72,7 @@
      <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\BossNew2Spawn.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2Ships2BFightersArcAway.cs" />
@@ -94,7 +97,6 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayer.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnReflectBulletSprayerArc.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTank.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShieldTankSquad1.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShip.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipArc.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnShipArcSquad.cs" />
@@ -109,6 +111,8 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTwoWaterTurrets.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
+     <Compile Include="Assets\Scripts\ExplosionPool.cs" />
+     <Compile Include="Assets\Scripts\FramerateLimiter.cs" />
      <Compile Include="Assets\Scripts\GameController\GameController.cs" />
      <Compile Include="Assets\Scripts\GameController\GameControllerBehaviour.cs" />
      <Compile Include="Assets\Scripts\GameController\IPauseController.cs" />

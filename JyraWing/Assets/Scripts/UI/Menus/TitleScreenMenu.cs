@@ -33,9 +33,13 @@ public class TitleScreenMenu : Menu {
 		//Amount to move selector over from a selection when that item is selected.
 		float adjustPt = Screen.width / 10.0f;
 
-		menuLocations.Add (new Vector2 (level1StartGame.transform.position.x-adjustPt, level1StartGame.transform.position.y));
-		menuLocations.Add (new Vector2 (level2StartGame.transform.position.x-adjustPt, level2StartGame.transform.position.y));
-		menuLocations.Add (new Vector2 (quitGame.transform.position.x-adjustPt, quitGame.transform.position.y));
+//		menuLocations.Add (new Vector2 (level1StartGame.transform.position.x-adjustPt, level1StartGame.transform.position.y));
+//		menuLocations.Add (new Vector2 (level2StartGame.transform.position.x-adjustPt, level2StartGame.transform.position.y));
+//		menuLocations.Add (new Vector2 (quitGame.transform.position.x-adjustPt, quitGame.transform.position.y));
+
+		menuLocations.Add (new Vector2 (level1StartGame.transform.position.x, level1StartGame.transform.position.y));
+		menuLocations.Add (new Vector2 (level2StartGame.transform.position.x, level2StartGame.transform.position.y));
+		menuLocations.Add (new Vector2 (quitGame.transform.position.x, quitGame.transform.position.y));
 
 		gameObject.transform.position = menuLocations [0];
 

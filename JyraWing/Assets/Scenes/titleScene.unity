@@ -85,6 +85,80 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &141479512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 141479513}
+  - 222: {fileID: 141479515}
+  - 114: {fileID: 141479514}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &141479513
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141479512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 214529169}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000081062, y: 115.5}
+  m_SizeDelta: {x: 280.4, y: 58.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &141479514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141479512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: JyraWing
+--- !u!222 &141479515
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141479512}
 --- !u!1 &214529168
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +192,7 @@ RectTransform:
   - {fileID: 1461438532}
   - {fileID: 1456243671}
   - {fileID: 1190060862}
+  - {fileID: 141479513}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -222,47 +297,116 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -74
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 37
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_AnchorMin.x
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_AnchorMin.y
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_Pivot.x
-      value: .5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 22456392, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
       propertyPath: m_Pivot.y
-      value: .5
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202510, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202510, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435652, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 11435652, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435652, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_Color.r
+      value: 0.053633213
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435652, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_Color.g
+      value: 0.37913117
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435652, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
+      propertyPath: m_Color.b
+      value: 0.9117647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2739591f00c4dd5418ad68dc1fdc3cfc, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &917856985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 917856987}
+  - 114: {fileID: 917856986}
+  m_Layer: 0
+  m_Name: FramerateLimiter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &917856986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917856985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb162742f8bdf64f810d39619887001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  framerateTarget: 60
+--- !u!4 &917856987
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917856985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1039070764
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,11 +617,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 15f18b2ce6e24e943a307c65103deae3, type: 3}
-    m_FontSize: 14
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 17
     m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
+    m_BestFit: 0
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -485,11 +629,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '@ Ryan Cori 2015
+  m_Text: '@ Ryan Cori 2016
 
-    Title screen music "Tell Me" by 505
-
-    In game music "Burgers" by Jan 125'
+    Title screen music "Tell Me" by 505'
 --- !u!222 &1190060864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -512,7 +654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456243671
 RectTransform:
   m_ObjectHideFlags: 0

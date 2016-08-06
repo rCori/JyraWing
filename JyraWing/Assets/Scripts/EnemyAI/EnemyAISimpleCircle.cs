@@ -21,6 +21,9 @@ public class EnemyAISimpleCircle : EnemyBehavior {
 		
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("enemy3_hit");
+
+		GivePointObject ("PointIcon0_0", 0.0f);
+
 	}
 
 	// Update is called once per frame

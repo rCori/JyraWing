@@ -16,7 +16,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
 			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
-			shipEnemy.GetComponent<Scroll> ().speed = 0;
+			//shipEnemy.GetComponent<Scroll> ().speed = 0;
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
 		}
@@ -29,7 +29,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 			shipEnemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
 			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
-			shipEnemy.GetComponent<Scroll> ().speed = 0;
+			//shipEnemy.GetComponent<Scroll> ().speed = 0;
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = true;
 		}

@@ -10,9 +10,9 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
     private float fireTimer;
     private int currentMovementStep;
 
-	private float FIRE_RATE = 1.5f;
-    private float BULLET_SPEED = 0.5f;
-	private int SPRAYER_HEALTH = 2;
+	private float FIRE_RATE = 1.0f;
+    private float BULLET_SPEED = 1.5f;
+	private int SPRAYER_HEALTH = 4;
 
 
     private Vector2[] fireDirections;
@@ -29,7 +29,7 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
         SetHitAnimationName("reflectBulletSprayer_hit");
 
         currentMovementStep = 0;
-        fireTimer = 0.0f;
+        fireTimer = 0.8f;
 
         fireDirections = new Vector2[8];
 		fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * BULLET_SPEED;

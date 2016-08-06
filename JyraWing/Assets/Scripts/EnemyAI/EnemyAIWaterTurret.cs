@@ -11,13 +11,13 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 	}
 
 	//Define the rate of fire
-	public float FireRate = 0.5f;
+	private float FireRate = 1.5f;
 	//Define how fast the bullets fire
-	public float BulletSpeed = 2.0f;
+	private float BulletSpeed = 4.0f;
 	//WHat direction the enemy is facing
 	public FireDirection fireDirection;
 
-	private int WATER_TURRET_HEALTH = 2;
+	private int WATER_TURRET_HEALTH = 8;
 
 	Vector2 shootDir;
 	
@@ -33,10 +33,10 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 		
 		//Set which animations this enemy has
 		HasAnimations animationsOwned;
-		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		animationsOwned = HasAnimations.Destroy;
 		
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("waterTurret_hit");
+		//SetHitAnimationName ("waterTurret_hit");
 		
 		//Set the direction the turret shoots in
 		switch(fireDirection){
@@ -58,6 +58,10 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 		timer = FireRate;
 
 		SetEnemyHealth (WATER_TURRET_HEALTH);
+
+		GivePointObject ("PointIcon2_0", 0.1f);
+		GivePointObject ("PointIcon2_0", 0.1f);
+
 	}
 	
 	// Update is called once per frame

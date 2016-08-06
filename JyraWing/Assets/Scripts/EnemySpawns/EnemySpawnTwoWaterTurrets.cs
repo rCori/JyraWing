@@ -3,9 +3,6 @@ using System.Collections;
 
 public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
-	public int EnemyHealth = 3;
-	public float EnemyFireRate = 0.5f;
-	public float EnemyBulletSpeed = 2.0f;
 
 	private EnemyAIWaterTurret.FireDirection direction = EnemyAIWaterTurret.FireDirection.LEFT;
 
@@ -23,8 +20,6 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
 
 		EnemyAIWaterTurret enemy1AIWaterTurret = enemy1.GetComponent<EnemyAIWaterTurret> ();
-		enemy1AIWaterTurret.BulletSpeed = EnemyBulletSpeed;
-		enemy1AIWaterTurret.FireRate = EnemyFireRate;
 		enemy1AIWaterTurret.fireDirection = direction;
 		enemy1 = Instantiate (enemy1);
 
@@ -38,8 +33,6 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 		enemy2.GetComponent<EnemyBehavior> ().LeftWallException = false;
 
 		EnemyAIWaterTurret enemy2AIWaterTurret = enemy2.GetComponent<EnemyAIWaterTurret> ();
-		enemy2AIWaterTurret.BulletSpeed = EnemyBulletSpeed;
-		enemy2AIWaterTurret.FireRate = EnemyFireRate;
 		enemy2AIWaterTurret.fireDirection = direction;
 		enemy2 = Instantiate (enemy2);
 
