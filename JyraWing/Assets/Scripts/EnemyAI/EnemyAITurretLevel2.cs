@@ -36,8 +36,6 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 
 		SetAnimations (animationsOwned);
 
-
-
 		//Set the direction the turret shoots in
 		switch(fireDirection){
 		case(FireDirection.DOWN):
@@ -64,9 +62,7 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 
 		//Set timer to it's upper limit 
 		timer = FireRate;
-
 		SetEnemyHealth (TURRET_HEALTH);
-
 		GivePointObject ("PointIcon3_0", 0.2f);
 
 	}

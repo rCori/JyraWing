@@ -23,10 +23,9 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
         SetExplosionSfx(explosionClip);
 
         HasAnimations animationsOwned;
-        animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+        animationsOwned = HasAnimations.Destroy;
 
         SetAnimations(animationsOwned);
-        SetHitAnimationName("reflectBulletSprayer_hit");
 
         currentMovementStep = 0;
         fireTimer = 0.8f;

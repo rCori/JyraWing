@@ -9,12 +9,13 @@ public class TitleScreenMenu : Menu {
 	private GameObject level1StartGame;
 	private GameObject level2StartGame;
 	private GameObject quitGame;
+	private GameObject saveGame;
 
 	// Use this for initialization
 	void Start () {
-		ForceWindowed ();
+		//ForceWindowed ();
 		InitMenu ();
-		numberOfItems = 3;
+		numberOfItems = 4;
 		isVertical = true;
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
@@ -30,6 +31,10 @@ public class TitleScreenMenu : Menu {
 		quitGame = Instantiate (quitGame);
 		quitGame.transform.SetParent(uiCanvas.transform, false);
 
+		saveGame = Resources.Load ("UIObjects/TitleScreenMenu/SaveGame") as GameObject;
+		saveGame = Instantiate (saveGame);
+		saveGame.transform.SetParent (uiCanvas.transform, false);
+
 		//Amount to move selector over from a selection when that item is selected.
 		float adjustPt = Screen.width / 10.0f;
 
@@ -40,6 +45,7 @@ public class TitleScreenMenu : Menu {
 		menuLocations.Add (new Vector2 (level1StartGame.transform.position.x, level1StartGame.transform.position.y));
 		menuLocations.Add (new Vector2 (level2StartGame.transform.position.x, level2StartGame.transform.position.y));
 		menuLocations.Add (new Vector2 (quitGame.transform.position.x, quitGame.transform.position.y));
+		menuLocations.Add (new Vector2 (saveGame.transform.position.x, saveGame.transform.position.y));
 
 		gameObject.transform.position = menuLocations [0];
 
@@ -50,17 +56,17 @@ public class TitleScreenMenu : Menu {
 		MenuScroll ();
 		//Select start the game
 		if(Input.GetButton ("Fire") || Input.GetButton ("Pause")){
-			if(curSelect == 0){
-				beep.Play();
-				SceneManager.LoadScene("Level_1");
-			}
-			else if(curSelect == 1){
-				beep.Play();
-				SceneManager.LoadScene("Level_2");
-			}
-			else if(curSelect == 2){
-				beep.Play();
+			if (curSelect == 0) {
+				beep.Play ();
+				SceneManager.LoadScene ("Level_1");
+			} else if (curSelect == 1) {
+				beep.Play ();
+				SceneManager.LoadScene ("Level_2");
+			} else if (curSelect == 2) {
+				beep.Play ();
 				Application.Quit ();
+			} else if (curSelect == 3) {
+				SaveData.Instance.SaveGame ();
 			}
 		}
 	}

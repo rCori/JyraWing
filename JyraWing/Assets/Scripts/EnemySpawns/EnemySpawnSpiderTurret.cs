@@ -14,7 +14,6 @@ public class EnemySpawnSpiderTurret : EnemySpawner {
 		enemy1.transform.position = enemyPosition;
 
 		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
 		enemy1.GetComponent<EnemyAITurretLevel2> ().fireDirection = Direction;
 		enemy1 = Instantiate (enemy1);
 	}

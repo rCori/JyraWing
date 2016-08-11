@@ -16,12 +16,12 @@ public class CountdownTimer : MonoBehaviour {
 	public static event PlayerKilledDelegate PlayerContinueEvent;
 
 	private Text textDisplay;
-	private bool stopGameOverRoutine;
+
+	private IEnumerator gameOverRoutine;
 
 	// Use this for initialization
 	void Start () {
 		countdownStarted = false;
-		stopGameOverRoutine = false;
 		textDisplay = GetComponent<Text> ();
 		LevelControllerBehavior.PlayerKilledEvent += EndGame;
 	}
@@ -32,11 +32,11 @@ public class CountdownTimer : MonoBehaviour {
 			//CountdownRoutine (Time.deltaTime);
 			if(Input.GetButtonDown("Pause") ){
 				Debug.Log ("Stop GameOverRoutine");
-				stopGameOverRoutine = true;
 				countdownStarted = false;
 				countdownVal = 9;
 				textDisplay.text = "";
 				//Respawn player
+				StopCoroutine (gameOverRoutine);
 				PlayerContinueEvent();
 			}
 		}
@@ -46,8 +46,10 @@ public class CountdownTimer : MonoBehaviour {
 		Debug.Log ("EndGame");
 		countdownStarted = true;
 		countdownVal = 9;
+		Debug.Log ("coutdownVal: " + countdownVal);
 		textDisplay.text = countdownVal + "";
-		StartCoroutine(GameOverRoutine());
+		gameOverRoutine = GameOverRoutine ();
+		StartCoroutine(gameOverRoutine);
 	}
 
 	void OnDestroy() {
@@ -57,11 +59,8 @@ public class CountdownTimer : MonoBehaviour {
 	IEnumerator GameOverRoutine() {
 		//Fuck you I will write a while loop when it makes sense to do so not everything needs to be a for
 		Debug.Log("GameOverRoutine");
-		while(countdownVal !=0) {
-			if (stopGameOverRoutine) {
-				yield break;
-			}
-			Debug.Log("GameOverRoutine continues on!");
+		while(countdownVal != 0) {
+			Debug.Log("GameOverRoutine continues on!: " + countdownVal);
 			textDisplay.text = countdownVal + "";
 			yield return new WaitForSeconds (SECOND_LENGTH);
 			countdownVal--;

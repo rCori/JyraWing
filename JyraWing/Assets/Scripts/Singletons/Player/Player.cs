@@ -67,7 +67,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	void Start () {
 		animator = gameObject.GetComponent <Animator> ();
 		hitTimer = 0.0f;
-		hits = 3;
+		hits = SaveData.Instance.livesPerCredit;
 		numBullets = 20;
 		damageSfx = gameObject.AddComponent<AudioSource> ();
 		//Sound when the player is hit
@@ -148,11 +148,13 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private void updatePlayerVert(float value) {
 		vert = value;
+		vert = Mathf.Round (value);
 		updatePlayerMovement ();
 	}
 
 	private void updatePlayerHoriz(float value) {
 		horiz = value;
+		horiz = Mathf.Round (value);
 		updatePlayerMovement ();
 	}
 
@@ -258,7 +260,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void ResetTakingDamage() {
 		takingDamage = TakingDamage.RETURNING;
 		hitTimer = 2.0f;
-		hits = 3;
+		hits = SaveData.Instance.livesPerCredit;
 	}
 
 	public bool IsPlayerTakingDamage() {

@@ -158,9 +158,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	}
 
 	public void ResetLives() {
-		uiController.IncreaseLifeCount ();
-		uiController.IncreaseLifeCount ();
-		uiController.IncreaseLifeCount ();
+		uiController.InitializeLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
 		lifeMessageText.text = "Lives: " + uiController.GetStartingLifeCount ();
 	}

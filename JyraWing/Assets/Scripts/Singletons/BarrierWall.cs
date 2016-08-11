@@ -30,11 +30,6 @@ public class BarrierWall : MonoBehaviour {
 			if(barrierMode == sides.Left)
 			{
 				if(!other.GetComponent<EnemyBehavior>().LeftWallException){
-//					EnemyBehavior enemy = other.GetComponent<EnemyBehavior>();
-//					if(enemy.GetPowerupGroupID() != -1)
-//					{
-//						gameController.RemoveSquad(enemy.GetPowerupGroupID());
-//					}
 					Destroy(other.gameObject);
 				}
 			}

@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11451142}
   m_Layer: 0
   m_Name: Enemy_NewBoss2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
+  levelControllerBehavior: {fileID: 0}
 --- !u!212 &21271326
 SpriteRenderer:
   m_ObjectHideFlags: 1

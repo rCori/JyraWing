@@ -10,15 +10,22 @@ public class ScoreController {
 	private static int CurrentScore = 0;
 
 	public ScoreController() {
+		CountdownTimer.PlayerContinueEvent += ResetScore ;
 	}
 
 	public static void AddToScore(int addition) {
 		CurrentScore += addition;
-		AddToScoreEvent (CurrentScore);
+		if (AddToScoreEvent != null) {
+			AddToScoreEvent (CurrentScore);
+		}
 	}
 
 	public static int GetScore() {
 		return CurrentScore;
 	}
 
+	public static void ResetScore() {
+		CurrentScore = 0;
+		AddToScoreEvent (CurrentScore);
+	}
 }

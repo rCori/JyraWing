@@ -14,9 +14,9 @@ public class UIController : IUIController {
 
 	public UIController(){
 		//Set all of these variables to 0
-		lifeCount = 3;
+		lifeCount = SaveData.Instance.livesPerCredit;
 		shieldPercentage = 100;
-		startingLifeCount = 3;
+		startingLifeCount = SaveData.Instance.livesPerCredit;
 	}
 		
 	//Set the default number of lives that life count will be set to
