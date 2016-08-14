@@ -12,6 +12,10 @@ public class EnemySpawnTankSquad : EnemySpawner {
 
 	public bool shieldableBullets = false;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
 
@@ -23,29 +27,29 @@ public class EnemySpawnTankSquad : EnemySpawner {
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {
 				if (!shieldableBullets) {
-					GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
-					enemy1.transform.position = new Vector2 (xOffset + i * columnSpacing, yOffset + j * rowSpacing);
+					GameObject enemy = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
+					enemy.transform.position = new Vector2 (xOffset + i * columnSpacing, yOffset + j * rowSpacing);
 
-					//EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
-					enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-					enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+					EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+					enemyBehavior.bulletPool = bulletPool;
+					enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+					enemyBehavior.pointIconPool = pointIconPool;
 
-					EnemyAITank ai1 = enemy1.GetComponent<EnemyAITank> ();
+					EnemyAITank ai1 = enemy.GetComponent<EnemyAITank> ();
 					ai1.direction = EnemyAITank.TankDir.Left;
-					enemy1 = Instantiate (enemy1);
-					enemy1.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
+					enemy = Instantiate (enemy);
 				} else {
-					GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel2");
-					enemy1.transform.position = new Vector2 (xOffset + i * columnSpacing, yOffset + j * rowSpacing);
+					GameObject enemy = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel2");
+					enemy.transform.position = new Vector2 (xOffset + i * columnSpacing, yOffset + j * rowSpacing);
 
-					//EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior>();
-					enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-					enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+					EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+					enemyBehavior.bulletPool = bulletPool;
+					enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+					enemyBehavior.pointIconPool = pointIconPool;
 
-					EnemyAITankShield ai1 = enemy1.GetComponent<EnemyAITankShield> ();
+					EnemyAITankShield ai1 = enemy.GetComponent<EnemyAITankShield> ();
 					ai1.direction = EnemyAITankShield.TankDir.Left;
-					enemy1 = Instantiate (enemy1);
-					enemy1.GetComponent<EnemyBehavior> ().shieldableBullets = shieldableBullets;
+					enemy = Instantiate (enemy);
 				}
 			}
 		}

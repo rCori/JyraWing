@@ -47,7 +47,7 @@ public class EnemyAITank : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		moveState = 0;
 		//Set the direction vectors for any direction.
@@ -139,8 +139,8 @@ public class EnemyAITank : EnemyBehavior {
 //		pointSpawns.Add (origin2PointObject);
 //		SetPointObject (pointSpawns);
 
-		GivePointObject ("PointIcon3_0", 0.2f);
-		GivePointObject ("PointIcon1_0", 0.6f);
+		GivePointObject (0, 0.2f);
+		GivePointObject (1, 0.6f);
 	}
 	
 

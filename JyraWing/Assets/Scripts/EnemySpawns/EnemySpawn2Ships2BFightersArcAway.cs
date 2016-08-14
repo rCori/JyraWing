@@ -3,12 +3,11 @@ using System.Collections;
 
 public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn () {
-
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
-
 
 		EnemyAIShipArc.MoveInstruction left = new EnemyAIShipArc.MoveInstruction();
 		left.type = EnemyBehavior.MovementStatus.Velocity;
@@ -54,42 +53,45 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 		upAndRight.endVelocity = new Vector2 (2f, 0f);
 		upAndRight.time = 2f;
 
-		GameObject arcDownShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-		arcDownShip.transform.position = new Vector2(8.0f, 0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
+			enemy.transform.position = new Vector2 (8.0f, 0f);
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
+			EnemyAIShipArc enemyAI = enemy.GetComponent<EnemyAIShipArc> ();
 
-		arcDownShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		arcDownShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAIShipArc arcDownShipAI = arcDownShip.GetComponent<EnemyAIShipArc> ();
+			enemyAI.MoveInstructionList.Clear ();
 
-		arcDownShipAI.MoveInstructionList.Clear ();
+			enemyAI.MoveInstructionList.Add (left);
+			enemyAI.MoveInstructionList.Add (leftAndDown);
+			enemyAI.MoveInstructionList.Add (down);
+			enemyAI.MoveInstructionList.Add (downAndRight);
+			enemyAI.MoveInstructionList.Add (right);
 
-		arcDownShipAI.MoveInstructionList.Add (left);
-		arcDownShipAI.MoveInstructionList.Add (leftAndDown);
-		arcDownShipAI.MoveInstructionList.Add (down);
-		arcDownShipAI.MoveInstructionList.Add (downAndRight);
-		arcDownShipAI.MoveInstructionList.Add (right);
+			enemy = Instantiate (enemy);
+		}
 
-		arcDownShip = Instantiate (arcDownShip);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
+			enemy.transform.position = new Vector2 (9.0f, 0f);
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
+			EnemyAIShipArc enemyAI = enemy.GetComponent<EnemyAIShipArc> ();
 
+			enemyAI.MoveInstructionList.Clear ();
 
+			enemyAI.MoveInstructionList.Add (left);
+			enemyAI.MoveInstructionList.Add (leftAndUp);
+			enemyAI.MoveInstructionList.Add (up);
+			enemyAI.MoveInstructionList.Add (upAndRight);
+			enemyAI.MoveInstructionList.Add (right);
 
-		GameObject arcUpShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-		arcUpShip.transform.position = new Vector2(9.0f, 0f);
-
-		arcUpShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		arcUpShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAIShipArc arcUpShipAI = arcUpShip.GetComponent<EnemyAIShipArc> ();
-
-		arcUpShipAI.MoveInstructionList.Clear ();
-
-		arcUpShipAI.MoveInstructionList.Add (left);
-		arcUpShipAI.MoveInstructionList.Add (leftAndUp);
-		arcUpShipAI.MoveInstructionList.Add (up);
-		arcUpShipAI.MoveInstructionList.Add (upAndRight);
-		arcUpShipAI.MoveInstructionList.Add (right);
-
-		arcUpShip = Instantiate (arcUpShip);
-
+			enemy = Instantiate (enemy);
+		}
 
 
 		EnemyAITypeBFighter.MoveInstruction leftFighterB = new EnemyAITypeBFighter.MoveInstruction();
@@ -137,45 +139,49 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 		upAndRightFighterB.time = 2f;
 
 
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
+			enemy.transform.position = new Vector2 (10.0f, 0f);
 
-		GameObject arcDownFighterB = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
-		arcDownFighterB.transform.position = new Vector2(10.0f, 0f);
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
+			EnemyAITypeBFighter arcFighterBAI = enemy.GetComponent<EnemyAITypeBFighter> ();
 
-		arcDownFighterB.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		arcDownFighterB.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		arcDownFighterB.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAITypeBFighter arcDownFighterBAI = arcDownFighterB.GetComponent<EnemyAITypeBFighter> ();
+			arcFighterBAI.MoveInstructionList.Clear ();
 
-		arcDownFighterBAI.MoveInstructionList.Clear ();
+			arcFighterBAI.MoveInstructionList.Add (leftFighterB);
+			arcFighterBAI.MoveInstructionList.Add (leftAndDownFighterB);
+			arcFighterBAI.MoveInstructionList.Add (downFighterB);
+			arcFighterBAI.MoveInstructionList.Add (downAndRightFighterB);
+			arcFighterBAI.MoveInstructionList.Add (rightFighterB);
 
-		arcDownFighterBAI.MoveInstructionList.Add (leftFighterB);
-		arcDownFighterBAI.MoveInstructionList.Add (leftAndDownFighterB);
-		arcDownFighterBAI.MoveInstructionList.Add (downFighterB);
-		arcDownFighterBAI.MoveInstructionList.Add (downAndRightFighterB);
-		arcDownFighterBAI.MoveInstructionList.Add (rightFighterB);
+			enemy = Instantiate (enemy);
+		}
 
-		arcDownFighterB = Instantiate (arcDownFighterB);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
+			enemy.transform.position = new Vector2 (11.0f, 0f);
 
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
+			EnemyAITypeBFighter arcFighterBAI = enemy.GetComponent<EnemyAITypeBFighter> ();
 
+			arcFighterBAI.MoveInstructionList.Clear ();
 
-		GameObject arcUpFighterB = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
-		arcUpFighterB.transform.position = new Vector2(11.0f, 0f);
+			arcFighterBAI.MoveInstructionList.Add (leftFighterB);
+			arcFighterBAI.MoveInstructionList.Add (leftAndUpFighterB);
+			arcFighterBAI.MoveInstructionList.Add (upFighterB);
+			arcFighterBAI.MoveInstructionList.Add (upAndRightFighterB);
+			arcFighterBAI.MoveInstructionList.Add (rightFighterB);
 
-		arcUpFighterB.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		arcUpFighterB.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		arcUpFighterB.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAITypeBFighter arcUpFighterBAI = arcUpFighterB.GetComponent<EnemyAITypeBFighter> ();
-
-		arcUpFighterBAI.MoveInstructionList.Clear ();
-
-		arcUpFighterBAI.MoveInstructionList.Add (leftFighterB);
-		arcUpFighterBAI.MoveInstructionList.Add (leftAndUpFighterB);
-		arcUpFighterBAI.MoveInstructionList.Add (upFighterB);
-		arcUpFighterBAI.MoveInstructionList.Add (upAndRightFighterB);
-		arcUpFighterBAI.MoveInstructionList.Add (rightFighterB);
-
-		arcUpFighterB = Instantiate (arcUpFighterB);
-
+			enemy = Instantiate (enemy);
+		}
 
 	}
 }

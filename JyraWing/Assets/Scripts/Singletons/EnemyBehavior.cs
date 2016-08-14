@@ -67,6 +67,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public EnemyBulletPool shieldableBulletPool;
 
+	public PointIconPool pointIconPool;
+
 	/// <summary>
 	/// The game controller.
 	/// Connection to other in game objects and events
@@ -126,7 +128,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	private Vector2 startArcVelocity;
 
 	public struct PointObjectRelative {
-		public GameObject pointObject;
+		//public GameObject pointObject;
+		public int index;
 		public Vector2 relativePos;
 	};
 
@@ -480,8 +483,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 		if (hasPointObjectToSpawn) {
 			foreach (PointObjectRelative point in PointObjects) {
-				point.pointObject.transform.position = transform.position + (Vector3)point.relativePos;
-				Instantiate (point.pointObject);
+				pointIconPool.SpawnPointIcon (point.index,transform.position + (Vector3)point.relativePos);
 			}
 		}
 
@@ -568,13 +570,12 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	//Add another point object to the enemy based on point token name and radius
 	//from the center. Location based on distance will be a random point from the
 	//origin of the enemies last location with this radius.
-	public void GivePointObject(string name, float distance) {
+	public void GivePointObject(int index, float distance) {
 		if (PointObjects == null) {
 			PointObjects = new List<PointObjectRelative> ();
 		}
-		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/" + name) as GameObject;
 		EnemyBehavior.PointObjectRelative pointObject = new EnemyBehavior.PointObjectRelative ();
-		pointObject.pointObject = pointIcon;
+		pointObject.index = index;
 		//Now to get this location based on it being distance awway from the gameObject.transform.position.
 		//First a vector in a random location
 		Vector2 radius = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));

@@ -9,19 +9,22 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 
 	public EnemyAIWaterTurret.FireDirection Direction;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
+		GameObject enemy = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
+		enemy.transform.position = enemyPosition;
 		
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-		enemy1.transform.position = enemyPosition;
-		
-		enemy1.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.bulletPool = bulletPool;
+		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+		enemyBehavior.pointIconPool = pointIconPool;
+		enemyBehavior.LeftWallException = false;
 
-		enemy1.GetComponent<EnemyAIWaterTurret> ().fireDirection = Direction;
-		enemy1 = Instantiate (enemy1);
+		enemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = Direction;
+		enemy = Instantiate (enemy);
 	}
 }

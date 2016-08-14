@@ -95,13 +95,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
   LeftWallException: 1
   shieldableBullets: 1
   MoveInstructionList: []
   angle: 180
   shieldableAngleAdjustment: 15
-  speed: 2
-  lifeTime: 4
+  speed: 1.5
+  lifeTime: 7
   shootInDirection: 0
 --- !u!114 &11494714
 MonoBehaviour:

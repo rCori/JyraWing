@@ -3,13 +3,14 @@ using System.Collections;
 
 public class Boss2Spawn1 : EnemySpawner {
 
+	public LevelControllerBehavior levelControllerBehavior;
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	// Use this for initialization
 	public override void Spawn(){
 		Vector3 spawnPos = gameObject.transform.position;
-
-		LevelControllerBehavior levelControllerBehavior = GameObject.Find ("LevelController").GetComponent<LevelControllerBehavior> ();
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool>();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool>();
 
 		GameObject bossBase = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss2");
 		bossBase.transform.position = new Vector3(spawnPos.x - 2f,

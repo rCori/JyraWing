@@ -5,18 +5,20 @@ public class EnemySpawnTurret : EnemySpawner {
 
 	public Vector2 position;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
-		GameObject enemy1 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
-		enemy1.transform.position = position;
-		enemy1.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
-		enemy1 = Instantiate (enemy1);
-
-
+		GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+		enemy.transform.position = position;
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+		enemyBehavior.bulletPool = bulletPool;
+		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+		enemyBehavior.pointIconPool = pointIconPool;
+		enemy = Instantiate (enemy);
+		enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+		enemyBehavior.LeftWallException = false;
 	}
 }

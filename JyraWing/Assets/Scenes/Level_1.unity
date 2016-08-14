@@ -171,7 +171,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &27454607
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +219,9 @@ MonoBehaviour:
   columnSpacing: 1
   yShift: -2
   shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &27454610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +278,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: -3.5}
   direction: 0
   shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &27672243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +337,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: 2}
   direction: 0
   shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &54482469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +415,9 @@ MonoBehaviour:
     startVelocity: {x: 0, y: -4}
     endVelocities: {x: 0, y: 0}
     time: 3
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &61640362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +598,9 @@ MonoBehaviour:
     startVelocity: {x: 0, y: 2}
     endVelocities: {x: -2, y: 0}
     time: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &103448510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +613,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &116119342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 116119344}
+  - 114: {fileID: 116119343}
+  m_Layer: 0
+  m_Name: PointIconPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &116119343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 116119342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a38aea03629582438fedca7844a7710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseControllerBehavior: {fileID: 1898007527}
+--- !u!4 &116119344
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 116119342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &152406143
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +708,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 2.7}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &164074333
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +750,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &205947437
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 0}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &245924956
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +849,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50618c3c75e881e41b10569c65000ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &245924959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +1023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 2.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &334976219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1080,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 2.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &435318427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: -3.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &495360896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3a0e5726753fa49abbe059eade2f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondHealth: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &495360899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1240,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: -2.25}
   direction: 0
   shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &495850713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1393,7 @@ Transform:
   - {fileID: 928792480}
   - {fileID: 1046618284}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &590354672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1445,9 @@ MonoBehaviour:
     startVelocity: {x: -2.5, y: 0}
     endVelocity: {x: 0, y: 0}
     time: 6
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &590354675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1639,8 @@ MonoBehaviour:
   enemyDirection: {x: -3, y: 0}
   enemyTime: 4
   enemyRepeat: 0
+  bulletPool: {fileID: 1516269790}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &631759868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 2.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &658073921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1798,7 @@ Transform:
   m_Children:
   - {fileID: 972134915}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &664432771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1951,9 @@ MonoBehaviour:
   columnSpacing: 1
   yShift: 0
   shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &755997573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,7 +2005,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &802198477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +2050,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: -2.25}
   direction: 0
   shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &802198480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,6 +2202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9802118a2c465e54ebf16e698a059f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &957318869 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150,
@@ -2205,8 +2301,9 @@ RectTransform:
   m_Children:
   - {fileID: 1502306749}
   - {fileID: 1452907420}
+  - {fileID: 2048245341}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2321,6 +2418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abafed556dae14418fdb65b45f00ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1017110200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,6 +2464,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPosition: {x: 9.5, y: 2.5}
   Direction: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1017110203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,6 +2536,8 @@ MonoBehaviour:
   enemyDirection: {x: -3, y: 0}
   enemyTime: 4
   enemyRepeat: 0
+  bulletPool: {fileID: 1516269790}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1036125279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,7 +2591,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 8, y: 1.7}
+  position: {x: 8, y: 2.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1046290392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,6 +2808,8 @@ MonoBehaviour:
   enemyDirection: {x: -3, y: 0}
   enemyTime: 4
   enemyRepeat: 0
+  bulletPool: {fileID: 1516269790}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1088764838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2854,9 @@ MonoBehaviour:
   enemyPosition: {x: 9, y: -1}
   direction: 0
   shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1088764841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,7 +2975,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &1166612516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,6 +3030,9 @@ MonoBehaviour:
     startVelocity: {x: 0, y: -2.5}
     endVelocity: {x: 0, y: 0}
     time: 3
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1166612518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3016,7 +3132,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1292622102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,7 +3174,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1302469075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,7 +3238,7 @@ Transform:
   - {fileID: 1435729141}
   - {fileID: 495360897}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1332203591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3282,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPosition: {x: 9.5, y: 0}
   Direction: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1332203594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3337,6 +3456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 0}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1385930851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3618,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 0}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1430658515
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,6 +3675,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: -3.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1435729140
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,6 +3731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456a8af8699fbce40a0e4e6d425efa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointIconPool: {fileID: 116119343}
+  levelControllerBehavior: {fileID: 164074334}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
 --- !u!1 &1452907419
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,7 +3944,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1625411688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,7 +4334,7 @@ Transform:
   - {fileID: 550663205}
   - {fileID: 76298529}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1884768503
 GameObject:
   m_ObjectHideFlags: 0
@@ -4257,6 +4389,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: -3.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!1 &1898007525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,7 +4420,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!114 &1898007527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4341,6 +4476,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: -3.3}
   direction: 0
   shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1909223947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4397,6 +4535,9 @@ MonoBehaviour:
   enemyPosition: {x: 8, y: 2}
   direction: 0
   shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &1961064686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4476,6 +4617,9 @@ MonoBehaviour:
     startVelocity: {x: -3, y: -1}
     endVelocity: {x: 0, y: 0}
     time: 4
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
 --- !u!114 &2030433409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4488,6 +4632,97 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1001 &2048245340
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 980876025}
+    m_Modifications:
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 118144, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!224 &2048245341 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048245340}
 --- !u!1 &2060959250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,3 +4777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 8, y: 1.5}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}

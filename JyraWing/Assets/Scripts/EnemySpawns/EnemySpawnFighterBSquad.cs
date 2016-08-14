@@ -12,11 +12,12 @@ public class EnemySpawnFighterBSquad : EnemySpawner {
 
 	public List<EnemyAITypeBFighter.MoveInstruction> moveInstructionList;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
 		float yOffset = -columns / 2f + yShift;
 		float xOffset = 8.0f;
 
@@ -28,14 +29,17 @@ public class EnemySpawnFighterBSquad : EnemySpawner {
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
 				enemy.transform.position = new Vector2 (xLoc, yLoc);
 
-				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-				enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-				enemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
-				EnemyAITypeBFighter ai1 = enemy.GetComponent<EnemyAITypeBFighter> ();
+				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+				enemyBehavior.LeftWallException = true;
+				enemyBehavior.pointIconPool = pointIconPool;
 
-				ai1.MoveInstructionList.Clear ();
+				EnemyAITypeBFighter ai = enemy.GetComponent<EnemyAITypeBFighter> ();
+
+				ai.MoveInstructionList.Clear ();
 				foreach(EnemyAITypeBFighter.MoveInstruction moveInstruction in moveInstructionList) {
-					ai1.MoveInstructionList.Add(moveInstruction);
+					ai.MoveInstructionList.Add(moveInstruction);
 				}
 				enemy = Instantiate (enemy);
 			}

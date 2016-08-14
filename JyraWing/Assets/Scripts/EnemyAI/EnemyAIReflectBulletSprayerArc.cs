@@ -27,7 +27,7 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 
 	void Awake() {
         EnemyDefaults();
-        AudioClip explosionClip = Resources.Load("Audio/SFX/explosion2") as AudioClip;
+        AudioClip explosionClip = Resources.Load("Audio/SFX/enemyHit") as AudioClip;
         SetExplosionSfx(explosionClip);
 
         HasAnimations animationsOwned;
@@ -52,8 +52,8 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 		SetEnemyHealth (SPRAYER_HEALTH);
 
 
-		GivePointObject ("PointIcon0_0", 0.1f);
-		GivePointObject ("PointIcon0_0", 0.1f);
+		GivePointObject (0, 0.1f);
+		GivePointObject (0, 0.1f);
     }
 
     // Update is called once per frame

@@ -28,7 +28,7 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 		
 		//Set the explosions sound
 		animator = gameObject.GetComponent <Animator> ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		
 		//Set which animations this enemy has
@@ -59,8 +59,8 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 
 		SetEnemyHealth (WATER_TURRET_HEALTH);
 
-		GivePointObject ("PointIcon2_0", 0.1f);
-		GivePointObject ("PointIcon2_0", 0.1f);
+		GivePointObject (2, 0.1f);
+		GivePointObject (2, 0.1f);
 
 	}
 	

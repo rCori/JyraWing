@@ -8,6 +8,9 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 
 	public List<EnemyAIReflectBulletSprayerArc.MoveInstruction> moveInstructionList;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
 
     public override void Spawn ()
 	{
@@ -16,10 +19,12 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 		
 		GameObject enemy = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayerArc");;
 		enemy.transform.position = enemyPosition;
-		
-		enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy.GetComponent<EnemyBehavior> ().LeftWallException = false;
+
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.bulletPool = bulletPool;
+		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+		enemyBehavior.pointIconPool= pointIconPool;
+		enemyBehavior.LeftWallException = false;
 
 		enemy = Instantiate (enemy);
 

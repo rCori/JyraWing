@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShieldBehaviour : MonoBehaviour {
+public class PlayerShieldBehaviour : MonoBehaviour, PauseableItem {
 
 	private IPlayerShield playerShield;
 	//public OldPlayerInputController playerInputController;
@@ -13,6 +13,8 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 	/// </summary>
 	public GameController gameController;
 
+	private bool _paused;
+
 	// Use this for initialization
 	void Awake () {
 		//Set the PlayerShield interface to the one implementation it has
@@ -22,10 +24,14 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 		//Set the gameobjects animator
 		animator = gameObject.GetComponent<Animator> ();
 		PlayerInputController.ShieldButton += OnShieldButton;
+		RegisterToList ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_paused) {
+			return;
+		}
 		//Can't set gameController on awake
 		if (gameController == null) {
 			gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour> ().GetGameController ();
@@ -71,6 +77,9 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 	/// Event for the shield button
 	/// </summary>
 	public void OnShieldButton(bool down) {
+		if (_paused) {
+			return;
+		}
 		if (down) {
 			playerShield.ActivateShield ();
 		} else {
@@ -80,6 +89,44 @@ public class PlayerShieldBehaviour : MonoBehaviour {
 
 	void OnDestroy() {
 		PlayerInputController.ShieldButton -= OnShieldButton;
+		RemoveFromList ();
+	}
+
+
+	/* Implementation of PauseableItem interface */
+	public bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+
+		set{
+			_paused = value;
+			if(_paused){
+				animator.speed = 0f;
+				playerShield.DeactivateShield ();
+				PlayerInputController.ShieldButton -= OnShieldButton;
+			}
+			else{
+				animator.speed = 1f;
+				PlayerInputController.ShieldButton += OnShieldButton;
+			}
+		}
+	}
+
+	public void RegisterToList()
+	{
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+		}
+	}
+
+	public void RemoveFromList()
+	{
+		if (GameObject.Find ("PauseController")) {
+			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
+		}
 	}
 
 }

@@ -22,12 +22,12 @@ public class EnemyAIMiniBoss1 : EnemyBehavior {
 		SetHitAnimationName ("largeTurretHit");
 		priorityAudio = true;
 
-		GivePointObject ("PointIcon3_0", 0.5f);
-		GivePointObject ("PointIcon3_0", 0.45f);
-		GivePointObject ("PointIcon3_0", 0.5f);
-		GivePointObject ("PointIcon3_0", 0.45f);
-		GivePointObject ("PointIcon2_0", 0.2f);
-		GivePointObject ("PointIcon2_0", 0.2f);
+		GivePointObject (3, 0.5f);
+		GivePointObject (3, 0.45f);
+		GivePointObject (3, 0.5f);
+		GivePointObject (3, 0.45f);
+		GivePointObject (2, 0.2f);
+		GivePointObject (2, 0.2f);
 
 	}
 

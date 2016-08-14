@@ -8,6 +8,10 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 
 	public bool ships = false;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	// Use this for initialization
 	public override void Spawn () {
 
@@ -16,77 +20,90 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 			yFactor = -1f;
 		}
 
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
 		//Bullet sprayer going diagonaly through the right half of the screen and then back up
-		GameObject enemyBulletSprayer = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
-		enemyBulletSprayer.transform.position = new Vector3 (6.0f, yFactor * 3.5f,0.0f);
+		{
+			GameObject enemyBulletSprayer = (GameObject)Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
+			enemyBulletSprayer.transform.position = new Vector3 (6.0f, yFactor * 3.5f, 0.0f);
 
-		enemyBulletSprayer.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		enemyBulletSprayer.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+			EnemyBehavior enemyBehavior = enemyBulletSprayer.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
 
-		enemyBulletSprayer = Instantiate (enemyBulletSprayer);
+			enemyBulletSprayer = Instantiate (enemyBulletSprayer);
 
-		enemyBulletSprayer.GetComponent<EnemyBehavior>().SetEnemyHealth(3);
-		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().locations = new List<Vector2> {new Vector2(0.0f, yFactor * -3.5f), new Vector2(-6.0f,  yFactor * 3.5f)};
-		enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>().times = new List<float> {1.5f, 1.5f};
-
+			enemyBulletSprayer.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
+			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ().locations = new List<Vector2> {
+				new Vector2 (0.0f, yFactor * -3.5f),
+				new Vector2 (-6.0f, yFactor * 3.5f)
+			};
+			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ().times = new List<float> { 1.5f, 1.5f };
+		}
 
 		if (ships) {
 			//Ship coming through from the top
-			GameObject topShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			topShip.transform.position = new Vector3 (6.0f, 3.0f,0.0f);
+			{
+				GameObject ship = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
+				ship.transform.position = new Vector3 (6.0f, 3.0f, 0.0f);
 
-			topShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-			topShip.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+				EnemyBehavior enemyBehavior = ship.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
 
-			topShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
-			topShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-			EnemyAIShipArc topShipAI = topShip.GetComponent<EnemyAIShipArc> ();
-			topShip.GetComponent<Scroll> ().speed = 1;
-			topShip = Instantiate (topShip);
+				enemyBehavior.LeftWallException = true;
+				enemyBehavior.shieldableBullets = false;
+				ship.GetComponent<Scroll> ().speed = 1;
+				ship = Instantiate (ship);
+			}
 
-			//Ship coming through from the top
-			GameObject bottomShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			bottomShip.transform.position = new Vector3 (6.0f, -3.0f,0.0f);
+			{
+				//Ship coming through from the top
+				GameObject ship = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
+				ship.transform.position = new Vector3 (6.0f, -3.0f, 0.0f);
 
-			bottomShip.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-			bottomShip.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
+				EnemyBehavior enemyBehavior = ship.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
 
-			bottomShip.GetComponent<EnemyBehavior> ().LeftWallException = true;
-			bottomShip.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-			EnemyAIShipArc bottomShipAI = topShip.GetComponent<EnemyAIShipArc> ();
-			bottomShip.GetComponent<Scroll> ().speed = 1;
-			bottomShip = Instantiate (bottomShip);
-
+				enemyBehavior.LeftWallException = true;
+				enemyBehavior.shieldableBullets = false;
+				ship.GetComponent<Scroll> ().speed = 1;
+				ship = Instantiate (ship);
+			}
 		} else {
 
 			//top tank
-			GameObject topTank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
-			topTank.transform.position = new Vector3 (10.0f, 2f, 0f);
+			{
+				GameObject tank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
+				tank.transform.position = new Vector3 (10.0f, 2f, 0f);
 
-			EnemyBehavior topTankBehavior = topTank.GetComponent<EnemyBehavior> ();
-			topTankBehavior.bulletPool = bulletPool;
+				EnemyBehavior enemyBehavior = tank.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
 
-			EnemyAITank topTankAI = topTank.GetComponent<EnemyAITank> ();
-			topTankAI.direction = EnemyAITank.TankDir.Left;
+				EnemyAITank tankAI = tank.GetComponent<EnemyAITank> ();
+				tankAI.direction = EnemyAITank.TankDir.Left;
 
-			topTank = Instantiate (topTank);
-
+				tank = Instantiate (tank);
+			}
 
 
 			//bottom tank
-			GameObject bottomTank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
-			bottomTank.transform.position = new Vector3 (10.0f, -2f, 0f);
+			{
+				GameObject tank = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
+				tank.transform.position = new Vector3 (10.0f, -2f, 0f);
 
-			EnemyBehavior bottomTankBehavior = topTank.GetComponent<EnemyBehavior> ();
-			bottomTankBehavior.bulletPool = bulletPool;
+				EnemyBehavior enemyBehavior = tank.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
 
-			EnemyAITank bottomTankAI = topTank.GetComponent<EnemyAITank> ();
-			bottomTankAI.direction = EnemyAITank.TankDir.Left;
+				EnemyAITank bottomTankAI = tank.GetComponent<EnemyAITank> ();
+				bottomTankAI.direction = EnemyAITank.TankDir.Left;
 
-			bottomTank = Instantiate (bottomTank);
+				tank = Instantiate (tank);
+			}
 		}
 
 	}

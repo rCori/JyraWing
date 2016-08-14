@@ -94,9 +94,11 @@ public class Bullet : MonoBehaviour, PauseableItem {
 			{
 				storedVel = GetComponent<Rigidbody2D>().velocity;
 				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+				animator.speed = 0;
 			}
 			else{
 				GetComponent<Rigidbody2D>().velocity = storedVel;
+				animator.speed = 1;
 			}
 		}
 	}
@@ -108,7 +110,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	
 	public void RemoveFromList()
 	{
-		GameObject.Find ("GameController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
+		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 	}
 
 }

@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
   LeftWallException: 0
   shieldableBullets: 0
   ySpeed: 2

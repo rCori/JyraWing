@@ -7,14 +7,21 @@ public class EnemySpawnSpiderTurret : EnemySpawner {
 
 	public EnemyAITurretLevel2.FireDirection Direction;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn () {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_SpiderTurret");
-		enemy1.transform.position = enemyPosition;
+		GameObject enemy = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_SpiderTurret");
+		enemy.transform.position = enemyPosition;
 
-		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy1.GetComponent<EnemyAITurretLevel2> ().fireDirection = Direction;
-		enemy1 = Instantiate (enemy1);
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.bulletPool = bulletPool;
+		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+		enemyBehavior.pointIconPool = pointIconPool;
+		enemy.GetComponent<EnemyAITurretLevel2> ().fireDirection = Direction;
+		enemy = Instantiate (enemy);
 	}
 }

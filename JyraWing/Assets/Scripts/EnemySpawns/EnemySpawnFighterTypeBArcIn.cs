@@ -3,18 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn () {
 
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
-		GameObject fromTopEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
-		fromTopEnemy.transform.position = new Vector2(4.0f, 5f);
-
-		fromTopEnemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		fromTopEnemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		fromTopEnemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAITypeBFighter arcDownAI = fromTopEnemy.GetComponent<EnemyAITypeBFighter> ();
 
 		EnemyAITypeBFighter.MoveInstruction left = new EnemyAITypeBFighter.MoveInstruction();
 		left.type = EnemyBehavior.MovementStatus.Velocity;
@@ -32,24 +26,6 @@ public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 		down.startVelocity = new Vector2 (0f, -2f);
 		down.time = 2f;
 
-		arcDownAI.MoveInstructionList.Clear ();
-
-		arcDownAI.MoveInstructionList.Add (down);
-		arcDownAI.MoveInstructionList.Add (leftAndDown);
-		arcDownAI.MoveInstructionList.Add (left);
-
-
-		//arcDownAI.MoveInstructionList
-		fromTopEnemy = Instantiate (fromTopEnemy);
-
-		GameObject upFromBottom = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
-		upFromBottom.transform.position = new Vector2(4.0f, -5f);
-
-		upFromBottom.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-		upFromBottom.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-		upFromBottom.GetComponent<EnemyBehavior> ().LeftWallException = true;
-		EnemyAITypeBFighter arcUpAI = upFromBottom.GetComponent<EnemyAITypeBFighter> ();
-
 		EnemyAITypeBFighter.MoveInstruction leftAndUp = new EnemyAITypeBFighter.MoveInstruction();
 		leftAndUp.type = EnemyBehavior.MovementStatus.ArcVelocity;
 		leftAndUp.startVelocity = new Vector2 (0f, 2f);
@@ -61,12 +37,46 @@ public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 		up.startVelocity = new Vector2 (0f, 2f);
 		up.time = 2f;
 
-		arcUpAI.MoveInstructionList.Clear ();
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
+			enemy.transform.position = new Vector2(4.0f, 5f);
 
-		arcUpAI.MoveInstructionList.Add (up);
-		arcUpAI.MoveInstructionList.Add (leftAndUp);
-		arcUpAI.MoveInstructionList.Add (left);
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
 
-		upFromBottom = Instantiate (upFromBottom);
+			EnemyAITypeBFighter enemyAI = enemy.GetComponent<EnemyAITypeBFighter> ();
+
+			enemyAI.MoveInstructionList.Clear ();
+
+			enemyAI.MoveInstructionList.Add (down);
+			enemyAI.MoveInstructionList.Add (leftAndDown);
+			enemyAI.MoveInstructionList.Add (left);
+
+			enemy = Instantiate (enemy);
+		}
+
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipTypeBFighter");
+			enemy.transform.position = new Vector2(4.0f, -5f);
+
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
+
+			EnemyAITypeBFighter enemyAI = enemy.GetComponent<EnemyAITypeBFighter> ();
+
+			enemyAI.MoveInstructionList.Clear ();
+
+			enemyAI.MoveInstructionList.Add (up);
+			enemyAI.MoveInstructionList.Add (leftAndUp);
+			enemyAI.MoveInstructionList.Add (left);
+
+			enemy = Instantiate (enemy);
+		}
 	}
 }

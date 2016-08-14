@@ -181,16 +181,7 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 	}
 
 	void OnDestroy(){
-		//animator.SetInteger ("animState", 3);
-		GameObject obj = GameObject.Find ("GameController");
-		//The boss object could be destoryed on account of the level ending.
-		//If that happens this object could be null so we check for that.
-		if (obj) {
-			//Use the new gameController now
-			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
-			levelControllerBehavior.HandleLevelFinished ();
-		}
-
+		levelControllerBehavior.HandleLevelFinished ();
 	}
 
 }

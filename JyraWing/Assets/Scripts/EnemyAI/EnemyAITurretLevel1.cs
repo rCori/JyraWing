@@ -48,7 +48,7 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		shootTimeLimit = 3.0f;
 
 		animator = gameObject.GetComponent <Animator> ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		
 		isFlipped = true;
@@ -80,8 +80,8 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 //		pointSpawns.Add (origin2PointObject);
 //		SetPointObject (pointSpawns);
 
-		GivePointObject ("PointIcon1_0", 0.3f);
-		GivePointObject ("PointIcon2_0", 0.5f);
+		GivePointObject(1, 0.3f);
+		GivePointObject (2, 0.5f);
 	}
 	
 	// Update is called once per frame

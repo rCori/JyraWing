@@ -19,7 +19,7 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
 
 	void Awake() {
         EnemyDefaults();
-        AudioClip explosionClip = Resources.Load("Audio/SFX/explosion2") as AudioClip;
+        AudioClip explosionClip = Resources.Load("Audio/SFX/enemyHit") as AudioClip;
         SetExplosionSfx(explosionClip);
 
         HasAnimations animationsOwned;

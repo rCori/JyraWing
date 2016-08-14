@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalPosition: {x: 11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -94,29 +94,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
   LeftWallException: 1
   shieldableBullets: 0
   MoveInstructionList:
   - type: 3
-    startVelocity: {x: -2.5, y: 2.5}
+    startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 0.4
+    time: 2
   - type: 4
-    startVelocity: {x: -2.5, y: 2.5}
-    endVelocity: {x: -2.5, y: 0}
-    time: 0.8
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 2}
+    time: 2
   - type: 3
-    startVelocity: {x: -2.5, y: 0}
+    startVelocity: {x: 0, y: 2}
     endVelocity: {x: 0, y: 0}
-    time: 3
+    time: 2
   - type: 4
-    startVelocity: {x: -2.5, y: 0}
-    endVelocity: {x: 0, y: -2.5}
-    time: 1
+    startVelocity: {x: 0, y: 2}
+    endVelocity: {x: 2, y: 0}
+    time: 2
   - type: 3
-    startVelocity: {x: 0, y: -2.5}
+    startVelocity: {x: 2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 3
+    time: 2
 --- !u!212 &21282430
 SpriteRenderer:
   m_ObjectHideFlags: 1

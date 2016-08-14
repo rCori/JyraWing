@@ -13,6 +13,10 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 
 	public List<EnemyAIShipArc.MoveInstruction> moveInstructionList;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -29,9 +33,11 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 				enemy.transform.position = new Vector2 (xLoc, yLoc);
 
-				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-				enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-				enemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
+				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
+				enemyBehavior.LeftWallException = true;
 				EnemyAIShipArc ai1 = enemy.GetComponent<EnemyAIShipArc> ();
 
 				ai1.MoveInstructionList.Clear ();

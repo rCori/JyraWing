@@ -15,26 +15,29 @@ public class EnemySpawnDiamondSquad : EnemySpawner {
 	public float columnSpacing;
 	public float yShift;
 
+	public PointIconPool pointIconPool;
+
 	public override void Spawn () {
 
 		float yOffset = enemyPosition.y -columns / 2f + yShift;
 		float xOffset = enemyPosition.x;
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
-				GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
-				enemy1.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
+				GameObject enemy = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
+				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
-				EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
+				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+				enemyBehavior.pointIconPool = pointIconPool;
 				if (enemyRepeat) {
-					enemyBehavior1.LeftWallException = false;
+					enemyBehavior.LeftWallException = false;
 				}
 
-				EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
-				enemyAI1.direction = enemyDirection;
-				enemyAI1.time = enemyTime + i*enemyDirection.magnitude;
-				enemyAI1.repeat = enemyRepeat;
+				EnemyAIDiamondOscillate enemyAI = enemy.GetComponent<EnemyAIDiamondOscillate> ();
+				enemyAI.direction = enemyDirection;
+				enemyAI.time = enemyTime + i*enemyDirection.magnitude;
+				enemyAI.repeat = enemyRepeat;
 
-				enemy1 = Instantiate (enemy1);
+				enemy = Instantiate (enemy);
 			}
 		}
 	}

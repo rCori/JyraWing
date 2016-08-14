@@ -12,7 +12,7 @@ public class EnemyAIDiamondOscillate : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		dir = true;
 		StartNewVelocity (direction, time);
@@ -22,7 +22,7 @@ public class EnemyAIDiamondOscillate : EnemyBehavior {
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("enemy3_hit");
 
-		GivePointObject ("PointIcon0_0", 0.0f);
+		GivePointObject (0, 0.0f);
 	}
 	
 

@@ -6,35 +6,40 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
 	private EnemyAIWaterTurret.FireDirection direction = EnemyAIWaterTurret.FireDirection.LEFT;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn(){
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
 		/* second turret */
-
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-		enemy1.transform.position = new Vector2 (8f, 2f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
+			enemy.transform.position = new Vector2 (8f, 2f);
 		
-		enemy1.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy1.GetComponent<EnemyBehavior> ().LeftWallException = false;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = false;
 
-		EnemyAIWaterTurret enemy1AIWaterTurret = enemy1.GetComponent<EnemyAIWaterTurret> ();
-		enemy1AIWaterTurret.fireDirection = direction;
-		enemy1 = Instantiate (enemy1);
-
+			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
+			enemyAI.fireDirection = direction;
+			enemy = Instantiate (enemy);
+		}
 		/* bottom turret */
-
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-		enemy2.transform.position = new Vector2 (8f, -2f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
+			enemy.transform.position = new Vector2 (8f, -2f);
 		
-		enemy2.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;
-		enemy2.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy2.GetComponent<EnemyBehavior> ().LeftWallException = false;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = false;
 
-		EnemyAIWaterTurret enemy2AIWaterTurret = enemy2.GetComponent<EnemyAIWaterTurret> ();
-		enemy2AIWaterTurret.fireDirection = direction;
-		enemy2 = Instantiate (enemy2);
-
+			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
+			enemyAI.fireDirection = direction;
+			enemy = Instantiate (enemy);
+		}
 	}
 }

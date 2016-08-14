@@ -23,7 +23,7 @@ public class EnemyAITypeBFighter : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		//This enemy is not destoryed by touching the left wall.
 		LeftWallException = true;
@@ -36,8 +36,8 @@ public class EnemyAITypeBFighter : EnemyBehavior {
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
 
-		GivePointObject ("PointIcon0_0", 0.1f);
-		GivePointObject ("PointIcon1_0", 0.15f);
+		GivePointObject (0, 0.1f);
+		GivePointObject (1, 0.15f);
 
 	}
 

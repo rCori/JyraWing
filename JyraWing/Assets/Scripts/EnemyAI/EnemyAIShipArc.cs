@@ -23,7 +23,7 @@ public class EnemyAIShipArc : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		//This enemy is not destoryed by touching the left wall.
 		LeftWallException = true;
@@ -37,15 +37,8 @@ public class EnemyAIShipArc : EnemyBehavior {
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
 
-//		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
-//		EnemyBehavior.PointObjectRelative originOnePointObject = new EnemyBehavior.PointObjectRelative ();
-//		originOnePointObject.pointObject = pointIcon;
-//		originOnePointObject.relativePos = new Vector2 (0f, 0f);
-//		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
-//		pointSpawns.Add (originOnePointObject);
-//		SetPointObject (pointSpawns);
+		GivePointObject (1, 0.0f);
 
-		GivePointObject ("PointIcon1_0", 0.0f);
 	}
 
 

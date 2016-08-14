@@ -13,6 +13,10 @@ public class EnemySpawnShipSquad : EnemySpawner {
 	public float speed;
 	public float lifeTime;
 
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
 
@@ -21,22 +25,21 @@ public class EnemySpawnShipSquad : EnemySpawner {
 
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
-				EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-				EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
 				//Middle row
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_BasicEnemyShip");
 				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
 
-				enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
-				enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
-				enemy.GetComponent<EnemyBehavior> ().LeftWallException = true;
-				enemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
-				EnemyAIBasicShip ai1 = enemy.GetComponent<EnemyAIBasicShip> ();
-				ai1.angle = 180;
-				ai1.speed = speed;
-				ai1.lifeTime = lifeTime + i*speed;
-				ai1.shootInDirection = true;
+				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+				enemyBehavior.bulletPool = bulletPool;
+				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+				enemyBehavior.pointIconPool = pointIconPool;
+				enemyBehavior.LeftWallException = true;
+				enemyBehavior.shieldableBullets = false;
+				EnemyAIBasicShip ai = enemy.GetComponent<EnemyAIBasicShip> ();
+				ai.angle = 180;
+				ai.speed = speed;
+				ai.lifeTime = lifeTime + i*speed;
+				ai.shootInDirection = true;
 				enemy.GetComponent<Scroll> ().speed = 1;
 				enemy = Instantiate (enemy);
 			}

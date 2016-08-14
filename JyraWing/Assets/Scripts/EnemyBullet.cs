@@ -14,16 +14,22 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	private readonly float TIME_LIMIT = 7f;
 	private float timer = 0f;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start () {
 		isActive = false;
 		_paused = false;
 		timer = 0f;
+		animator = GetComponent<Animator> ();
 		RegisterToList();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_paused) {
+			return;
+		}
 		if (isActive) {
 			timer += Time.deltaTime;
 		}
@@ -81,14 +87,15 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 			_paused = value;
 			if(_paused)
 			{
+				animator.speed = 0f;
 				storedVel = GetComponent<Rigidbody2D>().velocity;
 				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 				//I am conciously chooosing to have the bullets continue to animate because I think it looks cool.
 				//GetComponent<Animator>().speed = 0f;
 			}
 			else{
+				animator.speed = 1f;
 				GetComponent<Rigidbody2D>().velocity = storedVel;
-				//GetComponent<Animator>().speed = 1f;
 			}
 		}
 	}

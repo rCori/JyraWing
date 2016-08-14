@@ -132,6 +132,7 @@
      <Compile Include="Assets\Scripts\LevelTransitionDetails\Rollup.cs" />
      <Compile Include="Assets\Scripts\PointSystem\AwardPoints.cs" />
      <Compile Include="Assets\Scripts\PointSystem\PointAttraction.cs" />
+     <Compile Include="Assets\Scripts\PointSystem\PointIconPool.cs" />
      <Compile Include="Assets\Scripts\PointSystem\ScoreController.cs" />
      <Compile Include="Assets\Scripts\PointSystem\ScoreControllerBehavior.cs" />
      <Compile Include="Assets\Scripts\Powerups\BulletPowerup.cs" />

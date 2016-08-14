@@ -27,7 +27,7 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 
 		//Set the explosions sound
 		animator = gameObject.GetComponent <Animator> ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 
 		//Set which animations this enemy has
@@ -63,7 +63,7 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 		//Set timer to it's upper limit 
 		timer = FireRate;
 		SetEnemyHealth (TURRET_HEALTH);
-		GivePointObject ("PointIcon3_0", 0.2f);
+		GivePointObject (3, 0.2f);
 
 	}
 

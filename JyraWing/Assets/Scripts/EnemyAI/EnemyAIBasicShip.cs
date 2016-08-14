@@ -35,7 +35,7 @@ public class EnemyAIBasicShip : EnemyBehavior {
 
 	void Awake(){
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		//This enemy is not destoryed by touching the left wall.
 		LeftWallException = true;
@@ -72,23 +72,9 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		StartNewVelocity(direction * speed, lifeTime);
 		SetEnemyHealth (SHIP_HEALTH);
 
-//		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
-//		EnemyBehavior.PointObjectRelative origin1PointObject = new EnemyBehavior.PointObjectRelative ();
-//		origin1PointObject.pointObject = pointIcon;
-//		origin1PointObject.relativePos = new Vector2 (-0.1f, 0.2f);
-//
-//		GameObject pointIcon2 = Resources.Load ("Pickups/PointIcons/PointIcon2_0") as GameObject;
-//		EnemyBehavior.PointObjectRelative origin2PointObject = new EnemyBehavior.PointObjectRelative ();
-//		origin2PointObject.pointObject = pointIcon;
-//		origin2PointObject.relativePos = new Vector2 (0.2f, -0.3f);
-//
-//		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
-//		pointSpawns.Add (origin1PointObject);
-//		pointSpawns.Add (origin2PointObject);
-//		SetPointObject (pointSpawns);
 
-		GivePointObject ("PointIcon1_0", 0.3f);
-		GivePointObject ("PointIcon2_0", 0.5f);
+		GivePointObject (1, 0.3f);
+		GivePointObject (2, 0.5f);
 
 	}
 

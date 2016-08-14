@@ -671,7 +671,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '@ Ryan Cori 2016
 
-    Title screen music "Tell Me" by 505'
+'
 --- !u!222 &1190060864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1787777604
 AudioSource:
   m_ObjectHideFlags: 0

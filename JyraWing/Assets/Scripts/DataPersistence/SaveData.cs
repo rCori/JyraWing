@@ -21,6 +21,9 @@ public class SaveData  {
 	public int highScore = 1000;
 
 	public void LoadGame() {
+		if (!File.Exists (Application.dataPath + "/savegame.json")) {
+			SaveGame ();
+		}
 		FileStream saveFile = File.Open (Application.dataPath + "/savegame.json", System.IO.FileMode.Open);
 		StreamReader reader = new StreamReader (saveFile);
 		instance = JsonUtility.FromJson<SaveData> (reader.ReadToEnd ());

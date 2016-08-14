@@ -3,88 +3,81 @@ using System.Collections;
 
 public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 
-
-	public int turretHealth;
+	public EnemyBulletPool bulletPool;
+	public PointIconPool pointIconPool;
 
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-
 		//Top diamond enemy
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
-		enemy1.transform.position = new Vector3(-7.0f, 2f,0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
+			enemy.transform.position = new Vector3 (-7.0f, 2f, 0f);
 
-		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
-		enemyBehavior1.bulletPool = bulletPool;
-		enemyBehavior1.LeftWallException = true;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
 
-		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
-		enemyAI1.direction = new Vector2 (2f, 0f);
-		enemyAI1.time = 15f;
-		enemyAI1.repeat = false;
-		enemy1 = Instantiate (enemy1);
-		enemy1.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
+			EnemyAIDiamondOscillate enemyAI = enemy.GetComponent<EnemyAIDiamondOscillate> ();
+			enemyAI.direction = new Vector2 (2f, 0f);
+			enemyAI.time = 15f;
+			enemyAI.repeat = false;
+			enemy = Instantiate (enemy);
+		}
 
 		//Bottom diamond enemy
-		GameObject enemy2 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
-		enemy2.transform.position = new Vector3(-7.0f, -2f,0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
+			enemy.transform.position = new Vector3 (-7.0f, -2f, 0f);
 		
-		EnemyBehavior enemyBehavior2 = enemy2.GetComponent<EnemyBehavior> ();
-		enemyBehavior2.bulletPool = bulletPool;
-		enemyBehavior2.LeftWallException = true;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
+			enemyBehavior.LeftWallException = true;
 
-		EnemyAIDiamondOscillate enemyAI2 = enemy2.GetComponent<EnemyAIDiamondOscillate> ();
-		enemyAI2.direction = new Vector2 (2f, 0f);
-		enemyAI2.time = 15f;
-		enemyAI2.repeat = false;
-		enemy2 = Instantiate (enemy2);
-		enemy2.GetComponent<EnemyBehavior> ().SetEnemyHealth (5);
+			EnemyAIDiamondOscillate enemyAI = enemy.GetComponent<EnemyAIDiamondOscillate> ();
+			enemyAI.direction = new Vector2 (2f, 0f);
+			enemyAI.time = 15f;
+			enemyAI.repeat = false;
+			enemy = Instantiate (enemy);
+		}
 
 		//Top turret
-		GameObject enemy3 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
-		enemy3.transform.position = new Vector3(7.0f, 3.5f,0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			enemy.transform.position = new Vector3 (7.0f, 3.5f, 0f);
 
-		EnemyBehavior enemyBehavior3 = enemy3.GetComponent<EnemyBehavior> ();
-		enemyBehavior3.bulletPool = bulletPool;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
 
-		enemy3 = Instantiate (enemy3);
-
+			enemy = Instantiate (enemy);
+		}
 
 
 		//Bottom turret
-		GameObject enemy4 = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
-		enemy4.transform.position = new Vector3(7.0f, -3.5f,0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			enemy.transform.position = new Vector3 (7.0f, -3.5f, 0f);
 		
-		EnemyBehavior enemyBehavior4 = enemy4.GetComponent<EnemyBehavior> ();
-		enemyBehavior4.bulletPool = bulletPool;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
 		
-		enemy4 = Instantiate (enemy4);
+			enemy = Instantiate (enemy);
+		}
 
 
 		//End tank at the end of the screen
-		GameObject enemy5 = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
-		enemy5.transform.position = new Vector3(24.0f, 0f,0f);
+		{
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel1");
+			enemy.transform.position = new Vector3 (24.0f, 0f, 0f);
 
-		EnemyBehavior enemyBehavior5 = enemy5.GetComponent<EnemyBehavior> ();
-		enemyBehavior5.bulletPool = bulletPool;
+			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+			enemyBehavior.bulletPool = bulletPool;
 
-		EnemyAITank enemyAItank = enemy5.GetComponent<EnemyAITank> ();
-		enemyAItank.direction = EnemyAITank.TankDir.Left;
+			EnemyAITank enemyAItank = enemy.GetComponent<EnemyAITank> ();
+			enemyAItank.direction = EnemyAITank.TankDir.Left;
 
-		enemy5 = Instantiate (enemy5);
-
-
-		//GameController controller = GameObject.Find ("GameController").GetComponent<GameController> ();
-		GameController controller = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController();
-
-		//PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-		PowerupGroup group = new PowerupGroup (controller.GetNextSquadID());
-
-		group.SetPowerupType (PowerupGroup.PowerupType.Bullet);
-		group.AddToSquad (enemy1);
-		group.AddToSquad (enemy2);
-		
-		//controller.AddSquad (group);
-		controller.AddSquad (group);
+			enemy = Instantiate (enemy);
+		}
 	}
 }

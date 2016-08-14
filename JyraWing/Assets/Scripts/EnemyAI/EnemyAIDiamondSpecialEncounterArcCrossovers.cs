@@ -30,7 +30,7 @@ public class EnemyAIDiamondSpecialEncounterArcCrossovers :  EnemyBehavior{
 		//Spawns may want to delay this showing up.
 		inDelay = true;
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		HasAnimations animationsOwned;
 		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
@@ -38,7 +38,7 @@ public class EnemyAIDiamondSpecialEncounterArcCrossovers :  EnemyBehavior{
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("enemy3_hit");
 
-		GivePointObject ("PointIcon0_0", 0.0f);
+		GivePointObject (0, 0.0f);
 
 	}
 

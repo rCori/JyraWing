@@ -20,7 +20,7 @@ public class EnemyAIShipLevel1SpecialEncounter : EnemyBehavior {
 	// Use this for initialization
 	void Awake () {
 		EnemyDefaults ();
-		AudioClip explosionClip = Resources.Load ("Audio/SFX/explosion2") as AudioClip;
+		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		state = MoveState.begin;
 		if (!isReverse) {
@@ -39,7 +39,7 @@ public class EnemyAIShipLevel1SpecialEncounter : EnemyBehavior {
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("enemy4_B_hit");
 
-		GivePointObject ("PointIcon1_0", 0.1f);
+		GivePointObject (1, 0.1f);
 
 	}
 	

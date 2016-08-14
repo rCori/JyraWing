@@ -11,8 +11,9 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
     public List<Vector2> locations;
     public List<float> times;
 
-    public float fireRate;
-    public float bulletSpeed;
+	public EnemyBulletPool bulletPool;
+	public EnemyBulletPool shieldableBulletPool;
+	public PointIconPool pointIconPool;
 
     public override void Spawn ()
 	{
@@ -21,14 +22,18 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 		
 		GameObject enemy = (GameObject) Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
 		enemy.transform.position = enemyPosition;
-		
-		enemy.GetComponent<EnemyBehavior> ().bulletPool= bulletPool;
-		enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool= shieldableBulletPool;
-		enemy.GetComponent<EnemyBehavior> ().LeftWallException = false;
+
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.bulletPool= bulletPool;
+		enemyBehavior.shieldableBulletPool= shieldableBulletPool;
+		enemyBehavior.pointIconPool= pointIconPool;
+		enemyBehavior.LeftWallException = false;
 
 		enemy = Instantiate (enemy);
 
-        enemy.GetComponent<EnemyBehavior>().SetEnemyHealth(Health);
+		enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.SetEnemyHealth(Health);
+
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().locations = locations;
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().times = times;
 

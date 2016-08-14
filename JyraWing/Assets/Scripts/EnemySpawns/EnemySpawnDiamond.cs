@@ -11,25 +11,27 @@ public class EnemySpawnDiamond: EnemySpawner {
 
 	public bool enemyRepeat;
 
+	public EnemyBulletPool bulletPool;
+	public PointIconPool pointIconPool;
+
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
+		GameObject enemy = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
+		enemy.transform.position = enemyPosition;
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
-		enemy1.transform.position = enemyPosition;
-
-		EnemyBehavior enemyBehavior1 = enemy1.GetComponent<EnemyBehavior> ();
-		enemyBehavior1.bulletPool = bulletPool;
+		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
+		enemyBehavior.bulletPool = bulletPool;
+		enemyBehavior.pointIconPool = pointIconPool;
 		if (enemyRepeat) {
-			enemyBehavior1.LeftWallException = false;
+			enemyBehavior.LeftWallException = false;
 		}
 
-		EnemyAIDiamondOscillate enemyAI1 = enemy1.GetComponent<EnemyAIDiamondOscillate> ();
-		enemyAI1.direction = enemyDirection;
-		enemyAI1.time = enemyTime;
-		enemyAI1.repeat = enemyRepeat;
+		EnemyAIDiamondOscillate enemyAI = enemy.GetComponent<EnemyAIDiamondOscillate> ();
+		enemyAI.direction = enemyDirection;
+		enemyAI.time = enemyTime;
+		enemyAI.repeat = enemyRepeat;
 
-		enemy1 = Instantiate (enemy1);
+		enemy = Instantiate (enemy);
 
 	}
 }
