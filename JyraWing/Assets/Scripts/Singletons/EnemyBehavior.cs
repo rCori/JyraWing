@@ -539,7 +539,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
 
 	/* Implementation of PauseableObject */
-	public bool paused
+	public virtual bool paused
 	{
 		get
 		{

@@ -3,13 +3,13 @@ using System.Collections;
 
 public class PlayerInputController : MonoBehaviour {
 
-	private string fireButtonString, autoFireButtonString, shieldButtonString, changeSpeedButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
+	private string fireButtonString, autoFireButtonString, shieldButtonString, backButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
 	private string upDownAxisString, leftRightAxisString;
 
 	public delegate void ButtonEvent(bool down);
 	public delegate void AxisEvent (float value);
 
-	public static event ButtonEvent FireButton, AutoFireButton, ShieldButton, ChangeSpeedButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
+	public static event ButtonEvent FireButton, AutoFireButton, ShieldButton, BackButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
 	public static event AxisEvent LeftRightEvent, UpDownEvent;
 
 	private float prevLeftRight, prevUpDown;
@@ -25,7 +25,7 @@ public class PlayerInputController : MonoBehaviour {
 		ButtonUpdate(fireButtonString, FireButton);
 		ButtonUpdate(autoFireButtonString, AutoFireButton);
 		ButtonUpdate (shieldButtonString, ShieldButton);
-		ButtonUpdate(changeSpeedButtonString, ChangeSpeedButton);
+		ButtonUpdate(backButtonString, BackButton);
 		ButtonUpdate(upButtonString, UpButton);
 		ButtonUpdate(downButtonString, DownButton);
 		ButtonUpdate(leftButtonString, LeftButton);
@@ -40,7 +40,7 @@ public class PlayerInputController : MonoBehaviour {
 		fireButtonString = "Fire";
 		autoFireButtonString = "Auto Fire";
 		shieldButtonString = "Shield";
-		changeSpeedButtonString = "Toggle Speed";
+		backButtonString = "Back";
 		upButtonString = "Up";
 		downButtonString = "Down";
 		leftButtonString = "Left";
@@ -63,15 +63,6 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	private float AxisUpdate(string axisString, AxisEvent axisEvent, float prevValue) {
-//		if (Input.GetAxisRaw (axisString) != 0 && prevValue == 0) {
-//			if (axisEvent != null) {
-//				axisEvent (Input.GetAxisRaw (axisString));
-//			}
-//		} else if(Input.GetAxisRaw (axisString) == 0 && prevValue != 0) {
-//			if (axisEvent != null) {
-//				axisEvent (Input.GetAxisRaw (axisString));
-//			}
-//		}
 		axisEvent (Input.GetAxisRaw (axisString));
 		return Input.GetAxisRaw (axisString);
 	}
@@ -80,7 +71,7 @@ public class PlayerInputController : MonoBehaviour {
 		RemoveButtonEvents (FireButton);
 		RemoveButtonEvents (AutoFireButton);
 		RemoveButtonEvents (ShieldButton);
-		RemoveButtonEvents (ChangeSpeedButton);
+		RemoveButtonEvents (BackButton);
 		RemoveButtonEvents (UpButton);
 		RemoveButtonEvents (DownButton);
 		RemoveButtonEvents (LeftButton);

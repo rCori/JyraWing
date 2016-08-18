@@ -22,15 +22,6 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	}
 		
 
-	///<summary>
-	///Recycle the bullet when it hits the barrier
-	/// </summary>
-	public void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Barrier") {
-			BulletDestroy ();
-		}
-	}
-
 	public void BulletHit() {
 		animator.SetInteger ("animState", 1);
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0f, 0f);

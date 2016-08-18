@@ -212,7 +212,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &48442086
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &48442088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ Transform:
   - {fileID: 1979203248}
   - {fileID: 837314904}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &80468271
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +684,7 @@ Prefab:
       objectReference: {fileID: 1250146572}
     - target: {fileID: 11492278, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: NextLevel
-      value: Level_2
+      value: titleScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
@@ -1270,7 +1270,7 @@ Transform:
   m_Children:
   - {fileID: 180579351}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &593875656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,57 +1618,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
+  rows: 2
   columns: 2
-  rowSpacing: 1
-  columnSpacing: 1
+  rowSpacing: 2
+  columnSpacing: 1.5
   yShift: -0.5
   shieldableBullets: 0
   bulletPool: {fileID: 47714748}
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
---- !u!1001 &826807078
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 71.98581
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.0625026
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 479454, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 34b2ecdec4e0b4c49b7532ec550bd86e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &837314903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,7 +1875,7 @@ MonoBehaviour:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Fire
-  m_CancelButton: Toggle Speed
+  m_CancelButton: Back
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -1947,7 +1905,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &951254187 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 134778, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
@@ -2047,7 +2005,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca4d94526442a7d4abb85c1b188a32a9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2122,7 +2080,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &1079002262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2285,7 @@ RectTransform:
   - {fileID: 1250146573}
   - {fileID: 36261072}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2573,7 +2531,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &1281206168 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150,
@@ -2619,7 +2577,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1459050500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,7 +2779,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1553124320
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,7 +3072,7 @@ Transform:
   - {fileID: 309078681}
   - {fileID: 286767677}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &1865506067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3184,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1908978173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3271,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1971628682
 Prefab:
   m_ObjectHideFlags: 0
@@ -3608,4 +3566,4 @@ Transform:
   - {fileID: 889059073}
   - {fileID: 1478293980}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4

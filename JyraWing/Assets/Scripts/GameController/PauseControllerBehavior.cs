@@ -61,6 +61,7 @@ public class PauseControllerBehavior : MonoBehaviour {
 	}
 
 	void OnDestroy() {
+		pauseController.Purge ();
 		PlayerInputController.StartButton -= PauseBehavior;
 		IngameMenu.UnpauseEvent -= () => pauseController.Unpause ();
 	}

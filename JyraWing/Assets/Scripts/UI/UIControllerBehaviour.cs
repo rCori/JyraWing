@@ -27,6 +27,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 	private IUIController uiController;
 
+	private Color invisibleColor;
+	private Color visibleColor;
+
 	// Use this for initialization
 	void Start () {
 
@@ -46,6 +49,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 		Initialize (uiController.GetStartingLifeCount ());
 
+		visibleColor = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		invisibleColor = new Color (1.0f, 1.0f, 1.0f, 0.0f);
+
 		ScoreController.AddToScoreEvent += UpdateScore;
 		CountdownTimer.PlayerContinueEvent += HideGameOver;
 		CountdownTimer.PlayerContinueEvent += ResetLives;
@@ -53,6 +59,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.GameOverEvent += ShowGameOver;
 		PauseControllerBehavior.PauseEvent += PauseMenu;
 		Player.TakeDamageEvent += DecreaseLives;
+		Player.TakeDamageEvent += () => {
+			slider.gameObject.SetActive (false);
+		};
 		PlayerShield.SetShieldPercentageEvent += UpdatePlayerShield;
 	}
 	
@@ -141,6 +150,13 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 	public void UpdatePlayerShield(int shieldPercentage){
 		if (slider) {
+			if (shieldPercentage == 100.0f && slider.value != 1.0f) {
+				slider.gameObject.SetActive (false);
+			} else if (shieldPercentage != 100.0f && slider.value == 1.0f) {
+				slider.gameObject.SetActive (true);
+			}
+
+			slider.enabled = (shieldPercentage != 100.0f);
 			uiController.SetShieldPercentage (shieldPercentage);
 			slider.value = (float)shieldPercentage / 100.0f;
 		}
@@ -171,6 +187,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 		PauseControllerBehavior.PauseEvent -= PauseMenu;
 		Player.TakeDamageEvent -= DecreaseLives;
+		Player.TakeDamageEvent -= () => {
+			slider.gameObject.SetActive (false);
+		};
 		PlayerShield.SetShieldPercentageEvent -= UpdatePlayerShield;
 	}
 }

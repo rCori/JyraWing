@@ -65,4 +65,8 @@ public class PauseController : IPauseController {
 		pauseList.Remove (item);
 	}
 
+	public void Purge() {
+		pauseList.Clear ();
+	}
+
 }

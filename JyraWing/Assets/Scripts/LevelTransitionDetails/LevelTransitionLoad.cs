@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransitionLoad : MonoBehaviour {
 
-	public float timeToLoad = 5.0f;
+	public float timeToLoad = 3.0f;
 	public GameObject canvas;
 
 	private GameObject rollup1;
@@ -36,7 +36,6 @@ public class LevelTransitionLoad : MonoBehaviour {
 
 	IEnumerator BeginLevelTransitionCountdown() {
 		while (timeToLoad > 0) {
-			Debug.Log (timeToLoad + " seconds to next level.");
 			timeToLoad -= 1.0f;
 			yield return new WaitForSeconds (1.0f);
 		}

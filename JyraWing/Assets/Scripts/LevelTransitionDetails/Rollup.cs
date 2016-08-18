@@ -35,9 +35,7 @@ public class Rollup : MonoBehaviour {
 			timer.text = timerVal + "";
 			yield return new WaitForSeconds (countupRate);
 		}
-		Debug.Log ("Should call TimerEndEvent here");
 		if (TimerEndEvent != null) {
-			Debug.Log ("Calling TimerEndEvent");
 			TimerEndEvent ();
 		}
 		yield break;

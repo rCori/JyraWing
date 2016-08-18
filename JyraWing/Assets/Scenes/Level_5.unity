@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a86ff3309315642b6a3c5e39999011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointIconPool: {fileID: 0}
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
 --- !u!114 &557982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +324,9 @@ MonoBehaviour:
   enemyPosition: {x: 6, y: 1}
   Health: 3
   Direction: 2
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &83101415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +575,8 @@ MonoBehaviour:
   enemyDirection: {x: 0, y: -2}
   enemyTime: 5
   enemyRepeat: 1
+  bulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &221258010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +637,9 @@ MonoBehaviour:
   yShift: 0
   speed: 2
   lifeTime: 5
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &311649947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +697,8 @@ MonoBehaviour:
   enemyDirection: {x: 0, y: 2}
   enemyTime: 5
   enemyRepeat: 1
+  bulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &414680109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,6 +771,9 @@ MonoBehaviour:
     startVelocity: {x: 3, y: 0}
     endVelocities: {x: 0, y: 0}
     time: 2
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &474717064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,6 +1702,8 @@ MonoBehaviour:
   enemyDirection: {x: 0, y: 2}
   enemyTime: 5
   enemyRepeat: 1
+  bulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &842583376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,6 +1759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPosition: {x: 7, y: 3}
   moveInstructionList: []
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &937318314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,6 +1923,9 @@ MonoBehaviour:
   enemyPosition: {x: 6, y: -1}
   Health: 3
   Direction: 3
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &1010529498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,7 +2192,7 @@ MonoBehaviour:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Fire
-  m_CancelButton: Toggle Speed
+  m_CancelButton: Back
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -2411,6 +2435,8 @@ MonoBehaviour:
   enemyDirection: {x: 0, y: -2}
   enemyTime: 5
   enemyRepeat: 1
+  bulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &1686660079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,8 +2534,9 @@ MonoBehaviour:
   Health: 0
   locations: []
   times: []
-  fireRate: 0
-  bulletSpeed: 0
+  bulletPool: {fileID: 0}
+  shieldableBulletPool: {fileID: 0}
+  pointIconPool: {fileID: 0}
 --- !u!114 &1723962087
 MonoBehaviour:
   m_ObjectHideFlags: 0

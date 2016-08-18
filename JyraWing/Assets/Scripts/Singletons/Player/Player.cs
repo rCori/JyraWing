@@ -47,6 +47,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float horiz;
 	private float vert;
 
+	private IEnumerator returnFromHitCoroutine;
+	private bool returnFromInProgress;
+
 	public enum TakingDamage
 	{
 		NONE = 0,
@@ -71,7 +74,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		numBullets = 20;
 		damageSfx = gameObject.AddComponent<AudioSource> ();
 		//Sound when the player is hit
-		damageSfx.clip = Resources.Load ("Audio/SFX/playerDamage") as AudioClip;
+		damageSfx.clip = Resources.Load ("Audio/SFX/playerExplosion") as AudioClip;
 		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
@@ -91,11 +94,15 @@ public class Player : MonoBehaviour, PauseableItem {
 		horiz = 0f;
 		vert = 0f;
 
+		returnFromHitCoroutine = returningFromHitRoutine ();
+		returnFromInProgress = false;
+
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
-		CountdownTimer.PlayerContinueEvent += () =>  StartCoroutine (returningFromHitRoutine ());
+		CountdownTimer.PlayerContinueEvent += () =>  StartCoroutine (returnFromHitCoroutine);
 		Player.TakeDamageEvent += TakeDamage;
+
 	}
 	
 	// Update is called once per frame
@@ -165,6 +172,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 		
 	IEnumerator returningFromHitRoutine(){
+		returnFromInProgress = true;
 		yield return new WaitForSeconds (2f);
 		endSavePos = new Vector2 (-2.5f, 0f);
 		gameObject.transform.position = new Vector2 (-9.5f, 0f);
@@ -185,6 +193,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
 		HitEvent (TakingDamage.NONE);
+		returnFromInProgress = false;
 	}
 
 	//Make sure the player is removed from the list although actually this shouldn't be necssary
@@ -209,9 +218,15 @@ public class Player : MonoBehaviour, PauseableItem {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 				//I am hoping this fixes the drift by mashing pause in the corner bug.
 				animator.speed = 0f;
+				if (returnFromInProgress) {
+					StopCoroutine (returnFromHitCoroutine);
+				}
 			}
 			else{
 				animator.speed = 1f;
+				if (returnFromInProgress) {
+					StartCoroutine (returnFromHitCoroutine);
+				}
 			}
 		}
 	}
@@ -253,7 +268,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
-		CountdownTimer.PlayerContinueEvent -= () =>  StartCoroutine (returningFromHitRoutine ());
+		CountdownTimer.PlayerContinueEvent -= () =>  StartCoroutine (returnFromHitCoroutine);
 		Player.TakeDamageEvent -= TakeDamage;
 	}
 

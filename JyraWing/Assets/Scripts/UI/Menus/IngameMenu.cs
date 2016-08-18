@@ -23,6 +23,7 @@ public class IngameMenu : Menu {
 		darkPanel = Resources.Load ("UIObjects/InGameMenu/IngamePanel") as GameObject;
 		darkPanel = Instantiate (darkPanel);
 		darkPanel.transform.SetParent (uiCanvas.transform, false);
+		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
 		yesText = Resources.Load ("UIObjects/InGameMenu/YesText") as GameObject;
 		yesText = Instantiate (yesText);
 		yesText.transform.SetParent(uiCanvas.transform, false);
@@ -34,9 +35,6 @@ public class IngameMenu : Menu {
 		title.transform.SetParent (uiCanvas.transform, false);
 		//Amount to move selector over from a selection when that item is selected.
 		float adjustPt = Screen.width / 10.0f;
-
-//		menuLocations.Add(new Vector2(noText.transform.position.x - adjustPt, noText.transform.position.y));
-//		menuLocations.Add(new Vector2(yesText.transform.position.x - adjustPt, yesText.transform.position.y));
 
 		menuLocations.Add(new Vector2(noText.transform.position.x, noText.transform.position.y));
 		menuLocations.Add(new Vector2(yesText.transform.position.x, yesText.transform.position.y));

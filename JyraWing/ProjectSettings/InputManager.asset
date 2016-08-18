@@ -10,7 +10,7 @@ InputManager:
     descriptiveName: Fire and accept
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: z
+    positiveButton: c
     altNegativeButton: 
     altPositiveButton: mouse 0
     gravity: 1000
@@ -22,11 +22,11 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Toggle Speed
-    descriptiveName: Toggle speed and cancel
+    m_Name: Back
+    descriptiveName: Back button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: x
+    positiveButton: v
     altNegativeButton: 
     altPositiveButton: mouse 1
     gravity: 1000
@@ -122,7 +122,7 @@ InputManager:
     descriptiveName: Auto Fire
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: c
+    positiveButton: x
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -138,71 +138,7 @@ InputManager:
     descriptiveName: Shield
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: v
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Left
-    descriptiveName: Left
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: a
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Right
-    descriptiveName: Right
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: d
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Up
-    descriptiveName: Up
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: w
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: Down
-    descriptiveName: Down
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: s
+    positiveButton: z
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

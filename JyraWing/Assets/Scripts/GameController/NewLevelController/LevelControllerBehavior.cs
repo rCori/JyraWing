@@ -26,7 +26,6 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 
 	public void HandleLevelFinished() {
 		StartCoroutine (levelFinishedRoutine());
-
 	}
 
 

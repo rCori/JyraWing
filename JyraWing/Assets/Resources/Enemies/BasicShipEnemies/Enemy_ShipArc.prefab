@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalPosition: {x: 11, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -98,26 +98,14 @@ MonoBehaviour:
   LeftWallException: 1
   shieldableBullets: 1
   MoveInstructionList:
-  - type: 3
-    startVelocity: {x: -2, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 2
   - type: 4
-    startVelocity: {x: -2, y: 0}
-    endVelocity: {x: 0, y: 2}
-    time: 2
+    startVelocity: {x: 0, y: 4}
+    endVelocity: {x: -3, y: 0}
+    time: 0
   - type: 3
-    startVelocity: {x: 0, y: 2}
+    startVelocity: {x: -3, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: 0, y: 2}
-    endVelocity: {x: 2, y: 0}
-    time: 2
-  - type: 3
-    startVelocity: {x: 2, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 2
+    time: 3
 --- !u!212 &21202418
 SpriteRenderer:
   m_ObjectHideFlags: 1

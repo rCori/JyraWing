@@ -57,18 +57,13 @@ public class PlayerShieldBehaviour : MonoBehaviour, PauseableItem {
 		playerShield = newPlayerShield;
 	}
 
-	private void UpdateShieldAppearance(bool hasShield, bool shieldEnabled){
-		//If the shield is not enabled, that animation takes prescedence
-		if (!shieldEnabled) {
-			animator.SetInteger ("animState", 2);
-			return;
-		}
+	private void UpdateShieldAppearance(bool hasShield, bool shieldEnabled){			
 		//If the shield is active
 		if (hasShield) {
 			animator.SetInteger ("animState", 0);
 		//Shield is inactive
 		} else {
-			animator.SetInteger ("animState", 1);
+			animator.SetInteger ("animState", 2);
 		}
 
 	}

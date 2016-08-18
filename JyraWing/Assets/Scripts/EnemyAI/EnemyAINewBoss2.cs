@@ -12,6 +12,9 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 
 	private int moveState;
 
+	private IEnumerator shootRoutine;
+	private Vector2 storedVel;
+
 	// Use this for initialization
 	void Awake () {
 		EnemyDefaults ();
@@ -27,8 +30,8 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 		initBulletDirections ();
 
 		moveState = 0;
-
-		StartCoroutine (ShootRoutine());
+		shootRoutine = ShootRoutine ();
+		StartCoroutine (shootRoutine);
 	}
 
 	void Update () {
@@ -181,7 +184,34 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 	}
 
 	void OnDestroy(){
-		levelControllerBehavior.HandleLevelFinished ();
+		if (levelControllerBehavior != null) {
+			levelControllerBehavior.HandleLevelFinished ();
+		}
+	}
+
+	public override bool paused
+	{
+		get
+		{
+			return _paused;
+		}
+
+		set
+		{
+			_paused = value;
+			if(_paused)
+			{
+				storedVel = GetComponent<Rigidbody2D>().velocity;
+				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+				animator.speed = 0f;
+				StopCoroutine (shootRoutine);
+			}
+			else{
+				GetComponent<Rigidbody2D>().velocity = storedVel;
+				animator.speed = 1f;
+				StartCoroutine (shootRoutine);
+			}
+		}
 	}
 
 }

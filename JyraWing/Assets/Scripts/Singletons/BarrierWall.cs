@@ -41,5 +41,10 @@ public class BarrierWall : MonoBehaviour {
 		if (other.tag == "PowerUp") {
 			Destroy(other.gameObject);
 		}
+
+		if (other.tag == "Bullet" && barrierMode == sides.Right) {
+			other.GetComponent<Bullet> ().BulletDestroy ();
+		}
 	}
+
 }

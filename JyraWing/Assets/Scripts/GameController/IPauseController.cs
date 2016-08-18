@@ -32,4 +32,6 @@ public interface IPauseController{
 	//Remove a pausable item from the list
 	void DelistPauseableItem(PauseableItem item);
 
+	void Purge();
+
 }

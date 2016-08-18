@@ -7,7 +7,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 
 	private Collider2D playerCollider;
 	private bool startAttraction;
-	private Rigidbody2D rigidbody2D;
+	private Rigidbody2D pointRigidBody;
 	private bool _paused;
 	private Vector2 storedVel;
 
@@ -19,7 +19,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	void Awake() {
 		startAttraction = false;
 		playerCollider = null;
-		rigidbody2D = GetComponent<Rigidbody2D> ();
+		pointRigidBody = GetComponent<Rigidbody2D> ();
 		scrollComponent = GetComponent<Scroll> ();
 		_paused = false;
 		storedVel = Vector2.zero;
@@ -35,9 +35,10 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player") {
 			startAttraction = true;
+			playerCollider = other;
 			Vector3 direction = other.transform.position - transform.position;
 			direction.Normalize ();
-			rigidbody2D.velocity = (strengthOfAttraction * direction);
+			pointRigidBody.velocity = (strengthOfAttraction * direction);
 		}
 	}
 
@@ -46,7 +47,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 		if (startAttraction && playerCollider != null) {
 			Vector3 direction = playerCollider.transform.position - transform.position;
 			direction.Normalize ();
-			rigidbody2D.velocity = (strengthOfAttraction * direction);
+			pointRigidBody.velocity = (strengthOfAttraction * direction);
 		}
 	}
 
@@ -54,12 +55,11 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	public void ResetPosition() {
 		startAttraction = false;
 		gameObject.transform.position = new Vector2 (0f, 10f);
-		rigidbody2D.velocity = Vector2.zero;
+		pointRigidBody.velocity = Vector2.zero;
 		storedVel = Vector2.zero;
 	}
 
 	void OnDestroy() {
-		Debug.Log ("PointIconDestroy");
 		RemoveFromList ();
 		awardPointsBehavior.ResetPosition -= ResetPosition;
 		awardPointsBehavior.StartScrolling -= () => {scrollComponent.speed = 1;};
@@ -84,11 +84,11 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 			_paused = value;
 			if(_paused)
 			{
-				storedVel = rigidbody2D.velocity;
-				rigidbody2D.velocity = Vector2.zero;
+				storedVel = pointRigidBody.velocity;
+				pointRigidBody.velocity = Vector2.zero;
 			}
 			else{
-				rigidbody2D.velocity = storedVel;
+				pointRigidBody.velocity = storedVel;
 			}
 		}
 	}
