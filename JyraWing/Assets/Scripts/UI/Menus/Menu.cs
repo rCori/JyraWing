@@ -9,17 +9,22 @@ public class Menu : MonoBehaviour {
 	protected float selectTimer;
 	protected float selectTimeLimit;
 	protected AudioSource beep;
+	protected AudioClip confirm;
+	protected AudioClip move;
+	protected SoundEffectPlayer sfxPlayer;
 
 	public int numberOfItems;
 	public List<Vector2> menuLocations; 
 	public bool isVertical;
-	
 
 	public void InitMenu()
 	{
+		sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
+		confirm = Resources.Load ("Audio/SFX/Confirm") as AudioClip;
+		move = Resources.Load ("Audio/SFX/Cursor") as AudioClip;
 		curSelect = 0;
 		selectTimer = 0f;
-		selectTimeLimit = 0.5f;
+		selectTimeLimit = 0.15f;
 		beep = gameObject.GetComponent<AudioSource> ();
 	}
 
@@ -42,7 +47,7 @@ public class Menu : MonoBehaviour {
 			curSelect++;
 			transform.position = menuLocations[curSelect];
 			selectTimer = 0f;
-			beep.Play();
+			PlayMove ();
 		}
 
 		//Move the selector up(veritcal) or left(horizontal)
@@ -51,10 +56,17 @@ public class Menu : MonoBehaviour {
 			curSelect--;
 			transform.position = menuLocations[curSelect];
 			selectTimer = 0f;
-			beep.Play();
+			PlayMove ();
 
 		}
 
 	}
 
+	protected void PlayConfirm() {
+		sfxPlayer.PlayClip (confirm);
+	}
+
+	protected void PlayMove() {
+		sfxPlayer.PlayClip (move);
+	}
 }

@@ -57,13 +57,13 @@ public class TitleScreenMenu : Menu {
 		//Select start the game
 		if(Input.GetButton ("Fire") || Input.GetButton ("Pause")){
 			if (curSelect == 0) {
-				beep.Play ();
+				PlayConfirm();
 				SceneManager.LoadScene ("Level_1");
 			} else if (curSelect == 1) {
-				beep.Play ();
+				PlayConfirm();
 				SceneManager.LoadScene ("Level_2");
 			} else if (curSelect == 2) {
-				beep.Play ();
+				PlayConfirm ();
 				Application.Quit ();
 			} else if (curSelect == 3) {
 				SaveData.Instance.SaveGame ();

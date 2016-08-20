@@ -64,7 +64,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	public delegate void PlayerDamageEvent (TakingDamage takingDamage);
 	public static event PlayerDamageEvent HitEvent;
 	public delegate void PlayerEvent ();
-	public static event PlayerEvent InitLives, TakeDamageEvent, ResetEvent;
+	public static event PlayerEvent TakeDamageEvent, ResetEvent;
 
 	// Use this for initialization
 	void Start () {

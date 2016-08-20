@@ -53,27 +53,36 @@ public class IngameMenu : Menu {
 				if (UnpauseEvent != null) {
 					UnpauseEvent ();
 				}
-				RemoveMenu ();
+				BackOutCoroutine ();
 			//Yes: Go back to main menu
 			} else if (curSelect == 1) {
-				beep.Play ();
-				SceneManager.LoadScene("titleScene");
+				LoadTitleSceneCoroutine ();
 			}
 		}
 		if (Input.GetButtonDown ("Pause")) {
 			if (UnpauseEvent != null) {
 				UnpauseEvent ();
 			}
-			RemoveMenu ();
+			BackOutCoroutine ();
 		}
 	}
 
 	public void RemoveMenu() {
-		beep.Play ();
+		PlayConfirm ();
 		Destroy (title);
 		Destroy (noText);
 		Destroy (yesText);
 		Destroy (gameObject);
 		Destroy (darkPanel);
+	}
+
+	void LoadTitleSceneCoroutine(){
+		PlayConfirm ();
+		SceneManager.LoadScene("titleScene");
+	}
+
+	void BackOutCoroutine(){
+		PlayConfirm ();
+		RemoveMenu ();
 	}
 }

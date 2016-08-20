@@ -122,7 +122,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	protected bool powerWillSpawn;
 	protected bool _paused;
 	private Vector2 storedVel;
-	protected bool priorityAudio;
 
 	private Vector2 endArcVelocity;
 	private Vector2 startArcVelocity;
@@ -158,7 +157,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		storedVel = new Vector2 (0f, 0f);
 		endArcVelocity = new Vector2 (0f, 0f);
 		startArcVelocity = new Vector2 (0f, 0f);
-		priorityAudio = false;
 		RegisterToList ();
 		shieldableBullets = false;
 		PointObjects = null;
@@ -358,14 +356,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				if(!sfxPlayer){
 					sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 				}
-				//SoundEffectPlayer effectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-				//If the enemy has priority in audio, it will create a new audio source only for it so it cannot be interrupted. 
-				if(priorityAudio){
-					sfxPlayer.PlayPrioritySoundClip(explosionSfx);
-				}
-				else{
-					sfxPlayer.PlaySoundClip(explosionSfx);
-				}
+				sfxPlayer.PlaySoundClip(explosionSfx);
 
 
 				//If there is a destroy animation to play, set isDestroy to true and try to play it
