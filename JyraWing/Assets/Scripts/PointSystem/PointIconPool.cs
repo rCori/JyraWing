@@ -6,6 +6,7 @@ public class PointIconPool : MonoBehaviour {
 
 	List<GameObject> iconPool;
 	List<AwardPoints> iconAwardPointsPool;
+	List<PointAttraction> pointAttractionPool;
 	int poolSize = 10;
 
 	//Some bad design here done for the sake of effeciency
@@ -16,6 +17,7 @@ public class PointIconPool : MonoBehaviour {
 	void Start () {
 		iconPool = new List<GameObject> ();
 		iconAwardPointsPool = new List<AwardPoints> ();
+		pointAttractionPool = new List<PointAttraction> ();
 		for (int i = 0; i < poolSize; i++) {
 			AddToPool ();
 		}
@@ -27,6 +29,7 @@ public class PointIconPool : MonoBehaviour {
 			if (!iconAwardPointsPool [i].GetIsActive ()) {
 				iconAwardPointsPool [i].SetValue (pointValueLevel);
 				iconAwardPointsPool [i].MakeActive ();
+				pointAttractionPool [i].RemovingAttraction ();
 				iconPool [i].transform.position = location;
 				return;
 			}
@@ -45,8 +48,10 @@ public class PointIconPool : MonoBehaviour {
 
 		GameObject pointAttractionObject = icon.transform.GetChild (0).gameObject;
 		AwardPoints awardPointsBehavior = pointAttractionObject.GetComponent<AwardPoints> ();
+		PointAttraction pointAttractionBehavior = pointAttractionObject.transform.parent.GetComponent<PointAttraction> ();
 
 		iconPool.Add (icon);
 		iconAwardPointsPool.Add (awardPointsBehavior);
+		pointAttractionPool.Add (pointAttractionBehavior);
 	}
 }

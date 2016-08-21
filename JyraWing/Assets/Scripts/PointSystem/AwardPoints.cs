@@ -41,7 +41,8 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player") {
+		if (other.tag == "Player" && isActive) {
+			Debug.Log ("Adding to score");
 			ScoreController.AddToScore (PointValue);
 			if (soundEffectPlayer && audioClip) {
 				soundEffectPlayer.PlayClip (audioClip);

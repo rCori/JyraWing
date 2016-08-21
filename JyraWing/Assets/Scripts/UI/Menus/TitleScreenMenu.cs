@@ -11,12 +11,17 @@ public class TitleScreenMenu : Menu {
 	private GameObject quitGame;
 	private GameObject saveGame;
 
+	private string selectedLevel = "Level_1";
+	private bool lockScreen;
+
 	// Use this for initialization
 	void Start () {
 		//ForceWindowed ();
 		InitMenu ();
 		numberOfItems = 4;
 		isVertical = true;
+		lockScreen = false;
+
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
 		level1StartGame = Resources.Load ("UIObjects/TitleScreenMenu/Level1StartText") as GameObject;
@@ -53,20 +58,21 @@ public class TitleScreenMenu : Menu {
 	
 	// Update is called once per frame
 	void Update () {
-		MenuScroll ();
-		//Select start the game
-		if(Input.GetButton ("Fire") || Input.GetButton ("Pause")){
-			if (curSelect == 0) {
-				PlayConfirm();
-				SceneManager.LoadScene ("Level_1");
-			} else if (curSelect == 1) {
-				PlayConfirm();
-				SceneManager.LoadScene ("Level_2");
-			} else if (curSelect == 2) {
-				PlayConfirm ();
-				Application.Quit ();
-			} else if (curSelect == 3) {
-				SaveData.Instance.SaveGame ();
+		if (!lockScreen) {
+			MenuScroll ();
+			//Select start the game
+			if (Input.GetButton ("Fire") || Input.GetButton ("Pause")) {
+				if (curSelect == 0) {
+					selectedLevel = "Level_1";
+					StartCoroutine (loadLevel ());
+				} else if (curSelect == 1) {
+					selectedLevel = "Level_2";
+					StartCoroutine (loadLevel ());
+				} else if (curSelect == 2) {
+					StartCoroutine (quit ());
+				} else if (curSelect == 3) {
+					SaveData.Instance.SaveGame ();
+				}
 			}
 		}
 	}
@@ -83,5 +89,19 @@ public class TitleScreenMenu : Menu {
 			Screen.SetResolution(width, height, false);
 			Screen.fullScreen = false;
 		}
+	}
+
+	IEnumerator loadLevel(){
+		PlayConfirm();
+		lockScreen = true;
+		yield return new WaitForSeconds (0.05f);
+		SceneManager.LoadScene (selectedLevel);
+	}
+
+	IEnumerator quit(){
+		PlayConfirm ();
+		lockScreen = true;
+		yield return new WaitForSeconds (0.05f);
+		Application.Quit ();
 	}
 }

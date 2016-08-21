@@ -33,7 +33,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Player") {
+		if (other.tag == "Player" && !startAttraction) {
 			startAttraction = true;
 			playerCollider = other;
 			Vector3 direction = other.transform.position - transform.position;
@@ -57,6 +57,13 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 		gameObject.transform.position = new Vector2 (0f, 10f);
 		pointRigidBody.velocity = Vector2.zero;
 		storedVel = Vector2.zero;
+		playerCollider = null;
+	}
+
+	public void RemovingAttraction() {
+		startAttraction = false;
+		pointRigidBody.velocity = Vector2.zero;
+		playerCollider = null;
 	}
 
 	void OnDestroy() {

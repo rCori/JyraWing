@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Menus\IngameMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Rik4kProductions - Trance &amp; Progressive FREE\Readme.txt">
     <Files>
-      <File FileName="Assets\Scripts\SoundEffectPlayer.cs" Line="35" Column="25" />
-      <File FileName="Assets\Scripts\UI\Menus\Menu.cs" Line="70" Column="27" />
-      <File FileName="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" Line="11" Column="30" />
-      <File FileName="Assets\Scripts\UI\Menus\IngameMenu.cs" Line="56" Column="5" />
-      <File FileName="Assets\Scripts\Singletons\Player\Player.cs" Line="76" Column="10" />
+      <File FileName="Assets\Rik4kProductions - Trance &amp; Progressive FREE\Readme.txt" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SoundEffectPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Menus\Menu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Menus\IngameMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Singletons\Player\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\LevelTransitionDetails\LevelTransitionLoad.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="357" Column="90" />
-      <File FileName="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" Line="22" Column="42" />
+      <File FileName="Assets\Scripts\Singletons\EnemyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

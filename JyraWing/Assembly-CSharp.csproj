@@ -163,6 +163,7 @@
      <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
      <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
      <Compile Include="Assets\Scripts\UI\UIControllerBehaviour.cs" />
+     <None Include="Assets\Rik4kProductions - Trance &amp; Progressive FREE\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

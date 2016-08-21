@@ -12,12 +12,14 @@ public class IngameMenu : Menu {
 	public delegate void IngameMenuDelegate();
 	public static event IngameMenuDelegate UnpauseEvent;
 
+	private bool lockScreen;
+
 	// Use this for initialization
 	void Start () {
 		InitMenu ();
 		numberOfItems = 2;
 		isVertical = false;
-
+		lockScreen = false;
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
 		darkPanel = Resources.Load ("UIObjects/InGameMenu/IngamePanel") as GameObject;
@@ -45,25 +47,27 @@ public class IngameMenu : Menu {
 
 	// Update is called once per frame
 	void Update () {
-		MenuScroll ();
+		if (!lockScreen) {
+			MenuScroll ();
 
-		//No: Continue game, unpausing it.
-		if (Input.GetButtonDown ("Fire")) {
-			if (curSelect == 0) {
+			//No: Continue game, unpausing it.
+			if (Input.GetButtonDown ("Fire")) {
+				if (curSelect == 0) {
+					if (UnpauseEvent != null) {
+						UnpauseEvent ();
+					}
+					BackOut ();
+					//Yes: Go back to main menu
+				} else if (curSelect == 1) {
+					StartCoroutine (LoadTitleSceneCoroutine ());
+				}
+			}
+			if (Input.GetButtonDown ("Pause")) {
 				if (UnpauseEvent != null) {
 					UnpauseEvent ();
 				}
-				BackOutCoroutine ();
-			//Yes: Go back to main menu
-			} else if (curSelect == 1) {
-				LoadTitleSceneCoroutine ();
+				BackOut ();
 			}
-		}
-		if (Input.GetButtonDown ("Pause")) {
-			if (UnpauseEvent != null) {
-				UnpauseEvent ();
-			}
-			BackOutCoroutine ();
 		}
 	}
 
@@ -76,12 +80,14 @@ public class IngameMenu : Menu {
 		Destroy (darkPanel);
 	}
 
-	void LoadTitleSceneCoroutine(){
+	IEnumerator LoadTitleSceneCoroutine(){
 		PlayConfirm ();
+		lockScreen = true;
+		yield return new WaitForSeconds (0.1f);
 		SceneManager.LoadScene("titleScene");
 	}
 
-	void BackOutCoroutine(){
+	void BackOut(){
 		PlayConfirm ();
 		RemoveMenu ();
 	}

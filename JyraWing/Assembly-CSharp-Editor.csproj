@@ -48,6 +48,7 @@
      <Compile Include="Assets\Editor\Tests\LevelControllerTest.cs" />
      <Compile Include="Assets\Editor\Tests\PauseContollerTest.cs" />
      <Compile Include="Assets\Editor\Tests\PowerupGroupControllerTest.cs" />
+     <None Include="Assets\Rik4kProductions - Trance &amp; Progressive FREE\Readme.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
