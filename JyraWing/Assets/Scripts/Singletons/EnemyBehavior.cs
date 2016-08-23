@@ -110,6 +110,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
 	private AudioClip hitSfx;
 
+	private Rigidbody2D rigidybody2D;
+
 	/// <summary>
 	/// Bitmask for how many animations the enemy can play.
 	/// Assumes animation variable is "animState" and transitions
@@ -161,6 +163,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		shieldableBullets = false;
 		PointObjects = null;
 		hasPointObjectToSpawn = false;
+		rigidybody2D = GetComponent<Rigidbody2D> ();
 	}
 
 	/// <summary>
@@ -542,13 +545,17 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			_paused = value;
 			if(_paused)
 			{
-				storedVel = GetComponent<Rigidbody2D>().velocity;
-				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-				animator.speed = 0f;
+				if (rigidybody2D != null) {
+					storedVel = rigidybody2D.velocity;
+					rigidybody2D.velocity = new Vector2 (0.0f, 0.0f);
+					animator.speed = 0f;
+				}
 			}
 			else{
-				GetComponent<Rigidbody2D>().velocity = storedVel;
-				animator.speed = 1f;
+				if (rigidybody2D != null) {
+					rigidybody2D.velocity = storedVel;
+					animator.speed = 1f;
+				}
 			}
 		}
 	}
