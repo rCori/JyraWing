@@ -110,7 +110,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
 	private AudioClip hitSfx;
 
-	private Rigidbody2D rigidybody2D;
+	protected Rigidbody2D rigidybody2D;
 
 	/// <summary>
 	/// Bitmask for how many animations the enemy can play.
@@ -123,7 +123,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	protected bool isDestroyed;
 	protected bool powerWillSpawn;
 	protected bool _paused;
-	private Vector2 storedVel;
+	protected Vector2 storedVel;
 
 	private Vector2 endArcVelocity;
 	private Vector2 startArcVelocity;
