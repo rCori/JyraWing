@@ -32,11 +32,11 @@ public class Player : MonoBehaviour, PauseableItem {
 
 
 	private GameController gameController;
+	private SoundEffectPlayer sfxPlayer;
 	private float speed;
 	Animator animator;
 	int hits;
-	int numBullets;
-	private AudioSource damageSfx;
+	private AudioClip damageSfx;
 	private float hitTimer;
 	private IPlayerShield playerShield;
 
@@ -71,10 +71,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		animator = gameObject.GetComponent <Animator> ();
 		hitTimer = 0.0f;
 		hits = SaveData.Instance.livesPerCredit;
-		numBullets = 20;
-		damageSfx = gameObject.AddComponent<AudioSource> ();
 		//Sound when the player is hit
-		damageSfx.clip = Resources.Load ("Audio/SFX/playerExplosion") as AudioClip;
+		damageSfx = Resources.Load ("Audio/SFX/playerExplosion") as AudioClip;
 		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
@@ -88,6 +86,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerShield = playerShieldBehaviour.GetPlayerShield();
 
 		gameController = GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController ();
+		sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 		_paused = false;
 		RegisterToList ();
 
@@ -128,13 +127,15 @@ public class Player : MonoBehaviour, PauseableItem {
 		GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 		//Get the length of the animation.
 		hitTimer = 2.5f;
-		damageSfx.Play();
+		sfxPlayer.PlayClip (damageSfx);
 		takingDamage = TakingDamage.EXPLODE;
-		StartCoroutine(returningFromHitRoutine());
 		HitEvent (TakingDamage.EXPLODE);
 		playerShield.DisableShield ();
 		if (hits == 0) {
-			gameController.PlayerKilled ();
+			returnFromHitCoroutine = returningFromHitRoutine ();
+			StartCoroutine(outOfLivesCoroutine());
+		} else {
+			StartCoroutine(returningFromHitRoutine());
 		}
 	}
 
@@ -194,6 +195,14 @@ public class Player : MonoBehaviour, PauseableItem {
 		takingDamage = TakingDamage.NONE;
 		HitEvent (TakingDamage.NONE);
 		returnFromInProgress = false;
+	}
+
+	IEnumerator outOfLivesCoroutine() {
+		Debug.Log ("playerKilled");
+		gameController.PlayerKilled ();
+		yield return new WaitForSeconds (2f);
+		gameObject.transform.position = new Vector2 (-9.5f, 0f);
+
 	}
 
 	//Make sure the player is removed from the list although actually this shouldn't be necssary

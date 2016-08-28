@@ -12,7 +12,6 @@ public class GameControllerBehaviour : MonoBehaviour {
 
 	public string NextLevel = "";
 
-	bool initializeUI;
 
 	// Use this for initialization
 	void Awake () {
@@ -20,7 +19,6 @@ public class GameControllerBehaviour : MonoBehaviour {
 		//Set all of the controller modules
 		gameController.SetPowerupGroupController (new PowerupGroupController ());
 		LevelControllerBehavior.NextLevel = NextLevel;
-		initializeUI = false;
 		CountdownTimer.PlayerContinueEvent += RestartPlayer;
 		LevelControllerBehavior.DisablePlayerEvent += DisablePlayer;
 	}

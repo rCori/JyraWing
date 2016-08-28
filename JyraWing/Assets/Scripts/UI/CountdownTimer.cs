@@ -19,6 +19,9 @@ public class CountdownTimer : MonoBehaviour {
 
 	private IEnumerator gameOverRoutine;
 
+	private bool _paused;
+	private bool gameOverInProgress;
+
 	// Use this for initialization
 	void Start () {
 		countdownStarted = false;
@@ -31,22 +34,20 @@ public class CountdownTimer : MonoBehaviour {
 		if (countdownStarted) {
 			//CountdownRoutine (Time.deltaTime);
 			if(Input.GetButtonDown("Pause") ){
-				Debug.Log ("Stop GameOverRoutine");
 				countdownStarted = false;
 				countdownVal = 9;
 				textDisplay.text = "";
 				//Respawn player
 				StopCoroutine (gameOverRoutine);
+				Debug.Log ("PlayerContinueEvent");
 				PlayerContinueEvent();
 			}
 		}
 	}
 
 	public void EndGame() {
-		Debug.Log ("EndGame");
 		countdownStarted = true;
 		countdownVal = 9;
-		Debug.Log ("coutdownVal: " + countdownVal);
 		textDisplay.text = countdownVal + "";
 		gameOverRoutine = GameOverRoutine ();
 		StartCoroutine(gameOverRoutine);
@@ -58,9 +59,7 @@ public class CountdownTimer : MonoBehaviour {
 
 	IEnumerator GameOverRoutine() {
 		//Fuck you I will write a while loop when it makes sense to do so not everything needs to be a for
-		Debug.Log("GameOverRoutine");
 		while(countdownVal != 0) {
-			Debug.Log("GameOverRoutine continues on!: " + countdownVal);
 			textDisplay.text = countdownVal + "";
 			yield return new WaitForSeconds (SECOND_LENGTH);
 			countdownVal--;
@@ -70,4 +69,5 @@ public class CountdownTimer : MonoBehaviour {
 			}
 		}
 	}
+		
 }

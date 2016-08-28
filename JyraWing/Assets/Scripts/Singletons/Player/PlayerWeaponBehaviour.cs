@@ -7,9 +7,11 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	IPlayerWeapon playerWeapon;
 
 	private List<GameObject> bulletPool;
-	private AudioSource fireSfx;
+	private AudioClip fireSfx;
 
 	public Player player;
+
+	private SoundEffectPlayer sfxPlayer;
 
 	protected bool _paused;
 
@@ -26,9 +28,9 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 			bullet = Instantiate(bullet);
 			bulletPool.Add(bullet);
 		}
-		fireSfx = gameObject.AddComponent<AudioSource> ();
+		sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 		//Shot sound
-		fireSfx.clip = Resources.Load ("Audio/SFX/shoot3") as AudioClip;
+		fireSfx = Resources.Load ("Audio/SFX/shoot3") as AudioClip;
 		_paused = false;
 		RegisterToList ();
 	}
@@ -56,7 +58,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 				if (!bullet.GetIsActive ()) {
 					bulletObj.transform.position = transform.position;
 					bullet.Shoot ();
-					fireSfx.Play ();
+					sfxPlayer.PlayClip(fireSfx);
 					return;
 				}
 			}
