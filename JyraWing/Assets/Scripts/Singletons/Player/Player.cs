@@ -99,7 +99,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
-		CountdownTimer.PlayerContinueEvent += () =>  StartCoroutine (returnFromHitCoroutine);
+		CountdownTimer.PlayerContinueEvent += StartReturnFromHitCoroutine;
 		Player.TakeDamageEvent += TakeDamage;
 
 	}
@@ -277,7 +277,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
-		CountdownTimer.PlayerContinueEvent -= () =>  StartCoroutine (returnFromHitCoroutine);
+		CountdownTimer.PlayerContinueEvent -= StartReturnFromHitCoroutine;
 		Player.TakeDamageEvent -= TakeDamage;
 	}
 
@@ -293,6 +293,10 @@ public class Player : MonoBehaviour, PauseableItem {
 		} else {
 			return false;
 		}
+	}
+
+	private void StartReturnFromHitCoroutine() {
+		StartCoroutine (returnFromHitCoroutine);
 	}
 
 }

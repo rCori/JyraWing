@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EnemyAIFollowShip.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\DataPersistence\LoadDataOnStart.cs" />
      <Compile Include="Assets\Scripts\DataPersistence\SaveData.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSpecialEncounterArcCrossovers.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeB.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
      <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />

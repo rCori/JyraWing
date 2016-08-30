@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemySpawnTurretWall : EnemySpawner {
 
 	public bool extraEnemies;
-	public bool spawnSpeedPowerup;
 
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;

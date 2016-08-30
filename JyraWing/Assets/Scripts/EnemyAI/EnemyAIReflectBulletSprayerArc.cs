@@ -15,15 +15,15 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 
 	public List<MoveInstruction> MoveInstructionList;
 
-    public float fireRate = 1.0f;
+    public float fireRate = 0.7f;
     private float fireTimer;
     private int currentMovementStep;
 
-    public float bulletSpeed = 1.5f;
+    public float bulletSpeed = 2.0f;
 
     private Vector2[] fireDirections;
 
-	private int SPRAYER_HEALTH = 4;
+	private int SPRAYER_HEALTH = 6;
 
 	void Awake() {
         EnemyDefaults();
@@ -36,7 +36,7 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
         SetAnimations(animationsOwned);
 
         currentMovementStep = 0;
-        fireTimer = 0.8f;
+        fireTimer = 0.4f;
 
         fireDirections = new Vector2[8];
         fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * bulletSpeed;

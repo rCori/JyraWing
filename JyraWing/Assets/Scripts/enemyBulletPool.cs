@@ -25,39 +25,52 @@ public class EnemyBulletPool : MonoBehaviour {
 		//Create the bullet pool, a list of GameObjects with the EnemyBullet script on it.
 		bulletPool = new List<GameObject> ();
 		for (int i = 0; i < totalBullets; i++) {
-			//Create bullet to put in pool.
-			GameObject bullet;
-			//Determine what kind of bullets are going in the pool
-			if(shieldablePool){
-				bullet = Resources.Load ("EnemyBulletShieldable") as GameObject;
-			}
-			else{
-				bullet = Resources.Load ("EnemyBullet") as GameObject;
-			}
-			bullet.transform.position = new Vector2(0f,10f);
-			bullet = Instantiate(bullet);
-			bullet.gameObject.SetActive(true);
-			bulletPool.Add(bullet);
+//			//Create bullet to put in pool.
+//			GameObject bullet;
+//			//Determine what kind of bullets are going in the pool
+//			if(shieldablePool){
+//				bullet = Resources.Load ("EnemyBulletShieldable") as GameObject;
+//			}
+//			else{
+//				bullet = Resources.Load ("EnemyBullet") as GameObject;
+//			}
+//			bullet.transform.position = new Vector2(0f,10f);
+//			bullet = Instantiate(bullet);
+//			bullet.gameObject.SetActive(true);
+//			bulletPool.Add(bullet);
+			GameObject newBullet = addBullet();
+			bulletPool.Add(newBullet);
 		}
 	}
 
 
 	public GameObject GetBullet(){
-		try{
-			for (int i= 0; i < totalBullets; i++) {
-				GameObject bulletObj = bulletPool [i];
-				EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
-				if (!bullet.GetIsActive ()) {;
-					return bulletObj;
-				}
+		for (int i= 0; i < totalBullets; i++) {
+			GameObject bulletObj = bulletPool [i];
+			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
+			if (!bullet.GetIsActive ()) {;
+				return bulletObj;
 			}
-			//If there is no bullet available that is an exception to throw.
-			throw new System.Exception();
 		}
-		catch(System.Exception e){
-			Debug.LogException(e);
-		}
-		return null;
+		//If no bullet of this type exists, create one and call recursivly to get it
+		GameObject newBullet = addBullet();
+		bulletPool.Add(newBullet);
+		return newBullet;
 	}
-	
+
+	private GameObject addBullet() {
+		GameObject bullet;
+		//Determine what kind of bullets are going in the pool
+		if(shieldablePool){
+			bullet = Resources.Load ("EnemyBulletShieldable") as GameObject;
+		}
+		else{
+			bullet = Resources.Load ("EnemyBullet") as GameObject;
+		}
+		bullet.transform.position = new Vector2(0f,10f);
+		bullet = Instantiate(bullet);
+		bullet.gameObject.SetActive(true);
+		return bullet;
+	}
+
 }

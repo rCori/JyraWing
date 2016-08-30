@@ -26,7 +26,7 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 	private float updateAnimTimer;
 	private float updateAnimTimeLimit;
 
-	private int TURRET_HEALTH = 3;
+	private int TURRET_HEALTH = 4;
 
 	//Two extra directions for shieldable bullets to be shot in
 	Vector2 upDir;
@@ -43,9 +43,9 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		upDir.Set (-1f, -3f);
 		downDir.Set (-1f, 3f);
 
-		shootTimer = 0.0f;
+		shootTimer = 1.8f;
 
-		shootTimeLimit = 3.0f;
+		shootTimeLimit = 2.5f;
 
 		animator = gameObject.GetComponent <Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;

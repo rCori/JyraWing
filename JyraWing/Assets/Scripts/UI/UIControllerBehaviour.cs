@@ -59,9 +59,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.GameOverEvent += ShowGameOver;
 		PauseControllerBehavior.PauseEvent += PauseMenu;
 		Player.TakeDamageEvent += DecreaseLives;
-		Player.TakeDamageEvent += () => {
-			slider.gameObject.SetActive (false);
-		};
+		Player.TakeDamageEvent += DisableShieldSlider;
 		PlayerShield.SetShieldPercentageEvent += UpdatePlayerShield;
 	}
 	
@@ -179,6 +177,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 		lifeMessageText.text = "Lives: " + uiController.GetStartingLifeCount ();
 	}
 
+	public void DisableShieldSlider() {
+		slider.gameObject.SetActive (false);
+	}
+
 	void OnDestroy() {
 		ScoreController.AddToScoreEvent -= UpdateScore;
 		CountdownTimer.PlayerContinueEvent -= HideGameOver;
@@ -187,9 +189,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 		PauseControllerBehavior.PauseEvent -= PauseMenu;
 		Player.TakeDamageEvent -= DecreaseLives;
-		Player.TakeDamageEvent -= () => {
-			slider.gameObject.SetActive (false);
-		};
+		Player.TakeDamageEvent -= DisableShieldSlider;
 		PlayerShield.SetShieldPercentageEvent -= UpdatePlayerShield;
 	}
 }

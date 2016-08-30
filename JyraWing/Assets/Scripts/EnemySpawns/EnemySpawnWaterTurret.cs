@@ -5,8 +5,6 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 
 	public Vector2 enemyPosition;
 
-	public int Health;
-
 	public EnemyAIWaterTurret.FireDirection Direction;
 
 	public EnemyBulletPool bulletPool;

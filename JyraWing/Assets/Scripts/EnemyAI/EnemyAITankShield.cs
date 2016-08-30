@@ -43,7 +43,7 @@ public class EnemyAITankShield : EnemyBehavior {
 	/// </summary>
 	private Vector2 downBul;
 
-	public int SHIELD_TANK_HEALTH = 7;
+	private int SHIELD_TANK_HEALTH = 7;
 
 	void Awake(){
 		EnemyDefaults ();

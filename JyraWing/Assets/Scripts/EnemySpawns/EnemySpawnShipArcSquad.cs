@@ -9,7 +9,8 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 
 	public float rowSpacing;
 	public float columnSpacing;
-	public float yShift;
+
+	public Vector2 initLocation = new Vector2(0f,0f);
 
 	public List<EnemyAIShipArc.MoveInstruction> moveInstructionList;
 
@@ -17,18 +18,19 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
 
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
 
-		float yOffset = -columns / 2f + yShift;
-		float xOffset = 8.0f;
+		float yOffset = initLocation.y;
+		float xOffset = initLocation.x;
 
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {
-				float xLoc = xOffset + i * rowSpacing;
-				float yLoc = yOffset + j * columnSpacing;
+				float xLoc = xOffset + j * columnSpacing;
+				float yLoc = yOffset + i * rowSpacing;
 				//Middle row
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
 				enemy.transform.position = new Vector2 (xLoc, yLoc);

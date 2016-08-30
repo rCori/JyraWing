@@ -4311,11 +4311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
-  columns: 2
+  rows: 2
+  columns: 3
   rowSpacing: 2
   columnSpacing: 2
-  yShift: 0
+  initLocation: {x: 8, y: 0}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -3, y: 0}
@@ -4494,11 +4494,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 1
-  columns: 3
+  rows: 3
+  columns: 1
   rowSpacing: 2
   columnSpacing: 2
-  yShift: -1
+  initLocation: {x: 8, y: 0}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
@@ -5060,11 +5060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
-  columns: 2
+  rows: 2
+  columns: 3
   rowSpacing: 1
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 8, y: 0}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -3, y: 1}
