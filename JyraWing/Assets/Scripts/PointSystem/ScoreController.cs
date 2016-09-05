@@ -26,6 +26,8 @@ public class ScoreController {
 
 	public static void ResetScore() {
 		CurrentScore = 0;
-		AddToScoreEvent (CurrentScore);
+		if (AddToScoreEvent != null) {
+			AddToScoreEvent (CurrentScore);
+		}
 	}
 }

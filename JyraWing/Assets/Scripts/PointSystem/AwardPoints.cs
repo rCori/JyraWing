@@ -8,6 +8,7 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 	private SoundEffectPlayer soundEffectPlayer;
 
 	private Animator animator;
+	private SpriteRenderer renderer;
 	private RuntimeAnimatorController point0Animation;
 	private RuntimeAnimatorController point1Animation;
 	private RuntimeAnimatorController point2Animation;
@@ -27,12 +28,14 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 		soundEffectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
 		audioClip = Resources.Load ("Audio/SFX/pointPickup") as AudioClip;
 		animator = GetComponent<Animator> ();
+		renderer = GetComponent<SpriteRenderer> ();
 		point0Animation = Resources.Load ("PointIconAnimations/PointIcon0/PointIcon0_0") as RuntimeAnimatorController;
 		point1Animation = Resources.Load ("PointIconAnimations/PointIcon1/PointIcon1_0") as RuntimeAnimatorController;
 		point2Animation = Resources.Load ("PointIconAnimations/PointIcon2/PointIcon2_0") as RuntimeAnimatorController;
 		point3Animation = Resources.Load ("PointIconAnimations/PointIcon3/PointIcon3_0") as RuntimeAnimatorController;
 		_paused = false;
 		isActive = false;
+		SetRendererEnabled (false);
 	}
 	
 	// Update is called once per frame
@@ -42,7 +45,6 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && isActive) {
-			Debug.Log ("Adding to score");
 			ScoreController.AddToScore (PointValue);
 			if (soundEffectPlayer && audioClip) {
 				soundEffectPlayer.PlayClip (audioClip);
@@ -78,6 +80,7 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 	}
 
 	public void MakeActive(){
+		SetRendererEnabled (true);
 		isActive = true;
 		if (StartScrolling != null) {
 			StartScrolling ();
@@ -85,6 +88,7 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 	}
 
 	public void DestroyPoint() {
+		SetRendererEnabled (false);
 		isActive = false;
 		if (ResetPosition != null) {
 			ResetPosition ();
@@ -132,6 +136,10 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 		if (pauseController != null) {
 			pauseController.DelistPauseableItem (this);
 		}
+	}
+
+	public void SetRendererEnabled(bool isEnabled){
+		renderer.enabled = isEnabled;
 	}
 
 	void OnDestroy() {

@@ -15,6 +15,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	private float timer = 0f;
 
 	private Animator animator;
+	private SpriteRenderer renderer;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,8 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		_paused = false;
 		timer = 0f;
 		animator = GetComponent<Animator> ();
+		renderer = GetComponent<SpriteRenderer> ();
+		SetRendererEnabled (false);
 		RegisterToList();
 	}
 	
@@ -67,10 +70,15 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		return shieldable;
 	}
 
+	public void SetRendererEnabled(bool isEnabled){
+		renderer.enabled = isEnabled;
+	}
+
 	private void Recycle(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
+		SetRendererEnabled(false);
 		timer = 0.0f;
 	}
 	

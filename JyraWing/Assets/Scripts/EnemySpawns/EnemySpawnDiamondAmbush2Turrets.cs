@@ -103,6 +103,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
+			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
 		}
@@ -114,7 +115,8 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
-		
+			enemyBehavior.pointIconPool = pointIconPool;
+
 			enemy = Instantiate (enemy);
 		}
 	}

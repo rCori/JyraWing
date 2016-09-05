@@ -174,7 +174,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		
 	IEnumerator returningFromHitRoutine(){
 		returnFromInProgress = true;
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (1f);
 		endSavePos = new Vector2 (-2.5f, 0f);
 		gameObject.transform.position = new Vector2 (-9.5f, 0f);
 		startSavePos = gameObject.transform.position;
@@ -198,7 +198,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	IEnumerator outOfLivesCoroutine() {
-		Debug.Log ("playerKilled");
 		gameController.PlayerKilled ();
 		yield return new WaitForSeconds (2f);
 		gameObject.transform.position = new Vector2 (-9.5f, 0f);

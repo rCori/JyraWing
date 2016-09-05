@@ -107,7 +107,6 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.LeftWallException = true;
 
 			EnemyAIShipArc ai7 = enemy.GetComponent<EnemyAIShipArc> ();
-			enemy.GetComponent<Scroll> ().speed = 1;
 
 			enemy = Instantiate (enemy);
 		}

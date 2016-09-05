@@ -1923,35 +1923,6 @@ MonoBehaviour:
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
---- !u!1 &658073921
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 658073922}
-  m_Layer: 0
-  m_Name: BlackBorder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &658073922
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 658073921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1308832892}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
 --- !u!1 &662371153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22b4b6941a9d5a4ca12061a871edb64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  POOL_SIZE: 10
+  POOL_SIZE: 3
 --- !u!4 &779304543
 Transform:
   m_ObjectHideFlags: 0
@@ -3265,6 +3236,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1302469076}
   m_RootOrder: 29
+--- !u!1 &1169824608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1169824610}
+  - 114: {fileID: 1169824609}
+  m_Layer: 0
+  m_Name: FramerateLimiter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1169824609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169824608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb162742f8bdf64f810d39619887001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  framerateTarget: 30
+--- !u!4 &1169824610
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169824608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &1238201734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,8 +3492,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 658073922}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!212 &1308832893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3507,7 +3519,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ecd367e1a96ce244b9ee579d48a8d8ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

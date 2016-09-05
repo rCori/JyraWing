@@ -261,7 +261,6 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 
 	IEnumerator MiddleShootRoutine() {
 		while(true) {
-			Debug.Log ("shooting first time");
 			Shoot (bulletDir[1] * 3.0f, false);
 			Shoot (bulletDir[4] * 3.0f, false);
 			Shoot (bulletDir[7] * 3.0f, false);
@@ -279,7 +278,6 @@ public class EnemyAINewBoss2 : EnemyBehavior {
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
 			yield return new WaitForSeconds (1.5f);
-			Debug.Log ("shooting second time");
 			Shoot (bulletDir[2] * 3.0f, false);
 			Shoot (bulletDir[7] * 3.0f, false);
 			Shoot (bulletDir[9] * 3.0f, false);

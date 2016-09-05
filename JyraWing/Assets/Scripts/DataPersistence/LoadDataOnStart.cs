@@ -7,5 +7,6 @@ public class LoadDataOnStart : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SaveData.Instance.LoadGame ();
+		ScoreController.ResetScore ();
 	}
 }

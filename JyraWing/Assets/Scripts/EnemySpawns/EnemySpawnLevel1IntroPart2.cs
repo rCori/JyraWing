@@ -3,9 +3,6 @@ using System.Collections;
 
 public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 
-	public int turretHealth;
-	public int shipHealth;
-
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
@@ -44,9 +41,14 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = enemy.GetComponent<EnemyAIShipArc> ();
-			enemy.GetComponent<Scroll> ().speed = 0;
 			enemy = Instantiate (enemy);
 		}
+
+		EnemyAIShipArc.MoveInstruction moveLeft = new EnemyAIShipArc.MoveInstruction();
+		moveLeft.type = EnemyBehavior.MovementStatus.Velocity;
+		moveLeft.startVelocity = new Vector2 (-2f, 0f);
+		moveLeft.time = 20f;
+
 
 		{
 			GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
@@ -57,7 +59,8 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = enemy.GetComponent<EnemyAIShipArc> ();
-			enemy.GetComponent<Scroll> ().speed = 0;
+			ai.MoveInstructionList.Clear ();
+			ai.MoveInstructionList.Add (moveLeft);
 			enemy = Instantiate (enemy);
 		}
 
@@ -71,7 +74,8 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = enemy.GetComponent<EnemyAIShipArc> ();
-			enemy.GetComponent<Scroll> ().speed = 0;
+			ai.MoveInstructionList.Clear ();
+			ai.MoveInstructionList.Add (moveLeft);
 			enemy = Instantiate (enemy);
 		}
 

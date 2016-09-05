@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	private bool _paused;
 	private Vector2 storedVel;
 	private Animator animator;
+	private SpriteRenderer renderer;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		_paused = false;
 		RegisterToList();
 		animator = GetComponent<Animator> ();
+		renderer = GetComponent<SpriteRenderer> ();
+		renderer.enabled = false;
 
 	}
 		
@@ -42,6 +45,8 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	public void Shoot(){
 		isActive = true;
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 0f);
+		renderer.enabled = true;
+
 	}
 
 	/// <summary>
@@ -68,7 +73,9 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		gameObject.transform.position = new Vector2(0,10f);
 		animator.SetInteger ("animState", 0);
 		isActive = false;
+		renderer.enabled = false;
 	}
+
 
 	/* Implementation of PauseableItem interface */
 	public bool paused

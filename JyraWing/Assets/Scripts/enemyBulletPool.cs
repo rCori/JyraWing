@@ -13,8 +13,10 @@ public class EnemyBulletPool : MonoBehaviour {
 	///<summary>
 	/// This pool will contains all bullets for all enemies
 	/// </summary>
-	List<GameObject> bulletPool;
-	
+	List<GameObject> bulletObjPool;
+	List<EnemyBullet> bulletPool;
+
+
 	/// <summary>
 	/// What kind of bullet pool is this? A pool of shieldable bullets or a pool of unshieldable bullets?
 	/// </summary>
@@ -23,7 +25,8 @@ public class EnemyBulletPool : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Create the bullet pool, a list of GameObjects with the EnemyBullet script on it.
-		bulletPool = new List<GameObject> ();
+		bulletObjPool = new List<GameObject> ();
+		bulletPool = new List<EnemyBullet> ();
 		for (int i = 0; i < totalBullets; i++) {
 //			//Create bullet to put in pool.
 //			GameObject bullet;
@@ -38,24 +41,29 @@ public class EnemyBulletPool : MonoBehaviour {
 //			bullet = Instantiate(bullet);
 //			bullet.gameObject.SetActive(true);
 //			bulletPool.Add(bullet);
-			GameObject newBullet = addBullet();
-			bulletPool.Add(newBullet);
+			GameObject newBulletObj = addBullet();
+			EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
+			bulletObjPool.Add(newBulletObj);
+			bulletPool.Add (newBullet);
 		}
 	}
 
 
 	public GameObject GetBullet(){
 		for (int i= 0; i < totalBullets; i++) {
-			GameObject bulletObj = bulletPool [i];
-			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
-			if (!bullet.GetIsActive ()) {;
+			GameObject bulletObj = bulletObjPool [i];
+			EnemyBullet bullet = bulletPool[i];
+			if (!bullet.GetIsActive ()) {
+				bullet.SetRendererEnabled (true);
 				return bulletObj;
 			}
 		}
 		//If no bullet of this type exists, create one and call recursivly to get it
-		GameObject newBullet = addBullet();
-		bulletPool.Add(newBullet);
-		return newBullet;
+		GameObject newBulletObj = addBullet();
+		EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
+		bulletObjPool.Add(newBulletObj);
+		bulletPool.Add (newBullet);
+		return newBulletObj;
 	}
 
 	private GameObject addBullet() {
