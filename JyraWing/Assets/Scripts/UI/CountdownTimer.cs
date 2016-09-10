@@ -39,7 +39,6 @@ public class CountdownTimer : MonoBehaviour {
 				textDisplay.text = "";
 				//Respawn player
 				StopCoroutine (gameOverRoutine);
-				Debug.Log ("PlayerContinueEvent");
 				PlayerContinueEvent();
 			}
 		}

@@ -378,6 +378,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 					try{
 						//Try to set the destroy animation
 						if(animator){
+							//Debug.Log("start destroy animation");
 							animator.SetInteger("animState", 2);
 						}
 						//If the animator does not exist, then animationOwned should not have the destory animation set
@@ -493,6 +494,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	}
 
 	public void SetAnimationToDefault() {
+		if (isDestroyed) {
+			return;
+		}
 		animator.SetInteger("animState", 0);
 	}
 

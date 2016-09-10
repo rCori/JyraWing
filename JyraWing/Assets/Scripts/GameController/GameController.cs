@@ -149,7 +149,7 @@ public class GameController {
 	}
 		
 
-	public void PlayerKilled(float startTimer = 2.5f){
+	public void PlayerKilled(){
 		GameOverEvent ();
 	}
 		

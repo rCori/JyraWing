@@ -99,6 +99,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
+		CountdownTimer.PlayerContinueEvent += PositionPlayerOffScreen;
 		CountdownTimer.PlayerContinueEvent += StartReturnFromHitCoroutine;
 		Player.TakeDamageEvent += TakeDamage;
 
@@ -173,10 +174,11 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 		
 	IEnumerator returningFromHitRoutine(){
+		Debug.Log ("returiningFromHitRoutine");
 		returnFromInProgress = true;
 		yield return new WaitForSeconds (1f);
 		endSavePos = new Vector2 (-2.5f, 0f);
-		gameObject.transform.position = new Vector2 (-9.5f, 0f);
+		PositionPlayerOffScreen ();
 		startSavePos = gameObject.transform.position;
 		takingDamage = TakingDamage.RETURNING;
 		HitEvent (TakingDamage.RETURNING);
@@ -198,9 +200,11 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	IEnumerator outOfLivesCoroutine() {
+		Debug.Log ("outOfLivesCoroutine");
 		gameController.PlayerKilled ();
-		yield return new WaitForSeconds (2f);
-		gameObject.transform.position = new Vector2 (-9.5f, 0f);
+		//yield return new WaitForSeconds (2f);
+		//PositionPlayerOffScreen ();
+		yield return null;
 
 	}
 
@@ -276,6 +280,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		PlayerInputController.UpDownEvent -= updatePlayerVert;
 		PlayerInputController.LeftRightEvent -= updatePlayerHoriz;
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
+		CountdownTimer.PlayerContinueEvent -= PositionPlayerOffScreen;
 		CountdownTimer.PlayerContinueEvent -= StartReturnFromHitCoroutine;
 		Player.TakeDamageEvent -= TakeDamage;
 	}
@@ -296,6 +301,10 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private void StartReturnFromHitCoroutine() {
 		StartCoroutine (returnFromHitCoroutine);
+	}
+
+	private void PositionPlayerOffScreen() {
+		gameObject.transform.position = new Vector2 (-9.5f, 0f);
 	}
 
 }

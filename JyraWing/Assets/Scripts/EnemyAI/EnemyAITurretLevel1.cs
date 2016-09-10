@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
+//This class has a recurring issue with getting stuck in neutral animation after being destroyed
+//I think I fixed it, but if it crops up again, debug EnemyBehavior.SetAnimationToDefault and see
+//if it goes through to set the animation state when it shouldn't, like if animation state is 2.
 public class EnemyAITurretLevel1 : EnemyBehavior {
 	
 	/// <summary>
@@ -91,12 +95,18 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		if (isDestroyed) {
 			return;
 		}
+		if (IsDestroyAnimation()) {
+			Debug.Log ("Got stuck in StartShootAnimation!");
+		}
 		animator.SetInteger ("animState", 3);
 	}
 
 	public void ShootAtSetTarget() {
 		if (isDestroyed) {
 			return;
+		}
+		if (IsDestroyAnimation()) {
+			Debug.Log ("Got stuck in ShootAtSetTarget!");
 		}
 		Shoot(fireDir);
 		//Only shoot 
@@ -105,5 +115,10 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 			Shoot(upDir,true);
 			Shoot(downDir, true);
 		}
+	}
+
+	private bool IsDestroyAnimation() {
+		int animState = animator.GetInteger ("animState");
+		return animState == 2;
 	}
 }
