@@ -74,12 +74,12 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 
 				EnemyAIReflectBulletSprayerA enemyAI = sprayerEnemy.GetComponent<EnemyAIReflectBulletSprayerA> ();
 				enemyAI.locations = new List<Vector2> {
-					new Vector2 (6.0f, 3.0f), 
+					new Vector2 (9.0f, 3.0f), 
 					new Vector2 (-6.0f, 3.0f),
 					new Vector2 (-6.0f, -3.0f), 
-					new Vector2 (11.0f, -3.0f),
+					new Vector2 (9.0f, -3.0f),
 				};
-				enemyAI.times = new List<float> { 1.5f, 3.0f, 3.0f, 1.7f };
+				enemyAI.times = new List<float> { 1.5f, 3.0f, 2.5f, 3.5f };
 			}
 		}
 	}

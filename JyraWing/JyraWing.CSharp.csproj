@@ -69,13 +69,15 @@
     <Compile Include="Assets\Scripts\DataPersistence\SaveData.cs" />
     <Compile Include="Assets\Scripts\Effect.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss2.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss3.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyAINewBoss2.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerArc.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipArc.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipFollow.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIShipLevel1SpecialEncounter.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleCircle.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAISimpleOscillate.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\Boss3Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossNew2Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn4x8MixedGrid.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn5DiamondsOscillating.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6DiamondsIncoming.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn6StationaryShips4OscillatingDiamonds.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
@@ -110,6 +114,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeB.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFollowShip.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />
@@ -185,9 +190,6 @@
     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIControllerBehaviour.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Rik4kProductions - Trance &amp; Progressive FREE\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

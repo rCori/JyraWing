@@ -52,7 +52,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 			{
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
 				enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
-					spawnPos.y + 3.5f,
+					spawnPos.y + 3.2f,
 					spawnPos.z);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 				enemyBehavior.bulletPool = bulletPool;

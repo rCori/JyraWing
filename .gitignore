@@ -65,3 +65,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.mp3
+*.mp3.meta
+*.xcf
+*.wav.meta

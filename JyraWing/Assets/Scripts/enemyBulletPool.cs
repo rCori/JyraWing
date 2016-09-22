@@ -28,7 +28,7 @@ public class EnemyBulletPool : MonoBehaviour {
 		bulletObjPool = new List<GameObject> ();
 		bulletPool = new List<EnemyBullet> ();
 		for (int i = 0; i < totalBullets; i++) {
-//			//Create bullet to put in pool.
+			//Create bullet to put in pool.
 //			GameObject bullet;
 //			//Determine what kind of bullets are going in the pool
 //			if(shieldablePool){
@@ -58,13 +58,18 @@ public class EnemyBulletPool : MonoBehaviour {
 				return bulletObj;
 			}
 		}
-		//If no bullet of this type exists, create one and call recursivly to get it
-		GameObject newBulletObj = addBullet();
-		EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
-		bulletObjPool.Add(newBulletObj);
-		bulletPool.Add (newBullet);
-		return newBulletObj;
-	}
+        //If no bullet of this type exists, create one and call recursivly to get it
+        //GameObject newBulletObj = addBullet();
+        //EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
+        //bulletObjPool.Add(newBulletObj);
+        //bulletPool.Add (newBullet);
+        GameObject newBulletObj = addBullet();
+        EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet>();
+        bulletObjPool.Add(newBulletObj);
+        bulletPool.Add(newBullet);
+        totalBullets++;
+        return newBulletObj;
+    }
 
 	private GameObject addBullet() {
 		GameObject bullet;
