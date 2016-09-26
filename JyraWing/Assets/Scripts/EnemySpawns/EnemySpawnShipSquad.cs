@@ -10,7 +10,6 @@ public class EnemySpawnShipSquad : EnemySpawner {
 	public float columnSpacing;
 	public float yShift;
 
-	public float speed;
 	public float lifeTime;
 
 	public EnemyBulletPool bulletPool;
@@ -37,8 +36,7 @@ public class EnemySpawnShipSquad : EnemySpawner {
 				enemyBehavior.shieldableBullets = false;
 				EnemyAIBasicShip ai = enemy.GetComponent<EnemyAIBasicShip> ();
 				ai.angle = 180;
-				ai.speed = speed;
-				ai.lifeTime = lifeTime + i*speed;
+                ai.lifeTime = lifeTime;
 				ai.shootInDirection = true;
 				enemy.GetComponent<Scroll> ().speed = 1;
 				enemy = Instantiate (enemy);

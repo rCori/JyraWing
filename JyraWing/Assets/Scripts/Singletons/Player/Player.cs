@@ -174,7 +174,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 		
 	IEnumerator returningFromHitRoutine(){
-		Debug.Log ("returiningFromHitRoutine");
 		returnFromInProgress = true;
 		yield return new WaitForSeconds (1f);
 		endSavePos = new Vector2 (-2.5f, 0f);

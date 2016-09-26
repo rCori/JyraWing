@@ -44,15 +44,19 @@ public class PlayerWeapon : IPlayerWeapon {
 
 	public void AutoFire(bool down) {
 		_isAutoFire = down;
-		autoFireTimer = 1f;
+		//autoFireTimer = 1f;
 	}
 
-	public bool UpdateAutoFire (float delta) {
+	public void UpdateAutoFire (float delta) {
 		autoFireTimer += delta;
-		if (autoFireTimer > AUTOFIRETIMELIMIT) {
-			autoFireTimer = 0f;
-			return true;
-		}
-		return false;
+
 	}
+
+    public bool CanAutoFire() {
+        if (autoFireTimer > AUTOFIRETIMELIMIT && _isAutoFire) {
+            autoFireTimer = 0f;
+            return true;
+        }
+        return false;
+    }
 }

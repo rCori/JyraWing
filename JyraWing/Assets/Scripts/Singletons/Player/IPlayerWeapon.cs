@@ -3,7 +3,8 @@ using System.Collections;
 
 public interface IPlayerWeapon {
 
-	bool UpdateAutoFire (float delta);
+	void UpdateAutoFire (float delta);
+    bool CanAutoFire();
 	void AutoFire(bool down);
 	int WeaponLevel {
 		get;

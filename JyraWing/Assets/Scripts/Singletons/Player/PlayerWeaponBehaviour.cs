@@ -17,7 +17,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 
 	// Use this for initialization
 	void Start () {
-		PlayerInputController.FireButton += ShootBehavior;
+		//PlayerInputController.FireButton += ShootBehavior;
 		PlayerInputController.AutoFireButton += AutoFireBehaviour;
 		playerWeapon = new PlayerWeapon ();
 		//Bullet pool of player bullets.
@@ -36,9 +36,10 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	}
 
 	void Update() {
-		if (playerWeapon.IsAutoFire) {
-			bool autoFireShot = playerWeapon.UpdateAutoFire (Time.deltaTime);
-			if (autoFireShot && !_paused) {
+        playerWeapon.UpdateAutoFire(Time.deltaTime);
+        if (playerWeapon.CanAutoFire()) {
+			//bool autoFireShot = playerWeapon.UpdateAutoFire (Time.deltaTime);
+			if (!_paused) {
 				ShootBehavior (true);
 			}
 		}
@@ -98,7 +99,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	}
 
 	void OnDestroy() {
-		PlayerInputController.FireButton -= ShootBehavior;
+		//PlayerInputController.FireButton -= ShootBehavior;
 		PlayerInputController.AutoFireButton -= AutoFireBehaviour;
 	}
 }
