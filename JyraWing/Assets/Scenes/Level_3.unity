@@ -857,7 +857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c87604d5156acc46970678e45b9fa8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 092e956026ba5754a80b589cd1478852, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1723,7 +1723,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ea92ec1485609f146af89b007d30b757, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8930cc3e9de3a014aa4b856f3b8de996, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2158,7 +2158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c87604d5156acc46970678e45b9fa8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 092e956026ba5754a80b589cd1478852, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2766,7 +2766,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c87604d5156acc46970678e45b9fa8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 092e956026ba5754a80b589cd1478852, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3628,7 +3628,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14ec3efd19920314d84f0f779d1dc42b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f09acbea55d1d95488a3d7d00d7bb15f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3697,6 +3697,10 @@ Prefab:
       objectReference: {fileID: 1565716360}
     - target: {fileID: 488504, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: DEBUGNODAMAGE
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
