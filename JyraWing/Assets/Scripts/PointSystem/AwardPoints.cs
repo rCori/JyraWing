@@ -23,6 +23,8 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 
 	private PauseControllerBehavior pauseController;
 
+    private Player player;
+
 	// Use this for initialization
 	void Awake () {
 		soundEffectPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer> ();
@@ -45,11 +47,13 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && isActive) {
-			ScoreController.AddToScore (PointValue);
-			if (soundEffectPlayer && audioClip) {
-				soundEffectPlayer.PlayClip (audioClip);
-			}
-			DestroyPoint ();
+            if (!player.IsPlayerTakingDamage()) {
+                ScoreController.AddToScore(PointValue);
+                if (soundEffectPlayer && audioClip) {
+                    soundEffectPlayer.PlayClip(audioClip);
+                }
+                DestroyPoint();
+            }
 		}
 	}
 
@@ -102,6 +106,10 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 		this.pauseController = pauseController;
 		RegisterToList ();
 	}
+
+    public void SetPlayer(Player player) {
+        this.player = player;
+    }
 
 	/* Implementation of PauseableItem interface */
 	public bool paused

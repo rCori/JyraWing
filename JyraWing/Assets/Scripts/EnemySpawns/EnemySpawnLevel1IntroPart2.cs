@@ -13,7 +13,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (8.5f, 2.8f, 0f);
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
@@ -23,7 +23,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 		}
 
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (8.5f, -3.3f, 0f);
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;

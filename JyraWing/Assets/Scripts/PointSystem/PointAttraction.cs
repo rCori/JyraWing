@@ -15,6 +15,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	private AwardPoints awardPointsBehavior;
 
 	private Scroll scrollComponent;
+    private Player player;
 
 	void Awake() {
 		startAttraction = false;
@@ -34,6 +35,9 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && !startAttraction) {
+            if(player.IsPlayerTakingDamage()) {
+                return;
+            }
 			startAttraction = true;
 			playerCollider = other;
 			Vector3 direction = other.transform.position - transform.position;
@@ -45,9 +49,13 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	void Update() {
 		if (_paused) return;
 		if (startAttraction && playerCollider != null) {
-			Vector3 direction = playerCollider.transform.position - transform.position;
-			direction.Normalize ();
-			pointRigidBody.velocity = (strengthOfAttraction * direction);
+            if (player.IsPlayerTakingDamage()) {
+                pointRigidBody.velocity = Vector2.zero;
+            } else {
+                Vector3 direction = playerCollider.transform.position - transform.position;
+                direction.Normalize();
+                pointRigidBody.velocity = (strengthOfAttraction * direction);
+            }
 		}
 	}
 
@@ -72,6 +80,10 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 		awardPointsBehavior.StartScrolling -= () => {scrollComponent.speed = 1;};
 		awardPointsBehavior.EndScrolling -= () => {scrollComponent.speed = 0;};
 	}
+
+    public void SetPlayer(Player player) {
+        this.player = player;
+    }
 
 	public void SetPauseController(PauseControllerBehavior pauseController) {
 		this.pauseController = pauseController;

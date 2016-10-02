@@ -1153,7 +1153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a38aea03629582438fedca7844a7710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseControllerBehavior: {fileID: 0}
+  player: {fileID: 2091039851}
+  pauseControllerBehavior: {fileID: 1843120173}
 --- !u!4 &662452802
 Transform:
   m_ObjectHideFlags: 0

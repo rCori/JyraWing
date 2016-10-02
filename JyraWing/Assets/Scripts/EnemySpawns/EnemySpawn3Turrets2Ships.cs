@@ -56,7 +56,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 		//bottom standard turret
 		{
 
-			GameObject standardTurret = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject standardTurret = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			standardTurret.transform.position = new Vector3 (8.0f, 3.0f, 0f);
 			EnemyBehavior enemyBehavior = standardTurret.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;

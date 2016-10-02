@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class PointIconPool : MonoBehaviour {
 
+    public Player player;
+
 	List<GameObject> iconPool;
 	List<AwardPoints> iconAwardPointsPool;
 	List<PointAttraction> pointAttractionPool;
@@ -48,7 +50,9 @@ public class PointIconPool : MonoBehaviour {
 
 		GameObject pointAttractionObject = icon.transform.GetChild (0).gameObject;
 		AwardPoints awardPointsBehavior = pointAttractionObject.GetComponent<AwardPoints> ();
+        awardPointsBehavior.SetPlayer(player);
 		PointAttraction pointAttractionBehavior = pointAttractionObject.transform.parent.GetComponent<PointAttraction> ();
+        pointAttractionBehavior.SetPlayer(player);
 
 		iconPool.Add (icon);
 		iconAwardPointsPool.Add (awardPointsBehavior);

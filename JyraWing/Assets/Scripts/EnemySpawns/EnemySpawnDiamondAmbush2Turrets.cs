@@ -98,7 +98,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 
 		//Top turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (7.0f, 3.0f, 0f);
 
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
@@ -110,7 +110,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 
 		//Bottom turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (7.0f, -3.0f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();

@@ -43,6 +43,8 @@ public class EnemyAITank : EnemyBehavior {
 	/// </summary>
 	private Vector2 downBul;
 
+    private float bulletSpeed = 2.0f;
+
 	public int TANK_HEALTH = 5;
 
 	void Awake(){
@@ -58,14 +60,16 @@ public class EnemyAITank : EnemyBehavior {
 
 			straightBul = new Vector2 (-2f, 0);
 
-			upBul = new Vector2(-2f,0.5f);
-			//upBul.Normalize();
-			//upBul *= 2;
+            upBul = new Vector2(-1.7f, 0.3f);
+            //upBul = upBul / upBul.magnitude * bulletSpeed;
+            //upBul.Normalize();
+            //upBul *= 2;
 
-			downBul = new Vector2(-2f,-0.5f);
-			//downBul.Normalize();
-			//downBul *= -2;
-			LeftWallException = false;
+            downBul = new Vector2(-1.7f, -0.3f);
+            //downBul = downBul / downBul.magnitude * bulletSpeed;
+            //downBul.Normalize();
+            //downBul *= -2;
+            LeftWallException = false;
 			break;
 		case TankDir.Right:
 			fastVec = new Vector2(2.5f, 0f);

@@ -176,6 +176,7 @@
     <Compile Include="Assets\Scripts\Singletons\Player\IPlayerWeapon.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Player\PlayerAnimation2.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerShield.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerShieldBehaviour.cs" />

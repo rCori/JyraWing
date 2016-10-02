@@ -2905,6 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a38aea03629582438fedca7844a7710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1565716360}
   pauseControllerBehavior: {fileID: 782599691}
 --- !u!4 &1210626210
 Transform:

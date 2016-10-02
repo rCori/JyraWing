@@ -43,7 +43,9 @@ public class EnemyAITankShield : EnemyBehavior {
 	/// </summary>
 	private Vector2 downBul;
 
-	private int SHIELD_TANK_HEALTH = 7;
+    private float bulletSpeed = 2.0f;
+
+    private int SHIELD_TANK_HEALTH = 7;
 
 	void Awake(){
 		EnemyDefaults ();
@@ -58,14 +60,16 @@ public class EnemyAITankShield : EnemyBehavior {
 
 			straightBul = new Vector2 (-2f, 0);
 
-			upBul = new Vector2(-2f,0.5f);
-			//upBul.Normalize();
-			//upBul *= 2;
+            upBul = new Vector2(-1.7f, 0.3f);
+            //upBul.Scale(upBul)
+            //upBul.Normalize();
+            //upBul *= 2;
 
-			downBul = new Vector2(-2f,-0.5f);
-			//downBul.Normalize();
-			//downBul *= -2;
-			LeftWallException = false;
+            downBul = new Vector2(-1.7f, -0.3f);
+            //downBul = downBul / downBul.magnitude * bulletSpeed;
+            //downBul.Normalize();
+            //downBul *= -2;
+            LeftWallException = false;
 			break;
 		case TankDir.Right:
 			fastVec = new Vector2(2.5f, 0f);
@@ -121,23 +125,7 @@ public class EnemyAITankShield : EnemyBehavior {
 		animationsOwned = HasAnimations.Destroy;
 		
 		SetAnimations (animationsOwned);
-		//SetHitAnimationName ("tank_hit");
 		SetEnemyHealth (SHIELD_TANK_HEALTH);
-
-//		GameObject pointIcon = Resources.Load ("Pickups/PointIcons/PointIcon1_0") as GameObject;
-//		EnemyBehavior.PointObjectRelative origin1PointObject = new EnemyBehavior.PointObjectRelative ();
-//		origin1PointObject.pointObject = pointIcon;
-//		origin1PointObject.relativePos = new Vector2 (-0.1f, 0.1f);
-//
-//		GameObject pointIcon2 = Resources.Load ("Pickups/PointIcons/PointIcon3_0") as GameObject;
-//		EnemyBehavior.PointObjectRelative origin2PointObject = new EnemyBehavior.PointObjectRelative ();
-//		origin2PointObject.pointObject = pointIcon;
-//		origin2PointObject.relativePos = new Vector2 (0.2f, -0.3f);
-//
-//		List<EnemyBehavior.PointObjectRelative> pointSpawns = new List<EnemyBehavior.PointObjectRelative> ();
-//		pointSpawns.Add (origin1PointObject);
-//		pointSpawns.Add (origin2PointObject);
-//		SetPointObject (pointSpawns);
 
 		GivePointObject (1, 0.3f);
 		GivePointObject (3, 0.5f);

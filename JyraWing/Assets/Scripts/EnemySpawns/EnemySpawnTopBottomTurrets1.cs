@@ -20,7 +20,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 		if (top) {
 			//top
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (5.5f, 3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;
@@ -30,7 +30,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 			}
 
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (8.5f, 3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;
@@ -40,7 +40,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 			}
 
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (11.5f, 3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;
@@ -52,7 +52,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 
 		if (bottom) {
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (5.5f, -3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;
@@ -62,7 +62,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 			}
 
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (8.5f, -3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;
@@ -72,7 +72,7 @@ public class EnemySpawnTopBottomTurrets : EnemySpawner {
 			}
 
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (11.5f, -3.7f, 0f);
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 				enemyBehavior.bulletPool = bulletPool;

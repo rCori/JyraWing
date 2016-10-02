@@ -13,7 +13,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 	{
 		Vector3 spawnPos = gameObject.transform.position;
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
 				spawnPos.y,
 				spawnPos.z);
@@ -25,7 +25,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 		}
 
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
 				spawnPos.y - 2.5f,
 				spawnPos.z);
@@ -37,7 +37,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 		}
 
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
 				spawnPos.y + 2.5f,
 				spawnPos.z);
@@ -50,7 +50,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 
 		if (extraEnemies) {
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
 					spawnPos.y + 3.2f,
 					spawnPos.z);
@@ -62,7 +62,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 			}
 
 			{
-				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+				GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 				enemy.transform.position = new Vector3 (spawnPos.x + 0.5f,
 					spawnPos.y - 3.5f,
 					spawnPos.z);

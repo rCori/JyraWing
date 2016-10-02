@@ -11,7 +11,7 @@ public class EnemySpawnTurret : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+		GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 		enemy.transform.position = position;
 		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 		enemyBehavior.bulletPool = bulletPool;

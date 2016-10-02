@@ -29,10 +29,10 @@ public class EnemyAIShipArc : EnemyBehavior {
 		LeftWallException = true;
 
 		HasAnimations animationsOwned;
-		animationsOwned = HasAnimations.Hit | HasAnimations.Destroy;
+		animationsOwned =  HasAnimations.Destroy;
 
 		SetAnimations (animationsOwned);
-		SetHitAnimationName ("enemy4_B_hit");
+		//SetHitAnimationName ("enemy4_B_hit");
 
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);

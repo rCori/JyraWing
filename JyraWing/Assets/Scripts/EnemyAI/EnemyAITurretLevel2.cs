@@ -39,24 +39,24 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 		//Set the direction the turret shoots in
 		switch(fireDirection){
 		case(FireDirection.DOWN):
-			shootDir0 = new Vector2 (-0.4f, -BulletSpeed);
+			shootDir0 = new Vector2 (-0.4f, -BulletSpeed * 0.85f);
 			shootDir1 = new Vector2 (0f, -BulletSpeed);
-			shootDir2 = new Vector2 (0.4f, -BulletSpeed);
+			shootDir2 = new Vector2 (0.4f, -BulletSpeed * 0.85f);
 			break;
 		case(FireDirection.UP):
-			shootDir0 = new Vector2 (-0.4f, BulletSpeed);
+			shootDir0 = new Vector2 (-0.4f, BulletSpeed * 0.85f);
 			shootDir1 = new Vector2(0f, BulletSpeed);
-			shootDir2 = new Vector2(0.4f,BulletSpeed);
+			shootDir2 = new Vector2(0.4f, BulletSpeed * 0.85f);
 			break;
 		case(FireDirection.LEFT):
-			shootDir0 = new Vector2(-BulletSpeed, 0.4f);
+			shootDir0 = new Vector2(-BulletSpeed * 0.85f, 0.4f);
 			shootDir1 = new Vector2(-BulletSpeed, 0f);
-			shootDir2 = new Vector2(-BulletSpeed, -0.4f);
+			shootDir2 = new Vector2(-BulletSpeed * 0.85f, -0.4f);
 			break;
 		case(FireDirection.RIGHT):
-			shootDir0 = new Vector2(BulletSpeed, 0.4f);
+			shootDir0 = new Vector2(BulletSpeed * 0.85f, 0.4f);
 			shootDir1 = new Vector2(BulletSpeed, 0f);
-			shootDir2 = new Vector2(BulletSpeed, -0.4f);
+			shootDir2 = new Vector2(BulletSpeed * 0.85f, -0.4f);
 			break;
 		}
 

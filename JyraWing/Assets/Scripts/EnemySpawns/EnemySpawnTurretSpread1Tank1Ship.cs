@@ -13,7 +13,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 		//First bottom turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (9.0f, -3.5f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
@@ -27,7 +27,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 		//Second bottom turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (12.0f, -1.5f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
@@ -41,7 +41,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 		//Third top turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (12.0f, 1.5f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
@@ -55,7 +55,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 		//Fourth top turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (15.0f, 3.0f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
@@ -68,7 +68,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 
 		//Fifth top turret
 		{
-			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/TurretEnemyLevel1");
+			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
 			enemy.transform.position = new Vector3 (18.0f, 3.0f, 0f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
