@@ -5,8 +5,6 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 
 	public Vector2 enemyPosition;
 
-	public EnemyAIWaterTurret.FireDirection Direction;
-
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
@@ -21,8 +19,6 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.pointIconPool = pointIconPool;
 		enemyBehavior.LeftWallException = false;
-
-		enemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = Direction;
 		enemy = Instantiate (enemy);
 	}
 }

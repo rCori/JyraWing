@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss2.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss3.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondArc.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
@@ -108,9 +109,12 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnCornerSprayer2Tanks.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamond.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondAmbush2Turrets.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondArc.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondArcSquad.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondScatteredArray.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSpecialEncounterArcCrossovers.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondSquad.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnDiamondsquadArcInShipSquadStraightIn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterBSquad.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeB.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />

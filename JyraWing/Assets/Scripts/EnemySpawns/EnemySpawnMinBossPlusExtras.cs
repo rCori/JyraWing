@@ -41,7 +41,6 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 				enemyBehavior.pointIconPool = pointIconPool;
 				enemyBehavior.LeftWallException = false;
 
-				enemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = EnemyAIWaterTurret.FireDirection.LEFT;
 				enemy = Instantiate (enemy);
 			}
 
@@ -55,7 +54,6 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 				enemyBehavior.pointIconPool = pointIconPool;
 				enemyBehavior.LeftWallException = false;
 
-				enemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = EnemyAIWaterTurret.FireDirection.LEFT;
 				enemy = Instantiate (enemy);
 			}
 		}

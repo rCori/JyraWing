@@ -49,7 +49,6 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = false;
 		
-			waterTurretEnemy.GetComponent<EnemyAIWaterTurret> ().fireDirection = EnemyAIWaterTurret.FireDirection.LEFT;
 			waterTurretEnemy = Instantiate (waterTurretEnemy);
 		}
 

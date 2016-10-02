@@ -3,19 +3,10 @@ using System.Collections;
 
 public class EnemyAIWaterTurret : EnemyBehavior{
 
-	public enum FireDirection{
-		LEFT = 0,
-		RIGHT,
-		UP,
-		DOWN,
-	}
-
 	//Define the rate of fire
-	private float FireRate = 1.5f;
+	private float FireRate = 0.6f;
 	//Define how fast the bullets fire
 	private float BulletSpeed = 4.0f;
-	//WHat direction the enemy is facing
-	public FireDirection fireDirection;
 
 	private int WATER_TURRET_HEALTH = 8;
 
@@ -25,9 +16,11 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 	
 	void Awake(){
 		EnemyDefaults ();
-		
-		//Set the explosions sound
-		animator = gameObject.GetComponent <Animator> ();
+        shootDir = gameController.playerPosition - gameObject.transform.position;
+        shootDir.Normalize();
+        shootDir.Set(shootDir.x * 4, shootDir.y * 4);
+        //Set the explosions sound
+        animator = gameObject.GetComponent <Animator> ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
 		
@@ -37,22 +30,6 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 		
 		SetAnimations (animationsOwned);
 		//SetHitAnimationName ("waterTurret_hit");
-		
-		//Set the direction the turret shoots in
-		switch(fireDirection){
-		case(FireDirection.DOWN):
-			shootDir = new Vector2 (0f, -BulletSpeed);
-			break;
-		case(FireDirection.UP):
-			shootDir = new Vector2(0f, BulletSpeed);
-			break;
-		case(FireDirection.LEFT):
-			shootDir = new Vector2(-BulletSpeed, 0f);
-			break;
-		case(FireDirection.RIGHT):
-			shootDir = new Vector2(BulletSpeed, 0f);
-			break;
-		}
 		
 		//Set timer to it's upper limit 
 		timer = FireRate;
@@ -69,11 +46,14 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 		if (isDestroyed || _paused) {
 			return;
 		}
-		Movement ();
+        Movement ();
 		
 		timer -= Time.deltaTime;
 		if (timer <= 0) {
-			Shoot (shootDir, true);
+            shootDir = gameController.playerPosition - gameObject.transform.position;
+            shootDir.Normalize();
+            shootDir.Set(shootDir.x * 4, shootDir.y * 4);
+            Shoot (shootDir, true);
 			timer = FireRate;
 		}
 		

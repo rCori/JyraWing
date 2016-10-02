@@ -4,8 +4,6 @@ using System.Collections;
 public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
 
-	private EnemyAIWaterTurret.FireDirection direction = EnemyAIWaterTurret.FireDirection.LEFT;
-
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
@@ -23,7 +21,6 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 
 			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
-			enemyAI.fireDirection = direction;
 			enemy = Instantiate (enemy);
 		}
 		/* bottom turret */
@@ -38,7 +35,6 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 
 			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
-			enemyAI.fireDirection = direction;
 			enemy = Instantiate (enemy);
 		}
 	}

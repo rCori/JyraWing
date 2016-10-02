@@ -21,10 +21,10 @@ public class EnemySpawnDiamondSquad : EnemySpawner {
 
 		float yOffset = enemyPosition.y -columns / 2f + yShift;
 		float xOffset = enemyPosition.x;
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
+		for (int i = 0; i < columns; i++) {
+			for (int j = 0; j < rows; j++) {
 				GameObject enemy = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
-				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
+				enemy.transform.position = new Vector2 (xOffset + i*columnSpacing, yOffset + j*rowSpacing);
 
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 				enemyBehavior.pointIconPool = pointIconPool;
