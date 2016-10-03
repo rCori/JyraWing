@@ -99,9 +99,13 @@ MonoBehaviour:
   shieldableBullets: 0
   MoveInstructionList:
   - type: 3
-    startVelocity: {x: 2, y: 0}
+    startVelocity: {x: -2.5, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 6
+    time: 10
+  - type: 3
+    startVelocity: {x: -2.5, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 10
 --- !u!212 &21202418
 SpriteRenderer:
   m_ObjectHideFlags: 1
