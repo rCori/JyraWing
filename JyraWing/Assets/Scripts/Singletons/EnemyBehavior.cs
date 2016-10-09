@@ -596,6 +596,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	{
 		if (GameObject.Find ("PauseController")) {
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+            _paused = GameObject.Find("PauseController").GetComponent<PauseControllerBehavior>().IsPaused;
 		}
 	}
 	

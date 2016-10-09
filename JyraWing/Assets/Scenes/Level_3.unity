@@ -3704,6 +3704,10 @@ Prefab:
       propertyPath: DEBUGNODAMAGE
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: speed
+      value: 3.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
   m_IsPrefabParent: 0

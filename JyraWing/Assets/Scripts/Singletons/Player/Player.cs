@@ -52,6 +52,8 @@ public class Player : MonoBehaviour, PauseableItem {
 	private IEnumerator returnFromHitCoroutine;
 	private bool returnFromInProgress;
 
+    private BoxCollider2D hitCollider;
+
 	public enum TakingDamage
 	{
 		NONE = 0,
@@ -96,6 +98,15 @@ public class Player : MonoBehaviour, PauseableItem {
 
 		returnFromHitCoroutine = returningFromHitRoutine ();
 		returnFromInProgress = false;
+
+        //There are two colliders on the player, we need to get the one that determines hit detection
+        //and not physical interaction with the borders of the game.
+        BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
+        foreach(BoxCollider2D boxCollider2D in colliders) {
+            if(boxCollider2D.isTrigger) {
+                hitCollider = boxCollider2D;
+            }
+        }
 
 		PlayerInputController.UpDownEvent += updatePlayerVert;
 		PlayerInputController.LeftRightEvent += updatePlayerHoriz;
@@ -175,6 +186,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 		
 	IEnumerator returningFromHitRoutine(){
+        hitCollider.enabled = false;
 		returnFromInProgress = true;
 		yield return new WaitForSeconds (1f);
 		endSavePos = new Vector2 (-2.5f, 0f);
@@ -182,25 +194,21 @@ public class Player : MonoBehaviour, PauseableItem {
 		startSavePos = gameObject.transform.position;
 		takingDamage = TakingDamage.RETURNING;
 		HitEvent (TakingDamage.RETURNING);
-        Debug.Log("After TakingDamage.RETURNING");
 		yield return new WaitForSeconds (2.0f);
 		float startTime = Time.time;
 		while (Time.time < startTime + returningRecoveryTime) {
-            Debug.Log("Moving Player");
 			gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, (Time.time - startTime)/returningRecoveryTime);
 			yield return null;
 		}
-        Debug.Log("Done moving player");
 		gameObject.transform.position = endSavePos;
 		takingDamage = TakingDamage.BLINKING;
 		HitEvent (TakingDamage.BLINKING);
-        Debug.Log("After TakingDamage.BLINKING");
 		yield return new WaitForSeconds (3.5f);
 		playerShield.EnableShield ();
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
 		HitEvent (TakingDamage.NONE);
-        Debug.Log("After TakingDamage.NONE");
+        hitCollider.enabled = true;
 		returnFromInProgress = false;
 	}
 

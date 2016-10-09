@@ -886,8 +886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad2b82119071d4438d1dffde4f17fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameController: {fileID: 0}
-  levelControllerBehavior: {fileID: 0}
+  GameController: {fileID: 1251401419}
+  levelControllerBehavior: {fileID: 72239087}
 --- !u!4 &423125654
 Transform:
   m_ObjectHideFlags: 0
@@ -1480,7 +1480,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ecd367e1a96ce244b9ee579d48a8d8ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2444,6 +2444,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &1251401419 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134778, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
+  m_PrefabInternal: {fileID: 1794032404}
 --- !u!1 &1263003201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,6 +2966,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2091039851}
+    - target: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
+      propertyPath: speed
+      value: 3.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
   m_IsPrefabParent: 0

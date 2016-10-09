@@ -16,6 +16,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 
 	private Animator animator;
 	private SpriteRenderer renderer;
+    private Rigidbody2D rigidyBody2D;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		timer = 0f;
 		animator = GetComponent<Animator> ();
 		renderer = GetComponent<SpriteRenderer> ();
+        rigidyBody2D = GetComponent<Rigidbody2D>();
 		SetRendererEnabled (false);
 		RegisterToList();
 	}
@@ -62,12 +64,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
 	public void Shoot(){
 		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (-5.0f, 0f);
+		rigidyBody2D.velocity = new Vector2 (-5.0f, 0f);
 	}
 	
 	public void Shoot(Vector2 i_dir){
 		isActive = true;
-		GetComponent<Rigidbody2D> ().velocity = i_dir;
+		rigidyBody2D.velocity = i_dir;
 	}
 
 	public bool GetIsShieldable(){
@@ -80,14 +82,14 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 
     IEnumerator StartDissapearAnimation() {
         animator.SetInteger("animState", 1);
-        GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+        rigidyBody2D.velocity = new Vector2 (0.0f, 0.0f);
         yield return new WaitForSeconds(0.3f);
         Recycle();
         animator.SetInteger("animState", 0);
     }
 
 	private void Recycle(){
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+		rigidyBody2D.velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
 		SetRendererEnabled(false);
@@ -109,13 +111,11 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 			{
 				animator.speed = 0f;
 				storedVel = GetComponent<Rigidbody2D>().velocity;
-				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
-				//I am conciously chooosing to have the bullets continue to animate because I think it looks cool.
-				//GetComponent<Animator>().speed = 0f;
+				rigidyBody2D.velocity = new Vector2 (0.0f, 0.0f);
 			}
 			else{
 				animator.speed = 1f;
-				GetComponent<Rigidbody2D>().velocity = storedVel;
+				rigidyBody2D.velocity = storedVel;
 			}
 		}
 	}
@@ -124,6 +124,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	{
 		//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
 		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
+        _paused = GameObject.Find("PauseController").GetComponent<PauseControllerBehavior>().IsPaused;
 	}
 	
 	public void RemoveFromList()

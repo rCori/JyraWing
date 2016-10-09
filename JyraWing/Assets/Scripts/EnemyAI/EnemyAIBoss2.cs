@@ -655,7 +655,6 @@ public class EnemyAIBoss2 : EnemyBehavior {
 					moveState = 2;
 				}
 				break;
-				break;
 			}
 		}
 	}
