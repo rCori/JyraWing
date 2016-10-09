@@ -52,7 +52,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour, PauseableItem{
 	}
 
 	public void ShootBehavior(bool down) {
-		if (down && !_paused && !player.IsPlayerTakingDamage()) {
+		if (down && !_paused && !player.PlayerShootingDisabled()) {
 			for (int i = 0; i < playerWeapon.NumBullets; i++) {
 				GameObject bulletObj = bulletPool [i];
 				Bullet bullet = bulletObj.GetComponent<Bullet> ();

@@ -47,7 +47,7 @@ public class AwardPoints : MonoBehaviour, PauseableItem {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && isActive) {
-            if (!player.IsPlayerTakingDamage()) {
+            if (!player.PlayerShootingDisabled()) {
                 ScoreController.AddToScore(PointValue);
                 if (soundEffectPlayer && audioClip) {
                     soundEffectPlayer.PlayClip(audioClip);

@@ -35,7 +35,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player" && !startAttraction) {
-            if(player.IsPlayerTakingDamage()) {
+            if(player.PlayerShootingDisabled()) {
                 return;
             }
 			startAttraction = true;
@@ -49,7 +49,7 @@ public class PointAttraction : MonoBehaviour, PauseableItem {
 	void Update() {
 		if (_paused) return;
 		if (startAttraction && playerCollider != null) {
-            if (player.IsPlayerTakingDamage()) {
+            if (player.PlayerShootingDisabled()) {
                 pointRigidBody.velocity = Vector2.zero;
             } else {
                 Vector3 direction = playerCollider.transform.position - transform.position;

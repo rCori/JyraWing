@@ -44,10 +44,14 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	void OnTriggerEnter2D(Collider2D other){
 		//Player has two collders so we need to check if we are hitting the trigger one.
 		if (other.tag == "Player" && other.isTrigger) {
-			Recycle ();
+            if(shieldable) {
+                StartCoroutine(StartDissapearAnimation());
+            } else { 
+			    Recycle ();
+            }
 		}
 		if (other.tag == "Barrier") {
-			Recycle ();
+            Recycle();
 		}
 	}
 	
@@ -73,6 +77,14 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	public void SetRendererEnabled(bool isEnabled){
 		renderer.enabled = isEnabled;
 	}
+
+    IEnumerator StartDissapearAnimation() {
+        animator.SetInteger("animState", 1);
+        GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+        yield return new WaitForSeconds(0.3f);
+        Recycle();
+        animator.SetInteger("animState", 0);
+    }
 
 	private void Recycle(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);

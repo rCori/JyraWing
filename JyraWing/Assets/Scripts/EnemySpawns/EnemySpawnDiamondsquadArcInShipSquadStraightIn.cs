@@ -34,8 +34,8 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
             shipColumns = 2;
             break;
         case 3:
-            diamondRows = 4;
-            diamondColumns = 7;
+            diamondRows = 3;
+            diamondColumns = 8;
             shipRows = 3;
             shipColumns = 3;
             break;
@@ -136,10 +136,51 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
 
         shipEnemy.GetComponent<EnemyAIShipArc>().MoveInstructionList.Clear();
 
+        if (extraAdditions == 1) {
+            for (int i = 0; i < shipColumns; i++) {
+                for (int j = 0; j < shipRows; j++) {
+                    float baseY = -1.5f;
+                    shipEnemy.transform.position = new Vector2(8f + (1.0f * i), baseY + (1.0f * j));
+
+                    EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior>();
+                    enemyBehavior.bulletPool = bulletPool;
+                    enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+                    enemyBehavior.pointIconPool = pointIconPool;
+
+                    EnemyAIShipArc shipAi = shipEnemy.GetComponent<EnemyAIShipArc>();
+
+                    shipAi.MoveInstructionList = moveInstructionList;
+
+                    Instantiate(shipEnemy);
+                }
+            }
+        } else {
+            int rows = 1;
+            for (int i = 0; i < shipColumns; i++) {
+                for (int j = 0; j < rows; j++) {
+                    float baseY = -(rows * 0.5f);
+                    shipEnemy.transform.position = new Vector2(8f + (1.0f * i), baseY + (1.0f * j));
+
+                    EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior>();
+                    enemyBehavior.bulletPool = bulletPool;
+                    enemyBehavior.shieldableBulletPool = shieldableBulletPool;
+                    enemyBehavior.pointIconPool = pointIconPool;
+
+                    EnemyAIShipArc shipAi = shipEnemy.GetComponent<EnemyAIShipArc>();
+
+                    shipAi.MoveInstructionList = moveInstructionList;
+
+                    Instantiate(shipEnemy);
+                }
+                rows++;
+            }
+        }
+
+        /*
         for (int i = 0; i < shipColumns; i++) {
             for (int j = 0; j < shipRows; j++) {
                 float baseY = -1.5f;
-                if(i == 1) {
+                if(i%2 != 0) {
                     baseY = -2.0f;
                 }
                 shipEnemy.transform.position = new Vector2(8f + (1.0f * i), baseY + (1.0f*j));
@@ -173,6 +214,6 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
 
             Instantiate(shipEnemy);
         }
-
+        */
     }
 }

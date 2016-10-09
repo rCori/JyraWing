@@ -6,7 +6,8 @@ public class PlayerAnimation2 : MonoBehaviour {
     bool isHit, isBlinking;
     private Animator animator;
     // Use this for initialization
-    void Awake () {
+
+    void Start () {
         animator = gameObject.GetComponent<Animator>();
         PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
         Player.HitEvent += HitAnimation;
@@ -105,5 +106,11 @@ public class PlayerAnimation2 : MonoBehaviour {
     public void TransitionToDirectionToNeutral()
     {
         animator.SetInteger("animState", 0);
+    }
+
+    void OnDestroy() {
+        PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
+        Player.HitEvent -= HitAnimation;
+        //CountdownTimer.PlayerContinueEvent -= ResetHitAnimation;
     }
 }

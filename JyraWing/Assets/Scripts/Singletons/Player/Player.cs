@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class Player : MonoBehaviour, PauseableItem {
 
 	public bool DEBUGNODAMAGE;
+    public float speed = 3.0f;
+    public float returningRecoveryTime = 1.5f;
+    
 
 	[System.Flags]
 	public enum Direction
@@ -33,7 +36,6 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	private GameController gameController;
 	private SoundEffectPlayer sfxPlayer;
-	private float speed;
 	Animator animator;
 	int hits;
 	private AudioClip damageSfx;
@@ -73,7 +75,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		hits = SaveData.Instance.livesPerCredit;
 		//Sound when the player is hit
 		damageSfx = Resources.Load ("Audio/SFX/playerExplosion") as AudioClip;
-		speed = 3.0f;
 
 		//The shield we will get assigned by instantiating the shield GameObject and then extracting
 		//the shield interface from that game object
@@ -181,25 +182,29 @@ public class Player : MonoBehaviour, PauseableItem {
 		startSavePos = gameObject.transform.position;
 		takingDamage = TakingDamage.RETURNING;
 		HitEvent (TakingDamage.RETURNING);
-		yield return new WaitForSeconds (2f);
+        Debug.Log("After TakingDamage.RETURNING");
+		yield return new WaitForSeconds (2.0f);
 		float startTime = Time.time;
-		while (Time.time < startTime + 2.5f) {
-			gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, (Time.time - startTime) / 1.2f);
+		while (Time.time < startTime + returningRecoveryTime) {
+            Debug.Log("Moving Player");
+			gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, (Time.time - startTime)/returningRecoveryTime);
 			yield return null;
 		}
+        Debug.Log("Done moving player");
 		gameObject.transform.position = endSavePos;
 		takingDamage = TakingDamage.BLINKING;
 		HitEvent (TakingDamage.BLINKING);
-		yield return new WaitForSeconds (4.0f);
+        Debug.Log("After TakingDamage.BLINKING");
+		yield return new WaitForSeconds (3.5f);
 		playerShield.EnableShield ();
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
 		HitEvent (TakingDamage.NONE);
+        Debug.Log("After TakingDamage.NONE");
 		returnFromInProgress = false;
 	}
 
 	IEnumerator outOfLivesCoroutine() {
-		Debug.Log ("outOfLivesCoroutine");
 		gameController.PlayerKilled ();
 		//yield return new WaitForSeconds (2f);
 		//PositionPlayerOffScreen ();
@@ -290,8 +295,8 @@ public class Player : MonoBehaviour, PauseableItem {
 		hits = SaveData.Instance.livesPerCredit;
 	}
 
-	public bool IsPlayerTakingDamage() {
-		if (takingDamage != TakingDamage.NONE) {
+	public bool PlayerShootingDisabled() {
+		if (takingDamage != TakingDamage.NONE && takingDamage != TakingDamage.BLINKING) {
 			return true;
 		} else {
 			return false;
