@@ -8,6 +8,7 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -20,5 +21,6 @@ public class EnemySpawnWaterTurret : EnemySpawner {
 		enemyBehavior.pointIconPool = pointIconPool;
 		enemyBehavior.LeftWallException = false;
 		enemy = Instantiate (enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

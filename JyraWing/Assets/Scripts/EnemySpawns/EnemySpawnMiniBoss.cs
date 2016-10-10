@@ -6,6 +6,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -24,6 +25,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyAI.shotTime = 0.5f;
 			enemyAI.health = 40;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -38,6 +40,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false; 
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -51,6 +54,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;  
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -64,6 +68,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;  
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 			
 		{
@@ -77,6 +82,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -91,6 +97,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false; 
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -104,6 +111,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false; 
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -117,6 +125,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;  
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -130,6 +139,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;   
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -143,6 +153,7 @@ public class EnemySpawnMiniBoss : EnemySpawner {
 			enemyBehavior.LeftWallException = false;   
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

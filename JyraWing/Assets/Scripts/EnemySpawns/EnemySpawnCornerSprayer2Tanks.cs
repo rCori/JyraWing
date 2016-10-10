@@ -11,6 +11,7 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	// Use this for initialization
 	public override void Spawn () {
@@ -30,9 +31,12 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 
+            EnemyAIReflectBulletSprayerA reflectBulletAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>();
+
 			enemyBulletSprayer = Instantiate (enemyBulletSprayer);
 
 			enemyBulletSprayer.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
+            enemyBulletSprayer.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ().locations = new List<Vector2> {
 				new Vector2 (0.0f, yFactor * -3.5f),
 				new Vector2 (-6.0f, yFactor * 3.5f)
@@ -55,6 +59,7 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 				enemyBehavior.shieldableBullets = false;
 				ship.GetComponent<Scroll> ().speed = 1;
 				ship = Instantiate (ship);
+                ship.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 
 			{
@@ -70,7 +75,11 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 				enemyBehavior.LeftWallException = true;
 				enemyBehavior.shieldableBullets = false;
 				ship.GetComponent<Scroll> ().speed = 1;
+
+                EnemyAIShipArc shipAI = enemyBehavior.GetComponent<EnemyAIShipArc>();
+
 				ship = Instantiate (ship);
+                ship.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		} else {
 
@@ -87,6 +96,7 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 				tankAI.direction = EnemyAITank.TankDir.Left;
 
 				tank = Instantiate (tank);
+                tank.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 
 
@@ -103,6 +113,7 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 				bottomTankAI.direction = EnemyAITank.TankDir.Left;
 
 				tank = Instantiate (tank);
+                tank.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		}
 

@@ -5,6 +5,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 
 	public EnemyBulletPool bulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -16,6 +17,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false; 
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -26,6 +28,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -36,6 +39,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -46,6 +50,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false; 
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -56,6 +61,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -66,6 +72,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -76,6 +83,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -86,6 +94,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -96,6 +105,7 @@ public class EnemySpawnDiamondScatteredArray : EnemySpawner {
 			enemyBehavior.LeftWallException = false;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 	}

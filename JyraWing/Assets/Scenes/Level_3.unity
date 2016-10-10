@@ -474,6 +474,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &224919094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   levelControllerBehavior: {fileID: 68120315}
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
+  pauseController: {fileID: 782599691}
 --- !u!114 &242386484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +597,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &243609153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +925,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &391330829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1167,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &512138316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,6 +1532,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!1 &669677890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1580,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &669677894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,6 +1647,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &670778673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1858,6 +1866,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &767840492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,6 +1963,7 @@ MonoBehaviour:
   pointIconPool: {fileID: 1210626209}
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
+  pauseController: {fileID: 782599691}
   position: {x: 8, y: -2}
 --- !u!114 &853687662
 MonoBehaviour:
@@ -2207,6 +2217,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &934172113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,6 +2339,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &950900648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2385,6 +2397,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &996225198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,6 +2492,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1071769495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2538,6 +2552,7 @@ MonoBehaviour:
   enemyRepeat: 0
   bulletPool: {fileID: 1358474311}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1076303533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,6 +2642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 1358474311}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1080141706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2683,6 +2699,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1100377882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3049,6 +3066,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1243096860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3107,6 +3125,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1243819213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3170,6 +3189,7 @@ MonoBehaviour:
   columnSpacing: 2
   yShift: 0
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1249512402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3229,6 +3249,7 @@ MonoBehaviour:
   enemyRepeat: 0
   bulletPool: {fileID: 1358474311}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1334485525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3546,6 +3567,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1497373486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3765,6 +3787,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1581295251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3903,6 +3926,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1630861191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3960,6 +3984,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1660909178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4127,6 +4152,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1892955337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4186,6 +4212,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1907187763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4242,6 +4269,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1919485178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4301,6 +4329,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1928460388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,6 +4394,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1951297452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4424,6 +4454,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &1954239170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4483,6 +4514,7 @@ MonoBehaviour:
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &2021787539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4537,6 +4569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointIconPool: {fileID: 1210626209}
+  pauseController: {fileID: 782599691}
 --- !u!114 &2025397862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4642,6 +4675,7 @@ MonoBehaviour:
   pointIconPool: {fileID: 1210626209}
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
+  pauseController: {fileID: 782599691}
   position: {x: 8, y: -2}
 --- !u!114 &2108346966
 MonoBehaviour:

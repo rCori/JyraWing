@@ -11,6 +11,7 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
     public override void Spawn ()
 	{
@@ -27,7 +28,7 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 		enemyBehavior.LeftWallException = false;
 
 		enemy = Instantiate (enemy);
-
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		enemy.GetComponent<EnemyAIReflectBulletSprayerArc>().MoveInstructionList = moveInstructionList;
     }
 }

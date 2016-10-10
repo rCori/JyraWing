@@ -14,6 +14,7 @@ public class EnemySpawnDiamondArcSquad : EnemySpawner {
     public float yShift;
 
     public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
     public List<EnemyAIDiamondArc.MoveInstruction> moveInstructionList;
 
@@ -36,6 +37,7 @@ public class EnemySpawnDiamondArcSquad : EnemySpawner {
                     ai1.MoveInstructionList.Add(moveInstruction);
                 }
                 enemy = Instantiate(enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
             }
         }
     }

@@ -6,6 +6,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -22,6 +23,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -36,6 +38,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -50,6 +53,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -64,6 +68,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Fifth top turret
@@ -77,6 +82,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -94,6 +100,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			enemyAI.direction = EnemyAITank.TankDir.Left;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -109,6 +116,7 @@ public class EnemySpawnTurretSpread1Tank1Ship : EnemySpawner {
 			EnemyAIShipArc ai7 = enemy.GetComponent<EnemyAIShipArc> ();
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 

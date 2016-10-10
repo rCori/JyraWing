@@ -6,6 +6,7 @@ public class EnemySpawnFighterTypeB : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public Vector2 location;
 	public List<EnemyAITypeBFighter.MoveInstruction> moveInstructionList;
@@ -19,6 +20,8 @@ public class EnemySpawnFighterTypeB : EnemySpawner {
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.LeftWallException = true;
 		enemyBehavior.pointIconPool = pointIconPool;
+        //enemyBehavior.RegisterToList();
+
 
 		EnemyAITypeBFighter ai = enemy.GetComponent<EnemyAITypeBFighter> ();
 
@@ -27,6 +30,6 @@ public class EnemySpawnFighterTypeB : EnemySpawner {
 			ai.MoveInstructionList.Add(moveInstruction);
 		}
 		enemy = Instantiate (enemy);
-
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

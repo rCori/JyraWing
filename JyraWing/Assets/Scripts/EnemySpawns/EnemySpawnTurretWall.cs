@@ -8,6 +8,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -22,6 +23,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -34,6 +36,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -46,6 +49,7 @@ public class EnemySpawnTurretWall : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		if (extraEnemies) {
@@ -58,7 +62,8 @@ public class EnemySpawnTurretWall : EnemySpawner {
 				enemyBehavior.bulletPool = bulletPool;
 				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 				enemyBehavior.pointIconPool = pointIconPool;
-				Instantiate (enemy);
+				enemy = Instantiate (enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 
 			{
@@ -70,7 +75,8 @@ public class EnemySpawnTurretWall : EnemySpawner {
 				enemyBehavior.bulletPool = bulletPool;
 				enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 				enemyBehavior.pointIconPool = pointIconPool;
-				Instantiate (enemy);
+				enemy = Instantiate (enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		}
 	}

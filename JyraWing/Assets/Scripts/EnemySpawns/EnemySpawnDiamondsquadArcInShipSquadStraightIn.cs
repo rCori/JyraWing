@@ -7,6 +7,7 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
     public EnemyBulletPool bulletPool;
     public EnemyBulletPool shieldableBulletPool;
     public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
     public int extraAdditions = 1;
 
@@ -83,6 +84,7 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
                 diamondArcAI.MoveInstructionList = downwardDiamonds;
 
                 Instantiate(diamondArcEnemy);
+                diamondArcEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
             }
         }
 
@@ -119,6 +121,7 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
                 diamondArcAI.MoveInstructionList = upwardDiamonds;
 
                 Instantiate(diamondArcEnemy);
+                diamondArcEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
             }
         }
 
@@ -152,6 +155,7 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
                     shipAi.MoveInstructionList = moveInstructionList;
 
                     Instantiate(shipEnemy);
+                    shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
                 }
             }
         } else {
@@ -171,49 +175,10 @@ public class EnemySpawnDiamondsquadArcInShipSquadStraightIn : EnemySpawner {
                     shipAi.MoveInstructionList = moveInstructionList;
 
                     Instantiate(shipEnemy);
+                    shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
                 }
                 rows++;
             }
         }
-
-        /*
-        for (int i = 0; i < shipColumns; i++) {
-            for (int j = 0; j < shipRows; j++) {
-                float baseY = -1.5f;
-                if(i%2 != 0) {
-                    baseY = -2.0f;
-                }
-                shipEnemy.transform.position = new Vector2(8f + (1.0f * i), baseY + (1.0f*j));
-
-                EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior>();
-                enemyBehavior.bulletPool = bulletPool;
-                enemyBehavior.shieldableBulletPool = shieldableBulletPool;
-                enemyBehavior.pointIconPool = pointIconPool;
-
-                EnemyAIShipArc shipAi = shipEnemy.GetComponent<EnemyAIShipArc>();
-
-                shipAi.MoveInstructionList = moveInstructionList;
-
-                Instantiate(shipEnemy);
-            }
-        }
-
-
-
-        if (shipColumns == 2) {
-            shipEnemy.transform.position = new Vector2(9f, 1.0f);
-
-            EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior>();
-            enemyBehavior.bulletPool = bulletPool;
-            enemyBehavior.shieldableBulletPool = shieldableBulletPool;
-            enemyBehavior.pointIconPool = pointIconPool;
-
-            EnemyAIShipArc shipAi = shipEnemy.GetComponent<EnemyAIShipArc>();
-
-            shipAi.MoveInstructionList.Add(leftShipInstruction);
-
-            Instantiate(shipEnemy);
-        }
-        */
     }
 }

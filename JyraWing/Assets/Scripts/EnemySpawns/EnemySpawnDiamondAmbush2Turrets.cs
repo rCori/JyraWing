@@ -5,6 +5,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 
 	public EnemyBulletPool bulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -23,6 +24,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyAI.time = 7f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -41,6 +43,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyAI.time = 7f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -59,6 +62,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyAI.time = 7f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		
@@ -77,6 +81,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyAI.time = 7f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//middle diamond enemy
@@ -94,6 +99,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyAI.time = 7f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Top turret
@@ -106,6 +112,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Bottom turret
@@ -118,6 +125,7 @@ public class EnemySpawnDiamondAmbush2Turrets : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 

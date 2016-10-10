@@ -17,7 +17,7 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
-
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -47,6 +47,7 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 					ai1.MoveInstructionList.Add(moveInstruction);
 				}
 				enemy = Instantiate (enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		}
 	}

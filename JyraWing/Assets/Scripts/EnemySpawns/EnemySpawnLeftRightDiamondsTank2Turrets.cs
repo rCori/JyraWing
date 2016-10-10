@@ -5,6 +5,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 
 	public EnemyBulletPool bulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -23,6 +24,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 			enemyAI.time = 15f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Bottom diamond enemy
@@ -40,6 +42,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 			enemyAI.time = 15f;
 			enemyAI.repeat = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Top turret
@@ -51,6 +54,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 			enemyBehavior.bulletPool = bulletPool;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -63,6 +67,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 			enemyBehavior.bulletPool = bulletPool;
 		
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -78,6 +83,7 @@ public class EnemySpawnLeftRightDiamondsTank2Turrets : EnemySpawner {
 			enemyAItank.direction = EnemyAITank.TankDir.Left;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

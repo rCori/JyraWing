@@ -6,6 +6,7 @@ public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn () {
 
@@ -56,6 +57,7 @@ public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 			enemyAI.MoveInstructionList.Add (left);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -77,6 +79,7 @@ public class EnemySpawnFighterTypeBArcIn : EnemySpawner {
 			enemyAI.MoveInstructionList.Add (left);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

@@ -15,6 +15,7 @@ public class EnemySpawnTankSquad : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -38,6 +39,7 @@ public class EnemySpawnTankSquad : EnemySpawner {
 					EnemyAITank ai1 = enemy.GetComponent<EnemyAITank> ();
 					ai1.direction = EnemyAITank.TankDir.Left;
 					enemy = Instantiate (enemy);
+                    enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 				} else {
 					GameObject enemy = (GameObject)Resources.Load ("Enemies/TankEnemies/TankEnemyLevel2");
 					enemy.transform.position = new Vector2 (xOffset + i * columnSpacing, yOffset + j * rowSpacing);
@@ -50,6 +52,7 @@ public class EnemySpawnTankSquad : EnemySpawner {
 					EnemyAITankShield ai1 = enemy.GetComponent<EnemyAITankShield> ();
 					ai1.direction = EnemyAITankShield.TankDir.Left;
 					enemy = Instantiate (enemy);
+                    enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 				}
 			}
 		}

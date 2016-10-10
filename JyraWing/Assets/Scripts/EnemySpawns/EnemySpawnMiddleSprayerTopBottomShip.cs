@@ -7,6 +7,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	// Use this for initialization
 	public override void Spawn(){
@@ -24,6 +25,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 			EnemyAIReflectBulletSprayerA enemyAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ();
 			enemyAI.locations = new List<Vector2> { new Vector2 (-6.0f, 0.0f) };
 			enemyAI.times = new List<float> { 3.5f };
+            enemyBulletSprayer.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -41,6 +43,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 			enemyBehavior.shieldableBullets = false;
 			EnemyAIShipArc topShipAI = topShip.GetComponent<EnemyAIShipArc> ();
 			topShip = Instantiate (topShip);
+            topShip.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -58,6 +61,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 			enemyBehavior.shieldableBullets = false;
 			EnemyAIShipArc bottomShipAI = bottomShip.GetComponent<EnemyAIShipArc> ();
 			bottomShip = Instantiate (bottomShip);
+            bottomShip.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 

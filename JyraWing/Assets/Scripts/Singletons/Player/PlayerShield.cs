@@ -24,6 +24,7 @@ public class PlayerShield: IPlayerShield  {
 		shieldPower = maxShieldPower;
 		shieldActive = false;
 		enabled = true;
+        EnemyBullet.IsPlayerShielded += HasShield;
 	}
 
 	public float GetShieldPercentage(){

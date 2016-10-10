@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	
+    public delegate void PauseControllerEvents(PauseableItem pauseableItem);
+	public static event PauseControllerEvents RegisterPauseController, DelistPauseController;
+
 	public enum MovementStatus {None, Lerp, Slerp, Velocity, ArcVelocity}
 
 	///Mark this as an enum that can have multiple values ORed together
@@ -535,6 +538,37 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		return moveStatus;
 	}
 
+   	public void SetPointObject(List<PointObjectRelative> PointObjects) {
+		this.PointObjects = PointObjects;
+		hasPointObjectToSpawn = true;
+	}
+
+	//Add another point object to the enemy based on point token name and radius
+	//from the center. Location based on distance will be a random point from the
+	//origin of the enemies last location with this radius.
+	public void GivePointObject(int index, float distance) {
+		if (PointObjects == null) {
+			PointObjects = new List<PointObjectRelative> ();
+		}
+		EnemyBehavior.PointObjectRelative pointObject = new EnemyBehavior.PointObjectRelative ();
+		pointObject.index = index;
+		//Now to get this location based on it being distance awway from the gameObject.transform.position.
+		//First a vector in a random location
+		Vector2 radius = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+		//Then normalize it
+		radius.Normalize ();
+		//Multiplied by distance this is a random vector of magnitude distance
+		radius *= distance;
+		pointObject.relativePos = radius;
+		PointObjects.Add (pointObject);
+		if (!hasPointObjectToSpawn) {
+			hasPointObjectToSpawn = true;
+		}
+	}
+
+    public void SetPaused(bool isPaused) {
+        _paused = isPaused;
+    }
 
 	/* Implementation of PauseableObject */
 	public virtual bool paused
@@ -564,47 +598,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 	}
 
-	public void SetPointObject(List<PointObjectRelative> PointObjects) {
-		this.PointObjects = PointObjects;
-		hasPointObjectToSpawn = true;
-	}
 
-	//Add another point object to the enemy based on point token name and radius
-	//from the center. Location based on distance will be a random point from the
-	//origin of the enemies last location with this radius.
-	public void GivePointObject(int index, float distance) {
-		if (PointObjects == null) {
-			PointObjects = new List<PointObjectRelative> ();
-		}
-		EnemyBehavior.PointObjectRelative pointObject = new EnemyBehavior.PointObjectRelative ();
-		pointObject.index = index;
-		//Now to get this location based on it being distance awway from the gameObject.transform.position.
-		//First a vector in a random location
-		Vector2 radius = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-		//Then normalize it
-		radius.Normalize ();
-		//Multiplied by distance this is a random vector of magnitude distance
-		radius *= distance;
-		pointObject.relativePos = radius;
-		PointObjects.Add (pointObject);
-		if (!hasPointObjectToSpawn) {
-			hasPointObjectToSpawn = true;
-		}
-	}
-
-	public void RegisterToList()
-	{
-		if (GameObject.Find ("PauseController")) {
-			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
-            _paused = GameObject.Find("PauseController").GetComponent<PauseControllerBehavior>().IsPaused;
-		}
+	public void RegisterToList() {
+        RegisterPauseController(this);
 	}
 	
-	public void RemoveFromList()
-	{
-		if (GameObject.Find ("PauseController")) {
-			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
-		}
+
+	public void RemoveFromList() {
+        DelistPauseController(this);
 	}
 
 }

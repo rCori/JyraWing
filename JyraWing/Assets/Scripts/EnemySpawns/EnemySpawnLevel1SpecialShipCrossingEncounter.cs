@@ -6,6 +6,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -23,6 +24,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.isReverse = false;
 			enemyAI.fireTimes = new float[]{ 0.5f, 2.1f };
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -38,6 +40,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.startDelay = 0.5f;
 			enemyAI.isReverse = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -52,6 +55,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 1.0f, 2.1f };
 			enemyAI.isReverse = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -67,6 +71,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 1.25f, 2.1f };
 			enemyAI.isReverse = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -82,6 +87,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 1.5f, 2.1f };
 			enemyAI.isReverse = false;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 //		//The enemies coming from the bottom up
@@ -98,6 +104,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 0.5f, 2.1f };
 			enemyAI.isReverse = true;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -113,6 +120,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 0.75f, 2.1f };
 			enemyAI.isReverse = true;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -127,6 +135,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 1.0f, 2.1f };
 			enemyAI.isReverse = true;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -142,6 +151,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.fireTimes = new float[]{ 1.25f, 2.1f };
 			enemyAI.isReverse = true;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 		
 		{
@@ -156,6 +166,7 @@ public class EnemySpawnLevel1SpecialShipCrossingEncounter : EnemySpawner {
 			enemyAI.startDelay = 2.0f;
 			enemyAI.fireTimes = new float[]{ 1.5f, 2.1f };
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

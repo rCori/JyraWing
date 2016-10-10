@@ -7,6 +7,7 @@ public class BossNew2Spawn : EnemySpawner {
 	public LevelControllerBehavior levelControllerBehavior;
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn(){
 
@@ -19,8 +20,10 @@ public class BossNew2Spawn : EnemySpawner {
 		enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy.GetComponent<EnemyBehavior> ().pointIconPool = pointIconPool;
 
-		enemy.GetComponent<EnemyAIBoss2>().levelControllerBehavior = levelControllerBehavior;
+        EnemyAIBoss2 boss2AI = enemy.GetComponent<EnemyAIBoss2>();
+		boss2AI.levelControllerBehavior = levelControllerBehavior;
 
-		Instantiate (enemy);
+		enemy = Instantiate (enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

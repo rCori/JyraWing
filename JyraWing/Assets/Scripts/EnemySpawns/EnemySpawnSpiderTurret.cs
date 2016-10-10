@@ -10,6 +10,7 @@ public class EnemySpawnSpiderTurret : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn () {
 		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
@@ -23,5 +24,6 @@ public class EnemySpawnSpiderTurret : EnemySpawner {
 		enemyBehavior.pointIconPool = pointIconPool;
 		enemy.GetComponent<EnemyAITurretLevel2> ().fireDirection = Direction;
 		enemy = Instantiate (enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

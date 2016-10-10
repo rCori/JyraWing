@@ -6,6 +6,7 @@ public class EnemySpawnShipsArcAway : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn () {
 
@@ -54,6 +55,7 @@ public class EnemySpawnShipsArcAway : EnemySpawner {
 
 			//arcDownAI.MoveInstructionList
 			arcDownEnemy = Instantiate (arcDownEnemy);
+            arcDownEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -74,6 +76,7 @@ public class EnemySpawnShipsArcAway : EnemySpawner {
 			arcUpAI.MoveInstructionList.Add (up);
 
 			arcUpEnemy = Instantiate (arcUpEnemy);
+            arcUpEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

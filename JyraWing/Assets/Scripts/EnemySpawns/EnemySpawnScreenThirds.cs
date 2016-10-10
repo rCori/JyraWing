@@ -6,6 +6,7 @@ public class EnemySpawnScreenThirds : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn () {
 
@@ -23,6 +24,7 @@ public class EnemySpawnScreenThirds : EnemySpawner {
 			enemyAI.repeat = false;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		for (int i = 0; i < 12; i++) {
@@ -39,6 +41,7 @@ public class EnemySpawnScreenThirds : EnemySpawner {
 			enemyAI.repeat = false;
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 			
 

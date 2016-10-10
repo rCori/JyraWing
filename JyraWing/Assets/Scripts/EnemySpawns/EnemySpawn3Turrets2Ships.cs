@@ -6,6 +6,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 	public PointIconPool pointIconPool;
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn(){
 
@@ -21,6 +22,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
+            shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//bottom ship enemy
@@ -36,6 +38,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			//shipEnemy.GetComponent<Scroll> ().speed = 0;
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = true;
+            shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//Center water turret
@@ -48,8 +51,11 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = false;
-		
+
+            EnemyAIWaterTurret waterTurretAI = waterTurretEnemy.GetComponent<EnemyAIWaterTurret>();
+
 			waterTurretEnemy = Instantiate (waterTurretEnemy);
+            waterTurretEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		//bottom standard turret
@@ -61,8 +67,12 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
+
+            EnemyAITurretLevel1 turretAI = standardTurret.GetComponent<EnemyAITurretLevel1>();
+
 			standardTurret = Instantiate (standardTurret);
 			enemyBehavior.shieldableBullets = false;
+            enemyBehavior.SetPaused(pauseController.IsPaused);
 		}
 
 	}

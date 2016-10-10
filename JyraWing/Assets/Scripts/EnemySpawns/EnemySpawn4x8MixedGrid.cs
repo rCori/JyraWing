@@ -7,6 +7,7 @@ public class EnemySpawn4x8MixedGrid : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	private int rows = 4;
 	private int columns = 8;
@@ -43,6 +44,7 @@ public class EnemySpawn4x8MixedGrid : EnemySpawner {
 					enemyBehavior.pointIconPool = pointIconPool;
 					enemyBehavior.LeftWallException = true;
 					enemyBehavior.shieldableBullets = false;
+
 					EnemyAIBasicShip ai = enemy.GetComponent<EnemyAIBasicShip> ();
 					ai.angle = 180;
 					ai.speed = enemySpeed;
@@ -50,6 +52,7 @@ public class EnemySpawn4x8MixedGrid : EnemySpawner {
 					ai.shootInDirection = true;
 					enemy.GetComponent<Scroll> ().speed = 1;
 					enemy = Instantiate (enemy);
+                    enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 				} else if (j==5 || j == 7) {
 					float xLoc = xOffset + j * rowSpacing;
 					float yLoc = yOffset + i * columnSpacing;
@@ -68,6 +71,7 @@ public class EnemySpawn4x8MixedGrid : EnemySpawner {
 					ai.MoveInstructionList.Clear ();
 					ai.MoveInstructionList.Add (left);
 					enemy = Instantiate (enemy);
+                    enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 				} else {
 					GameObject enemy = (GameObject) Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondOscillate");
 					enemy.transform.position = new Vector2 (xOffset + j*rowSpacing, yOffset + i*columnSpacing);
@@ -81,6 +85,7 @@ public class EnemySpawn4x8MixedGrid : EnemySpawner {
 					enemyAI.repeat = false;
 
 					enemy = Instantiate (enemy);
+                    enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 				}
 			}
 		}

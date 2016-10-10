@@ -31,7 +31,8 @@ public class PauseController : IPauseController {
 	public PauseController(){
 		isPaused = false;
 		pauseList = new List<PauseableItem> ();
-
+        EnemyBehavior.RegisterPauseController += RegisterPausableItem;
+        EnemyBehavior.DelistPauseController += DelistPauseableItem;
 	}
 
 	//Pause every item in pauseList

@@ -6,6 +6,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public bool shieldableBullets;
 
@@ -20,6 +21,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -31,7 +33,8 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			enemy = Instantiate (enemy);		
+			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -43,7 +46,8 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			enemy = Instantiate (enemy);	
+			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -56,6 +60,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -65,6 +70,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 				0f);
 			enemy.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -75,6 +81,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -85,6 +92,7 @@ public class EnemySpawnLevel1Intro : EnemySpawner {
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 		
 	}

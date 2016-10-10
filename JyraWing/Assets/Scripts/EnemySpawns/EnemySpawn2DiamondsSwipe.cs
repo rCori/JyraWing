@@ -6,6 +6,7 @@ public class EnemySpawn2DiamondsSwipe : EnemySpawner {
 	public PointIconPool pointIconPool;
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -21,7 +22,8 @@ public class EnemySpawn2DiamondsSwipe : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			Instantiate (enemy);
+			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 		{
 			GameObject enemy = (GameObject)Resources.Load ("Enemies/DiamondEnemies/Enemy_DiamondSwipe");
@@ -33,7 +35,8 @@ public class EnemySpawn2DiamondsSwipe : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			Instantiate (enemy);
+			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

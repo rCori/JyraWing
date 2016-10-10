@@ -6,6 +6,7 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn () {
 
@@ -71,6 +72,7 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 			enemyAI.MoveInstructionList.Add (right);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -91,6 +93,7 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 			enemyAI.MoveInstructionList.Add (right);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -159,6 +162,7 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 			arcFighterBAI.MoveInstructionList.Add (rightFighterB);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -181,6 +185,7 @@ public class EnemySpawn2Ships2BFightersArcAway : EnemySpawner {
 			arcFighterBAI.MoveInstructionList.Add (rightFighterB);
 
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 	}

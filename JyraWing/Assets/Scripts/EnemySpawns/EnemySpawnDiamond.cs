@@ -13,6 +13,7 @@ public class EnemySpawnDiamond: EnemySpawner {
 
 	public EnemyBulletPool bulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -32,6 +33,6 @@ public class EnemySpawnDiamond: EnemySpawner {
 		enemyAI.repeat = enemyRepeat;
 
 		enemy = Instantiate (enemy);
-
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

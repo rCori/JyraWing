@@ -7,6 +7,7 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 
 	public PointIconPool pointIconPool;
 	public EnemyBulletPool bulletPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn(){
 
@@ -18,7 +19,11 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
+
+            EnemyAISimpleOscillate simpleOscillateAI = enemy.GetComponent<EnemyAISimpleOscillate>();
+
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -28,7 +33,8 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 				0f);
 			enemy2.GetComponent<EnemyBehavior> ().bulletPool = bulletPool;
 			enemy2.GetComponent<EnemyBehavior> ().pointIconPool = pointIconPool;
-			enemy2 = Instantiate (enemy2);		
+            enemy2 = Instantiate(enemy2);
+            enemy2.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);	
 		}
 
 		{
@@ -39,7 +45,11 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			enemy = Instantiate (enemy);		
+
+            EnemyAISimpleOscillate simpleOscillateAI = enemy.GetComponent<EnemyAISimpleOscillate>();
+
+			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);		
 		}
 
 		{
@@ -50,7 +60,11 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
+
+            EnemyAISimpleOscillate simpleOscillateAI = enemy.GetComponent<EnemyAISimpleOscillate>();
+
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -61,7 +75,11 @@ public class EnemySpawn5DiamondsOscillating : EnemySpawner {
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
+
+            EnemyAISimpleOscillate simpleOscillateAI = enemy.GetComponent<EnemyAISimpleOscillate>();
+
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 

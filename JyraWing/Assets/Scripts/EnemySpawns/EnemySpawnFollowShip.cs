@@ -7,6 +7,7 @@ public class EnemySpawnFollowShip : EnemySpawner
     public PointIconPool pointIconPool;
     public EnemyBulletPool bulletPool;
     public EnemyBulletPool shieldableBulletPool;
+    public PauseControllerBehavior pauseController;
 
     public Vector2 position;
 
@@ -19,6 +20,7 @@ public class EnemySpawnFollowShip : EnemySpawner
         enemyBehavior.pointIconPool = pointIconPool;
         enemy = Instantiate(enemy);
         enemy.transform.position = position;
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 
     }
 }

@@ -3,10 +3,10 @@ using System.Collections;
 
 public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
-
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn(){
 		/* second turret */
@@ -22,6 +22,7 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
 			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 		/* bottom turret */
 		{
@@ -36,6 +37,7 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 
 			EnemyAIWaterTurret enemyAI = enemy.GetComponent<EnemyAIWaterTurret> ();
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 	}
 }

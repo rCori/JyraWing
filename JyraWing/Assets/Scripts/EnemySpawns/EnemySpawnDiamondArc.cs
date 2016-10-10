@@ -6,7 +6,9 @@ public class EnemySpawnDiamondArc : EnemySpawner {
 
     public Vector2 location;
     public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
     public List<EnemyAIDiamondArc.MoveInstruction> moveInstructionList;
+
 
     public override void Spawn() {
         GameObject enemy = (GameObject)Resources.Load("Enemies/DiamondEnemies/Enemy_DiamondArc");
@@ -23,6 +25,7 @@ public class EnemySpawnDiamondArc : EnemySpawner {
             ai1.MoveInstructionList.Add(moveInstruction);
         }
         enemy = Instantiate(enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
     }
 
 }

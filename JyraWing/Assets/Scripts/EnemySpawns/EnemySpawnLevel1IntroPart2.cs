@@ -6,6 +6,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -20,6 +21,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.shieldableBullets = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -30,6 +32,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.shieldableBullets = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -42,6 +45,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = enemy.GetComponent<EnemyAIShipArc> ();
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		EnemyAIShipArc.MoveInstruction moveLeft = new EnemyAIShipArc.MoveInstruction();
@@ -62,6 +66,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			ai.MoveInstructionList.Clear ();
 			ai.MoveInstructionList.Add (moveLeft);
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 
@@ -77,6 +82,7 @@ public class EnemySpawnLevel1IntroPart2 : EnemySpawner {
 			ai.MoveInstructionList.Clear ();
 			ai.MoveInstructionList.Add (moveLeft);
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 	}

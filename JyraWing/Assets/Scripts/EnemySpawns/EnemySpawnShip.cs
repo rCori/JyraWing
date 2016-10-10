@@ -15,6 +15,7 @@ public class EnemySpawnShip : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -33,5 +34,6 @@ public class EnemySpawnShip : EnemySpawner {
 		ai1.shootInDirection = shootInDirection;
 		enemy.GetComponent<Scroll> ().speed = 1;
 		enemy = Instantiate (enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

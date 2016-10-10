@@ -14,6 +14,7 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
     public override void Spawn ()
 	{
@@ -33,6 +34,7 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 
 		enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 		enemyBehavior.SetEnemyHealth(Health);
+        enemyBehavior.SetPaused(pauseController.IsPaused);
 
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().locations = locations;
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().times = times;

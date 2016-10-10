@@ -11,6 +11,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	// Use this for initialization
 	public override void Spawn(){
@@ -32,6 +33,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = -2.0f;
 			enemyAI.fireTimeLimit = 0.8f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -51,6 +53,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = -2.0f;
 			enemyAI.fireTimeLimit = 1.5f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -70,6 +73,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = -2.0f;
 			enemyAI.fireTimeLimit = 1.1f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -89,6 +93,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = -2.0f;
 			enemyAI.fireTimeLimit = 0.9f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -108,6 +113,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = 2.0f;
 			enemyAI.fireTimeLimit = 1.8f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -127,6 +133,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = 2.0f;
 			enemyAI.fireTimeLimit = 1.8f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -146,6 +153,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = 2.0f;
 			enemyAI.fireTimeLimit = 1.3f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 
 		{
@@ -165,9 +173,7 @@ public class EnemySpawnDiamondSpecialEncounterArcCrossovers : EnemySpawner {
 			enemyAI.ySpeed = 2.0f;
 			enemyAI.fireTimeLimit = 1.0f;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
-
-
 	}
-
 }

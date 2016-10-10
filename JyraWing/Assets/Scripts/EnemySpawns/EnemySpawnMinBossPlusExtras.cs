@@ -10,6 +10,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -28,6 +29,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 			enemyAI.shotTime = 0.5f;
 			enemyAI.health = 40;
 			enemy = Instantiate (enemy);
+            enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}
 		if (turrets) {
 			
@@ -42,6 +44,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 				enemyBehavior.LeftWallException = false;
 
 				enemy = Instantiate (enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 
 			{
@@ -55,6 +58,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 				enemyBehavior.LeftWallException = false;
 
 				enemy = Instantiate (enemy);
+                enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		}
 
@@ -78,6 +82,7 @@ public class EnemySpawnMinBossPlusExtras : EnemySpawner {
 					new Vector2 (9.0f, -3.0f),
 				};
 				enemyAI.times = new List<float> { 1.5f, 3.0f, 2.5f, 3.5f };
+                sprayerEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 			}
 		}
 	}

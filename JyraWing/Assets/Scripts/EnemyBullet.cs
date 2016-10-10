@@ -18,6 +18,9 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	private SpriteRenderer renderer;
     private Rigidbody2D rigidyBody2D;
 
+    public delegate bool EnemyBulletEvent();
+    public static event EnemyBulletEvent IsPlayerShielded;
+
 	// Use this for initialization
 	void Start () {
 		isActive = false;
@@ -46,7 +49,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	void OnTriggerEnter2D(Collider2D other){
 		//Player has two collders so we need to check if we are hitting the trigger one.
 		if (other.tag == "Player" && other.isTrigger) {
-            if(shieldable) {
+            if(shieldable && IsPlayerShielded()) {
                 StartCoroutine(StartDissapearAnimation());
             } else { 
 			    Recycle ();

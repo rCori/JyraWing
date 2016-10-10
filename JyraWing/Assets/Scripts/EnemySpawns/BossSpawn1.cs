@@ -7,6 +7,7 @@ public class BossSpawn1 : EnemySpawner {
 	public LevelControllerBehavior levelControllerBehavior;
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn(){
 
@@ -26,5 +27,6 @@ public class BossSpawn1 : EnemySpawner {
 		enemyBehavior.bulletPool = bulletPool;
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.pointIconPool = pointIconPool;
+        enemyBehavior.SetPaused(pauseController.IsPaused);
 	}
 }

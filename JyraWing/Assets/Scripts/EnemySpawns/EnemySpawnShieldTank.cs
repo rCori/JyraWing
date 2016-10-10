@@ -10,6 +10,7 @@ public class EnemySpawnShieldTank : EnemySpawner {
 	public EnemyBulletPool bulletPool;
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
+    public PauseControllerBehavior pauseController;
 
 	public override void Spawn ()
 	{
@@ -26,5 +27,6 @@ public class EnemySpawnShieldTank : EnemySpawner {
 		ai1.direction = direction;
 		enemy = Instantiate (enemy);
 		enemy.GetComponent<EnemyBehavior>().shieldableBullets = shieldableBullets;
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
     }
 }
