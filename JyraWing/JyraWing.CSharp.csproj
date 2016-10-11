@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondArc.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAILargeTank.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIMiniBoss1.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerA.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIReflectBulletSprayerArc.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeB.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFighterTypeBArcIn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnFollowShip.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLargeTank.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLeftRightDiamondsTank2Turrets.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1Intro.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnLevel1IntroPart2.cs" />

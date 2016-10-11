@@ -15,22 +15,25 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	private float timer = 0f;
 
 	private Animator animator;
-	private SpriteRenderer renderer;
+	private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidyBody2D;
 
     public delegate bool EnemyBulletEvent();
     public static event EnemyBulletEvent IsPlayerShielded;
 
+    private bool hasStarted = false;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		isActive = false;
 		_paused = false;
 		timer = 0f;
 		animator = GetComponent<Animator> ();
-		renderer = GetComponent<SpriteRenderer> ();
+		spriteRenderer = GetComponent<SpriteRenderer> ();
         rigidyBody2D = GetComponent<Rigidbody2D>();
 		SetRendererEnabled (false);
 		RegisterToList();
+        hasStarted = true;
 	}
 	
 	// Update is called once per frame
@@ -80,7 +83,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	}
 
 	public void SetRendererEnabled(bool isEnabled){
-		renderer.enabled = isEnabled;
+		spriteRenderer.enabled = isEnabled;
 	}
 
     IEnumerator StartDissapearAnimation() {
@@ -99,6 +102,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		timer = 0.0f;
 	}
 	
+
 	/* Implementation of PauseableItem interface */
 	public bool paused
 	{
@@ -125,14 +129,12 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
 	public void RegisterToList()
 	{
-		//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
 		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
         _paused = GameObject.Find("PauseController").GetComponent<PauseControllerBehavior>().IsPaused;
 	}
 	
 	public void RemoveFromList()
 	{
-		//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().DelistPauseableItem(this);
 		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().DelistPauseableItem(this);
 	}
 }
