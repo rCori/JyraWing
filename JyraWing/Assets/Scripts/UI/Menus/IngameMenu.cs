@@ -83,7 +83,8 @@ public class IngameMenu : Menu {
 	IEnumerator LoadTitleSceneCoroutine(){
 		PlayConfirm ();
 		lockScreen = true;
-		yield return new WaitForSeconds (0.1f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
+        Time.timeScale = 1f;
 		SceneManager.LoadScene("titleScene");
 	}
 

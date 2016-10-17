@@ -6,8 +6,7 @@ public class Menu : MonoBehaviour {
 
 
 	protected int curSelect;
-	protected float selectTimer;
-	protected float selectTimeLimit;
+    protected bool directionUp;
 	protected AudioSource beep;
 	protected AudioClip confirm;
 	protected AudioClip move;
@@ -23,42 +22,43 @@ public class Menu : MonoBehaviour {
 		confirm = Resources.Load ("Audio/SFX/Confirm") as AudioClip;
 		move = Resources.Load ("Audio/SFX/Cursor") as AudioClip;
 		curSelect = 0;
-		selectTimer = 0f;
-		selectTimeLimit = 0.15f;
+        directionUp = true;
 		beep = gameObject.GetComponent<AudioSource> ();
 	}
 
 
 	public void MenuScroll(){
-		//Timer prevents the options from being scrolled through as fast as this update happens.
-		selectTimer += Time.deltaTime;
 
 		//move selection down one
 		float axis;
 		if(isVertical){
-			axis = Input.GetAxis ("Vertical");
+			axis = Input.GetAxisRaw ("Vertical");
 		}
 		else{
-			axis = Input.GetAxis ("Horizontal");
+			axis = Input.GetAxisRaw ("Horizontal");
 		}
 
 		//Move the selector down(veritcal) or right(horizontal)
-		if (((isVertical && axis < 0)||(!isVertical && axis > 0)) && (selectTimer > selectTimeLimit) && curSelect != numberOfItems-1) {
+		if (((isVertical && axis < 0)||(!isVertical && axis > 0)) && directionUp && curSelect != numberOfItems-1) {
 			curSelect++;
 			transform.position = menuLocations[curSelect];
-			selectTimer = 0f;
+            directionUp = false;
 			PlayMove ();
 		}
 
 		//Move the selector up(veritcal) or left(horizontal)
 		//move selection up one
-		if (((isVertical && axis > 0)||(!isVertical && axis < 0)) && (selectTimer > selectTimeLimit) && curSelect != 0) {
+		if (((isVertical && axis > 0)||(!isVertical && axis < 0)) && directionUp && curSelect != 0) {
 			curSelect--;
 			transform.position = menuLocations[curSelect];
-			selectTimer = 0f;
+			directionUp = false;
 			PlayMove ();
 
 		}
+
+        if(axis == 0 && !directionUp) {
+            directionUp = true;
+        }
 
 	}
 

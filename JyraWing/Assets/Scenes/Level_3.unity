@@ -917,10 +917,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rows: 2
-  columns: 2
-  rowSpacing: 2
+  columns: 1
+  rowSpacing: 2.5
   columnSpacing: 2
-  yShift: 0
+  yShift: -1
   shieldableBullets: 0
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 669677890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.44, y: -2.5, z: 0}
+  m_LocalPosition: {x: 15.44, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -2.5}
+  enemyPosition: {x: 8, y: -2.3}
   direction: 0
   shieldableBullets: 1
   bulletPool: {fileID: 1358474311}
@@ -1731,7 +1731,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8930cc3e9de3a014aa4b856f3b8de996, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87eb60bf512ab744295e66a19a481d42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1821,7 +1821,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &767840488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1918,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &853687659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2291,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &950900644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,7 +2316,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 950900644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.44, y: 2.5, z: 0}
+  m_LocalPosition: {x: 15.44, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2.5}
+  enemyPosition: {x: 8, y: 2.3}
   direction: 0
   shieldableBullets: 1
   bulletPool: {fileID: 1358474311}
@@ -3520,6 +3520,64 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1433538091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1433538094}
+  - 114: {fileID: 1433538093}
+  - 114: {fileID: 1433538092}
+  m_Layer: 0
+  m_Name: Boss3Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1433538092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433538091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a63e727ab4f0e946a61878fb96ba1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointIconPool: {fileID: 1210626209}
+  levelControllerBehavior: {fileID: 68120315}
+  bulletPool: {fileID: 1358474311}
+  shieldableBulletPool: {fileID: 541105563}
+  pauseController: {fileID: 782599691}
+--- !u!114 &1433538093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433538091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!4 &1433538094
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433538091}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1497373482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,7 +3709,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f09acbea55d1d95488a3d7d00d7bb15f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79be55869a56b7945a1fadab0182ff26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3724,7 +3782,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: DEBUGNODAMAGE
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
       propertyPath: speed
@@ -3980,7 +4038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79a1ea5c1fd5cb42b8c6d2f957e41ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraEnemies: 1
+  extraEnemies: 0
   bulletPool: {fileID: 1358474311}
   shieldableBulletPool: {fileID: 541105563}
   pointIconPool: {fileID: 1210626209}
@@ -4596,7 +4654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2030097065
 Transform:
   m_ObjectHideFlags: 0

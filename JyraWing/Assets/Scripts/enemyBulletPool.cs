@@ -67,6 +67,7 @@ public class EnemyBulletPool : MonoBehaviour {
         EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet>();
         bulletObjPool.Add(newBulletObj);
         bulletPool.Add(newBullet);
+        newBullet.SetRendererEnabled(true);
         totalBullets++;
         return newBulletObj;
     }

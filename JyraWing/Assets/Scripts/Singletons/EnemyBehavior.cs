@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -264,17 +265,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		} else {
 			bulletObj = shieldableBulletPool.GetBullet();
 		}
-		//We check if the bullet is valid, if it is then shoot it.
-		if(bulletObj)
-		{
-			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet>();
-			if(!bullet.GetIsActive()){
-				bulletObj.transform.position = transform.position;
-				bullet.Shoot();
-				return;
-			}
-		}
-
+        Assert.IsNotNull(bulletObj);
+		//Shoot bullet
+		EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet>();
+		if(!bullet.GetIsActive()){
+			bulletObj.transform.position = transform.position;
+			bullet.Shoot();
+			return;
+        }
 	}
 
 	/// <summary>
@@ -290,17 +288,43 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		} else {
 			bulletObj = shieldableBulletPool.GetBullet();
 		}
-		//We check if the bullet is valid, if it is then shoot it.
-		if(bulletObj)
-		{
-			EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
-			if (!bullet.GetIsActive ()) {
-				bulletObj.transform.position = transform.position;
-				bullet.Shoot (i_dir);
-				return;
-			}
+        Assert.IsNotNull(bulletObj);
 
+        //Shoot the bullet
+		EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
+		if (!bullet.GetIsActive ()) {
+			bulletObj.transform.position = transform.position;
+			bullet.Shoot (i_dir);
+			return;
 		}
+
+		
+	}
+
+    	/// <summary>
+	/// Shoots an enemy bullet with a specified velocity from a specific origin relative to the enemy position
+	/// </summary>
+	/// <param name="i_dir">Enemy bullet velocity.</param>
+	public void Shoot(Vector2 i_dir,Vector2 i_relPos, bool shieldable = false){
+		GameObject bulletObj;
+		//Determine what kind of bullet we will get, shieldable or not
+
+		if(!shieldable){
+			bulletObj = bulletPool.GetBullet();
+		} else {
+			bulletObj = shieldableBulletPool.GetBullet();
+		}
+        Assert.IsNotNull(bulletObj);
+
+		//Shoot the bullet
+		EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet> ();
+		if (!bullet.GetIsActive ()) {
+			bulletObj.transform.position = transform.position + (Vector3)i_relPos;
+			bullet.Shoot (i_dir);
+			return;
+		}
+
+		
 	}
 
 	/// <summary>

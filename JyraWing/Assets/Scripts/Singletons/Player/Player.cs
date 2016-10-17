@@ -49,8 +49,8 @@ public class Player : MonoBehaviour, PauseableItem {
 	private float horiz;
 	private float vert;
 
-	private IEnumerator returnFromHitCoroutine;
-	private bool returnFromInProgress;
+	private IEnumerator currentReturnFromHitCoroutine, currentOutOfLivesCoroutine, currentWaitForSecondsCoroutine;
+	private bool returnFromInProgress, outOfLivesInProgress, waitForSecondsInProgress;
 
     private BoxCollider2D hitCollider;
 
@@ -96,8 +96,11 @@ public class Player : MonoBehaviour, PauseableItem {
 		horiz = 0f;
 		vert = 0f;
 
-		returnFromHitCoroutine = returningFromHitRoutine ();
+		currentReturnFromHitCoroutine = returningFromHitRoutine ();
 		returnFromInProgress = false;
+
+        currentOutOfLivesCoroutine = outOfLivesCoroutine();
+        outOfLivesInProgress = false;
 
         //There are two colliders on the player, we need to get the one that determines hit detection
         //and not physical interaction with the borders of the game.
@@ -145,10 +148,11 @@ public class Player : MonoBehaviour, PauseableItem {
 		HitEvent (TakingDamage.EXPLODE);
 		playerShield.DisableShield ();
 		if (hits == 0) {
-			returnFromHitCoroutine = returningFromHitRoutine ();
-			StartCoroutine(outOfLivesCoroutine());
+			currentOutOfLivesCoroutine = outOfLivesCoroutine ();
+			StartCoroutine(currentOutOfLivesCoroutine);
 		} else {
-			StartCoroutine(returningFromHitRoutine());
+            currentReturnFromHitCoroutine = returningFromHitRoutine ();
+			StartCoroutine(currentReturnFromHitCoroutine);
 		}
 	}
 
@@ -186,36 +190,48 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 		
 	IEnumerator returningFromHitRoutine(){
+        float start = Time.time;
+        //Debug.Log("TakingDamage.RETURNING");
+        returnFromInProgress = true;
         hitCollider.enabled = false;
-		returnFromInProgress = true;
-		yield return new WaitForSeconds (1f);
+
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1f));
+
 		endSavePos = new Vector2 (-2.5f, 0f);
 		PositionPlayerOffScreen ();
 		startSavePos = gameObject.transform.position;
 		takingDamage = TakingDamage.RETURNING;
+        //Debug.Log("TakingDamage.RETURNING");
 		HitEvent (TakingDamage.RETURNING);
-		yield return new WaitForSeconds (2.0f);
+
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2f));
+
 		float startTime = Time.time;
 		while (Time.time < startTime + returningRecoveryTime) {
 			gameObject.transform.position = Vector3.Lerp(startSavePos, endSavePos, (Time.time - startTime)/returningRecoveryTime);
 			yield return null;
 		}
+
 		gameObject.transform.position = endSavePos;
 		takingDamage = TakingDamage.BLINKING;
+        //Debug.Log("TakingDamage.BLINKING");
 		HitEvent (TakingDamage.BLINKING);
-		yield return new WaitForSeconds (3.5f);
+
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(3.5f));
+
 		playerShield.EnableShield ();
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
+        //Debug.Log("TakingDamage.NONE");
 		HitEvent (TakingDamage.NONE);
         hitCollider.enabled = true;
 		returnFromInProgress = false;
 	}
 
 	IEnumerator outOfLivesCoroutine() {
+        outOfLivesInProgress = true;
 		gameController.PlayerKilled ();
-		//yield return new WaitForSeconds (2f);
-		//PositionPlayerOffScreen ();
+        outOfLivesInProgress = false;
 		yield return null;
 
 	}
@@ -242,15 +258,35 @@ public class Player : MonoBehaviour, PauseableItem {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 				//I am hoping this fixes the drift by mashing pause in the corner bug.
 				animator.speed = 0f;
+                /*
 				if (returnFromInProgress) {
-					StopCoroutine (returnFromHitCoroutine);
+                    Debug.Log("stoping currentReturnFromInProgress coroutine from pause");
+					StopCoroutine (currentReturnFromHitCoroutine);
 				}
+                if(outOfLivesInProgress) {
+                    Debug.Log("stoping currentOutOfLives coroutine from pause");
+					StopCoroutine (currentOutOfLivesCoroutine);
+                }
+                if(waitForSecondsInProgress) {
+                    StopCoroutine(currentWaitForSecondsCoroutine);
+                }
+                */
 			}
 			else{
 				animator.speed = 1f;
+                /*
 				if (returnFromInProgress) {
-					StartCoroutine (returnFromHitCoroutine);
+                    Debug.Log("restarting returnFromInProgress coroutine from unpausing");
+					StartCoroutine (currentReturnFromHitCoroutine);
 				}
+                if(outOfLivesInProgress) {
+                    Debug.Log("restarting currentOutOfLives coroutine from unpausing");
+					StartCoroutine (currentOutOfLivesCoroutine);
+                }
+                if(waitForSecondsInProgress) {
+                    StartCoroutine(currentWaitForSecondsCoroutine);
+                }
+                */
 			}
 		}
 	}
@@ -312,7 +348,8 @@ public class Player : MonoBehaviour, PauseableItem {
 	}
 
 	private void StartReturnFromHitCoroutine() {
-		StartCoroutine (returnFromHitCoroutine);
+        currentReturnFromHitCoroutine = returningFromHitRoutine();
+		StartCoroutine (currentReturnFromHitCoroutine);
 	}
 
 	private void PositionPlayerOffScreen() {

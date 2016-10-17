@@ -8,11 +8,13 @@ public class PauseControllerBehavior : MonoBehaviour {
 	public delegate void PauseDelegate();
 	public static event PauseDelegate PauseEvent;
 
+    private static bool paused;
+
 	// Use this for initialization
 	void Awake () {
 		pauseController = new PauseController ();
 		PlayerInputController.StartButton += PauseBehavior;
-		IngameMenu.UnpauseEvent += () => pauseController.Unpause ();
+		IngameMenu.UnpauseEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
 	}
 	
 	// Update is called once per frame
@@ -54,6 +56,8 @@ public class PauseControllerBehavior : MonoBehaviour {
 			if (!pauseController.IsPaused) {
 				pauseController.PauseAllItems ();
 				if (PauseEvent != null) {
+                    paused = true;
+                    Time.timeScale = 0;
 					PauseEvent ();
 				}
 			}
@@ -63,6 +67,21 @@ public class PauseControllerBehavior : MonoBehaviour {
 	void OnDestroy() {
 		pauseController.Purge ();
 		PlayerInputController.StartButton -= PauseBehavior;
-		IngameMenu.UnpauseEvent -= () => pauseController.Unpause ();
+        IngameMenu.UnpauseEvent -= () => { pauseController.Unpause();  paused = false; Time.timeScale = 1; };
 	}
+
+    public static IEnumerator WaitForPauseSeconds(float time) {
+        float start = Time.time;
+        while(Time.time < start+ time) {
+            yield return null;
+        }
+    }
+
+    public static IEnumerator WaitForRealSeconds(float time) {
+        float start = Time.realtimeSinceStartup;
+        while(Time.realtimeSinceStartup < start+ time) {
+            yield return null;
+        }
+    }
+
 }
