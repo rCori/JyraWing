@@ -20,7 +20,7 @@ public class BossSpawn1 : EnemySpawner {
 
 
 		EnemyBoss1 boss = enemy1.GetComponent<EnemyBoss1> ();
-		boss.hits = 25;
+		
 		boss.levelControllerBehavior = levelControllerBehavior;
 		enemy1 = Instantiate (enemy1);
 		EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior> ();

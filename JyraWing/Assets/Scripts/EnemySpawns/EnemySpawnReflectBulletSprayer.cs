@@ -6,8 +6,6 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 
 	public Vector2 enemyPosition;
 
-	public int Health;
-
     public List<Vector2> locations;
     public List<float> times;
 
@@ -33,7 +31,6 @@ public class EnemySpawnReflectBulletSprayer : EnemySpawner {
 		enemy = Instantiate (enemy);
 
 		enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
-		enemyBehavior.SetEnemyHealth(Health);
         enemyBehavior.SetPaused(pauseController.IsPaused);
 
         enemy.GetComponent<EnemyAIReflectBulletSprayerA>().locations = locations;

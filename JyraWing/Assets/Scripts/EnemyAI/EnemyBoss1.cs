@@ -6,7 +6,7 @@ public class EnemyBoss1 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
-	public int hits;
+    private static int BOSS_HEALTH = 100;
 	//Animator animator;
 	float fireTimer;
 	float fireTimeLimit;
@@ -39,7 +39,7 @@ public class EnemyBoss1 : EnemyBehavior {
 		patternCounter = 0;
 		isDestroyed = false;
 		EnemyDefaults ();
-		SetEnemyHealth (hits);
+		SetEnemyHealth (BOSS_HEALTH);
 		HasAnimations animationSettings;
 		animationSettings = HasAnimations.Destroy;
 		SetAnimations (animationSettings);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerAnimation2 : MonoBehaviour {
 
@@ -24,6 +25,7 @@ public class PlayerAnimation2 : MonoBehaviour {
     public void UpdateUpDownAnimation(float value)
     {
         if (animator == null) return;
+
         int animState = (animator.GetInteger("animState"));
         if (isHit) {
             return;

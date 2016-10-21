@@ -16,6 +16,13 @@ public class EnemyAIBoss3 : EnemyBehavior
     private bool fanningUp;
     private int currentPattern = 0;
 
+    private float patternSwitchTimer = 0.0f;
+    private float pattern1Time = 5.5f;
+    private float pattern0Time = 7.0f;
+
+    private float directAtPlayerSpeed = 3.0f;
+    private float columnBulletWidth = 2.5f;
+
     void Start()
     {
         EnemyDefaults();
@@ -26,13 +33,26 @@ public class EnemyAIBoss3 : EnemyBehavior
         coneShootingRoutine = ConeShootingRoutine();
         directAtPlayerRoutine = DirectAtPlayer();
         bulletColumnRotuine = BulletColumn();
-        BulletPatternShift(1);
+        BulletPatternShift(0);
+        HasAnimations animationSettings;
+		animationSettings = HasAnimations.Destroy;
+		SetAnimations (animationSettings);
         AudioClip explosionClip = Resources.Load("Audio/SFX/bossExplosion") as AudioClip;
         SetExplosionSfx(explosionClip);
         fireWaitTime = 1.0f;
         fanningTimer = -1.0f;
         fanningUp = true;
         StartCoroutine(MoveIntoPosition());
+
+        for (int i = 0; i < 12; i++) {
+			GivePointObject (3, i*0.1f);
+		}
+        for (int i = 0; i < 8; i++) {
+			GivePointObject (2, i*0.3f);
+		}
+        for (int i = 0; i < 8; i++) {
+			GivePointObject (1, i*0.5f);
+		}
     }
 	
 	// Update is called once per frame
@@ -41,39 +61,33 @@ public class EnemyAIBoss3 : EnemyBehavior
 
         Movement();
 
-        /*
-        if(fanningUp) {
-            fanningTimer += Time.deltaTime * 0.5f;
-        } else {
-            fanningTimer -= Time.deltaTime * 0.5f;
+        patternSwitchTimer += Time.deltaTime;
+        switch(currentPattern) {
+        case 0:
+            Pattern0Fanning(Time.deltaTime);
+            if(patternSwitchTimer>pattern0Time) {
+                patternSwitchTimer = 0.0f;
+                BulletPatternShift(1);
+            }
+            break;
+        case 1:
+            Pattern1Adjustment();
+            if(patternSwitchTimer>pattern1Time) {
+                patternSwitchTimer = 0.0f;
+                BulletPatternShift(0);
+            }
+            break;
+        default:
+            break;
         }
 
+       
 
-        if(fanningTimer > 1.2f) {
-            fanningUp = false;
-        } else if(fanningTimer < -1.2f) {
-            fanningUp = true;
-        }
-
-
-        if (hitPoints < (51)) {
-            downwardShootingAngle = new Vector2(-2.5f, -0.6f + fanningTimer);
-            upwardShootingAngle = new Vector2(-2.5f, 0.6f + fanningTimer);
-            fireWaitTime = 0.25f;
-        } else if(hitPoints < (101)) {
-            downwardShootingAngle = new Vector2(-2.5f, -0.9f + fanningTimer);
-            upwardShootingAngle = new Vector2(-2.5f, 0.9f + fanningTimer);
-            fireWaitTime = 0.5f;
-        } else {
-            downwardShootingAngle = new Vector2(-2.5f, -1.2f + fanningTimer);
-            upwardShootingAngle = new Vector2(-2.5f, 1.2f + fanningTimer);
-            fireWaitTime = 0.5f;
-        }
-        */
 	}
 
     IEnumerator TrackingBulletRoutine()
     {
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         while (true)
         {
             Shoot((gameController.playerPosition-transform.position).normalized * 3.0f, false);
@@ -85,6 +99,7 @@ public class EnemyAIBoss3 : EnemyBehavior
 
     IEnumerator ConeShootingRoutine()
     {
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         while (true)
         {
             Shoot(upwardShootingAngle);
@@ -100,21 +115,22 @@ public class EnemyAIBoss3 : EnemyBehavior
     }
 
     IEnumerator DirectAtPlayer() {
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         while (true)
         {
-            Shoot((gameController.playerPosition-transform.position).normalized * 7.0f, false);
+            Shoot((gameController.playerPosition-transform.position).normalized * directAtPlayerSpeed, false);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         }
     }
 
     IEnumerator BulletColumn() {
-        Vector2 speed = new Vector2(-4f, 0f);
-        Vector2 topOffset = new Vector2(0f, 2f);
-        Vector2 bottomOffset = new Vector2(0f, -2f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
+
+        Vector2 speed = new Vector2(-4.0f, 0f);
         while (true)
         {
-            Shoot(speed, topOffset);
-            Shoot(speed, bottomOffset);
+            Shoot(speed, new Vector2(0f, columnBulletWidth));
+            Shoot(speed, new Vector2(0f, -columnBulletWidth));
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.25f));
         }
     }
@@ -146,16 +162,63 @@ public class EnemyAIBoss3 : EnemyBehavior
         //Turn on the coroutines for the new pattern
         switch(currentPattern) {
         case 0:
+            trackingBulletRoutine = TrackingBulletRoutine();
+            coneShootingRoutine = ConeShootingRoutine();
             StartCoroutine(trackingBulletRoutine);
             StartCoroutine(coneShootingRoutine);
             break;
         case 1:
+            bulletColumnRotuine = BulletColumn();
+            directAtPlayerRoutine = DirectAtPlayer();
             StartCoroutine(bulletColumnRotuine);
             StartCoroutine(directAtPlayerRoutine);
             break;
         default:
             break;
 
+        }
+    }
+
+    private void Pattern0Fanning(float deltaTime) {
+        if(fanningUp) {
+            fanningTimer += Time.deltaTime * 0.3f;
+        } else {
+            fanningTimer -= Time.deltaTime * 0.3f;
+        }
+
+
+        if(fanningTimer > 0.8f) {
+            fanningUp = false;
+        } else if(fanningTimer < -0.8f) {
+            fanningUp = true;
+        }
+
+
+        if (hitPoints < (51)) {
+            downwardShootingAngle = new Vector2(-2.5f, -0.6f + fanningTimer);
+            upwardShootingAngle = new Vector2(-2.5f, 0.6f + fanningTimer);
+            fireWaitTime = 0.25f;
+        } else if(hitPoints < (101)) {
+            downwardShootingAngle = new Vector2(-2.5f, -0.9f + fanningTimer);
+            upwardShootingAngle = new Vector2(-2.5f, 0.9f + fanningTimer);
+            fireWaitTime = 0.5f;
+        } else {
+            downwardShootingAngle = new Vector2(-2.5f, -1.2f + fanningTimer);
+            upwardShootingAngle = new Vector2(-2.5f, 1.2f + fanningTimer);
+            fireWaitTime = 0.5f;
+        }
+    }
+
+    private void Pattern1Adjustment() {
+        if(hitPoints <  51) {
+            columnBulletWidth = 1.7f;
+            directAtPlayerSpeed = 8.0f;
+        } else if(hitPoints < 101) {
+            columnBulletWidth = 2.0f;
+            directAtPlayerSpeed = 7.5f;
+        } else {
+            columnBulletWidth = 2.5f;
+            directAtPlayerSpeed = 7.0f;
         }
     }
 

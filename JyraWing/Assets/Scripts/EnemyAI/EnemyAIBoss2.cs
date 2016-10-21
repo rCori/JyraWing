@@ -38,6 +38,13 @@ public class EnemyAIBoss2 : EnemyBehavior {
 		endShootRoutine = EndShootRoutine ();
 		shootState = ShootState.intro;
 
+        for (int i = 0; i < 7; i++) {
+			GivePointObject (3, i*0.1f);
+		}
+        for (int i = 0; i < 5; i++) {
+			GivePointObject (2, i*0.5f);
+		}
+
 	}
 
 	void Update () {

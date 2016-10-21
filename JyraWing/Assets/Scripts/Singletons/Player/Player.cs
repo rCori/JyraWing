@@ -258,6 +258,7 @@ public class Player : MonoBehaviour, PauseableItem {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 				//I am hoping this fixes the drift by mashing pause in the corner bug.
 				animator.speed = 0f;
+                animator.enabled = false;
                 /*
 				if (returnFromInProgress) {
                     Debug.Log("stoping currentReturnFromInProgress coroutine from pause");
@@ -274,6 +275,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			}
 			else{
 				animator.speed = 1f;
+                animator.enabled = true;
                 /*
 				if (returnFromInProgress) {
                     Debug.Log("restarting returnFromInProgress coroutine from unpausing");
