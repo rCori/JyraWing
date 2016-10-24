@@ -10,6 +10,11 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 
 	public override void Spawn(){
 
+        EnemyAIShipArc.MoveInstruction left = new EnemyAIShipArc.MoveInstruction();
+        left.type = EnemyAIShipArc.MovementStatus.Velocity;
+        left.startVelocity = new Vector2(-2.3f, 0f);
+        left.time = 8.5f;
+
 		//Top ship
 		{
 			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
@@ -20,6 +25,8 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
+            ai.MoveInstructionList.Clear();
+            ai.MoveInstructionList.Add(left);
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = false;
             shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
@@ -35,7 +42,8 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 			enemyBehavior.LeftWallException = true;
 			EnemyAIShipArc ai = shipEnemy.GetComponent<EnemyAIShipArc> ();
-			//shipEnemy.GetComponent<Scroll> ().speed = 0;
+			ai.MoveInstructionList.Clear();
+            ai.MoveInstructionList.Add(left);
 			shipEnemy = Instantiate (shipEnemy);
 			shipEnemy.GetComponent<EnemyBehavior> ().shieldableBullets = true;
             shipEnemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);

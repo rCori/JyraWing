@@ -13,6 +13,12 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 		public float time;
 	};
 
+    private enum BulletPatterns{ 
+        cardinal = 0,
+        diagonal
+    };
+    private BulletPatterns bulletPattern;
+
 	public List<MoveInstruction> MoveInstructionList;
 
     public float fireRate = 0.7f;
@@ -36,17 +42,17 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
         SetAnimations(animationsOwned);
 
         currentMovementStep = 0;
-        fireTimer = 0.4f;
+        fireTimer = 0.55f;
 
         fireDirections = new Vector2[8];
-        fireDirections[0] = new Vector2(1.0f, 0.0f).normalized * bulletSpeed;
-        fireDirections[1] = new Vector2(0.5f, 0.5f).normalized * bulletSpeed;
-        fireDirections[2] = new Vector2(0.0f, 1.0f).normalized * bulletSpeed;
-        fireDirections[3] = new Vector2(-0.5f, 0.5f).normalized * bulletSpeed;
-        fireDirections[4] = new Vector2(-1.0f, 0.0f).normalized * bulletSpeed;
-        fireDirections[5] = new Vector2(-0.5f, -0.5f).normalized * bulletSpeed;
-        fireDirections[6] = new Vector2(0.0f, -1.0f).normalized * bulletSpeed;
-        fireDirections[7] = new Vector2(0.5f, -0.5f).normalized * bulletSpeed;
+        fireDirections[0] = new Vector2(1.5f, 0.0f).normalized * bulletSpeed;
+        fireDirections[1] = new Vector2(0.75f, 0.75f).normalized * bulletSpeed;
+        fireDirections[2] = new Vector2(0.0f, 1.5f).normalized * bulletSpeed;
+        fireDirections[3] = new Vector2(-0.75f, 0.75f).normalized * bulletSpeed;
+        fireDirections[4] = new Vector2(-1.5f, 0.0f).normalized * bulletSpeed;
+        fireDirections[5] = new Vector2(-0.75f, -0.75f).normalized * bulletSpeed;
+        fireDirections[6] = new Vector2(0.0f, -1.5f).normalized * bulletSpeed;
+        fireDirections[7] = new Vector2(0.75f, -0.75f).normalized * bulletSpeed;
 
 		LeftWallException = true;
 		SetEnemyHealth (SPRAYER_HEALTH);
@@ -88,14 +94,19 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 
         fireTimer += Time.deltaTime;
         if(fireTimer > fireRate){
-            Shoot(fireDirections[0], true);
-            Shoot(fireDirections[1], true);
-            Shoot(fireDirections[2], true);
-            Shoot(fireDirections[3], true);
-            Shoot(fireDirections[4], true);
-            Shoot(fireDirections[5], true);
-            Shoot(fireDirections[6], true);
-            Shoot(fireDirections[7], true);
+            if (bulletPattern == BulletPatterns.cardinal) {
+                Shoot(fireDirections[0], true);
+                Shoot(fireDirections[2], true);
+                Shoot(fireDirections[4], true);
+                Shoot(fireDirections[6], true);
+                bulletPattern = BulletPatterns.diagonal;
+            } else if(bulletPattern == BulletPatterns.diagonal) {
+                Shoot(fireDirections[1], true);
+                Shoot(fireDirections[3], true);
+                Shoot(fireDirections[5], true);
+                Shoot(fireDirections[7], true);
+                bulletPattern = BulletPatterns.cardinal;
+            }
             fireTimer = 0.0f;
         }
 

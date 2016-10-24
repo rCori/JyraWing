@@ -51,7 +51,7 @@ public class IngameMenu : Menu {
 			MenuScroll ();
 
 			//No: Continue game, unpausing it.
-			if (Input.GetButtonDown ("Fire")) {
+			if (Input.GetButtonDown ("Auto Fire")) {
 				if (curSelect == 0) {
 					if (UnpauseEvent != null) {
 						UnpauseEvent ();
