@@ -16,7 +16,7 @@ public class EnemyAIShipArc : EnemyBehavior {
 	private int currentMovementStep;
 
 	private float radians;
-	private float timer;
+	public float timer;
 	private float bulletSpeed = 3.4f;
 	private float fireRate = 1.5f;
 	private int SHIP_HEALTH = 3;

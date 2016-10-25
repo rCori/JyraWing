@@ -20,7 +20,7 @@ public class BossNew2Spawn : EnemySpawner {
 		enemy.GetComponent<EnemyBehavior> ().shieldableBulletPool = shieldableBulletPool;
 		enemy.GetComponent<EnemyBehavior> ().pointIconPool = pointIconPool;
 
-        EnemyAIBoss2 boss2AI = enemy.GetComponent<EnemyAIBoss2>();
+        EnemyAIBoss3 boss2AI = enemy.GetComponent<EnemyAIBoss3>();
 		boss2AI.levelControllerBehavior = levelControllerBehavior;
 
 		enemy = Instantiate (enemy);

@@ -12,6 +12,8 @@ public class EnemySpawnTank : EnemySpawner {
 	public PointIconPool pointIconPool;
     public PauseControllerBehavior pauseController;
 
+    public int MoveState = 0;
+
 	public override void Spawn ()
 	{
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
@@ -27,6 +29,7 @@ public class EnemySpawnTank : EnemySpawner {
 			enemyBehavior.pointIconPool = pointIconPool;
 
 			EnemyAITankShield ai1 = enemy.GetComponent<EnemyAITankShield> ();
+            ai1.moveState = MoveState;
 			enemy = Instantiate (enemy);
             enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		} else {
@@ -41,6 +44,7 @@ public class EnemySpawnTank : EnemySpawner {
 
 			EnemyAITank ai1 = enemy.GetComponent<EnemyAITank> ();
 			ai1.direction = direction;
+            ai1.moveState = MoveState;
 			enemy = Instantiate (enemy);
             enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 		}

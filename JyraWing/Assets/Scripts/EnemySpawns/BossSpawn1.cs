@@ -19,7 +19,7 @@ public class BossSpawn1 : EnemySpawner {
 			                                    spawnPos.z);
 
 
-		EnemyBoss1 boss = enemy1.GetComponent<EnemyBoss1> ();
+		EnemyAIBoss2 boss = enemy1.GetComponent<EnemyAIBoss2> ();
 		
 		boss.levelControllerBehavior = levelControllerBehavior;
 		enemy1 = Instantiate (enemy1);

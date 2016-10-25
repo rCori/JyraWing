@@ -29,7 +29,7 @@ public class LevelTransitionLoad : MonoBehaviour {
 		rollup1Behavior.countupRate = 0.001f;
 		rollup1Behavior = Instantiate (rollup1Behavior);
 		rollup1Behavior.transform.SetParent (canvas.transform);
-		rollup1Behavior.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0.0f, 0.0f);
+		rollup1Behavior.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (0.0f, -83.0f);
 		rollup1Behavior.TimerEndEvent += () => StartCoroutine (BeginLevelTransitionCountdown ());
 		rollup1Behavior.BeginTimer ();
 	}

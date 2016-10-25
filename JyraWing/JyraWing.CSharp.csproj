@@ -69,8 +69,10 @@
     <Compile Include="Assets\Scripts\DataPersistence\SaveData.cs" />
     <Compile Include="Assets\Scripts\Effect.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBasicShip.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss1.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss2.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss3.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss4.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondArc.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
@@ -90,12 +92,12 @@
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITurretLevel2.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAITypeBFighter.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIWaterTurret.cs" />
-    <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss1.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Base.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyBoss2Turret.cs" />
     <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\Boss1Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss3Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossNew2Spawn.cs" />

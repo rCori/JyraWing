@@ -10,7 +10,7 @@ using System.Collections.Generic;
 /// </summary>
 public class EnemyAITankShield : EnemyBehavior {
 	
-	private int moveState;
+	public int moveState = 0;
 
 	public enum TankDir {Left = 0, Right, Up, Down};
 	public TankDir direction;
@@ -51,7 +51,6 @@ public class EnemyAITankShield : EnemyBehavior {
 		EnemyDefaults ();
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/enemyHit") as AudioClip;
 		SetExplosionSfx (explosionClip);
-		moveState = 0;
 		//Set the direction vectors for any direction.
 		switch (direction) {
 		case TankDir.Left:
@@ -145,7 +144,7 @@ public class EnemyAITankShield : EnemyBehavior {
 			case 0:
 				//Fast movement of selected direction for 1 second
 				moveState = 1;
-				StartNewVelocity(slowVec, 2.5f);
+				StartNewVelocity(slowVec, 1.75f);
 				break;
 			case 1:
 				//slow movement of selected direciton for one second.

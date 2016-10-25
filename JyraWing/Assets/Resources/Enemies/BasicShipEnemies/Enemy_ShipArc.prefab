@@ -110,6 +110,7 @@ MonoBehaviour:
     startVelocity: {x: 0, y: 2}
     endVelocity: {x: 0, y: 0}
     time: 2
+  timer: 1
 --- !u!212 &21202418
 SpriteRenderer:
   m_ObjectHideFlags: 1

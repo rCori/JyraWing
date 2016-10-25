@@ -176,336 +176,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
---- !u!1 &27454607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 27454608}
-  - 114: {fileID: 27454610}
-  - 114: {fileID: 27454609}
-  m_Layer: 0
-  m_Name: EnemySpawnTankSquad_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &27454608
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27454607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.3, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 25
---- !u!114 &27454609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27454607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 2
-  columns: 1
-  rowSpacing: 1
-  columnSpacing: 1
-  yShift: -2
-  shieldableBullets: 1
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &27454610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27454607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &27672240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 27672241}
-  - 114: {fileID: 27672243}
-  - 114: {fileID: 27672242}
-  m_Layer: 0
-  m_Name: EnemySpawnTank_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &27672241
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27672240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.29, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 17
---- !u!114 &27672242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27672240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -3.5}
-  direction: 0
-  shieldableBullets: 1
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &27672243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27672240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &54482466
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 54482467}
-  - 114: {fileID: 54482469}
-  - 114: {fileID: 54482468}
-  m_Layer: 0
-  m_Name: EnemySpawnTank_5
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &54482467
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 54482466}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 111.6, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 23
---- !u!114 &54482468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 54482466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2}
-  direction: 0
-  shieldableBullets: 1
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &54482469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 54482466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &60446064
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 60446065}
-  - 114: {fileID: 60446067}
-  - 114: {fileID: 60446066}
-  m_Layer: 0
-  m_Name: EnemySpawnShipArc_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &60446065
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60446064}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 136.6, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 37
---- !u!114 &60446066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60446064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: {x: 0, y: 4}
-  moveInstructionList:
-  - type: 4
-    startVelocity: {x: 0, y: -4}
-    endVelocity: {x: -3, y: 0}
-    time: 0
-  - type: 3
-    startVelocity: {x: -3, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 3
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &60446067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60446064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &61640359
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 61640360}
-  - 114: {fileID: 61640362}
-  - 114: {fileID: 61640361}
-  m_Layer: 0
-  m_Name: EnemySpawnBulletSprayerArc_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &61640360
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 61640359}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.33, y: -3.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 29
---- !u!114 &61640361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 61640359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 4, y: -4}
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: 0, y: 4}
-    endVelocities: {x: 0, y: 0}
-    time: 0
-  - type: 4
-    startVelocity: {x: 0, y: 4}
-    endVelocities: {x: -4, y: 0}
-    time: 2
-  - type: 3
-    startVelocity: {x: -4, y: 0}
-    endVelocities: {x: 0, y: 0}
-    time: 1
-  - type: 4
-    startVelocity: {x: -4, y: 0}
-    endVelocities: {x: 0, y: -4}
-    time: 2
-  - type: 3
-    startVelocity: {x: 0, y: -4}
-    endVelocities: {x: 0, y: 0}
-    time: 3
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &61640362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 61640359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
+  m_RootOrder: 7
 --- !u!1 &76298528
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,64 +327,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!1 &152406143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 152406144}
-  - 114: {fileID: 152406146}
-  - 114: {fileID: 152406145}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_9
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &152406144
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152406143}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.3, y: 2.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 24
---- !u!114 &152406145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152406143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &152406146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 152406143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2.7}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1 &164074333
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,221 +366,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
---- !u!1 &205947437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 205947438}
-  - 114: {fileID: 205947440}
-  - 114: {fileID: 205947439}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_10
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &205947438
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 205947437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.1, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 31
---- !u!114 &205947439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 205947437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &205947440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 205947437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 0}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &245924956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 245924957}
-  - 114: {fileID: 245924959}
-  - 114: {fileID: 245924958}
-  m_Layer: 0
-  m_Name: EnemySpawnFighterTypeBArcIn_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &245924957
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 245924956}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.15, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 7
---- !u!114 &245924958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 245924956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50618c3c75e881e41b10569c65000ba9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &245924959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 245924956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &281241801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 281241804}
-  - 114: {fileID: 281241803}
-  - 114: {fileID: 281241802}
-  m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &281241802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 281241801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 2
-  columns: 3
-  rowSpacing: 1
-  columnSpacing: 1
-  initLocation: {x: 8, y: 0}
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -1.5, y: -1}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: -1.5, y: -1}
-    endVelocity: {x: -1.5, y: 0}
-    time: 0.5
-  - type: 3
-    startVelocity: {x: -1.5, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: -1.5, y: 0}
-    endVelocity: {x: -1.5, y: 1}
-    time: 0.5
-  - type: 3
-    startVelocity: {x: -1.5, y: 1}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: -1.5, y: 1}
-    endVelocity: {x: -1.5, y: 0}
-    time: 0.5
-  - type: 3
-    startVelocity: {x: -1.5, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: -1.5, y: 0}
-    endVelocity: {x: -1.5, y: -1}
-    time: 0.5
-  - type: 3
-    startVelocity: {x: -1.5, y: -1}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &281241803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 281241801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!4 &281241804
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 281241801}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 116.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 33
+  m_RootOrder: 15
 --- !u!1 &284180221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,238 +475,136 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1870243692}
   m_RootOrder: 5
---- !u!1 &297457827
+--- !u!1 &339154983
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 297457828}
-  - 114: {fileID: 297457830}
-  - 114: {fileID: 297457829}
+  - 4: {fileID: 339154986}
+  - 114: {fileID: 339154985}
+  - 114: {fileID: 339154984}
   m_Layer: 0
-  m_Name: EnemySpawnTurret_12
+  m_Name: EnemySpawnBoss1
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &297457828
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 297457827}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.9, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 35
---- !u!114 &297457829
+--- !u!114 &339154984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 297457827}
+  m_GameObject: {fileID: 339154983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf91a61d7cea3241a99e63f340737d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointIconPool: {fileID: 116119343}
+  levelControllerBehavior: {fileID: 164074334}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &339154985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339154983}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &297457830
-MonoBehaviour:
+--- !u!4 &339154986
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 297457827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &298343898
+  m_GameObject: {fileID: 339154983}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 147, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 23
+--- !u!1 &436013711
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 298343899}
-  - 114: {fileID: 298343901}
-  - 114: {fileID: 298343900}
+  - 4: {fileID: 436013712}
+  - 114: {fileID: 436013714}
+  - 114: {fileID: 436013713}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_3
+  m_Name: EnemySpawnShipArc
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &298343899
+--- !u!4 &436013712
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 298343898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71, y: -2.3, z: 0}
+  m_GameObject: {fileID: 436013711}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.5, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 28
---- !u!114 &298343900
+  m_RootOrder: 3
+--- !u!114 &436013713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 298343898}
+  m_GameObject: {fileID: 436013711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 8, y: -2}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 3
+  - type: 4
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 2}
+    time: 1
+  - type: 3
+    startVelocity: {x: 0, y: 2}
+    endVelocity: {x: 0, y: 0}
+    time: 4
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  FireTimer: 1
+--- !u!114 &436013714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436013711}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &298343901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 298343898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 1.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &334976219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 334976220}
-  - 114: {fileID: 334976222}
-  - 114: {fileID: 334976221}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_5
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &334976220
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334976219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.3, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 12
---- !u!114 &334976221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334976219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &334976222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334976219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &435318427
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 435318428}
-  - 114: {fileID: 435318430}
-  - 114: {fileID: 435318429}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_7
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &435318428
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 435318427}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.78, y: -2.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 16
---- !u!114 &435318429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 435318427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &435318430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 435318427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: -3.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1001 &489556782
 Prefab:
   m_ObjectHideFlags: 0
@@ -1354,181 +651,78 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31845561b61b0d04cbae252c892924ab, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &495360896
+--- !u!1 &502187247
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 495360897}
-  - 114: {fileID: 495360899}
-  - 114: {fileID: 495360898}
+  - 4: {fileID: 502187248}
+  - 114: {fileID: 502187250}
+  - 114: {fileID: 502187249}
   m_Layer: 0
-  m_Name: EnemySpawnMiniBoss_0
+  m_Name: 'EnemySpawnShipArc '
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &495360897
+--- !u!4 &502187248
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495360896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.4, y: 0, z: 0}
+  m_GameObject: {fileID: 502187247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.4, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 42
---- !u!114 &495360898
+  m_RootOrder: 2
+--- !u!114 &502187249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495360896}
+  m_GameObject: {fileID: 502187247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f3a0e5726753fa49abbe059eade2f1a, type: 3}
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  location: {x: 8, y: 1.5}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 3
+  - type: 4
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: -2}
+    time: 1
+  - type: 3
+    startVelocity: {x: 0, y: -2}
+    endVelocity: {x: 0, y: 0}
+    time: 4
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &495360899
+  FireTimer: 1
+--- !u!114 &502187250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495360896}
+  m_GameObject: {fileID: 502187247}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!1 &495850710
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 495850711}
-  - 114: {fileID: 495850713}
-  - 114: {fileID: 495850712}
-  m_Layer: 0
-  m_Name: EnemySpawnTank_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &495850711
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495850710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.32, y: -2.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 1
---- !u!114 &495850712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495850710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -2.25}
-  direction: 0
-  shieldableBullets: 0
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &495850713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 495850710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &538573454
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 538573455}
-  - 114: {fileID: 538573457}
-  - 114: {fileID: 538573456}
-  m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &538573455
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 538573454}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 27
---- !u!114 &538573456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 538573454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &538573457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 538573454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 1.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1 &550663204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,6 +831,70 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &565062409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 565062410}
+  - 114: {fileID: 565062412}
+  - 114: {fileID: 565062411}
+  m_Layer: 0
+  m_Name: EnemySpawnShipArc
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565062410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565062409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 128.4, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 21
+--- !u!114 &565062411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565062409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 9, y: -3}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 8
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  FireTimer: 0.4
+--- !u!114 &565062412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565062409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &584539196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,74 +928,7 @@ Transform:
   - {fileID: 928792480}
   - {fileID: 1046618284}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
---- !u!1 &590354672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 590354673}
-  - 114: {fileID: 590354675}
-  - 114: {fileID: 590354674}
-  m_Layer: 0
-  m_Name: EnemySpawnFighterBSquad_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &590354673
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590354672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 38
---- !u!114 &590354674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590354672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 3
-  columns: 7
-  rowSpacing: 1
-  columnSpacing: 1
-  yShift: 0
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -2.5, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 8
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &590354675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 590354672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
+  m_RootOrder: 11
 --- !u!1001 &619663944
 Prefab:
   m_ObjectHideFlags: 0
@@ -1842,7 +1033,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 85b27384af67c664d8408cb580b3ab0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 057b1e114d9abb4489739cd97c5f5a06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1905,7 +1096,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c22c858a2d01bf34ead1550a07e65263, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d4281a3a944d55479520ae6bcf3f8de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1928,131 +1119,6 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 631759868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &648351277
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 648351278}
-  - 114: {fileID: 648351280}
-  - 114: {fileID: 648351279}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &648351278
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 648351277}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.32, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 9
---- !u!114 &648351279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 648351277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &648351280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 648351277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &662371153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 662371154}
-  - 114: {fileID: 662371156}
-  - 114: {fileID: 662371155}
-  m_Layer: 0
-  m_Name: EnemySpawnShipArc_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &662371154
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 662371153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 136.6, y: -4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 36
---- !u!114 &662371155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 662371153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: {x: 0, y: -5}
-  moveInstructionList:
-  - type: 4
-    startVelocity: {x: 0, y: 4}
-    endVelocity: {x: -3, y: 0}
-    time: 0
-  - type: 3
-    startVelocity: {x: -3, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 3
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &662371156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 662371153}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -2167,63 +1233,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1870243692}
   m_RootOrder: 4
---- !u!1 &755997570
+--- !u!1 &768925309
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 755997571}
-  - 114: {fileID: 755997573}
-  - 114: {fileID: 755997572}
+  - 4: {fileID: 768925310}
+  - 114: {fileID: 768925312}
+  - 114: {fileID: 768925311}
   m_Layer: 0
-  m_Name: EnemySpawnTankSquad_1
+  m_Name: EnemySpawnDiamondSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &755997571
+--- !u!4 &768925310
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 755997570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.3, y: 0, z: 0}
+  m_GameObject: {fileID: 768925309}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 98, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 26
---- !u!114 &755997572
+  m_RootOrder: 14
+--- !u!114 &768925311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 755997570}
+  m_GameObject: {fileID: 768925309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 2
-  columns: 1
+  enemyPosition: {x: 9, y: 0}
+  rows: 9
+  columns: 3
   rowSpacing: 1
   columnSpacing: 1
   yShift: 0
-  shieldableBullets: 0
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &755997573
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 9
+--- !u!114 &768925312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 755997570}
+  m_GameObject: {fileID: 768925309}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -2270,121 +1339,65 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
---- !u!1 &802198477
+  m_RootOrder: 10
+--- !u!1 &919811408
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 802198478}
-  - 114: {fileID: 802198480}
-  - 114: {fileID: 802198479}
+  - 4: {fileID: 919811409}
+  - 114: {fileID: 919811411}
+  - 114: {fileID: 919811410}
   m_Layer: 0
-  m_Name: EnemySpawnTank_1
+  m_Name: EnemySpawnShipArc
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &802198478
+--- !u!4 &919811409
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 802198477}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.57, y: -2.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 2
---- !u!114 &802198479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 802198477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -2.25}
-  direction: 0
-  shieldableBullets: 1
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &802198480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 802198477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &920952133
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 920952134}
-  - 114: {fileID: 920952136}
-  - 114: {fileID: 920952135}
-  m_Layer: 0
-  m_Name: EnemySpawnTank_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &920952134
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920952133}
+  m_GameObject: {fileID: 919811408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 98.8, y: 2, z: 0}
+  m_LocalPosition: {x: 118.9, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 21
---- !u!114 &920952135
+  m_RootOrder: 19
+--- !u!114 &919811410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920952133}
+  m_GameObject: {fileID: 919811408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2}
-  direction: 0
-  shieldableBullets: 1
+  location: {x: 9, y: 1.5}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 8
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &920952136
+  FireTimer: 0.4
+--- !u!114 &919811411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 920952133}
+  m_GameObject: {fileID: 919811408}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -2478,69 +1491,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0a7fffc2ad28a4f9690650fa698e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &949541772
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 949541773}
-  - 114: {fileID: 949541774}
-  - 114: {fileID: 949541775}
-  m_Layer: 0
-  m_Name: EnemySpawnShipsArcAway_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &949541773
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 949541772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 0
---- !u!114 &949541774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 949541772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &949541775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 949541772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9802118a2c465e54ebf16e698a059f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!114 &957318869 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150,
     type: 2}
   m_PrefabInternal: {fileID: 619663944}
   m_Script: {fileID: 11500000, guid: 4aaaaf1ec0392f6498b1f00f68b621bb, type: 3}
+--- !u!1 &969348402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 969348403}
+  - 114: {fileID: 969348405}
+  - 114: {fileID: 969348404}
+  m_Layer: 0
+  m_Name: EnemySpawnTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &969348403
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969348402}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 35.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 4
+--- !u!114 &969348404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969348402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 9, y: 0}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &969348405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969348402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &980876024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,7 +1588,7 @@ RectTransform:
   - {fileID: 989154826}
   - {fileID: 2048245341}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2722,180 +1736,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060736a6119c9f841ae1d8d2ce73648f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1012457765
+--- !u!1 &1011565755
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1012457766}
-  - 114: {fileID: 1012457767}
-  - 114: {fileID: 1012457768}
+  - 4: {fileID: 1011565756}
+  - 114: {fileID: 1011565758}
+  - 114: {fileID: 1011565757}
   m_Layer: 0
-  m_Name: EnemySpawn2Ships2BFightersArcAway_0
+  m_Name: EnemySpawnFighterBSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1012457766
+--- !u!4 &1011565756
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012457765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.36, y: 0, z: 0}
+  m_GameObject: {fileID: 1011565755}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 83, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 14
---- !u!114 &1012457767
+  m_RootOrder: 12
+--- !u!114 &1011565757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012457765}
+  m_GameObject: {fileID: 1011565755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 1
+  columns: 5
+  rowSpacing: 0
+  columnSpacing: 1.2
+  yShift: 0
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -1.5, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 11
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1011565758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011565755}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &1012457768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1012457765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9abafed556dae14418fdb65b45f00ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &1017110200
+--- !u!1 &1027280363
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1017110201}
-  - 114: {fileID: 1017110203}
-  - 114: {fileID: 1017110202}
+  - 4: {fileID: 1027280364}
+  - 114: {fileID: 1027280366}
+  - 114: {fileID: 1027280365}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_0
+  m_Name: EnemySpawnShieldTank
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1017110201
+--- !u!4 &1027280364
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1017110200}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 2.51, z: 0}
+  m_GameObject: {fileID: 1027280363}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 51.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 3
---- !u!114 &1017110202
+  m_RootOrder: 7
+--- !u!114 &1027280365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1017110200}
+  m_GameObject: {fileID: 1027280363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
+  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 9.5, y: 2.5}
-  Direction: 0
+  enemyPosition: {x: 8, y: 0}
+  direction: 0
+  shieldableBullets: 1
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &1017110203
+  MoveState: 1
+--- !u!114 &1027280366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1017110200}
+  m_GameObject: {fileID: 1027280363}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!1 &1036125279
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1036125280}
-  - 114: {fileID: 1036125282}
-  - 114: {fileID: 1036125281}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_8
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1036125280
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036125279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.41, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 18
---- !u!114 &1036125281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036125279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1036125282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036125279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1 &1046290392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2954,7 +1922,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07329a8a68814ef468e845e88506523d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 057b1e114d9abb4489739cd97c5f5a06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3058,66 +2026,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 584539197}
   m_RootOrder: 5
---- !u!1 &1088764838
+--- !u!1 &1053018304
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1088764839}
-  - 114: {fileID: 1088764841}
-  - 114: {fileID: 1088764840}
+  - 4: {fileID: 1053018305}
+  - 114: {fileID: 1053018307}
+  - 114: {fileID: 1053018306}
   m_Layer: 0
-  m_Name: EnemySpawnTank_7
+  m_Name: EnemySpawnDiamondSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1088764839
+--- !u!4 &1053018305
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088764838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153.9, y: -1, z: 0}
+  m_GameObject: {fileID: 1053018304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 40
---- !u!114 &1088764840
+  m_RootOrder: 6
+--- !u!114 &1053018306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088764838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 9, y: -1}
-  direction: 0
-  shieldableBullets: 0
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1088764841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088764838}
+  m_GameObject: {fileID: 1053018304}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &1053018307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053018304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: 3}
+  rows: 1
+  columns: 5
+  rowSpacing: 0
+  columnSpacing: 1.3
+  yShift: 0
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 7
 --- !u!1 &1132281627 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 196140, guid: c0b784e983ecbbc4c907a49c183bc150, type: 2}
@@ -3137,7 +2111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1148420676
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3224,90 +2198,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
---- !u!1 &1166612516
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1166612519}
-  - 114: {fileID: 1166612518}
-  - 114: {fileID: 1166612517}
-  m_Layer: 0
-  m_Name: EnemySpawnFighterBSquad_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1166612517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166612516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 2
-  columns: 2
-  rowSpacing: 1
-  columnSpacing: 1
-  yShift: 0
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -2.5, y: 2.5}
-    endVelocity: {x: 0, y: 0}
-    time: 0.4
-  - type: 4
-    startVelocity: {x: -2.5, y: 2.5}
-    endVelocity: {x: -2.5, y: 0}
-    time: 0.8
-  - type: 3
-    startVelocity: {x: -2.5, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 3
-  - type: 4
-    startVelocity: {x: -2.5, y: 0}
-    endVelocity: {x: -2.5, y: -2.5}
-    time: 1
-  - type: 3
-    startVelocity: {x: -2.5, y: -2.5}
-    endVelocity: {x: 0, y: 0}
-    time: 3
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1166612518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166612516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!4 &1166612519
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1166612516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 30
+  m_RootOrder: 14
 --- !u!1 &1169824608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,6 +2240,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
+--- !u!1 &1194121759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1194121760}
+  - 114: {fileID: 1194121762}
+  - 114: {fileID: 1194121761}
+  m_Layer: 0
+  m_Name: EnemySpawnSpiderTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1194121760
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194121759}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 64, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 9
+--- !u!114 &1194121761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194121759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: -1.5}
+  Direction: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1194121762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1194121759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1238201734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +2373,70 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+--- !u!1 &1250512779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1250512780}
+  - 114: {fileID: 1250512782}
+  - 114: {fileID: 1250512781}
+  m_Layer: 0
+  m_Name: EnemySpawnTankSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1250512780
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250512779}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 113, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 17
+--- !u!114 &1250512781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250512779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 3
+  columns: 1
+  rowSpacing: 2
+  columnSpacing: 0
+  yShift: 0
+  shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1250512782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250512779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1292622102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +2479,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1297495798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1297495799}
+  - 114: {fileID: 1297495801}
+  - 114: {fileID: 1297495800}
+  m_Layer: 0
+  m_Name: EnemySpawnWaterTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1297495799
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297495798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 69.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 10
+--- !u!114 &1297495800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297495798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b801faeaf985445a086d131bc08cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 9, y: 0}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1297495801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297495798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1302469075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,51 +2563,32 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 949541773}
-  - {fileID: 495850711}
-  - {fileID: 802198478}
-  - {fileID: 1017110201}
-  - {fileID: 1579020381}
-  - {fileID: 1388949075}
-  - {fileID: 1456828366}
-  - {fileID: 245924957}
-  - {fileID: 1430658516}
-  - {fileID: 648351278}
-  - {fileID: 1632744412}
-  - {fileID: 1884768504}
-  - {fileID: 334976220}
-  - {fileID: 1332203592}
-  - {fileID: 1012457766}
-  - {fileID: 2060959251}
-  - {fileID: 435318428}
-  - {fileID: 27672241}
-  - {fileID: 1036125280}
-  - {fileID: 1615218876}
-  - {fileID: 2056971403}
-  - {fileID: 920952134}
-  - {fileID: 1909223945}
-  - {fileID: 54482467}
-  - {fileID: 152406144}
-  - {fileID: 27454608}
-  - {fileID: 755997571}
-  - {fileID: 538573455}
-  - {fileID: 298343899}
-  - {fileID: 61640360}
-  - {fileID: 1166612519}
-  - {fileID: 205947438}
-  - {fileID: 1384796759}
-  - {fileID: 281241804}
-  - {fileID: 1870819661}
-  - {fileID: 297457828}
-  - {fileID: 662371154}
-  - {fileID: 60446065}
-  - {fileID: 590354673}
-  - {fileID: 1961064684}
-  - {fileID: 1088764839}
-  - {fileID: 1435729141}
-  - {fileID: 495360897}
+  - {fileID: 1939943053}
+  - {fileID: 2015192784}
+  - {fileID: 502187248}
+  - {fileID: 436013712}
+  - {fileID: 969348403}
+  - {fileID: 1749082821}
+  - {fileID: 1053018305}
+  - {fileID: 1027280364}
+  - {fileID: 1557925986}
+  - {fileID: 1194121760}
+  - {fileID: 1297495799}
+  - {fileID: 1839092058}
+  - {fileID: 1011565756}
+  - {fileID: 1722673342}
+  - {fileID: 768925310}
+  - {fileID: 2133709208}
+  - {fileID: 1786951989}
+  - {fileID: 1250512780}
+  - {fileID: 1766300419}
+  - {fileID: 919811409}
+  - {fileID: 1357130872}
+  - {fileID: 565062410}
+  - {fileID: 1772359503}
+  - {fileID: 339154986}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1308832891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,7 +2617,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!212 &1308832893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3599,65 +2651,72 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1332203591
+--- !u!1 &1357130871
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1332203592}
-  - 114: {fileID: 1332203594}
-  - 114: {fileID: 1332203593}
+  - 4: {fileID: 1357130872}
+  - 114: {fileID: 1357130874}
+  - 114: {fileID: 1357130873}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_1
+  m_Name: EnemySpawnDiamondSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1332203592
+--- !u!4 &1357130872
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332203591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.4, y: 0, z: 0}
+  m_GameObject: {fileID: 1357130871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 128.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 13
---- !u!114 &1332203593
+  m_RootOrder: 20
+--- !u!114 &1357130873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332203591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 9.5, y: 0}
-  Direction: 0
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1332203594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1332203591}
+  m_GameObject: {fileID: 1357130871}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &1357130874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1357130871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: 1}
+  rows: 3
+  columns: 4
+  rowSpacing: 1
+  columnSpacing: 1
+  yShift: 0
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 1}
+    endVelocity: {x: 0, y: 0}
+    time: 7
 --- !u!1 &1372995866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,64 +2825,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1 &1384796758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1384796759}
-  - 114: {fileID: 1384796761}
-  - 114: {fileID: 1384796760}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_11
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1384796759
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1384796758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110.1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 32
---- !u!114 &1384796760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1384796758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1384796761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1384796758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 0}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1 &1385930851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,238 +2933,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1388949074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1388949075}
-  - 114: {fileID: 1388949077}
-  - 114: {fileID: 1388949076}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1388949075
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1388949074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.8, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 5
---- !u!114 &1388949076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1388949074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1388949077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1388949074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: -2}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &1430658515
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1430658516}
-  - 114: {fileID: 1430658518}
-  - 114: {fileID: 1430658517}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1430658516
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1430658515}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.82, y: -3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 8
---- !u!114 &1430658517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1430658515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1430658518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1430658515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: -3.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!1 &1435729140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1435729141}
-  - 114: {fileID: 1435729143}
-  - 114: {fileID: 1435729142}
-  m_Layer: 0
-  m_Name: BossSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1435729141
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1435729140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160.7, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 41
---- !u!114 &1435729142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1435729140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1435729143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1435729140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456a8af8699fbce40a0e4e6d425efa65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointIconPool: {fileID: 116119343}
-  levelControllerBehavior: {fileID: 164074334}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pauseController: {fileID: 1898007527}
---- !u!1 &1456828365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1456828366}
-  - 114: {fileID: 1456828368}
-  - 114: {fileID: 1456828367}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1456828366
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1456828365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.8, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 6
---- !u!114 &1456828367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1456828365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1456828368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1456828365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 2}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
 --- !u!1001 &1496747709
 Prefab:
   m_ObjectHideFlags: 0
@@ -4334,143 +3103,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1579020380
+--- !u!1 &1557925985
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1579020381}
-  - 114: {fileID: 1579020383}
-  - 114: {fileID: 1579020382}
+  - 4: {fileID: 1557925986}
+  - 114: {fileID: 1557925988}
+  - 114: {fileID: 1557925987}
   m_Layer: 0
-  m_Name: EnemySpawnDiamondSquad_0
+  m_Name: EnemySpawnSpiderTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1579020381
+--- !u!4 &1557925986
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1579020380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.09, y: 0, z: 0}
+  m_GameObject: {fileID: 1557925985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 59.9, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 4
---- !u!114 &1579020382
+  m_RootOrder: 8
+--- !u!114 &1557925987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1579020380}
+  m_GameObject: {fileID: 1557925985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af7260dbf5181e4fb5801f882df0c76, type: 3}
+  m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -0.8}
-  enemyDirection: {x: -2, y: 0}
-  enemyTime: 7
-  enemyRepeat: 0
-  rows: 5
-  columns: 4
-  rowSpacing: 1.2
-  columnSpacing: 1.5
-  yShift: 0
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1579020383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1579020380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &1615218875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1615218876}
-  - 114: {fileID: 1615218878}
-  - 114: {fileID: 1615218877}
-  m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1615218876
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615218875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.83, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 19
---- !u!114 &1615218877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615218875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 2
-  columns: 3
-  rowSpacing: 2
-  columnSpacing: 2
-  initLocation: {x: 8, y: 0}
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -3, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 2
-  - type: 4
-    startVelocity: {x: -3, y: 0}
-    endVelocity: {x: -3, y: 1}
-    time: 0.5
-  - type: 4
-    startVelocity: {x: -3, y: 1}
-    endVelocity: {x: -3, y: -3}
-    time: 2
-  - type: 3
-    startVelocity: {x: -3, y: -3}
-    endVelocity: {x: 0, y: 0}
-    time: 3
+  enemyPosition: {x: 8, y: 1}
+  Direction: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &1615218878
+--- !u!114 &1557925988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1615218875}
+  m_GameObject: {fileID: 1557925985}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -4585,73 +3270,52 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &1632744411
-GameObject:
+--- !u!1001 &1639556662
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1632744412}
-  - 114: {fileID: 1632744414}
-  - 114: {fileID: 1632744413}
-  m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1632744412
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632744411}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 10
---- !u!114 &1632744413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632744411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39106b815712ac429e0d6dceb74a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rows: 3
-  columns: 1
-  rowSpacing: 2
-  columnSpacing: 2
-  initLocation: {x: 8, y: 0}
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -2, y: 0}
-    endVelocity: {x: 0, y: 0}
-    time: 9
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1632744414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1632744411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.232207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.77773166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013556003794, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010394263034, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b3f77d0022157904a87d77773dd53999, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1650284043
 Prefab:
   m_ObjectHideFlags: 0
@@ -4689,7 +3353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466094, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11492278, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: player
@@ -4724,6 +3388,390 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1502306748}
   m_Script: {fileID: 11500000, guid: 65556b6c066eb034ca384fcc9d8c8f02, type: 3}
+--- !u!1 &1722673341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1722673342}
+  - 114: {fileID: 1722673344}
+  - 114: {fileID: 1722673343}
+  m_Layer: 0
+  m_Name: EnemySpawnTankSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722673342
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722673341}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 90.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 13
+--- !u!114 &1722673343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722673341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 1
+  columns: 2
+  rowSpacing: 0
+  columnSpacing: 3
+  yShift: 0
+  shieldableBullets: 0
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1722673344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722673341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &1749082820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1749082821}
+  - 114: {fileID: 1749082823}
+  - 114: {fileID: 1749082822}
+  m_Layer: 0
+  m_Name: EnemySpawnShieldTank
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749082821
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1749082820}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 41.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 5
+--- !u!114 &1749082822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1749082820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: 0}
+  direction: 0
+  shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  MoveState: 1
+--- !u!114 &1749082823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1749082820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &1766300418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1766300419}
+  - 114: {fileID: 1766300421}
+  - 114: {fileID: 1766300420}
+  m_Layer: 0
+  m_Name: EnemySpawnDiamondSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1766300419
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766300418}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 119.1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 18
+--- !u!114 &1766300420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766300418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &1766300421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766300418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: 1}
+  rows: 1
+  columns: 4
+  rowSpacing: 0
+  columnSpacing: 1
+  yShift: 0
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 1}
+    endVelocity: {x: 0, y: 0}
+    time: 7
+--- !u!1 &1772359502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1772359503}
+  - 114: {fileID: 1772359505}
+  - 114: {fileID: 1772359504}
+  m_Layer: 0
+  m_Name: EnemySpawnShieldTank
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772359503
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772359502}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 138, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 22
+--- !u!114 &1772359504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772359502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 3
+  columns: 1
+  rowSpacing: 2
+  columnSpacing: 2
+  yShift: 0
+  shieldableBullets: 1
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1772359505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772359502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &1786951988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1786951989}
+  - 114: {fileID: 1786951991}
+  - 114: {fileID: 1786951990}
+  m_Layer: 0
+  m_Name: EnemySpawnShipArc
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1786951989
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786951988}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 106, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 16
+--- !u!114 &1786951990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786951988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 8, y: 0}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 7
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+  FireTimer: 1
+--- !u!114 &1786951991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786951988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &1839092057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1839092058}
+  - 114: {fileID: 1839092060}
+  - 114: {fileID: 1839092059}
+  m_Layer: 0
+  m_Name: EnemySpawnFighterBSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1839092058
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839092057}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 76.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1302469076}
+  m_RootOrder: 11
+--- !u!114 &1839092059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839092057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 1
+  columns: 4
+  rowSpacing: 0
+  columnSpacing: 1.5
+  yShift: 0
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -1.5, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 11
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &1839092060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839092057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1840881995
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,7 +3830,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c65fdbad9281574491c8b683346b607, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d4281a3a944d55479520ae6bcf3f8de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4942,140 +3990,7 @@ Transform:
   - {fileID: 550663205}
   - {fileID: 76298529}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!1 &1870819658
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1870819661}
-  - 114: {fileID: 1870819660}
-  - 114: {fileID: 1870819659}
-  m_Layer: 0
-  m_Name: EnemySpawnBulletSprayerArc_1 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1870819659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870819658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf925166be84247a46b69c78c31e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 1}
-  moveInstructionList:
-  - type: 3
-    startVelocity: {x: -2, y: 0}
-    endVelocities: {x: 0, y: 0}
-    time: 3
-  - type: 4
-    startVelocity: {x: -2, y: 0}
-    endVelocities: {x: 0, y: -2}
-    time: 1
-  - type: 4
-    startVelocity: {x: 0, y: -2}
-    endVelocities: {x: -2, y: 0}
-    time: 1
-  - type: 3
-    startVelocity: {x: -2, y: 0}
-    endVelocities: {x: -2, y: 0}
-    time: 6
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &1870819660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870819658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!4 &1870819661
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870819658}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 128.7, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 34
---- !u!1 &1884768503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1884768504}
-  - 114: {fileID: 1884768506}
-  - 114: {fileID: 1884768505}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_4
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1884768504
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884768503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52, y: -3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 11
---- !u!114 &1884768505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884768503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!114 &1884768506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884768503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: -3.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
+  m_RootOrder: 5
 --- !u!1 &1898007525
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,7 +4019,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 4
 --- !u!114 &1898007527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5116,120 +4031,130 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2936bdff19930ec4f91a90f9f172db73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1909223944
+--- !u!1 &1939943052
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1909223945}
-  - 114: {fileID: 1909223947}
-  - 114: {fileID: 1909223946}
+  - 4: {fileID: 1939943053}
+  - 114: {fileID: 1939943054}
+  - 114: {fileID: 1939943055}
   m_Layer: 0
-  m_Name: EnemySpawnTank_4
+  m_Name: EnemySpawnDiamondSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1909223945
+--- !u!4 &1939943053
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1909223944}
+  m_GameObject: {fileID: 1939943052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.7, y: -3.3, z: 0}
+  m_LocalPosition: {x: 12.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 22
---- !u!114 &1909223946
+  m_RootOrder: 0
+--- !u!114 &1939943054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1909223944}
+  m_GameObject: {fileID: 1939943052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -3.3}
-  direction: 0
-  shieldableBullets: 0
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
+  enemyPosition: {x: 8, y: 1}
+  rows: 1
+  columns: 4
+  rowSpacing: 0
+  columnSpacing: 1
+  yShift: 0
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &1909223947
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 7
+--- !u!114 &1939943055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1909223944}
+  m_GameObject: {fileID: 1939943052}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!1 &1961064683
+--- !u!1 &2015192783
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1961064684}
-  - 114: {fileID: 1961064686}
-  - 114: {fileID: 1961064685}
+  - 4: {fileID: 2015192784}
+  - 114: {fileID: 2015192786}
+  - 114: {fileID: 2015192785}
   m_Layer: 0
-  m_Name: EnemySpawnTank_6
+  m_Name: EnemySpawnShipArc
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1961064684
+--- !u!4 &2015192784
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1961064683}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153, y: 2, z: 0}
+  m_GameObject: {fileID: 2015192783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.33, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
-  m_RootOrder: 39
---- !u!114 &1961064685
+  m_RootOrder: 1
+--- !u!114 &2015192785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1961064683}
+  m_GameObject: {fileID: 2015192783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
+  m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2}
-  direction: 0
-  shieldableBullets: 1
+  location: {x: 8, y: 0}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 3
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
---- !u!114 &1961064686
+  FireTimer: 1
+--- !u!114 &2015192786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1961064683}
+  m_GameObject: {fileID: 2015192783}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -5327,118 +4252,61 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b,
     type: 2}
   m_PrefabInternal: {fileID: 2048245340}
---- !u!1 &2056971402
+--- !u!1 &2133709207
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 2056971403}
-  - 114: {fileID: 2056971405}
-  - 114: {fileID: 2056971404}
+  - 4: {fileID: 2133709208}
+  - 114: {fileID: 2133709210}
+  - 114: {fileID: 2133709209}
   m_Layer: 0
-  m_Name: EnemySpawn4x8MixedGrid_0
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2056971403
+--- !u!4 &2133709208
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2056971402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1302469076}
-  m_RootOrder: 20
---- !u!114 &2056971404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2056971402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4053b7afd7bf49b44bb89c2d2ecfe11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}
---- !u!114 &2056971405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2056971402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!1 &2060959250
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2060959251}
-  - 114: {fileID: 2060959253}
-  - 114: {fileID: 2060959252}
-  m_Layer: 0
-  m_Name: EnemySpawnTurret_6
-  m_TagString: Untagged
-  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2060959251
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2060959250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.14, y: 1.2, z: 0}
+  m_GameObject: {fileID: 2133709207}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 106, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1302469076}
   m_RootOrder: 15
---- !u!114 &2060959252
+--- !u!114 &2133709209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2060959250}
+  m_GameObject: {fileID: 2133709207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b801faeaf985445a086d131bc08cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPosition: {x: 8, y: 2}
+  bulletPool: {fileID: 1516269790}
+  shieldableBulletPool: {fileID: 1292622103}
+  pointIconPool: {fileID: 116119343}
+  pauseController: {fileID: 1898007527}
+--- !u!114 &2133709210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2133709207}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &2060959253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2060959250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 8, y: 1.5}
-  bulletPool: {fileID: 1516269790}
-  shieldableBulletPool: {fileID: 1292622103}
-  pointIconPool: {fileID: 116119343}
-  pauseController: {fileID: 1898007527}

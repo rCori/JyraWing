@@ -1,715 +1,408 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyAIBoss2 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
-	private static int BOSS2_HITS = 90;
+    private static int BOSS_HEALTH = 100;
+	//Animator animator;
+	float fireTimer;
+	float fireTimeLimit;
+	//which state in any given attack pattern the boss is in
+	int moveState;
 
-	private Vector2[] bulletDir;
-	private float bulletSpeed;
+	//which attack pattern the boss is currently in
+	int pattern;
+	//Keep count how far we are in a pattern.
+	int patternCounter;
 
-	private int moveState;
+	int shuffleBagCounter;
 
-	private IEnumerator introShootRoutine, middleShootRoutine, endShootRoutine;
-	private enum ShootState {intro, mid, end};
-	private ShootState shootState;
+	//Shuffle Bag to for selecting patterns
+	ShuffleBag bag;
+	
+	/// <summary>
+	/// Enemy is in the chargin animation.
+	/// </summary>
+	bool isCharging;
+	/// <summary>
+	/// Used for all effects this enemy has
+	/// </summary>
+	private AudioClip extraSFX;
 
 	// Use this for initialization
 	void Awake () {
+		moveState = 0;
+		pattern = 0;
+		patternCounter = 0;
+		isDestroyed = false;
 		EnemyDefaults ();
-		SetEnemyHealth (BOSS2_HITS);
+		SetEnemyHealth (BOSS_HEALTH);
 		HasAnimations animationSettings;
 		animationSettings = HasAnimations.Destroy;
 		SetAnimations (animationSettings);
-
+		//InitializeBullets (20);
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
+		//Set up shuffle bag
+		createShuffleBag ();
+		changePattern ();
+		//Is the boss paused or not
+		_paused = false;
 
-		bulletSpeed = 2.0f;
-		bulletDir = new Vector2[12];
-		initBulletDirections ();
-
-		moveState = 0;
-		introShootRoutine = IntroShootRoutine ();
-		StartCoroutine (introShootRoutine);
-		middleShootRoutine = MiddleShootRoutine ();
-		endShootRoutine = EndShootRoutine ();
-		shootState = ShootState.intro;
-
-        for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 10; i++) {
 			GivePointObject (3, i*0.1f);
-		}
-        for (int i = 0; i < 5; i++) {
-			GivePointObject (2, i*0.5f);
 		}
 
 	}
-
+	
+	// Update is called once per frame
 	void Update () {
 		if (isDestroyed || _paused) {
 			return;
 		}
-		moveRoutine ();
+		//Do the selected pattern.
+		if (pattern == 0) {
+			spreadShot ();
+		} else if (pattern == 1) {
+			straightShot ();
+//		} else if (pattern == 2) {
+//			trackAndRam();
+		}else if (pattern == 2){
+			sprayShot ();
+		}
+
 		Movement ();
 
-		if (hitPoints == 60 && shootState == ShootState.intro) {
-			StopCoroutine (introShootRoutine);
-			StartCoroutine (middleShootRoutine);
-			shootState = ShootState.mid;
-			moveState = 0;
-		} else if (hitPoints == 30 && shootState == ShootState.mid) {
-			StopCoroutine (middleShootRoutine);
-			StartCoroutine (endShootRoutine);
-			shootState = ShootState.end;
-			moveState = 0;
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		DefaultTrigger (other);
+
+	}
+
+	void OnDestroy(){
+		//animator.SetInteger ("animState", 3);
+		GameObject obj = GameObject.Find ("GameController");
+		//The boss object could be destoryed on account of the level ending.
+		//If that happens this object could be null so we check for that.
+		if (obj) {
+			//Use the new gameController now
+			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			levelControllerBehavior.HandleLevelFinished ();
 		}
+	
 	}
 
-	private void initBulletDirections() {
-		bulletDir[0] = new Vector2 (-1f, 1.6f);
-		bulletDir[0].Normalize ();
-		bulletDir[0] *= bulletSpeed;
-
-		bulletDir[1] = new Vector2 (-1f, 1.3f);
-		bulletDir[1].Normalize();
-		bulletDir[1] *= bulletSpeed;
-
-		bulletDir[2] = new Vector2 (-1f, 1.0f);
-		bulletDir[2].Normalize();
-		bulletDir[2] *= bulletSpeed;
-
-		bulletDir[3] = new Vector2 (-1f, 0.7f);
-		bulletDir[3].Normalize();
-		bulletDir[3] *= bulletSpeed;
-
-		bulletDir[4] = new Vector2 (-1f, 0.4f);
-		bulletDir[4].Normalize();
-		bulletDir[4] *= bulletSpeed;
-
-		bulletDir[5] = new Vector2 (-1f, 0.0f);
-		bulletDir[5].Normalize();
-		bulletDir[5] *= bulletSpeed;
-
-		bulletDir[6] = new Vector2 (-1f, -0.4f);
-		bulletDir[6].Normalize();
-		bulletDir[6] *= bulletSpeed;
-
-		bulletDir[7] = new Vector2 (-1f, -0.7f);
-		bulletDir[7].Normalize();
-		bulletDir[7] *= bulletSpeed;
-
-		bulletDir[8] = new Vector2 (-1f, -1.0f);
-		bulletDir[8].Normalize();
-		bulletDir[8] *= bulletSpeed;
-
-		bulletDir[9] = new Vector2 (-1f, -1.0f);
-		bulletDir[9].Normalize();
-		bulletDir[9] *= bulletSpeed;
-
-		bulletDir[10] = new Vector2 (-1f, -1.3f);
-		bulletDir[10].Normalize();
-		bulletDir[10] *= bulletSpeed;
-
-		bulletDir[11] = new Vector2 (-1f, -1.6f);
-		bulletDir[11].Normalize();
-		bulletDir[11] *= bulletSpeed;
-
-	}
-
-	IEnumerator IntroShootRoutine() {
-		while (true) {
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-		}
-	}
-
-	IEnumerator MiddleShootRoutine() {
-		while(true) {
-			Shoot (bulletDir[1] * 3.0f, false);
-			Shoot (bulletDir[4] * 3.0f, false);
-			Shoot (bulletDir[7] * 3.0f, false);
-			Shoot (bulletDir[10] * 3.0f, false);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[2] * 3.0f, false);
-			Shoot (bulletDir[7] * 3.0f, false);
-			Shoot (bulletDir[9] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[4] * 3.0f, false);
-			Shoot (bulletDir[5] * 3.0f, false);
-			Shoot (bulletDir[6] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[8] * 3.0f, false);
-			Shoot (bulletDir[9] * 3.0f, false);
-			Shoot (bulletDir[11] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[3] * 3.0f, false);
-			Shoot (bulletDir[5] * 3.0f, false);
-			Shoot (bulletDir[7] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0] * 3.0f, false);
-			Shoot (bulletDir[5] * 3.0f, false);
-			Shoot (bulletDir[11] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[1] * 3.0f, false);
-			Shoot (bulletDir[4] * 3.0f, false);
-			Shoot (bulletDir[9] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[8] * 3.0f, false);
-			Shoot (bulletDir[9] * 3.0f, false);
-			Shoot (bulletDir[10] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[2] * 3.0f, false);
-			Shoot (bulletDir[4] * 3.0f, false);
-			Shoot (bulletDir[6] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[2] * 3.0f, false);
-			Shoot (bulletDir[3] * 3.0f, false);
-			Shoot (bulletDir[4] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[5] * 3.0f, false);
-			Shoot (bulletDir[6] * 3.0f, false);
-			Shoot (bulletDir[7] * 3.0f, false);
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-		}
-	}
-
-	IEnumerator EndShootRoutine() {
-		while(true) {
-			Shoot (bulletDir[0], true);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], true);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], true);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], true);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], true);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], true);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], true);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], true);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], true);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], true);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
-			Shoot (bulletDir[0], false);
-			Shoot (bulletDir[1], false);
-			Shoot (bulletDir[2], false);
-			Shoot (bulletDir[3], false);
-			Shoot (bulletDir[4], false);
-			Shoot (bulletDir[5], false);
-			Shoot (bulletDir[6], false);
-			Shoot (bulletDir[7], false);
-			Shoot (bulletDir[8], false);
-			Shoot (bulletDir[9], false);
-			Shoot (bulletDir[10], true);
-			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
-		}
-	}
-
-	private void moveRoutine() {
+	/// <summary>
+	/// Moves up and down shooting in a three way spread 
+	/// shot every time when stopping to go the other way
+	/// </summary>
+	void spreadShot(){
 		if (GetIsTimeUp ()) {
-			switch (shootState) {
-			case ShootState.intro:
-				switch (moveState) {
-				case 0:
-					StartNewMovement (new Vector2 (6.0f, -0.75f), 0.75f);
-					break;
-				case 1:
-					StartNewVelocity (new Vector2 (0f, 0.5f), 1.5f);
-					break;
-				case 2:
-					StartNewVelocity (new Vector2 (0f, -0.5f), 1.5f);
-					break;
-				}
+			switch (moveState) {
+			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
+				StartStandStill(2.0f);
 				moveState++;
-				if (moveState > 2) {
-					moveState = 1;
-				}
 				break;
-			case ShootState.mid:
-				switch (moveState) {
-				case 0:
-					StartNewMovement (new Vector2 (6.0f, 0.0f), 1.0f);
-					break;
-				case 1:
-					StartNewVelocity (new Vector2 (0.0f, 1.2f), 0.75f);
-					break;
-				case 2:
-					StartArcVelocity (new Vector2 (-0.6f, -1.2f), new Vector2 (0.0f, -1.2f), 0.75f);
-					break;
-				case 3:
-					StartArcVelocity (new Vector2 (0.0f, -1.2f), new Vector2 (0.6f, -1.2f), 0.75f);
-					break;
-				case 4:
-					StartArcVelocity (new Vector2 (-0.6f, 1.2f), new Vector2 (0.0f, 1.2f), 0.75f);
-					break;
-				case 5:
-					StartArcVelocity (new Vector2 (0.0f, 1.2f), new Vector2 (0.6f, 1.2f), 0.75f);
-					break;
-				}
+			case 1:
+				StartNewMovement (new Vector3 (5f, -3, 0f), 0.5f);
 				moveState++;
-				if (moveState > 5) {
-					moveState = 2;
-				}
 				break;
-			case ShootState.end:
-				switch (moveState) {
-				case 0:
-					StartNewMovement (new Vector2 (6.0f, 0.0f), 1.0f);
-					break;
-				case 1:
-					StartNewVelocity (new Vector2 (0.0f, -2.0f), 0.5f);
-					break;
-				case 2:
-					StartNewVelocity (new Vector2 (0.0f, 2.0f), 1.0f);
-					break;
-				case 3:
-					StartNewVelocity (new Vector2 (0.0f, -2.0f), 1.0f);
-					break;
-				}
+			case 2:
+				StartStandStill (0.2f);
+				Shoot (new Vector2 (-6f, 2f));
+				Shoot (new Vector2 (-6f, 3f));
+				Shoot (new Vector2 (-6f, 4f));
 				moveState++;
-				if (moveState > 3) {
-					moveState = 2;
-				}
+				break;
+			case 3:
+				StartNewMovement (new Vector3 (5f, 3f, 0f), 0.5f);
+				moveState++;
+				break;
+			case 4:
+				StartStandStill (0.2f);
+				Shoot (new Vector2 (-6f, -2f));
+				Shoot (new Vector2 (-6f, -3f));
+				Shoot (new Vector2 (-6f, -4f));
+				moveState = 1;
+				//The pattern has gone through an iteration
+				patternCounter++;
 				break;
 			}
+		}
+
+		//AFter 4 iterations of the pattern, go to a new pattern.
+		if (patternCounter > 3) {
+			changePattern();
+		}
+	}
+
+	/// <summary>
+	/// Moves up and down shooting three bullet straight out
+	/// from the middle, top and bottom of the sprite when stopiing to 
+	/// turn around.
+	/// </summary>
+	void straightShot(){
+		if (GetIsTimeUp ()) {
+			switch (moveState) {
+			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
+				StartStandStill(2.0f);
+				fireTimeLimit = Random.Range(0.7f,1.0f);
+				fireTimer = 0.0f;
+				moveState++;
+				break;
+			case 1:
+				StartNewMovement (new Vector3 (5f, -3, 0f), 0.8f);
+				moveState++;
+				break;
+			case 2:
+				StartStandStill (0.2f);
+				moveState++;
+				break;
+			case 3:
+				StartNewMovement (new Vector3 (5f, 3f, 0f), 0.8f);
+				moveState++;
+				break;
+			case 4:
+				StartStandStill (0.2f);
+				moveState = 1;
+				patternCounter++;
+				break;
+			}
+		}
+
+		if (patternCounter > 3) {
+			changePattern();
+		}
+
+		fireTimer += Time.deltaTime;
+		if (fireTimer > fireTimeLimit) {
+			straightShotFire();
+			fireTimeLimit = Random.Range(0.7f,1.0f);
+			fireTimer = 0.0f;
+		}
+
+	}
+
+	/// <summary>
+	/// The actual shooting for the straight shot pattern.
+	/// </summary>
+	void straightShotFire()
+	{
+		GameObject bulletObjTop;
+		GameObject bulletObjBottom;
+		EnemyBullet bulletTop;
+		EnemyBullet bulletBottom;
+		Shoot (new Vector2 (-8f, 0f));
+		bulletObjTop = bulletPool.GetBullet ();
+		//We check if the bullet is valid, if it is then shoot it.
+		if (bulletObjTop) {
+			bulletTop = bulletObjTop.GetComponent<EnemyBullet> ();
+			bulletObjTop.transform.position = transform.position + new Vector3 (0f, -0.75f, 0f);
+			bulletTop.Shoot (new Vector2 (-6f, 0f));
+			
+		}
+		bulletObjBottom = bulletPool.GetBullet ();
+		if (bulletObjBottom) {
+			bulletBottom = bulletObjBottom.GetComponent<EnemyBullet> ();
+			bulletObjBottom.transform.position = transform.position + new Vector3 (0f, 0.75f, 0f);
+			bulletBottom.Shoot (new Vector2 (-6f, 0f));
+		}
+	}
+
+
+	/// <summary>
+	/// pattern for boss to track the player vertically and the ram towards them
+	/// </summary>
+	void trackAndRam(){
+		if (GetIsTimeUp()) {
+			switch(moveState)
+			{
+			case 0:
+				//Not charge state
+				animator.SetInteger("animState", 0);
+				isCharging = false;
+
+				fireTimer = 0.0f;
+				fireTimeLimit = 2.5f;
+				//Return to original position.
+				StartStandStill(2.0f);
+
+				moveState++;
+				break;
+			case 1:
+				StartStandStill(2.0f);
+				moveState++;
+				patternCounter++;
+				break;
+			case 2:
+				assignSFXPlayerSafe();
+				extraSFX = Resources.Load ("Audio/SFX/bossCharge") as AudioClip;
+				sfxPlayer.PlayClip(extraSFX);
+				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
+				StartNewVelocity(new Vector2(-10.0f, 0f), 1.0f);
+				moveState++;
+				break;
+			case 3:
+				StartNewMovement (new Vector3 (5f, gameObject.transform.position.y, 0f), 0.5f);
+				moveState = 1;
+				break;
+			}
+		}
+
+		// Increment the pattern counter
+		// This pattern happens twice.
+		if (patternCounter > 3) {
+			changePattern();
+			moveState = 0;
+		}
+
+		// Move during the stand still.
+		if (moveState == 2) {
+			float bossY = gameObject.transform.position.y;
+			float playerY = gameController.playerPosition.y;
+			if(bossY>playerY){
+				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, -1.2f);
+			}
+			else if(bossY<playerY){
+				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 1.2f);
+			}
+		}
+
+		fireTimer += Time.deltaTime;
+		if (fireTimer > fireTimeLimit) {
+			Shoot (new Vector2(-3f, -1f));
+			Shoot (new Vector2(-3f, 1f));
+			fireTimeLimit = Random.Range(0.7f,1.0f);
+			fireTimer = 0.0f;
+		}
+	}
+
+
+	void sprayShot(){
+		if (GetIsTimeUp ()) {
+			float bulletSpeed = 4f;
+			Vector2 dir;
+			switch (moveState) {
+			case 0:
+				//Charge state
+				//animator.SetInteger("animState", 3);
+				isCharging = true;
+				//Return to original position.
+				StartStandStill(2.0f);
+				break;
+			case 1:
+				dir = new Vector2(-0.5f, 0.2f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 2:
+				dir = new Vector2(-0.5f, 0.1f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 3:
+				dir = new Vector2(-0.5f, 0f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 4:
+				dir = new Vector2(-0.5f, -0.1f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 5:
+				dir = new Vector2(-0.5f, -0.2f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 6:
+				dir = new Vector2(-0.5f, -0.15f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 7:
+				dir = new Vector2(-0.5f, -0.05f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 8:
+				dir = new Vector2(-0.5f, 0.05f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			case 9:
+				dir = new Vector2(-0.5f, 0.15f);
+				dir.Normalize();
+				Shoot (dir*bulletSpeed);
+				break;
+			}
+			moveState++;
+			if(moveState > 9){
+				moveState = 1;
+				patternCounter++;
+			}
+
+			// Increment the pattern counter
+			// This pattern happens twice.
+			if (patternCounter > 3) {
+				changePattern();
+				moveState = 0;
+			}
+			StartStandStill(0.5f);
+			assignSFXPlayerSafe();
+			extraSFX = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
+			sfxPlayer.PlayClip(extraSFX);
+
+		}
+	}
+
+	/// <summary>
+	/// Increments the pattern and resets counters used in any partiucalr pattern.
+	/// </summary>
+	void changePattern(){
+		StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
+		shuffleBagCounter++;
+		if (shuffleBagCounter > 2) {
+			createShuffleBag ();
+		}
+		patternCounter = 0;
+		moveState = 0;
+		fireTimer = 0;
+		fireTimeLimit = 0;
+		int patternNum = bag.Next ();
+		pattern = patternNum;
+//		if (patternNum == 3) {
+//			bossAudio.clip = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
+//		}
+	}
+
+
+	void createShuffleBag(){
+		shuffleBagCounter = 0;
+		bag = new ShuffleBag (4);
+		//bag = new ShuffleBag (1);
+		bag.Add (0, 1);
+		bag.Add (1, 1);
+		bag.Add (2, 1);
+		//bag.Add (3, 1);
+	}
+
+	void assignSFXPlayerSafe(){
+		if(!sfxPlayer){
+			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 		}
 	}
 		
-
-	void OnDestroy(){
-		if (levelControllerBehavior != null) {
-			levelControllerBehavior.HandleLevelFinished ();
-		}
-	}
-
-	public override bool paused
-	{
-		get
-		{
-			return _paused;
-		}
-
-		set
-		{
-			_paused = value;
-			if(_paused)
-			{
-				storedVel = rigidybody2D.velocity;
-				rigidybody2D.velocity = new Vector2 (0.0f, 0.0f);
-				animator.speed = 0f;
-				if (hitPoints > 60) {
-					StopCoroutine (introShootRoutine);
-				}
-				else if (hitPoints > 60) {
-					StopCoroutine (middleShootRoutine);
-				} else  {
-					StopCoroutine (endShootRoutine);
-				}
-			}
-			else{
-				rigidybody2D.velocity = storedVel;
-				animator.speed = 1f;
-				if (hitPoints > 60) {
-					StartCoroutine (introShootRoutine);
-				}
-				else if (hitPoints > 60) {
-					StartCoroutine (middleShootRoutine);
-				} else  {
-					StartCoroutine (endShootRoutine);
-				}
-			}
-		}
-	}
-
 }
