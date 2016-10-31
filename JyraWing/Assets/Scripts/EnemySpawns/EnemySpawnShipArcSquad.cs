@@ -21,9 +21,6 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
-		EnemyBulletPool shieldableBulletPool = GameObject.Find ("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool> ();
-
 		float yOffset = initLocation.y;
 		float xOffset = initLocation.x;
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using System.Text;
 
 [System.Serializable]
 public class SaveData  {
@@ -27,11 +28,15 @@ public class SaveData  {
 		FileStream saveFile = File.Open (Application.dataPath + "/savegame.json", System.IO.FileMode.Open);
 		StreamReader reader = new StreamReader (saveFile);
 		instance = JsonUtility.FromJson<SaveData> (reader.ReadToEnd ());
+        saveFile.Close();
 	}
 
 	public void SaveGame() {
 		Debug.Log ("Saving game...");
 		string jsonString = JsonUtility.ToJson (this);
-		File.WriteAllText (Application.dataPath+"/savegame.json", jsonString);
+        FileStream saveFile = File.OpenWrite (Application.dataPath + "/savegame.json");
+        byte[] jsonBytes = Encoding.ASCII.GetBytes(jsonString);
+		saveFile.Write (jsonBytes,0,jsonString.Length);
+        saveFile.Close();
 	}
 }

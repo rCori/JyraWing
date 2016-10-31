@@ -24,7 +24,7 @@ public class EnemySpawnReflectBulletSprayerArc : EnemySpawner {
 		EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 		enemyBehavior.bulletPool = bulletPool;
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
-		enemyBehavior.pointIconPool= pointIconPool;
+		enemyBehavior.pointIconPool = pointIconPool;
 		enemyBehavior.LeftWallException = false;
 
 		enemy = Instantiate (enemy);

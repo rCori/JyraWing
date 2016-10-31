@@ -50,10 +50,8 @@ public class TitleScreenMenu : Menu {
 			MenuScroll ();
             //Select start the game
             if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
-                Debug.Log("curSelect: " + curSelect);
 				if (curSelect == 0) {
-					selectedLevel = "Level_1";
-					StartCoroutine (loadLevel ());
+					StartCoroutine (startGameMenu ());
 				} else if (curSelect == 1) {
                     StartCoroutine(loadOptionsMenu());
                 } else if (curSelect == 2) {
@@ -84,8 +82,20 @@ public class TitleScreenMenu : Menu {
 		SceneManager.LoadScene (selectedLevel);
 	}
 
+    IEnumerator startGameMenu() {
+        PlayConfirm();
+        lockScreen = true;
+        Destroy(level1StartGame);
+        Destroy(options);
+        Destroy(quitGame);
+        yield return new WaitForSeconds(0.05f);
+        GameObject startGameMenu = Resources.Load("UIObjects/StartGameMenu/StartGameMenuSelector") as GameObject;
+        startGameMenu = Instantiate(startGameMenu);
+        startGameMenu.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+    }
+
     IEnumerator loadOptionsMenu() {
-        Debug.Log("loadOptionsMenu");
         PlayConfirm();
         lockScreen = true;
         Destroy(level1StartGame);

@@ -64,7 +64,6 @@ public class OptionsMenu : Menu {
             if (Input.GetAxisRaw("Horizontal") == 1.0f) {
                 if(curSelect == 0 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit < 6) {
-                        Debug.Log("increase lives");
                         SaveData.Instance.livesPerCredit++;
                         lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
                     }

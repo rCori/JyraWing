@@ -9,10 +9,13 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 	public static event LevelControllerDelegate FinishLevelEvent, DisablePlayerEvent, GameOverEvent, PlayerKilledEvent;
 
 	public static string NextLevel;
+    public static string TitleSceneLevel;
+    public static bool SingleLevel = false;
 
 	// Use this for initialization
 	void Start () {
 		GameController.GameOverEvent += HandleGameOver;
+        TitleSceneLevel = "titleScene";
 	}
 	
 	// Update is called once per frame

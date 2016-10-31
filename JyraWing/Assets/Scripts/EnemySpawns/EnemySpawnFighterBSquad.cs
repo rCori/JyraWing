@@ -10,6 +10,8 @@ public class EnemySpawnFighterBSquad : EnemySpawner {
 	public float columnSpacing;
 	public float yShift;
 
+    public Vector2 initLocation = new Vector2(0f,0f);
+
 	public List<EnemyAITypeBFighter.MoveInstruction> moveInstructionList;
 
 	public EnemyBulletPool bulletPool;
@@ -19,8 +21,8 @@ public class EnemySpawnFighterBSquad : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		float yOffset = -columns / 2f + yShift;
-		float xOffset = 8.0f;
+        float yOffset = initLocation.y;
+		float xOffset = initLocation.x;
 
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < columns; j++) {

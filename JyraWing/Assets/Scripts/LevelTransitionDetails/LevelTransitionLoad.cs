@@ -39,7 +39,11 @@ public class LevelTransitionLoad : MonoBehaviour {
 			timeToLoad -= 1.0f;
 			yield return new WaitForSeconds (1.0f);
 		}
-		SceneManager.LoadScene (nextLevel);
+        if(LevelControllerBehavior.SingleLevel) {
+            SceneManager.LoadScene(LevelControllerBehavior.TitleSceneLevel);
+        } else {
+		    SceneManager.LoadScene (nextLevel);
+        }
 		yield break;
 	}
 

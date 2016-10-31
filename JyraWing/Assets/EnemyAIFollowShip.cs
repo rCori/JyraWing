@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAIFollowShip : EnemyBehavior {
+public class EnemyAIFollowShip : EnemyBehavior { 
 
 	private int FOLLOW_SHIP_HEALTH = 5;
 

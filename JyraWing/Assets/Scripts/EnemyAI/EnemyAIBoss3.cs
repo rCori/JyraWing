@@ -16,6 +16,10 @@ public class EnemyAIBoss3 : EnemyBehavior {
 	private enum ShootState {intro, mid, end};
 	private ShootState shootState;
 
+    private float patternSwitchTimer = 0.0f;
+    private float pattern1Time = 5.5f;
+    private float pattern0Time = 7.0f;
+
 	// Use this for initialization
 	void Awake () {
 		EnemyDefaults ();

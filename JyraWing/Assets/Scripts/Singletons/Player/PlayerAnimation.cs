@@ -1,111 +1,124 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class PlayerAnimation : MonoBehaviour {
 
-	private bool isHit;
-	private bool animStuck;
-	private Animator animator;
+    bool isHit, isBlinking;
+    private Animator animator;
+    // Use this for initialization
 
-	// Use this for initialization
-	void Start () {
-		isHit = false;
-		animStuck = false;
-		animator = gameObject.GetComponent <Animator> ();
-		PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
-		Player.HitEvent += HitAnimation;
-		CountdownTimer.PlayerContinueEvent += ResetHitAnimation;
-	}
+    void Start () {
+        animator = gameObject.GetComponent<Animator>();
+        PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
+        Player.HitEvent += HitAnimation;
+        isHit = false;
+        isBlinking = false;
+        //CountdownTimer.PlayerContinueEvent += ResetHitAnimation;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-	public void UpdateUpDownAnimation(float value) {
-		if (!isHit) {
-			if (value == 0) {
-				if (animator.GetInteger ("animState") == 4) {
-					animator.SetInteger ("animState", 0);
-				} else if (animator.GetInteger ("animState") == 3) {
-					animator.SetInteger ("animState", 0);
-				} else if (animator.GetInteger ("animState") == 7) {
-					if (animator.GetCurrentAnimatorStateInfo (0).IsName ("playerNeutralToUp")) {
-						animator.SetInteger ("animState", 0);
-					} else {
-						animator.SetInteger ("animState", 8);
-					}
-				} else if (animator.GetInteger ("animState") == 9) {
-					if (animator.GetCurrentAnimatorStateInfo (0).IsName ("playerNeutralToDown")) {
-						animator.SetInteger ("animState", 0);
-					} else {
-						animator.SetInteger ("animState", 10);
-					}
-				}
-			} else if (value == -1) {
-				animator.SetInteger ("animState", 3);
-			} else if (value == 1) {
-				animator.SetInteger ("animState", 4);
-			}
-		} else {
-			if (!animStuck) {
-				if (value == 0) {
-					animator.SetInteger ("animState", 2);
-				} else if (value == -1) {
-					animator.SetInteger ("animState", 5);
-				} else if (value == 1) {
-					animator.SetInteger ("animState", 6);
-				}
-			}
-		}
-	}
+    public void UpdateUpDownAnimation(float value)
+    {
+        if (animator == null) return;
 
-	public void TransitionToUp() {
-		animator.SetInteger ("animState", 7);
-	}
+        int animState = (animator.GetInteger("animState"));
+        if (isHit) {
+            return;
+        }
+        if (isBlinking) {
+            if (value == 0.0) {
+                animState = 7;
+            } else if (value == -1.0) {
+                animState = 10;
+            } else if (value == 1.0) {
+                animState = 9;
+            }
 
-	public void TransitionToDown() {
-		animator.SetInteger ("animState", 9);
-	}
+        } else {
+            //If the player is not moving up or down.
+            if (value == 0.0) {
+                //If you are in down or transition to down, go to transition to neutral
+                if ((animState == 3 || animState == 2) && animState != 1) {
+                    animState = 1;
+                }
 
-	public void TransitionToNeutral() {
-		animator.SetInteger ("animState", 0);
-	}
-		
+                //If you are in down or transition to down, go to transition to neutral
+                if ((animState == 5 || animState == 6) && animState != 4) {
+                    animState = 4;
+                }
+            } else if (value == -1.0) {
+                if (animState != 3 && animState != 2) {
+                    animState = 3;
+                }
 
-	private void HitAnimation(Player.TakingDamage takingDamage) {
-		switch(takingDamage) {
-		case Player.TakingDamage.EXPLODE:
-			animator.SetInteger ("animState", 1);
-			isHit = true;
-			animStuck = true;
-			break;
-		case Player.TakingDamage.RETURNING:
-			animator.SetInteger ("animState", 2);
-			animStuck = false;
-			break;
-		case Player.TakingDamage.BLINKING:
-			animator.SetInteger ("animState", 2);
-			break;
-		case Player.TakingDamage.NONE:
-			animator.SetInteger ("animState", 0);
-			isHit = false;
-			break;
-		default:
-			break;
-		}
-	}
+            } else if (value == 1.0) {
+                if (animState != 6 && animState != 5) {
+                    animState = 6;
+                }
+            }
+        }
+        animator.SetInteger("animState", animState);
+    }
 
-	public void ResetHitAnimation() {
-		isHit = true;
-		animator.SetTrigger("blinkTrigger");
-		animator.SetInteger ("animState", 2);
-	}
+    private void HitAnimation(Player.TakingDamage takingDamage)
+    {
+        switch (takingDamage)
+        {
+            case Player.TakingDamage.EXPLODE:
+                isHit = true;
+                animator.SetInteger("animState", 8);
+                break;
+            case Player.TakingDamage.RETURNING:
+                animator.SetInteger("animState", 7);
+                break;
+            case Player.TakingDamage.BLINKING:
+                isHit = false;
+                isBlinking = true;
+                animator.SetInteger("animState", 7);
+                break;
+            case Player.TakingDamage.NONE:
+                isBlinking = false;
+                animator.SetInteger("animState", 0);
+                break;
+            default:
+                break;
+        }
+    }
 
-	void OnDestroy() {
-		PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
-		Player.HitEvent -= HitAnimation;
-		CountdownTimer.PlayerContinueEvent -= ResetHitAnimation;
-	}
+    public void ResetHitAnimation()
+    {
+        animator.SetInteger("animState", 0);
+    }
+
+    public void TransitionToNeutralToUp()
+    {
+        if (isHit) {
+            return;
+        }
+        animator.SetInteger("animState", 5);
+    }
+
+    public void TransitionToNeutralToDown()
+    {
+        if (isHit) {
+            return;
+        }
+        animator.SetInteger("animState", 2);
+    }
+
+    public void TransitionToDirectionToNeutral()
+    {
+        animator.SetInteger("animState", 0);
+    }
+
+    void OnDestroy() {
+        PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
+        Player.HitEvent -= HitAnimation;
+        //CountdownTimer.PlayerContinueEvent -= ResetHitAnimation;
+    }
 }

@@ -13,7 +13,7 @@ public class Boss1Spawn : EnemySpawner {
 	    Vector3 spawnPos = gameObject.transform.position;
 
         GameObject enemy = (GameObject)Resources.Load("Enemies/BossEnemies/Enemy_Boss1");
-        enemy.transform.position = new Vector3(6.0f, 0f, 0f);
+        enemy.transform.position = new Vector3(10.0f, 0f, 0f);
 
         enemy.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
         enemy.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;

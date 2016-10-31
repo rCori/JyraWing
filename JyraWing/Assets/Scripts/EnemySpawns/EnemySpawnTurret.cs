@@ -19,9 +19,8 @@ public class EnemySpawnTurret : EnemySpawner {
 		enemyBehavior.bulletPool = bulletPool;
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.pointIconPool = pointIconPool;
-		enemy = Instantiate (enemy);
-		enemyBehavior = enemy.GetComponent<EnemyBehavior>();
 		enemyBehavior.LeftWallException = false;
-        enemyBehavior.SetPaused(pauseController.IsPaused);
+		enemy = Instantiate (enemy);
+        enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}
 }

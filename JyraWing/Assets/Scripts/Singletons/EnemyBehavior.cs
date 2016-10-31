@@ -141,6 +141,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	private List<PointObjectRelative> PointObjects;
 	private bool hasPointObjectToSpawn;
 
+    private bool invulnerable;
+
 	/// <summary>
 	/// Initialize default values for the enemy
 	/// </summary>
@@ -168,6 +170,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		PointObjects = null;
 		hasPointObjectToSpawn = false;
 		rigidybody2D = GetComponent<Rigidbody2D> ();
+        invulnerable = false;
 	}
 
 	/// <summary>
@@ -372,13 +375,19 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		}
 		if (other.tag == "Bullet") {
 
+            //This will get rid of the bullet
+			other.GetComponent<Bullet>().BulletHit();
+
+            //If the ship is invulnerable right now, we already did everything we wanted to do.
+            if(invulnerable) {
+                return;
+            }
+
 			if(hitPoints == 0){
 				return;
 			}
 			hitPoints--;
-			//This will get rid of the bullet
-			//other.GetComponent<Bullet>().BulletDestroy();
-			other.GetComponent<Bullet>().BulletHit();
+			
 
 			if(hitPoints == 0)
 			{
@@ -594,6 +603,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
         _paused = isPaused;
     }
 
+    public bool GetInvuln() {
+        return invulnerable;
+    }
+
+    public void SetInvuln(bool value) {
+        invulnerable = value;
+    }
+
 	/* Implementation of PauseableObject */
 	public virtual bool paused
 	{
@@ -631,5 +648,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	public void RemoveFromList() {
         DelistPauseController(this);
 	}
+
+
 
 }
