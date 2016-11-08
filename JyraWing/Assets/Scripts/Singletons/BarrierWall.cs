@@ -35,11 +35,17 @@ public class BarrierWall : MonoBehaviour {
 			}
 		}
 		if (other.tag == "PointIcon") {
-			other.GetComponent<AwardPoints> ().DestroyPoint ();
+            if(barrierMode == sides.Left)
+			{
+			    other.GetComponent<AwardPoints> ().DestroyPoint ();
+            }
 		}
 
 		if (other.tag == "PowerUp") {
-			Destroy(other.gameObject);
+            if(barrierMode == sides.Left)
+			{
+			    Destroy(other.gameObject);
+            }
 		}
 
 		if (other.tag == "Bullet" && barrierMode == sides.Right) {

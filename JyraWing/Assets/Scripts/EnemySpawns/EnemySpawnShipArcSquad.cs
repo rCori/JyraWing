@@ -21,7 +21,7 @@ public class EnemySpawnShipArcSquad : EnemySpawner {
 
 	public override void Spawn ()
 	{
-		float yOffset = initLocation.y;
+        float yOffset = (-((rows-1) * rowSpacing) / 2.0f) + initLocation.y;
 		float xOffset = initLocation.x;
 
 		for (int i = 0; i < rows; i++) {

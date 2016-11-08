@@ -20,14 +20,14 @@ public class EnemySpawnShipSquad : EnemySpawner {
 	public override void Spawn ()
 	{
 
-		float yOffset = -columns / 2f + yShift;
-		float xOffset = 8.0f;
+		float yOffset = -(rows / 2f) + yShift;
+		float xOffset = 9.0f;
 
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
+		for (int i = 0; i < columns; i++) {
+			for (int j = 0; j < rows; j++) {
 				//Middle row
 				GameObject enemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_BasicEnemyShip");
-				enemy.transform.position = new Vector2 (xOffset + i*rowSpacing, yOffset + j*columnSpacing);
+				enemy.transform.position = new Vector2 (xOffset + i*columnSpacing, yOffset + j*rowSpacing);
 
 				EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 				enemyBehavior.bulletPool = bulletPool;

@@ -13,26 +13,32 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 	public override void Spawn(){
 		{
 			//Bullet sprayer going right down the middle
-			GameObject enemyBulletSprayer = (GameObject)Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
-			enemyBulletSprayer.transform.position = new Vector3 (8.0f, 0.0f, 0.0f);
+			GameObject enemyBulletSprayer = (GameObject)Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayerArc");
+			enemyBulletSprayer.transform.position = new Vector3 (9.0f, 0.0f, 0.0f);
+
+            EnemyAIReflectBulletSprayerArc.MoveInstruction leftMovement = new EnemyAIReflectBulletSprayerArc.MoveInstruction();
+            leftMovement.startVelocity = new Vector2(-3.0f, 0f);
+            leftMovement.type = EnemyBehavior.MovementStatus.Velocity;
+            leftMovement.time = 6f;
 
 			EnemyBehavior enemyBehavior = enemyBulletSprayer.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 			enemyBehavior.pointIconPool = pointIconPool;
-			enemyBulletSprayer = Instantiate (enemyBulletSprayer);
 
-			EnemyAIReflectBulletSprayerA enemyAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ();
-			enemyAI.locations = new List<Vector2> { new Vector2 (-6.0f, 0.0f) };
-			enemyAI.times = new List<float> { 3.5f };
+			EnemyAIReflectBulletSprayerArc enemyAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerArc> ();
+            enemyAI.MoveInstructionList.Clear();
+            enemyAI.MoveInstructionList.Add(leftMovement);
             enemyBulletSprayer.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
+
+            enemyBulletSprayer = Instantiate (enemyBulletSprayer);
 		}
 
 
 		//Ship coming through from the top
 		{
 			GameObject topShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			topShip.transform.position = new Vector3 (8.0f, 3.0f, 0.0f);
+			topShip.transform.position = new Vector3 (9.0f, 3.0f, 0.0f);
 
 			EnemyBehavior enemyBehavior = topShip.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
@@ -50,7 +56,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 		//Ship coming through from the bottom
 		{
 			GameObject bottomShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			bottomShip.transform.position = new Vector3 (8.0f, -3.0f, 0.0f);
+			bottomShip.transform.position = new Vector3 (9.0f, -3.0f, 0.0f);
 
 			EnemyBehavior enemyBehavior = bottomShip.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;

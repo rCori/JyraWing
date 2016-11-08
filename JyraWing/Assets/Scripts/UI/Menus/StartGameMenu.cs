@@ -17,6 +17,8 @@ public class StartGameMenu : Menu {
 
     private bool selectionSwitch = false;
 
+    private int SELECTABLE_LEVELS = 4;
+
     void Start() {
         InitMenu();
         numberOfItems = 3;
@@ -72,7 +74,7 @@ public class StartGameMenu : Menu {
         }
         if (Input.GetAxisRaw("Horizontal") == 1.0f) {
             if (curSelect == 1 && !selectionSwitch) {
-                if (currentLevelSelect < 3) {
+                if (currentLevelSelect < SELECTABLE_LEVELS) {
                     currentLevelSelect++;
                     levelSelectText.text = "Level: " + currentLevelSelect;
                 }

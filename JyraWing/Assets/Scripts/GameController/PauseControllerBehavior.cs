@@ -14,7 +14,9 @@ public class PauseControllerBehavior : MonoBehaviour {
 	void Awake () {
 		pauseController = new PauseController ();
 		PlayerInputController.StartButton += PauseBehavior;
+        OnScreenDialog.PauseOnScreenDialogStartEvent += () => ShowingDialog();
 		IngameMenu.UnpauseEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
+        OnScreenDialog.PauseOnScreenDialogEndEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
 	}
 	
 	// Update is called once per frame
@@ -64,10 +66,22 @@ public class PauseControllerBehavior : MonoBehaviour {
 		}
 	}
 
+    public void ShowingDialog() {
+        pauseController.PauseAllItems ();
+		if (PauseEvent != null) {
+            paused = true;
+            Time.timeScale = 0;
+			//PauseEvent ();
+		}
+    }
+
 	void OnDestroy() {
 		pauseController.Purge ();
 		PlayerInputController.StartButton -= PauseBehavior;
         IngameMenu.UnpauseEvent -= () => { pauseController.Unpause();  paused = false; Time.timeScale = 1; };
+
+        OnScreenDialog.PauseOnScreenDialogStartEvent -= () => pauseController.PauseAllItems ();
+        OnScreenDialog.PauseOnScreenDialogEndEvent -= () => pauseController.Unpause();
 	}
 
     public static IEnumerator WaitForPauseSeconds(float time) {

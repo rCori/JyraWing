@@ -11,7 +11,6 @@ public class EnemySpawnShipArc : EnemySpawner {
 	public EnemyBulletPool shieldableBulletPool;
 	public PointIconPool pointIconPool;
     public PauseControllerBehavior pauseController;
-    public float FireTimer = 0.0f;
 
 	public override void Spawn ()
 	{
@@ -32,7 +31,6 @@ public class EnemySpawnShipArc : EnemySpawner {
 		foreach(EnemyAIShipArc.MoveInstruction moveInstruction in moveInstructionList) {
 			ai1.MoveInstructionList.Add(moveInstruction);
 		}
-        ai1.timer = FireTimer;
 		enemy = Instantiate (enemy);
         enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
 	}

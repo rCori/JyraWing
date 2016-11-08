@@ -8,7 +8,8 @@ public class EnemySpawnTankSquad : EnemySpawner {
 
 	public float rowSpacing;
 	public float columnSpacing;
-	public float yShift;
+	//public float yShift;
+    public Vector2 initLocation = new Vector2(0f,0f);
 
 	public bool shieldableBullets = false;
 
@@ -23,8 +24,11 @@ public class EnemySpawnTankSquad : EnemySpawner {
 		EnemyBulletPool bulletPool = GameObject.Find ("EnemyBulletPool").GetComponent<EnemyBulletPool> ();
 		EnemyBulletPool shieldableBulletPool = GameObject.Find("EnemyShieldableBulletPool").GetComponent<EnemyBulletPool>();
 
-		float yOffset = -columns / 2f + yShift;
-		float xOffset = 8.0f;
+		//float yOffset = -columns / 2f + yShift;
+		//float xOffset = 8.0f;
+        float yOffset = (-((rows-1) * rowSpacing) / 2.0f) + initLocation.y;
+        float xOffset = initLocation.x;
+
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {
 				if (!shieldableBullets) {

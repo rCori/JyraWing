@@ -136,7 +136,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -149,7 +149,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], false);
@@ -162,7 +162,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -175,7 +175,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -188,7 +188,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -201,7 +201,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -214,7 +214,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -227,7 +227,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -240,7 +240,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -253,7 +253,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], true);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -266,7 +266,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 		}
 	}
 
@@ -288,7 +288,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[2] * 3.0f, false);
 			Shoot (bulletDir[7] * 3.0f, false);
 			Shoot (bulletDir[9] * 3.0f, false);
@@ -304,7 +304,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[4] * 3.0f, false);
 			Shoot (bulletDir[5] * 3.0f, false);
 			Shoot (bulletDir[6] * 3.0f, false);
@@ -320,7 +320,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[8] * 3.0f, false);
 			Shoot (bulletDir[9] * 3.0f, false);
 			Shoot (bulletDir[11] * 3.0f, false);
@@ -336,7 +336,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[3] * 3.0f, false);
 			Shoot (bulletDir[5] * 3.0f, false);
 			Shoot (bulletDir[7] * 3.0f, false);
@@ -352,7 +352,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0] * 3.0f, false);
 			Shoot (bulletDir[5] * 3.0f, false);
 			Shoot (bulletDir[11] * 3.0f, false);
@@ -368,7 +368,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[1] * 3.0f, false);
 			Shoot (bulletDir[4] * 3.0f, false);
 			Shoot (bulletDir[9] * 3.0f, false);
@@ -384,7 +384,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[8] * 3.0f, false);
 			Shoot (bulletDir[9] * 3.0f, false);
 			Shoot (bulletDir[10] * 3.0f, false);
@@ -400,7 +400,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[2] * 3.0f, false);
 			Shoot (bulletDir[4] * 3.0f, false);
 			Shoot (bulletDir[6] * 3.0f, false);
@@ -416,7 +416,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[2] * 3.0f, false);
 			Shoot (bulletDir[3] * 3.0f, false);
 			Shoot (bulletDir[4] * 3.0f, false);
@@ -432,7 +432,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[5] * 3.0f, false);
 			Shoot (bulletDir[6] * 3.0f, false);
 			Shoot (bulletDir[7] * 3.0f, false);
@@ -448,7 +448,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 		}
 	}
 
@@ -466,7 +466,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], true);
 			Shoot (bulletDir[2], true);
@@ -479,7 +479,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], true);
@@ -492,7 +492,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -505,7 +505,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -518,7 +518,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -530,8 +530,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[8], false);
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
-			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -544,7 +543,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -557,7 +556,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -570,7 +569,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], false);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -583,7 +582,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], true);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], false);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 			Shoot (bulletDir[0], false);
 			Shoot (bulletDir[1], false);
 			Shoot (bulletDir[2], false);
@@ -596,7 +595,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			Shoot (bulletDir[9], false);
 			Shoot (bulletDir[10], true);
 			Shoot (bulletDir[11], true);
-			yield return new WaitForSeconds (1.5f);
+			yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.5f));
 		}
 	}
 
@@ -672,6 +671,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 		
 
 	void OnDestroy(){
+        
 		if (levelControllerBehavior != null) {
 			levelControllerBehavior.HandleLevelFinished ();
 		}
@@ -692,26 +692,10 @@ public class EnemyAIBoss3 : EnemyBehavior {
 				storedVel = rigidybody2D.velocity;
 				rigidybody2D.velocity = new Vector2 (0.0f, 0.0f);
 				animator.speed = 0f;
-				if (hitPoints > 60) {
-					StopCoroutine (introShootRoutine);
-				}
-				else if (hitPoints > 60) {
-					StopCoroutine (middleShootRoutine);
-				} else  {
-					StopCoroutine (endShootRoutine);
-				}
 			}
 			else{
 				rigidybody2D.velocity = storedVel;
 				animator.speed = 1f;
-				if (hitPoints > 60) {
-					StartCoroutine (introShootRoutine);
-				}
-				else if (hitPoints > 60) {
-					StartCoroutine (middleShootRoutine);
-				} else  {
-					StartCoroutine (endShootRoutine);
-				}
 			}
 		}
 	}

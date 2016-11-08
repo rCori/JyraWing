@@ -575,12 +575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 9, y: 0}
   rows: 3
   columns: 2
   rowSpacing: 1
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -717,7 +716,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 1
 --- !u!114 &436013714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +787,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 1
 --- !u!114 &502187250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1033,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 0.4
 --- !u!114 &565062412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,7 +1468,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 768925309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 98, y: -2, z: 0}
+  m_LocalPosition: {x: 98, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1489,12 +1485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 9, y: -2}
   rows: 7
   columns: 3
   rowSpacing: 1
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -1728,7 +1723,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 0.4
 --- !u!114 &919811411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1917,7 @@ RectTransform:
   m_Children:
   - {fileID: 1502306749}
   - {fileID: 989154826}
-  - {fileID: 2048245341}
+  - {fileID: 1800947895}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
@@ -2118,7 +2112,7 @@ MonoBehaviour:
   columns: 1
   rowSpacing: 1.5
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   shieldableBullets: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -2260,11 +2254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 1
-  columns: 5
-  rowSpacing: 0
+  rows: 5
+  columns: 1
+  rowSpacing: 1
   columnSpacing: 1.2
-  yShift: 0
   initLocation: {x: 9, y: 0}
   moveInstructionList:
   - type: 3
@@ -2626,12 +2619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 3}
   rows: 1
   columns: 5
   rowSpacing: 0
   columnSpacing: 1.3
-  yShift: 0
+  initLocation: {x: 9, y: 3}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -3121,8 +3113,8 @@ MonoBehaviour:
   rows: 2
   columns: 1
   rowSpacing: 2
-  columnSpacing: 0
-  yShift: -2
+  columnSpacing: 1
+  initLocation: {x: 9, y: 0}
   shieldableBullets: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -3134,6 +3126,61 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1250512779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!1 &1266828625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1266828627}
+  - 114: {fileID: 1266828626}
+  - 114: {fileID: 1266828628}
+  m_Layer: 0
+  m_Name: TestTextDialogNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266828626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266828625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258239618d37afe438bdea982bd4743f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onScreenDialog: {fileID: 1800947898}
+  dialog: Hi
+--- !u!4 &1266828627
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266828625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.95, y: -1.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+--- !u!114 &1266828628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266828625}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
@@ -3428,12 +3475,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 1}
   rows: 3
   columns: 4
   rowSpacing: 1
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -3757,12 +3803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 9, y: 1}
   rows: 1
   columns: 4
   rowSpacing: 0
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 1}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -4520,7 +4565,7 @@ MonoBehaviour:
   columns: 2
   rowSpacing: 1
   columnSpacing: 3
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   shieldableBullets: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -4652,12 +4697,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 1}
   rows: 1
   columns: 4
-  rowSpacing: 0
+  rowSpacing: 1
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -4710,7 +4754,7 @@ MonoBehaviour:
   columns: 1
   rowSpacing: 2
   columnSpacing: 2
-  yShift: -2
+  initLocation: {x: 9, y: 0}
   shieldableBullets: 1
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -4779,7 +4823,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 1
 --- !u!114 &1786951991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4792,6 +4835,94 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &1800947894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1800947895}
+  - 114: {fileID: 1800947898}
+  - 222: {fileID: 1800947897}
+  - 114: {fileID: 1800947896}
+  m_Layer: 5
+  m_Name: OnScreenDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1800947895
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800947894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 980876025}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1800947896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800947894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1800947897
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800947894}
+--- !u!114 &1800947898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800947894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12679f6b93c35ad44af56154b9232a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 980876024}
+  uiText: {fileID: 1800947896}
 --- !u!1 &1820347745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4896,11 +5027,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 1
-  columns: 4
-  rowSpacing: 0
+  rows: 4
+  columns: 1
+  rowSpacing: 1
   columnSpacing: 1.5
-  yShift: 0
   initLocation: {x: 9, y: 0}
   moveInstructionList:
   - type: 3
@@ -5258,12 +5388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 9, y: -1}
   rows: 1
   columns: 4
   rowSpacing: 0
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: -1}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -5372,12 +5501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 1}
   rows: 1
   columns: 4
   rowSpacing: 0
   columnSpacing: 1
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
@@ -5502,12 +5630,11 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 3
+    time: 10
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
-  FireTimer: 1
 --- !u!114 &2015192786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5520,97 +5647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!1001 &2048245340
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 980876025}
-    m_Modifications:
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 118144, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-  m_IsPrefabParent: 0
---- !u!224 &2048245341 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b,
-    type: 2}
-  m_PrefabInternal: {fileID: 2048245340}
 --- !u!1 &2133709207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,12 +5746,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 6.6, y: 0}
   rows: 5
   columns: 3
   rowSpacing: 0.8
   columnSpacing: 0.8
-  yShift: 0
+  initLocation: {x: 9, y: 0}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
