@@ -12,7 +12,7 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 		/* second turret */
 		{
 			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-			enemy.transform.position = new Vector2 (8f, 2f);
+			enemy.transform.position = new Vector2 (9f, 2f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
@@ -27,7 +27,7 @@ public class EnemySpawnTwoWaterTurrets : EnemySpawner {
 		/* bottom turret */
 		{
 			GameObject enemy = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-			enemy.transform.position = new Vector2 (8f, -2f);
+			enemy.transform.position = new Vector2 (9f, -2f);
 		
 			EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;

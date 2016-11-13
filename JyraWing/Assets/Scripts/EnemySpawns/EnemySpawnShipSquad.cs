@@ -8,7 +8,7 @@ public class EnemySpawnShipSquad : EnemySpawner {
 
 	public float rowSpacing;
 	public float columnSpacing;
-	public float yShift;
+    public Vector2 initLocation;
 
 	public float lifeTime;
 
@@ -20,8 +20,8 @@ public class EnemySpawnShipSquad : EnemySpawner {
 	public override void Spawn ()
 	{
 
-		float yOffset = -(rows / 2f) + yShift;
-		float xOffset = 9.0f;
+		float yOffset = (-((rows-1) * rowSpacing) / 2.0f) + initLocation.y;
+        float xOffset = initLocation.x;
 
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {

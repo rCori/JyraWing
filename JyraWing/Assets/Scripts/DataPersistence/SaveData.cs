@@ -20,6 +20,8 @@ public class SaveData  {
 
 	public int livesPerCredit = 3;
 	public int highScore = 1000;
+    public int BGMLevel = 10;
+    public int SFXLevel = 10;
 
 	public void LoadGame() {
 		if (!File.Exists (Application.dataPath + "/savegame.json")) {

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 using System.Collections;
 
-public class OptionsMenu : Menu {
+public class InGameOptionsMenu : Menu {
 
     private GameObject uiCanvas;
     private GameObject lifeCount;
@@ -15,9 +16,17 @@ public class OptionsMenu : Menu {
     private GameObject sfxLevel;
     private Text sfxLevelText;
 
+    private GameObject darkPanel;
+    private GameObject quit;
+
+    private VolumeSettings volumeSettings;
+
     private bool lockScreen;
     private bool selectionSwitch;
 
+
+    public delegate void IngameOptionsMenuDelegate();
+	public static event IngameOptionsMenuDelegate UnpauseEvent;
 
     // Use this for initialization
     void Start() {
@@ -28,18 +37,13 @@ public class OptionsMenu : Menu {
         lockScreen = false;
         selectionSwitch = false;
 
+        volumeSettings = GameObject.Find("VolumeSettings").GetComponent<VolumeSettings>();
+        Assert.IsNotNull(volumeSettings);
+
         //create the menu text stuff
         uiCanvas = GameObject.Find("Canvas");
 
-        lifeCount = Resources.Load("UIObjects/OptionsMenu/LivesText") as GameObject;
-        lifeCount = Instantiate(lifeCount);
-        lifeCount.transform.SetParent(uiCanvas.transform, false);
-
-        lifeCountText = lifeCount.GetComponent<Text>();
-        lifeCountText.text = "Lives: "+ SaveData.Instance.livesPerCredit;
-
-
-        bgmLevel = Resources.Load("UIObjects/OptionsMenu/BGMText") as GameObject;
+        bgmLevel = Resources.Load("UIObjects/InGameOptionsMenu/BGMText") as GameObject;
         bgmLevel = Instantiate(bgmLevel);
         bgmLevel.transform.SetParent(uiCanvas.transform, false);
 
@@ -47,24 +51,27 @@ public class OptionsMenu : Menu {
         bgmLevelText.text = "BGM: "+ SaveData.Instance.BGMLevel;
 
 
-        sfxLevel = Resources.Load("UIObjects/OptionsMenu/SFXText") as GameObject;
+        sfxLevel = Resources.Load("UIObjects/InGameOptionsMenu/SFXText") as GameObject;
         sfxLevel = Instantiate(sfxLevel);
         sfxLevel.transform.SetParent(uiCanvas.transform, false);
 
         sfxLevelText = sfxLevel.GetComponent<Text>();
         sfxLevelText.text = "SFX: "+ SaveData.Instance.SFXLevel;
 
+        quit = Resources.Load("UIObjects/InGameOptionsMenu/QuitText") as GameObject;
+        quit = Instantiate(quit);
+        quit.transform.SetParent(uiCanvas.transform, false);
 
-        back = Resources.Load("UIObjects/OptionsMenu/BackText") as GameObject;
+        back = Resources.Load("UIObjects/InGameOptionsMenu/BackText") as GameObject;
         back = Instantiate(back);
         back.transform.SetParent(uiCanvas.transform, false);
 
         //Amount to move selector over from a selection when that item is selected.
         float adjustPt = Screen.width / 10.0f;
 
-        menuLocations.Add(new Vector2(lifeCount.transform.position.x, lifeCount.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
+        menuLocations.Add(new Vector2(quit.transform.position.x, quit.transform.position.y));
         menuLocations.Add(new Vector2(back.transform.position.x, back.transform.position.y));
 
         gameObject.transform.position = menuLocations[0];
@@ -79,46 +86,48 @@ public class OptionsMenu : Menu {
             if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
                 if (curSelect == 0) {
                 }
-                else if (curSelect == 3) {
+                else if(curSelect == 2) {
+                    StartCoroutine(QuitOption());
+                    Debug.Log("Quit");
+                } else if (curSelect == 3) {
                     //Back
                     SaveData.Instance.SaveGame();
-                    StartCoroutine(LoadTitleScreenMenu());
+                    StartCoroutine(ReturnToGame());
+                    if (UnpauseEvent != null) {
+					    UnpauseEvent ();
+				    }
+                    Debug.Log("Return to game");
                 }
             }
             if (Input.GetAxisRaw("Horizontal") == 1.0f) {
-                if(curSelect == 0 && !selectionSwitch) {
-                    if (SaveData.Instance.livesPerCredit < 6) {
-                        SaveData.Instance.livesPerCredit++;
-                        lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
-                    }
-                } else if (curSelect == 1 && !selectionSwitch){
+                if (curSelect == 0 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
+                        volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 1 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
+                        volumeSettings.SetSFXAudio(SaveData.Instance.SFXLevel);
+                        PlayConfirm();
                     }
                 }
                 selectionSwitch = true;
             } else if(Input.GetAxisRaw("Horizontal") == -1.0f) {
-                if (curSelect == 0 && !selectionSwitch) {
-                    if (SaveData.Instance.livesPerCredit > 1) {
-                        SaveData.Instance.livesPerCredit--;
-                        lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
-                    }
-                }
-                else if (curSelect == 1 && !selectionSwitch){
+                if (curSelect == 0 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
+                        volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 1 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
+                        volumeSettings.SetSFXAudio(SaveData.Instance.SFXLevel);
+                        PlayConfirm();
                     }
                 }
                 selectionSwitch = true;
@@ -130,18 +139,38 @@ public class OptionsMenu : Menu {
         }
     }
 
-    IEnumerator LoadTitleScreenMenu(){
+    IEnumerator QuitOption() {
         PlayConfirm();
+        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
         Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);
+        Destroy(quit);
         Destroy(back);
-        yield return new WaitForSeconds(0.05f);
+        GameObject quitOptionSelection = Resources.Load("UIObjects/InGameQuitMenu/IngameQuitSelector") as GameObject;
+        quitOptionSelection = Instantiate(quitOptionSelection);
+        quitOptionSelection.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+        yield return null;
+    }
+
+    IEnumerator ReturnToGame(){
+        PlayConfirm();
+        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        Destroy(lifeCount);
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(quit);
+        Destroy(back);
+        Destroy(gameObject);
+        yield return null;
+        /*
         GameObject titleScreenMenu = Resources.Load("UIObjects/TitleScreenMenu/TitleSelector") as GameObject;
         titleScreenMenu = Instantiate(titleScreenMenu);
         titleScreenMenu.transform.SetParent(uiCanvas.transform, false);
         Destroy(gameObject);
         yield return null;
+        */
     }
 
 }

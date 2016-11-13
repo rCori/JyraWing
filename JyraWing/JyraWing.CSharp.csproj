@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EnemyAIFollowShip.cs" />
+    <Compile Include="Assets\Scripts\AudioSystems\SoundEffectPlayer.cs" />
+    <Compile Include="Assets\Scripts\AudioSystems\VolumeSettings.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\LoadDataOnStart.cs" />
     <Compile Include="Assets\Scripts\DataPersistence\SaveData.cs" />
@@ -192,11 +194,11 @@
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerWeapon.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\PlayerWeaponBehaviour.cs" />
     <Compile Include="Assets\Scripts\Singletons\PlayerBulletLevel.cs" />
-    <Compile Include="Assets\Scripts\SoundEffectPlayer.cs" />
     <Compile Include="Assets\Scripts\TestDoubles\EnemySpawn1Fake.cs" />
     <Compile Include="Assets\Scripts\UI\CountdownTimer.cs" />
     <Compile Include="Assets\Scripts\UI\DialogNode.cs" />
-    <Compile Include="Assets\Scripts\UI\Menus\IngameMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\InGameOptionsMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\IngameQuitMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\StartGameMenu.cs" />

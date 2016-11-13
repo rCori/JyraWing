@@ -161,7 +161,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	}
 
 	public void PauseMenu(){
-		GameObject InGameMenu = Resources.Load ("UIObjects/InGameMenu/IngameSelector") as GameObject;
+		GameObject InGameMenu = Resources.Load ("UIObjects/InGameOptionsMenu/InGameOptionsMenu") as GameObject;
 		InGameMenu = Instantiate(InGameMenu);
 		InGameMenu.transform.SetParent(canvas.transform, false);
 	}

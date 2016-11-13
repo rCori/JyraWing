@@ -2,15 +2,12 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class IngameMenu : Menu {
+public class IngameQuitMenu : Menu {
 	private GameObject uiCanvas;
 	private GameObject yesText;
 	private GameObject noText;
 	private GameObject title;
-	private GameObject darkPanel;
-
-	public delegate void IngameMenuDelegate();
-	public static event IngameMenuDelegate UnpauseEvent;
+	//private GameObject darkPanel;
 
 	private bool lockScreen;
 
@@ -22,17 +19,19 @@ public class IngameMenu : Menu {
 		lockScreen = false;
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
-		darkPanel = Resources.Load ("UIObjects/InGameMenu/IngamePanel") as GameObject;
+        /*
+		darkPanel = Resources.Load ("UIObjects/InGameQuitMenu/IngamePanel") as GameObject;
 		darkPanel = Instantiate (darkPanel);
 		darkPanel.transform.SetParent (uiCanvas.transform, false);
 		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
-		yesText = Resources.Load ("UIObjects/InGameMenu/YesText") as GameObject;
+        */
+		yesText = Resources.Load ("UIObjects/InGameQuitMenu/YesText") as GameObject;
 		yesText = Instantiate (yesText);
 		yesText.transform.SetParent(uiCanvas.transform, false);
-		noText = Resources.Load ("UIObjects/InGameMenu/NoText") as GameObject;
+		noText = Resources.Load ("UIObjects/InGameQuitMenu/NoText") as GameObject;
 		noText = Instantiate (noText);
 		noText.transform.SetParent(uiCanvas.transform, false);
-		title = Resources.Load ("UIObjects/InGameMenu/IngameMenuTitle") as GameObject;
+		title = Resources.Load ("UIObjects/InGameQuitMenu/IngameMenuTitle") as GameObject;
 		title = Instantiate (title);
 		title.transform.SetParent (uiCanvas.transform, false);
 		//Amount to move selector over from a selection when that item is selected.
@@ -53,19 +52,13 @@ public class IngameMenu : Menu {
 			//No: Continue game, unpausing it.
 			if (Input.GetButtonDown ("Auto Fire")) {
 				if (curSelect == 0) {
-					if (UnpauseEvent != null) {
-						UnpauseEvent ();
-					}
-					BackOut ();
+					StartCoroutine(BackOut ());
 					//Yes: Go back to main menu
 				} else if (curSelect == 1) {
 					StartCoroutine (LoadTitleSceneCoroutine ());
 				}
 			}
 			if (Input.GetButtonDown ("Pause")) {
-				if (UnpauseEvent != null) {
-					UnpauseEvent ();
-				}
 				BackOut ();
 			}
 		}
@@ -77,7 +70,7 @@ public class IngameMenu : Menu {
 		Destroy (noText);
 		Destroy (yesText);
 		Destroy (gameObject);
-		Destroy (darkPanel);
+		//Destroy (darkPanel);
 	}
 
 	IEnumerator LoadTitleSceneCoroutine(){
@@ -88,8 +81,15 @@ public class IngameMenu : Menu {
 		SceneManager.LoadScene("titleScene");
 	}
 
-	void BackOut(){
+	IEnumerator BackOut(){
 		PlayConfirm ();
 		RemoveMenu ();
+        lockScreen = true;
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
+        GameObject titleScreenMenu = Resources.Load("UIObjects/InGameOptionsMenu/InGameOptionsMenuSelector") as GameObject;
+        titleScreenMenu = Instantiate(titleScreenMenu);
+        titleScreenMenu.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+        yield return null;
 	}
 }

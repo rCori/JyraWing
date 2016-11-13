@@ -7,16 +7,17 @@ public class SoundEffectPlayer : MonoBehaviour {
 	private int currentPoolSize;
 	List<AudioSource> audioSourcePool;
 
-	AudioSource newSource;
-	AudioSource priorityAudioSource;
+    float currentSFXVolume;
+
 	// Use this for initialization
 	void Start () {
 		currentPoolSize = POOL_SIZE;
-		newSource =  gameObject.AddComponent<AudioSource>();
-		priorityAudioSource = gameObject.AddComponent<AudioSource> ();
+        currentSFXVolume = SaveData.Instance.SFXLevel;
 		audioSourcePool = new List<AudioSource> ();
 		for (int i = 0; i < POOL_SIZE; i++) {
-			audioSourcePool.Add (gameObject.AddComponent<AudioSource> ());
+            AudioSource newPoolAudioSource = gameObject.AddComponent<AudioSource>();
+            newPoolAudioSource.volume = currentSFXVolume;
+			audioSourcePool.Add (newPoolAudioSource);
 		}
 
 	}
@@ -57,7 +58,19 @@ public class SoundEffectPlayer : MonoBehaviour {
 	}
 
 	private void addToAudioSourcePool(){
-		audioSourcePool.Add (gameObject.AddComponent<AudioSource> ());
+        AudioSource newPoolAudioSource = gameObject.AddComponent<AudioSource>();
+        newPoolAudioSource.volume = currentSFXVolume;
+		audioSourcePool.Add (newPoolAudioSource);
 		currentPoolSize++;
 	}
+
+    public void SetVolume(int volumeLevel) {
+        float floatVolume = volumeLevel;
+        floatVolume /= 10f;
+        currentSFXVolume = floatVolume;
+        if (audioSourcePool == null) return;
+        foreach(AudioSource source in audioSourcePool) {
+            source.volume = currentSFXVolume;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//ALL OF THIS CODE NEEDS TO BE CLEANED UP AND EXPANDED ON
 public class DialogNode : MonoBehaviour {
 
     public OnScreenDialog onScreenDialog;

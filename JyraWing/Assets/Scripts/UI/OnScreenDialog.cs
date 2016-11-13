@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//ALL OF THIS CODE NEEDS TO BE CLEANED UP AND EXPANDED ON
 public class OnScreenDialog : MonoBehaviour {
 
     public delegate void OnScreenDialogStart();
