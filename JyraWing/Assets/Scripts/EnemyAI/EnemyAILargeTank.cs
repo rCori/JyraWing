@@ -35,7 +35,7 @@ private int moveState;
 		moveState = 0;
 		//Set the direction vectors for any direction.
 		fastVec = new Vector2(-1.5f, 0f);
-		slowVec = new Vector2( -0.7f, 0f);
+		slowVec = new Vector2( -1.0f, 0f);
 
         upBul = new Vector2(-1.5f, 0.6f);
         upMiddleBul = new Vector2(-1.7f, 0.2f);

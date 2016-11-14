@@ -21,7 +21,7 @@ public class ScreenWrap : MonoBehaviour {
 
 	void Update(){
 		if (transform.position.x <= -(horzExtent + spriteWidth) / 2) {
-			Vector3 newPos = new Vector3((horzExtent + spriteWidth) / 2, 0f, 0f);
+			Vector3 newPos = new Vector3((horzExtent + spriteWidth) / 2, -0.52f, 0f);
 			transform.position = newPos;
 		}
 	}

@@ -11,6 +11,7 @@ public class VolumeSettings : MonoBehaviour {
 	void Start () {
         Assert.IsNotNull(soundEffectPlayer);
         Assert.IsNotNull(bgmAudioSource);
+        SaveData.Instance.LoadGame();
         SetBGMAudio(SaveData.Instance.BGMLevel);
         SetSFXAudio(SaveData.Instance.SFXLevel);
 	}

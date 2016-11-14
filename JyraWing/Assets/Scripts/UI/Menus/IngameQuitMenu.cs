@@ -7,7 +7,7 @@ public class IngameQuitMenu : Menu {
 	private GameObject yesText;
 	private GameObject noText;
 	private GameObject title;
-	//private GameObject darkPanel;
+	private GameObject darkPanel;
 
 	private bool lockScreen;
 
@@ -19,12 +19,12 @@ public class IngameQuitMenu : Menu {
 		lockScreen = false;
 		//create the menu text stuff
 		uiCanvas = GameObject.Find ("Canvas");
-        /*
+        
 		darkPanel = Resources.Load ("UIObjects/InGameQuitMenu/IngamePanel") as GameObject;
 		darkPanel = Instantiate (darkPanel);
 		darkPanel.transform.SetParent (uiCanvas.transform, false);
 		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
-        */
+        
 		yesText = Resources.Load ("UIObjects/InGameQuitMenu/YesText") as GameObject;
 		yesText = Instantiate (yesText);
 		yesText.transform.SetParent(uiCanvas.transform, false);
@@ -69,8 +69,8 @@ public class IngameQuitMenu : Menu {
 		Destroy (title);
 		Destroy (noText);
 		Destroy (yesText);
-		Destroy (gameObject);
-		//Destroy (darkPanel);
+		//Destroy (gameObject);
+		Destroy (darkPanel);
 	}
 
 	IEnumerator LoadTitleSceneCoroutine(){
@@ -82,11 +82,11 @@ public class IngameQuitMenu : Menu {
 	}
 
 	IEnumerator BackOut(){
-		PlayConfirm ();
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
 		RemoveMenu ();
         lockScreen = true;
-        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
-        GameObject titleScreenMenu = Resources.Load("UIObjects/InGameOptionsMenu/InGameOptionsMenuSelector") as GameObject;
+        //yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
+        GameObject titleScreenMenu = Resources.Load("UIObjects/InGameOptionsMenu/InGameOptionsMenu") as GameObject;
         titleScreenMenu = Instantiate(titleScreenMenu);
         titleScreenMenu.transform.SetParent(uiCanvas.transform, false);
         Destroy(gameObject);

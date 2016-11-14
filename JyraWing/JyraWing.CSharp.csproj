@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss2.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss3.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss4.cs" />
+    <Compile Include="Assets\Scripts\EnemyAI\EnemyAIBoss5.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondArc.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondOscillate.cs" />
     <Compile Include="Assets\Scripts\EnemyAI\EnemyAIDiamondSpecialEncounterArcCrossovers.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\Boss1Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn1.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss3Spawn.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\Boss4Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossNew2Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\BossSpawn1.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
@@ -177,6 +179,7 @@
     <Compile Include="Assets\Scripts\Powerups\PowerupGroup.cs" />
     <Compile Include="Assets\Scripts\Powerups\PowerupObject.cs" />
     <Compile Include="Assets\Scripts\Powerups\SpeedPowerup.cs" />
+    <Compile Include="Assets\Scripts\RemoveBackground.cs" />
     <Compile Include="Assets\Scripts\ScreenWrap.cs" />
     <Compile Include="Assets\Scripts\Scroll.cs" />
     <Compile Include="Assets\Scripts\ShuffleBag.cs" />

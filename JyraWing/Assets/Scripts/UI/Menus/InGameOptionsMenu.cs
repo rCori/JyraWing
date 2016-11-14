@@ -43,6 +43,11 @@ public class InGameOptionsMenu : Menu {
         //create the menu text stuff
         uiCanvas = GameObject.Find("Canvas");
 
+        darkPanel = Resources.Load ("UIObjects/InGameQuitMenu/IngamePanel") as GameObject;
+		darkPanel = Instantiate (darkPanel);
+		darkPanel.transform.SetParent (uiCanvas.transform, false);
+		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
+
         bgmLevel = Resources.Load("UIObjects/InGameOptionsMenu/BGMText") as GameObject;
         bgmLevel = Instantiate(bgmLevel);
         bgmLevel.transform.SetParent(uiCanvas.transform, false);
@@ -147,6 +152,7 @@ public class InGameOptionsMenu : Menu {
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy (darkPanel);
         GameObject quitOptionSelection = Resources.Load("UIObjects/InGameQuitMenu/IngameQuitSelector") as GameObject;
         quitOptionSelection = Instantiate(quitOptionSelection);
         quitOptionSelection.transform.SetParent(uiCanvas.transform, false);
@@ -162,6 +168,7 @@ public class InGameOptionsMenu : Menu {
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy (darkPanel);
         Destroy(gameObject);
         yield return null;
         /*
