@@ -4828,7 +4828,7 @@ GameObject:
   - 114: {fileID: 1478293979}
   - 114: {fileID: 1478293978}
   m_Layer: 0
-  m_Name: EnemyBoss2Spawn
+  m_Name: Boss3Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

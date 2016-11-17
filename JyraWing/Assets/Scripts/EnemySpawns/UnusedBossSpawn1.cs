@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boss2Spawn1 : EnemySpawner {
+public class UnusedBossSpawn1 : EnemySpawner {
 
 	public LevelControllerBehavior levelControllerBehavior;
 	public EnemyBulletPool bulletPool;

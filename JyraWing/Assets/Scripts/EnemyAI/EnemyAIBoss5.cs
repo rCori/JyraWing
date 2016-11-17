@@ -5,11 +5,11 @@ public class EnemyAIBoss5 : EnemyBehavior
 {
     public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS5_HITS = 150;
+    private static int BOSS5_HITS = 100;
 
     private Vector2 downwardShootingAngle;
     private Vector2 upwardShootingAngle;
-    private IEnumerator trackingBulletRoutine, coneShootingRoutine, directAtPlayerRoutine, bulletColumnRotuine;
+    private IEnumerator threeWayShooting, directAtPlayerRoutine, bulletColumnRotuine,scatteredProlongedStream, diamondPatternStream;
 
     private float fireWaitTime;
     private float fanningTimer;
@@ -23,16 +23,15 @@ public class EnemyAIBoss5 : EnemyBehavior
     private float directAtPlayerSpeed = 3.0f;
     private float columnBulletWidth = 2.5f;
 
+    private int patternValSet;
+
     void Start()
     {
         EnemyDefaults();
         SetEnemyHealth(BOSS5_HITS);
         downwardShootingAngle = new Vector2(-2.5f, -1.2f);
         upwardShootingAngle = new Vector2(-2.5f, 1.2f);
-        trackingBulletRoutine = TrackingBulletRoutine();
-        coneShootingRoutine = ConeShootingRoutine();
-        directAtPlayerRoutine = DirectAtPlayer();
-        bulletColumnRotuine = BulletColumn();
+        threeWayShooting = ThreeWayShooting();
         BulletPatternShift(0);
         HasAnimations animationSettings;
 		animationSettings = HasAnimations.Destroy;
@@ -55,57 +54,171 @@ public class EnemyAIBoss5 : EnemyBehavior
 		}
     }
 	
-	// Update is called once per frame
+	 // Update is called once per frame
 	void Update () {
-        if (_paused) return;
-
-        Movement();
-
-        patternSwitchTimer += Time.deltaTime;
-        switch(currentPattern) {
-        case 0:
-            Pattern0Fanning(Time.deltaTime);
-            if(patternSwitchTimer>pattern0Time) {
-                patternSwitchTimer = 0.0f;
+		if (isDestroyed || _paused) {
+			return;
+		}
+		Movement();
+        /*
+        switch(hitPoints) {
+        case 50:
+            if(patternValSet != hitPoints) { 
                 BulletPatternShift(1);
-            }
-            break;
-        case 1:
-            Pattern1Adjustment();
-            if(patternSwitchTimer>pattern1Time) {
-                patternSwitchTimer = 0.0f;
-                BulletPatternShift(0);
-            }
+                patternValSet = hitPoints;
+            }      
             break;
         default:
             break;
         }
-
-       
-
+        */
+        /*
+        if(currentPattern == 1) {
+            patternSwitchTimer += Time.deltaTime;
+            if(patternSwitchTimer > pattern1Time) {
+                BulletPatternShift(0);
+            }
+        }
+        */
 	}
 
-    IEnumerator TrackingBulletRoutine()
-    {
-        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
-        while (true)
-        {
-            Shoot((gameController.playerPosition-transform.position).normalized * 3.0f, false);
-            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(fireWaitTime));
-            Shoot((gameController.playerPosition - transform.position).normalized * 3.0f, true);
-            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(fireWaitTime));
+    public void BulletPatternShift(int patternNum) {
+        //Turn off the routines for the current pattern
+        switch(currentPattern) {
+        case 0:
+            StopCoroutine(threeWayShooting);
+            break;
+        case 1:
+            StopCoroutine(scatteredProlongedStream);
+            break;
+        case 2:
+            StopCoroutine(diamondPatternStream);
+            break;
+        default:
+            break;
+
+        }
+        currentPattern = patternNum;
+        //Turn on the coroutines for the new pattern
+        switch(currentPattern) {
+        case 0:
+            threeWayShooting = ThreeWayShooting();
+            StartCoroutine(threeWayShooting);
+            break;
+        case 1:
+            scatteredProlongedStream = ScatteredProlongedStream();
+            StartCoroutine(scatteredProlongedStream);
+            break;
+        case 2:
+            diamondPatternStream = DiamondPattern();
+            StartCoroutine(diamondPatternStream);
+            break;
+        default:
+            break;
+
         }
     }
 
-    IEnumerator ConeShootingRoutine()
-    {
+    IEnumerator ThreeWayShooting() {
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
-        while (true)
-        {
-            Shoot(upwardShootingAngle);
-            Shoot(downwardShootingAngle);
-            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.25f));
-        }
+        float bulletSpeed = 3.5f;
+        Vector2 direction = new Vector2(0f, 0f);
+        Vector2 bottom = new Vector2(0f, 0f);
+        Vector2 top = new Vector2(0f, 0f);
+        // while(true) {
+            direction = new Vector2(-4f, 1.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 1.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 0.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 0.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, -0.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, -1.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, -1.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, -1.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, -0.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 0.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 0.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 1.0f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+            direction = new Vector2(-4f, 1.5f);
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            Shoot(direction.normalized * bulletSpeed, false);
+            Shoot(direction.normalized * bulletSpeed, top, true);
+            Shoot(direction.normalized * bulletSpeed, bottom, true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+        //}
+        BulletPatternShift(1);
     }
 
     IEnumerator MoveIntoPosition() {
@@ -116,6 +229,7 @@ public class EnemyAIBoss5 : EnemyBehavior
         yield return null;
     }
 
+    /*
     IEnumerator DirectAtPlayer() {
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         while (true)
@@ -136,6 +250,209 @@ public class EnemyAIBoss5 : EnemyBehavior
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.25f));
         }
     }
+    */
+
+    IEnumerator ScatteredProlongedStream() {
+        float bulletSpeed = 5.0f;
+        Vector2 direction = new Vector2(0f, 0f);
+        Vector2 bottom,top = new Vector2(0f, 0f);
+        for(int j = 0; j<6;j++) {
+            switch(j) {
+            case 0:
+                direction = new Vector2(-2.5f, 0.7f).normalized;
+                break;
+            case 1:
+                direction = new Vector2(-2.7f, 0.3f).normalized;
+                break;
+            case 2:
+                direction = new Vector2(-2.0f, -0.6f).normalized;
+                break;
+            case 3:
+                direction = new Vector2(-3.0f, 0.1f).normalized;
+                break;
+            case 4:
+                direction = new Vector2(-1.5f, 0.5f).normalized;
+                break;
+            case 5:
+                direction = new Vector2(-2.5f, -0.5f).normalized;
+                break;
+            }
+            bottom = new Vector2(direction.y, -direction.x).normalized;
+            top = new Vector2(-direction.y, direction.x).normalized;
+            for(int i = 0; i < 22; i++) {
+                if(i%6 == 0) {
+                    Shoot(direction * bulletSpeed, false);
+                    Shoot(direction * bulletSpeed, top*0.5f, false);
+                    Shoot(direction * bulletSpeed, top*0.9f, false);
+                    Shoot(direction * bulletSpeed, top*1.3f, false);
+                    Shoot(direction * bulletSpeed, bottom*0.5f, false);
+                    Shoot(direction * bulletSpeed, bottom*0.9f, false);
+                    Shoot(direction * bulletSpeed, bottom*1.3f, false);
+                } else {
+                    Shoot(direction * bulletSpeed, true);
+                    Shoot(direction * bulletSpeed, top*0.5f, true);
+                    Shoot(direction * bulletSpeed, top*0.9f, true);
+                    Shoot(direction * bulletSpeed, top*1.3f, true);
+                    Shoot(direction * bulletSpeed, bottom*0.5f, true);
+                    Shoot(direction * bulletSpeed, bottom*0.9f, true);
+                    Shoot(direction * bulletSpeed, bottom*1.3f, true);
+                }
+                yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.1f));
+            }
+        }
+        BulletPatternShift(2);
+    }
+
+    IEnumerator DiamondPattern() {
+        float bulletSpeed = 3.5f;
+        float timeBetween = 0.1f;
+        Vector2 direction = new Vector2(-1f, 0f);
+        bool shielding = true;
+        for(int i = 0; i < 4; i++) {
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed, !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.3f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.3f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.5f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.5f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.7f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.7f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.9f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.9f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.1f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.1f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.3f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.3f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.5f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.5f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.7f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.7f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.9f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.9f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-2.1f), !shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,2.1f), shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.9f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.9f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.7f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.7f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.5f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.5f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.3f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.3f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.1f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,1.1f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.9f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.9f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.7f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.7f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.5f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.5f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.3f), shielding);
+            Shoot(direction * bulletSpeed, new Vector2(0f,0.3f), !shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed, shielding);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            shielding = !shielding;
+
+
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.1f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.9f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.1f), true);
+
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.1f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.9f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.1f), true);
+
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+            Shoot(direction * bulletSpeed,new Vector2(0f, 2.2f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.0f), false);
+            Shoot(direction * bulletSpeed,new Vector2(0f, -2.2f), false);
+
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(timeBetween));
+
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-1.1f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.9f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f,-0.1f), true);
+
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 1.1f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.9f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.7f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.5f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.3f), true);
+            Shoot(direction * bulletSpeed,new Vector2(0f, 0.1f), true);
+
+        }
+        BulletPatternShift(0);
+        yield return null;
+    }
 
     void OnDestroy()
     {
@@ -145,41 +462,7 @@ public class EnemyAIBoss5 : EnemyBehavior
         }
     }
 
-    public void BulletPatternShift(int patternNum) {
-        //Turn off the routines for the current pattern
-        switch(currentPattern) {
-        case 0:
-            StopCoroutine(trackingBulletRoutine);
-            StopCoroutine(coneShootingRoutine);
-            break;
-        case 1:
-            StopCoroutine(bulletColumnRotuine);
-            StopCoroutine(directAtPlayerRoutine);
-            break;
-        default:
-            break;
-
-        }
-        currentPattern = patternNum;
-        //Turn on the coroutines for the new pattern
-        switch(currentPattern) {
-        case 0:
-            trackingBulletRoutine = TrackingBulletRoutine();
-            coneShootingRoutine = ConeShootingRoutine();
-            StartCoroutine(trackingBulletRoutine);
-            StartCoroutine(coneShootingRoutine);
-            break;
-        case 1:
-            bulletColumnRotuine = BulletColumn();
-            directAtPlayerRoutine = DirectAtPlayer();
-            StartCoroutine(bulletColumnRotuine);
-            StartCoroutine(directAtPlayerRoutine);
-            break;
-        default:
-            break;
-
-        }
-    }
+    
 
     private void Pattern0Fanning(float deltaTime) {
         if(fanningUp) {

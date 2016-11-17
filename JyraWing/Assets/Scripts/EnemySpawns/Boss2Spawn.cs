@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossSpawn1 : EnemySpawner {
+public class Boss2Spawn : EnemySpawner {
 
 	public PointIconPool pointIconPool;
 	public LevelControllerBehavior levelControllerBehavior;
@@ -13,7 +13,7 @@ public class BossSpawn1 : EnemySpawner {
 
 		Vector3 spawnPos = gameObject.transform.position;
 
-		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss");
+		GameObject enemy1 = (GameObject) Resources.Load ("Enemies/BossEnemies/Enemy_Boss2");
 		enemy1.transform.position = new Vector3(spawnPos.x + 4f,
 			                                    spawnPos.y,
 			                                    spawnPos.z);
