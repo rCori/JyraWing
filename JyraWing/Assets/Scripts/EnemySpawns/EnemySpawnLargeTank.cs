@@ -19,6 +19,7 @@ public class EnemySpawnLargeTank : EnemySpawner {
 		enemyBehavior.bulletPool = bulletPool;
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.pointIconPool = pointIconPool;
+        enemyBehavior.LeftWallException = false;
 
 		EnemyAITank ai1 = enemy.GetComponent<EnemyAITank> ();
 		enemy = Instantiate (enemy);

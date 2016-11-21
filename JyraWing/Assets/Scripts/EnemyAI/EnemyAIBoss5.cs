@@ -223,7 +223,7 @@ public class EnemyAIBoss5 : EnemyBehavior
 
     IEnumerator MoveIntoPosition() {
         SetInvuln(true);
-        StartNewMovement(new Vector2(5.5f, 0f), 1.0f);
+        StartNewMovement(new Vector2(5.5f, -0.5f), 1.0f);
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(1.0f));
         SetInvuln(false);
         yield return null;
@@ -454,15 +454,6 @@ public class EnemyAIBoss5 : EnemyBehavior
         yield return null;
     }
 
-    void OnDestroy()
-    {
-        if (levelControllerBehavior != null)
-        {
-            levelControllerBehavior.HandleLevelFinished();
-        }
-    }
-
-    
 
     private void Pattern0Fanning(float deltaTime) {
         if(fanningUp) {
@@ -528,6 +519,14 @@ public class EnemyAIBoss5 : EnemyBehavior
                 rigidybody2D.velocity = storedVel;
                 animator.speed = 1f;
             }
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (levelControllerBehavior != null)
+        {
+            levelControllerBehavior.HandleLevelFinished();
         }
     }
 }

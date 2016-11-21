@@ -37,11 +37,11 @@ private int moveState;
 		fastVec = new Vector2(-1.5f, 0f);
 		slowVec = new Vector2( -1.0f, 0f);
 
-        upBul = new Vector2(-1.5f, 0.6f);
-        upMiddleBul = new Vector2(-1.7f, 0.2f);
+        upBul = new Vector2(-1.7f, 0.2f);
+        upMiddleBul = new Vector2(0f, 0.4f);
 		middleBul = new Vector2 (-1.85f, 0);
-        downMiddleBul = new Vector2(-1.7f, -0.2f);
-        downBul = new Vector2(-1.5f, -0.6f);
+        downMiddleBul = new Vector2(0f, -0.4f);
+        downBul = new Vector2(-1.7f, -0.2f);
         
         LeftWallException = false;
 			
@@ -87,11 +87,11 @@ private int moveState;
 	void directionalFire()
 	{
 		
-		Shoot (upBul);
-        Shoot (upMiddleBul);
-        Shoot (middleBul);
-        Shoot (downMiddleBul);
-		Shoot (downBul);
+		Shoot (upBul, false);
+        Shoot (middleBul, upMiddleBul, false);
+        Shoot (middleBul, false);
+        Shoot (middleBul, downMiddleBul, false);
+		Shoot (downBul,false);
 	}
 
 }

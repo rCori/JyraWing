@@ -17,7 +17,7 @@ public class StartGameMenu : Menu {
 
     private bool selectionSwitch = false;
 
-    private int SELECTABLE_LEVELS = 4;
+    private int SELECTABLE_LEVELS = 5;
 
     void Start() {
         InitMenu();
@@ -132,6 +132,10 @@ public class StartGameMenu : Menu {
         case 4:
             Debug.Log("Level_4");
             selectedLevel = "Level_4";
+            break;
+        case 5:
+            Debug.Log("Level_5");
+            selectedLevel = "Level_5";
             break;
         default:
             break;

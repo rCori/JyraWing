@@ -2367,7 +2367,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1027280363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.8, y: 0, z: 0}
+  m_LocalPosition: {x: 50.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2384,7 +2384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2966a29e9fa3e4443b7298a79dd55924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 0}
+  enemyPosition: {x: 9, y: 0}
   direction: 0
   shieldableBullets: 1
   bulletPool: {fileID: 1516269790}
@@ -2896,7 +2896,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194121759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 64, y: -1.5, z: 0}
+  m_LocalPosition: {x: 63, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2913,7 +2913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -1.5}
+  enemyPosition: {x: 9, y: -1.5}
   Direction: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -4025,7 +4025,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1557925985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.9, y: 1, z: 0}
+  m_LocalPosition: {x: 58.9, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4042,7 +4042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccae67185378ca4da2bb25d1bdb4d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 1}
+  enemyPosition: {x: 9, y: 1}
   Direction: 0
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -4838,7 +4838,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1786951988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106, y: 0, z: 0}
+  m_LocalPosition: {x: 105, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8715603184781b4a98c8c1b11ca5f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: {x: 8, y: 0}
+  location: {x: 9, y: 0}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
@@ -5713,7 +5713,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2133709207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106, y: 2, z: 0}
+  m_LocalPosition: {x: 105, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5730,7 +5730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b801faeaf985445a086d131bc08cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2}
+  enemyPosition: {x: 9, y: 2}
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
   pointIconPool: {fileID: 116119343}

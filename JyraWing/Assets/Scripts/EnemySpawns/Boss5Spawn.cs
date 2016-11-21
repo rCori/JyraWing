@@ -14,7 +14,7 @@ public class Boss5Spawn : EnemySpawner {
         Vector3 spawnPos = gameObject.transform.position;
 
         GameObject enemy = (GameObject)Resources.Load("Enemies/BossEnemies/Enemy_Boss5");
-        enemy.transform.position = new Vector3(12.0f, 0f, 0f);
+        enemy.transform.position = new Vector3(12.0f, -0.5f, 0f);
 
         enemy.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
         enemy.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;

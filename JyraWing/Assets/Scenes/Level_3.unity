@@ -1030,7 +1030,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 212095432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.2, y: 0, z: 0}
+  m_LocalPosition: {x: 63.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceb0cb33df9a3142850c416a37d2dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 0}
+  enemyPosition: {x: 9, y: 0}
   speed: 1.5
   angle: 180
   lifeTime: 7
@@ -2388,7 +2388,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 593875656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.2, y: 2, z: 0}
+  m_LocalPosition: {x: 63.2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2417,7 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceb0cb33df9a3142850c416a37d2dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: 2}
+  enemyPosition: {x: 9, y: 2}
   speed: 1.5
   angle: 180
   lifeTime: 7
@@ -3011,7 +3011,7 @@ MonoBehaviour:
   columns: 2
   rowSpacing: 2
   columnSpacing: 1.5
-  initLocation: {x: 0, y: 0}
+  initLocation: {x: 9, y: 0}
   shieldableBullets: 0
   bulletPool: {fileID: 47714748}
   shieldableBulletPool: {fileID: 1266542188}
@@ -3478,7 +3478,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 909683358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.2, y: -2, z: 0}
+  m_LocalPosition: {x: 63.2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3507,7 +3507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cceb0cb33df9a3142850c416a37d2dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPosition: {x: 8, y: -2}
+  enemyPosition: {x: 9, y: -2}
   speed: 1.5
   angle: 180
   lifeTime: 7
@@ -4067,7 +4067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af7260dbf5181e4fb5801f882df0c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initLocation: {x: 9, y: 0}
+  initLocation: {x: 9, y: 2}
   enemyDirection: {x: -4, y: 0}
   enemyTime: 5
   enemyRepeat: 0

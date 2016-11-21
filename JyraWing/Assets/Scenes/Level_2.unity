@@ -6257,7 +6257,7 @@ MonoBehaviour:
   columns: 3
   rowSpacing: 0.8
   columnSpacing: 0.8
-  initLocation: {x: 0, y: 0}
+  initLocation: {x: 9, y: 1.5}
   pointIconPool: {fileID: 116119343}
   pauseController: {fileID: 1898007527}
   moveInstructionList:
