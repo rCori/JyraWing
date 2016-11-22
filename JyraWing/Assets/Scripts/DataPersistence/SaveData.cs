@@ -36,9 +36,9 @@ public class SaveData  {
 	public void SaveGame() {
 		Debug.Log ("Saving game...");
 		string jsonString = JsonUtility.ToJson (this);
-        FileStream saveFile = File.OpenWrite (Application.dataPath + "/savegame.json");
-        byte[] jsonBytes = Encoding.ASCII.GetBytes(jsonString);
-		saveFile.Write (jsonBytes,0,jsonString.Length);
-        saveFile.Close();
+        using (StreamWriter outputFile = new StreamWriter(Application.dataPath + "/savegame.json")) {
+            outputFile.Flush();
+            outputFile.Write(jsonString);
+        }
 	}
 }
