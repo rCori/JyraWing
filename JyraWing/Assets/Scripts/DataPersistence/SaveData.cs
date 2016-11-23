@@ -23,6 +23,15 @@ public class SaveData  {
     public int BGMLevel = 10;
     public int SFXLevel = 10;
 
+    public KeyCode AutoFireButtonKeyCode = KeyCode.X;
+    public KeyCode ShieldButtonKeyCode = KeyCode.Z;
+    public KeyCode StartButtonKeyCode = KeyCode.Return;
+    public KeyCode UpButtonKeyCode = KeyCode.UpArrow;
+    public KeyCode DownButtonKeyCode = KeyCode.DownArrow;
+    public KeyCode LeftButtonKeyCode = KeyCode.LeftArrow;
+    public KeyCode RightButtonKeyCode = KeyCode.RightArrow;
+
+
 	public void LoadGame() {
 		if (!File.Exists (Application.dataPath + "/savegame.json")) {
 			SaveGame ();

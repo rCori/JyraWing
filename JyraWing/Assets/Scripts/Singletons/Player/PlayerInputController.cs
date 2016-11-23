@@ -14,7 +14,7 @@ public class PlayerInputController : MonoBehaviour {
 
 	private float prevLeftRight, prevUpDown;
 
-    private KeyCode AutoFireButtonKeyCode, ShieldButtonKeyCode, StartButtonKeyCode;
+    public static KeyCode AutoFireButtonKeyCode, ShieldButtonKeyCode, StartButtonKeyCode, UpButtonKeyCode, DownButtonKeyCode, LeftButtonKeyCode, RightButtonKeyCode;
 
 	// Use this for initialization
 	void Start () {
@@ -25,15 +25,19 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	void Update() {
-		//ButtonUpdate(fireButtonString, FireButton);
-		//ButtonUpdate(autoFireButtonString, AutoFireButton);
-		//ButtonUpdate (shieldButtonString, ShieldButton);
-		//ButtonUpdate(backButtonString, BackButton);
-		ButtonUpdate(upButtonString, UpButton);
-		ButtonUpdate(downButtonString, DownButton);
-		ButtonUpdate(leftButtonString, LeftButton);
-		ButtonUpdate(rightButtonString, RightButton);
-		ButtonUpdate (startButtonString, StartButton);
+        //ButtonUpdate(fireButtonString, FireButton);
+        ButtonUpdate(autoFireButtonString, AutoFireButton);
+        ButtonUpdate (shieldButtonString, ShieldButton);
+        //ButtonUpdate(backButtonString, BackButton);
+        //ButtonUpdate(upButtonString, UpButton);
+        //ButtonUpdate(downButtonString, DownButton);
+        //ButtonUpdate(leftButtonString, LeftButton);
+        //ButtonUpdate(rightButtonString, RightButton);
+        ButtonUpdate (startButtonString, StartButton);
+
+        //KeycodeButtonUpdate(UpButtonKeyCode, UpButton);
+        //KeycodeButtonUpdate(DownButtonKeyCode, DownButton);
+
 
         KeycodeButtonUpdate(AutoFireButtonKeyCode, AutoFireButton);
         KeycodeButtonUpdate(ShieldButtonKeyCode, ShieldButton);
@@ -58,6 +62,8 @@ public class PlayerInputController : MonoBehaviour {
         AutoFireButtonKeyCode = KeyCode.X;
         ShieldButtonKeyCode = KeyCode.Z;
         StartButtonKeyCode = KeyCode.Return;
+        UpButtonKeyCode = KeyCode.UpArrow;
+        DownButtonKeyCode = KeyCode.DownArrow;
 	}
 
 	private void ButtonUpdate(string butttonString, ButtonEvent buttonEvent) {
