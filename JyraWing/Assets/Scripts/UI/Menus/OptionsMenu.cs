@@ -15,6 +15,8 @@ public class OptionsMenu : Menu {
     private GameObject sfxLevel;
     private Text sfxLevelText;
 
+    private GameObject controlsMenu;
+
     private bool lockScreen;
     private bool selectionSwitch;
 
@@ -23,13 +25,17 @@ public class OptionsMenu : Menu {
     void Start() {
         //ForceWindowed ();
         InitMenu();
-        numberOfItems = 4;
+        numberOfItems = 5;
         isVertical = true;
         lockScreen = false;
         selectionSwitch = false;
 
         //create the menu text stuff
         uiCanvas = GameObject.Find("Canvas");
+
+        controlsMenu = Resources.Load("UIObjects/OptionsMenu/ControlsText") as GameObject;
+        controlsMenu = Instantiate(controlsMenu);
+        controlsMenu.transform.SetParent(uiCanvas.transform, false);
 
         lifeCount = Resources.Load("UIObjects/OptionsMenu/LivesText") as GameObject;
         lifeCount = Instantiate(lifeCount);
@@ -62,6 +68,7 @@ public class OptionsMenu : Menu {
         //Amount to move selector over from a selection when that item is selected.
         float adjustPt = Screen.width / 10.0f;
 
+        menuLocations.Add(new Vector2(controlsMenu.transform.position.x, controlsMenu.transform.position.y));
         menuLocations.Add(new Vector2(lifeCount.transform.position.x, lifeCount.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
@@ -76,27 +83,28 @@ public class OptionsMenu : Menu {
         if (!lockScreen) {
             MenuScroll();
             //Select start the game
-            if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
+            if (Input.GetKeyDown(SaveData.Instance.AutoFireButtonKeyCode) || Input.GetKeyDown(SaveData.Instance.PauseButtonKeyCode)) {
                 if (curSelect == 0) {
+                    StartCoroutine(LoadControlsMenu());
                 }
-                else if (curSelect == 3) {
+                else if (curSelect == 4) {
                     //Back
                     SaveData.Instance.SaveGame();
                     StartCoroutine(LoadTitleScreenMenu());
                 }
             }
             if (Input.GetAxisRaw("Horizontal") == 1.0f) {
-                if(curSelect == 0 && !selectionSwitch) {
+                if(curSelect == 1 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit < 6) {
                         SaveData.Instance.livesPerCredit++;
                         lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
                     }
-                } else if (curSelect == 1 && !selectionSwitch){
+                } else if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -132,6 +140,7 @@ public class OptionsMenu : Menu {
 
     IEnumerator LoadTitleScreenMenu(){
         PlayConfirm();
+        Destroy(controlsMenu);
         Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);
@@ -140,6 +149,21 @@ public class OptionsMenu : Menu {
         GameObject titleScreenMenu = Resources.Load("UIObjects/TitleScreenMenu/TitleSelector") as GameObject;
         titleScreenMenu = Instantiate(titleScreenMenu);
         titleScreenMenu.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+        yield return null;
+    }
+
+    IEnumerator LoadControlsMenu() {
+        PlayConfirm();
+        Destroy(controlsMenu);
+        Destroy(lifeCount);
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(back);
+        yield return new WaitForSeconds(0.05f);
+        GameObject controlsSelector = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
+        controlsSelector = Instantiate(controlsSelector);
+        controlsSelector.transform.SetParent(uiCanvas.transform, false);
         Destroy(gameObject);
         yield return null;
     }

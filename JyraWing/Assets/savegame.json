@@ -1,1 +1,1 @@
-{"livesPerCredit":3,"highScore":1000,"BGMLevel":8,"SFXLevel":5,"AutoFireButtonKeyCode":120,"ShieldButtonKeyCode":122,"StartButtonKeyCode":13,"UpButtonKeyCode":273,"DownButtonKeyCode":274}
+{"livesPerCredit":4,"highScore":1000,"BGMLevel":4,"SFXLevel":6,"AutoFireButtonKeyCode":120,"ShieldButtonKeyCode":122,"PauseButtonKeyCode":13,"StartButtonKeyCode":13,"UpButtonKeyCode":273,"DownButtonKeyCode":274,"LeftButtonKeyCode":276,"RightButtonKeyCode":275,"resolutionX":1920,"resolutionY":1280,"isWindowed":false}

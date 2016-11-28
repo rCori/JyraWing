@@ -23,17 +23,21 @@ public class SaveData  {
     public int BGMLevel = 10;
     public int SFXLevel = 10;
 
-    public KeyCode AutoFireButtonKeyCode = KeyCode.X;
-    public KeyCode ShieldButtonKeyCode = KeyCode.Z;
-    public KeyCode StartButtonKeyCode = KeyCode.Return;
-    public KeyCode UpButtonKeyCode = KeyCode.UpArrow;
-    public KeyCode DownButtonKeyCode = KeyCode.DownArrow;
-    public KeyCode LeftButtonKeyCode = KeyCode.LeftArrow;
-    public KeyCode RightButtonKeyCode = KeyCode.RightArrow;
+    public KeyCode AutoFireButtonKeyCode;
+    public KeyCode ShieldButtonKeyCode;
+    public KeyCode PauseButtonKeyCode;
+    public KeyCode StartButtonKeyCode;
+    public KeyCode UpButtonKeyCode;
+    public KeyCode DownButtonKeyCode;
+    public KeyCode LeftButtonKeyCode;
+    public KeyCode RightButtonKeyCode;
 
+    public int resolutionX, resolutionY;
+    public bool isWindowed;
 
 	public void LoadGame() {
 		if (!File.Exists (Application.dataPath + "/savegame.json")) {
+            InitDefaults();
 			SaveGame ();
 		}
 		FileStream saveFile = File.Open (Application.dataPath + "/savegame.json", System.IO.FileMode.Open);
@@ -50,4 +54,18 @@ public class SaveData  {
             outputFile.Write(jsonString);
         }
 	}
+
+    public void InitDefaults() {
+        AutoFireButtonKeyCode = KeyCode.X;
+        ShieldButtonKeyCode = KeyCode.Z;
+        StartButtonKeyCode = KeyCode.Return;
+        UpButtonKeyCode = KeyCode.UpArrow;
+        DownButtonKeyCode = KeyCode.DownArrow;
+        LeftButtonKeyCode = KeyCode.LeftArrow;
+        RightButtonKeyCode = KeyCode.RightArrow;
+
+        resolutionX = 1920;
+        resolutionY = 1080;
+        isWindowed = false;
+    }
 }

@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -103,11 +101,10 @@
     <Compile Include="Assets\Scripts\EnemyBulletPool.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss1Spawn.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\UnusedBossSpawn1.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\Boss3Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss4Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\Boss5Spawn.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\Boss3Spawn.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawns\Boss2Spawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2DiamondsSwipe.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn2Ships2BFightersArcAway.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawn3Turrets2Ships.cs" />
@@ -155,6 +152,7 @@
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTurretWall.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnTwoWaterTurrets.cs" />
     <Compile Include="Assets\Scripts\EnemySpawns\EnemySpawnWaterTurret.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawns\UnusedBossSpawn1.cs" />
     <Compile Include="Assets\Scripts\ExplosionPool.cs" />
     <Compile Include="Assets\Scripts\FramerateLimiter.cs" />
     <Compile Include="Assets\Scripts\GameController\GameController.cs" />
@@ -206,6 +204,7 @@
     <Compile Include="Assets\Scripts\UI\Menus\IngameQuitMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\OptionsMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\StartGameMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\TitleScreenMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OnScreenDialog.cs" />

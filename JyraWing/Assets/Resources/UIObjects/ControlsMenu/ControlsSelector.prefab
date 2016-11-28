@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011242469042}
+  m_RootGameObject: {fileID: 1000012622555890}
   m_IsPrefabParent: 1
---- !u!1 &1000011242469042
+--- !u!1 &1000012622555890
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 224000010862467436}
-  - 222: {fileID: 222000011427236556}
-  - 114: {fileID: 114000012286637718}
-  - 82: {fileID: 82000011554319354}
-  - 114: {fileID: 114000010354393098}
+  - 224: {fileID: 224000010344338610}
+  - 222: {fileID: 222000010339606208}
+  - 114: {fileID: 114000010294976116}
+  - 82: {fileID: 82000011086618170}
+  - 114: {fileID: 114000013773540548}
   m_Layer: 5
-  m_Name: OptionsMenu
+  m_Name: ControlsSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &82000011554319354
+--- !u!82 &82000011086618170
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011242469042}
+  m_GameObject: {fileID: 1000012622555890}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -104,26 +104,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000010354393098
+--- !u!114 &114000010294976116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011242469042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f793b46aa62b5604fa2de02c4218be9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfItems: 0
-  menuLocations: []
-  isVertical: 0
---- !u!114 &114000012286637718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011242469042}
+  m_GameObject: {fileID: 1000012622555890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -145,27 +131,42 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!222 &222000011427236556
+--- !u!114 &114000013773540548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012622555890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d500a36e4b3ab44bf12fdd10bb8727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfItems: 0
+  menuLocations: []
+  isVertical: 0
+  key: 0
+--- !u!222 &222000010339606208
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011242469042}
---- !u!224 &224000010862467436
+  m_GameObject: {fileID: 1000012622555890}
+--- !u!224 &224000010344338610
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011242469042}
+  m_GameObject: {fileID: 1000012622555890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 2.25, y: 0.99999994, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 67.56}
+  m_AnchoredPosition: {x: 0.000061035156, y: -54.139954}
   m_SizeDelta: {x: 140, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
