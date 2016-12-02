@@ -12,10 +12,12 @@ public class SettingsMenu : Menu {
     private GameObject shootButton;
     private GameObject shieldButton;
     private GameObject startButton;
+    /*
     private GameObject upButton;
     private GameObject downButton;
     private GameObject leftButton;
     private GameObject rightButton;
+    */
 
     //Text for controls
     private Text shootButtonText;
@@ -31,11 +33,13 @@ public class SettingsMenu : Menu {
     private KeyCode shootKeyCode;
     private KeyCode shieldKeyCode;
     private KeyCode startKeyCode;
+    /*
     private KeyCode upKeyCode;
     private KeyCode downKeyCode;
     private KeyCode leftKeyCode;
     private KeyCode rightKeyCode;
-    
+    */
+
 
     /* The available resolutions
      * 1980 x 1280
@@ -72,7 +76,7 @@ public class SettingsMenu : Menu {
         down,
         shoot,
         shield,
-        pause
+        start
     };
 
     public KEYS key;
@@ -102,10 +106,12 @@ public class SettingsMenu : Menu {
         menuLocations.Add(new Vector2(shootButton.transform.position.x, shootButton.transform.position.y));
         menuLocations.Add(new Vector2(shieldButton.transform.position.x, shieldButton.transform.position.y));
         menuLocations.Add(new Vector2(startButton.transform.position.x, startButton.transform.position.y));
+        /*
         menuLocations.Add(new Vector2(upButton.transform.position.x, upButton.transform.position.y));
         menuLocations.Add(new Vector2(downButton.transform.position.x, downButton.transform.position.y));
         menuLocations.Add(new Vector2(leftButton.transform.position.x, leftButton.transform.position.y));
         menuLocations.Add(new Vector2(rightButton.transform.position.x, rightButton.transform.position.y));
+        */
 
         menuLocations.Add(new Vector2(resolutionTextObject.transform.position.x, resolutionTextObject.transform.position.y));
         menuLocations.Add(new Vector2(windowedTextObject.transform.position.x, windowedTextObject.transform.position.y));
@@ -120,12 +126,14 @@ public class SettingsMenu : Menu {
 
 	// Update is called once per frame
 	void Update () {
-	    MenuScroll();
+        if(!gettingNextKey) {
+	        MenuScroll();
+        }
 
         if(gettingNextKey) {
             KeyCode currentKey = fetchKey();
             if(currentKey != KeyCode.None) {
-
+                Debug.Log("currentKey is: " + currentKey.ToString());
                 switch(key) {
                 case KEYS.shoot:
                     shootKeyCode = currentKey;
@@ -135,10 +143,11 @@ public class SettingsMenu : Menu {
                     shieldKeyCode = currentKey;
                     shieldButtonText.text = "Shield: " + shieldKeyCode.ToString();
                     break;
-                case KEYS.pause:
+                case KEYS.start:
                     startKeyCode = currentKey;
                     startButtonText.text = "Pause: " + startKeyCode.ToString();
                     break;
+                /*
                 case KEYS.up:
                     upKeyCode = currentKey;
                     upButtonText.text = "Up: " + upKeyCode.ToString();
@@ -153,9 +162,9 @@ public class SettingsMenu : Menu {
                     break;
                 case KEYS.right:
                     rightKeyCode = currentKey;
-                    rightButtonText.text = "Right: " + rightKeyCode
-                        .ToString();
+                    rightButtonText.text = "Right: " + rightKeyCode.ToString();
                     break;
+                */
                 }
                 gettingNextKey = false;
             }
@@ -174,7 +183,7 @@ public class SettingsMenu : Menu {
                 break;
             case 2:
                 gettingNextKey = true;
-                key = KEYS.pause;
+                key = KEYS.start;
                 break;
             case 3:
                 gettingNextKey = true;
@@ -247,7 +256,49 @@ public class SettingsMenu : Menu {
             if(Input.GetKeyDown((KeyCode)i)){
                 return (KeyCode)i;
             }
-        } 
+        }
+        //Unfortunatly for joystick this must all be done in a big if else, there is no better way.
+        if(Input.GetKeyDown("joystick 1 button 0")) {
+            return KeyCode.Joystick1Button0;
+        } else if(Input.GetKeyDown("joystick 1 button 1")) {
+            return KeyCode.Joystick1Button1;
+        }  else if(Input.GetKeyDown("joystick 1 button 2")) {
+            return KeyCode.Joystick1Button2;
+        }  else if(Input.GetKeyDown("joystick 1 button 3")) {
+            return KeyCode.Joystick1Button3;
+        }  else if(Input.GetKeyDown("joystick 1 button 4")) {
+            return KeyCode.Joystick1Button4;
+        }  else if(Input.GetKeyDown("joystick 1 button 5")) {
+            return KeyCode.Joystick1Button5;
+        }  else if(Input.GetKeyDown("joystick 1 button 6")) {
+            return KeyCode.Joystick1Button6;
+        }  else if(Input.GetKeyDown("joystick 1 button 7")) {
+            return KeyCode.Joystick1Button7;
+        }  else if(Input.GetKeyDown("joystick 1 button 8")) {
+            return KeyCode.Joystick1Button8;
+        }  else if(Input.GetKeyDown("joystick 1 button 9")) {
+            return KeyCode.Joystick1Button9;
+        }  else if(Input.GetKeyDown("joystick 1 button 10")) {
+            return KeyCode.Joystick1Button10;
+        }  else if(Input.GetKeyDown("joystick 1 button 11")) {
+            return KeyCode.Joystick1Button11;
+        }  else if(Input.GetKeyDown("joystick 1 button 12")) {
+            return KeyCode.Joystick1Button12;
+        }  else if(Input.GetKeyDown("joystick 1 button 13")) {
+            return KeyCode.Joystick1Button13;
+        }  else if(Input.GetKeyDown("joystick 1 button 14")) {
+            return KeyCode.Joystick1Button14;
+        }  else if(Input.GetKeyDown("joystick 1 button 15")) {
+            return KeyCode.Joystick1Button15;
+        }  else if(Input.GetKeyDown("joystick 1 button 16")) {
+            return KeyCode.Joystick1Button16;
+        }  else if(Input.GetKeyDown("joystick 1 button 17")) {
+            return KeyCode.Joystick1Button17;
+        }  else if(Input.GetKeyDown("joystick 1 button 18")) {
+            return KeyCode.Joystick1Button18;
+        }  else if(Input.GetKeyDown("joystick 1 button 19")) {
+            return KeyCode.Joystick1Button19;
+        }
         return KeyCode.None;
     }
 
@@ -255,10 +306,12 @@ public class SettingsMenu : Menu {
         shootKeyCode = SaveData.Instance.AutoFireButtonKeyCode;
         shieldKeyCode = SaveData.Instance.ShieldButtonKeyCode;
         startKeyCode = SaveData.Instance.PauseButtonKeyCode;
+        /*
         upKeyCode = SaveData.Instance.UpButtonKeyCode;
         downKeyCode = SaveData.Instance.DownButtonKeyCode;
         leftKeyCode = SaveData.Instance.LeftButtonKeyCode;
         rightKeyCode = SaveData.Instance.RightButtonKeyCode;
+        */
 
         resolutionX = SaveData.Instance.resolutionX;
         resolutionY = SaveData.Instance.resolutionY;
@@ -269,10 +322,14 @@ public class SettingsMenu : Menu {
         SaveData.Instance.AutoFireButtonKeyCode = shootKeyCode;
         SaveData.Instance.ShieldButtonKeyCode = shieldKeyCode;
         SaveData.Instance.PauseButtonKeyCode = startKeyCode;
+
+        /*
         SaveData.Instance.UpButtonKeyCode = upKeyCode;
         SaveData.Instance.DownButtonKeyCode = downKeyCode;
         SaveData.Instance.LeftButtonKeyCode = leftKeyCode;
         SaveData.Instance.RightButtonKeyCode = rightKeyCode;
+        */
+
 
         SaveData.Instance.resolutionX = resolutionX;
         SaveData.Instance.resolutionY = resolutionY;
@@ -286,10 +343,12 @@ public class SettingsMenu : Menu {
 
         startButtonText = startButton.GetComponent<Text>();
 
+        /*
         upButtonText = upButton.GetComponent<Text>();
         downButtonText = downButton.GetComponent<Text>();
         leftButtonText = leftButton.GetComponent<Text>();
         rightButtonText = rightButton.GetComponent<Text>();
+        */
 
         resolutionText = resolutionTextObject.GetComponent<Text>();
         windowedText = windowedTextObject.GetComponent<Text>();
@@ -304,10 +363,13 @@ public class SettingsMenu : Menu {
 
         startButtonText.text = "Pause: " + startKeyCode.ToString();
 
+        /*
         upButtonText.text = "Up: " + upKeyCode.ToString();
         downButtonText.text = "Down: " + downKeyCode.ToString();
         leftButtonText.text = "Left: " + leftKeyCode.ToString();
         rightButtonText.text = "Right: " + rightKeyCode.ToString();
+        */
+
 
         resolutionText.text = resolutionX + "x" + resolutionY;
         if(isWindowed) {
@@ -330,6 +392,8 @@ public class SettingsMenu : Menu {
         startButton = Instantiate(startButton);
         startButton.transform.SetParent(uiCanvas.transform, false);
 
+
+        /*
         upButton = Resources.Load("UIObjects/ControlsMenu/UpButtonText") as GameObject;
         upButton = Instantiate(upButton);
         upButton.transform.SetParent(uiCanvas.transform, false);
@@ -345,6 +409,8 @@ public class SettingsMenu : Menu {
         rightButton = Resources.Load("UIObjects/ControlsMenu/RightButtonText") as GameObject;
         rightButton = Instantiate(rightButton);
         rightButton.transform.SetParent(uiCanvas.transform, false);
+        */
+
 
         resolutionTextObject = Resources.Load("UIObjects/ControlsMenu/ResolutionPickerText") as GameObject;
         resolutionTextObject = Instantiate(resolutionTextObject);
@@ -374,10 +440,12 @@ public class SettingsMenu : Menu {
         Destroy(shootButton);
         Destroy(shieldButton);
         Destroy(startButton);
+        /*
         Destroy(upButton);
         Destroy(downButton);
         Destroy(leftButton);
         Destroy(rightButton);
+        */
         Destroy(resolutionTextObject);
         Destroy(windowedTextObject);
         Destroy(saveText);
@@ -442,10 +510,12 @@ public class SettingsMenu : Menu {
         menuLocations.Add(new Vector2(shootButton.transform.position.x, shootButton.transform.position.y));
         menuLocations.Add(new Vector2(shieldButton.transform.position.x, shieldButton.transform.position.y));
         menuLocations.Add(new Vector2(startButton.transform.position.x, startButton.transform.position.y));
+        /*
         menuLocations.Add(new Vector2(upButton.transform.position.x, upButton.transform.position.y));
         menuLocations.Add(new Vector2(downButton.transform.position.x, downButton.transform.position.y));
         menuLocations.Add(new Vector2(leftButton.transform.position.x, leftButton.transform.position.y));
         menuLocations.Add(new Vector2(rightButton.transform.position.x, rightButton.transform.position.y));
+        */
 
         menuLocations.Add(new Vector2(resolutionTextObject.transform.position.x, resolutionTextObject.transform.position.y));
         menuLocations.Add(new Vector2(windowedTextObject.transform.position.x, windowedTextObject.transform.position.y));

@@ -68,4 +68,5 @@ public class SaveData  {
         resolutionY = 1080;
         isWindowed = false;
     }
+
 }
