@@ -8,5 +8,6 @@ public class LoadDataOnStart : MonoBehaviour {
 	void Start () {
 		SaveData.Instance.LoadGame ();
 		ScoreController.ResetScore ();
+        Cursor.visible = false;
 	}
 }

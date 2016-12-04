@@ -53,7 +53,7 @@ public class StartGameMenu : Menu {
     void Update() {
         MenuScroll();
         //Select start the game
-        if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
+        if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
             switch(curSelect) {
             case 0:
                 selectedLevel = "Level_1";
@@ -72,7 +72,7 @@ public class StartGameMenu : Menu {
                 break;
             }
         }
-        if (Input.GetAxisRaw("Horizontal") == 1.0f) {
+        if (AxisInput.Instance().GetHorizontal() == 1.0f) {
             if (curSelect == 1 && !selectionSwitch) {
                 if (currentLevelSelect < SELECTABLE_LEVELS) {
                     currentLevelSelect++;
@@ -80,7 +80,7 @@ public class StartGameMenu : Menu {
                 }
                 selectionSwitch = true;
             }
-        } else if (Input.GetAxisRaw("Horizontal") == -1.0f) {
+        } else if (AxisInput.Instance().GetHorizontal() == -1.0f) {
             if (curSelect == 1 && !selectionSwitch) {
                 if (currentLevelSelect > 1) {
                     currentLevelSelect--;
@@ -88,7 +88,7 @@ public class StartGameMenu : Menu {
                 }
                 selectionSwitch = true;
             }
-        } else if (Input.GetAxisRaw("Horizontal") == 0.0f) {
+        } else if (AxisInput.Instance().GetHorizontal() == 0.0f) {
             if (selectionSwitch) {
                 selectionSwitch = false;
             }

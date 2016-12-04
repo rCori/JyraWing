@@ -23,14 +23,13 @@ public class SaveData  {
     public int BGMLevel = 10;
     public int SFXLevel = 10;
 
+    //Keycodes for the keyboard input.
     public KeyCode AutoFireButtonKeyCode;
     public KeyCode ShieldButtonKeyCode;
-    public KeyCode PauseButtonKeyCode;
-    public KeyCode StartButtonKeyCode;
-    public KeyCode UpButtonKeyCode;
-    public KeyCode DownButtonKeyCode;
-    public KeyCode LeftButtonKeyCode;
-    public KeyCode RightButtonKeyCode;
+
+    //Keycodes for the controller input
+    public KeyCode AutoFireGamepadButtonKeyCode;
+    public KeyCode ShieldGamepadButtonKeyCode;
 
     public int resolutionX, resolutionY;
     public bool isWindowed;
@@ -58,11 +57,9 @@ public class SaveData  {
     public void InitDefaults() {
         AutoFireButtonKeyCode = KeyCode.X;
         ShieldButtonKeyCode = KeyCode.Z;
-        StartButtonKeyCode = KeyCode.Return;
-        UpButtonKeyCode = KeyCode.UpArrow;
-        DownButtonKeyCode = KeyCode.DownArrow;
-        LeftButtonKeyCode = KeyCode.LeftArrow;
-        RightButtonKeyCode = KeyCode.RightArrow;
+
+        AutoFireGamepadButtonKeyCode = KeyCode.Joystick1Button0;
+        ShieldGamepadButtonKeyCode = KeyCode.Joystick1Button4;
 
         resolutionX = 1920;
         resolutionY = 1080;

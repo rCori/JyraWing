@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013507873438}
+  m_RootGameObject: {fileID: 1000013889745134}
   m_IsPrefabParent: 1
---- !u!1 &1000013507873438
+--- !u!1 &1000013889745134
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 224000011008221426}
-  - 222: {fileID: 222000012193152410}
-  - 114: {fileID: 114000012573257440}
+  - 224: {fileID: 224000010932098972}
+  - 222: {fileID: 222000013350114738}
+  - 114: {fileID: 114000012757934538}
   m_Layer: 5
-  m_Name: ShieldButtonText
+  m_Name: KeyboardShieldButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114000012573257440
+--- !u!114 &114000012757934538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013507873438}
+  m_GameObject: {fileID: 1000013889745134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -61,18 +61,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Shield
---- !u!222 &222000012193152410
+--- !u!222 &222000013350114738
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013507873438}
---- !u!224 &224000011008221426
+  m_GameObject: {fileID: 1000013889745134}
+--- !u!224 &224000010932098972
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013507873438}
+  m_GameObject: {fileID: 1000013889745134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
@@ -82,6 +82,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000027418137, y: 165.80003}
+  m_AnchoredPosition: {x: 140.90002, y: 138.7}
   m_SizeDelta: {x: 500, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}

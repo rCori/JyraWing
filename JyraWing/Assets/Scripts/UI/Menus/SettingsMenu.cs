@@ -8,38 +8,33 @@ public class SettingsMenu : Menu {
 
     private GameObject darkPanel;
 
-    //All of the controls
-    private GameObject shootButton;
-    private GameObject shieldButton;
-    private GameObject startButton;
-    /*
-    private GameObject upButton;
-    private GameObject downButton;
-    private GameObject leftButton;
-    private GameObject rightButton;
-    */
+    //Keyboard controls
+    private GameObject keyboardShootButton;
+    private GameObject keyboardShieldButton;
 
-    //Text for controls
-    private Text shootButtonText;
-    private Text shieldButtonText;
-    private Text startButtonText;
-    private Text upButtonText;
-    private Text downButtonText;
-    private Text leftButtonText;
-    private Text rightButtonText;
+    //Gamepad controls
+    private GameObject gamepadShootButton;
+    private GameObject gamepadShieldButton;
 
+    //Header text for controls
+    private GameObject keyboardControlsText;
+    private GameObject gamepadControlsText;
 
-    //Initial candidate controls
-    private KeyCode shootKeyCode;
-    private KeyCode shieldKeyCode;
-    private KeyCode startKeyCode;
-    /*
-    private KeyCode upKeyCode;
-    private KeyCode downKeyCode;
-    private KeyCode leftKeyCode;
-    private KeyCode rightKeyCode;
-    */
+    //Text for keyboard controls
+    private Text keyboardShootButtonText;
+    private Text keyboardShieldButtonText;
 
+    //Text for gamepad controls
+    private Text gamepadShootButtonText;
+    private Text gamepadShieldButtonText;
+
+    //Initial candidate keyboard controls
+    private KeyCode keyboardShootKeyCode;
+    private KeyCode keyboardShieldKeyCode;
+
+    //Initial candidate keyboard controls
+    private KeyCode gamepadShootKeyCode;
+    private KeyCode gamepadShieldKeyCode;
 
     /* The available resolutions
      * 1980 x 1280
@@ -70,26 +65,25 @@ public class SettingsMenu : Menu {
 
 
     public enum KEYS {
-        up,
-        left,
-        right,
-        down,
-        shoot,
-        shield,
-        start
+        keyboardShoot,
+        keyboardShield,
+        gamePadShoot,
+        gamePadShield
     };
 
     public KEYS key;
-    private bool gettingNextKey;
-
+    private bool gettingNextKeyboardKey, gettingNextGamepadButton;
+    private bool selectionSwitch;
 
 	// Use this for initialization
 	void Start () {
 	    InitMenu();
-        numberOfItems = 12;
+        numberOfItems = 9;
         isVertical = true;
         uiCanvas = GameObject.Find("Canvas");
-        gettingNextKey = false;
+        gettingNextKeyboardKey = false;
+        gettingNextGamepadButton = false;
+        selectionSwitch = false;
 
         darkPanel = Resources.Load ("UIObjects/ControlsMenu/IngamePanel") as GameObject;
 		darkPanel = Instantiate (darkPanel);
@@ -103,15 +97,11 @@ public class SettingsMenu : Menu {
         int currentXResolution = GetCurrentResolutionChoice(SaveData.Instance.resolutionX);
         ChangeResolution(currentXResolution);
 
-        menuLocations.Add(new Vector2(shootButton.transform.position.x, shootButton.transform.position.y));
-        menuLocations.Add(new Vector2(shieldButton.transform.position.x, shieldButton.transform.position.y));
-        menuLocations.Add(new Vector2(startButton.transform.position.x, startButton.transform.position.y));
-        /*
-        menuLocations.Add(new Vector2(upButton.transform.position.x, upButton.transform.position.y));
-        menuLocations.Add(new Vector2(downButton.transform.position.x, downButton.transform.position.y));
-        menuLocations.Add(new Vector2(leftButton.transform.position.x, leftButton.transform.position.y));
-        menuLocations.Add(new Vector2(rightButton.transform.position.x, rightButton.transform.position.y));
-        */
+        menuLocations.Add(new Vector2(keyboardShootButton.transform.position.x, keyboardShootButton.transform.position.y));
+        menuLocations.Add(new Vector2(keyboardShieldButton.transform.position.x, keyboardShieldButton.transform.position.y));
+
+        menuLocations.Add(new Vector2(gamepadShootButton.transform.position.x, gamepadShootButton.transform.position.y));
+        menuLocations.Add(new Vector2(gamepadShieldButton.transform.position.x, gamepadShieldButton.transform.position.y));
 
         menuLocations.Add(new Vector2(resolutionTextObject.transform.position.x, resolutionTextObject.transform.position.y));
         menuLocations.Add(new Vector2(windowedTextObject.transform.position.x, windowedTextObject.transform.position.y));
@@ -126,84 +116,67 @@ public class SettingsMenu : Menu {
 
 	// Update is called once per frame
 	void Update () {
-        if(!gettingNextKey) {
+        if(!gettingNextKeyboardKey) {
 	        MenuScroll();
         }
 
-        if(gettingNextKey) {
-            KeyCode currentKey = fetchKey();
+        if(gettingNextKeyboardKey) {
+            KeyCode currentKey = fetchKeyboardKey();
             if(currentKey != KeyCode.None) {
                 Debug.Log("currentKey is: " + currentKey.ToString());
                 switch(key) {
-                case KEYS.shoot:
-                    shootKeyCode = currentKey;
-                    shootButtonText.text = "Shoot: " + shootKeyCode.ToString();
+                case KEYS.keyboardShoot:
+                    keyboardShootKeyCode = currentKey;
+                    keyboardShootButtonText.text = "Shoot: " + keyboardShootKeyCode.ToString();
                     break;
-                case KEYS.shield:
-                    shieldKeyCode = currentKey;
-                    shieldButtonText.text = "Shield: " + shieldKeyCode.ToString();
+                case KEYS.keyboardShield:
+                    keyboardShieldKeyCode = currentKey;
+                    keyboardShieldButtonText.text = "Shield: " + keyboardShieldKeyCode.ToString();
                     break;
-                case KEYS.start:
-                    startKeyCode = currentKey;
-                    startButtonText.text = "Pause: " + startKeyCode.ToString();
-                    break;
-                /*
-                case KEYS.up:
-                    upKeyCode = currentKey;
-                    upButtonText.text = "Up: " + upKeyCode.ToString();
-                    break;
-                case KEYS.down:
-                    downKeyCode = currentKey;
-                    downButtonText.text = "Down: " + downKeyCode.ToString();
-                    break;
-                case KEYS.left:
-                    leftKeyCode = currentKey;
-                    leftButtonText.text = "Left: " + leftKeyCode.ToString();
-                    break;
-                case KEYS.right:
-                    rightKeyCode = currentKey;
-                    rightButtonText.text = "Right: " + rightKeyCode.ToString();
-                    break;
-                */
                 }
-                gettingNextKey = false;
+                gettingNextKeyboardKey = false;
             }
         }
 
-        //Select start the game
-        if (Input.GetKeyDown(SaveData.Instance.AutoFireButtonKeyCode) || Input.GetKeyDown(SaveData.Instance.AutoFireButtonKeyCode)) {
+        if(gettingNextGamepadButton) {
+            KeyCode currentButton = fetchJoystickKey();
+            if(currentButton != KeyCode.None) {
+                Debug.Log("currentButton is: " + (KeyCode) currentButton);
+                switch(key) {
+                case KEYS.gamePadShoot:
+                    gamepadShootKeyCode = currentButton;
+                    gamepadShootButtonText.text = "Shoot: " + gamepadShootKeyCode.ToString();
+                    break;
+                case KEYS.gamePadShield:
+                    gamepadShieldKeyCode = currentButton;
+                    gamepadShieldButtonText.text = "Shield: " + gamepadShieldKeyCode.ToString();
+                    break;
+                }
+                gettingNextGamepadButton = false;
+            }
+        }
+
+        if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
             switch(curSelect) {
             case 0:
-                gettingNextKey = true;
-                key = KEYS.shoot;
+                gettingNextKeyboardKey = true;
+                key = KEYS.keyboardShoot;
                 break;
             case 1:
-                gettingNextKey = true;
-                key = KEYS.shield;
+                gettingNextKeyboardKey = true;
+                key = KEYS.keyboardShield;
                 break;
             case 2:
-                gettingNextKey = true;
-                key = KEYS.start;
+                gettingNextGamepadButton = true;
+                key = KEYS.gamePadShoot;
                 break;
             case 3:
-                gettingNextKey = true;
-                key = KEYS.up;
+                gettingNextGamepadButton = true;
+                key = KEYS.gamePadShield;
                 break;
             case 4:
-                gettingNextKey = true;
-                key = KEYS.down;
                 break;
             case 5:
-                gettingNextKey = true;
-                key = KEYS.left;
-                break;
-            case 6:
-                gettingNextKey = true;
-                key = KEYS.right;
-                break;
-            case 7:
-                break;
-            case 8:
                 isWindowed = !isWindowed;
                 if(isWindowed) {
                     windowedText.text = "Windowed";
@@ -211,18 +184,18 @@ public class SettingsMenu : Menu {
                     windowedText.text = "Not Windowed";
                 }
                 break;
-            case 9:
+            case 6:
                 Debug.Log("Saved Game from menu");
                 SaveCurrentControls();
                 ApplyVideoSettings();
                 SaveData.Instance.SaveGame();
                 ResetAllMenuPositions();
                 break;
-            case 10:
+            case 7:
                 Debug.Log("Initialize Defaults");
                 SaveData.Instance.InitDefaults();
                 break;
-            case 11:
+            case 8:
                 StartCoroutine(LoadTitleScreenMenu());
                 break;
             default:
@@ -231,18 +204,25 @@ public class SettingsMenu : Menu {
         }
 
         switch(curSelect) {
-            case 7:
-            if (Input.GetKeyDown(SaveData.Instance.LeftButtonKeyCode)) {
+            case 4:
+            if (AxisInput.Instance().GetHorizontal() == -1.0 && !selectionSwitch) {
                 if(resolutionChoice > 0) {
                     resolutionChoice--;
                     ChangeResolution(resolutionChoice);
                     resolutionText.text = resolutionX + "x" + resolutionY;
                 }
-            } else if(Input.GetKeyDown(SaveData.Instance.RightButtonKeyCode)) {
+                selectionSwitch = true;
+            } else if(AxisInput.Instance().GetHorizontal() == 1.0 && !selectionSwitch) {
                 if(resolutionChoice < 4) {
                     resolutionChoice++;
                     ChangeResolution(resolutionChoice);
                     resolutionText.text = resolutionX + "x" + resolutionY;
+                }
+                selectionSwitch = true;
+            }
+            else if(AxisInput.Instance().GetHorizontal() == 0.0f) {
+                if (selectionSwitch) {
+                    selectionSwitch = false;
                 }
             }
             break;
@@ -250,14 +230,18 @@ public class SettingsMenu : Menu {
 
 	}
 
-    private KeyCode fetchKey() {
+    private KeyCode fetchKeyboardKey() {
         var e = System.Enum.GetNames(typeof(KeyCode)).Length;
         for(int i = 0; i < e; i++){
             if(Input.GetKeyDown((KeyCode)i)){
                 return (KeyCode)i;
             }
         }
-        //Unfortunatly for joystick this must all be done in a big if else, there is no better way.
+        return KeyCode.None;
+    }
+
+    private KeyCode fetchJoystickKey() {
+         //Unfortunatly for joystick this must all be done in a big if else, there is no better way.
         if(Input.GetKeyDown("joystick 1 button 0")) {
             return KeyCode.Joystick1Button0;
         } else if(Input.GetKeyDown("joystick 1 button 1")) {
@@ -303,15 +287,11 @@ public class SettingsMenu : Menu {
     }
 
     private void InitControls() {
-        shootKeyCode = SaveData.Instance.AutoFireButtonKeyCode;
-        shieldKeyCode = SaveData.Instance.ShieldButtonKeyCode;
-        startKeyCode = SaveData.Instance.PauseButtonKeyCode;
-        /*
-        upKeyCode = SaveData.Instance.UpButtonKeyCode;
-        downKeyCode = SaveData.Instance.DownButtonKeyCode;
-        leftKeyCode = SaveData.Instance.LeftButtonKeyCode;
-        rightKeyCode = SaveData.Instance.RightButtonKeyCode;
-        */
+        keyboardShootKeyCode = SaveData.Instance.AutoFireButtonKeyCode;
+        keyboardShieldKeyCode = SaveData.Instance.ShieldButtonKeyCode;
+
+        gamepadShootKeyCode = SaveData.Instance.AutoFireGamepadButtonKeyCode;
+        gamepadShieldKeyCode = SaveData.Instance.ShieldGamepadButtonKeyCode;
 
         resolutionX = SaveData.Instance.resolutionX;
         resolutionY = SaveData.Instance.resolutionY;
@@ -319,17 +299,11 @@ public class SettingsMenu : Menu {
     }
 
     private void SaveCurrentControls() {
-        SaveData.Instance.AutoFireButtonKeyCode = shootKeyCode;
-        SaveData.Instance.ShieldButtonKeyCode = shieldKeyCode;
-        SaveData.Instance.PauseButtonKeyCode = startKeyCode;
+        SaveData.Instance.AutoFireButtonKeyCode = keyboardShootKeyCode;
+        SaveData.Instance.ShieldButtonKeyCode = keyboardShieldKeyCode;
 
-        /*
-        SaveData.Instance.UpButtonKeyCode = upKeyCode;
-        SaveData.Instance.DownButtonKeyCode = downKeyCode;
-        SaveData.Instance.LeftButtonKeyCode = leftKeyCode;
-        SaveData.Instance.RightButtonKeyCode = rightKeyCode;
-        */
-
+        SaveData.Instance.AutoFireGamepadButtonKeyCode = gamepadShootKeyCode;
+        SaveData.Instance.ShieldGamepadButtonKeyCode = gamepadShieldKeyCode;
 
         SaveData.Instance.resolutionX = resolutionX;
         SaveData.Instance.resolutionY = resolutionY;
@@ -337,18 +311,11 @@ public class SettingsMenu : Menu {
     }
 
     private void InitTextFields() {
-        shootButtonText = shootButton.GetComponent<Text>();
+        keyboardShootButtonText = keyboardShootButton.GetComponent<Text>();
+        keyboardShieldButtonText = keyboardShieldButton.GetComponent<Text>();
 
-        shieldButtonText = shieldButton.GetComponent<Text>();
-
-        startButtonText = startButton.GetComponent<Text>();
-
-        /*
-        upButtonText = upButton.GetComponent<Text>();
-        downButtonText = downButton.GetComponent<Text>();
-        leftButtonText = leftButton.GetComponent<Text>();
-        rightButtonText = rightButton.GetComponent<Text>();
-        */
+        gamepadShootButtonText = gamepadShootButton.GetComponent<Text>();
+        gamepadShieldButtonText = gamepadShieldButton.GetComponent<Text>();
 
         resolutionText = resolutionTextObject.GetComponent<Text>();
         windowedText = windowedTextObject.GetComponent<Text>();
@@ -357,19 +324,11 @@ public class SettingsMenu : Menu {
     }
 
     private void SetAllTextFields() {
-        shootButtonText.text = "Shoot: " + shootKeyCode.ToString();
+        keyboardShootButtonText.text = "Shoot: " + keyboardShootKeyCode.ToString();
+        keyboardShieldButtonText.text = "Shield: " + keyboardShieldKeyCode.ToString();
 
-        shieldButtonText.text = "Shield: " + shieldKeyCode.ToString();
-
-        startButtonText.text = "Pause: " + startKeyCode.ToString();
-
-        /*
-        upButtonText.text = "Up: " + upKeyCode.ToString();
-        downButtonText.text = "Down: " + downKeyCode.ToString();
-        leftButtonText.text = "Left: " + leftKeyCode.ToString();
-        rightButtonText.text = "Right: " + rightKeyCode.ToString();
-        */
-
+        gamepadShootButtonText.text = "Shoot: " + gamepadShootKeyCode.ToString();
+        gamepadShieldButtonText.text = "Shield: " + gamepadShieldKeyCode.ToString();
 
         resolutionText.text = resolutionX + "x" + resolutionY;
         if(isWindowed) {
@@ -380,37 +339,30 @@ public class SettingsMenu : Menu {
     }
 
     private void CreateAllObjects() {
-        shootButton = Resources.Load("UIObjects/ControlsMenu/ShootButtonText") as GameObject;
-        shootButton = Instantiate(shootButton);
-        shootButton.transform.SetParent(uiCanvas.transform, false);
 
-        shieldButton = Resources.Load("UIObjects/ControlsMenu/ShieldButtonText") as GameObject;
-        shieldButton = Instantiate(shieldButton);
-        shieldButton.transform.SetParent(uiCanvas.transform, false);
+        keyboardControlsText = Resources.Load("UIObjects/ControlsMenu/KeyboardText") as GameObject;
+        keyboardControlsText = Instantiate(keyboardControlsText);
+        keyboardControlsText.transform.SetParent(uiCanvas.transform, false);
 
-        startButton = Resources.Load("UIObjects/ControlsMenu/PauseButtonText") as GameObject;
-        startButton = Instantiate(startButton);
-        startButton.transform.SetParent(uiCanvas.transform, false);
+        gamepadControlsText = Resources.Load("UIObjects/ControlsMenu/GamepadText") as GameObject;
+        gamepadControlsText = Instantiate(gamepadControlsText);
+        gamepadControlsText.transform.SetParent(uiCanvas.transform, false);
 
+        keyboardShootButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShootButtonText") as GameObject;
+        keyboardShootButton = Instantiate(keyboardShootButton);
+        keyboardShootButton.transform.SetParent(uiCanvas.transform, false);
 
-        /*
-        upButton = Resources.Load("UIObjects/ControlsMenu/UpButtonText") as GameObject;
-        upButton = Instantiate(upButton);
-        upButton.transform.SetParent(uiCanvas.transform, false);
+        keyboardShieldButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShieldButtonText") as GameObject;
+        keyboardShieldButton = Instantiate(keyboardShieldButton);
+        keyboardShieldButton.transform.SetParent(uiCanvas.transform, false);
 
-        downButton = Resources.Load("UIObjects/ControlsMenu/DownButtonText") as GameObject;
-        downButton = Instantiate(downButton);
-        downButton.transform.SetParent(uiCanvas.transform, false);
+        gamepadShootButton = Resources.Load("UIObjects/ControlsMenu/GamepadShootButtonText") as GameObject;
+        gamepadShootButton = Instantiate(gamepadShootButton);
+        gamepadShootButton.transform.SetParent(uiCanvas.transform, false);
 
-        leftButton = Resources.Load("UIObjects/ControlsMenu/LeftButtonText") as GameObject;
-        leftButton = Instantiate(leftButton);
-        leftButton.transform.SetParent(uiCanvas.transform, false);
-
-        rightButton = Resources.Load("UIObjects/ControlsMenu/RightButtonText") as GameObject;
-        rightButton = Instantiate(rightButton);
-        rightButton.transform.SetParent(uiCanvas.transform, false);
-        */
-
+        gamepadShieldButton = Resources.Load("UIObjects/ControlsMenu/GamepadShieldButtonText") as GameObject;
+        gamepadShieldButton = Instantiate(gamepadShieldButton);
+        gamepadShieldButton.transform.SetParent(uiCanvas.transform, false);
 
         resolutionTextObject = Resources.Load("UIObjects/ControlsMenu/ResolutionPickerText") as GameObject;
         resolutionTextObject = Instantiate(resolutionTextObject);
@@ -437,15 +389,12 @@ public class SettingsMenu : Menu {
     IEnumerator LoadTitleScreenMenu(){
         PlayConfirm();
         Destroy(darkPanel);
-        Destroy(shootButton);
-        Destroy(shieldButton);
-        Destroy(startButton);
-        /*
-        Destroy(upButton);
-        Destroy(downButton);
-        Destroy(leftButton);
-        Destroy(rightButton);
-        */
+        Destroy(keyboardControlsText);
+        Destroy(keyboardShootButton);
+        Destroy(keyboardShieldButton);
+        Destroy(gamepadControlsText);
+        Destroy(gamepadShootButton);
+        Destroy(gamepadShieldButton);
         Destroy(resolutionTextObject);
         Destroy(windowedTextObject);
         Destroy(saveText);
@@ -507,15 +456,11 @@ public class SettingsMenu : Menu {
 
     private void ResetAllMenuPositions() {
         menuLocations.Clear();
-        menuLocations.Add(new Vector2(shootButton.transform.position.x, shootButton.transform.position.y));
-        menuLocations.Add(new Vector2(shieldButton.transform.position.x, shieldButton.transform.position.y));
-        menuLocations.Add(new Vector2(startButton.transform.position.x, startButton.transform.position.y));
-        /*
-        menuLocations.Add(new Vector2(upButton.transform.position.x, upButton.transform.position.y));
-        menuLocations.Add(new Vector2(downButton.transform.position.x, downButton.transform.position.y));
-        menuLocations.Add(new Vector2(leftButton.transform.position.x, leftButton.transform.position.y));
-        menuLocations.Add(new Vector2(rightButton.transform.position.x, rightButton.transform.position.y));
-        */
+        menuLocations.Add(new Vector2(keyboardShootButton.transform.position.x, keyboardShootButton.transform.position.y));
+        menuLocations.Add(new Vector2(keyboardShieldButton.transform.position.x, keyboardShieldButton.transform.position.y));
+
+        menuLocations.Add(new Vector2(gamepadShootButton.transform.position.x, gamepadShootButton.transform.position.y));
+        menuLocations.Add(new Vector2(gamepadShieldButton.transform.position.x, gamepadShieldButton.transform.position.y));
 
         menuLocations.Add(new Vector2(resolutionTextObject.transform.position.x, resolutionTextObject.transform.position.y));
         menuLocations.Add(new Vector2(windowedTextObject.transform.position.x, windowedTextObject.transform.position.y));

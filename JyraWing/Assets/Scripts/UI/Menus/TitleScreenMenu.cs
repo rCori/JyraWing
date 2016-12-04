@@ -49,7 +49,7 @@ public class TitleScreenMenu : Menu {
 		if (!lockScreen) {
 			MenuScroll ();
             //Select start the game
-            if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
+            if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
 				if (curSelect == 0) {
 					StartCoroutine (startGameMenu ());
 				} else if (curSelect == 1) {

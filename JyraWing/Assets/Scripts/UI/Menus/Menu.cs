@@ -32,13 +32,15 @@ public class Menu : MonoBehaviour {
 		//move selection down one
 		float axis;
 		if(isVertical){
-			axis = Input.GetAxisRaw ("Vertical");
+            //axis = Input.GetAxisRaw ("Vertical");
+            axis = AxisInput.Instance().GetVertical();
 		}
 		else{
-			axis = Input.GetAxisRaw ("Horizontal");
+			//axis = Input.GetAxisRaw ("Horizontal");
+            axis = AxisInput.Instance().GetHorizontal();
 		}
 
-		//Move the selector down(veritcal) or right(horizontal)
+		//Move the selector down(vertical) or right(horizontal)
 		if (((isVertical && axis < 0)||(!isVertical && axis > 0)) && directionUp && curSelect != numberOfItems-1) {
 			curSelect++;
 			transform.position = menuLocations[curSelect];
@@ -53,7 +55,6 @@ public class Menu : MonoBehaviour {
 			transform.position = menuLocations[curSelect];
 			directionUp = false;
 			PlayMove ();
-
 		}
 
         if(axis == 0 && !directionUp) {

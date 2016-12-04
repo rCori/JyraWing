@@ -83,7 +83,7 @@ public class OptionsMenu : Menu {
         if (!lockScreen) {
             MenuScroll();
             //Select start the game
-            if (Input.GetKeyDown(SaveData.Instance.AutoFireButtonKeyCode) || Input.GetKeyDown(SaveData.Instance.PauseButtonKeyCode)) {
+            if (ButtonInput.Instance().FireButtonDown() || ButtonInput.Instance().StartButtonDown()) {
                 if (curSelect == 0) {
                     StartCoroutine(LoadControlsMenu());
                 }
@@ -93,7 +93,7 @@ public class OptionsMenu : Menu {
                     StartCoroutine(LoadTitleScreenMenu());
                 }
             }
-            if (Input.GetAxisRaw("Horizontal") == 1.0f) {
+            if (AxisInput.Instance().GetHorizontal() == 1.0f) {
                 if(curSelect == 1 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit < 6) {
                         SaveData.Instance.livesPerCredit++;
@@ -111,26 +111,26 @@ public class OptionsMenu : Menu {
                     }
                 }
                 selectionSwitch = true;
-            } else if(Input.GetAxisRaw("Horizontal") == -1.0f) {
-                if (curSelect == 0 && !selectionSwitch) {
+            } else if(AxisInput.Instance().GetHorizontal() == -1.0f) {
+                if (curSelect == 1 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit > 1) {
                         SaveData.Instance.livesPerCredit--;
                         lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
                     }
                 }
-                else if (curSelect == 1 && !selectionSwitch){
+                else if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
                     }
                 }
                 selectionSwitch = true;
-            } else if(Input.GetAxisRaw("Horizontal") == 0.0f) {
+            } else if(AxisInput.Instance().GetHorizontal() == 0.0f) {
                 if (selectionSwitch) {
                     selectionSwitch = false;
                 }

@@ -50,7 +50,7 @@ public class IngameQuitMenu : Menu {
 			MenuScroll ();
 
 			//No: Continue game, unpausing it.
-			if (Input.GetButtonDown ("Auto Fire")) {
+			if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
 				if (curSelect == 0) {
 					StartCoroutine(BackOut ());
 					//Yes: Go back to main menu

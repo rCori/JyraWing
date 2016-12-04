@@ -30,7 +30,6 @@ public class InGameOptionsMenu : Menu {
 
     // Use this for initialization
     void Start() {
-        //ForceWindowed ();
         InitMenu();
         numberOfItems = 4;
         isVertical = true;
@@ -88,7 +87,7 @@ public class InGameOptionsMenu : Menu {
         if (!lockScreen) {
             MenuScroll();
             //Select start the game
-            if (Input.GetButtonDown("Auto Fire") || Input.GetButtonDown("Pause")) {
+            if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
                 if (curSelect == 0) {
                 }
                 else if(curSelect == 2) {
@@ -104,7 +103,7 @@ public class InGameOptionsMenu : Menu {
                     Debug.Log("Return to game");
                 }
             }
-            if (Input.GetAxisRaw("Horizontal") == 1.0f) {
+            if (AxisInput.Instance().GetHorizontal() == 1.0f) {
                 if (curSelect == 0 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
@@ -120,7 +119,7 @@ public class InGameOptionsMenu : Menu {
                     }
                 }
                 selectionSwitch = true;
-            } else if(Input.GetAxisRaw("Horizontal") == -1.0f) {
+            } else if(AxisInput.Instance().GetHorizontal() == -1.0f) {
                 if (curSelect == 0 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
@@ -136,7 +135,7 @@ public class InGameOptionsMenu : Menu {
                     }
                 }
                 selectionSwitch = true;
-            } else if(Input.GetAxisRaw("Horizontal") == 0.0f) {
+            } else if(AxisInput.Instance().GetHorizontal() == 0.0f) {
                 if (selectionSwitch) {
                     selectionSwitch = false;
                 }
@@ -171,13 +170,6 @@ public class InGameOptionsMenu : Menu {
         Destroy (darkPanel);
         Destroy(gameObject);
         yield return null;
-        /*
-        GameObject titleScreenMenu = Resources.Load("UIObjects/TitleScreenMenu/TitleSelector") as GameObject;
-        titleScreenMenu = Instantiate(titleScreenMenu);
-        titleScreenMenu.transform.SetParent(uiCanvas.transform, false);
-        Destroy(gameObject);
-        yield return null;
-        */
     }
 
 }

@@ -184,6 +184,8 @@
     <Compile Include="Assets\Scripts\Scroll.cs" />
     <Compile Include="Assets\Scripts\ShuffleBag.cs" />
     <Compile Include="Assets\Scripts\Singletons\BarrierWall.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Controls\AxisInput.cs" />
+    <Compile Include="Assets\Scripts\Singletons\Controls\ButtonInput.cs" />
     <Compile Include="Assets\Scripts\Singletons\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\Singletons\PauseableItem.cs" />
     <Compile Include="Assets\Scripts\Singletons\Player\IPlayerShield.cs" />

@@ -3,18 +3,19 @@ using System.Collections;
 
 public class PlayerInputController : MonoBehaviour {
 
-	private string fireButtonString, autoFireButtonString, shieldButtonString, backButtonString, upButtonString, downButtonString, leftButtonString, rightButtonString, startButtonString;
+	//private string fireButtonString, autoFireButtonString, shieldButtonString, backButtonString, startButtonString;
 	private string upDownAxisString, leftRightAxisString;
 
 	public delegate void ButtonEvent(bool down);
 	public delegate void AxisEvent (float value);
 
-	public static event ButtonEvent AutoFireButton, ShieldButton, UpButton, DownButton, LeftButton, RightButton, StartButton;
+    public static event ButtonEvent AutoFireButton, ShieldButton, StartButton;
 	public static event AxisEvent LeftRightEvent, UpDownEvent;
 
 	private float prevLeftRight, prevUpDown;
 
-    public static KeyCode AutoFireButtonKeyCode, ShieldButtonKeyCode, StartButtonKeyCode, UpButtonKeyCode, DownButtonKeyCode, LeftButtonKeyCode, RightButtonKeyCode;
+    public static KeyCode AutoFireButtonKeyCode, ShieldButtonKeyCode, StartButtonKeyCode;
+    public static KeyCode AutoFireGamepadKeyCode, ShieldButtonGamepadKeyCode, StartButtonGamepadKeyCode;
 
 	// Use this for initialization
 	void Start () {
@@ -25,45 +26,38 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	void Update() {
-        //ButtonUpdate(fireButtonString, FireButton);
-        ButtonUpdate(autoFireButtonString, AutoFireButton);
-        ButtonUpdate (shieldButtonString, ShieldButton);
-        //ButtonUpdate(backButtonString, BackButton);
-        //ButtonUpdate(upButtonString, UpButton);
-        //ButtonUpdate(downButtonString, DownButton);
-        //ButtonUpdate(leftButtonString, LeftButton);
-        //ButtonUpdate(rightButtonString, RightButton);
-        ButtonUpdate (startButtonString, StartButton);
-
-        //KeycodeButtonUpdate(UpButtonKeyCode, UpButton);
-        //KeycodeButtonUpdate(DownButtonKeyCode, DownButton);
-
+        //ButtonUpdate(autoFireButtonString, AutoFireButton);
+        //ButtonUpdate (shieldButtonString, ShieldButton);
+        //ButtonUpdate (startButtonString, StartButton);
 
         KeycodeButtonUpdate(AutoFireButtonKeyCode, AutoFireButton);
         KeycodeButtonUpdate(ShieldButtonKeyCode, ShieldButton);
         KeycodeButtonUpdate(StartButtonKeyCode, StartButton);
+
+        KeycodeButtonUpdate(AutoFireGamepadKeyCode, AutoFireButton);
+        KeycodeButtonUpdate(ShieldButtonGamepadKeyCode, ShieldButton);
+        KeycodeButtonUpdate(StartButtonGamepadKeyCode, StartButton);
 
 		prevUpDown = AxisUpdate(upDownAxisString, UpDownEvent, prevUpDown);
 		prevLeftRight = AxisUpdate (leftRightAxisString, LeftRightEvent, prevLeftRight);
 	}
 
 	private void initDefaultControls() {
-		fireButtonString = "Fire";
-		autoFireButtonString = "Auto Fire";
-		shieldButtonString = "Shield";
-		backButtonString = "Back";
-		upButtonString = "Up";
-		downButtonString = "Down";
-		leftButtonString = "Left";
-		rightButtonString = "Right";
+        
 		upDownAxisString = "Vertical";
 		leftRightAxisString = "Horizontal";
-		startButtonString = "Pause";
-        AutoFireButtonKeyCode = KeyCode.X;
-        ShieldButtonKeyCode = KeyCode.Z;
-        StartButtonKeyCode = KeyCode.Return;
-        UpButtonKeyCode = KeyCode.UpArrow;
-        DownButtonKeyCode = KeyCode.DownArrow;
+        
+
+        AutoFireButtonKeyCode = SaveData.Instance.AutoFireButtonKeyCode;
+        ShieldButtonKeyCode = SaveData.Instance.ShieldButtonKeyCode;
+        StartButtonKeyCode = ButtonInput.Instance().GetKeyboardStartButton();
+
+        AutoFireGamepadKeyCode = SaveData.Instance.AutoFireGamepadButtonKeyCode;
+        ShieldButtonGamepadKeyCode = SaveData.Instance.ShieldGamepadButtonKeyCode;
+        StartButtonGamepadKeyCode = ButtonInput.Instance().GetGamepadStartButton();
+
+        Debug.Log("StartButtonKeyCode: " + StartButtonKeyCode);
+        Debug.Log("StartButtonGamepadKeyCode: " + StartButtonGamepadKeyCode);
 	}
 
 	private void ButtonUpdate(string butttonString, ButtonEvent buttonEvent) {
@@ -79,7 +73,6 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
     private void KeycodeButtonUpdate(KeyCode buttonKeyCode, ButtonEvent buttonEvent) {
-        //Up Button Event
 		if (buttonEvent != null) {
 			if (Input.GetKeyDown (buttonKeyCode)) {
 				buttonEvent (true);
@@ -91,19 +84,23 @@ public class PlayerInputController : MonoBehaviour {
     }
 
 	private float AxisUpdate(string axisString, AxisEvent axisEvent, float prevValue) {
-		axisEvent (Input.GetAxisRaw (axisString));
-		return Input.GetAxisRaw (axisString);
+        switch (axisString){
+        case "Horizontal":
+            float horizontalAxis = AxisInput.Instance().GetHorizontal();
+            axisEvent(horizontalAxis);
+            return horizontalAxis;
+        case "Vertical":
+            float verticalAxis = AxisInput.Instance().GetVertical();
+            axisEvent(verticalAxis);
+            return verticalAxis;
+        default:
+            return 0f;
+        }
 	}
 
 	public static void RemoveAllEvents() {
-		//RemoveButtonEvents (FireButton);
 		RemoveButtonEvents (AutoFireButton);
 		RemoveButtonEvents (ShieldButton);
-		//RemoveButtonEvents (BackButton);
-		RemoveButtonEvents (UpButton);
-		RemoveButtonEvents (DownButton);
-		RemoveButtonEvents (LeftButton);
-		RemoveButtonEvents (RightButton);
 		RemoveButtonEvents (StartButton);
 		RemoveAxisEvents (LeftRightEvent);
 		RemoveAxisEvents (UpDownEvent);
