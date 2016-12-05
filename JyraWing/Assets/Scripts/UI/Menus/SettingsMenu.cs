@@ -116,63 +116,41 @@ public class SettingsMenu : Menu {
 
 	// Update is called once per frame
 	void Update () {
-        if(!gettingNextKeyboardKey) {
+        if(!gettingNextKeyboardKey && ! gettingNextGamepadButton) {
 	        MenuScroll();
         }
 
-        if(gettingNextKeyboardKey) {
-            KeyCode currentKey = fetchKeyboardKey();
-            if(currentKey != KeyCode.None) {
-                Debug.Log("currentKey is: " + currentKey.ToString());
-                switch(key) {
-                case KEYS.keyboardShoot:
-                    keyboardShootKeyCode = currentKey;
-                    keyboardShootButtonText.text = "Shoot: " + keyboardShootKeyCode.ToString();
-                    break;
-                case KEYS.keyboardShield:
-                    keyboardShieldKeyCode = currentKey;
-                    keyboardShieldButtonText.text = "Shield: " + keyboardShieldKeyCode.ToString();
-                    break;
-                }
-                gettingNextKeyboardKey = false;
-            }
-        }
 
-        if(gettingNextGamepadButton) {
-            KeyCode currentButton = fetchJoystickKey();
-            if(currentButton != KeyCode.None) {
-                Debug.Log("currentButton is: " + (KeyCode) currentButton);
-                switch(key) {
-                case KEYS.gamePadShoot:
-                    gamepadShootKeyCode = currentButton;
-                    gamepadShootButtonText.text = "Shoot: " + gamepadShootKeyCode.ToString();
-                    break;
-                case KEYS.gamePadShield:
-                    gamepadShieldKeyCode = currentButton;
-                    gamepadShieldButtonText.text = "Shield: " + gamepadShieldKeyCode.ToString();
-                    break;
-                }
-                gettingNextGamepadButton = false;
-            }
-        }
 
-        if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
+        if ((ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown())) {
             switch(curSelect) {
             case 0:
-                gettingNextKeyboardKey = true;
-                key = KEYS.keyboardShoot;
+                if(!gettingNextKeyboardKey) {
+                    gettingNextKeyboardKey = true;
+                    key = KEYS.keyboardShoot;
+                    return;
+                }
                 break;
             case 1:
-                gettingNextKeyboardKey = true;
-                key = KEYS.keyboardShield;
+                if(!gettingNextKeyboardKey) {
+                    gettingNextKeyboardKey = true;
+                    key = KEYS.keyboardShield;
+                    return;
+                }
                 break;
             case 2:
-                gettingNextGamepadButton = true;
-                key = KEYS.gamePadShoot;
+                if(!gettingNextGamepadButton) {
+                    gettingNextGamepadButton = true;
+                    key = KEYS.gamePadShoot;
+                    return;
+                }
                 break;
             case 3:
-                gettingNextGamepadButton = true;
-                key = KEYS.gamePadShield;
+                if(!gettingNextGamepadButton) {
+                    gettingNextGamepadButton = true;
+                    key = KEYS.gamePadShield;
+                    return;
+                }
                 break;
             case 4:
                 break;
@@ -189,7 +167,7 @@ public class SettingsMenu : Menu {
                 SaveCurrentControls();
                 ApplyVideoSettings();
                 SaveData.Instance.SaveGame();
-                ResetAllMenuPositions();
+                StartCoroutine(LoadTitleScreenMenu());
                 break;
             case 7:
                 Debug.Log("Initialize Defaults");
@@ -228,13 +206,55 @@ public class SettingsMenu : Menu {
             break;
         }
 
+        if(gettingNextKeyboardKey) {
+            KeyCode currentKey = fetchKeyboardKey();
+            if(currentKey != KeyCode.None) {
+                Debug.Log("currentKey is: " + currentKey.ToString());
+                switch(key) {
+                case KEYS.keyboardShoot:
+                    keyboardShootKeyCode = currentKey;
+                    keyboardShootButtonText.text = "Shoot: " + keyboardShootKeyCode.ToString();
+                    break;
+                case KEYS.keyboardShield:
+                    keyboardShieldKeyCode = currentKey;
+                    keyboardShieldButtonText.text = "Shield: " + keyboardShieldKeyCode.ToString();
+                    break;
+                }
+                gettingNextKeyboardKey = false;
+            }
+        }
+
+        if(gettingNextGamepadButton) {
+            KeyCode currentButton = fetchJoystickKey();
+            if(currentButton != KeyCode.None) {
+                Debug.Log("currentButton is: " + (KeyCode) currentButton);
+                switch(key) {
+                case KEYS.gamePadShoot:
+                    gamepadShootKeyCode = currentButton;
+                    gamepadShootButtonText.text = "Shoot: " + gamepadShootKeyCode.ToString();
+                    break;
+                case KEYS.gamePadShield:
+                    gamepadShieldKeyCode = currentButton;
+                    gamepadShieldButtonText.text = "Shield: " + gamepadShieldKeyCode.ToString();
+                    break;
+                }
+                gettingNextGamepadButton = false;
+            }
+        }
 	}
 
     private KeyCode fetchKeyboardKey() {
         var e = System.Enum.GetNames(typeof(KeyCode)).Length;
         for(int i = 0; i < e; i++){
             if(Input.GetKeyDown((KeyCode)i)){
-                return (KeyCode)i;
+                KeyCode candidate = (KeyCode)i;
+                //Prevent the arrow keys
+                if(candidate != KeyCode.UpArrow && 
+                    candidate != KeyCode.DownArrow && 
+                    candidate != KeyCode.LeftArrow &&
+                    candidate != KeyCode.RightArrow) {
+                    return candidate;
+                }
             }
         }
         return KeyCode.None;
@@ -380,7 +400,7 @@ public class SettingsMenu : Menu {
         resetToDefaultsText = Instantiate(resetToDefaultsText);
         resetToDefaultsText.transform.SetParent(uiCanvas.transform, false);
 
-        backText = Resources.Load("UIObjects/ControlsMenu/Back") as GameObject;
+        backText = Resources.Load("UIObjects/ControlsMenu/ExitNoSave") as GameObject;
         backText = Instantiate(backText);
         backText.transform.SetParent(uiCanvas.transform, false);
 
@@ -454,7 +474,58 @@ public class SettingsMenu : Menu {
         Screen.SetResolution(resolutionX, resolutionY, !isWindowed);
     }
 
+    /*
     private void ResetAllMenuPositions() {
+
+        //Destroy(darkPanel);
+        //Destroy(keyboardControlsText);
+        Destroy(keyboardShootButton);
+        Destroy(keyboardShieldButton);
+        //Destroy(gamepadControlsText);
+        Destroy(gamepadShootButton);
+        Destroy(gamepadShieldButton);
+        Destroy(resolutionTextObject);
+        Destroy(windowedTextObject);
+        Destroy(saveText);
+        Destroy(resetToDefaultsText);
+        Destroy(backText);
+
+        keyboardShootButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShootButtonText") as GameObject;
+        keyboardShootButton = Instantiate(keyboardShootButton);
+        keyboardShootButton.transform.SetParent(uiCanvas.transform, false);
+
+        keyboardShieldButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShieldButtonText") as GameObject;
+        keyboardShieldButton = Instantiate(keyboardShieldButton);
+        keyboardShieldButton.transform.SetParent(uiCanvas.transform, false);
+
+        gamepadShootButton = Resources.Load("UIObjects/ControlsMenu/GamepadShootButtonText") as GameObject;
+        gamepadShootButton = Instantiate(gamepadShootButton);
+        gamepadShootButton.transform.SetParent(uiCanvas.transform, false);
+
+        gamepadShieldButton = Resources.Load("UIObjects/ControlsMenu/GamepadShieldButtonText") as GameObject;
+        gamepadShieldButton = Instantiate(gamepadShieldButton);
+        gamepadShieldButton.transform.SetParent(uiCanvas.transform, false);
+
+        resolutionTextObject = Resources.Load("UIObjects/ControlsMenu/ResolutionPickerText") as GameObject;
+        resolutionTextObject = Instantiate(resolutionTextObject);
+        resolutionTextObject.transform.SetParent(uiCanvas.transform, false);
+
+        windowedTextObject = Resources.Load("UIObjects/ControlsMenu/WindowedToggleText") as GameObject;
+        windowedTextObject = Instantiate(windowedTextObject);
+        windowedTextObject.transform.SetParent(uiCanvas.transform, false);
+
+        saveText = Resources.Load("UIObjects/ControlsMenu/Save") as GameObject;
+        saveText = Instantiate(saveText);
+        saveText.transform.SetParent(uiCanvas.transform, false);
+
+        resetToDefaultsText = Resources.Load("UIObjects/ControlsMenu/ResetDefaults") as GameObject;
+        resetToDefaultsText = Instantiate(resetToDefaultsText);
+        resetToDefaultsText.transform.SetParent(uiCanvas.transform, false);
+
+        backText = Resources.Load("UIObjects/ControlsMenu/Back") as GameObject;
+        backText = Instantiate(backText);
+        backText.transform.SetParent(uiCanvas.transform, false);
+
         menuLocations.Clear();
         menuLocations.Add(new Vector2(keyboardShootButton.transform.position.x, keyboardShootButton.transform.position.y));
         menuLocations.Add(new Vector2(keyboardShieldButton.transform.position.x, keyboardShieldButton.transform.position.y));
@@ -471,4 +542,5 @@ public class SettingsMenu : Menu {
 
         gameObject.transform.position = menuLocations[curSelect];
     }
+    */
 }
