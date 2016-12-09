@@ -13,6 +13,7 @@ public class SaveData  {
 		get{
 			if (instance == null) {
 				instance = new SaveData ();
+                instance.LoadGame();
 			}
 			return instance;
 		}

@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 1
-  columns: 2
+  rows: 2
+  columns: 1
   rowSpacing: 1
   columnSpacing: 1
   initLocation: {x: 9, y: 0}
@@ -3089,8 +3089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa43734c550f6d409b7b038d4256342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 1
-  columns: 2
+  rows: 2
+  columns: 1
   rowSpacing: 1
   columnSpacing: 1
   initLocation: {x: 9, y: 0}
