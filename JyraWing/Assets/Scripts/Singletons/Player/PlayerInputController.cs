@@ -26,9 +26,6 @@ public class PlayerInputController : MonoBehaviour {
 	}
 
 	void Update() {
-        //ButtonUpdate(autoFireButtonString, AutoFireButton);
-        //ButtonUpdate (shieldButtonString, ShieldButton);
-        //ButtonUpdate (startButtonString, StartButton);
 
         KeycodeButtonUpdate(AutoFireButtonKeyCode, AutoFireButton);
         KeycodeButtonUpdate(ShieldButtonKeyCode, ShieldButton);
