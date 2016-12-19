@@ -63,6 +63,8 @@ public class SettingsMenu : Menu {
     private GameObject resetToDefaultsText;
     private GameObject backText;
 
+    public delegate void InitializePlayerControls();
+    public static event InitializePlayerControls initializePlayerControlsEvent;
 
     public enum KEYS {
         keyboardShoot,
@@ -71,7 +73,14 @@ public class SettingsMenu : Menu {
         gamePadShield
     };
 
+    public enum MENUCONTEXT {
+        titleScreen,
+        inGame
+    };
+
     public KEYS key;
+    public MENUCONTEXT menuContext;
+
     private bool gettingNextKeyboardKey, gettingNextGamepadButton;
     private bool selectionSwitch;
 
@@ -92,10 +101,9 @@ public class SettingsMenu : Menu {
 
         CreateAllObjects();
         InitControls();
-        InitTextFields();
+        InitInputTextFields();
+        InitResolutionTextFields();
 
-        int currentXResolution = GetCurrentResolutionChoice(SaveData.Instance.resolutionX);
-        ChangeResolution(currentXResolution);
 
         menuLocations.Add(new Vector2(keyboardShootButton.transform.position.x, keyboardShootButton.transform.position.y));
         menuLocations.Add(new Vector2(keyboardShieldButton.transform.position.x, keyboardShieldButton.transform.position.y));
@@ -111,7 +119,6 @@ public class SettingsMenu : Menu {
         menuLocations.Add(new Vector2(backText.transform.position.x, backText.transform.position.y));
 
         gameObject.transform.position = menuLocations[0];
-
 	}
 
 	// Update is called once per frame
@@ -119,9 +126,6 @@ public class SettingsMenu : Menu {
         if(!gettingNextKeyboardKey && ! gettingNextGamepadButton) {
 	        MenuScroll();
         }
-
-
-
         if ((ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown())) {
             switch(curSelect) {
             case 0:
@@ -167,14 +171,14 @@ public class SettingsMenu : Menu {
                 SaveCurrentControls();
                 ApplyVideoSettings();
                 SaveData.Instance.SaveGame();
-                StartCoroutine(LoadTitleScreenMenu());
+                LoadPrevMenu();
                 break;
             case 7:
                 Debug.Log("Initialize Defaults");
                 SaveData.Instance.InitDefaults();
                 break;
             case 8:
-                StartCoroutine(LoadTitleScreenMenu());
+                LoadPrevMenu();
                 break;
             default:
                 break;
@@ -330,7 +334,7 @@ public class SettingsMenu : Menu {
         SaveData.Instance.isWindowed = isWindowed;
     }
 
-    private void InitTextFields() {
+    private void InitInputTextFields() {
         keyboardShootButtonText = keyboardShootButton.GetComponent<Text>();
         keyboardShieldButtonText = keyboardShieldButton.GetComponent<Text>();
 
@@ -428,6 +432,29 @@ public class SettingsMenu : Menu {
         yield return null;
     }
 
+    IEnumerator LoadInGameMenu() {
+        Debug.Log("Load in game menu");
+        PlayConfirm();
+        Destroy(darkPanel);
+        Destroy(keyboardControlsText);
+        Destroy(keyboardShootButton);
+        Destroy(keyboardShieldButton);
+        Destroy(gamepadControlsText);
+        Destroy(gamepadShootButton);
+        Destroy(gamepadShieldButton);
+        Destroy(resolutionTextObject);
+        Destroy(windowedTextObject);
+        Destroy(saveText);
+        Destroy(resetToDefaultsText);
+        Destroy(backText);
+        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        GameObject inGameOptionsMenu = Resources.Load("UIObjects/InGameOptionsMenu/InGameOptionsMenu") as GameObject;
+        inGameOptionsMenu = Instantiate(inGameOptionsMenu);
+        inGameOptionsMenu.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+        yield return null;
+    }
+
     public void ChangeResolution(int value) {
         switch(value) {
         case 0:
@@ -472,6 +499,35 @@ public class SettingsMenu : Menu {
 
     private void ApplyVideoSettings() {
         Screen.SetResolution(resolutionX, resolutionY, !isWindowed);
+    }
+
+    private void InitResolutionTextFields() {
+        resolutionText.text = SaveData.Instance.resolutionX + "x" + SaveData.Instance.resolutionY;
+        isWindowed = SaveData.Instance.isWindowed;
+        if(isWindowed) {
+            windowedText.text = "Windowed";
+        } else {
+            windowedText.text = "Not Windowed";
+        }
+        resolutionChoice = GetCurrentResolutionChoice(SaveData.Instance.resolutionX);
+        resolutionText.text = resolutionX + "x" + resolutionY;
+    }
+
+    public void SetContext(MENUCONTEXT menuContext) {
+        this.menuContext = menuContext;
+    }
+
+    private void LoadPrevMenu() {
+        switch(menuContext) {
+        case MENUCONTEXT.titleScreen:
+            StartCoroutine(LoadTitleScreenMenu());
+            break;
+        case MENUCONTEXT.inGame:
+            SaveData.Instance.LoadGame();
+            initializePlayerControlsEvent();
+            StartCoroutine(LoadInGameMenu());
+            break;
+        }
     }
 
     /*

@@ -21,8 +21,8 @@ public class PlayerInputController : MonoBehaviour {
 	void Start () {
 		prevLeftRight = 0f;
 		prevUpDown = 0f;
-		initDefaultControls ();
-
+		InitializeControls ();
+        SettingsMenu.initializePlayerControlsEvent += InitializeControls;
 	}
 
 	void Update() {
@@ -39,7 +39,7 @@ public class PlayerInputController : MonoBehaviour {
 		prevLeftRight = AxisUpdate (leftRightAxisString, LeftRightEvent, prevLeftRight);
 	}
 
-	private void initDefaultControls() {
+	public void InitializeControls() {
         
 		upDownAxisString = "Vertical";
 		leftRightAxisString = "Horizontal";
@@ -95,6 +95,10 @@ public class PlayerInputController : MonoBehaviour {
             return 0f;
         }
 	}
+
+    void OnDestroy() {
+        SettingsMenu.initializePlayerControlsEvent -= InitializeControls;
+    }
 
 	public static void RemoveAllEvents() {
 		RemoveButtonEvents (AutoFireButton);

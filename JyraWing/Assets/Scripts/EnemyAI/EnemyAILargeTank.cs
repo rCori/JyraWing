@@ -24,7 +24,7 @@ private int moveState;
     private Vector2 downMiddleBul;
 	private Vector2 downBul;
 
-    private float bulletSpeed = 2.3f;
+    private float bulletSpeed = 3.0f;
 
 	private int TANK_HEALTH = 20;
 
@@ -37,11 +37,11 @@ private int moveState;
 		fastVec = new Vector2(-1.5f, 0f);
 		slowVec = new Vector2( -1.0f, 0f);
 
-        upBul = new Vector2(-1.7f, 0.2f);
-        upMiddleBul = new Vector2(0f, 0.4f);
-		middleBul = new Vector2 (-1.85f, 0);
-        downMiddleBul = new Vector2(0f, -0.4f);
-        downBul = new Vector2(-1.7f, -0.2f);
+        upBul = new Vector2(-1.0f, 0.15f).normalized * bulletSpeed*0.8f;
+        upMiddleBul = new Vector2(0f, 0.3f);
+		middleBul = new Vector2 (-1.0f, 0).normalized * bulletSpeed;
+        downMiddleBul = new Vector2(0f, -0.3f);
+        downBul = new Vector2(-1.0f, -0.15f).normalized * bulletSpeed*0.8f;
         
         LeftWallException = false;
 			
@@ -56,6 +56,13 @@ private int moveState;
 		GivePointObject (1, 0.6f);
         GivePointObject (1, 0.3f);
         directionalFire();
+
+        GameObject enemyHealthBar = Resources.Load("UIObjects/EnemyHealthBar") as GameObject;
+        GameObject canvas = GameObject.Find("Canvas");
+        enemyHealthBar = Instantiate(enemyHealthBar);
+        enemyHealthBar.transform.SetParent(canvas.transform);
+        enemyHealthBar.transform.localPosition = new Vector2(0f, 0f);
+        enemyHealthBar.GetComponent<EnemyHealthBar>().InitEnemyInfo(this);
 	}
 	
 

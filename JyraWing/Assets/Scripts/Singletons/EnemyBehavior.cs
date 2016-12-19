@@ -8,6 +8,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
     public delegate void PauseControllerEvents(PauseableItem pauseableItem);
 	public static event PauseControllerEvents RegisterPauseController, DelistPauseController;
 
+    public delegate void HitPointUpdate(int hitpoints);
+    public event HitPointUpdate hitPointEvent;
+
 	public enum MovementStatus {None, Lerp, Slerp, Velocity, ArcVelocity}
 
 	///Mark this as an enum that can have multiple values ORed together
@@ -387,7 +390,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 				return;
 			}
 			hitPoints--;
-			
+            if(hitPointEvent != null) {
+                hitPointEvent(hitPoints);
+            }
 
 			if(hitPoints == 0)
 			{

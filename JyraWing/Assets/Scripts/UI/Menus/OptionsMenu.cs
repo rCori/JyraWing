@@ -164,6 +164,7 @@ public class OptionsMenu : Menu {
         GameObject controlsSelector = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
         controlsSelector = Instantiate(controlsSelector);
         controlsSelector.transform.SetParent(uiCanvas.transform, false);
+        controlsSelector.GetComponent<SettingsMenu>().SetContext(SettingsMenu.MENUCONTEXT.titleScreen);
         Destroy(gameObject);
         yield return null;
     }

@@ -6,9 +6,9 @@ using System.Collections;
 public class InGameOptionsMenu : Menu {
 
     private GameObject uiCanvas;
-    private GameObject lifeCount;
-    private Text lifeCountText;
     private GameObject back;
+
+    private GameObject controlsSelector;
 
     private GameObject bgmLevel;
     private Text bgmLevelText;
@@ -31,7 +31,7 @@ public class InGameOptionsMenu : Menu {
     // Use this for initialization
     void Start() {
         InitMenu();
-        numberOfItems = 4;
+        numberOfItems = 5;
         isVertical = true;
         lockScreen = false;
         selectionSwitch = false;
@@ -46,6 +46,10 @@ public class InGameOptionsMenu : Menu {
 		darkPanel = Instantiate (darkPanel);
 		darkPanel.transform.SetParent (uiCanvas.transform, false);
 		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
+
+        controlsSelector = Resources.Load("UIObjects/InGameOptionsMenu/ControlsText") as GameObject;
+        controlsSelector = Instantiate(controlsSelector);
+        controlsSelector.transform.SetParent(uiCanvas.transform, false);
 
         bgmLevel = Resources.Load("UIObjects/InGameOptionsMenu/BGMText") as GameObject;
         bgmLevel = Instantiate(bgmLevel);
@@ -73,13 +77,15 @@ public class InGameOptionsMenu : Menu {
         //Amount to move selector over from a selection when that item is selected.
         float adjustPt = Screen.width / 10.0f;
 
+        menuLocations.Clear();
+
+        menuLocations.Add(new Vector2(controlsSelector.transform.position.x, controlsSelector.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
         menuLocations.Add(new Vector2(quit.transform.position.x, quit.transform.position.y));
         menuLocations.Add(new Vector2(back.transform.position.x, back.transform.position.y));
 
         gameObject.transform.position = menuLocations[0];
-
     }
 
     // Update is called once per frame
@@ -89,11 +95,12 @@ public class InGameOptionsMenu : Menu {
             //Select start the game
             if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
                 if (curSelect == 0) {
+                    StartCoroutine(ControlsMenu());
                 }
-                else if(curSelect == 2) {
+                else if(curSelect == 3) {
                     StartCoroutine(QuitOption());
                     Debug.Log("Quit");
-                } else if (curSelect == 3) {
+                } else if (curSelect == 4) {
                     //Back
                     SaveData.Instance.SaveGame();
                     StartCoroutine(ReturnToGame());
@@ -104,13 +111,13 @@ public class InGameOptionsMenu : Menu {
                 }
             }
             if (AxisInput.Instance().GetHorizontal() == 1.0f) {
-                if (curSelect == 0 && !selectionSwitch){
+                if (curSelect == 1 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 1 && !selectionSwitch){
+                } else if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -120,13 +127,13 @@ public class InGameOptionsMenu : Menu {
                 }
                 selectionSwitch = true;
             } else if(AxisInput.Instance().GetHorizontal() == -1.0f) {
-                if (curSelect == 0 && !selectionSwitch){
+                if (curSelect == 1 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 1 && !selectionSwitch){
+                } else if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -143,14 +150,31 @@ public class InGameOptionsMenu : Menu {
         }
     }
 
-    IEnumerator QuitOption() {
+    IEnumerator ControlsMenu() {
         PlayConfirm();
         StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
-        Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy(controlsSelector);
+        Destroy (darkPanel);
+        yield return null;
+        GameObject controlsOption = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
+        controlsOption = Instantiate(controlsOption);
+        controlsOption.GetComponent<SettingsMenu>().SetContext(SettingsMenu.MENUCONTEXT.inGame);
+        controlsOption.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+    }
+
+    IEnumerator QuitOption() {
+        PlayConfirm();
+        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(quit);
+        Destroy(back);
+        Destroy(controlsSelector);
         Destroy (darkPanel);
         GameObject quitOptionSelection = Resources.Load("UIObjects/InGameQuitMenu/IngameQuitSelector") as GameObject;
         quitOptionSelection = Instantiate(quitOptionSelection);
@@ -162,11 +186,11 @@ public class InGameOptionsMenu : Menu {
     IEnumerator ReturnToGame(){
         PlayConfirm();
         StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
-        Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy(controlsSelector);
         Destroy (darkPanel);
         Destroy(gameObject);
         yield return null;
