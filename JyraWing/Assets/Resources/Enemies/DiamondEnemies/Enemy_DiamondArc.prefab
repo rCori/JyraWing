@@ -120,7 +120,7 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: -1, y: -1}
     endVelocity: {x: 0, y: 0}
-    time: 7
+    time: 9
 --- !u!212 &212000011566739434
 SpriteRenderer:
   m_ObjectHideFlags: 1
