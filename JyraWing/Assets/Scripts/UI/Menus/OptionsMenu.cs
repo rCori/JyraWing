@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Assertions;
 
 public class OptionsMenu : Menu {
 
@@ -20,6 +21,7 @@ public class OptionsMenu : Menu {
     private bool lockScreen;
     private bool selectionSwitch;
 
+    private VolumeSettings volumeSettings;
 
     // Use this for initialization
     void Start() {
@@ -65,8 +67,10 @@ public class OptionsMenu : Menu {
         back = Instantiate(back);
         back.transform.SetParent(uiCanvas.transform, false);
 
-        //Amount to move selector over from a selection when that item is selected.
-        float adjustPt = Screen.width / 10.0f;
+        volumeSettings = GameObject.Find("VolumeSettings").GetComponent<VolumeSettings>();
+        Assert.IsNotNull(volumeSettings);
+
+        menuLocations.Clear();
 
         menuLocations.Add(new Vector2(controlsMenu.transform.position.x, controlsMenu.transform.position.y));
         menuLocations.Add(new Vector2(lifeCount.transform.position.x, lifeCount.transform.position.y));
@@ -103,11 +107,13 @@ public class OptionsMenu : Menu {
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
+                        volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
                 } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
+                        volumeSettings.SetSFXAudio(SaveData.Instance.SFXLevel);
                     }
                 }
                 selectionSwitch = true;
@@ -122,11 +128,13 @@ public class OptionsMenu : Menu {
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
+                        volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
                 } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
+                        volumeSettings.SetSFXAudio(SaveData.Instance.SFXLevel);
                     }
                 }
                 selectionSwitch = true;
