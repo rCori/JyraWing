@@ -57,7 +57,6 @@ public class SettingsMenu : Menu {
     private bool isWindowed;
     private int resolutionChoice;
 
-
     //Other menu options
     private GameObject saveText;
     private GameObject resetToDefaultsText;
@@ -83,6 +82,7 @@ public class SettingsMenu : Menu {
 
     private bool gettingNextKeyboardKey, gettingNextGamepadButton;
     private bool selectionSwitch;
+    private bool applyVideoSettingsWaitFrame;
 
 	// Use this for initialization
 	void Start () {
@@ -93,6 +93,7 @@ public class SettingsMenu : Menu {
         gettingNextKeyboardKey = false;
         gettingNextGamepadButton = false;
         selectionSwitch = false;
+        applyVideoSettingsWaitFrame = false;
 
         darkPanel = Resources.Load ("UIObjects/ControlsMenu/IngamePanel") as GameObject;
 		darkPanel = Instantiate (darkPanel);
@@ -170,8 +171,8 @@ public class SettingsMenu : Menu {
                 Debug.Log("Saved Game from menu");
                 SaveCurrentControls();
                 ApplyVideoSettings();
-                SaveData.Instance.SaveGame();
-                LoadPrevMenu();
+                applyVideoSettingsWaitFrame = true;
+                
                 break;
             case 7:
                 Debug.Log("Initialize Defaults");
@@ -244,6 +245,13 @@ public class SettingsMenu : Menu {
                 }
                 gettingNextGamepadButton = false;
             }
+        }
+
+        //It takes one frame for the video settings to apply, only after that I what
+        if(applyVideoSettingsWaitFrame) {
+            SaveData.Instance.SaveGame();
+            LoadPrevMenu();
+            applyVideoSettingsWaitFrame = false;
         }
 	}
 
@@ -433,7 +441,6 @@ public class SettingsMenu : Menu {
     }
 
     IEnumerator LoadInGameMenu() {
-        Debug.Log("Load in game menu");
         PlayConfirm();
         Destroy(darkPanel);
         Destroy(keyboardControlsText);
@@ -447,7 +454,7 @@ public class SettingsMenu : Menu {
         Destroy(saveText);
         Destroy(resetToDefaultsText);
         Destroy(backText);
-        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
         GameObject inGameOptionsMenu = Resources.Load("UIObjects/InGameOptionsMenu/InGameOptionsMenu") as GameObject;
         inGameOptionsMenu = Instantiate(inGameOptionsMenu);
         inGameOptionsMenu.transform.SetParent(uiCanvas.transform, false);
@@ -529,74 +536,4 @@ public class SettingsMenu : Menu {
             break;
         }
     }
-
-    /*
-    private void ResetAllMenuPositions() {
-
-        //Destroy(darkPanel);
-        //Destroy(keyboardControlsText);
-        Destroy(keyboardShootButton);
-        Destroy(keyboardShieldButton);
-        //Destroy(gamepadControlsText);
-        Destroy(gamepadShootButton);
-        Destroy(gamepadShieldButton);
-        Destroy(resolutionTextObject);
-        Destroy(windowedTextObject);
-        Destroy(saveText);
-        Destroy(resetToDefaultsText);
-        Destroy(backText);
-
-        keyboardShootButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShootButtonText") as GameObject;
-        keyboardShootButton = Instantiate(keyboardShootButton);
-        keyboardShootButton.transform.SetParent(uiCanvas.transform, false);
-
-        keyboardShieldButton = Resources.Load("UIObjects/ControlsMenu/KeyboardShieldButtonText") as GameObject;
-        keyboardShieldButton = Instantiate(keyboardShieldButton);
-        keyboardShieldButton.transform.SetParent(uiCanvas.transform, false);
-
-        gamepadShootButton = Resources.Load("UIObjects/ControlsMenu/GamepadShootButtonText") as GameObject;
-        gamepadShootButton = Instantiate(gamepadShootButton);
-        gamepadShootButton.transform.SetParent(uiCanvas.transform, false);
-
-        gamepadShieldButton = Resources.Load("UIObjects/ControlsMenu/GamepadShieldButtonText") as GameObject;
-        gamepadShieldButton = Instantiate(gamepadShieldButton);
-        gamepadShieldButton.transform.SetParent(uiCanvas.transform, false);
-
-        resolutionTextObject = Resources.Load("UIObjects/ControlsMenu/ResolutionPickerText") as GameObject;
-        resolutionTextObject = Instantiate(resolutionTextObject);
-        resolutionTextObject.transform.SetParent(uiCanvas.transform, false);
-
-        windowedTextObject = Resources.Load("UIObjects/ControlsMenu/WindowedToggleText") as GameObject;
-        windowedTextObject = Instantiate(windowedTextObject);
-        windowedTextObject.transform.SetParent(uiCanvas.transform, false);
-
-        saveText = Resources.Load("UIObjects/ControlsMenu/Save") as GameObject;
-        saveText = Instantiate(saveText);
-        saveText.transform.SetParent(uiCanvas.transform, false);
-
-        resetToDefaultsText = Resources.Load("UIObjects/ControlsMenu/ResetDefaults") as GameObject;
-        resetToDefaultsText = Instantiate(resetToDefaultsText);
-        resetToDefaultsText.transform.SetParent(uiCanvas.transform, false);
-
-        backText = Resources.Load("UIObjects/ControlsMenu/Back") as GameObject;
-        backText = Instantiate(backText);
-        backText.transform.SetParent(uiCanvas.transform, false);
-
-        menuLocations.Clear();
-        menuLocations.Add(new Vector2(keyboardShootButton.transform.position.x, keyboardShootButton.transform.position.y));
-        menuLocations.Add(new Vector2(keyboardShieldButton.transform.position.x, keyboardShieldButton.transform.position.y));
-
-        menuLocations.Add(new Vector2(gamepadShootButton.transform.position.x, gamepadShootButton.transform.position.y));
-        menuLocations.Add(new Vector2(gamepadShieldButton.transform.position.x, gamepadShieldButton.transform.position.y));
-
-        menuLocations.Add(new Vector2(resolutionTextObject.transform.position.x, resolutionTextObject.transform.position.y));
-        menuLocations.Add(new Vector2(windowedTextObject.transform.position.x, windowedTextObject.transform.position.y));
-
-        menuLocations.Add(new Vector2(saveText.transform.position.x, saveText.transform.position.y));
-        menuLocations.Add(new Vector2(resetToDefaultsText.transform.position.x, resetToDefaultsText.transform.position.y));
-        menuLocations.Add(new Vector2(backText.transform.position.x, backText.transform.position.y));
-
-        gameObject.transform.position = menuLocations[curSelect];
-    }
-    */
 }
