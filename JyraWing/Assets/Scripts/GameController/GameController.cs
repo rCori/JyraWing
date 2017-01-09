@@ -85,7 +85,7 @@ public class GameController {
 
 	IPowerupGroupController powerupGroupController;
 
-	public Vector3 playerPosition;
+    public Vector3 playerPosition;
 
 	public delegate void GameControllerEvent();
 	public static event GameControllerEvent GameOverEvent;
@@ -152,6 +152,5 @@ public class GameController {
 	public void PlayerKilled(){
 		GameOverEvent ();
 	}
-		
 
 }

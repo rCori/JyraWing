@@ -12,6 +12,7 @@ TagManager:
   - PowerUp
   - ShieldMeter
   - PointIcon
+  - BossHealth
   layers:
   - Default
   - TransparentFX

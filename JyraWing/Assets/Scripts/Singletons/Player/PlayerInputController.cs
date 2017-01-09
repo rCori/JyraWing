@@ -53,9 +53,6 @@ public class PlayerInputController : MonoBehaviour {
         ShieldButtonGamepadKeyCode = SaveData.Instance.ShieldGamepadButtonKeyCode;
         StartButtonGamepadKeyCode = ButtonInput.Instance().GetGamepadStartButton();
 
-        Debug.Log("AutoFireButtonKeyCode: " + (KeyCode)AutoFireButtonKeyCode);
-        Debug.Log("ShieldButtonKeyCode: " + (KeyCode)ShieldButtonKeyCode);
-
 	}
 
 	private void ButtonUpdate(string butttonString, ButtonEvent buttonEvent) {

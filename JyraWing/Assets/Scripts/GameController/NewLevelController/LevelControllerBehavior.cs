@@ -31,7 +31,6 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 		StartCoroutine (levelFinishedRoutine());
 	}
 
-
 	IEnumerator gameOverRoutine() {
 		yield return new WaitForSeconds (2f);
 		DisablePlayerEvent ();

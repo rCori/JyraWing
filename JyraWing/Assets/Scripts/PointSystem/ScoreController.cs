@@ -25,9 +25,14 @@ public class ScoreController {
 	}
 
 	public static void ResetScore() {
+        Debug.LogError("<color=#ff0000ff>Resetting current highscore</color>");
 		CurrentScore = 0;
 		if (AddToScoreEvent != null) {
 			AddToScoreEvent (CurrentScore);
 		}
 	}
+
+    ~ScoreController() {
+        CountdownTimer.PlayerContinueEvent -= ResetScore;
+    }
 }

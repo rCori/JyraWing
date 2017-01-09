@@ -49,11 +49,12 @@ public class IngameQuitMenu : Menu {
 		if (!lockScreen) {
 			MenuScroll ();
 
-			//No: Continue game, unpausing it.
+			
 			if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
+                //No: Continue game, unpausing it.
 				if (curSelect == 0) {
 					StartCoroutine(BackOut ());
-					//Yes: Go back to main menu
+				//Yes: Go back to main menu
 				} else if (curSelect == 1) {
 					StartCoroutine (LoadTitleSceneCoroutine ());
 				}
@@ -75,6 +76,7 @@ public class IngameQuitMenu : Menu {
 
 	IEnumerator LoadTitleSceneCoroutine(){
 		PlayConfirm ();
+        SaveData.Instance.EnterScore(ScoreController.GetScore());
 		lockScreen = true;
         yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
         Time.timeScale = 1f;

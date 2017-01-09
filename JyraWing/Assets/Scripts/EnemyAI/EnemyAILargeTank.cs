@@ -56,13 +56,6 @@ private int moveState;
 		GivePointObject (1, 0.6f);
         GivePointObject (1, 0.3f);
         directionalFire();
-
-        GameObject enemyHealthBar = Resources.Load("UIObjects/EnemyHealthBar") as GameObject;
-        GameObject canvas = GameObject.Find("Canvas");
-        enemyHealthBar = Instantiate(enemyHealthBar);
-        enemyHealthBar.transform.SetParent(canvas.transform);
-        enemyHealthBar.transform.localPosition = new Vector2(0f, 0f);
-        enemyHealthBar.GetComponent<EnemyHealthBar>().InitEnemyInfo(this);
 	}
 	
 

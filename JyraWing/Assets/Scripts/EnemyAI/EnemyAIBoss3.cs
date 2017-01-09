@@ -49,6 +49,14 @@ public class EnemyAIBoss3 : EnemyBehavior {
 			GivePointObject (2, i*0.5f);
 		}
 
+        GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
+        GameObject canvas = GameObject.Find("Canvas");
+        enemyHealthBar = Instantiate(enemyHealthBar);
+        enemyHealthBar.transform.SetParent(canvas.transform, false);
+        enemyHealthBar.GetComponentInChildren<EnemyHealthBar>().InitEnemyInfo(this);
+
+        destroyEvent += OnBossDestruction;
+
 	}
 
 	void Update () {
@@ -670,11 +678,12 @@ public class EnemyAIBoss3 : EnemyBehavior {
 	}
 		
 
-	void OnDestroy(){
-        
+	void OnBossDestruction(){
 		if (levelControllerBehavior != null) {
 			levelControllerBehavior.HandleLevelFinished ();
 		}
+        //Then remove this even because there will be no other time to do that.
+        destroyEvent -= OnBossDestruction;
 	}
 
 	public override bool paused

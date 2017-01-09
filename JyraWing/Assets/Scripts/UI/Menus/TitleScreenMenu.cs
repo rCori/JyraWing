@@ -7,9 +7,8 @@ public class TitleScreenMenu : Menu {
 
 	private GameObject uiCanvas;
 	private GameObject level1StartGame;
-	//private GameObject level2StartGame;
+
 	private GameObject quitGame;
-	private GameObject saveGame;
     private GameObject options;
 
 	private string selectedLevel = "Level_1";

@@ -53,6 +53,14 @@ public class EnemyAIBoss4 : EnemyBehavior
         for (int i = 0; i < 8; i++) {
 			GivePointObject (1, i*0.5f);
 		}
+
+        GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
+        GameObject canvas = GameObject.Find("Canvas");
+        enemyHealthBar = Instantiate(enemyHealthBar);
+        enemyHealthBar.transform.SetParent(canvas.transform, false);
+        enemyHealthBar.GetComponentInChildren<EnemyHealthBar>().InitEnemyInfo(this);
+
+        destroyEvent += OnBossDestruction;
     }
 	
 	// Update is called once per frame
@@ -135,12 +143,14 @@ public class EnemyAIBoss4 : EnemyBehavior
         }
     }
 
-    void OnDestroy()
+    void OnBossDestruction()
     {
         if (levelControllerBehavior != null)
         {
             levelControllerBehavior.HandleLevelFinished();
         }
+        //Then remove this even because there will be no other time to do that.
+        destroyEvent -= OnBossDestruction;
     }
 
     public void BulletPatternShift(int patternNum) {

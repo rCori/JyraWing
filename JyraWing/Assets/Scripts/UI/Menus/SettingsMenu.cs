@@ -172,8 +172,8 @@ public class SettingsMenu : Menu {
                 SaveCurrentControls();
                 ApplyVideoSettings();
                 applyVideoSettingsWaitFrame = true;
-                
-                break;
+
+                return;
             case 7:
                 Debug.Log("Initialize Defaults");
                 SaveData.Instance.InitDefaults();

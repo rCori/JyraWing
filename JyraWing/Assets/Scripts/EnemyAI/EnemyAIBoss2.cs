@@ -56,6 +56,13 @@ public class EnemyAIBoss2 : EnemyBehavior {
 			GivePointObject (3, i*0.1f);
 		}
 
+        GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
+        GameObject canvas = GameObject.Find("Canvas");
+        enemyHealthBar = Instantiate(enemyHealthBar);
+        enemyHealthBar.transform.SetParent(canvas.transform, false);
+        enemyHealthBar.GetComponentInChildren<EnemyHealthBar>().InitEnemyInfo(this);
+
+        destroyEvent += OnBossDestruction;
 	}
 	
 	// Update is called once per frame
@@ -83,7 +90,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
 	}
 
-	void OnDestroy(){
+	void OnBossDestruction(){
 		//animator.SetInteger ("animState", 3);
 		GameObject obj = GameObject.Find ("GameController");
 		//The boss object could be destoryed on account of the level ending.
@@ -93,7 +100,8 @@ public class EnemyAIBoss2 : EnemyBehavior {
 			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
 			levelControllerBehavior.HandleLevelFinished ();
 		}
-	
+        //Then remove this even because there will be no other time to do that.
+	    destroyEvent -= OnBossDestruction;
 	}
 
 	/// <summary>

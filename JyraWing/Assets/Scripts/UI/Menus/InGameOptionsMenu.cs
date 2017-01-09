@@ -75,10 +75,10 @@ public class InGameOptionsMenu : Menu {
         back.transform.SetParent(uiCanvas.transform, false);
 
         //Amount to move selector over from a selection when that item is selected.
-        float adjustPt = Screen.width / 10.0f;
+        //float adjustPt = Screen.width / 10.0f;
 
         menuLocations.Clear();
-
+    
         menuLocations.Add(new Vector2(controlsSelector.transform.position.x, controlsSelector.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
@@ -150,26 +150,11 @@ public class InGameOptionsMenu : Menu {
         }
     }
 
-    IEnumerator ControlsMenu() {
-        PlayConfirm();
-        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
-        Destroy(bgmLevel);
-        Destroy(sfxLevel);
-        Destroy(quit);
-        Destroy(back);
-        Destroy(controlsSelector);
-        Destroy (darkPanel);
-        yield return null;
-        GameObject controlsOption = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
-        controlsOption = Instantiate(controlsOption);
-        controlsOption.GetComponent<SettingsMenu>().SetContext(SettingsMenu.MENUCONTEXT.inGame);
-        controlsOption.transform.SetParent(uiCanvas.transform, false);
-        Destroy(gameObject);
-    }
+
 
     IEnumerator QuitOption() {
         PlayConfirm();
-        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
         Destroy(bgmLevel);
         Destroy(sfxLevel);
         Destroy(quit);
@@ -181,6 +166,22 @@ public class InGameOptionsMenu : Menu {
         quitOptionSelection.transform.SetParent(uiCanvas.transform, false);
         Destroy(gameObject);
         yield return null;
+    }
+
+    IEnumerator ControlsMenu() {
+        PlayConfirm();
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(quit);
+        Destroy(back);
+        Destroy(controlsSelector);
+        Destroy (darkPanel);
+        GameObject controlsOption = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
+        controlsOption = Instantiate(controlsOption);
+        controlsOption.transform.SetParent(uiCanvas.transform, false);
+        controlsOption.GetComponent<SettingsMenu>().SetContext(SettingsMenu.MENUCONTEXT.inGame);
+        Destroy(gameObject);
     }
 
     IEnumerator ReturnToGame(){

@@ -102,6 +102,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\Tests\HighScoreDataTest.cs" />
     <Compile Include="Assets\Editor\Tests\LevelControllerTest.cs" />
     <Compile Include="Assets\Editor\Tests\PauseContollerTest.cs" />
     <Compile Include="Assets\Editor\Tests\PowerupGroupControllerTest.cs" />

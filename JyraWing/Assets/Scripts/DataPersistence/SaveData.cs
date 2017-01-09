@@ -67,4 +67,18 @@ public class SaveData  {
         isWindowed = false;
     }
 
+    public void EnterScore(int score) {
+        if(score > highScore && !LevelControllerBehavior.SingleLevel) {
+            Debug.LogError("<color=#000080ff>SaveData.EnterScore called. New score of " + score + 
+                " will overwrite old high score "+ highScore +"</color>");
+            highScore = score;
+        } else if(LevelControllerBehavior.SingleLevel) {
+            Debug.LogError("<color=#000080ff>SaveData.EnterScore called but this is a single "+
+                 "level being played so no highscore will save</color>");
+        } else {
+            Debug.LogError("<color=#000080ff>SaveData.EnterScore called. New score of " + score + 
+                " is smaller than previous high score of "+ highScore +"</color>");
+        }
+        SaveGame();
+    }
 }

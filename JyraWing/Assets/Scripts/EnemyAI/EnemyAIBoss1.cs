@@ -10,7 +10,6 @@ public class EnemyAIBoss1 : EnemyBehavior {
     private IEnumerator firePattern1, streamShieldableBullets;
 
     private int BOSS1_HITS = 100;
-
     private int patternValSet;
 
 	void Awake(){
@@ -37,11 +36,19 @@ public class EnemyAIBoss1 : EnemyBehavior {
 			GivePointObject (1, i*0.5f);
 		}
 
+        GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
+        GameObject canvas = GameObject.Find("Canvas");
+        enemyHealthBar = Instantiate(enemyHealthBar);
+        enemyHealthBar.transform.SetParent(canvas.transform, false);
+        enemyHealthBar.GetComponentInChildren<EnemyHealthBar>().InitEnemyInfo(this);
+
+        destroyEvent += OnBossDestruction;
+
 	}
 	
     // Update is called once per frame
 	void Update () {
-		if (isDestroyed || _paused) {
+		if (_paused) {
 			return;
 		}
 		Movement();
@@ -194,12 +201,15 @@ public class EnemyAIBoss1 : EnemyBehavior {
         }
     }
 
-    void OnDestroy()
+    void OnBossDestruction()
     {
         if (levelControllerBehavior != null)
         {
+            Debug.Log("Handle level finished");
             levelControllerBehavior.HandleLevelFinished();
         }
+        //Then remove this even because there will be no other time to do that.
+        destroyEvent -= OnBossDestruction;
     }
 
 }

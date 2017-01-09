@@ -93,7 +93,9 @@ public class PauseControllerBehavior : MonoBehaviour {
 
     public static IEnumerator WaitForRealSeconds(float time) {
         float start = Time.realtimeSinceStartup;
+        Debug.Log("currentTime: " + Time.realtimeSinceStartup);
         while(Time.realtimeSinceStartup < start+ time) {
+            Debug.Log("currentTime: " + Time.realtimeSinceStartup);
             yield return null;
         }
     }

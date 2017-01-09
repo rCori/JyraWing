@@ -37,7 +37,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	private GameController gameController;
 	private SoundEffectPlayer sfxPlayer;
 	Animator animator;
-	int hits;
+	//int hits;
 	private AudioClip damageSfx;
 	private float hitTimer;
 	private IPlayerShield playerShield;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	void Start () {
 		animator = gameObject.GetComponent <Animator> ();
 		hitTimer = 0.0f;
-		hits = SaveData.Instance.livesPerCredit;
+		//hits = SaveData.Instance.livesPerCredit;
 		//Sound when the player is hit
 		damageSfx = Resources.Load ("Audio/SFX/playerExplosion") as AudioClip;
 
@@ -138,8 +138,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Take damage from the enemy bullet
 	/// </summary>
 	public void TakeDamage(){
-		//take out taking damage for now
-		hits--;
+        //take out taking damage for now
+        //hits--;
+        PlayerLives.Instance.DecreaseLives();
 		GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 		//Get the length of the animation.
 		hitTimer = 2.5f;
@@ -147,7 +148,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		takingDamage = TakingDamage.EXPLODE;
 		HitEvent (TakingDamage.EXPLODE);
 		playerShield.DisableShield ();
-		if (hits == 0) {
+		if (PlayerLives.Instance.GetCurrentLives() == 0) {
 			currentOutOfLivesCoroutine = outOfLivesCoroutine ();
 			StartCoroutine(currentOutOfLivesCoroutine);
 		} else {
@@ -162,10 +163,12 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// Getter for the number of lives remaining
 	/// </summary>
 	/// <returns>Number of player lives.</returns>
+    /*
 	public int LifeCount()
 	{
 		return hits;
 	}
+    */
 
 	public bool HasShield(){
 		return playerShield.HasShield();
@@ -214,7 +217,6 @@ public class Player : MonoBehaviour, PauseableItem {
 
 		gameObject.transform.position = endSavePos;
 		takingDamage = TakingDamage.BLINKING;
-        //Debug.Log("TakingDamage.BLINKING");
 		HitEvent (TakingDamage.BLINKING);
 
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(3.5f));
@@ -222,7 +224,6 @@ public class Player : MonoBehaviour, PauseableItem {
 		playerShield.EnableShield ();
 		hitTimer = 0.0f;
 		takingDamage = TakingDamage.NONE;
-        //Debug.Log("TakingDamage.NONE");
 		HitEvent (TakingDamage.NONE);
         hitCollider.enabled = true;
 		returnFromInProgress = false;
@@ -230,6 +231,7 @@ public class Player : MonoBehaviour, PauseableItem {
 
 	IEnumerator outOfLivesCoroutine() {
         outOfLivesInProgress = true;
+        SaveData.Instance.EnterScore(ScoreController.GetScore());
 		gameController.PlayerKilled ();
         outOfLivesInProgress = false;
 		yield return null;
@@ -259,36 +261,10 @@ public class Player : MonoBehaviour, PauseableItem {
 				//I am hoping this fixes the drift by mashing pause in the corner bug.
 				animator.speed = 0f;
                 animator.enabled = false;
-                /*
-				if (returnFromInProgress) {
-                    Debug.Log("stoping currentReturnFromInProgress coroutine from pause");
-					StopCoroutine (currentReturnFromHitCoroutine);
-				}
-                if(outOfLivesInProgress) {
-                    Debug.Log("stoping currentOutOfLives coroutine from pause");
-					StopCoroutine (currentOutOfLivesCoroutine);
-                }
-                if(waitForSecondsInProgress) {
-                    StopCoroutine(currentWaitForSecondsCoroutine);
-                }
-                */
 			}
 			else{
 				animator.speed = 1f;
                 animator.enabled = true;
-                /*
-				if (returnFromInProgress) {
-                    Debug.Log("restarting returnFromInProgress coroutine from unpausing");
-					StartCoroutine (currentReturnFromHitCoroutine);
-				}
-                if(outOfLivesInProgress) {
-                    Debug.Log("restarting currentOutOfLives coroutine from unpausing");
-					StartCoroutine (currentOutOfLivesCoroutine);
-                }
-                if(waitForSecondsInProgress) {
-                    StartCoroutine(currentWaitForSecondsCoroutine);
-                }
-                */
 			}
 		}
 	}
@@ -338,7 +314,7 @@ public class Player : MonoBehaviour, PauseableItem {
 	public void ResetTakingDamage() {
 		takingDamage = TakingDamage.RETURNING;
 		hitTimer = 2.0f;
-		hits = SaveData.Instance.livesPerCredit;
+        PlayerLives.Instance.ResetLives();
 	}
 
 	public bool PlayerShootingDisabled() {

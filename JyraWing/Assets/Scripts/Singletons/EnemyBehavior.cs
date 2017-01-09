@@ -11,6 +11,9 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
     public delegate void HitPointUpdate(int hitpoints);
     public event HitPointUpdate hitPointEvent;
 
+    public delegate void DestroyEvent();
+    public event DestroyEvent destroyEvent;
+
 	public enum MovementStatus {None, Lerp, Slerp, Velocity, ArcVelocity}
 
 	///Mark this as an enum that can have multiple values ORed together
@@ -492,6 +495,10 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// Handle powerup squad arrangments and ordering
 	/// </summary>
 	void OnDestroy() {
+        //Anything that needs to happen on the destruction of this enemy
+        if(destroyEvent != null) { 
+            destroyEvent.Invoke();
+        }
 		//Null reference issue on close is blocked by a null check on gameObject.
 		if (powerupGroupID != -1 && !isDestroyed && gameController != null) {
 			//gameController.RemoveSquad (powerupGroupID);
@@ -643,7 +650,6 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 			}
 		}
 	}
-
 
 	public void RegisterToList() {
         RegisterPauseController(this);

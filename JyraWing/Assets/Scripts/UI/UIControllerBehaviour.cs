@@ -47,7 +47,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		slider = Instantiate (slider);
 		slider.transform.SetParent(playerCanvas.transform, false);
 
-		Initialize (uiController.GetStartingLifeCount ());
+		Initialize (PlayerLives.Instance.GetCurrentLives());
 
 		visibleColor = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 		invisibleColor = new Color (1.0f, 1.0f, 1.0f, 0.0f);
@@ -101,9 +101,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	/// <param name="i_curLife">The life to removed from HUD.</param>
 	private void DecreaseLives(){
-		uiController.DecreaseLifeCount ();
+		//uiController.DecreaseLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
-		lifeMessageText.text = "Lives: " + uiController.GetLifeCount();
+        //lifeMessageText.text = "Lives: " + uiController.GetLifeCount();
+        lifeMessageText.text = "Lives: " + PlayerLives.Instance.GetCurrentLives();
 	}
 
 
@@ -137,7 +138,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	public void ShowLevelComplete(){
 		//Set the alpha to max, making it visible.
-		if (uiController.GetLifeCount() != 0) {
+		//if (uiController.GetLifeCount() != 0) {
+        if (PlayerLives.Instance.GetCurrentLives() != 0) {
 			Image levelEndImageComp = levelEndImage.GetComponent<Image> ();
 			Color myColor = levelEndImageComp.color;
 			myColor.a = 255;
@@ -174,7 +176,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 	public void ResetLives() {
 		uiController.InitializeLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
-		lifeMessageText.text = "Lives: " + uiController.GetStartingLifeCount ();
+        //lifeMessageText.text = "Lives: " + uiController.GetStartingLifeCount ();
+        lifeMessageText.text = "Lives: " + SaveData.Instance.livesPerCredit;
 	}
 
 	public void DisableShieldSlider() {

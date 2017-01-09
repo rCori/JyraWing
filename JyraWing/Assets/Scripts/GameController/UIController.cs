@@ -8,47 +8,50 @@ public class UIController : IUIController {
 	int shieldPercentage;
 
 	//Number of lives displayed by the UI
-	int lifeCount;
+	//int lifeCount;
 	//The user can set a default number of lives the player would have
-	int startingLifeCount;
+	//int startingLifeCount;
 
 	public UIController(){
-		//Set all of these variables to 0
-		lifeCount = SaveData.Instance.livesPerCredit;
+        //Set all of these variables to 0
+        //lifeCount = PlayerLives.Instance.GetCurrentLives();
 		shieldPercentage = 100;
-		startingLifeCount = SaveData.Instance.livesPerCredit;
+		//startingLifeCount = SaveData.Instance.livesPerCredit;
 	}
 		
 	//Set the default number of lives that life count will be set to
 	//when InitializeLifeCount is called.
 	public void SetDefaultLifeCount(int newDefaultLifeCount){
-		startingLifeCount = newDefaultLifeCount;
+		SaveData.Instance.livesPerCredit = newDefaultLifeCount;
 	}
 
 	/// Set the life count back to the default
 	public void InitializeLifeCount(){
-		lifeCount = startingLifeCount;
+		//lifeCount = SaveData.Instance.livesPerCredit;
 	}
 
+    
 	public void IncreaseLifeCount(){
-		lifeCount++;
+		
 	}
-	
+
 	public void DecreaseLifeCount(){
-		//Life count should never go negative so prevent that
-		if (lifeCount > 0) {
-			lifeCount--;
-		}
+        //Life count should never go negative so prevent that
+        //if (lifeCount > 0) {
+        //	lifeCount--;
+        //}
+        PlayerLives.Instance.DecreaseLives();
 	}
 		
 
 	//Return lifeCount for use by the UI GameObject
 	public int GetLifeCount(){
-		return lifeCount;
+        //return lifeCount;
+        return PlayerLives.Instance.GetCurrentLives();
 	}
 
 	public int GetStartingLifeCount() {
-		return startingLifeCount;
+        return SaveData.Instance.livesPerCredit;
 	}
 
 	public void SetShieldPercentage(int percentage) {
