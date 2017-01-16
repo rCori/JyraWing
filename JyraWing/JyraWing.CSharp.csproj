@@ -205,6 +205,7 @@
     <Compile Include="Assets\Scripts\UI\CountdownTimer.cs" />
     <Compile Include="Assets\Scripts\UI\DialogNode.cs" />
     <Compile Include="Assets\Scripts\UI\EnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\UI\HighScores\DisplayScores.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\InGameOptionsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\IngameQuitMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />

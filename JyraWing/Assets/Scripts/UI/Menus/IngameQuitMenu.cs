@@ -76,7 +76,9 @@ public class IngameQuitMenu : Menu {
 
 	IEnumerator LoadTitleSceneCoroutine(){
 		PlayConfirm ();
-        SaveData.Instance.EnterScore(ScoreController.GetScore());
+        //SaveData.Instance.EnterScore(ScoreController.GetScore());
+        HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
+        HighScoreData.Instance.SaveGame();
 		lockScreen = true;
         yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
         Time.timeScale = 1f;

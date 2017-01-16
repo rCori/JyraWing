@@ -9,6 +9,10 @@ using UnityEngine.Assertions;
 [System.Serializable]
 public class HighScoreData {
 
+    public SavedScoreArray scoreArray;
+    private static HighScoreData instance;
+	private HighScoreData() {}
+
     [System.Serializable]
     public struct SavedScore {
         public SavedScore(int score, string name) {
@@ -19,10 +23,10 @@ public class HighScoreData {
         public string name;
     }
 
-    private static HighScoreData instance;
-	private HighScoreData() {}
-
-    private SavedScore[] scores;
+    [System.Serializable]
+    public struct SavedScoreArray {
+        public SavedScore[] scores;
+    }
 
 	public static HighScoreData Instance {
 		get{
@@ -35,6 +39,7 @@ public class HighScoreData {
 	}
 
     public void LoadGame() {
+        Debug.Log ("Loading high scores...");
         if (!File.Exists (Application.dataPath + "/highscoredata.json")) {
             InitDefaults();
 			SaveGame ();
@@ -55,17 +60,17 @@ public class HighScoreData {
     }
 
     private void InitDefaults() {
-        scores = new SavedScore[10];
-        scores[0] = new SavedScore(1000, "JYRAWING");
-        scores[1] = new SavedScore(900, "JYRA");
-        scores[2] = new SavedScore(800, "WING");
-        scores[3] = new SavedScore(700, "PLAYER");
-        scores[4] = new SavedScore(600, "AAA");
-        scores[5] = new SavedScore(500, "BBB");
-        scores[6] = new SavedScore(400, "CCC");
-        scores[7] = new SavedScore(300, "DDD");
-        scores[8] = new SavedScore(200, "EEE");
-        scores[9] = new SavedScore(100, "FFF");
+        scoreArray.scores = new SavedScore[10];
+        scoreArray.scores[0] = new SavedScore(1000, "JYRAWING");
+        scoreArray.scores[1] = new SavedScore(900, "JYRA");
+        scoreArray.scores[2] = new SavedScore(800, "WING");
+        scoreArray.scores[3] = new SavedScore(700, "PLAYER");
+        scoreArray.scores[4] = new SavedScore(600, "AAA");
+        scoreArray.scores[5] = new SavedScore(500, "BBB");
+        scoreArray.scores[6] = new SavedScore(400, "CCC");
+        scoreArray.scores[7] = new SavedScore(300, "DDD");
+        scoreArray.scores[8] = new SavedScore(200, "EEE");
+        scoreArray.scores[9] = new SavedScore(100, "FFF");
     }
 
     /// <summary>
@@ -75,7 +80,7 @@ public class HighScoreData {
     /// <returns>The highest score the current one beats. -1 if none of them</returns>
     public int CheckScore(int score) {
         //Check if this is even higher than the lowest
-        if(score > scores[9].score) {
+        if(score > scoreArray.scores[9].score) {
             //binary search from there
             return binSearchScore(0, 9, score) + 1;
         }
@@ -84,15 +89,35 @@ public class HighScoreData {
     }
 
     public void EnterScore(int score, string name) {
+        if(LevelControllerBehavior.SingleLevel) {
+            Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called but this is a single "+
+                 "level being played so no highscore will save</color>");
+            return;
+        }
+
         //Get what score this replaces
         int replacementScore = CheckScore(score) - 1;
+        if(replacementScore == -1) {
+#if ASSERT
+            Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called. New score of " + score + 
+                " is smaller than previous high score of "+ scoreArray.scores[9].score +"</color>");
+#endif
+            return;
+        }
+#if ASSERT
+        else {
+            Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called. New score of " + score + 
+                " is smaller than score number " + (replacementScore+1) + " which is " + 
+                scoreArray.scores[replacementScore].score +"</color>");
+        }
+#endif
         //for this score and every score lower shift down one
         int currentShift = 9;
         while(currentShift != replacementScore) {
-            scores[currentShift] = scores[currentShift-1];
+            scoreArray.scores[currentShift] = scoreArray.scores[currentShift-1];
             currentShift--;
         }
-        scores[replacementScore] = new SavedScore(score, name);
+        scoreArray.scores[replacementScore] = new SavedScore(score, name);
     }
 
     public void EnterScore(SavedScore newScore) {
@@ -106,16 +131,16 @@ public class HighScoreData {
 #endif
         int middle = (low + high) / 2;
         //Current search is higher than the score we are searching, we must go down the list
-        if(scores[middle].score > score) {
+        if(scoreArray.scores[middle].score > score) {
             return binSearchScore(middle+1, high, score);
         }
         //Current search is lower than the score we are searching
-        else if (scores[middle].score <= score) {
+        else if (scoreArray.scores[middle].score <= score) {
             //If this is the highest score or the score directly higher than the current we have found the highest
             //place for the current score
             if(middle == 0 ||
                 (middle >0 &&
-                scores[middle-1].score > score)) {
+                scoreArray.scores[middle-1].score > score)) {
                 return middle;
             //Otherwise we can go higher so bin search again
             } else {
@@ -133,7 +158,7 @@ public class HighScoreData {
         Assert.IsTrue(scoreIndex >= 0);
         Assert.IsTrue(scoreIndex <= 9);
 #endif
-        SavedScore returnScore = scores[scoreIndex];
+        SavedScore returnScore = scoreArray.scores[scoreIndex];
         return returnScore;
     }
 
@@ -141,7 +166,7 @@ public class HighScoreData {
 #if ASSERT
         Assert.AreEqual<int>(alternateScoreSet.Length, 10);
 #endif
-        scores = alternateScoreSet;
+        scoreArray.scores = alternateScoreSet;
     }
 
 }
