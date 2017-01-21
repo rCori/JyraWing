@@ -64,7 +64,11 @@ public class CountdownTimer : MonoBehaviour {
 			countdownVal--;
 			if (countdownVal == -1) {
 				countdownStarted = false;
-				SceneManager.LoadScene ("titleScene");
+                if(ScoreController.GetHasScoreToEnter()) {
+                    SceneManager.LoadScene("HighScore");
+                } else {
+		            SceneManager.LoadScene("titleScene");
+                }
 			}
 		}
 	}

@@ -119,6 +119,17 @@ public class HighScoreDataTest {
         Assert.AreEqual(scoreRank, 10);
     }
 
+    [Test]
+    public void test_CheckScoreNotPlacing() {
+        //Arrange
+        HighScoreData.Instance.LoadAlternateScores(makeTestData());
+        //Act
+        int scoreRank = HighScoreData.Instance.CheckScore(5);
+        //Assert
+        Assert.AreEqual(scoreRank, -1);
+    }
+
+
 
     [Test]
     public void test_EnterScoreInFirstPlace() {
@@ -340,6 +351,35 @@ public class HighScoreDataTest {
         Assert.AreEqual(currentTestScore.name, "I");
     }
 
+
+    [Test]
+    public void test_EnterScoreNotPlacing() {
+        //Arrange
+        HighScoreData.Instance.LoadAlternateScores(makeTestData());
+        //Act
+        HighScoreData.Instance.EnterScore(5, "NOPLACE");
+        //Assert
+
+        HighScoreData.SavedScore currentTestScore = HighScoreData.Instance.GetScore(1);
+        Assert.AreEqual(currentTestScore.score, 100);
+        Assert.AreEqual(currentTestScore.name, "A");
+
+        currentTestScore = HighScoreData.Instance.GetScore(2);
+        Assert.AreEqual(currentTestScore.score, 90);
+        Assert.AreEqual(currentTestScore.name, "B");
+
+        currentTestScore = HighScoreData.Instance.GetScore(8);
+        Assert.AreEqual(currentTestScore.score, 30);
+        Assert.AreEqual(currentTestScore.name, "H");
+
+        currentTestScore = HighScoreData.Instance.GetScore(9);
+        Assert.AreEqual(currentTestScore.score, 20);
+        Assert.AreEqual(currentTestScore.name, "I");
+
+        currentTestScore = HighScoreData.Instance.GetScore(10);
+        Assert.AreEqual(currentTestScore.score, 10);
+        Assert.AreEqual(currentTestScore.name, "J");
+    }
     
 
 }

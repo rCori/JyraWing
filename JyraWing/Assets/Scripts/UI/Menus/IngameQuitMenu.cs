@@ -77,12 +77,18 @@ public class IngameQuitMenu : Menu {
 	IEnumerator LoadTitleSceneCoroutine(){
 		PlayConfirm ();
         //SaveData.Instance.EnterScore(ScoreController.GetScore());
-        HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
-        HighScoreData.Instance.SaveGame();
+        //HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
+        //HighScoreData.Instance.SaveGame();
+        HighScoreData.Instance.CheckScore(ScoreController.GetScore());
+
 		lockScreen = true;
         yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
         Time.timeScale = 1f;
-		SceneManager.LoadScene("titleScene");
+        if(ScoreController.GetHasScoreToEnter()) {
+            SceneManager.LoadScene("HighScore");
+        } else {
+		    SceneManager.LoadScene("titleScene");
+        }
 	}
 
 	IEnumerator BackOut(){

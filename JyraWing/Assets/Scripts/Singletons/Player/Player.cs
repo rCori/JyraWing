@@ -232,8 +232,9 @@ public class Player : MonoBehaviour, PauseableItem {
 	IEnumerator outOfLivesCoroutine() {
         outOfLivesInProgress = true;
         //SaveData.Instance.EnterScore(ScoreController.GetScore());
-        HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
-        HighScoreData.Instance.SaveGame();
+        //HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
+        //HighScoreData.Instance.SaveGame();
+        HighScoreData.Instance.CheckScore(ScoreController.GetScore());
 		gameController.PlayerKilled ();
         outOfLivesInProgress = false;
 		yield return null;

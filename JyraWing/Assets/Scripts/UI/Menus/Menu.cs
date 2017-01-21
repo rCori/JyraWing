@@ -32,11 +32,9 @@ public class Menu : MonoBehaviour {
 		//move selection down one
 		float axis;
 		if(isVertical){
-            //axis = Input.GetAxisRaw ("Vertical");
             axis = AxisInput.Instance().GetVertical();
 		}
 		else{
-			//axis = Input.GetAxisRaw ("Horizontal");
             axis = AxisInput.Instance().GetHorizontal();
 		}
 

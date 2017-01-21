@@ -206,9 +206,13 @@
     <Compile Include="Assets\Scripts\UI\DialogNode.cs" />
     <Compile Include="Assets\Scripts\UI\EnemyHealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\HighScores\DisplayScores.cs" />
+    <Compile Include="Assets\Scripts\UI\HighScores\HighScoreSceneMode.cs" />
+    <Compile Include="Assets\Scripts\UI\HighScores\NameDisplayText.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\GridMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\InGameOptionsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\IngameQuitMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\Menu.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\NameEntryMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menus\StartGameMenu.cs" />

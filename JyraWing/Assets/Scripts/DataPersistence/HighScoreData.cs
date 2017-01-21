@@ -1,4 +1,4 @@
-﻿#define ASSERT
+﻿#define ASSERTHIGHSCOREDATA
 
 using UnityEngine;
 using System.Collections;
@@ -81,6 +81,9 @@ public class HighScoreData {
     public int CheckScore(int score) {
         //Check if this is even higher than the lowest
         if(score > scoreArray.scores[9].score) {
+            //There is a score to set
+            ScoreController.SetHighScoreToEnter(true, score);
+
             //binary search from there
             return binSearchScore(0, 9, score) + 1;
         }
@@ -97,18 +100,18 @@ public class HighScoreData {
 
         //Get what score this replaces
         int replacementScore = CheckScore(score) - 1;
-        if(replacementScore == -1) {
-#if ASSERT
+        if(replacementScore == -2) {
+#if ASSERTHIGHSCOREDATA
             Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called. New score of " + score + 
-                " is smaller than previous high score of "+ scoreArray.scores[9].score +"</color>");
+                " is smaller than smallest high score of "+ scoreArray.scores[9].score +"</color>");
 #endif
             return;
         }
-#if ASSERT
+#if ASSERTHIGHSCOREDATA
         else {
-            Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called. New score of " + score + 
-                " is smaller than score number " + (replacementScore+1) + " which is " + 
-                scoreArray.scores[replacementScore].score +"</color>");
+            Debug.LogError("<color=#000080ff>HighScoreData.EnterScore called. New score of " + score +
+                " is larger than score number " + replacementScore + " which is " +
+                scoreArray.scores[replacementScore].score + "</color>");
         }
 #endif
         //for this score and every score lower shift down one
@@ -125,7 +128,7 @@ public class HighScoreData {
     }
 
     private int binSearchScore(int low, int high, int score) {
-#if ASSERT
+#if ASSERTHIGHSCOREDATA
         Assert.IsTrue(low >= 0); 
         Assert.IsTrue(high <= 9);
 #endif
@@ -154,7 +157,7 @@ public class HighScoreData {
     public SavedScore GetScore(int selectedScore) {
         int scoreIndex = selectedScore;
         scoreIndex--;
-#if ASSERT
+#if ASSERTHIGHSCOREDATA
         Assert.IsTrue(scoreIndex >= 0);
         Assert.IsTrue(scoreIndex <= 9);
 #endif
@@ -163,7 +166,7 @@ public class HighScoreData {
     }
 
     public void LoadAlternateScores(SavedScore[] alternateScoreSet) {
-#if ASSERT
+#if ASSERTHIGHSCOREDATA
         Assert.AreEqual<int>(alternateScoreSet.Length, 10);
 #endif
         scoreArray.scores = alternateScoreSet;

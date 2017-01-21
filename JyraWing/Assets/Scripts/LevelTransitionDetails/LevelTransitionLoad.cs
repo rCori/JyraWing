@@ -42,6 +42,12 @@ public class LevelTransitionLoad : MonoBehaviour {
         if(LevelControllerBehavior.SingleLevel) {
             SceneManager.LoadScene(LevelControllerBehavior.TitleSceneLevel);
         } else {
+
+            if(nextLevel=="titleScene") {
+                if(ScoreController.GetHasScoreToEnter()) {
+                    SceneManager.LoadScene("HighScore");
+                }
+            }
 		    SceneManager.LoadScene (nextLevel);
         }
 		yield break;
