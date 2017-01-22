@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class DisplayScores : MonoBehaviour {
 
@@ -12,6 +13,12 @@ public class DisplayScores : MonoBehaviour {
         LoadAllText(text);
 	}
 	
+    void Update() {
+        if(ButtonInput.Instance().FireButtonDown() || ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().ShieldButtonDown()) {
+            StartCoroutine(LoadTitleScene());
+        }
+    }
+
     private void LoadAllText(List<Text> displayText) {
         displayText[0].text = HighScoreData.Instance.GetScore(1).name + ": " + HighScoreData.Instance.GetScore(1).score;
         displayText[1].text = HighScoreData.Instance.GetScore(2).name + ": " + HighScoreData.Instance.GetScore(2).score;
@@ -23,6 +30,14 @@ public class DisplayScores : MonoBehaviour {
         displayText[7].text = HighScoreData.Instance.GetScore(8).name + ": " + HighScoreData.Instance.GetScore(8).score;
         displayText[8].text = HighScoreData.Instance.GetScore(9).name + ": " + HighScoreData.Instance.GetScore(9).score;
         displayText[9].text = HighScoreData.Instance.GetScore(10).name + ": " + HighScoreData.Instance.GetScore(10).score;
+    }
+
+    IEnumerator LoadTitleScene() {
+        //PlayConfirm ();
+		//lockScreen = true;
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("titleScene");
     }
 
 }

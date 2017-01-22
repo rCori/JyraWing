@@ -10,7 +10,7 @@ public class CountdownTimer : MonoBehaviour {
 	private int countdownVal;
 
 	private float secondTimer;
-	private static float SECOND_LENGTH = 2.0f;
+	private static float SECOND_LENGTH = 1.2f;
 
 	public delegate void PlayerKilledDelegate();
 	public static event PlayerKilledDelegate PlayerContinueEvent;
@@ -32,8 +32,7 @@ public class CountdownTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (countdownStarted) {
-			//CountdownRoutine (Time.deltaTime);
-			if(Input.GetButtonDown("Pause") ){
+			if(ButtonInput.Instance().StartButtonDown() ){
 				countdownStarted = false;
 				countdownVal = 9;
 				textDisplay.text = "";
@@ -41,6 +40,14 @@ public class CountdownTimer : MonoBehaviour {
 				StopCoroutine (gameOverRoutine);
 				PlayerContinueEvent();
 			}
+
+            if(ButtonInput.Instance().FireButtonDown() || ButtonInput.Instance().ShieldButtonDown()) {
+                if(countdownVal != 0) {
+                    countdownVal--;
+                    textDisplay.text = countdownVal + "";
+                    CheckIfTimerFinished();
+                }
+            }
 		}
 	}
 
@@ -62,15 +69,19 @@ public class CountdownTimer : MonoBehaviour {
 			textDisplay.text = countdownVal + "";
 			yield return new WaitForSeconds (SECOND_LENGTH);
 			countdownVal--;
-			if (countdownVal == -1) {
-				countdownStarted = false;
-                if(ScoreController.GetHasScoreToEnter()) {
-                    SceneManager.LoadScene("HighScore");
-                } else {
-		            SceneManager.LoadScene("titleScene");
-                }
-			}
+            CheckIfTimerFinished();
 		}
 	}
+
+    private void CheckIfTimerFinished() {
+        if (countdownVal == 0) {
+            countdownStarted = false;
+            if(ScoreController.GetHasScoreToEnter()) {
+                SceneManager.LoadScene("HighScore");
+            } else {
+		        SceneManager.LoadScene("titleScene");
+            }
+        }
+    }
 		
 }

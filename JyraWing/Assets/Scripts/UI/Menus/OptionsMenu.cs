@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿#define ASSERTOPTIONSMENU
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : Menu {
 
@@ -17,6 +20,7 @@ public class OptionsMenu : Menu {
     private Text sfxLevelText;
 
     private GameObject controlsMenu;
+    private GameObject highScoreMenu;
 
     private bool lockScreen;
     private bool selectionSwitch;
@@ -27,7 +31,7 @@ public class OptionsMenu : Menu {
     void Start() {
         //ForceWindowed ();
         InitMenu();
-        numberOfItems = 5;
+        numberOfItems = 6;
         isVertical = true;
         lockScreen = false;
         selectionSwitch = false;
@@ -38,6 +42,10 @@ public class OptionsMenu : Menu {
         controlsMenu = Resources.Load("UIObjects/OptionsMenu/ControlsText") as GameObject;
         controlsMenu = Instantiate(controlsMenu);
         controlsMenu.transform.SetParent(uiCanvas.transform, false);
+
+        highScoreMenu = Resources.Load("UIObjects/OptionsMenu/HighScoreText") as GameObject;
+        highScoreMenu = Instantiate(highScoreMenu);
+        highScoreMenu.transform.SetParent(uiCanvas.transform, false);
 
         lifeCount = Resources.Load("UIObjects/OptionsMenu/LivesText") as GameObject;
         lifeCount = Instantiate(lifeCount);
@@ -73,6 +81,7 @@ public class OptionsMenu : Menu {
         menuLocations.Clear();
 
         menuLocations.Add(new Vector2(controlsMenu.transform.position.x, controlsMenu.transform.position.y));
+        menuLocations.Add(new Vector2(highScoreMenu.transform.position.x, highScoreMenu.transform.position.y));
         menuLocations.Add(new Vector2(lifeCount.transform.position.x, lifeCount.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
@@ -91,25 +100,28 @@ public class OptionsMenu : Menu {
                 if (curSelect == 0) {
                     StartCoroutine(LoadControlsMenu());
                 }
-                else if (curSelect == 4) {
+                else if(curSelect == 1) {
+                    StartCoroutine(LoadHighScoreView());
+                }
+                else if (curSelect == 5) {
                     //Back
                     SaveData.Instance.SaveGame();
                     StartCoroutine(LoadTitleScreenMenu());
                 }
             }
             if (AxisInput.Instance().GetHorizontal() == 1.0f) {
-                if(curSelect == 1 && !selectionSwitch) {
+                if(curSelect == 2 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit < 6) {
                         SaveData.Instance.livesPerCredit++;
                         lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 3 && !selectionSwitch){
+                } else if (curSelect == 4 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -118,19 +130,19 @@ public class OptionsMenu : Menu {
                 }
                 selectionSwitch = true;
             } else if(AxisInput.Instance().GetHorizontal() == -1.0f) {
-                if (curSelect == 1 && !selectionSwitch) {
+                if (curSelect == 2 && !selectionSwitch) {
                     if (SaveData.Instance.livesPerCredit > 1) {
                         SaveData.Instance.livesPerCredit--;
                         lifeCountText.text = "Lives: " + SaveData.Instance.livesPerCredit;
                     }
                 }
-                else if (curSelect == 2 && !selectionSwitch){
+                else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 3 && !selectionSwitch){
+                } else if (curSelect == 4 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -149,6 +161,7 @@ public class OptionsMenu : Menu {
     IEnumerator LoadTitleScreenMenu(){
         PlayConfirm();
         Destroy(controlsMenu);
+        Destroy(highScoreMenu);
         Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);
@@ -161,9 +174,26 @@ public class OptionsMenu : Menu {
         yield return null;
     }
 
+    IEnumerator LoadHighScoreView() {
+        PlayConfirm();
+        Destroy(controlsMenu);
+        Destroy(highScoreMenu);
+        Destroy(lifeCount);
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(back);
+        yield return new WaitForSeconds(0.05f);
+#if ASSERTOPTIONSMENU
+        Assert.IsFalse(ScoreController.GetHasScoreToEnter());
+#endif
+        SceneManager.LoadScene("HighScore");
+        yield return null;
+    }
+
     IEnumerator LoadControlsMenu() {
         PlayConfirm();
         Destroy(controlsMenu);
+        Destroy(highScoreMenu);
         Destroy(lifeCount);
         Destroy(bgmLevel);
         Destroy(sfxLevel);

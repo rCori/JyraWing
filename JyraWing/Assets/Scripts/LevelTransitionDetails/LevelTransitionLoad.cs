@@ -42,10 +42,12 @@ public class LevelTransitionLoad : MonoBehaviour {
         if(LevelControllerBehavior.SingleLevel) {
             SceneManager.LoadScene(LevelControllerBehavior.TitleSceneLevel);
         } else {
-
             if(nextLevel=="titleScene") {
+                int finishScore = ScoreController.GetScore();
+                HighScoreData.Instance.CheckScore(finishScore);
                 if(ScoreController.GetHasScoreToEnter()) {
                     SceneManager.LoadScene("HighScore");
+                    yield break;
                 }
             }
 		    SceneManager.LoadScene (nextLevel);

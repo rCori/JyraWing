@@ -5,7 +5,7 @@ public class EnemyAIBoss5 : EnemyBehavior
 {
     public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS5_HITS = 100;
+    private static int BOSS5_HITS = 10;
 
     private Vector2 downwardShootingAngle;
     private Vector2 upwardShootingAngle;

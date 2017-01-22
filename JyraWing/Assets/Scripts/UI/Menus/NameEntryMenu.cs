@@ -11,6 +11,7 @@ public class NameEntryMenu : GridMenu {
 
     private GameObject characterParent;
     private GameObject canvas;
+    public GameObject NameDisplayObject;
 
     private int MAX_LEN = 10;
 
@@ -21,6 +22,9 @@ public class NameEntryMenu : GridMenu {
 
     public delegate void RemoveCharacterDelegate();
     public static event RemoveCharacterDelegate DeleteCharEvent;
+
+    public delegate void DisplayScoreDelegate();
+    public static event DisplayScoreDelegate DisplayScoreEvent;
 
     void Start() {
 
@@ -216,12 +220,14 @@ public class NameEntryMenu : GridMenu {
 
     IEnumerator LoadTitleSceneCoroutine(){
 		//PlayConfirm ();
-        //SaveData.Instance.EnterScore(ScoreController.GetScore());
-        HighScoreData.Instance.EnterScore(ScoreController.GetScore(), currentName);
+        HighScoreData.Instance.EnterScore(ScoreController.GetHighScoreValueToEnter(), currentName);
         HighScoreData.Instance.SaveGame();
-		//lockScreen = true;
+        //lockScreen = true;
+        Destroy(characterParent);
+        Destroy(NameDisplayObject);
         yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));
         Time.timeScale = 1f;
-		SceneManager.LoadScene("titleScene");
+        DisplayScoreEvent();
+        Destroy(gameObject);
 	}
 }

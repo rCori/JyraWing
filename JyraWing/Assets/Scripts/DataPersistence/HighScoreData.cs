@@ -73,6 +73,15 @@ public class HighScoreData {
         scoreArray.scores[9] = new SavedScore(100, "FFF");
     }
 
+    /*
+    public void TryForNewScore(int score) {
+        int replacementScore = CheckScore(score);
+        if(replacementScore == -1) {
+            ScoreController.SetHighScoreToEnter(true, score);
+        }
+    }
+    */
+
     /// <summary>
     /// Check which high score if any the entered score is higher than
     /// </summary>
@@ -121,6 +130,7 @@ public class HighScoreData {
             currentShift--;
         }
         scoreArray.scores[replacementScore] = new SavedScore(score, name);
+        ScoreController.SetHighScoreToEnter(false, -1);
     }
 
     public void EnterScore(SavedScore newScore) {
