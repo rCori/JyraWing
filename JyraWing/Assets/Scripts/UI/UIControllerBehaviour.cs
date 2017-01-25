@@ -128,10 +128,10 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// <summary>
 	/// Updates the lives.
 	/// </summary>
-	public void UpdateLives(int i_lives){
-		//Remove a life
-		uiController.DecreaseLifeCount();
-	}
+	//public void UpdateLives(int i_lives){
+	//	//Remove a life
+	//	uiController.DecreaseLifeCount();
+	//}
 
 	/// <summary>
 	/// Shows the level complete graphic.

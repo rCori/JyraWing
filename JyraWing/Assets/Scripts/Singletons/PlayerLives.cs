@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class PlayerLives {
+﻿public class PlayerLives {
 
     private static PlayerLives _instance;
 

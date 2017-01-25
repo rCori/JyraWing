@@ -112,6 +112,7 @@ public class StartGameMenu : Menu {
     IEnumerator loadLevel(){
 		PlayConfirm();
 		yield return new WaitForSeconds (0.05f);
+        PlayerLives.Instance.ResetLives();
 		SceneManager.LoadScene (selectedLevel);
 	}
 

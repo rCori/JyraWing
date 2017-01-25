@@ -5410,7 +5410,7 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 7
+    time: 11
 --- !u!114 &1939943055
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,7 +79,9 @@ public class IngameQuitMenu : Menu {
         //SaveData.Instance.EnterScore(ScoreController.GetScore());
         //HighScoreData.Instance.EnterScore(ScoreController.GetScore(), "Test");
         //HighScoreData.Instance.SaveGame();
-        HighScoreData.Instance.CheckScore(ScoreController.GetScore());
+        if(!LevelControllerBehavior.SingleLevel) {
+            HighScoreData.Instance.CheckScore(ScoreController.GetScore());
+        }
 
 		lockScreen = true;
         yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.1f));

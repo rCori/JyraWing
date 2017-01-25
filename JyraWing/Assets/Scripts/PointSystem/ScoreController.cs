@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//#define SCORECONTROLLERDEBUG
+
+using UnityEngine;
 using System.Collections;
 
 public class ScoreController {
@@ -27,8 +29,10 @@ public class ScoreController {
 	}
 
 	public static void ResetScore() {
+#if SCORECONTROLLERDEBUG
         Debug.LogError("<color=#ff0000ff>Resetting current highscore</color>");
-		CurrentScore = 0;
+#endif
+        CurrentScore = 0;
 		if (AddToScoreEvent != null) {
 			AddToScoreEvent (CurrentScore);
 		}
