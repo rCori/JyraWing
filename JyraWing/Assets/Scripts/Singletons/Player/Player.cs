@@ -116,7 +116,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		CountdownTimer.PlayerContinueEvent += ResetTakingDamage;
 		CountdownTimer.PlayerContinueEvent += PositionPlayerOffScreen;
 		CountdownTimer.PlayerContinueEvent += StartReturnFromHitCoroutine;
-		Player.TakeDamageEvent += TakeDamage;
+		//Player.TakeDamageEvent += TakeDamage;
 
 	}
 	
@@ -139,7 +139,6 @@ public class Player : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public void TakeDamage(){
         //take out taking damage for now
-        //hits--;
         PlayerLives.Instance.DecreaseLives();
 		GetComponent<Rigidbody2D> ().velocity = new Vector2(0f, 0f);
 		//Get the length of the animation.
@@ -148,13 +147,14 @@ public class Player : MonoBehaviour, PauseableItem {
 		takingDamage = TakingDamage.EXPLODE;
 		HitEvent (TakingDamage.EXPLODE);
 		playerShield.DisableShield ();
-		if (PlayerLives.Instance.GetCurrentLives() == 0) {
-			currentOutOfLivesCoroutine = outOfLivesCoroutine ();
-			StartCoroutine(currentOutOfLivesCoroutine);
-		} else {
-            currentReturnFromHitCoroutine = returningFromHitRoutine ();
-			StartCoroutine(currentReturnFromHitCoroutine);
-		}
+        if (PlayerLives.Instance.GetCurrentLives() == 0) {
+            currentOutOfLivesCoroutine = outOfLivesCoroutine();
+            StartCoroutine(currentOutOfLivesCoroutine);
+        } else {
+            currentReturnFromHitCoroutine = returningFromHitRoutine();
+            StartCoroutine(currentReturnFromHitCoroutine);
+        }
+        TakeDamageEvent();
 	}
 
 
@@ -303,7 +303,7 @@ public class Player : MonoBehaviour, PauseableItem {
 			bulletHit = true;
 		}
 		if (enemyHit || bulletHit) {
-			TakeDamageEvent ();
+			TakeDamage ();
 		}
 	}
 
@@ -313,7 +313,7 @@ public class Player : MonoBehaviour, PauseableItem {
 		CountdownTimer.PlayerContinueEvent -= ResetTakingDamage;
 		CountdownTimer.PlayerContinueEvent -= PositionPlayerOffScreen;
 		CountdownTimer.PlayerContinueEvent -= StartReturnFromHitCoroutine;
-		Player.TakeDamageEvent -= TakeDamage;
+		//Player.TakeDamageEvent -= TakeDamage;
 	}
 
 	public void ResetTakingDamage() {

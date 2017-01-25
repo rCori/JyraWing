@@ -37,8 +37,8 @@ public class CountdownTimer : MonoBehaviour {
 				countdownVal = 9;
 				textDisplay.text = "";
 				//Respawn player
+                PlayerContinueEvent();
 				StopCoroutine (gameOverRoutine);
-				PlayerContinueEvent();
 			}
 
             if(ButtonInput.Instance().FireButtonDown() || ButtonInput.Instance().ShieldButtonDown()) {

@@ -58,7 +58,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.FinishLevelEvent += ShowLevelComplete;
 		LevelControllerBehavior.GameOverEvent += ShowGameOver;
 		PauseControllerBehavior.PauseEvent += PauseMenu;
-		Player.TakeDamageEvent += DecreaseLives;
+		Player.TakeDamageEvent += UpdateLives;
 		Player.TakeDamageEvent += DisableShieldSlider;
 		PlayerShield.SetShieldPercentageEvent += UpdatePlayerShield;
 	}
@@ -100,7 +100,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// Decrease the number of lives and deactivate a life on the HUD 
 	/// </summary>
 	/// <param name="i_curLife">The life to removed from HUD.</param>
-	private void DecreaseLives(){
+	private void UpdateLives(){
 		//uiController.DecreaseLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
         //lifeMessageText.text = "Lives: " + uiController.GetLifeCount();
@@ -191,7 +191,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 		PauseControllerBehavior.PauseEvent -= PauseMenu;
-		Player.TakeDamageEvent -= DecreaseLives;
+		Player.TakeDamageEvent -= UpdateLives;
 		Player.TakeDamageEvent -= DisableShieldSlider;
 		PlayerShield.SetShieldPercentageEvent -= UpdatePlayerShield;
 	}
