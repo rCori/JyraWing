@@ -71,7 +71,6 @@ public class PauseControllerBehavior : MonoBehaviour {
 		if (PauseEvent != null) {
             paused = true;
             Time.timeScale = 0;
-			//PauseEvent ();
 		}
     }
 

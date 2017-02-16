@@ -17,6 +17,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	private GameObject levelEndImage;
 	private GameObject lifeText;
 	private GameObject scoreText;
+    private GameObject darkPanel;
 
 	// Player speed will be represented by multiple sprites in different states of opacity
 	private Slider slider;
@@ -47,6 +48,13 @@ public class UIControllerBehaviour: MonoBehaviour {
 		slider = Instantiate (slider);
 		slider.transform.SetParent(playerCanvas.transform, false);
 
+        darkPanel = Resources.Load ("UIObjects/InGameQuitMenu/IngamePanel") as GameObject;
+		darkPanel = Instantiate (darkPanel);
+		darkPanel.transform.SetParent (canvas.transform, false);
+		darkPanel.transform.SetSiblingIndex (darkPanel.transform.GetSiblingIndex () - 1);
+
+        HideDarkPanel();
+
 		Initialize (PlayerLives.Instance.GetCurrentLives());
 
 		visibleColor = new Color (1.0f, 1.0f, 1.0f, 1.0f);
@@ -55,6 +63,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 		ScoreController.AddToScoreEvent += UpdateScore;
 		CountdownTimer.PlayerContinueEvent += HideGameOver;
 		CountdownTimer.PlayerContinueEvent += ResetLives;
+        CountdownTimer.PlayerContinueEvent += HideDarkPanel;
+        CountdownTimer.CountDownStartedEvent += ShowDarkPanel;
 		LevelControllerBehavior.FinishLevelEvent += ShowLevelComplete;
 		LevelControllerBehavior.GameOverEvent += ShowGameOver;
 		PauseControllerBehavior.PauseEvent += PauseMenu;
@@ -101,9 +111,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	/// </summary>
 	/// <param name="i_curLife">The life to removed from HUD.</param>
 	private void UpdateLives(){
-		//uiController.DecreaseLifeCount ();
 		Text lifeMessageText = lifeText.GetComponent<Text>();
-        //lifeMessageText.text = "Lives: " + uiController.GetLifeCount();
         lifeMessageText.text = "Lives: " + PlayerLives.Instance.GetCurrentLives();
 	}
 
@@ -114,7 +122,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 	public void ShowGameOver(){
 		Image gameOverMessageComp = gameOverMessage.GetComponent<Image> ();
 		Color myColor = gameOverMessageComp.color;
-		myColor.a = 255;
+		myColor.a = 1;
 		gameOverMessageComp.color = myColor;
 	}
 
@@ -125,13 +133,19 @@ public class UIControllerBehaviour: MonoBehaviour {
 		gameOverMessageComp.color = myColor;
 	}
 
-	/// <summary>
-	/// Updates the lives.
-	/// </summary>
-	//public void UpdateLives(int i_lives){
-	//	//Remove a life
-	//	uiController.DecreaseLifeCount();
-	//}
+    public void ShowDarkPanel() {
+        Image darkPanelImage = darkPanel.GetComponent<Image> ();
+		Color myColor = darkPanelImage.color;
+		myColor.a = 0.6f;
+		darkPanelImage.color = myColor;
+    }
+
+    public void HideDarkPanel() {
+        Image darkPanelImage = darkPanel.GetComponent<Image> ();
+		Color myColor = darkPanelImage.color;
+		myColor.a = 0f;
+		darkPanelImage.color = myColor;
+    }
 
 	/// <summary>
 	/// Shows the level complete graphic.
@@ -188,6 +202,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 		ScoreController.AddToScoreEvent -= UpdateScore;
 		CountdownTimer.PlayerContinueEvent -= HideGameOver;
 		CountdownTimer.PlayerContinueEvent -= ResetLives;
+        CountdownTimer.PlayerContinueEvent += HideDarkPanel;
+        CountdownTimer.CountDownStartedEvent += ShowDarkPanel;
 		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 		PauseControllerBehavior.PauseEvent -= PauseMenu;

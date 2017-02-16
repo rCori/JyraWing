@@ -112,7 +112,15 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 7
+    time: 3
+  - type: 4
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 2, y: 0}
+    time: 1
+  - type: 3
+    startVelocity: {x: 2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 4
 --- !u!212 &212000011566739434
 SpriteRenderer:
   m_ObjectHideFlags: 1

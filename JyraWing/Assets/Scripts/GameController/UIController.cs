@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UIController : IUIController {
 
-	//local variable version of ShieldPErcentage, the number
+	//local variable version of ShieldPercentage, the number
 	//that shows how much shield power the player has left
 	int shieldPercentage;
 

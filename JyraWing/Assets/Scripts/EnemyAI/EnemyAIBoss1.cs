@@ -7,16 +7,17 @@ public class EnemyAIBoss1 : EnemyBehavior {
 
     private int currentPattern = 0;
 
-    private IEnumerator firePattern1, streamShieldableBullets;
+    private IEnumerator firePattern1, firePattern2, firePattern3;
 
-    private int BOSS1_HITS = 100;
+    private int BOSS1_HITS = 180;
     private int patternValSet;
 
 	void Awake(){
 		EnemyDefaults ();
         SetEnemyHealth (BOSS1_HITS);
         firePattern1 = FirePattern1();
-        streamShieldableBullets = StreamShieldableBullets();
+        firePattern2 = FirePattern2();
+        firePattern3 = FirePattern3();
         BulletPatternShift(0);
         HasAnimations animationSettings;
 		animationSettings = HasAnimations.Destroy;
@@ -54,9 +55,15 @@ public class EnemyAIBoss1 : EnemyBehavior {
 		Movement();
 
         switch(hitPoints) {
-        case 50:
+        case 120:
             if(patternValSet != hitPoints) { 
                 BulletPatternShift(1);
+                patternValSet = hitPoints;
+            }      
+            break;
+        case 60:
+            if(patternValSet != hitPoints) { 
+                BulletPatternShift(2);
                 patternValSet = hitPoints;
             }      
             break;
@@ -72,7 +79,10 @@ public class EnemyAIBoss1 : EnemyBehavior {
             StopCoroutine(firePattern1);
             break;
         case 1:
-            StopCoroutine(streamShieldableBullets);
+            StopCoroutine(firePattern2);
+            break;
+        case 2:
+            StopCoroutine(firePattern3);
             break;
         default:
             break;
@@ -86,8 +96,12 @@ public class EnemyAIBoss1 : EnemyBehavior {
             StartCoroutine(firePattern1);
             break;
         case 1:
-            streamShieldableBullets = StreamShieldableBullets();
-            StartCoroutine(streamShieldableBullets);
+            firePattern2 = FirePattern2();
+            StartCoroutine(firePattern2);
+            break;
+        case 2:
+            firePattern3 = FirePattern3();
+            StartCoroutine(firePattern3);
             break;
         default:
             break;
@@ -113,22 +127,52 @@ public class EnemyAIBoss1 : EnemyBehavior {
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
             Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.8f, new Vector2(0f, -1.5f));
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
-            Shoot(new Vector2(-2f,0f));
-            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.5f));
-            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.5f));
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.6f));
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.2f));
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.2f));
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.6f));
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
             Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.8f, new Vector2(0f, 1.5f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
             Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.8f, new Vector2(0f, -1.5f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
-            Shoot(new Vector2(-2f,0f), true);
-            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.5f), true);
-            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.5f), true);
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.6f),true);
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,-0.2f),true);
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.2f),true);
+            Shoot(new Vector2(-2f,0f), new Vector2(0f,0.6f),true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
         }
     }
 
-    IEnumerator StreamShieldableBullets() {
+    IEnumerator FirePattern2() {
+        SetInvuln(true);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
+        SetInvuln(false);
+        while(true) {
+            
+            for (int i = 0; i < 6; i++){
+                Shoot(new Vector2(Random.Range(-2.0f, -3.5f), Random.Range(-0.5f, 0.5f)), new Vector2(0f, Random.Range(-1.8f, 1.8f)),true);
+            }
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.5f));
+
+
+            for (int i = 0; i < 9; i++){
+                Shoot(new Vector2(Random.Range(-2.0f, -3.5f), Random.Range(-0.5f, 0.5f)), new Vector2(0f, Random.Range(-1.8f, 1.8f)),true);
+            }
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.5f));
+
+
+            for (int i = 0; i < 12; i++){
+                Shoot(new Vector2(Random.Range(-2.0f, -3.5f), Random.Range(-0.5f, 0.5f)), new Vector2(0f, Random.Range(-1.8f, 1.8f)),true);
+            }
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(3.5f));
+        }
+    }
+
+    IEnumerator FirePattern3() {
         SetInvuln(true);
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.7f));
         SetInvuln(false);
@@ -142,16 +186,21 @@ public class EnemyAIBoss1 : EnemyBehavior {
             Shoot(new Vector2(-3.2f, 0.5f), new Vector2(0f, -1.2f), true);
             Shoot(new Vector2(-3.5f, 0.6f), new Vector2(0f, -1.0f), true);
             Shoot(new Vector2(-4.0f, 0.7f), new Vector2(0f, -0.8f), true);
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f);
 
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
 
-            Shoot(new Vector2(-2.5f, 0.0f), new Vector2(0f, 0f), true);
+            Shoot(new Vector2(-2.5f, 0.0f), new Vector2(0f, -0.1f), false);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
+            Shoot(new Vector2(-2.5f, 0.05f), new Vector2(0f, 0f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
             Shoot(new Vector2(-2.5f, 0.1f), new Vector2(0f, -0.1f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
             Shoot(new Vector2(-2.5f, -0.1f), new Vector2(0f, -0.2f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
             Shoot(new Vector2(-2.5f, -0.15f), new Vector2(0f, 0.3f), true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
+            Shoot(new Vector2(-2.5f, 0.05f), new Vector2(0f, 0.2f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
             Shoot(new Vector2(-2.5f, 0.2f), new Vector2(0f, -0.5f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
@@ -160,6 +209,8 @@ public class EnemyAIBoss1 : EnemyBehavior {
             Shoot(new Vector2(-2.5f, 0.0f), new Vector2(0f, -0.1f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
             Shoot(new Vector2(-2.5f, 0.0f), new Vector2(0f, 0f), true);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.15f));
+            Shoot(new Vector2(-2.5f, 0.0f), new Vector2(0f, 0.1f), false);
 
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
 

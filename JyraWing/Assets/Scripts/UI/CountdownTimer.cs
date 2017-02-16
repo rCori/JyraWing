@@ -13,7 +13,7 @@ public class CountdownTimer : MonoBehaviour {
 	private static float SECOND_LENGTH = 1.2f;
 
 	public delegate void PlayerKilledDelegate();
-	public static event PlayerKilledDelegate PlayerContinueEvent;
+	public static event PlayerKilledDelegate PlayerContinueEvent, CountDownStartedEvent,GameEndedEvent;
 
 	private Text textDisplay;
 
@@ -22,11 +22,14 @@ public class CountdownTimer : MonoBehaviour {
 	private bool _paused;
 	private bool gameOverInProgress;
 
+
 	// Use this for initialization
 	void Start () {
 		countdownStarted = false;
 		textDisplay = GetComponent<Text> ();
 		LevelControllerBehavior.PlayerKilledEvent += EndGame;
+        PlayerContinueEvent += () => { Time.timeScale = 1; };
+        CountDownStartedEvent += () => { Time.timeScale = 0; };
 	}
 
 	// Update is called once per frame
@@ -61,13 +64,16 @@ public class CountdownTimer : MonoBehaviour {
 
 	void OnDestroy() {
 		LevelControllerBehavior.PlayerKilledEvent -= EndGame;
+        PlayerContinueEvent -= () => { Time.timeScale = 1; };
+        CountDownStartedEvent -= () => { Time.timeScale = 0; };
 	}
 
 	IEnumerator GameOverRoutine() {
-		//Fuck you I will write a while loop when it makes sense to do so not everything needs to be a for
+        //Fuck you I will write a while loop when it makes sense to do so not everything needs to be a for
+        CountDownStartedEvent();
 		while(countdownVal != 0) {
 			textDisplay.text = countdownVal + "";
-			yield return new WaitForSeconds (SECOND_LENGTH);
+			yield return PauseControllerBehavior.WaitForRealSeconds(SECOND_LENGTH);
 			countdownVal--;
             CheckIfTimerFinished();
 		}
@@ -75,6 +81,7 @@ public class CountdownTimer : MonoBehaviour {
 
     private void CheckIfTimerFinished() {
         if (countdownVal == 0) {
+            Time.timeScale = 1;
             countdownStarted = false;
             if(ScoreController.GetHasScoreToEnter()) {
                 SceneManager.LoadScene("HighScore");
