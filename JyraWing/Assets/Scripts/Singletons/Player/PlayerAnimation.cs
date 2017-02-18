@@ -12,14 +12,11 @@ public class PlayerAnimation : MonoBehaviour {
     void Start () {
         animator = gameObject.GetComponent<Animator>();
         PlayerInputController.UpDownEvent += UpdateUpDownAnimation;
-        //PlayerInputController.UpButton += UpdateUpAnimation;
-        //PlayerInputController.DownButton += UpdateDownAnimation;
         Player.HitEvent += HitAnimation;
         isHit = false;
         isBlinking = false;
         upHeld = false;
         downHeld = false;
-        //CountdownTimer.PlayerContinueEvent += ResetHitAnimation;
     }
 	
 	// Update is called once per frame
@@ -172,11 +169,12 @@ public class PlayerAnimation : MonoBehaviour {
         }
     }
 
+    /*
     public void ResetHitAnimation()
     {
         animator.SetInteger("animState", 0);
     }
-
+    */
     public void TransitionToNeutralToUp()
     {
         if (isHit) {
@@ -193,10 +191,15 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetInteger("animState", 2);
     }
 
+    
     public void TransitionToDirectionToNeutral()
     {
+        if(isHit) {
+            return;
+        }
         animator.SetInteger("animState", 0);
     }
+    
 
     void OnDestroy() {
         PlayerInputController.UpDownEvent -= UpdateUpDownAnimation;
