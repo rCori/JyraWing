@@ -14,7 +14,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
 	int moveState;
 
 	//which attack pattern the boss is currently in
-	int pattern;
+	int currentPattern;
 	//Keep count how far we are in a pattern.
 	int patternCounter;
 
@@ -32,10 +32,14 @@ public class EnemyAIBoss2 : EnemyBehavior {
 	/// </summary>
 	private AudioClip extraSFX;
 
+    private Vector2[] sprayShotDirections;
+
+    private IEnumerator straightShotMove, straightShotFirePattern, sprayShot, spreadShot;
+
 	// Use this for initialization
 	void Awake () {
 		moveState = 0;
-		pattern = 0;
+		currentPattern = 0;
 		patternCounter = 0;
 		isDestroyed = false;
 		EnemyDefaults ();
@@ -46,9 +50,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
 		//InitializeBullets (20);
 		AudioClip explosionClip = Resources.Load ("Audio/SFX/bossExplosion") as AudioClip;
 		SetExplosionSfx (explosionClip);
-		//Set up shuffle bag
-		createShuffleBag ();
-		changePattern ();
+
 		//Is the boss paused or not
 		_paused = false;
 
@@ -63,6 +65,17 @@ public class EnemyAIBoss2 : EnemyBehavior {
         enemyHealthBar.GetComponentInChildren<EnemyHealthBar>().InitEnemyInfo(this);
 
         destroyEvent += OnBossDestruction;
+
+        sprayShotDirections = initSprayShotDirections();
+
+        straightShotMove = straightShotMoveRoutine();
+        straightShotFirePattern = straightShotFireRoutine();
+        sprayShot = sprayShotRoutine();
+        spreadShot = spreadShotRoutine();
+
+        //Set up shuffle bag
+		createShuffleBag ();
+		changePattern ();
 	}
 	
 	// Update is called once per frame
@@ -70,314 +83,109 @@ public class EnemyAIBoss2 : EnemyBehavior {
 		if (isDestroyed || _paused) {
 			return;
 		}
-		//Do the selected pattern.
-		if (pattern == 0) {
-			spreadShot ();
-		} else if (pattern == 1) {
-			straightShot ();
-//		} else if (pattern == 2) {
-//			trackAndRam();
-		}else if (pattern == 2){
-			sprayShot ();
-		}
-
 		Movement ();
 
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		DefaultTrigger (other);
-
 	}
 
-	void OnBossDestruction(){
-		//animator.SetInteger ("animState", 3);
-		GameObject obj = GameObject.Find ("GameController");
-		//The boss object could be destoryed on account of the level ending.
-		//If that happens this object could be null so we check for that.
-		if (obj) {
-			//Use the new gameController now
-			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
-			levelControllerBehavior.HandleLevelFinished ();
-		}
-        //Then remove this even because there will be no other time to do that.
-	    destroyEvent -= OnBossDestruction;
-	}
+    IEnumerator spreadShotRoutine() {
+        animator.SetInteger("animState", 0);
+		isCharging = false;
 
-	/// <summary>
-	/// Moves up and down shooting in a three way spread 
-	/// shot every time when stopping to go the other way
-	/// </summary>
-	void spreadShot(){
-		if (GetIsTimeUp ()) {
-			switch (moveState) {
-			case 0:
-				//Not charge state
-				animator.SetInteger("animState", 0);
-				isCharging = false;
+		StartStandStill(2.0f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
 
-				StartStandStill(2.0f);
-				moveState++;
-				break;
-			case 1:
-				StartNewMovement (new Vector3 (5f, -3, 0f), 0.5f);
-				moveState++;
-				break;
-			case 2:
-				StartStandStill (0.2f);
-				Shoot (new Vector2 (-6f, 2f));
-				Shoot (new Vector2 (-6f, 3f));
-				Shoot (new Vector2 (-6f, 4f));
-				moveState++;
-				break;
-			case 3:
-				StartNewMovement (new Vector3 (5f, 3f, 0f), 0.5f);
-				moveState++;
-				break;
-			case 4:
-				StartStandStill (0.2f);
-				Shoot (new Vector2 (-6f, -2f));
-				Shoot (new Vector2 (-6f, -3f));
-				Shoot (new Vector2 (-6f, -4f));
-				moveState = 1;
-				//The pattern has gone through an iteration
-				patternCounter++;
-				break;
-			}
-		}
+        for(int i = 0; i < 3; i++) {
+            StartNewMovement (new Vector3 (5f, -3, 0f), 0.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
 
-		//AFter 4 iterations of the pattern, go to a new pattern.
-		if (patternCounter > 3) {
-			changePattern();
-		}
-	}
+            StartStandStill (0.2f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.2f));
 
-	/// <summary>
-	/// Moves up and down shooting three bullet straight out
-	/// from the middle, top and bottom of the sprite when stopiing to 
-	/// turn around.
-	/// </summary>
-	void straightShot(){
-		if (GetIsTimeUp ()) {
-			switch (moveState) {
-			case 0:
-				//Not charge state
-				animator.SetInteger("animState", 0);
-				isCharging = false;
+		    Shoot (new Vector2 (-6f, 2f));
+		    Shoot (new Vector2 (-6f, 3f));
+		    Shoot (new Vector2 (-6f, 4f));
 
-				StartStandStill(2.0f);
-				fireTimeLimit = Random.Range(0.7f,1.0f);
-				fireTimer = 0.0f;
-				moveState++;
-				break;
-			case 1:
-				StartNewMovement (new Vector3 (5f, -3, 0f), 0.8f);
-				moveState++;
-				break;
-			case 2:
-				StartStandStill (0.2f);
-				moveState++;
-				break;
-			case 3:
-				StartNewMovement (new Vector3 (5f, 3f, 0f), 0.8f);
-				moveState++;
-				break;
-			case 4:
-				StartStandStill (0.2f);
-				moveState = 1;
-				patternCounter++;
-				break;
-			}
-		}
+            StartNewMovement (new Vector3 (5f, 3f, 0f), 0.5f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
 
-		if (patternCounter > 3) {
-			changePattern();
-		}
+            StartStandStill (0.2f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.2f));
+		    Shoot (new Vector2 (-6f, -2f));
+		    Shoot (new Vector2 (-6f, -3f));
+		    Shoot (new Vector2 (-6f, -4f));
+        }
+        changePattern();
+    }
 
-		fireTimer += Time.deltaTime;
-		if (fireTimer > fireTimeLimit) {
-			straightShotFire();
-			fireTimeLimit = Random.Range(0.7f,1.0f);
-			fireTimer = 0.0f;
-		}
+    IEnumerator straightShotMoveRoutine() {
+        animator.SetInteger("animState", 0);
+		isCharging = false;
 
-	}
+		fireTimeLimit = Random.Range(0.7f,1.0f);
+		fireTimer = 0.0f;
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
+        for(int i = 0; i < 3; i++) {
+            StartNewMovement (new Vector3 (5f, -3, 0f), 0.8f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
+            StartNewMovement (new Vector3 (5f, 3f, 0f), 0.8f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
+        }
+        changePattern();
+    }
+
+    IEnumerator straightShotFireRoutine() {
+
+        while(true) {
+            straightShotFire();
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(Random.Range(0.7f, 1.0f)));
+        }
+    }
+
+    IEnumerator sprayShotRoutine() {
+        for(int i = 0; i<sprayShotDirections.Length; i++) {
+            Shoot(sprayShotDirections[i]);
+            if(i%4 == 0) {
+                 Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f, true);
+            }
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
+        }
+        changePattern();
+       
+    }
 
 	/// <summary>
 	/// The actual shooting for the straight shot pattern.
 	/// </summary>
 	void straightShotFire()
 	{
-		GameObject bulletObjTop;
-		GameObject bulletObjBottom;
-		EnemyBullet bulletTop;
-		EnemyBullet bulletBottom;
 		Shoot (new Vector2 (-8f, 0f));
-		bulletObjTop = bulletPool.GetBullet ();
-		//We check if the bullet is valid, if it is then shoot it.
-		if (bulletObjTop) {
-			bulletTop = bulletObjTop.GetComponent<EnemyBullet> ();
-			bulletObjTop.transform.position = transform.position + new Vector3 (0f, -0.75f, 0f);
-			bulletTop.Shoot (new Vector2 (-6f, 0f));
-			
-		}
-		bulletObjBottom = bulletPool.GetBullet ();
-		if (bulletObjBottom) {
-			bulletBottom = bulletObjBottom.GetComponent<EnemyBullet> ();
-			bulletObjBottom.transform.position = transform.position + new Vector3 (0f, 0.75f, 0f);
-			bulletBottom.Shoot (new Vector2 (-6f, 0f));
-		}
+        Shoot(new Vector2(-6f, 0f), new Vector2 (0f, -0.75f));
+        Shoot(new Vector2(-6f, 0f), new Vector2 (0f, 0.75f));
 	}
 
+
+
+    private Vector2[] initSprayShotDirections() {
+        Vector2[] dir = new Vector2[9];
+        float bulletSpeed = 4.0f;
+        dir[0] = new Vector2(-0.5f, 0.2f).normalized * bulletSpeed;
+        dir[1] = new Vector2(-0.5f, 0.1f).normalized * bulletSpeed;
+        dir[2] = new Vector2(-0.5f, 0.0f).normalized * bulletSpeed;
+        dir[3] = new Vector2(-0.5f, -0.1f).normalized * bulletSpeed;
+        dir[4] = new Vector2(-0.5f, -0.2f).normalized * bulletSpeed;
+        dir[5] = new Vector2(-0.5f, -0.15f).normalized * bulletSpeed;
+        dir[6] = new Vector2(-0.5f, -0.05f).normalized * bulletSpeed;
+        dir[7] = new Vector2(-0.5f, 0.05f).normalized * bulletSpeed;
+        dir[8] = new Vector2(-0.5f, 0.15f).normalized * bulletSpeed;
+        return dir;
+    }
 
 	/// <summary>
-	/// pattern for boss to track the player vertically and the ram towards them
-	/// </summary>
-	void trackAndRam(){
-		if (GetIsTimeUp()) {
-			switch(moveState)
-			{
-			case 0:
-				//Not charge state
-				animator.SetInteger("animState", 0);
-				isCharging = false;
-
-				fireTimer = 0.0f;
-				fireTimeLimit = 2.5f;
-				//Return to original position.
-				StartStandStill(2.0f);
-
-				moveState++;
-				break;
-			case 1:
-				StartStandStill(2.0f);
-				moveState++;
-				patternCounter++;
-				break;
-			case 2:
-				assignSFXPlayerSafe();
-				extraSFX = Resources.Load ("Audio/SFX/bossCharge") as AudioClip;
-				sfxPlayer.PlayClip(extraSFX);
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
-				StartNewVelocity(new Vector2(-10.0f, 0f), 1.0f);
-				moveState++;
-				break;
-			case 3:
-				StartNewMovement (new Vector3 (5f, gameObject.transform.position.y, 0f), 0.5f);
-				moveState = 1;
-				break;
-			}
-		}
-
-		// Increment the pattern counter
-		// This pattern happens twice.
-		if (patternCounter > 3) {
-			changePattern();
-			moveState = 0;
-		}
-
-		// Move during the stand still.
-		if (moveState == 2) {
-			float bossY = gameObject.transform.position.y;
-			float playerY = gameController.playerPosition.y;
-			if(bossY>playerY){
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, -1.2f);
-			}
-			else if(bossY<playerY){
-				gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 1.2f);
-			}
-		}
-
-		fireTimer += Time.deltaTime;
-		if (fireTimer > fireTimeLimit) {
-			Shoot (new Vector2(-3f, -1f));
-			Shoot (new Vector2(-3f, 1f));
-			fireTimeLimit = Random.Range(0.7f,1.0f);
-			fireTimer = 0.0f;
-		}
-	}
-
-
-	void sprayShot(){
-		if (GetIsTimeUp ()) {
-			float bulletSpeed = 4f;
-			Vector2 dir;
-			switch (moveState) {
-			case 0:
-				//Charge state
-				//animator.SetInteger("animState", 3);
-				isCharging = true;
-				//Return to original position.
-				StartStandStill(2.0f);
-				break;
-			case 1:
-				dir = new Vector2(-0.5f, 0.2f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 2:
-				dir = new Vector2(-0.5f, 0.1f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 3:
-				dir = new Vector2(-0.5f, 0f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 4:
-				dir = new Vector2(-0.5f, -0.1f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 5:
-				dir = new Vector2(-0.5f, -0.2f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 6:
-				dir = new Vector2(-0.5f, -0.15f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 7:
-				dir = new Vector2(-0.5f, -0.05f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 8:
-				dir = new Vector2(-0.5f, 0.05f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			case 9:
-				dir = new Vector2(-0.5f, 0.15f);
-				dir.Normalize();
-				Shoot (dir*bulletSpeed);
-				break;
-			}
-			moveState++;
-			if(moveState > 9){
-				moveState = 1;
-				patternCounter++;
-			}
-
-			// Increment the pattern counter
-			// This pattern happens twice.
-			if (patternCounter > 3) {
-				changePattern();
-				moveState = 0;
-			}
-			StartStandStill(0.5f);
-			assignSFXPlayerSafe();
-			extraSFX = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
-			sfxPlayer.PlayClip(extraSFX);
-
-		}
-	}
-
-	/// <summary>
-	/// Increments the pattern and resets counters used in any partiucalr pattern.
+	/// Increments the pattern and resets counters used in any partiuclar pattern.
 	/// </summary>
 	void changePattern(){
 		StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
@@ -390,11 +198,49 @@ public class EnemyAIBoss2 : EnemyBehavior {
 		fireTimer = 0;
 		fireTimeLimit = 0;
 		int patternNum = bag.Next ();
-		pattern = patternNum;
-//		if (patternNum == 3) {
-//			bossAudio.clip = Resources.Load ("Audio/SFX/bossSpread") as AudioClip;
-//		}
+        BulletPatternShift(patternNum);
 	}
+
+    public void BulletPatternShift(int patternNum) {
+        //Turn off the routines for the current pattern
+        switch(currentPattern) {
+        case 0:
+            StopCoroutine(straightShotMove);
+            StopCoroutine(straightShotFirePattern);
+            break;
+        case 1:
+            StopCoroutine(sprayShot);
+            break;
+        case 2:
+            StopCoroutine(spreadShot);
+            break;
+        default:
+            break;
+
+        }
+        currentPattern = patternNum;
+        //Turn on the coroutines for the new pattern
+        switch(currentPattern) {
+        
+        case 0:
+            straightShotMove = straightShotMoveRoutine();
+            straightShotFirePattern = straightShotFireRoutine();
+            StartCoroutine(straightShotMove);
+            StartCoroutine(straightShotFirePattern);
+            break;
+        case 1:
+            sprayShot = sprayShotRoutine();
+            StartCoroutine(sprayShot);
+            break;
+        case 2:
+            spreadShot = spreadShotRoutine();
+            StartCoroutine(spreadShot);
+            break;
+        default:
+            break;
+
+        }
+    }
 
 
 	void createShuffleBag(){
@@ -412,5 +258,20 @@ public class EnemyAIBoss2 : EnemyBehavior {
 			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
 		}
 	}
+
+    void OnBossDestruction(){
+		//animator.SetInteger ("animState", 3);
+		GameObject obj = GameObject.Find ("GameController");
+		//The boss object could be destoryed on account of the level ending.
+		//If that happens this object could be null so we check for that.
+		if (obj) {
+			//Use the new gameController now
+			GameController controller = obj.GetComponent<GameControllerBehaviour>().GetGameController();
+			levelControllerBehavior.HandleLevelFinished ();
+		}
+        //Then remove this even because there will be no other time to do that.
+	    destroyEvent -= OnBossDestruction;
+	}
 		
 }
+

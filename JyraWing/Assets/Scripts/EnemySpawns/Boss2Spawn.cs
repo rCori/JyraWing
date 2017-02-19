@@ -22,11 +22,12 @@ public class Boss2Spawn : EnemySpawner {
 		EnemyAIBoss2 boss = enemy1.GetComponent<EnemyAIBoss2> ();
 		
 		boss.levelControllerBehavior = levelControllerBehavior;
-		enemy1 = Instantiate (enemy1);
+		
 		EnemyBehavior enemyBehavior = enemy1.GetComponent<EnemyBehavior> ();
 		enemyBehavior.bulletPool = bulletPool;
 		enemyBehavior.shieldableBulletPool = shieldableBulletPool;
 		enemyBehavior.pointIconPool = pointIconPool;
+        enemy1 = Instantiate (enemy1);
         enemyBehavior.SetPaused(pauseController.IsPaused);
 	}
 }
