@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BarrierWall : MonoBehaviour {
 
-	public enum sides {Left = 0, Right, Top, Bottom}
+	public enum sides {Left = 0, Right, Top, Bottom, DisableEnemy}
 
 	public static float RIGHT_X;
 
@@ -32,7 +32,11 @@ public class BarrierWall : MonoBehaviour {
 				if(!other.GetComponent<EnemyBehavior>().LeftWallException){
 					Destroy(other.gameObject);
 				}
-			}
+			} else if(barrierMode == sides.DisableEnemy) {
+                if(!other.GetComponent<EnemyBehavior>().LeftWallException){
+                    other.GetComponent<EnemyBehavior>().SetCanShoot(false);
+				}
+            }
 		}
 		if (other.tag == "PointIcon") {
             if(barrierMode == sides.Left)

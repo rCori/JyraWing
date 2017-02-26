@@ -101,7 +101,7 @@ GameObject:
   - 114: {fileID: 657187}
   - 114: {fileID: 657186}
   m_Layer: 0
-  m_Name: EnemySpawnFighterBSquad_0
+  m_Name: EnemySpawnFighterBSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ GameObject:
   - 114: {fileID: 951892}
   - 114: {fileID: 951891}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_5
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &48442086
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &48442088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,8 +345,9 @@ Transform:
   - {fileID: 433383697}
   - {fileID: 1979203248}
   - {fileID: 837314904}
+  - {fileID: 1185130680}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &64739089
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +359,7 @@ GameObject:
   - 114: {fileID: 64739091}
   - 114: {fileID: 64739090}
   m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_0
+  m_Name: EnemySpawnShipArcSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -433,7 +434,7 @@ GameObject:
   - 114: {fileID: 80468275}
   - 114: {fileID: 80468273}
   m_Layer: 0
-  m_Name: EnemySpawnShip_1
+  m_Name: EnemySpawnShip
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -528,7 +529,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!1 &140203854
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +561,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!50 &140203856
 Rigidbody2D:
   serializedVersion: 2
@@ -668,7 +669,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!50 &193255882
 Rigidbody2D:
   serializedVersion: 2
@@ -756,7 +757,7 @@ GameObject:
   - 114: {fileID: 207109641}
   - 114: {fileID: 207109640}
   m_Layer: 0
-  m_Name: EnemySpawnTurret_0
+  m_Name: EnemySpawnTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -840,7 +841,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466094, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 134778, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
       propertyPath: m_Name
@@ -884,7 +885,7 @@ GameObject:
   - 114: {fileID: 208511937}
   - 114: {fileID: 208511936}
   m_Layer: 0
-  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn_0
+  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -942,7 +943,7 @@ GameObject:
   - 114: {fileID: 209595901}
   - 114: {fileID: 209595900}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_3
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1017,7 +1018,7 @@ GameObject:
   - 114: {fileID: 212095436}
   - 114: {fileID: 212095434}
   m_Layer: 0
-  m_Name: EnemySpawnShip_3
+  m_Name: EnemySpawnShip
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1083,7 @@ GameObject:
   - 114: {fileID: 214305372}
   - 114: {fileID: 214305371}
   m_Layer: 0
-  m_Name: EnemySpawnTurret_3
+  m_Name: EnemySpawnTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1158,7 +1159,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 56
+  m_RootOrder: 63
 --- !u!114 &228694704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1202,7 @@ GameObject:
   - 114: {fileID: 255846365}
   - 114: {fileID: 255846363}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_6
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1219,7 +1220,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 44
+  m_RootOrder: 47
 --- !u!114 &255846363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,7 +1260,7 @@ GameObject:
   - 114: {fileID: 262933568}
   - 114: {fileID: 262933567}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_3
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1337,7 +1338,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!50 &286767678
 Rigidbody2D:
   serializedVersion: 2
@@ -1440,12 +1441,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309078680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.81, z: 0}
-  m_LocalScale: {x: 100, y: 4, z: 1}
+  m_LocalPosition: {x: -1.9993, y: -4.81, z: 0}
+  m_LocalScale: {x: 124.991486, y: 4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!50 &309078682
 Rigidbody2D:
   serializedVersion: 2
@@ -1533,7 +1534,7 @@ GameObject:
   - 114: {fileID: 323614569}
   - 114: {fileID: 323614568}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_1
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1608,7 +1609,7 @@ GameObject:
   - 114: {fileID: 370078306}
   - 114: {fileID: 370078304}
   m_Layer: 0
-  m_Name: EnemySpawn6StationaryShips4OscillatingDiamonds_0
+  m_Name: EnemySpawn6StationaryShips4OscillatingDiamonds
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1785,7 +1786,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d1c3e2a69973ffa4ea4125e5a38f31e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1885,7 +1886,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5ccd1b390892f5940a7d3101a63e7bfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1930,7 +1931,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &470536503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,12 +1958,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470536503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.33, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 60, z: 1}
+  m_LocalPosition: {x: -12.28, y: 0, z: 0}
+  m_LocalScale: {x: 4.062728, y: 60, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!50 &470536505
 Rigidbody2D:
   serializedVersion: 2
@@ -2050,7 +2051,7 @@ GameObject:
   - 114: {fileID: 484437663}
   - 114: {fileID: 484437662}
   m_Layer: 0
-  m_Name: EnemySpawnShipDiamondSquad_1
+  m_Name: EnemySpawnShipDiamondSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2063,7 +2064,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 484437660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77, y: 0, z: 0}
+  m_LocalPosition: {x: 77, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2080,11 +2081,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af7260dbf5181e4fb5801f882df0c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initLocation: {x: 9, y: 0}
+  initLocation: {x: 9, y: -0.5}
   enemyDirection: {x: -2.5, y: 0}
   enemyTime: 5
   enemyRepeat: 0
-  rows: 8
+  rows: 7
   columns: 4
   rowSpacing: 1
   columnSpacing: 1
@@ -2132,7 +2133,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 54
+  m_RootOrder: 61
 --- !u!114 &523502536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,6 +2183,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &537922671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 537922672}
+  - 114: {fileID: 537922674}
+  - 114: {fileID: 537922673}
+  m_Layer: 0
+  m_Name: EnemySpawnDiamondArcSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537922672
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537922671}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 158.5, y: -2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 44
+--- !u!114 &537922673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537922671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 2
+  columns: 4
+  rowSpacing: 1
+  columnSpacing: 1
+  initLocation: {x: 9, y: -2.3}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -3, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 9
+--- !u!114 &537922674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537922671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &551848100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,7 +2259,7 @@ GameObject:
   - 114: {fileID: 551848101}
   - 114: {fileID: 551848102}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_0
+  m_Name: EnemySpawnSpiderTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2241,6 +2307,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2099354107}
   m_RootOrder: 14
+--- !u!1 &554061122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 554061123}
+  - 114: {fileID: 554061125}
+  - 114: {fileID: 554061124}
+  m_Layer: 0
+  m_Name: EnemySpawnTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554061123
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 554061122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 209, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 56
+--- !u!114 &554061124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 554061122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 9, y: 0}
+  bulletPool: {fileID: 47714748}
+  shieldableBulletPool: {fileID: 1266542188}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+--- !u!114 &554061125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 554061122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &576147646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2409,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: e3fd4a10bea19c7478d0fb619b65139a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2302,7 +2426,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &579476259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,7 +2438,7 @@ GameObject:
   - 114: {fileID: 579476262}
   - 114: {fileID: 579476261}
   m_Layer: 0
-  m_Name: EnemySpawnTank_1
+  m_Name: EnemySpawnTank
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2364,6 +2488,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &591541715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 591541716}
+  - 114: {fileID: 591541718}
+  - 114: {fileID: 591541717}
+  m_Layer: 0
+  m_Name: EnemySpawnTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591541716
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591541715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 182, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 50
+--- !u!114 &591541717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591541715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 9, y: 0}
+  bulletPool: {fileID: 47714748}
+  shieldableBulletPool: {fileID: 1266542188}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+--- !u!114 &591541718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591541715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &593875656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,7 +2557,7 @@ GameObject:
   - 114: {fileID: 593875660}
   - 114: {fileID: 593875658}
   m_Layer: 0
-  m_Name: EnemySpawnShip_2
+  m_Name: EnemySpawnShip
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2440,7 +2622,7 @@ GameObject:
   - 114: {fileID: 610587622}
   - 114: {fileID: 610587621}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_5
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2539,7 +2721,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!50 &633114794
 Rigidbody2D:
   serializedVersion: 2
@@ -2627,7 +2809,7 @@ GameObject:
   - 114: {fileID: 652728815}
   - 114: {fileID: 652728814}
   m_Layer: 0
-  m_Name: EnemySpawnReflectBulletSprayerArc_1
+  m_Name: EnemySpawnReflectBulletSprayerArc
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2690,7 +2872,7 @@ GameObject:
   - 114: {fileID: 668638361}
   - 114: {fileID: 668638359}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_7
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2708,7 +2890,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 45
+  m_RootOrder: 48
 --- !u!114 &668638359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2766,7 +2948,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 55
+  m_RootOrder: 62
 --- !u!114 &766413767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,7 +3009,7 @@ GameObject:
   - 114: {fileID: 785895596}
   - 114: {fileID: 785895595}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_2
+  m_Name: EnemySpawnSpiderTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2840,7 +3022,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 785895593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.1, y: 1, z: 0}
+  m_LocalPosition: {x: 94.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2904,7 +3086,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 52
+  m_RootOrder: 58
 --- !u!114 &788149119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2965,7 +3147,7 @@ GameObject:
   - 114: {fileID: 795353191}
   - 114: {fileID: 795353192}
   m_Layer: 0
-  m_Name: EnemySpawnTankSquad_0
+  m_Name: EnemySpawnTankSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3028,7 +3210,7 @@ GameObject:
   - 114: {fileID: 804145337}
   - 114: {fileID: 804145336}
   m_Layer: 0
-  m_Name: EnemySpawnTank_0
+  m_Name: EnemySpawnTank
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3120,6 +3302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0a7fffc2ad28a4f9690650fa698e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherBackground: {fileID: 1979203247}
 --- !u!114 &837314906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,7 +3343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 177269117de7ce34392697466894d5d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3176,7 +3359,7 @@ GameObject:
   - 114: {fileID: 842482451}
   - 114: {fileID: 842482450}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_2
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3223,105 +3406,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
   pauseController: {fileID: 1894107581}
---- !u!1001 &851301098
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1196736604}
-    m_Modifications:
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 118144, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e9f88fbdaf5244a4f87d2836fc63363b, type: 2}
-  m_IsPrefabParent: 0
---- !u!224 &851301099 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22456266, guid: e9f88fbdaf5244a4f87d2836fc63363b,
-    type: 2}
-  m_PrefabInternal: {fileID: 851301098}
 --- !u!1 &884766034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,7 +3417,7 @@ GameObject:
   - 114: {fileID: 884766036}
   - 114: {fileID: 884766035}
   m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_1
+  m_Name: EnemySpawnShipArcSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3408,7 +3492,7 @@ GameObject:
   - 114: {fileID: 889059076}
   - 114: {fileID: 889059074}
   m_Layer: 0
-  m_Name: EnemySpawn3Turrets2Ships_0
+  m_Name: EnemySpawn3Turrets2Ships
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3421,12 +3505,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 889059072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 167.68954, y: 0, z: 0}
+  m_LocalPosition: {x: 166.6895, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 42
+  m_RootOrder: 45
 --- !u!114 &889059074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3454,6 +3538,64 @@ MonoBehaviour:
   bulletPool: {fileID: 47714748}
   shieldableBulletPool: {fileID: 1266542188}
   pauseController: {fileID: 1894107581}
+--- !u!1 &894372145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 894372146}
+  - 114: {fileID: 894372148}
+  - 114: {fileID: 894372147}
+  m_Layer: 0
+  m_Name: EnemySpawnTurret
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894372146
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894372145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 217, y: -3.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 59
+--- !u!114 &894372147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894372145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b0b424949412584fb9de3dcd7d97f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 9, y: -3.3}
+  bulletPool: {fileID: 47714748}
+  shieldableBulletPool: {fileID: 1266542188}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+--- !u!114 &894372148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894372145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &909683358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,7 +3607,7 @@ GameObject:
   - 114: {fileID: 909683362}
   - 114: {fileID: 909683360}
   m_Layer: 0
-  m_Name: EnemySpawnShip_4
+  m_Name: EnemySpawnShip
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3519,6 +3661,73 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
   pauseController: {fileID: 1894107581}
+--- !u!1 &914067392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 914067393}
+  - 114: {fileID: 914067395}
+  - 114: {fileID: 914067394}
+  m_Layer: 0
+  m_Name: EnemySpawnFighterBSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914067393
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914067392}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 158.5, y: -0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 42
+--- !u!114 &914067394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914067392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb2e6726f0b7ea4fa05203a530a28fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 3
+  columns: 2
+  rowSpacing: 3.4
+  columnSpacing: 2
+  initLocation: {x: 9, y: -0.52}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2.5, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 10
+  bulletPool: {fileID: 47714748}
+  shieldableBulletPool: {fileID: 1266542188}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+--- !u!114 &914067395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914067392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &943551809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,7 +3802,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &951254187 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 134778, guid: 0974d46312815004486dfb0b73fa2141, type: 2}
@@ -3621,7 +3830,7 @@ GameObject:
   - 114: {fileID: 994088363}
   - 114: {fileID: 994088361}
   m_Layer: 0
-  m_Name: EnemySpawnTwoWaterTurrets_0
+  m_Name: EnemySpawnTwoWaterTurrets
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3678,7 +3887,7 @@ GameObject:
   - 114: {fileID: 1015529152}
   - 114: {fileID: 1015529151}
   m_Layer: 0
-  m_Name: EnemySpawnTurret_1
+  m_Name: EnemySpawnTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3827,7 +4036,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
 --- !u!1 &1138960749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +4048,7 @@ GameObject:
   - 114: {fileID: 1138960752}
   - 114: {fileID: 1138960751}
   m_Layer: 0
-  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn_2
+  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3897,7 +4106,7 @@ GameObject:
   - 114: {fileID: 1168760169}
   - 114: {fileID: 1168760170}
   m_Layer: 0
-  m_Name: EnemySpawnTurretWall_0
+  m_Name: EnemySpawnTurretWall
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3944,6 +4153,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2099354107}
   m_RootOrder: 0
+--- !u!1 &1185130679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1185130680}
+  - 212: {fileID: 1185130682}
+  m_Layer: 0
+  m_Name: BGGeneric
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185130680
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185130679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 52556220}
+  m_RootOrder: 8
+--- !u!212 &1185130682
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185130679}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 6c4fac83fc22636458d0c3bf55087a77, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1196736603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,9 +4246,8 @@ RectTransform:
   m_Children:
   - {fileID: 1250146573}
   - {fileID: 392803611}
-  - {fileID: 851301099}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4050,7 +4320,7 @@ GameObject:
   - 114: {fileID: 1211445630}
   - 114: {fileID: 1211445629}
   m_Layer: 0
-  m_Name: EnemySpawnDiamondsSquad_0
+  m_Name: EnemySpawnDiamondsSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4114,7 +4384,7 @@ GameObject:
   - 114: {fileID: 1233405104}
   - 114: {fileID: 1233405103}
   m_Layer: 0
-  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn_1
+  m_Name: EnemySpawnDiamondsquadArcInShipSquadStraightIn
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4252,7 +4522,7 @@ GameObject:
   - 114: {fileID: 1252589451}
   - 114: {fileID: 1252589450}
   m_Layer: 0
-  m_Name: EnemySpawnTankShield_0
+  m_Name: EnemySpawnTankShield
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4270,7 +4540,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 43
+  m_RootOrder: 46
 --- !u!114 &1252589450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,7 +4612,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &1281206168 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11456682, guid: c0b784e983ecbbc4c907a49c183bc150,
@@ -4378,7 +4648,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 51
+  m_RootOrder: 57
 --- !u!114 &1295459726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4424,6 +4694,114 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!1 &1330549869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1330549870}
+  - 212: {fileID: 1330549874}
+  - 114: {fileID: 1330549873}
+  - 61: {fileID: 1330549872}
+  - 50: {fileID: 1330549871}
+  m_Layer: 0
+  m_Name: Left Disable Barrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1330549870
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330549869}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.33, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 60, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1848900451}
+  m_RootOrder: 0
+--- !u!50 &1330549871
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330549869}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1330549872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330549869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.15999998}
+--- !u!114 &1330549873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330549869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9270cd9fd394948a27e86c6e923365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrierMode: 4
+--- !u!212 &1330549874
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330549869}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1360791652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,7 +4841,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &1376559030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,7 +4853,7 @@ GameObject:
   - 114: {fileID: 1376559033}
   - 114: {fileID: 1376559032}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_7
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4551,7 +4929,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 47
+  m_RootOrder: 52
 --- !u!114 &1397311199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4610,7 +4988,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 57
+  m_RootOrder: 64
 --- !u!114 &1407805282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4653,7 +5031,7 @@ GameObject:
   - 114: {fileID: 1434276225}
   - 114: {fileID: 1434276224}
   m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_2
+  m_Name: EnemySpawnShipArcSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4686,13 +5064,13 @@ MonoBehaviour:
   rows: 5
   columns: 3
   rowSpacing: 2
-  columnSpacing: 2.5
+  columnSpacing: 3
   initLocation: {x: 9, y: 0}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 9
+    time: 13
   bulletPool: {fileID: 47714748}
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
@@ -4740,7 +5118,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!50 &1459050502
 Rigidbody2D:
   serializedVersion: 2
@@ -4874,7 +5252,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 59
+  m_RootOrder: 66
 --- !u!1 &1494288579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,7 +5282,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 53
+  m_RootOrder: 60
 --- !u!114 &1494288581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4951,7 +5329,7 @@ GameObject:
   - 114: {fileID: 1533531164}
   - 114: {fileID: 1533531163}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_6
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5038,7 +5416,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1 &1553124320
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,7 +5428,7 @@ GameObject:
   - 114: {fileID: 1553124322}
   - 114: {fileID: 1553124323}
   m_Layer: 0
-  m_Name: EnemySpawnReflectBulletSprayerArc_0
+  m_Name: EnemySpawnReflectBulletSprayerArc
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5102,6 +5480,71 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
   pauseController: {fileID: 1894107581}
+--- !u!1 &1586965084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1586965085}
+  - 114: {fileID: 1586965087}
+  - 114: {fileID: 1586965086}
+  m_Layer: 0
+  m_Name: EnemySpawnDiamondArcSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1586965085
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586965084}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 158.5, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 43
+--- !u!114 &1586965086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586965084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 2
+  columns: 4
+  rowSpacing: 1
+  columnSpacing: 1
+  initLocation: {x: 9, y: 1.4}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -3, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 9
+--- !u!114 &1586965087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586965084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1602023489
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,7 +5603,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b3b00691112e9a24697b2afdb61ca4d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5206,7 +5649,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 50
+  m_RootOrder: 55
 --- !u!114 &1608884126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,7 +5663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 2
   columns: 1
-  rowSpacing: 3
+  rowSpacing: 3.4
   columnSpacing: 1
   initLocation: {x: 9, y: 0}
   shieldableBullets: 1
@@ -5251,7 +5694,7 @@ GameObject:
   - 114: {fileID: 1623345372}
   - 114: {fileID: 1623345371}
   m_Layer: 0
-  m_Name: EnemySpawnShipArcSquad_3
+  m_Name: EnemySpawnShipArcSquad
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5264,7 +5707,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623345369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.6, y: -2, z: 0}
+  m_LocalPosition: {x: 113, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5283,14 +5726,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 2
   columns: 3
-  rowSpacing: 1
-  columnSpacing: 1
+  rowSpacing: 1.5
+  columnSpacing: 1.5
   initLocation: {x: 9, y: -2}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 9
+    time: 4
+  - type: 4
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: -1.5, y: 1}
+    time: 1
+  - type: 3
+    startVelocity: {x: -1.5, y: 1}
+    endVelocity: {x: 0, y: 0}
+    time: 8
   bulletPool: {fileID: 47714748}
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
@@ -5318,7 +5769,7 @@ GameObject:
   - 114: {fileID: 1639672204}
   - 114: {fileID: 1639672205}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_0
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5411,7 +5862,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 46
+  m_RootOrder: 51
 --- !u!114 &1648585986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5452,7 +5903,7 @@ GameObject:
   - 114: {fileID: 1677303291}
   - 114: {fileID: 1677303292}
   m_Layer: 0
-  m_Name: EnemySpawnSpiderTurret_1
+  m_Name: EnemySpawnSpiderTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5558,7 +6009,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2e7f11527a80b6b459eedfb414347c82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5586,7 +6037,7 @@ GameObject:
   - 114: {fileID: 1704587673}
   - 114: {fileID: 1704587672}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_4
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5661,7 +6112,7 @@ GameObject:
   - 114: {fileID: 1756502752}
   - 114: {fileID: 1756502751}
   m_Layer: 0
-  m_Name: EnemySpawnFighterTypeB_2
+  m_Name: EnemySpawnFighterTypeB
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5749,12 +6200,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1807645589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 195.2, y: 3, z: 0}
+  m_LocalPosition: {x: 195.2, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 48
+  m_RootOrder: 53
 --- !u!114 &1807645591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5768,9 +6219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 3
   columns: 5
-  rowSpacing: 0.8
+  rowSpacing: 1.2
   columnSpacing: 0.8
-  initLocation: {x: 9, y: 0}
+  initLocation: {x: 9, y: 1.5}
   pointIconPool: {fileID: 48442088}
   pauseController: {fileID: 1894107581}
   moveInstructionList:
@@ -5785,7 +6236,7 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: 0, y: -2}
     endVelocity: {x: 0, y: 0}
-    time: 1.5
+    time: 1
   - type: 4
     startVelocity: {x: 0, y: -2}
     endVelocity: {x: -2, y: 0}
@@ -5793,7 +6244,7 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: -2, y: 0}
     endVelocity: {x: 0, y: 0}
-    time: 5
+    time: 9
 --- !u!114 &1807645593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5817,7 +6268,7 @@ GameObject:
   - 114: {fileID: 1846294827}
   - 114: {fileID: 1846294826}
   m_Layer: 0
-  m_Name: EnemySpawnTurret_2
+  m_Name: EnemySpawnTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5875,7 +6326,7 @@ GameObject:
   - 114: {fileID: 1846604229}
   - 114: {fileID: 1846604228}
   m_Layer: 0
-  m_Name: EnemySpawnScreenThirds_0
+  m_Name: EnemySpawnScreenThirds
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5947,6 +6398,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1330549870}
   - {fileID: 470536504}
   - {fileID: 140203855}
   - {fileID: 633114793}
@@ -5956,7 +6408,7 @@ Transform:
   - {fileID: 309078681}
   - {fileID: 286767677}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1865506067
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,7 +6467,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8fa2ed98247d02a4b8c45dac320d93a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6071,7 +6523,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1908978173
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,7 +6610,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &1928993003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,7 +6640,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 58
+  m_RootOrder: 65
 --- !u!114 &1928993005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6244,12 +6696,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1938181712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 201.3, y: -3, z: 0}
+  m_LocalPosition: {x: 201.3, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2099354107}
-  m_RootOrder: 49
+  m_RootOrder: 54
 --- !u!114 &1938181714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6263,9 +6715,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 3
   columns: 1
-  rowSpacing: 1
+  rowSpacing: 2
   columnSpacing: 1
-  initLocation: {x: 9, y: -3}
+  initLocation: {x: 9, y: -2}
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
@@ -6278,7 +6730,7 @@ MonoBehaviour:
   - type: 3
     startVelocity: {x: 0, y: 2}
     endVelocity: {x: 0, y: 0}
-    time: 1.5
+    time: 0.52
   - type: 4
     startVelocity: {x: 0, y: 2}
     endVelocity: {x: -2, y: 0}
@@ -6415,6 +6867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0a7fffc2ad28a4f9690650fa698e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherBackground: {fileID: 837314903}
 --- !u!114 &1979203250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6455,7 +6908,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 177269117de7ce34392697466894d5d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6486,12 +6939,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2057161521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.79, z: 0}
-  m_LocalScale: {x: 100, y: 4, z: 1}
+  m_LocalPosition: {x: -1.99645, y: 3.79, z: 0}
+  m_LocalScale: {x: 125.04433, y: 4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1848900451}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!50 &2057161523
 Rigidbody2D:
   serializedVersion: 2
@@ -6636,17 +7089,24 @@ Transform:
   - {fileID: 1138960750}
   - {fileID: 1533531162}
   - {fileID: 1376559031}
+  - {fileID: 914067393}
+  - {fileID: 1586965085}
+  - {fileID: 537922672}
   - {fileID: 889059073}
   - {fileID: 1252589449}
   - {fileID: 255846362}
   - {fileID: 668638358}
+  - {fileID: 2143401483}
+  - {fileID: 591541716}
   - {fileID: 1648585985}
   - {fileID: 1397311198}
   - {fileID: 1807645590}
   - {fileID: 1938181713}
   - {fileID: 1608884125}
+  - {fileID: 554061123}
   - {fileID: 1295459725}
   - {fileID: 788149118}
+  - {fileID: 894372146}
   - {fileID: 1494288580}
   - {fileID: 523502535}
   - {fileID: 766413766}
@@ -6655,7 +7115,7 @@ Transform:
   - {fileID: 1928993004}
   - {fileID: 1478293980}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &2109802809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,7 +7127,7 @@ GameObject:
   - 114: {fileID: 2109802812}
   - 114: {fileID: 2109802811}
   m_Layer: 0
-  m_Name: EnemySpawnWaterTurret_4
+  m_Name: EnemySpawnWaterTurret
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6714,48 +7174,6 @@ MonoBehaviour:
   shieldableBulletPool: {fileID: 1266542188}
   pointIconPool: {fileID: 48442088}
   pauseController: {fileID: 1894107581}
---- !u!1001 &2127268243
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 22.387125
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.1392953
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 484512, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bcf1ce971fa4c2041b2cfddd3eeed9eb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2137028294
 GameObject:
   m_ObjectHideFlags: 0
@@ -6826,8 +7244,73 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 29b019970fea4a340a1947bf550dec9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &2143401482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2143401483}
+  - 114: {fileID: 2143401485}
+  - 114: {fileID: 2143401484}
+  m_Layer: 0
+  m_Name: EnemySpawnDiamondSquad
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143401483
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143401482}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 180, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2099354107}
+  m_RootOrder: 49
+--- !u!114 &2143401484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143401482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612c9750cd13a8f4ca9283a6fd0e1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 7
+  columns: 2
+  rowSpacing: 1
+  columnSpacing: 1
+  initLocation: {x: 9, y: -0.5}
+  pointIconPool: {fileID: 48442088}
+  pauseController: {fileID: 1894107581}
+  moveInstructionList:
+  - type: 3
+    startVelocity: {x: -2, y: 0}
+    endVelocity: {x: 0, y: 0}
+    time: 10
+--- !u!114 &2143401485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143401482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d25c3bf9ec9cf4ab1b1d4b69bbe96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1

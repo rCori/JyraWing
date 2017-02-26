@@ -18,7 +18,7 @@ public class EnemyHealthBar : MonoBehaviour {
     public void InitEnemyInfo(EnemyBehavior enemy) {
         this.enemy = enemy;
         enemy.hitPointEvent += UpdateFillArea;
-        enemy.destroyEvent += () => Destroy(gameObject);
+        enemy.destroyEvent += SafeDestroy;
     }
 
     public void UpdateFillArea(int hitPoints) {
@@ -34,8 +34,14 @@ public class EnemyHealthBar : MonoBehaviour {
         total = hitPoints + 1f;
     }
 
+    private void SafeDestroy() {
+        if(gameObject != null) {
+            Destroy(gameObject);
+        }
+    }
+
     void OnDestroy() {
-        enemy.destroyEvent -= () => Destroy(gameObject);
+        enemy.destroyEvent -= SafeDestroy;
         enemy.hitPointEvent -= UpdateFillArea;
     }
 }

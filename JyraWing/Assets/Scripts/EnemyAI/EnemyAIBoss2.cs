@@ -6,7 +6,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS_HEALTH = 100;
+    private static int BOSS_HEALTH = 200;
 	//Animator animator;
 	float fireTimer;
 	float fireTimeLimit;
@@ -75,7 +75,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
         //Set up shuffle bag
 		createShuffleBag ();
-		changePattern ();
+        StartCoroutine(enterStage());
 	}
 	
 	// Update is called once per frame
@@ -89,7 +89,31 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		DefaultTrigger (other);
+        if(hitPoints == 0) {
+            //Immediatly stop the current fire pattern
+            switch(currentPattern) {
+                case 0:
+                    StopCoroutine(straightShotMove);
+                    StopCoroutine(straightShotFirePattern);
+                    break;
+                case 1:
+                    StopCoroutine(sprayShot);
+                    break;
+                case 2:
+                    StopCoroutine(spreadShot);
+                    break;
+                default:
+                    break;
+            }
+        }
 	}
+
+    IEnumerator enterStage() {
+        StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
+        changePattern();
+        yield return null;
+    }
 
     IEnumerator spreadShotRoutine() {
         animator.SetInteger("animState", 0);
@@ -99,25 +123,36 @@ public class EnemyAIBoss2 : EnemyBehavior {
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
 
         for(int i = 0; i < 3; i++) {
-            StartNewMovement (new Vector3 (5f, -3, 0f), 0.5f);
+            StartNewMovement (new Vector3 (5f, -3f, 0f), 0.8f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
+
+            StartStandStill (0.2f);
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.2f));
+		    Shoot (new Vector2 (-6f, 2f),true);
+		    Shoot (new Vector2 (-6f, 3f),true);
+		    Shoot (new Vector2 (-6f, 4f),true);
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.0f, false);
+            StartNewMovement (new Vector3 (5f, 0f, 0f), 0.5f);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
 
             StartStandStill (0.2f);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.2f));
-
-		    Shoot (new Vector2 (-6f, 2f));
-		    Shoot (new Vector2 (-6f, 3f));
-		    Shoot (new Vector2 (-6f, 4f));
+		    Shoot (new Vector2 (-6f, -1f), true);
+		    Shoot (new Vector2 (-6f, 0f), true);
+		    Shoot (new Vector2 (-6f, 1f), true);
 
             StartNewMovement (new Vector3 (5f, 3f, 0f), 0.5f);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
 
             StartStandStill (0.2f);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.2f));
-		    Shoot (new Vector2 (-6f, -2f));
-		    Shoot (new Vector2 (-6f, -3f));
-		    Shoot (new Vector2 (-6f, -4f));
+		    Shoot (new Vector2 (-6f, -2f),true);
+		    Shoot (new Vector2 (-6f, -3f),true);
+		    Shoot (new Vector2 (-6f, -4f),true);
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.0f, false);
         }
+        StartNewMovement (new Vector3 (5f, 0f, 0f), 0.5f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
         changePattern();
     }
 
@@ -125,8 +160,6 @@ public class EnemyAIBoss2 : EnemyBehavior {
         animator.SetInteger("animState", 0);
 		isCharging = false;
 
-		fireTimeLimit = Random.Range(0.7f,1.0f);
-		fireTimer = 0.0f;
         yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(2.0f));
         for(int i = 0; i < 3; i++) {
             StartNewMovement (new Vector3 (5f, -3, 0f), 0.8f);
@@ -134,13 +167,28 @@ public class EnemyAIBoss2 : EnemyBehavior {
             StartNewMovement (new Vector3 (5f, 3f, 0f), 0.8f);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
         }
+        StartNewMovement (new Vector3 (5f, 0f, 0f), 0.8f);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.8f));
         changePattern();
     }
 
     IEnumerator straightShotFireRoutine() {
 
         while(true) {
-            straightShotFire();
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.5f, true);
+            Shoot (new Vector2 (-8f, 0f), true);
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, -0.75f));
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, 0.75f));
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(Random.Range(0.7f, 1.0f)));
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.5f, true);
+            Shoot (new Vector2 (-8f, 0f));
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, -0.75f), true);
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, 0.75f));
+            yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(Random.Range(0.7f, 1.0f)));
+            Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.5f, true);
+            Shoot (new Vector2 (-8f, 0f), true);
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, -0.75f));
+            Shoot(new Vector2(-6f, 0f), new Vector2 (0f, 0.75f), true);
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(Random.Range(0.7f, 1.0f)));
         }
     }
@@ -149,7 +197,7 @@ public class EnemyAIBoss2 : EnemyBehavior {
         for(int i = 0; i<sprayShotDirections.Length; i++) {
             Shoot(sprayShotDirections[i]);
             if(i%4 == 0) {
-                 Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 2.5f, true);
+                 Shoot((gameController.playerPosition - gameObject.transform.position).normalized* 3.5f, true);
             }
             yield return StartCoroutine(PauseControllerBehavior.WaitForPauseSeconds(0.5f));
         }
@@ -157,15 +205,6 @@ public class EnemyAIBoss2 : EnemyBehavior {
        
     }
 
-	/// <summary>
-	/// The actual shooting for the straight shot pattern.
-	/// </summary>
-	void straightShotFire()
-	{
-		Shoot (new Vector2 (-8f, 0f));
-        Shoot(new Vector2(-6f, 0f), new Vector2 (0f, -0.75f));
-        Shoot(new Vector2(-6f, 0f), new Vector2 (0f, 0.75f));
-	}
 
 
 
@@ -238,26 +277,18 @@ public class EnemyAIBoss2 : EnemyBehavior {
             break;
         default:
             break;
-
         }
     }
 
 
 	void createShuffleBag(){
 		shuffleBagCounter = 0;
-		bag = new ShuffleBag (4);
-		//bag = new ShuffleBag (1);
+		bag = new ShuffleBag (3);
 		bag.Add (0, 1);
 		bag.Add (1, 1);
 		bag.Add (2, 1);
-		//bag.Add (3, 1);
 	}
 
-	void assignSFXPlayerSafe(){
-		if(!sfxPlayer){
-			sfxPlayer = GameObject.Find ("SoundEffectPlayer").GetComponent<SoundEffectPlayer>();
-		}
-	}
 
     void OnBossDestruction(){
 		//animator.SetInteger ("animState", 3);

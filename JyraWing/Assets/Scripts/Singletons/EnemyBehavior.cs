@@ -149,6 +149,8 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
     private bool invulnerable;
 
+    private bool canShoot;
+
 	/// <summary>
 	/// Initialize default values for the enemy
 	/// </summary>
@@ -177,6 +179,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		hasPointObjectToSpawn = false;
 		rigidybody2D = GetComponent<Rigidbody2D> ();
         invulnerable = false;
+        canShoot = true;
 	}
 
 	/// <summary>
@@ -266,6 +269,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	}
 
 	public void Shoot(bool shieldable = false){
+        if (!canShoot) return;
 		GameObject bulletObj;
 		//Determine what kind of bullet we will get, shieldable or not
 		
@@ -289,6 +293,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	/// <param name="i_dir">Enemy bullet velocity.</param>
 	public void Shoot(Vector2 i_dir, bool shieldable = false){
+        if (!canShoot) return;
 		GameObject bulletObj;
 		//Determine what kind of bullet we will get, shieldable or not
 
@@ -315,6 +320,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 	/// </summary>
 	/// <param name="i_dir">Enemy bullet velocity.</param>
 	public void Shoot(Vector2 i_dir,Vector2 i_relPos, bool shieldable = false){
+        if (!canShoot) return;
 		GameObject bulletObj;
 		//Determine what kind of bullet we will get, shieldable or not
 
@@ -419,6 +425,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 						}
 					}
 					gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, 0f);
+                    gameObject.GetComponent<BoxCollider2D>().enabled = false;
 					try{
 						//Try to set the destroy animation
 						if(animator){
@@ -621,6 +628,14 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 
     public void SetInvuln(bool value) {
         invulnerable = value;
+    }
+
+    public bool GetCanShoot() {
+        return canShoot;
+    }
+
+    public void SetCanShoot(bool value) {
+        canShoot = value;
     }
 
 	/* Implementation of PauseableObject */

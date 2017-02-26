@@ -1,4 +1,4 @@
-﻿#define ASSERTHIGHSCOREDATA
+﻿//#define ASSERTHIGHSCOREDATA
 
 using UnityEngine;
 using System.Collections;
@@ -72,15 +72,6 @@ public class HighScoreData {
         scoreArray.scores[8] = new SavedScore(200, "EEE");
         scoreArray.scores[9] = new SavedScore(100, "FFF");
     }
-
-    /*
-    public void TryForNewScore(int score) {
-        int replacementScore = CheckScore(score);
-        if(replacementScore == -1) {
-            ScoreController.SetHighScoreToEnter(true, score);
-        }
-    }
-    */
 
     /// <summary>
     /// Check which high score if any the entered score is higher than

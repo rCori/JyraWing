@@ -254,6 +254,7 @@ public class EnemyAIBoss1 : EnemyBehavior {
 
     void OnBossDestruction()
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         if (levelControllerBehavior != null)
         {
             Debug.Log("Handle level finished");

@@ -36,6 +36,7 @@ public class UIControllerBehaviour: MonoBehaviour {
 
 		uiController = new UIController ();
 
+
 		levelEndImage = Resources.Load("UIObjects/LevelFinishedImage") as GameObject;
 		levelEndImage = Instantiate (levelEndImage);
 		levelEndImage.transform.SetParent (canvas.transform, false);
@@ -202,8 +203,8 @@ public class UIControllerBehaviour: MonoBehaviour {
 		ScoreController.AddToScoreEvent -= UpdateScore;
 		CountdownTimer.PlayerContinueEvent -= HideGameOver;
 		CountdownTimer.PlayerContinueEvent -= ResetLives;
-        CountdownTimer.PlayerContinueEvent += HideDarkPanel;
-        CountdownTimer.CountDownStartedEvent += ShowDarkPanel;
+        CountdownTimer.PlayerContinueEvent -= HideDarkPanel;
+        CountdownTimer.CountDownStartedEvent -= ShowDarkPanel;
 		LevelControllerBehavior.FinishLevelEvent -= ShowLevelComplete;
 		LevelControllerBehavior.GameOverEvent -= ShowGameOver;
 		PauseControllerBehavior.PauseEvent -= PauseMenu;

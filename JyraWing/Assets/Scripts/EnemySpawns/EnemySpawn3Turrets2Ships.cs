@@ -18,7 +18,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 		//Top ship
 		{
 			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			shipEnemy.transform.position = new Vector3 (11.0f, 2.5f, 0f);
+			shipEnemy.transform.position = new Vector3 (12.0f, 2.5f, 0f);
 			EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
@@ -35,7 +35,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 		//bottom ship enemy
 		{
 			GameObject shipEnemy = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			shipEnemy.transform.position = new Vector3 (11.0f, -2.5f, 0f);
+			shipEnemy.transform.position = new Vector3 (12.0f, -2.5f, 0f);
 			EnemyBehavior enemyBehavior = shipEnemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
@@ -52,7 +52,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 		//Center water turret
 		{
 			GameObject waterTurretEnemy = (GameObject) Resources.Load ("Enemies/TurretEnemies/Enemy_WaterTurretLevel1");
-			waterTurretEnemy.transform.position = new Vector3 (8.0f, 0.0f, 0f);
+			waterTurretEnemy.transform.position = new Vector3 (9.0f, 0.0f, 0f);
 		
 			EnemyBehavior enemyBehavior = waterTurretEnemy.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
@@ -70,7 +70,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
 		{
 
 			GameObject standardTurret = (GameObject)Resources.Load ("Enemies/TurretEnemies/Enemy_BoxTurret");
-			standardTurret.transform.position = new Vector3 (8.0f, 3.0f, 0f);
+			standardTurret.transform.position = new Vector3 (9.0f, 3.0f, 0f);
 			EnemyBehavior enemyBehavior = standardTurret.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;

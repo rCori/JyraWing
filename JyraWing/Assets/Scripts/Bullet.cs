@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	private Vector2 storedVel;
 	private Animator animator;
 	private SpriteRenderer renderer;
+    private Rigidbody2D rigidBody2D;
+    private BoxCollider2D boxCollider2D;
 
 	// Use this for initialization
 	void Start () {
@@ -20,14 +22,17 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		RegisterToList();
 		animator = GetComponent<Animator> ();
 		renderer = GetComponent<SpriteRenderer> ();
+        rigidBody2D = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
 		renderer.enabled = false;
+        boxCollider2D.enabled = false;
 
 	}
 		
 
 	public void BulletHit() {
 		animator.SetInteger ("animState", 1);
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (0f, 0f);
+		rigidBody2D.velocity = new Vector2 (0f, 0f);
 	}
 
 	/// <summary>
@@ -44,35 +49,21 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	/// </summary>
 	public void Shoot(){
 		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 0f);
+		rigidBody2D.velocity = new Vector2 (10.0f, 0f);
+        boxCollider2D.enabled = true;
 		renderer.enabled = true;
 
-	}
-
-	/// <summary>
-	/// Shoot the player bullet at an upward angle for the spreadshot.
-	/// </summary>
-	public void ShootUp(){
-		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, -8f);
-	}
-
-	/// <summary>
-	/// Shoot the player bullet at an downward angle for the spreadshot.
-	/// </summary>
-	public void ShootDown(){
-		isActive = true;
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (10.0f, 8f);
 	}
 
 	/// <summary>
 	/// Public interface for getting rid of a bullet and setting it inactive
 	/// </summary>
 	public void BulletDestroy(){
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+		rigidBody2D.velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		animator.SetInteger ("animState", 0);
 		isActive = false;
+        boxCollider2D.enabled = false;
 		renderer.enabled = false;
 	}
 
@@ -90,12 +81,12 @@ public class Bullet : MonoBehaviour, PauseableItem {
 			_paused = value;
 			if(_paused)
 			{
-				storedVel = GetComponent<Rigidbody2D>().velocity;
-				GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, 0.0f);
+				storedVel = rigidBody2D.velocity;
+				rigidBody2D.velocity = new Vector2 (0.0f, 0.0f);
 				animator.speed = 0;
 			}
 			else{
-				GetComponent<Rigidbody2D>().velocity = storedVel;
+				rigidBody2D.velocity = storedVel;
 				animator.speed = 1;
 			}
 		}
