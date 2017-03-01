@@ -9,7 +9,7 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 	public struct MoveInstruction {
 		public EnemyBehavior.MovementStatus type;
 		public Vector2 startVelocity;
-		public Vector2 endVelocities;
+		public Vector2 endVelocity;
 		public float time;
 	};
 
@@ -76,7 +76,7 @@ public class EnemyAIReflectBulletSprayerArc : EnemyBehavior
 				if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.Velocity) {
 					StartNewVelocity (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].time);
 				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.ArcVelocity) {
-					StartArcVelocity (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].endVelocities, MoveInstructionList [currentMovementStep].time);
+					StartArcVelocity (MoveInstructionList [currentMovementStep].startVelocity, MoveInstructionList [currentMovementStep].endVelocity, MoveInstructionList [currentMovementStep].time);
 				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.None) {
 					StartStandStill (MoveInstructionList [currentMovementStep].time);
 				} else if (MoveInstructionList [currentMovementStep].type == EnemyBehavior.MovementStatus.Lerp) {

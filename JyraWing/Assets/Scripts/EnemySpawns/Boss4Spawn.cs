@@ -15,7 +15,7 @@ public class Boss4Spawn : EnemySpawner
         Vector3 spawnPos = gameObject.transform.position;
 
         GameObject enemy = (GameObject)Resources.Load("Enemies/BossEnemies/Enemy_Boss4");
-        enemy.transform.position = new Vector3(8.0f, 0f, 0f);
+        enemy.transform.position = new Vector3(12.0f, 0f, 0f);
 
         enemy.GetComponent<EnemyBehavior>().bulletPool = bulletPool;
         enemy.GetComponent<EnemyBehavior>().shieldableBulletPool = shieldableBulletPool;

@@ -23,25 +23,47 @@ public class EnemySpawnCornerSprayer2Tanks : EnemySpawner {
 
 		//Bullet sprayer going diagonaly through the right half of the screen and then back up
 		{
-			GameObject enemyBulletSprayer = (GameObject)Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayer");
+			GameObject enemyBulletSprayer = (GameObject)Resources.Load ("Enemies/ReflectorEnemies/Enemy_ReflectBulletSprayerArc");
 			enemyBulletSprayer.transform.position = new Vector3 (6.0f, yFactor * 3.5f, 0.0f);
 
 			EnemyBehavior enemyBehavior = enemyBulletSprayer.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;
 			enemyBehavior.shieldableBulletPool = shieldableBulletPool;
-			enemyBehavior.pointIconPool = pointIconPool;
-
-            EnemyAIReflectBulletSprayerA reflectBulletAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA>();
+            enemyBehavior.pointIconPool = pointIconPool;
 
 			enemyBulletSprayer = Instantiate (enemyBulletSprayer);
+            EnemyAIReflectBulletSprayerArc reflectBulletAI = enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerArc>();
 
 			enemyBulletSprayer.GetComponent<EnemyBehavior> ().SetEnemyHealth (3);
             enemyBulletSprayer.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
-			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ().locations = new List<Vector2> {
+
+            EnemyAIReflectBulletSprayerArc.MoveInstruction downwardMove = new EnemyAIReflectBulletSprayerArc.MoveInstruction();
+            downwardMove.type = EnemyBehavior.MovementStatus.Lerp;
+            downwardMove.startVelocity = new Vector2(2.0f, yFactor * -1.5f);
+            downwardMove.time = 2.5f;
+
+            EnemyAIReflectBulletSprayerArc.MoveInstruction leftMove = new EnemyAIReflectBulletSprayerArc.MoveInstruction();
+            leftMove.type = EnemyBehavior.MovementStatus.Lerp;
+            leftMove.startVelocity = new Vector2(-2.0f, yFactor * -1.5f);
+            leftMove.time = 1.5f;
+
+            EnemyAIReflectBulletSprayerArc.MoveInstruction upwardMove = new EnemyAIReflectBulletSprayerArc.MoveInstruction();
+            upwardMove.type = EnemyBehavior.MovementStatus.Lerp;
+            upwardMove.startVelocity = new Vector2(-8.5f, yFactor * 1.5f);
+            upwardMove.time = 2.5f;
+
+            reflectBulletAI.MoveInstructionList.Clear();
+            reflectBulletAI.MoveInstructionList.Add(downwardMove);
+            reflectBulletAI.MoveInstructionList.Add(leftMove);
+            reflectBulletAI.MoveInstructionList.Add(upwardMove);
+
+            /*
+			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerArc> ().locations = new List<Vector2> {
 				new Vector2 (0.0f, yFactor * -3.5f),
 				new Vector2 (-6.0f, yFactor * 3.5f)
 			};
-			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerA> ().times = new List<float> { 1.5f, 1.5f };
+			enemyBulletSprayer.GetComponent<EnemyAIReflectBulletSprayerArc> ().times = new List<float> { 1.5f, 1.5f };
+            */
 		}
 
 		if (ships) {
