@@ -53,7 +53,7 @@ public class BarrierWall : MonoBehaviour {
 		}
 
 		if (other.tag == "Bullet" && barrierMode == sides.Right) {
-			other.GetComponent<Bullet> ().BulletDestroy ();
+			other.GetComponent<Bullet> ().Recycle ();
 		}
 	}
 

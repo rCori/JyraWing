@@ -5,7 +5,8 @@ public class EnemyAIBoss4 : EnemyBehavior
 {
     public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS3_HITS = 300;
+    private static int BOSS4_HITS = 300;
+    //private static int BOSS4_HITS = 10;
 
     private Vector2 downwardShootingAngle;
     private Vector2 upwardShootingAngle;
@@ -26,7 +27,7 @@ public class EnemyAIBoss4 : EnemyBehavior
     void Start()
     {
         EnemyDefaults();
-        SetEnemyHealth(BOSS3_HITS);
+        SetEnemyHealth(BOSS4_HITS);
         downwardShootingAngle = new Vector2(-2.5f, -1.2f);
         upwardShootingAngle = new Vector2(-2.5f, 1.2f);
         trackingBulletRoutine = TrackingBulletRoutine();
@@ -88,9 +89,6 @@ public class EnemyAIBoss4 : EnemyBehavior
         default:
             break;
         }
-
-       
-
 	}
 
     IEnumerator TrackingBulletRoutine()
@@ -188,6 +186,26 @@ public class EnemyAIBoss4 : EnemyBehavior
 
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+		DefaultTrigger (other);
+        if(hitPoints == 0) {
+            //Immediatly stop the current fire pattern
+            switch(currentPattern) {
+                case 0:
+                    StopCoroutine(trackingBulletRoutine);
+                    StopCoroutine(coneShootingRoutine);
+                    break;
+                case 1:
+                    StopCoroutine(bulletColumnRotuine);
+                    StopCoroutine(directAtPlayerRoutine);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+       
 
     private void Pattern0Fanning(float deltaTime) {
         if(fanningUp) {

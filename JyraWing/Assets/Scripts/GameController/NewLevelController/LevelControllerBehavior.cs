@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 
 	public delegate void LevelControllerDelegate();
-	public static event LevelControllerDelegate FinishLevelEvent, DisablePlayerEvent, GameOverEvent, PlayerKilledEvent;
+	public static event LevelControllerDelegate /*FinishLevelEventEarly, */FinishLevelEvent, DisablePlayerEvent, GameOverEvent, PlayerKilledEvent;
 
 	public static string NextLevel;
     public static string TitleSceneLevel;
@@ -40,6 +40,7 @@ public class LevelControllerBehavior : MonoBehaviour, ILevelController {
 	}
 
 	IEnumerator levelFinishedRoutine() {
+        //FinishLevelEventEarly();
 		yield return new WaitForSeconds (2f);
 		FinishLevelEvent();
 		yield return new WaitForSeconds (3f);

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalPosition: {x: 11, y: 1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -99,11 +99,11 @@ MonoBehaviour:
   LeftWallException: 1
   shieldableBullets: 0
   MoveInstructionList: []
-  angle: 150
+  angle: 180
   shieldableAngleAdjustment: 15
-  speed: 1.5
-  lifeTime: 10
-  shootInDirection: 0
+  speed: 2
+  lifeTime: 9
+  shootInDirection: 1
 --- !u!114 &11494714
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Bullet : MonoBehaviour, PauseableItem {
 
@@ -27,6 +28,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		renderer.enabled = false;
         boxCollider2D.enabled = false;
 
+        Player.TakeDamageEvent += Recycle;
 	}
 		
 
@@ -58,7 +60,7 @@ public class Bullet : MonoBehaviour, PauseableItem {
 	/// <summary>
 	/// Public interface for getting rid of a bullet and setting it inactive
 	/// </summary>
-	public void BulletDestroy(){
+	public void Recycle(){
 		rigidBody2D.velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		animator.SetInteger ("animState", 0);
@@ -92,6 +94,10 @@ public class Bullet : MonoBehaviour, PauseableItem {
 		}
 	}
 	
+    void OnDestroy() {
+        Player.TakeDamageEvent -= Recycle;
+    }
+
 	public void RegisterToList()
 	{
 		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);

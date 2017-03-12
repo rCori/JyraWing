@@ -56,6 +56,9 @@ public class UIControllerBehaviour: MonoBehaviour {
 
         HideDarkPanel();
 
+        if(PlayerLives.Instance.GetCurrentLives() == 0) {
+            PlayerLives.Instance.SetCurrentLives(1);
+        }
 		Initialize (PlayerLives.Instance.GetCurrentLives());
 
 		visibleColor = new Color (1.0f, 1.0f, 1.0f, 1.0f);

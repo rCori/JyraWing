@@ -5,7 +5,8 @@ public class EnemyAIBoss5 : EnemyBehavior
 {
     public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS5_HITS = 10;
+    private static int BOSS5_HITS = 280;
+    //private static int BOSS5_HITS = 10;
 
     private Vector2 downwardShootingAngle;
     private Vector2 upwardShootingAngle;
@@ -68,26 +69,6 @@ public class EnemyAIBoss5 : EnemyBehavior
 			return;
 		}
 		Movement();
-        /*
-        switch(hitPoints) {
-        case 50:
-            if(patternValSet != hitPoints) { 
-                BulletPatternShift(1);
-                patternValSet = hitPoints;
-            }      
-            break;
-        default:
-            break;
-        }
-        */
-        /*
-        if(currentPattern == 1) {
-            patternSwitchTimer += Time.deltaTime;
-            if(patternSwitchTimer > pattern1Time) {
-                BulletPatternShift(0);
-            }
-        }
-        */
 	}
 
     public void BulletPatternShift(int patternNum) {
@@ -124,6 +105,26 @@ public class EnemyAIBoss5 : EnemyBehavior
         default:
             break;
 
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+		DefaultTrigger (other);
+        if(hitPoints == 0) {
+            //Immediatly stop the current fire pattern
+            switch(currentPattern) {
+                case 0:
+                    StopCoroutine(threeWayShooting);
+                    break;
+                case 1:
+                    StopCoroutine(scatteredProlongedStream);
+                    break;
+                case 2:
+                    StopCoroutine(diamondPatternStream);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

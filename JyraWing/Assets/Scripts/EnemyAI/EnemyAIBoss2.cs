@@ -6,7 +6,9 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
+    //private static int BOSS_HEALTH = 10;
     private static int BOSS_HEALTH = 200;
+
 	//Animator animator;
 	float fireTimer;
 	float fireTimeLimit;

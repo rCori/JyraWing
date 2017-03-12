@@ -9,7 +9,9 @@ public class EnemyAIBoss1 : EnemyBehavior {
 
     private IEnumerator firePattern1, firePattern2, firePattern3;
 
+    //private int BOSS1_HITS = 18;
     private int BOSS1_HITS = 180;
+    
     private int patternValSet;
 
 	void Awake(){
@@ -109,6 +111,26 @@ public class EnemyAIBoss1 : EnemyBehavior {
         }
         patternValSet = hitPoints;
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+		DefaultTrigger (other);
+        if(hitPoints == 0) {
+            //Immediatly stop the current fire pattern
+            switch(currentPattern) {
+                case 0:
+                    StopCoroutine (firePattern1);
+                    break;
+                case 1:
+                    StopCoroutine (firePattern2);
+                    break;
+                case 2:
+                    StopCoroutine (firePattern3);
+                    break;
+                default:
+                    break;
+            }
+        }
+	}
 
     IEnumerator MoveIntoPosition() {
         SetInvuln(true);
@@ -263,5 +285,6 @@ public class EnemyAIBoss1 : EnemyBehavior {
         //Then remove this even because there will be no other time to do that.
         destroyEvent -= OnBossDestruction;
     }
+
 
 }

@@ -541,23 +541,23 @@ MonoBehaviour:
   moveInstructionList:
   - type: 3
     startVelocity: {x: 0, y: 4}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 0
   - type: 4
     startVelocity: {x: 0, y: 4}
-    endVelocities: {x: -4, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 2
   - type: 3
     startVelocity: {x: -4, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 4
     startVelocity: {x: -4, y: 0}
-    endVelocities: {x: 0, y: -4}
+    endVelocity: {x: 0, y: 0}
     time: 2
   - type: 3
     startVelocity: {x: 0, y: -4}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 3
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -3106,15 +3106,15 @@ MonoBehaviour:
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: -2}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 4
   - type: 4
     startVelocity: {x: -2, y: -2}
-    endVelocities: {x: -3, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 3
     startVelocity: {x: -3, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 3
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -3177,23 +3177,23 @@ MonoBehaviour:
   moveInstructionList:
   - type: 3
     startVelocity: {x: -3, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 5
   - type: 4
     startVelocity: {x: -3, y: 0}
-    endVelocities: {x: 0, y: 3}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 3
     startVelocity: {x: 0, y: 3}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 3
   - type: 4
     startVelocity: {x: 0, y: 3}
-    endVelocities: {x: 3, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 3
     startVelocity: {x: 3, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 6
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -7842,19 +7842,19 @@ MonoBehaviour:
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2.5, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 3
   - type: 4
     startVelocity: {x: -2.5, y: 0}
-    endVelocities: {x: 0, y: -2.5}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 4
     startVelocity: {x: 0, y: -2.5}
-    endVelocities: {x: -2.5, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 1
   - type: 3
     startVelocity: {x: -2.5, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 6
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}
@@ -8151,7 +8151,7 @@ MonoBehaviour:
   moveInstructionList:
   - type: 3
     startVelocity: {x: -2, y: 0}
-    endVelocities: {x: 0, y: 0}
+    endVelocity: {x: 0, y: 0}
     time: 13
   bulletPool: {fileID: 1516269790}
   shieldableBulletPool: {fileID: 1292622103}

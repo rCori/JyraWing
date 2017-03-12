@@ -29,5 +29,8 @@ public class Boss2Spawn : EnemySpawner {
 		enemyBehavior.pointIconPool = pointIconPool;
         enemy1 = Instantiate (enemy1);
         enemyBehavior.SetPaused(pauseController.IsPaused);
+
+        bulletPool.SetLevelBoss(enemy1.GetComponent<EnemyBehavior>());
+        shieldableBulletPool.SetLevelBoss(enemy1.GetComponent<EnemyBehavior>());
 	}
 }

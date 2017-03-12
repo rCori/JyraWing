@@ -28,4 +28,8 @@
     public void DecreaseLives() {
         currentLives--;
     }
+
+    public void SetCurrentLives(int currentLives) {
+        this.currentLives = currentLives;
+    }
 }

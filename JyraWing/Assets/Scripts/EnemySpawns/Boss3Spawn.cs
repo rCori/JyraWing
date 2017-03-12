@@ -25,5 +25,8 @@ public class Boss3Spawn : EnemySpawner {
 
 		enemy = Instantiate (enemy);
         enemy.GetComponent<EnemyBehavior>().SetPaused(pauseController.IsPaused);
+
+        bulletPool.SetLevelBoss(enemy.GetComponent<EnemyBehavior>());
+        shieldableBulletPool.SetLevelBoss(enemy.GetComponent<EnemyBehavior>());
 	}
 }

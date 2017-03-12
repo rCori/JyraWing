@@ -5,7 +5,8 @@ public class EnemyAIBoss3 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
-	private static int BOSS2_HITS = 250;
+    //private static int BOSS3_HITS = 25;
+	private static int BOSS3_HITS = 250;
 
 	private Vector2[] bulletDir;
 	private float bulletSpeed;
@@ -23,7 +24,7 @@ public class EnemyAIBoss3 : EnemyBehavior {
 	// Use this for initialization
 	void Awake () {
 		EnemyDefaults ();
-		SetEnemyHealth (BOSS2_HITS);
+		SetEnemyHealth (BOSS3_HITS);
 		HasAnimations animationSettings;
 		animationSettings = HasAnimations.Destroy;
 		SetAnimations (animationSettings);

@@ -16,6 +16,7 @@ public class EnemyBulletPool : MonoBehaviour {
 	List<GameObject> bulletObjPool;
 	List<EnemyBullet> bulletPool;
 
+    private EnemyBehavior bossBehavior;
 
 	/// <summary>
 	/// What kind of bullet pool is this? A pool of shieldable bullets or a pool of unshieldable bullets?
@@ -24,23 +25,12 @@ public class EnemyBulletPool : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        bossBehavior = null;
 		//Create the bullet pool, a list of GameObjects with the EnemyBullet script on it.
 		bulletObjPool = new List<GameObject> ();
 		bulletPool = new List<EnemyBullet> ();
 		for (int i = 0; i < totalBullets; i++) {
 			//Create bullet to put in pool.
-//			GameObject bullet;
-//			//Determine what kind of bullets are going in the pool
-//			if(shieldablePool){
-//				bullet = Resources.Load ("EnemyBulletShieldable") as GameObject;
-//			}
-//			else{
-//				bullet = Resources.Load ("EnemyBullet") as GameObject;
-//			}
-//			bullet.transform.position = new Vector2(0f,10f);
-//			bullet = Instantiate(bullet);
-//			bullet.gameObject.SetActive(true);
-//			bulletPool.Add(bullet);
 			GameObject newBulletObj = addBullet();
 			EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
 			bulletObjPool.Add(newBulletObj);
@@ -59,10 +49,6 @@ public class EnemyBulletPool : MonoBehaviour {
 			}
 		}
         //If no bullet of this type exists, create one and call recursivly to get it
-        //GameObject newBulletObj = addBullet();
-        //EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet> ();
-        //bulletObjPool.Add(newBulletObj);
-        //bulletPool.Add (newBullet);
         GameObject newBulletObj = addBullet();
         EnemyBullet newBullet = newBulletObj.GetComponent<EnemyBullet>();
         bulletObjPool.Add(newBulletObj);
@@ -87,4 +73,24 @@ public class EnemyBulletPool : MonoBehaviour {
 		return bullet;
 	}
 
+    private void RecycleAllBullets(int hitPoints) {
+        if(hitPoints == 0) {
+            Debug.Log("RecycleAllBullets");
+            foreach(EnemyBullet enemyBullet in bulletPool) {
+                enemyBullet.Recycle();
+            }
+        }
+    }
+
+    public void SetLevelBoss(EnemyBehavior bossBehavior) {
+        this.bossBehavior = bossBehavior;
+        bossBehavior.hitPointEvent += RecycleAllBullets;
+    }
+
+    void OnDestroy() {
+        if(bossBehavior != null) {
+            bossBehavior.hitPointEvent -= RecycleAllBullets;
+        }
+    }
+    
 }

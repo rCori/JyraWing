@@ -34,6 +34,8 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		SetRendererEnabled (false);
 		RegisterToList();
         hasStarted = true;
+
+       // LevelControllerBehavior.FinishLevelEventEarly += Recycle;
 	}
 	
 	// Update is called once per frame
@@ -94,7 +96,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
         animator.SetInteger("animState", 0);
     }
 
-	private void Recycle(){
+	public void Recycle(){
 		rigidyBody2D.velocity = new Vector2 (0.0f, 0.0f);
 		gameObject.transform.position = new Vector2(0,10f);
 		isActive = false;
@@ -127,6 +129,10 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		}
 	}
 	
+    void OnDestroy() {
+        //LevelControllerBehavior.FinishLevelEventEarly -= Recycle;
+    }
+
 	public void RegisterToList()
 	{
 		GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
