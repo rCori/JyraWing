@@ -5,7 +5,7 @@ public class EnemyAIBoss4 : EnemyBehavior
 {
     public LevelControllerBehavior levelControllerBehavior;
 
-    private static int BOSS3_HITS = 150;
+    private static int BOSS3_HITS = 300;
 
     private Vector2 downwardShootingAngle;
     private Vector2 upwardShootingAngle;
@@ -204,11 +204,11 @@ public class EnemyAIBoss4 : EnemyBehavior
         }
 
 
-        if (hitPoints < (51)) {
+        if (hitPoints < (101)) {
             downwardShootingAngle = new Vector2(-2.5f, -0.6f + fanningTimer);
             upwardShootingAngle = new Vector2(-2.5f, 0.6f + fanningTimer);
             fireWaitTime = 0.25f;
-        } else if(hitPoints < (101)) {
+        } else if(hitPoints < (201)) {
             downwardShootingAngle = new Vector2(-2.5f, -0.9f + fanningTimer);
             upwardShootingAngle = new Vector2(-2.5f, 0.9f + fanningTimer);
             fireWaitTime = 0.5f;
@@ -220,10 +220,10 @@ public class EnemyAIBoss4 : EnemyBehavior
     }
 
     private void Pattern1Adjustment() {
-        if(hitPoints <  51) {
+        if(hitPoints <  101) {
             columnBulletWidth = 1.7f;
             directAtPlayerSpeed = 8.0f;
-        } else if(hitPoints < 101) {
+        } else if(hitPoints < 201) {
             columnBulletWidth = 2.0f;
             directAtPlayerSpeed = 7.5f;
         } else {

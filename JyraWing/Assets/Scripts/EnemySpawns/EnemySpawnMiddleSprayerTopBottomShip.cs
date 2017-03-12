@@ -38,7 +38,7 @@ public class EnemySpawnMiddleSprayerTopBottomShip : EnemySpawner {
 		//Ship coming through from the top
 		{
 			GameObject topShip = (GameObject)Resources.Load ("Enemies/BasicShipEnemies/Enemy_ShipArc");
-			topShip.transform.position = new Vector3 (9.0f, 3.0f, 0.0f);
+			topShip.transform.position = new Vector3 (9.0f, 2.0f, 0.0f);
 
 			EnemyBehavior enemyBehavior = topShip.GetComponent<EnemyBehavior> ();
 			enemyBehavior.bulletPool = bulletPool;

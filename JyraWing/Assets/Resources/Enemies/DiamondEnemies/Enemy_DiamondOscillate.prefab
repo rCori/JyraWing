@@ -119,7 +119,7 @@ MonoBehaviour:
   bulletPool: {fileID: 0}
   shieldableBulletPool: {fileID: 0}
   pointIconPool: {fileID: 0}
-  LeftWallException: 0
+  LeftWallException: 1
   shieldableBullets: 0
   direction: {x: -2, y: 0}
   time: 21
