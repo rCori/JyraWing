@@ -28,7 +28,7 @@ public class EnemyAIBasicShip : EnemyBehavior {
 
 	private float timer;
 	private Vector2 direction;
-	private float bulletSpeed = 3.4f;
+	private float bulletSpeed = 6.0f;
 	private float fireRate = 1.5f;
 
 	private int SHIP_HEALTH = 3;
@@ -92,9 +92,9 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		timer += Time.deltaTime;
 		if (timer > fireRate) {
 			if (shootInDirection) {
-				Shoot (direction * speed * bulletSpeed);
+				Shoot (direction * bulletSpeed);
 			} else {
-				Shoot (Vector2.left * speed * bulletSpeed);
+				Shoot (Vector2.left * bulletSpeed);
 			}
 			timer = 0.0f;
 		}

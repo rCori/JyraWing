@@ -17,7 +17,7 @@ public class EnemyAITypeBFighter : EnemyBehavior {
 
 	private float radians;
 	private float timer;
-	private float bulletSpeed = 3.4f;
+	private float bulletSpeed = 6.0f;
 	private float fireRate = 1.5f;
 	private int SHIP_HEALTH = 4;
 

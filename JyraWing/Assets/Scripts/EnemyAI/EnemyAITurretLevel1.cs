@@ -24,6 +24,11 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 	/// </summary>
 	private float shootTimeLimit;
 
+    /// <summary>
+    /// Speed of the bullet
+    /// </summary>
+    private float bulletSpeed;
+
 	private bool isFlipped;
 
 	//Keep a steady interval to update positional idle animation.
@@ -38,10 +43,13 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 
 	//Gets called on Instantiation.
 	void Awake(){
+
+        bulletSpeed = 9.0f;
+
 		EnemyDefaults ();
 		fireDir = gameController.playerPosition - gameObject.transform.position;
 		fireDir.Normalize ();
-		fireDir.Set(fireDir.x*4, fireDir.y*4);
+		fireDir.Set(fireDir.x*bulletSpeed, fireDir.y*bulletSpeed);
 
 		//Set the up and down directions for shieldable bullets
 		upDir.Set (-1f, -3f);
@@ -79,7 +87,7 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		}
 		fireDir = gameController.playerPosition - gameObject.transform.position;
 		fireDir.Normalize ();
-		fireDir.Set(fireDir.x*4, fireDir.y*4);
+		fireDir.Set(fireDir.x*bulletSpeed, fireDir.y*bulletSpeed);
 
 
 		shootTimer += Time.deltaTime;
