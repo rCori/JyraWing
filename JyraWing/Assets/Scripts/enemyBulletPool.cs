@@ -70,27 +70,16 @@ public class EnemyBulletPool : MonoBehaviour {
 		bullet.transform.position = new Vector2(0f,10f);
 		bullet = Instantiate(bullet);
 		bullet.gameObject.SetActive(true);
+        if(bossBehavior != null) {
+            bullet.GetComponent<EnemyBullet>().GiveBossEvent(bossBehavior);
+        }
 		return bullet;
 	}
 
-    private void RecycleAllBullets(int hitPoints) {
-        if(hitPoints == 0) {
-            Debug.Log("RecycleAllBullets");
-            foreach(EnemyBullet enemyBullet in bulletPool) {
-                enemyBullet.Recycle();
-            }
-        }
-    }
-
     public void SetLevelBoss(EnemyBehavior bossBehavior) {
         this.bossBehavior = bossBehavior;
-        bossBehavior.hitPointEvent += RecycleAllBullets;
-    }
-
-    void OnDestroy() {
-        if(bossBehavior != null) {
-            bossBehavior.hitPointEvent -= RecycleAllBullets;
+        foreach(EnemyBullet enemyBullet in bulletPool) {
+            enemyBullet.GiveBossEvent(bossBehavior);
         }
     }
-    
 }

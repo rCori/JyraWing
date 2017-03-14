@@ -23,6 +23,9 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 
     private bool hasStarted = false;
 
+    delegate void BossUnregister();
+    BossUnregister bossUnregister;
+
 	// Use this for initialization
 	void Awake () {
 		isActive = false;
@@ -34,8 +37,7 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		SetRendererEnabled (false);
 		RegisterToList();
         hasStarted = true;
-
-       // LevelControllerBehavior.FinishLevelEventEarly += Recycle;
+        bossUnregister = null;
 	}
 	
 	// Update is called once per frame
@@ -104,6 +106,15 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 		timer = 0.0f;
 	}
 	
+    private void RecycleSelfOnCallback(int hitPoints) {
+        if(hitPoints == 0 && isActive) {
+            Recycle();
+        }
+    }
+    public void GiveBossEvent(EnemyBehavior enemyBehavior) {
+        enemyBehavior.hitPointEvent += RecycleSelfOnCallback;
+        bossUnregister = () => { enemyBehavior.hitPointEvent -= RecycleSelfOnCallback; };
+    }
 
 	/* Implementation of PauseableItem interface */
 	public bool paused
@@ -131,6 +142,9 @@ public class EnemyBullet : MonoBehaviour, PauseableItem {
 	
     void OnDestroy() {
         //LevelControllerBehavior.FinishLevelEventEarly -= Recycle;
+        if(bossUnregister!=null) {
+            bossUnregister();
+        }
     }
 
 	public void RegisterToList()
