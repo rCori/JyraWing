@@ -15,7 +15,8 @@ public class PauseControllerBehavior : MonoBehaviour {
 		pauseController = new PauseController ();
 		PlayerInputController.StartButton += PauseBehavior;
         OnScreenDialog.PauseOnScreenDialogStartEvent += () => ShowingDialog();
-		InGameOptionsMenu.UnpauseEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
+		//InGameOptionsMenu.UnpauseEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
+        InGameStartMenu.UnpauseEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
         OnScreenDialog.PauseOnScreenDialogEndEvent += () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
 	}
 	
@@ -77,7 +78,8 @@ public class PauseControllerBehavior : MonoBehaviour {
 	void OnDestroy() {
 		pauseController.Purge ();
 		PlayerInputController.StartButton -= PauseBehavior;
-        InGameOptionsMenu.UnpauseEvent -= () => { pauseController.Unpause();  paused = false; Time.timeScale = 1; };
+        //InGameOptionsMenu.UnpauseEvent -= () => { pauseController.Unpause();  paused = false; Time.timeScale = 1; };
+        InGameStartMenu.UnpauseEvent -= () => { pauseController.Unpause(); paused = false; Time.timeScale = 1;};
 
         OnScreenDialog.PauseOnScreenDialogStartEvent -= () => pauseController.PauseAllItems ();
         OnScreenDialog.PauseOnScreenDialogEndEvent -= () => pauseController.Unpause();

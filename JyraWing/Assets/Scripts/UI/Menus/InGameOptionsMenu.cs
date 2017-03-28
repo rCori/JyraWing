@@ -19,14 +19,15 @@ public class InGameOptionsMenu : Menu {
     private GameObject darkPanel;
     private GameObject quit;
 
+    private GameObject howToPlayText;
+
+    private GameObject helpImage;
+
     private VolumeSettings volumeSettings;
 
     private bool lockScreen;
     private bool selectionSwitch;
 
-
-    public delegate void IngameOptionsMenuDelegate();
-	public static event IngameOptionsMenuDelegate UnpauseEvent;
 
     // Use this for initialization
     void Start() {
@@ -51,13 +52,16 @@ public class InGameOptionsMenu : Menu {
         controlsSelector = Instantiate(controlsSelector);
         controlsSelector.transform.SetParent(uiCanvas.transform, false);
 
+        howToPlayText = Resources.Load("UIObjects/InGameOptionsMenu/HowToPlayText") as GameObject;
+        howToPlayText = Instantiate(howToPlayText);
+        howToPlayText.transform.SetParent(uiCanvas.transform, false);
+
         bgmLevel = Resources.Load("UIObjects/InGameOptionsMenu/BGMText") as GameObject;
         bgmLevel = Instantiate(bgmLevel);
         bgmLevel.transform.SetParent(uiCanvas.transform, false);
 
         bgmLevelText = bgmLevel.GetComponent<Text>();
         bgmLevelText.text = "BGM: "+ SaveData.Instance.BGMLevel;
-
 
         sfxLevel = Resources.Load("UIObjects/InGameOptionsMenu/SFXText") as GameObject;
         sfxLevel = Instantiate(sfxLevel);
@@ -66,9 +70,11 @@ public class InGameOptionsMenu : Menu {
         sfxLevelText = sfxLevel.GetComponent<Text>();
         sfxLevelText.text = "SFX: "+ SaveData.Instance.SFXLevel;
 
+        /*
         quit = Resources.Load("UIObjects/InGameOptionsMenu/QuitText") as GameObject;
         quit = Instantiate(quit);
         quit.transform.SetParent(uiCanvas.transform, false);
+        */
 
         back = Resources.Load("UIObjects/InGameOptionsMenu/BackText") as GameObject;
         back = Instantiate(back);
@@ -80,9 +86,9 @@ public class InGameOptionsMenu : Menu {
         menuLocations.Clear();
     
         menuLocations.Add(new Vector2(controlsSelector.transform.position.x, controlsSelector.transform.position.y));
+        menuLocations.Add(new Vector2(howToPlayText.transform.position.x, howToPlayText.transform.position.y));
         menuLocations.Add(new Vector2(bgmLevel.transform.position.x, bgmLevel.transform.position.y));
         menuLocations.Add(new Vector2(sfxLevel.transform.position.x, sfxLevel.transform.position.y));
-        menuLocations.Add(new Vector2(quit.transform.position.x, quit.transform.position.y));
         menuLocations.Add(new Vector2(back.transform.position.x, back.transform.position.y));
 
         gameObject.transform.position = menuLocations[0];
@@ -96,28 +102,36 @@ public class InGameOptionsMenu : Menu {
             if (ButtonInput.Instance().StartButtonDown() || ButtonInput.Instance().FireButtonDown()) {
                 if (curSelect == 0) {
                     StartCoroutine(ControlsMenu());
+                } else if(curSelect == 1) {
+                    StartCoroutine(ShowHowToPlay());
                 }
+                /*
                 else if(curSelect == 3) {
                     StartCoroutine(QuitOption());
                     Debug.Log("Quit");
-                } else if (curSelect == 4) {
+                }
+                */ 
+                //else if (curSelect == 4) {
+                else if (curSelect == 4) {
                     //Back
                     SaveData.Instance.SaveGame();
-                    StartCoroutine(ReturnToGame());
+                    StartCoroutine(StartMenu());
+                    /*
                     if (UnpauseEvent != null) {
 					    UnpauseEvent ();
 				    }
+                    */
                     Debug.Log("Return to game");
                 }
             }
             if (AxisInput.Instance().GetHorizontal() == 1.0f) {
-                if (curSelect == 1 && !selectionSwitch){
+                if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel < 10) {
                         SaveData.Instance.BGMLevel++;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel < 10) {
                         SaveData.Instance.SFXLevel++;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -127,13 +141,13 @@ public class InGameOptionsMenu : Menu {
                 }
                 selectionSwitch = true;
             } else if(AxisInput.Instance().GetHorizontal() == -1.0f) {
-                if (curSelect == 1 && !selectionSwitch){
+                if (curSelect == 2 && !selectionSwitch){
                     if (SaveData.Instance.BGMLevel > 0) {
                         SaveData.Instance.BGMLevel--;
                         bgmLevelText.text = "BGM: " + SaveData.Instance.BGMLevel;
                         volumeSettings.SetBGMAudio(SaveData.Instance.BGMLevel);
                     }
-                } else if (curSelect == 2 && !selectionSwitch){
+                } else if (curSelect == 3 && !selectionSwitch){
                     if (SaveData.Instance.SFXLevel > 0) {
                         SaveData.Instance.SFXLevel--;
                         sfxLevelText.text = "SFX: " + SaveData.Instance.SFXLevel;
@@ -150,7 +164,23 @@ public class InGameOptionsMenu : Menu {
         }
     }
 
-
+    IEnumerator ShowHowToPlay() {
+        PlayConfirm();
+        lockScreen = true;
+        Destroy(bgmLevel);
+        Destroy(sfxLevel);
+        Destroy(quit);
+        Destroy(back);
+        Destroy(howToPlayText);
+        Destroy(controlsSelector);
+        Destroy (darkPanel);
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        helpImage = Resources.Load("UIObjects/HelpImage") as GameObject;
+        helpImage = Instantiate(helpImage);
+        helpImage.GetComponent<HelpImageSimpleScript>().helpImageContext = HelpImageSimpleScript.HelpImageContext.IN_GAME;
+        helpImage.transform.SetParent(uiCanvas.transform, false);
+        Destroy(gameObject);
+    }
 
     IEnumerator QuitOption() {
         PlayConfirm();
@@ -159,6 +189,7 @@ public class InGameOptionsMenu : Menu {
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy(howToPlayText);
         Destroy(controlsSelector);
         Destroy (darkPanel);
         GameObject quitOptionSelection = Resources.Load("UIObjects/InGameQuitMenu/IngameQuitSelector") as GameObject;
@@ -175,6 +206,7 @@ public class InGameOptionsMenu : Menu {
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy(howToPlayText);
         Destroy(controlsSelector);
         Destroy (darkPanel);
         GameObject controlsOption = Resources.Load("UIObjects/ControlsMenu/ControlsSelector") as GameObject;
@@ -184,15 +216,19 @@ public class InGameOptionsMenu : Menu {
         Destroy(gameObject);
     }
 
-    IEnumerator ReturnToGame(){
+    IEnumerator StartMenu(){
         PlayConfirm();
-        StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
+        yield return StartCoroutine(PauseControllerBehavior.WaitForRealSeconds(0.05f));
         Destroy(bgmLevel);
         Destroy(sfxLevel);
         Destroy(quit);
         Destroy(back);
+        Destroy(howToPlayText);
         Destroy(controlsSelector);
         Destroy (darkPanel);
+        GameObject startMenu = Resources.Load("UIObjects/InGameStartMenu/InGameStartMenu") as GameObject;
+        startMenu = Instantiate(startMenu);
+        startMenu.transform.SetParent(uiCanvas.transform, false);
         Destroy(gameObject);
         yield return null;
     }

@@ -29,9 +29,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148a2fc747655e34ea42678132f511c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalVal: 0
+  finalVal: 1760
   countupRate: 0.001
-  countupIncrement: 10
+  countupIncrement: 100
 --- !u!114 &11418770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

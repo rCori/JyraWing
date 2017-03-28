@@ -101,6 +101,7 @@ public class OptionsMenu : Menu {
                     StartCoroutine(LoadControlsMenu());
                 }
                 else if(curSelect == 1) {
+                    SaveData.Instance.SaveGame();
                     StartCoroutine(LoadHighScoreView());
                 }
                 else if (curSelect == 5) {

@@ -16,7 +16,7 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (!_paused) {
 			transform.position -= new Vector3 (speed * Time.deltaTime, 0f, 0f);
 		}
@@ -44,7 +44,6 @@ public class Scroll : MonoBehaviour, PauseableItem {
 	public void RegisterToList()
 	{
 		if (GameObject.Find ("PauseController")) {
-			//GameObject.Find ("GameController").GetComponent<GameControllerBehaviour>().GetGameController().RegisterPauseableItem(this);
 			GameObject.Find ("PauseController").GetComponent<PauseControllerBehavior>().RegisterPauseableItem(this);
 		}
 	}

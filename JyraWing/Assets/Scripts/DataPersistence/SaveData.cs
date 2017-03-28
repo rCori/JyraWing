@@ -63,9 +63,9 @@ public class SaveData  {
         AutoFireGamepadButtonKeyCode = KeyCode.Joystick1Button0;
         ShieldGamepadButtonKeyCode = KeyCode.Joystick1Button4;
 
-        resolutionX = 1920;
-        resolutionY = 1080;
-        isWindowed = false;
+        resolutionX = 1366;
+        resolutionY = 768;
+        isWindowed = true;
     }
 
     public void EnterScore(int score) {
