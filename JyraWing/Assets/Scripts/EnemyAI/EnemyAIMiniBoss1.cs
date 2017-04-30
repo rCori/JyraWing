@@ -21,13 +21,11 @@ public class EnemyAIMiniBoss1 : EnemyBehavior {
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("largeTurretHit");
 
-		GivePointObject (3, 0.5f);
-		GivePointObject (3, 0.45f);
-		GivePointObject (3, 0.5f);
-		GivePointObject (3, 0.45f);
-		GivePointObject (2, 0.2f);
-		GivePointObject (2, 0.2f);
-
+		for(int i = 0; i < 10;i++) {
+            GivePointObject(0, 1.5f);
+        }
+        GivePointObject(1, 0.5f);
+        GivePointObject(2, 0.5f);
 	}
 
 	void Update(){

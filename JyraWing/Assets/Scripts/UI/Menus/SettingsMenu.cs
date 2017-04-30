@@ -177,6 +177,7 @@ public class SettingsMenu : Menu {
             case 7:
                 Debug.Log("Initialize Defaults");
                 SaveData.Instance.InitDefaults();
+                InitControls();
                 break;
             case 8:
                 LoadPrevMenu();

@@ -36,8 +36,13 @@ public class EnemyAIWaterTurret : EnemyBehavior{
 
 		SetEnemyHealth (WATER_TURRET_HEALTH);
 
-		GivePointObject (2, 0.1f);
-		GivePointObject (2, 0.1f);
+		for(int i = 0; i < 7; i++) {
+            GivePointObject(0, 1.3f);
+        }
+
+        for(int i = 0; i < 4; i++) {
+            GivePointObject(1, 0.5f);
+        }
 
 	}
 	

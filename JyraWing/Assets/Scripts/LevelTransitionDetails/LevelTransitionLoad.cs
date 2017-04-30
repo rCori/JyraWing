@@ -28,8 +28,7 @@ public class LevelTransitionLoad : MonoBehaviour {
 		}
 		rollup1Behavior.countupRate = 0.001f;
 		rollup1Behavior = Instantiate (rollup1Behavior);
-		rollup1Behavior.transform.SetParent (canvas.transform);
-		rollup1Behavior.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (2.4f, -172.4f);
+		rollup1Behavior.transform.SetParent (canvas.transform,false);
 		rollup1Behavior.TimerEndEvent += () => StartCoroutine (BeginLevelTransitionCountdown ());
 		rollup1Behavior.BeginTimer ();
 	}
@@ -42,6 +41,7 @@ public class LevelTransitionLoad : MonoBehaviour {
         if(LevelControllerBehavior.SingleLevel) {
             SceneManager.LoadScene(LevelControllerBehavior.TitleSceneLevel);
         } else {
+            /*
             if(nextLevel=="titleScene") {
                 int finishScore = ScoreController.GetScore();
                 HighScoreData.Instance.CheckScore(finishScore);
@@ -50,6 +50,7 @@ public class LevelTransitionLoad : MonoBehaviour {
                     yield break;
                 }
             }
+            */
 		    SceneManager.LoadScene (nextLevel);
         }
 		yield break;

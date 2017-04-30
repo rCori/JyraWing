@@ -72,9 +72,7 @@ public class EnemyAIBasicShip : EnemyBehavior {
 		StartNewVelocity(direction * speed, lifeTime);
 		SetEnemyHealth (SHIP_HEALTH);
 
-
-		GivePointObject (1, 0.3f);
-		GivePointObject (2, 0.5f);
+		GivePointObject (1, 0.2f);
 
 	}
 

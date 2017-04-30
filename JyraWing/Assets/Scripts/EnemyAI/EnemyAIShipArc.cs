@@ -37,8 +37,7 @@ public class EnemyAIShipArc : EnemyBehavior {
 		BeginNextMovementStep ();
 		SetEnemyHealth (SHIP_HEALTH);
 
-		GivePointObject (1, 0.0f);
-
+		GivePointObject (1, 0.2f);
 	}
 
 

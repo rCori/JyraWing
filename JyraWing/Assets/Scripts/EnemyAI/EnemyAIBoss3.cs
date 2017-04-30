@@ -47,12 +47,19 @@ public class EnemyAIBoss3 : EnemyBehavior {
         currentShootState = ShootState.intro;
         PatternShift(ShootState.intro);
 
-        for (int i = 0; i < 7; i++) {
-			GivePointObject (3, i*0.1f);
+        for (int i = 0; i < 12; i++) {
+            GivePointObject(0, 3.0f);
 		}
-        for (int i = 0; i < 5; i++) {
-			GivePointObject (2, i*0.5f);
+
+        for (int i = 0; i < 8; i++) {
+			GivePointObject (1, 2.2f);
 		}
+
+        for (int i = 0; i < 6; i++) {
+			GivePointObject (2, 1.1f);
+		}
+
+        GivePointObject (3, 0f);
 
         GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
         GameObject canvas = GameObject.Find("Canvas");

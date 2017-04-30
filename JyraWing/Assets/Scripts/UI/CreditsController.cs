@@ -42,7 +42,13 @@ public class CreditsController : MonoBehaviour {
             if(currentScene < sceneCount) {
                 currentScene = AdvanceScene(currentScene, sceneCount);
             } else {
-                SceneManager.LoadScene("titleScene");
+                int finishScore = ScoreController.GetScore();
+                HighScoreData.Instance.CheckScore(finishScore);
+                if(ScoreController.GetHasScoreToEnter()) {
+                    SceneManager.LoadScene("HighScore");
+                } else {
+                    SceneManager.LoadScene(LevelControllerBehavior.TitleSceneLevel);
+                }
             }
         }
 	}
@@ -50,10 +56,11 @@ public class CreditsController : MonoBehaviour {
     private List<string> LoadMesagesFromJson(int count) {
         List<string> returnMessageList = new List<string>();
 
-        FileStream saveFile = File.Open (Application.dataPath + "/EndingMessages.json", System.IO.FileMode.Open);
-		StreamReader reader = new StreamReader (saveFile);
-		EndingMessage loadedMessages = JsonUtility.FromJson<EndingMessage> (reader.ReadToEnd ());
-        saveFile.Close();
+        TextAsset bindata= Resources.Load("EndingMessages") as TextAsset;
+        //FileStream saveFile = File.Open (Application.dataPath + "/EndingMessages.json", System.IO.FileMode.Open);
+		//StreamReader reader = new StreamReader (saveFile);
+		EndingMessage loadedMessages = JsonUtility.FromJson<EndingMessage> (bindata.text);
+        //saveFile.Close();
         foreach(string loadedMessage in loadedMessages.messages) {
             returnMessageList.Add(loadedMessage);
         }

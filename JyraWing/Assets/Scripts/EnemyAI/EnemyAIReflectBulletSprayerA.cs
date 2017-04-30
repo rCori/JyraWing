@@ -42,6 +42,11 @@ public class EnemyAIReflectBulletSprayerA : EnemyBehavior
 
 		LeftWallException = true;
 		SetEnemyHealth (SPRAYER_HEALTH);
+
+        for(int i = 0; i < 5; i++) {
+            GivePointObject (0, 0.7f);
+        }
+        GivePointObject (1, 0.1f);
     }
 
     // Update is called once per frame

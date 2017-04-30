@@ -32,11 +32,15 @@ public class EnemyAIBoss1 : EnemyBehavior {
 
         patternValSet = -1;
 
-        for (int i = 0; i < 5; i++) {
-			GivePointObject (0, i*0.1f);
+        for (int i = 0; i < 8; i++) {
+			GivePointObject (0, 2.5f);
 		}
+        for (int i = 0; i < 3; i++) {
+			GivePointObject (1, 2f);
+		}
+
         for (int i = 0; i < 2; i++) {
-			GivePointObject (1, i*0.5f);
+			GivePointObject (2, 0.5f);
 		}
 
         GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;

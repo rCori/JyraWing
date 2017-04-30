@@ -76,8 +76,10 @@ public class EnemyAITurretLevel1 : EnemyBehavior {
 		updateAnimTimeLimit = 0.5f;
 		SetEnemyHealth (TURRET_HEALTH);
 
-		GivePointObject(1, 0.3f);
-		GivePointObject (2, 0.5f);
+	    for(int i = 0; i < 3; i++) {
+            GivePointObject(1, 1.5f);
+        }
+        GivePointObject(2, 0.4f);
 	}
 	
 	// Update is called once per frame

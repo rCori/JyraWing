@@ -37,6 +37,10 @@ public class EnemyAIShipFollow : EnemyBehavior
         initializeDirections();
         determineDirection(gameController.playerPosition);
 
+        for(int i = 0; i<6; i++) {
+            GivePointObject(0, 0.2f);
+        }
+
     }
 
     // Update is called once per frame

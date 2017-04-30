@@ -610,7 +610,7 @@ public class EnemyBehavior : MonoBehaviour, PauseableItem {
 		//Then normalize it
 		radius.Normalize ();
 		//Multiplied by distance this is a random vector of magnitude distance
-		radius *= distance;
+		radius *= Random.Range(0,distance);
 		pointObject.relativePos = radius;
 		PointObjects.Add (pointObject);
 		if (!hasPointObjectToSpawn) {

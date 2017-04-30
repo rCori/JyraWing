@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-
-
 public class HighScoreSceneMode : MonoBehaviour {
 
     public GameObject Canvas;
@@ -42,7 +40,6 @@ public class HighScoreSceneMode : MonoBehaviour {
 
         Title.text = "RANKING";
     }
-
 
     private void EnterNameMode() {
         GameObject nameMenuSelector = Resources.Load("UIObjects/HighScoreScreen/NameMenuSelector", typeof(GameObject)) as GameObject;

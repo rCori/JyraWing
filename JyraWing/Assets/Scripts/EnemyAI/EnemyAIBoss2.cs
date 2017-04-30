@@ -6,7 +6,6 @@ public class EnemyAIBoss2 : EnemyBehavior {
 
 	public LevelControllerBehavior levelControllerBehavior;
 
-    //private static int BOSS_HEALTH = 10;
     private static int BOSS_HEALTH = 200;
 
 	//Animator animator;
@@ -56,8 +55,16 @@ public class EnemyAIBoss2 : EnemyBehavior {
 		//Is the boss paused or not
 		_paused = false;
 
-		for (int i = 0; i < 10; i++) {
-			GivePointObject (3, i*0.1f);
+		for (int i = 0; i < 8; i++) {
+			GivePointObject (0, 2.5f);
+		}
+
+        for (int i = 0; i < 8; i++) {
+			GivePointObject (1, 2.0f);
+		}
+
+        for (int i = 0; i < 4; i++) {
+			GivePointObject (2, 1.5f);
 		}
 
         GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;

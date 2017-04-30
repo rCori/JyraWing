@@ -782,12 +782,12 @@ GameObject:
   - 222: {fileID: 1688780465}
   - 114: {fileID: 1688780464}
   m_Layer: 5
-  m_Name: DemoVersion
+  m_Name: Version
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1688780463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -803,8 +803,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.6, y: -18.74}
-  m_SizeDelta: {x: 253.4, y: 40.8}
+  m_AnchoredPosition: {x: 375.95, y: -217.18}
+  m_SizeDelta: {x: 48.1, y: 15.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688780464
 MonoBehaviour:
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -827,10 +827,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 20a5ba5cf59cb124fb3a467cb715203a, type: 3}
-    m_FontSize: 32
+    m_FontSize: 64
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
+    m_BestFit: 1
+    m_MinSize: 8
     m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Demo Version
+  m_Text: v1.0.0
 --- !u!222 &1688780465
 CanvasRenderer:
   m_ObjectHideFlags: 0

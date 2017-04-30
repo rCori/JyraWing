@@ -44,15 +44,12 @@ public class EnemyAIBoss5 : EnemyBehavior
         fanningUp = true;
         StartCoroutine(MoveIntoPosition());
 
-        for (int i = 0; i < 12; i++) {
-			GivePointObject (3, i*0.1f);
+        for (int i = 0; i < 14; i++) {
+			GivePointObject (2, 3f);
 		}
-        for (int i = 0; i < 8; i++) {
-			GivePointObject (2, i*0.3f);
-		}
-        for (int i = 0; i < 8; i++) {
-			GivePointObject (1, i*0.5f);
-		}
+        for (int i = 0; i < 5; i++) {
+            GivePointObject (3, 2f);
+        }
 
         GameObject enemyHealthBar = Resources.Load("UIObjects/BossHealthBar") as GameObject;
         GameObject canvas = GameObject.Find("Canvas");

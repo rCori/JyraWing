@@ -52,10 +52,16 @@ private int moveState;
 		//SetHitAnimationName ("tank_hit");
 		SetEnemyHealth (TANK_HEALTH);
 
-		GivePointObject (2, 0.2f);
-		GivePointObject (1, 0.6f);
-        GivePointObject (1, 0.3f);
-        directionalFire();
+		for(int i = 0; i < 6; i++) {
+            GivePointObject(0, 2f);
+        }
+
+        for(int i = 0; i < 2; i++) {
+            GivePointObject(1, 1.2f);
+            GivePointObject(2, 1.2f);
+        }
+
+        GivePointObject(3, 0.4f);
 	}
 	
 

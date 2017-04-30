@@ -63,7 +63,12 @@ public class EnemyAITurretLevel2: EnemyBehavior {
 		//Set timer to it's upper limit 
 		timer = FireRate;
 		SetEnemyHealth (TURRET_HEALTH);
-		GivePointObject (3, 0.2f);
+		for(int i = 0; i < 5; i++) {
+            GivePointObject(1, 1.5f);
+        }
+        for(int i = 0; i < 2; i++) {
+            GivePointObject(2, 1.0f);
+        }
 
 	}
 

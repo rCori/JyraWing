@@ -13,7 +13,7 @@ public class EnemySpawn3Turrets2Ships : EnemySpawner {
         EnemyAIShipArc.MoveInstruction left = new EnemyAIShipArc.MoveInstruction();
         left.type = EnemyAIShipArc.MovementStatus.Velocity;
         left.startVelocity = new Vector2(-2.3f, 0f);
-        left.time = 8.5f;
+        left.time = 10f;
 
 		//Top ship
 		{

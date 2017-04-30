@@ -126,8 +126,10 @@ public class EnemyAITankShield : EnemyBehavior {
 		SetAnimations (animationsOwned);
 		SetEnemyHealth (SHIELD_TANK_HEALTH);
 
-		GivePointObject (1, 0.3f);
-		GivePointObject (3, 0.5f);
+		GivePointObject (1, 0.2f);
+        for(int i = 0; i < 2; i++) {
+		    GivePointObject (2, 0.8f);
+        }
 
 	}
 	

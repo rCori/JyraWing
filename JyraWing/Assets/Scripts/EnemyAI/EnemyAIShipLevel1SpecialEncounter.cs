@@ -39,8 +39,7 @@ public class EnemyAIShipLevel1SpecialEncounter : EnemyBehavior {
 		SetAnimations (animationsOwned);
 		SetHitAnimationName ("enemy4_B_hit");
 
-		GivePointObject (1, 0.1f);
-
+		GivePointObject (1, 0.2f);
 	}
 	
 	// Update is called once per frame
